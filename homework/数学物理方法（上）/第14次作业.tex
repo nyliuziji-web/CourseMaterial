@@ -1,0 +1,29 @@
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\heading{数学物理方法（上）-第14次作业}
+
+\begin{question}
+证明 \(\delta\) 函数的下列性质：
+1. \(g(x) \delta'(x)=g(0)\delta'(x)-g'(0)\delta(x)\);
+2. \(x \delta'(x)=-\delta(x)\);
+3. \(\delta(x^2-a^2)=\dfrac1{2a}\bigl(\delta(x-a)+\delta(x+a)\bigr),\quad a>0\)
+\begin{solution}
+1. 对于任意在 \(x=0\) 邻域内的连续函数 \(f(x)\)，有 \[ \int_{-\infty}^\infty f(x) g(x) \delta'(x)\dd{x} =\bigl.f(x)g(x)\delta(x)\bigr|_{-\infty}^\infty-\int_{-\infty}^\infty (f(x)g(x))' \delta(x)\dd{x} \] \[ =-\int_{-\infty}^\infty f'(x) g(x) \delta(x)\dd{x} - \int_{-\infty}^\infty f(x) g'(x) \delta(x)\dd{x} \] \[ =-\int_{-\infty}^{\infty} f'(x) g(0) \delta(x)\dd{x}-\int_{-\infty}^\infty f(x) g'(0) \delta(x)\dd{x} \] \[ =\int_{-\infty}^\infty f(x) \bigl(g(0) \delta'(x) - g'(0) \delta(x)\bigr)\dd{x} \]因此可以得到 \(g(x) \delta'(x)=g(0) \delta'(x)-g'(0)\delta(x)\)。
+2. 根据 (1)，可以轻松得到 \(x \delta'(x)=0\cdot\delta'(x)-1\cdot\delta(x)=-\delta(x)\)。
+3. 对于任意在 \(x=\pm a\) 邻域内的连续函数 \(f(x)\)，有 \[ \int_{-\infty}^\infty f(x) \delta(x^2-a^2)\dd{x} \overset{y=x^2}{=} \int_0^\infty \frac{f(\sqrt{y})}{2\sqrt{y}} \delta(y-a^2)\dd{y} + \int_0^{\infty} \frac{f(-\sqrt{y})}{2\sqrt{y}} \delta(y-a^2)\dd{y} \] \[ =\frac{f(a)}{2a}+\frac{f(-a)}{2a}=\int_{-\infty}^\infty \frac1{2a}\bigl(\delta(x-a)+\delta(x+a)\bigr) f(x)\dd{x} \]因此有 \(\delta(x^2-a^2)=\dfrac1{2a}\bigl(\delta(x-a)+\delta(x+a)\bigr)\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+求三维空间中半径为 \(a\)，总电量为 \(q\)，电荷均匀分布的一维圆环的电荷密度分布函数分别在直角坐标系、柱坐标系和球坐标系中的表达式。
+\begin{solution}
+在柱坐标系下，有 \(\rho(s,\phi,z)=A\delta(s-a)\delta(z)\)。因此有 \[ \int_{\text{all space}} \rho(\bm{r})\dd{}\tau = A\int_0^{2\pi} d\phi \int_0^\infty \delta(s-a)s\dd{s} \int_{-\infty}^\infty \delta(z)\dd{z} = A\cdot 2\pi a = q \]因此可以得到 \(\rho(s,\phi,z)=\dfrac{q}{2\pi a} \delta(s-a)\delta(z)\)。在直角坐标系下，只需作替换 \(s\to\sqrt{x^2+y^2}\)，有 \[ \rho(x,y,z)=\frac{q}{2\pi a} \delta(\sqrt{x^2+y^2}-a)\,\delta(z) \]在球坐标系下，有 \(\rho(r,\theta,\phi)=B\delta(r-a)\delta(\cos\theta)\)。因此有 \[ \int_{\text{all space}} \rho(\bm{r})\dd{}\tau = B\int_0^{2\pi} d\phi \int_0^{\infty} r^2\delta(r-a)\dd{r} \int_0^\pi \delta(\cos\theta)\sin\theta\dd{}\theta = B\cdot 2\pi a^2 \]因此可以得到 \(\rho(r,\theta,\phi)=\dfrac{q}{2\pi a^2} \delta(r-a)\,\delta(\cos\theta)\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+求三维空间中半径为 \(a\)，总质量为 \(m\)，厚度可忽略的均匀薄圆盘的质量密度分布函数分别在直角坐标系、柱坐标系和球坐标系中的表达式。
+\begin{solution}
+在直角坐标系下，有 \(\rho(x,y,z)=\dfrac{m}{\pi a^2}\,\delta(z)\,\eta(a-\sqrt{x^2+y^2})\)。在柱坐标系下，有 \(\rho(s,\phi,z)=\dfrac{m}{\pi a^2}\,\delta(z)\,\eta(a-s)\)。在球坐标系下，有 \[ \rho(r,\theta,\phi)=\frac{m}{\pi a^2}\,\delta(r\cos\theta)\,\eta(a-r)=\frac{m}{\pi a^2 r}\,\delta(\cos\theta)\,\eta(a-r) \]
+\end{solution}
+\end{question}

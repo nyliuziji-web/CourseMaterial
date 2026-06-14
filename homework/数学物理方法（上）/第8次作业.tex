@@ -1,0 +1,144 @@
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\heading{数学物理方法（上）-第8次作业}
+
+\begin{question}
+将下列函数在指定点展开为Taylor级数，并给出其收敛半径：
+
+(1) \(\arctan z\) 的主值，在 \(z=0\) 处展开；
+
+(2) \(\ln \frac{1+z}{1-z}\) 在 \(z=\infty\) 处展开，规定 \(\bigl. \ln \frac{1+z}{1-z} \bigr|_{z=\infty}=(2k+1) \pi \ii\)。
+\begin{solution}
+(1) 有 \(\arctan z = \frac{1}{2\ii} \ln \frac{1+\ii z}{1-\ii z}\)，在 \(z=0\) 处展开，则有
+\[
+\arctan z = \frac{1}{2\ii} \ln\!\left(1+\frac{2\ii z}{1-\ii z}\right)
+= \frac{1}{2\ii} \sum_{n=1}^\infty \frac{-1}{n} \left(\frac{-2\ii z}{1-\ii z}\right)^n
+= \frac{1}{2\ii} \sum_{n=1}^\infty \frac{-1}{n} (-2\ii z)^n \sum_{m=0}^\infty \binom{-n}{m} (-\ii z)^m
+\]
+\[
+= \frac{-1}{2\ii} \sum_{n=1}^\infty \sum_{m=0}^\infty \frac{2^n}{n} \binom{-n}{m} (-\ii z)^{m+n}
+\]
+令 \(k = m+n\)，则有 \(n = k-m\)，代入有
+\[
+\arctan z = \frac{-1}{2\ii} \sum_{k=1}^\infty \sum_{m=0}^{k-1} \frac{2^{k-m}}{k-m} \binom{m-k}{m} (-\ii z)^k
+= \sum_{k=1}^\infty \frac{-1}{2\ii} \left[\sum_{m=0}^{k-1} \frac{2^{k-m}}{k-m} \binom{m-k}{m} \ii^{-k}\right] z^k
+\]
+
+设 \(S_k = \sum_{m=0}^{k-1} \frac{2^{k-m}}{k-m} \binom{m-k}{m}\)，有
+\[
+\binom{m-k}{m}=(-1)^{k-m} \binom{k-m +m-1}{m}=(-1)^{k-m} \binom{k-1}{m}
+\]
+
+因此可以得到，
+\[
+S_k = \sum_{m=0}^{k-1} \frac{(-2)^{k-m}}{k-m} \binom{k-1}{m}
+= \sum_{m=1}^k \frac{(-2)^m}{m} \binom{k-1}{k-m}
+= \sum_{m=1}^k \frac{(-2)^m}{m} \binom{k-1}{m-1}
+\]
+
+注意到，
+\[
+\dv{}{x} \sum_{j=1}^n \frac{x^j}{j} \binom{n-1}{j-1}
+= \sum_{j=1}^n x^{j-1} \binom{n-1}{j-1} = (1+x)^{n-1}
+\]
+
+因此有，
+\[
+\sum_{j=1}^n \frac{x^j}{j} \binom{n-1}{j-1} = \frac{(1+x)^n-1}{n}
+\]
+
+所以可以得到，
+\[
+S_k = \frac{(-1)^k-1}{k} = \begin{cases}
+0, & k \text{ 为 偶 数},\\
+-\frac{2}{k}, & k \text{ 为 奇 数}
+\end{cases}
+\]
+
+\[
+\arctan z = \sum_{k=1}^\infty \frac{-\ii^{-k}}{2\ii} S_k z^k
+= \sum_{k=1}^\infty \frac{(-1)^{k-1} z^{2k-1}}{2k-1}
+\]
+
+其收敛半径为 1。(因为 \(\arctan z\) 在 \(z=\pm \ii\) 处为奇点。)
+
+(2) 代入 \(z=1/t\)，有 \(\ln \frac{1+z}{1-z} = \ln \frac{t+1}{t-1}\)，由题 \(\ln (-1+z)=(2k+1) \pi \ii + \ln(1-z)=(2k+1)\pi \ii - \sum_{k=1}^\infty \frac{z^k}{k}\)。因此可以得到
+\[
+\ln \frac{t+1}{t-1} = (2k+1)\pi \ii + \ln\!\left(\frac{1+t}{1-t}\right)
+= (2k+1)\pi \ii + \operatorname{v.p.}\{\ln(1+t) - \ln(1-t)\}
+\]
+\[
+= (2k+1) \pi \ii + \sum_{k=1}^\infty \frac{t^k-(-t)^k}{k}
+= (2k+1)\pi \ii + \sum_{k=1}^\infty \frac{2t^{2k-1}}{2k-1}
+\]
+
+因此可以得到
+\[
+\ln \frac{1+z}{1-z} = (2k+1)\pi \ii + \sum_{k=1}^\infty \frac{2}{2k-1} \left(\frac{1}{z}\right)^{2k-1}
+\]
+
+函数 \(\ln \frac{1+z}{1-z}\) 的奇点在 \(z=\pm 1\)，因此上述表达式收敛域为 \(\{z:|z|>1\}\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+求下列无穷级数之和，注意给出相应的收敛区域：
+\[
+\sum_{n=0}^\infty \sum_{m=0}^\infty \sum_{k=0}^\infty \frac{(n+m+k)!}{n!\,m!\,k!} \left(\frac{z}{3}\right)^{m+n+k}
+\]
+\begin{solution}
+利用多项式展开，有
+\[
+(a+b+c)^s = \sum_{m+n+k=s} \frac{s!}{m!\,n!\,k!} a^m b^n c^k
+\]
+
+因此上述求和可以表示为
+\[
+S = \sum_{s=0}^\infty \left(\frac{z}{3}+\frac{z}{3}+\frac{z}{3}\right)^s
+= \sum_{s=0}^\infty z^s = \frac{1}{1-z}
+\]
+
+收敛区域为 \(\{z:|z|<1\}\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+求下列函数（取主值分支）在 \(z=0\) 附近的级数展开：
+
+(1) \(-\ln(1-z) \ln(1+z)\);
+
+(2) \(\ln(1+z^2) \arctan z\)。
+\begin{solution}
+(1)
+\[
+-\ln(1-z) \ln(1+z) = \sum_{k=1}^\infty \frac{z^k}{k} \sum_{l=1}^\infty -\frac{(-z)^l}{l}
+\]
+
+令 \(n = k+l\)，则有
+\[
+-\ln(1-z) \ln(1+z) = \sum_{n=2}^\infty \left[\sum_{k=1}^{n-1} \frac{(-)^{n-k+1}}{k(n-k)}\right] z^n
+\]
+
+由对称性分析可知，当 \(n\) 为奇数时，\(k=\frac{n}{2} \pm (\frac12 + q)\) 时，\((-1)^{n-k_++1}=(-1)^{n/2+1/2-q}\)，\((-1)^{n-k_-+1}=(-1)^{n/2-1/2+q}\)，两者次数相差 \(2q-1\)，因此
+\[
+(-1)^{n-k_++1} \frac{1}{k_+(n-k_+)} + (-1)^{n-k_-+1} \frac{1}{k_-(n-k_-)} = 0
+\]
+
+因此有
+\[
+-\ln(1-z) \ln(1+z) = \sum_{n=1}^\infty \left[\sum_{k=1}^{2n-1} \frac{(-)^{k+1}}{k(2n-k)}\right] z^{2n}
+\]
+
+(2)
+\[
+\ln(1+z^2) \arctan z
+= \sum_{k=1}^\infty -\frac{(-z^2)^k}{k} \sum_{l=1}^\infty \frac{(-1)^{l-1} z^{2l-1}}{2l-1}
+\]
+
+令 \(n = k+l\)，可以得到
+\[
+\ln(1+z^2) \arctan z
+= \sum_{n=2}^\infty \left[\sum_{k=1}^{n-1} \frac{(-)^n}{k\,(2(n-k)-1)}\right] z^{2n-1}
+\]
+\end{solution}
+\end{question}

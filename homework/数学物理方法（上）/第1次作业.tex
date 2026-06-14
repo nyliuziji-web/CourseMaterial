@@ -157,7 +157,17 @@ f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
   \item 取 \(\lambda\in\mathbb{R}\)，有 \(z-z_1=\lambda\ii(z-z_2)\)，
   即意味着 \(\arg(z-z_1)=\arg(z-z_2)+\pi/2\)，
   所以有线段 \(\overline{zz_1}\perp\overline{zz_2}\)，
-  \(z\) 位于以 \(z_1,z_2\) 为直径的圆上（图略）。
+  \(z\) 位于以 \(z_1,z_2\) 为直径的圆上。
+
+  \begin{center}
+  \begin{tikzpicture}[scale=0.8]
+    \draw[->] (-1,0) -- (3,0) node[right] {\(x\)};
+    \draw[->] (0,-1) -- (0,2.5) node[above] {\(y\)};
+    \draw (1,0.5) circle ({sqrt(5/4)});
+    \filldraw (0,0) circle (2pt) node[below right] {\(z_1\)};
+    \filldraw[fill=white] (2,1) circle (2pt) node[below right] {\(z_2\)};
+  \end{tikzpicture}
+  \end{center}
 
   \item 设 \(z=r\ee^{\ii\theta},\;r,\theta\in\mathbb{R}\)，
   有 \(|1-z^2|=\sqrt{1+r^4-2r^2\cos2\theta}\)，\(|2z|=2r\)。
@@ -222,7 +232,29 @@ f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
   \item \(\displaystyle\frac{1}{z^*}=\frac{1}{r}\ee^{\ii\theta}\)，即 \(z\) 关于原点缩放 \(1/r^2\)。
 \end{itemize}
 
-各点的位置关系如图所示（图略，待补充：包含单位圆、实轴和虚轴，标注 \(z,\ii z,-z,z^*,1/z,1/z^*\) 六点及它们到原点的连线）。
+各点的位置关系如图所示：
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+  \draw[->] (-2,0) -- (2.5,0) node[right] {\(\operatorname{Re}\)};
+  \draw[->] (0,-2) -- (0,2.5) node[above] {\(\operatorname{Im}\)};
+  \draw[dashed] (0,0) circle (1);
+  \filldraw (1.5,1) circle (1.5pt) node[below right] {\(z\)};
+  \draw[thin] (0,0) -- (1.5,1);
+  \filldraw (-1,1.5) circle (1.5pt) node[below right] {\(\ii z\)};
+  \draw[thin] (0,0) -- (-1,1.5);
+  \filldraw (-1.5,-1) circle (1.5pt) node[below left] {\(-z\)};
+  \draw[thin] (0,0) -- (-1.5,-1);
+  \filldraw (1.5,-1) circle (1.5pt) node[above right] {\(z^*\)};
+  \draw[thin] (0,0) -- (1.5,-1);
+  \filldraw (0.4615,-0.3077) circle (1.5pt) node[below right] {\(1/z\)};
+  \draw[thin] (0,0) -- (0.4615,-0.3077);
+  \filldraw (0.4615,0.3077) circle (1.5pt) node[below right] {\(1/z^*\)};
+  \draw[thin] (0,0) -- (0.4615,0.3077);
+  \node at (1,0) [below right] {\(1\)};
+  \node at (0,1) [below right] {\(i\)};
+\end{tikzpicture}
+\end{center}
 \end{solution}
 \end{question}
 
@@ -415,36 +447,6 @@ f(z)=\frac{(r^2\cos2\theta)^2}{r^2\ee^{2\ii\theta}}
 \frac{u(\rho+\Delta\rho,\phi)-u(\rho,\phi)
 +\ii\bigl(v(\rho+\Delta\rho,\phi)-v(\rho,\phi)\bigr)}
 {\Delta\rho\,\ee^{\ii\phi}}
-=\ee^{-\ii\phi}\Bigl(\frac{\partial u}{\partial\rho}+\ii\frac{\partial v}{\partial\rho}\Bigr).
-\]
-
-同样，\(f(z)\) 沿 \(\phi\) 方向的导数为
-\[
-\lim_{\Delta\phi\to0}
-\frac{u(\rho,\phi+\Delta\phi)-u(\rho,\phi)
-+\ii\bigl(v(\rho,\phi+\Delta\phi)-v(\rho,\phi)\bigr)}
-{\ii\rho\Delta\phi\,\ee^{\ii\phi}}
-=\frac{\ee^{-\ii\phi}}{\rho}\Bigl(\frac{\partial v}{\partial\phi}-\ii\frac{\partial u}{\partial\phi}\Bigr).
-\]
-
-两者相等，因此
-\[
-\frac{\partial u}{\partial\rho}=\frac{1}{\rho}\frac{\partial v}{\partial\phi},\qquad
-\frac{\partial v}{\partial\rho}=-\frac{1}{\rho}\frac{\partial u}{\partial\phi}.
-\]
-\end{solution}
+=\ee^{-\ii\phi}\Bigl(\frac{\partia
 \end{question}
-
-
-\begin{question}
-已知 \(z=\rho\ee^{\ii\phi}\)，\(f(z)=u+\ii v\)，
-利用平面极坐标系 \((\rho,\phi)\) 下的 Cauchy—Riemann 方程证明：
-\[
-f'(z)=\frac{\rho}{z}\Bigl(\frac{\partial u}{\partial\rho}+\ii\frac{\partial v}{\partial\rho}\Bigr)
-=\frac{1}{z}\Bigl(\frac{\partial v}{\partial\phi}-\ii\frac{\partial u}{\partial\phi}\Bigr).
-\]
-\begin{solution}
-由 Problem 10，可以知道 \(f(z)\) 在 \(\rho\) 方向的导数为
-\[
-f'(z)=\ee^{-\ii\phi}\Bigl(\frac{\partial u}{\partial\rho}+\ii\frac{\partial v}{\partial\rho}\Bigr)
-=\frac{\rho}{z}\Big
+\end{solution}
