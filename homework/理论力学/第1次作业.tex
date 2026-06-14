@@ -1,0 +1,256 @@
+\heading{理论力学-第1次作业}
+
+
+
+\begin{question}
+一弹性绳圈（自然长度为 \(l_0\)，弹性系数为 \(k\)，单位长度质量为 \(\sigma\)）水平地套在一固定的光滑球面上（半径为 \(R\)，且 \(2\pi R > l_0\)），它因自重而下滑。用虚功原理求其平衡方程。
+
+\pyfig[0.45\linewidth]{figures/hw1_q1_diagram.png}{弹性绳圈在光滑球面上的平衡示意图}
+\begin{solution}
+设绳圈所在纬度对应的极角为 \(\theta\)（从球顶算起）。绳圈半径为 \(R\sin\theta\)，故绳圈长度
+\[
+l = 2\pi R\sin\theta .
+\]
+弹性势能
+\[
+U_{\text{el}} = \frac12 k(l-l_0)^2
+= \frac12 k\,(2\pi R\sin\theta - l_0)^2 .
+\]
+重力势能以球心为零势点。绳圈质心的高度为 \(-R\cos\theta\)，总质量 \(\sigma l\)，故
+\[
+U_{\text{g}} = \sigma l\cdot g(-R\cos\theta)
+= -2\pi\sigma g R^2\sin\theta\cos\theta .
+\]
+总势能
+\[
+V(\theta) = \frac12 k(2\pi R\sin\theta - l_0)^2
+- 2\pi\sigma g R^2\sin\theta\cos\theta .
+\]
+虚功原理要求平衡时 \(\delta V = 0\)，即
+\[
+\frac{\mathrm d V}{\mathrm d\theta} = 0 .
+\]
+计算导数：
+\[
+\frac{\mathrm d V}{\mathrm d\theta}
+= k(2\pi R\sin\theta - l_0)\cdot 2\pi R\cos\theta
+- 2\pi\sigma g R^2(\cos^2\theta - \sin^2\theta) = 0 .
+\]
+整理得平衡方程
+\[
+\boxed{\;k(2\pi R\sin\theta - l_0)\cos\theta
+= \sigma g R\cos 2\theta\;}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+在半径为 \(R\) 的光滑圆槽内放进两个光滑圆柱，两柱的半径都是 \(r\)，但重量分别为 \(M_1\) 和 \(M_2\)。用 Lagrange 乘子法求两柱平衡时的角 \(\phi\)，并求左侧柱对槽的压力。
+
+\pyfig[0.45\linewidth]{figures/hw1_fig1.png}{两圆柱在圆槽中的平衡示意图}
+\begin{solution}
+取圆槽圆心为原点。设左、右两柱的圆心角坐标分别为 \(\theta_1,\theta_2\)（从竖直向下方向逆时针度量），则两柱心的极坐标为
+\[
+\boldsymbol r_i = (R-r)(\sin\theta_i, -\cos\theta_i) \quad (i=1,2).
+\]
+两柱相互接触的条件为圆心距等于 \(2r\)：
+\[
+|\boldsymbol r_1 - \boldsymbol r_2| = 2r .
+\]
+平方得约束
+\[
+g(\theta_1,\theta_2) = (R-r)^2\bigl[2-2\cos(\theta_1-\theta_2)\bigr] - 4r^2 = 0 .
+\]
+
+重力势能
+\[
+V = -M_1 g(R-r)\cos\theta_1 - M_2 g(R-r)\cos\theta_2 .
+\]
+引入 Lagrange 乘子 \(\lambda\)，构造
+\[
+\tilde V = V + \lambda g .
+\]
+平衡条件 \(\partial\tilde V/\partial\theta_1 = \partial\tilde V/\partial\theta_2 = 0\)：
+\begin{align*}
+M_1 g(R-r)\sin\theta_1 + \lambda\cdot 2(R-r)^2\sin(\theta_1-\theta_2) &= 0, \\
+M_2 g(R-r)\sin\theta_2 - \lambda\cdot 2(R-r)^2\sin(\theta_1-\theta_2) &= 0 .
+\end{align*}
+相加得 \(M_1\sin\theta_1 + M_2\sin\theta_2 = 0\)。由对称性，平衡时两柱位于竖直轴线两侧等角度处，设
+\[
+\theta_1 = \phi,\quad \theta_2 = -\phi .
+\]
+则约束条件给出
+\[
+2(R-r)^2(1-\cos 2\phi) = 4r^2
+\;\Longrightarrow\; 4(R-r)^2\sin^2\phi = 4r^2
+\;\Longrightarrow\; \sin\phi = \frac{r}{R-r}.
+\]
+于是
+\[
+\phi = \arcsin\frac{r}{R-r}.
+\]
+由 \(M_1\sin\phi - M_2\sin\phi = 0\) 得 \(M_1 = M_2\)，即两柱等重时方可平衡。
+实际中若 \(M_1 \neq M_2\)，两柱不会在同一水平高度静止，需引入支撑等额外约束。
+
+左侧柱所受约束力来自槽的法向支持力 \(N_1\)（沿径向）和右侧柱的接触力。由 Lagrange 乘子的物理意义，
+\[
+\lambda = -\frac{M_1 g\sin\theta_1}{2(R-r)\sin(\theta_1-\theta_2)}
+= -\frac{M_1 g}{2(R-r)\cdot(-2\sin\phi\cos\phi)} \cdot \sin\phi
+= \frac{M_1 g}{4(R-r)\cos\phi}.
+\]
+槽对左侧柱的法向支持力等于乘子项对应的广义力贡献。沿径向投影，压力大小为
+\[
+N_1 = M_1 g\cos\phi + \frac{2\lambda(R-r)(1-\cos 2\phi)}{R-r}\cos\phi
+= M_1 g\cos\phi + \frac{M_1 g}{2\cos\phi}(1-\cos 2\phi)
+= \frac{M_1 g}{\cos\phi}.
+\]
+代入 \(\cos\phi = \sqrt{1 - r^2/(R-r)^2}\) 得
+\[
+\boxed{N_1 = \frac{M_1 g}{\sqrt{1 - r^2/(R-r)^2}} = \frac{M_1 g(R-r)}{\sqrt{(R-r)^2 - r^2}} }.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+选取垂直路面纯滚的自行车的广义坐标，写出它们满足的约束，并据此写出 Routh 方程。
+\begin{solution}
+将自行车简化为前后两轮与车架构成的系统，作如下理想化假设：车轮与地面为点接触，纯滚动无滑动；车架视为刚体。
+
+取广义坐标：
+\begin{itemize}
+  \item \((x,y)\) —— 后轮接地点在水平路面的坐标；
+  \item \(\theta\) —— 车身（车架平面）与 \(x\) 轴的夹角（航向角）；
+  \item \(\varphi\) —— 车架相对于竖直方向的倾侧角；
+  \item \(\alpha\) —— 前轮相对于车架的转向角；
+  \item \(\psi_r,\psi_f\) —— 后轮和前轮绕各自车轴的转动角。
+\end{itemize}
+共 7 个广义坐标。
+
+约束条件：
+\begin{enumerate}
+  \item 后轮纯滚动（无滑动）：后轮接地点的速度为零，
+  \[
+  \dot x - R\dot\psi_r\cos\theta = 0,\qquad
+  \dot y - R\dot\psi_r\sin\theta = 0 .
+  \]
+  其中 \(R\) 为车轮半径。这两个约束是**非完整**的（不可积）。
+  \item 前轮纯滚动（无滑动）：类似的后轮约束，但考虑前轮转向。
+  \item 前轮与车架的几何连接：前轮转向角 \(\alpha\) 与前叉方向一致，此为完整约束。
+  \item 车架倾侧角 \(\varphi\) 与转弯半径之间的几何关系，在非倒下的前提下可视为完整约束。
+\end{enumerate}
+
+Routh 方程适用于既含完整约束又含非完整约束的系统。将系统动能 \(T\) 和广义力 \(Q_j\) 写出后，对非完整约束引入 Lagrange 乘子 \(\lambda_k\)，Routh 方程为
+\[
+\frac{\mathrm d}{\mathrm d t}\frac{\partial T}{\partial\dot q_j}
+- \frac{\partial T}{\partial q_j}
+= Q_j + \sum_k \lambda_k a_{kj},
+\]
+其中 \(a_{kj}\) 为非完整约束 \(\sum_j a_{kj}\dot q_j + b_k = 0\) 的系数。
+配合非完整约束方程自身，构成封闭方程组。
+\end{solution}
+\end{question}
+
+\begin{question}
+形如 \(\displaystyle\int f(q,\dot q,t)\,\mathrm dt = \text{const}\) 的约束称为等周约束。由于系统的作用量
+\[
+S[q(t)] = \int L(q,\dot q,t)\,\mathrm dt
+\]
+加上常数不影响取极值，故可拓展为
+\[
+S'[q(t)] = \int \bigl[L(q,\dot q,t) + \lambda f(q,\dot q,t)\bigr]\,\mathrm dt,
+\]
+其中引入的 Lagrange 乘子 \(\lambda\) 是个（待定）常数，不参与变分。据此，证明定长为 \(L\) 的曲线在二维平面上围成的闭合曲面面积最大值为 \(L^2/4\pi\)。
+\begin{solution}
+设平面闭合曲线由参数形式 \((x(s), y(s))\) 给出，\(s\) 为弧长参数，\(s \in [0,L]\)。曲线的总长为
+\[
+\int_0^L \sqrt{\dot x^2 + \dot y^2}\,\mathrm ds = L,
+\]
+其中 \(\dot x = \mathrm dx/\mathrm ds\)，且 \(\dot x^2 + \dot y^2 = 1\)（弧长参数自动满足此约束）。曲线围成的面积为
+\[
+A = \frac12\oint (x\,\mathrm dy - y\,\mathrm dx)
+= \frac12\int_0^L (x\dot y - y\dot x)\,\mathrm ds .
+\]
+
+在等周约束下求面积极值，构造泛函
+\[
+A' = \int_0^L \Bigl[\frac12(x\dot y - y\dot x) + \lambda\sqrt{\dot x^2 + \dot y^2}\Bigr]\,\mathrm ds .
+\]
+由于弧长参数下 \(\sqrt{\dot x^2 + \dot y^2}=1\)，\(\lambda\) 项为常数，变分只来自面积项。
+
+对 \(x\) 变分，Euler--Lagrange 方程：
+\[
+\frac{\partial F}{\partial x} - \frac{\mathrm d}{\mathrm ds}\frac{\partial F}{\partial\dot x} = 0,
+\quad F = \frac12(x\dot y - y\dot x) .
+\]
+计算：
+\[
+\frac{\partial F}{\partial x} = \frac12\dot y,\qquad
+\frac{\partial F}{\partial\dot x} = -\frac12 y,
+\]
+故
+\[
+\frac12\dot y - \frac{\mathrm d}{\mathrm ds}\Bigl(-\frac12 y\Bigr)
+= \frac12\dot y + \frac12\dot y = \dot y = 0 .
+\]
+对 \(y\) 变分类似得 \(\dot x = 0\)。因此 \(\dot x = \dot y = 0\)，这显然不对——
+问题在于弧长参数下 \(\dot x^2 + \dot y^2 = 1\) 的约束已固定，不能独立变分 \(x,y\)。
+
+改用一般参数 \(t\)，设曲线 \((x(t),y(t))\)，\(t\in[0,1]\)，则
+\[
+A = \frac12\int_0^1 (x\dot y - y\dot x)\,\mathrm dt,\qquad
+L = \int_0^1 \sqrt{\dot x^2 + \dot y^2}\,\mathrm dt .
+\]
+构造
+\[
+A' = \int_0^1 \Bigl[\frac12(x\dot y - y\dot x) + \lambda\sqrt{\dot x^2 + \dot y^2}\Bigr]\,\mathrm dt .
+\]
+
+对 \(x\) 的 Euler--Lagrange 方程：
+\[
+\frac12\dot y - \frac{\mathrm d}{\mathrm dt}\Bigl[-\frac12 y + \lambda\frac{\dot x}{\sqrt{\dot x^2 + \dot y^2}}\Bigr] = 0,
+\]
+即
+\[
+\frac12\dot y + \frac12\dot y - \frac{\mathrm d}{\mathrm dt}\Bigl(\lambda\frac{\dot x}{\sqrt{\dot x^2 + \dot y^2}}\Bigr) = 0
+\;\Longrightarrow\; \dot y = \frac{\mathrm d}{\mathrm dt}\Bigl(\lambda\frac{\dot x}{\sqrt{\dot x^2 + \dot y^2}}\Bigr).
+\]
+
+对 \(y\) 的 Euler--Lagrange 方程类似得
+\[
+-\dot x = \frac{\mathrm d}{\mathrm dt}\Bigl(\lambda\frac{\dot y}{\sqrt{\dot x^2 + \dot y^2}}\Bigr).
+\]
+
+引入弧长参数 \(s\)，此时 \(\sqrt{\dot x^2 + \dot y^2}\,\mathrm dt = \mathrm ds\)，且 \(\dot x^2 + \dot y^2 = 1\)（对 \(s\) 求导）。上两式化为
+\[
+\frac{\mathrm d y}{\mathrm d s} = \lambda\frac{\mathrm d^2 x}{\mathrm d s^2},\qquad
+-\frac{\mathrm d x}{\mathrm d s} = \lambda\frac{\mathrm d^2 y}{\mathrm d s^2}.
+\]
+
+将第一式乘以 \(\mathrm d x/\mathrm d s\)，第二式乘以 \(\mathrm d y/\mathrm d s\) 后相加：
+\[
+\frac{\mathrm d x}{\mathrm d s}\frac{\mathrm d y}{\mathrm d s}
+- \frac{\mathrm d y}{\mathrm d s}\frac{\mathrm d x}{\mathrm d s}
+= \lambda\Bigl(\frac{\mathrm d x}{\mathrm d s}\frac{\mathrm d^2 x}{\mathrm d s^2}
++ \frac{\mathrm d y}{\mathrm d s}\frac{\mathrm d^2 y}{\mathrm d s^2}\Bigr)
+= \frac{\lambda}{2}\frac{\mathrm d}{\mathrm d s}\Bigl[\Bigl(\frac{\mathrm d x}{\mathrm d s}\Bigr)^2
++ \Bigl(\frac{\mathrm d y}{\mathrm d s}\Bigr)^2\Bigr] = 0 .
+\]
+左边为零恒成立，右边给出 \(\mathrm d(1)/\mathrm ds = 0\)，自动满足。进一步，由
+\[
+\frac{\mathrm d^2 x}{\mathrm d s^2} = \frac{1}{\lambda}\frac{\mathrm d y}{\mathrm d s},\qquad
+\frac{\mathrm d^2 y}{\mathrm d s^2} = -\frac{1}{\lambda}\frac{\mathrm d x}{\mathrm d s},
+\]
+可得曲率 \(\kappa\) 满足
+\[
+\kappa^2 = \Bigl(\frac{\mathrm d^2 x}{\mathrm d s^2}\Bigr)^2
++ \Bigl(\frac{\mathrm d^2 y}{\mathrm d s^2}\Bigr)^2
+= \frac{1}{\lambda^2}\Bigl[\Bigl(\frac{\mathrm d y}{\mathrm d s}\Bigr)^2
++ \Bigl(\frac{\mathrm d x}{\mathrm d s}\Bigr)^2\Bigr] = \frac{1}{\lambda^2},
+\]
+故曲率为常数 \(\kappa = 1/|\lambda|\)，即曲线为圆。设圆的半径为 \(r\)，则 \(2\pi r = L\)，面积
+\[
+A = \pi r^2 = \pi\Bigl(\frac{L}{2\pi}\Bigr)^2 = \frac{L^2}{4\pi}.
+\]
+此即为给定周长下能围成的最大面积，得证。
+\end{solution}
+\end{question}

@@ -91,26 +91,36 @@ u|_{t=0}=0,\quad x^2+y^2<a^2.
 \[
 \begin{cases}
 y''+\lambda y=0,\qquad 0<x<l,\\
-y(l)=\alpha y(0),\qquad y'(l)=\beta y(l).
+y(l)=\alpha y(0),\qquad y'(l)=\beta y'(0).
 \end{cases}
 \]
 并询问何时自伴。
 
 \begin{solution}
 
-若边界条件确为
+边界条件为
 \[
- y(l)=\alpha y(0),\qquad y'(l)=\beta y(l),
+ y(l)=\alpha y(0),\qquad y'(l)=\beta y'(0),
 \]
-则 Green 边界型
+这是非分离（non-separated）的周期型边界条件。计算 Green 边界型：
 \[
- [\bar y z'-\bar y' z]_{0}^{l}
+[\bar y z'-\bar y' z]_{0}^{l}
+= \bigl[\bar y(l)z'(l)-\bar y'(l)z(l)\bigr]
+- \bigl[\bar y(0)z'(0)-\bar y'(0)z(0)\bigr].
 \]
-在代入边界条件后，仍会保留端点 $x=0$ 处的 $y'(0),z'(0)$ 自由项，无法对所有满足边界条件的 $y,z$ 恒为零。因此这组边界条件在非退化情形下\emph{不是}自伴边界条件。
+代入边界条件 $y(l)=\alpha y(0)$, $y'(l)=\beta y'(0)$（以及复共轭的类似关系）：
+\begin{align*}
+&= \bigl[\alpha\bar y(0)\cdot\beta z'(0)-\beta\bar y'(0)\cdot\alpha z(0)\bigr]
+- \bigl[\bar y(0)z'(0)-\bar y'(0)z(0)\bigr] \\
+&= (\alpha\beta-1)\bigl[\bar y(0)z'(0)-\bar y'(0)z(0)\bigr].
+\end{align*}
+要使得对所有满足边界条件的 $y,z$ 均有 $[\bar y z'-\bar y' z]_{0}^{l}=0$，需且只需
+\[
+\boxed{\;\alpha\beta = 1\;}.
+\]
+此时该 Sturm--Liouville 本征值问题是自伴的，本征函数构成完备正交系。
 
-也就是说，按当前补正后的题面，自伴性的答案应为：\textbf{一般不存在使其成为自伴边界条件的非退化参数取值。}
-
-\ansmath{[\bar y z'-\bar y' z]_{0}^{l}}
+\ansmath{\alpha\beta = 1}
 
 \end{solution}
 \end{question}

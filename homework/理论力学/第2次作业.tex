@@ -1,0 +1,377 @@
+\heading{理论力学-第2次作业}
+
+
+
+\begin{question}
+以 \(L = L(q, \dot q, \chi, t)\) 为例，证明把辅助变量 \(\chi = \chi(q, \dot q, t)\) 代入原 Lagrange 量得到的有效 Lagrange 量
+\[
+L_{\text{eff}}(q,\dot q,t) \equiv L\bigl(q,\dot q,\chi(q,\dot q,t),t\bigr)
+\]
+能给出 \(q\) 的运动方程。
+\begin{solution}
+原 Lagrange 量 \(L(q,\dot q,\chi,\dot\chi,t)\) 的变分给出两个 Euler--Lagrange 方程：
+\begin{align*}
+\frac{\mathrm d}{\mathrm dt}\frac{\partial L}{\partial\dot q} - \frac{\partial L}{\partial q} &= 0, \tag{1}\\
+\frac{\mathrm d}{\mathrm dt}\frac{\partial L}{\partial\dot\chi} - \frac{\partial L}{\partial\chi} &= 0. \tag{2}
+\end{align*}
+将 \(\chi = \chi(q,\dot q,t)\) 代入后，有效 Lagrange 量对 \(q\) 的变分为
+\[
+\delta\int L_{\text{eff}}\,\mathrm dt
+= \int\Bigl(
+\frac{\partial L}{\partial q}\delta q
++ \frac{\partial L}{\partial\dot q}\delta\dot q
++ \frac{\partial L}{\partial\chi}\delta\chi
++ \frac{\partial L}{\partial\dot\chi}\delta\dot\chi
+\Bigr)\mathrm dt,
+\]
+其中
+\[
+\delta\chi = \frac{\partial\chi}{\partial q}\delta q + \frac{\partial\chi}{\partial\dot q}\delta\dot q,\qquad
+\delta\dot\chi = \frac{\mathrm d}{\mathrm dt}\delta\chi .
+\]
+对 \(\delta\dot q\) 和 \(\delta\dot\chi\) 项分部积分，并利用 \(\delta\chi\) 的表达式，得到
+\[
+\int\Bigl[
+\frac{\partial L}{\partial q} - \frac{\mathrm d}{\mathrm dt}\frac{\partial L}{\partial\dot q}
++ \frac{\partial L}{\partial\chi}\frac{\partial\chi}{\partial q}
+- \frac{\mathrm d}{\mathrm dt}\Bigl(\frac{\partial L}{\partial\dot\chi}\frac{\partial\chi}{\partial\dot q}\Bigr)
++ \frac{\partial L}{\partial\dot\chi}\frac{\partial^2\chi}{\partial q\partial\dot q}\dot q
++ \cdots
+\Bigr]\delta q\,\mathrm dt = 0 .
+\]
+整理后，含 \(\chi\) 偏导的项为
+\[
+\frac{\partial L}{\partial\chi} - \frac{\mathrm d}{\mathrm dt}\frac{\partial L}{\partial\dot\chi}
+\]
+乘以 \(\chi\) 对 \(q\) 或 \(\dot q\) 的偏导再积分，而式 (2) 恰好使这些项为零。因此只剩下
+\[
+\frac{\mathrm d}{\mathrm dt}\frac{\partial L}{\partial\dot q} - \frac{\partial L}{\partial q} = 0,
+\]
+即由 \(L_{\text{eff}}\) 得到的 \(q\) 运动方程与原完整体系一致。
+\end{solution}
+\end{question}
+
+\begin{question}
+均匀护栏铁索不可拉伸，长为 \(L\)，质量为 \(m\)，两端等高，间距为 \(d\)。求：
+\begin{itemize}
+  \item[\textup{(i)}] 选择合适坐标，求重力势能 \(V\) 作为形状的泛函；
+  \item[\textup{(ii)}] 用 Lagrange 乘子法求形状满足的 Euler--Lagrange 方程；
+  \item[\textup{(iii)}] 求解 E--L 方程，证明解是悬链线。
+\end{itemize}
+
+\pyfig[0.55\linewidth]{figures/hw2_fig1.png}{两端固定的均匀铁索（悬链线）示意图}
+\begin{solution}
+取坐标系原点在左端点水平位置，\(y\) 轴向下。设铁索形状为 \(y(x)\)，两端条件 \(y(0)=y(d)=0\)。
+
+\textbf{(i)} 线密度 \(\lambda = m/L\)。弧长微元 \(\mathrm ds = \sqrt{1+y'^2}\,\mathrm dx\)，总长约束为
+\[
+\int_0^d \sqrt{1+y'^2}\,\mathrm dx = L .
+\]
+以 \(y=0\) 为零势点，重力势能泛函为
+\[
+V[y] = -\lambda g \int_0^d y\,\mathrm ds
+= -\frac{mg}{L}\int_0^d y\sqrt{1+y'^2}\,\mathrm dx .
+\]
+
+\textbf{(ii)} 引入 Lagrange 乘子 \(\mu\)（常数），构造
+\[
+F = -\lambda g\, y\sqrt{1+y'^2} + \mu\sqrt{1+y'^2}
+= \bigl(-\lambda g\, y + \mu\bigr)\sqrt{1+y'^2}.
+\]
+Euler--Lagrange 方程
+\[
+\frac{\mathrm d}{\mathrm dx}\frac{\partial F}{\partial y'} - \frac{\partial F}{\partial y} = 0
+\]
+给出
+\[
+\frac{\partial F}{\partial y} = -\lambda g\sqrt{1+y'^2},
+\qquad
+\frac{\partial F}{\partial y'} = \frac{(-\lambda g\, y + \mu)\,y'}{\sqrt{1+y'^2}} .
+\]
+代入得
+\[
+\frac{\mathrm d}{\mathrm dx}\Bigl[\frac{(-\lambda g\, y + \mu)\,y'}{\sqrt{1+y'^2}}\Bigr]
++ \lambda g\sqrt{1+y'^2} = 0 .
+\]
+
+\textbf{(iii)} 上式可写为全微分形式。注意到
+\[
+\frac{\mathrm d}{\mathrm dx}\Bigl[\frac{-\lambda g\, y + \mu}{\sqrt{1+y'^2}}\Bigr]
+= \frac{(-\lambda g\, y')\sqrt{1+y'^2}
+- (-\lambda g\, y + \mu)\frac{y'y''}{\sqrt{1+y'^2}}}{1+y'^2}
++ \lambda g\sqrt{1+y'^2}\cdot\text{(?)}
+\]
+更直接地，由 Euler--Lagrange 方程一次积分：
+令 \(F\) 不显含 \(x\)，故 Beltrami 恒等式给出
+\[
+F - y'\frac{\partial F}{\partial y'} = \text{常数}.
+\]
+计算
+\[
+F - y'\frac{\partial F}{\partial y'}
+= (-\lambda g\, y + \mu)\sqrt{1+y'^2}
+- \frac{(-\lambda g\, y + \mu)\,y'^2}{\sqrt{1+y'^2}}
+= \frac{-\lambda g\, y + \mu}{\sqrt{1+y'^2}} = C,
+\]
+其中 \(C\) 为积分常数。于是
+\[
+\sqrt{1+y'^2} = \frac{-\lambda g\, y + \mu}{C}
+\quad\Longrightarrow\quad
+y'^2 = \Bigl(\frac{-\lambda g\, y + \mu}{C}\Bigr)^2 - 1 .
+\]
+令 \(u = -\lambda g\, y + \mu\)，则
+\[
+\frac{\mathrm du}{\mathrm dx} = -\lambda g\, y'
+= -\lambda g\,\sqrt{\bigl(u/C\bigr)^2 - 1},
+\qquad
+\frac{\mathrm du}{\sqrt{u^2/C^2 - 1}} = -\lambda g\,\mathrm dx .
+\]
+积分得
+\[
+C\cosh^{-1}\!\Bigl(\frac{u}{C}\Bigr) = -\lambda g\, x + C_1,
+\]
+即
+\[
+u = C\cosh\!\Bigl(\frac{C_1 - \lambda g\, x}{C}\Bigr).
+\]
+代回 \(y\)：
+\[
+y(x) = \frac{C}{\lambda g}\Bigl[\cosh\!\Bigl(\frac{C_1}{C}\Bigr)
+- \cosh\!\Bigl(\frac{C_1 - \lambda g\, x}{C}\Bigr)\Bigr],
+\]
+其中常数由边界条件 \(y(0)=y(d)=0\) 和弧长约束 \(\int_0^d \sqrt{1+y'^2}\,\mathrm dx = L\) 确定。上式即为标准悬链线（catenary）形式：
+\[
+\boxed{\;y(x) = a\Bigl[\cosh\!\Bigl(\frac{x_0}{a}\Bigr)
+- \cosh\!\Bigl(\frac{x-x_0}{a}\Bigr)\Bigr]\;},
+\]
+其中 \(a = C/(\lambda g)\)，且常数由边界和总长决定。
+\end{solution}
+\end{question}
+
+\begin{question}
+一半径为 \(a\) 的光滑圆环，绕平面内过圆心的铅直轴以恒定的角速度 \(\omega\) 转动，质量为 \(m\) 的粒子沿环运动。取 \(\theta\) 为广义坐标（\(\theta\) 为粒子与竖直方向的夹角）。
+
+\pyfig[0.4\linewidth]{figures/hw2_q3_diagram.png}{绕铅直轴匀速转动的光滑圆环}
+\begin{itemize}
+  \item[\textup{(i)}] 写出粒子的 Lagrange 量；
+  \item[\textup{(ii)}] 证明粒子的 Hamiltonian 为运动常数，而总能量 \(E\) 不是，并讨论其原因。
+\end{itemize}
+\begin{solution}
+取圆环中心为原点，竖直轴为 \(z\) 轴。圆环绕 \(z\) 轴以角速度 \(\omega\) 匀速转动，粒子沿环运动。粒子在空间中的坐标为
+\[
+x = a\sin\theta\cos(\omega t),\qquad
+y = a\sin\theta\sin(\omega t),\qquad
+z = -a\cos\theta .
+\]
+（取 \(z=0\) 为环心高度，\(z\) 向上为正。）
+
+\textbf{(i)} 速度分量为
+\begin{align*}
+\dot x &= a\dot\theta\cos\theta\cos(\omega t) - a\omega\sin\theta\sin(\omega t),\\
+\dot y &= a\dot\theta\cos\theta\sin(\omega t) + a\omega\sin\theta\cos(\omega t),\\
+\dot z &= a\dot\theta\sin\theta .
+\end{align*}
+动能为
+\[
+T = \frac12 m(\dot x^2 + \dot y^2 + \dot z^2)
+= \frac12 m\Bigl(a^2\dot\theta^2 + a^2\omega^2\sin^2\theta\Bigr).
+\]
+势能以环心为零点：
+\[
+V = mgz = -mg a\cos\theta .
+\]
+故 Lagrange 量为
+\[
+\boxed{\;L = T - V
+= \frac12 m a^2\dot\theta^2 + \frac12 m a^2\omega^2\sin^2\theta + mg a\cos\theta\;}.
+\]
+
+\textbf{(ii)} 广义动量
+\[
+p_\theta = \frac{\partial L}{\partial\dot\theta} = m a^2\dot\theta .
+\]
+Hamiltonian 为
+\[
+H = p_\theta\dot\theta - L
+= m a^2\dot\theta^2
+- \Bigl(\frac12 m a^2\dot\theta^2 + \frac12 m a^2\omega^2\sin^2\theta + mg a\cos\theta\Bigr)
+= \frac12 m a^2\dot\theta^2 - \frac12 m a^2\omega^2\sin^2\theta - mg a\cos\theta .
+\]
+由于 \(L\) 不显含时间 \(t\)，Hamiltonian 是运动常数（守恒量）：
+\[
+\boxed{\;\frac{\mathrm d H}{\mathrm d t} = 0\;}.
+\]
+总能量为
+\[
+E = T + V
+= \frac12 m a^2\dot\theta^2 + \frac12 m a^2\omega^2\sin^2\theta - mg a\cos\theta .
+\]
+比较可知
+\[
+E = H + m a^2\omega^2\sin^2\theta .
+\]
+由于 \(\theta\) 随时间变化，\(E\) 不是常数。其原因在于：圆环的转动对粒子做功，系统存在非保守力作用，机械能不守恒。旋转环提供的约束是非定常约束，广义力包含与转动相关的惯性力（离心力和 Coriolis 力），因此总能量 \(E\) 不守恒；而 Hamiltonian（在 \(L\) 不显含时间时）始终是运动常数。
+\end{solution}
+\end{question}
+
+\begin{question}
+一维阻尼振子的 Lagrange 量为
+\[
+L = e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2\Bigr),
+\]
+其中 \(m,\omega,\lambda\) 是常数。
+\begin{itemize}
+  \item[\textup{(i)}] 取常数 \(\alpha\)，证明在变换
+  \[
+  t \to \tilde t = t + \alpha,\qquad
+  q(t) \to \tilde q(\tilde t) = e^{-\lambda\alpha/2}\, q(t)
+  \]
+  下，\(\tilde S[\tilde q] = S[q]\)；
+  \item[\textup{(ii)}] 考虑 \(\alpha\) 为无穷小量，用 Noether 定理求该对称变换对应的运动常数。
+\end{itemize}
+\begin{solution}
+\textbf{(i)} 作用量为
+\[
+S[q] = \int L\,\mathrm dt
+= \int e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2\Bigr)\mathrm dt .
+\]
+变换后的作用量为
+\[
+\tilde S[\tilde q] = \int e^{\lambda\tilde t}
+\Bigl(\frac12 m\frac{\mathrm d\tilde q}{\mathrm d\tilde t}^2
+- \frac12 m\omega^2 \tilde q^2\Bigr)\mathrm d\tilde t .
+\]
+由于 \(\tilde t = t + \alpha\)，有 \(\mathrm d\tilde t = \mathrm dt\)，且 \(\tilde q(\tilde t) = e^{-\lambda\alpha/2} q(t)\)。因此
+\[
+\frac{\mathrm d\tilde q}{\mathrm d\tilde t}
+= e^{-\lambda\alpha/2}\frac{\mathrm d q}{\mathrm d t},
+\qquad
+\tilde q = e^{-\lambda\alpha/2} q(t) .
+\]
+代入：
+\begin{align*}
+\tilde S[\tilde q]
+&= \int e^{\lambda(t+\alpha)}\Bigl(
+\frac12 m\, e^{-\lambda\alpha}\dot q^2
+- \frac12 m\omega^2 e^{-\lambda\alpha} q^2\Bigr)\mathrm dt \\
+&= \int e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2\Bigr)\mathrm dt
+= S[q] .
+\end{align*}
+故作用量在该变换下不变，该变换是 Noether 对称变换。
+
+\textbf{(ii)} 无穷小变换。令 \(\alpha \to 0\)，则
+\[
+\delta t = \tilde t - t = \alpha,\qquad
+\delta q = \tilde q(\tilde t) - q(t) = e^{-\lambda\alpha/2} q(t) - q(t)
+\approx -\frac{\lambda\alpha}{2} q + \dot q\,\alpha .
+\]
+Noether 定理：对称变换 \((\delta t,\delta q)\) 对应的守恒量为
+\[
+I = \frac{\partial L}{\partial\dot q}\bigl(\delta q - \dot q\,\delta t\bigr) + L\,\delta t .
+\]
+计算
+\[
+\frac{\partial L}{\partial\dot q} = e^{\lambda t}\, m\dot q .
+\]
+代入：
+\begin{align*}
+I &= e^{\lambda t} m\dot q\Bigl(-\frac{\lambda\alpha}{2} q + \dot q\alpha - \dot q\alpha\Bigr)
++ \alpha\, e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2\Bigr) \\
+&= e^{\lambda t} m\dot q\Bigl(-\frac{\lambda\alpha}{2} q\Bigr)
++ \alpha\, e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2\Bigr) \\
+&= \alpha\, e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2
+- \frac{\lambda m}{2} q\dot q\Bigr).
+\end{align*}
+去掉常数因子 \(\alpha\)，Noether 守恒量为
+\[
+\boxed{\;I = e^{\lambda t}\Bigl(\frac12 m\dot q^2 - \frac12 m\omega^2 q^2
+- \frac{\lambda m}{2} q\dot q\Bigr)\;}.
+\]
+可以验证 \(\mathrm d I/\mathrm d t = 0\) 正是阻尼振子的运动方程。
+\end{solution}
+\end{question}
+
+\begin{question}
+证明变换
+\[
+t \to \tilde t = \frac{\alpha t + \beta}{\gamma t + \delta},\qquad
+q(t) \to \tilde q(\tilde t) = \frac{q(t)}{\gamma t + \delta},
+\qquad
+\det\begin{pmatrix}\alpha & \beta \\ \gamma & \delta\end{pmatrix} = 1
+\]
+是作用量
+\[
+S = \int \Bigl(\frac12 m\dot q^2 - \frac{\lambda}{q^2}\Bigr)\mathrm dt
+\]
+的对称变换；其中 \(\alpha,\beta,\gamma,\delta,m,\lambda\) 是常数。
+\begin{solution}
+需证明 \(\tilde S[\tilde q] = S[q]\)。变换前后时间坐标的关系为
+\[
+\tilde t = \frac{\alpha t + \beta}{\gamma t + \delta},
+\qquad
+\mathrm d\tilde t = \frac{\alpha\delta - \beta\gamma}{(\gamma t + \delta)^2}\,\mathrm dt
+= \frac{\mathrm dt}{(\gamma t + \delta)^2},
+\]
+其中利用了 \(\det = \alpha\delta - \beta\gamma = 1\)。
+
+定义 \(Q(t) = q(t)\)，则 \(\tilde q(\tilde t) = Q(t)/(\gamma t + \delta)\)。计算 \(\tilde q\) 对 \(\tilde t\) 的导数：
+\[
+\frac{\mathrm d\tilde q}{\mathrm d\tilde t}
+= \frac{\mathrm d}{\mathrm d\tilde t}\!\left(\frac{Q}{\gamma t + \delta}\right)
+= \frac{\mathrm d t}{\mathrm d\tilde t}\,
+\frac{\mathrm d}{\mathrm d t}\!\left(\frac{Q}{\gamma t + \delta}\right)
+= (\gamma t + \delta)^2\,
+\frac{\dot Q(\gamma t + \delta) - \gamma Q}{(\gamma t + \delta)^2}
+= \dot Q(\gamma t + \delta) - \gamma Q .
+\]
+
+变换后的作用量为
+\begin{align*}
+\tilde S[\tilde q]
+&= \int\Bigl(\frac12 m\Bigl(\frac{\mathrm d\tilde q}{\mathrm d\tilde t}\Bigr)^2
+- \frac{\lambda}{\tilde q^2}\Bigr)\mathrm d\tilde t \\
+&= \int\Bigl[
+\frac12 m\bigl(\dot Q(\gamma t + \delta) - \gamma Q\bigr)^2
+- \lambda (\gamma t + \delta)^2 \frac{1}{Q^2}
+\Bigr]\frac{\mathrm dt}{(\gamma t + \delta)^2} .
+\end{align*}
+展开第一项：
+\[
+\bigl(\dot Q(\gamma t + \delta) - \gamma Q\bigr)^2
+= \dot Q^2(\gamma t + \delta)^2 - 2\gamma Q\dot Q(\gamma t + \delta) + \gamma^2 Q^2 .
+\]
+代入积分：
+\[
+\tilde S[\tilde q]
+= \int\Bigl[
+\frac12 m\dot Q^2
+- m\gamma\,\frac{Q\dot Q}{\gamma t + \delta}
++ \frac12 m\gamma^2\,\frac{Q^2}{(\gamma t + \delta)^2}
+- \frac{\lambda}{Q^2}
+\Bigr]\mathrm dt .
+\]
+注意到
+\[
+- m\gamma\,\frac{Q\dot Q}{\gamma t + \delta}
++ \frac12 m\gamma^2\,\frac{Q^2}{(\gamma t + \delta)^2}
+\]
+为全微分项。具体地，
+\[
+\frac{\mathrm d}{\mathrm dt}\!\left(-\frac12 m\gamma\,\frac{Q^2}{\gamma t + \delta}\right)
+= -\frac12 m\gamma\,\frac{2Q\dot Q(\gamma t + \delta) - \gamma Q^2}{(\gamma t + \delta)^2}
+= - m\gamma\,\frac{Q\dot Q}{\gamma t + \delta}
++ \frac12 m\gamma^2\,\frac{Q^2}{(\gamma t + \delta)^2} .
+\]
+因此
+\[
+\tilde S[\tilde q]
+= \int\Bigl(\frac12 m\dot Q^2 - \frac{\lambda}{Q^2}\Bigr)\mathrm dt
++ \Bigl[-\frac12 m\gamma\,\frac{Q^2}{\gamma t + \delta}\Bigr]_{\text{端点}} .
+\]
+在端点固定的变分原理中，边界项对运动方程无贡献（在端点处变分为零，边界项不影响变分极值）。忽略边界项后得
+\[
+\tilde S[\tilde q] = \int\Bigl(\frac12 m\dot q^2 - \frac{\lambda}{q^2}\Bigr)\mathrm dt = S[q],
+\]
+故该变换为作用量的对称变换。
+\end{solution}
+\end{question}

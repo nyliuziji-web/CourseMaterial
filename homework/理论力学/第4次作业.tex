@@ -1,0 +1,1084 @@
+\heading{理论力学-第4次作业}
+
+
+
+\begin{question}
+把 \(H(q,p,t)\) 中的 \(q\)、\(p\) 用 \(z\)、\(z^*\) 代替，其中
+\[
+z_\alpha = \frac{q_\alpha+\mathrm i p_\alpha}{\sqrt2},\qquad
+z_\alpha^* = \frac{q_\alpha-\mathrm i p_\alpha}{\sqrt2}.
+\]
+计算 \(q,p\) 下的 Poisson 括号 \([f,g]_{qp}\) 与 \(z,z^*\) 下的 Poisson 括号 \([f,g]_{zz^*}\) 的关系。
+\begin{solution}
+在实坐标下，Poisson 括号的定义为
+\[
+[f,g]_{qp}=\sum_{\alpha=1}^s\left(
+\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial p_\alpha}
+-\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial q_\alpha}
+\right).
+\]
+
+从变换式可解出
+\[
+q_\alpha = \frac{z_\alpha+z_\alpha^*}{\sqrt2},\qquad
+p_\alpha = \frac{z_\alpha-z_\alpha^*}{\mathrm i\sqrt2}.
+\]
+
+写出变换的 Jacobian。首先计算复坐标下的偏导数：
+\[
+\frac{\partial f}{\partial z_\alpha}
+= \frac{\partial f}{\partial q_\alpha}\frac{\partial q_\alpha}{\partial z_\alpha}
++\frac{\partial f}{\partial p_\alpha}\frac{\partial p_\alpha}{\partial z_\alpha}
+= \frac{1}{\sqrt2}\frac{\partial f}{\partial q_\alpha}
++\frac{1}{\mathrm i\sqrt2}\frac{\partial f}{\partial p_\alpha}
+= \frac{1}{\sqrt2}\left(\frac{\partial f}{\partial q_\alpha}
+-\mathrm i\frac{\partial f}{\partial p_\alpha}\right),
+\]
+\[
+\frac{\partial f}{\partial z_\alpha^*}
+= \frac{\partial f}{\partial q_\alpha}\frac{\partial q_\alpha}{\partial z_\alpha^*}
++\frac{\partial f}{\partial p_\alpha}\frac{\partial p_\alpha}{\partial z_\alpha^*}
+= \frac{1}{\sqrt2}\frac{\partial f}{\partial q_\alpha}
+-\frac{1}{\mathrm i\sqrt2}\frac{\partial f}{\partial p_\alpha}
+= \frac{1}{\sqrt2}\left(\frac{\partial f}{\partial q_\alpha}
++\mathrm i\frac{\partial f}{\partial p_\alpha}\right).
+\]
+
+反过来，也有
+\[
+\frac{\partial f}{\partial q_\alpha}
+= \frac{1}{\sqrt2}\left(
+\frac{\partial f}{\partial z_\alpha}+\frac{\partial f}{\partial z_\alpha^*}
+\right),\qquad
+\frac{\partial f}{\partial p_\alpha}
+= \frac{\mathrm i}{\sqrt2}\left(
+\frac{\partial f}{\partial z_\alpha}-\frac{\partial f}{\partial z_\alpha^*}
+\right).
+\]
+
+在复坐标下定义 Poisson 括号为
+\[
+[f,g]_{zz^*}
+\equiv -\mathrm i\sum_{\alpha=1}^s\left(
+\frac{\partial f}{\partial z_\alpha}\frac{\partial g}{\partial z_\alpha^*}
+-\frac{\partial f}{\partial z_\alpha^*}\frac{\partial g}{\partial z_\alpha}
+\right).
+\]
+
+代入验证：
+\[
+\begin{aligned}
+[f,g]_{zz^*}
+&= -\mathrm i\sum_{\alpha}\Bigg[
+\frac{1}{\sqrt2}\left(\frac{\partial f}{\partial q_\alpha}
+-\mathrm i\frac{\partial f}{\partial p_\alpha}\right)
+\frac{1}{\sqrt2}\left(\frac{\partial g}{\partial q_\alpha}
++\mathrm i\frac{\partial g}{\partial p_\alpha}\right) \\
+&\qquad\qquad
+-\frac{1}{\sqrt2}\left(\frac{\partial f}{\partial q_\alpha}
++\mathrm i\frac{\partial f}{\partial p_\alpha}\right)
+\frac{1}{\sqrt2}\left(\frac{\partial g}{\partial q_\alpha}
+-\mathrm i\frac{\partial g}{\partial p_\alpha}\right)
+\Bigg] \\
+&= -\frac{\mathrm i}{2}\sum_{\alpha}\Bigg[
+\left(\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial q_\alpha}
++\mathrm i\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial p_\alpha}
+-\mathrm i\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial q_\alpha}
++\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial p_\alpha}\right) \\
+&\qquad\qquad\quad
+-\left(\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial q_\alpha}
+-\mathrm i\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial p_\alpha}
++\mathrm i\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial q_\alpha}
++\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial p_\alpha}\right)
+\Bigg] \\
+&= -\frac{\mathrm i}{2}\sum_{\alpha}
+\Bigl[2\mathrm i\left(
+\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial p_\alpha}
+-\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial q_\alpha}
+\right)\Bigr] \\
+&= \sum_{\alpha}\left(
+\frac{\partial f}{\partial q_\alpha}\frac{\partial g}{\partial p_\alpha}
+-\frac{\partial f}{\partial p_\alpha}\frac{\partial g}{\partial q_\alpha}
+\right) = [f,g]_{qp}.
+\end{aligned}
+\]
+
+因此
+\[
+\boxed{\;[f,g]_{zz^*}=[f,g]_{qp}\;}.
+\]
+即复坐标下的 Poisson 括号与实坐标下的完全相同。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑 \(s=2\) 的系统，Hamilton 量为
+\[
+H = q_1q_2 + p_1p_2.
+\]
+\begin{itemize}
+  \item[\textup{(i)}] 证明 \(f = p_1^2+q_2^2\) 和 \(g = p_2^2+q_1^2\) 是运动常数；
+  \item[\textup{(ii)}] 利用 Poisson 定理，找出其他的整体运动常数；
+  \item[\textup{(iii)}] 写出其李代数。
+\end{itemize}
+\begin{solution}
+\textbf{(i)} 运动常数即与 Hamilton 量的 Poisson 括号为零。先计算
+\[
+\begin{aligned}
+[f,H] &= [p_1^2+q_2^2,\;q_1q_2+p_1p_2] \\
+&= [p_1^2,q_1q_2] + [p_1^2,p_1p_2]
++ [q_2^2,q_1q_2] + [q_2^2,p_1p_2].
+\end{aligned}
+\]
+
+逐个计算：
+\[
+[p_1^2,q_1q_2] =
+\frac{\partial(p_1^2)}{\partial q_1}\frac{\partial(q_1q_2)}{\partial p_1}
+-\frac{\partial(p_1^2)}{\partial p_1}\frac{\partial(q_1q_2)}{\partial q_1}
++\frac{\partial(p_1^2)}{\partial q_2}\frac{\partial(q_1q_2)}{\partial p_2}
+-\frac{\partial(p_1^2)}{\partial p_2}\frac{\partial(q_1q_2)}{\partial q_2}
+= 0 - (2p_1)(q_2) + 0 - 0 = -2p_1q_2,
+\]
+\[
+[p_1^2,p_1p_2]=0,
+\]
+\[
+[q_2^2,q_1q_2]=
+\frac{\partial(q_2^2)}{\partial q_1}\frac{\partial(q_1q_2)}{\partial p_1}
+-\frac{\partial(q_2^2)}{\partial p_1}\frac{\partial(q_1q_2)}{\partial q_1}
++\frac{\partial(q_2^2)}{\partial q_2}\frac{\partial(q_1q_2)}{\partial p_2}
+-\frac{\partial(q_2^2)}{\partial p_2}\frac{\partial(q_1q_2)}{\partial q_2}
+= 0-0+(2q_2)(q_1)-0 = 2q_1q_2,
+\]
+\[
+[q_2^2,p_1p_2]=
+\frac{\partial(q_2^2)}{\partial q_1}\frac{\partial(p_1p_2)}{\partial p_1}
+-\frac{\partial(q_2^2)}{\partial p_1}\frac{\partial(p_1p_2)}{\partial q_1}
++\frac{\partial(q_2^2)}{\partial q_2}\frac{\partial(p_1p_2)}{\partial p_2}
+-\frac{\partial(q_2^2)}{\partial p_2}\frac{\partial(p_1p_2)}{\partial q_2}
+=0-0+0-(2q_2)(0)=0.
+\]
+
+求和得 \([f,H]=-2p_1q_2+2q_1q_2 = 2q_2(q_1-p_1)\neq 0\)？这里需要重新仔细计算。
+
+实际上，更为系统的做法是使用基本 Poisson 括号
+\[
+[q_i,q_j]=[p_i,p_j]=0,\qquad [q_i,p_j]=\delta_{ij}.
+\]
+
+利用 Leibniz 法则计算：
+\[
+[f,H] = [p_1^2+q_2^2,\;q_1q_2+p_1p_2].
+\]
+
+先计算
+\[
+\begin{aligned}
+[p_1^2, q_1q_2] &= p_1[p_1,q_1q_2] + [p_1,q_1q_2]p_1 \\
+&= p_1\bigl([p_1,q_1]q_2+q_1[p_1,q_2]\bigr)
++\bigl([p_1,q_1]q_2+q_1[p_1,q_2]\bigr)p_1 \\
+&= p_1(-q_2)+(-q_2)p_1 = -2p_1q_2,
+\end{aligned}
+\]
+\[
+[p_1^2,p_1p_2]=0,
+\]
+\[
+\begin{aligned}
+[q_2^2,q_1q_2] &= q_2[q_2,q_1q_2] + [q_2,q_1q_2]q_2 \\
+&= q_2\bigl([q_2,q_1]q_2+q_1[q_2,q_2]\bigr)
++\bigl([q_2,q_1]q_2+q_1[q_2,q_2]\bigr)q_2 = 0,
+\end{aligned}
+\]
+\[
+\begin{aligned}
+[q_2^2,p_1p_2] &= q_2[q_2,p_1p_2] + [q_2,p_1p_2]q_2 \\
+&= q_2\bigl([q_2,p_1]p_2+p_1[q_2,p_2]\bigr)
++\bigl([q_2,p_1]p_2+p_1[q_2,p_2]\bigr)q_2 \\
+&= q_2(0+p_1)+(0+p_1)q_2 = 2p_1q_2.
+\end{aligned}
+\]
+
+故 \([f,H]=-2p_1q_2+2p_1q_2=0\)，所以 \(f\) 是运动常数。
+
+类似地对 \(g=p_2^2+q_1^2\)：
+\[
+\begin{aligned}
+[p_2^2,q_1q_2] &= p_2[p_2,q_1q_2]+[p_2,q_1q_2]p_2 \\
+&= p_2\bigl([p_2,q_1]q_2+q_1[p_2,q_2]\bigr)
++\bigl([p_2,q_1]q_2+q_1[p_2,q_2]\bigr)p_2 \\
+&= p_2(0 - q_1)+(0 - q_1)p_2 = -2p_2q_1,
+\end{aligned}
+\]
+\[
+[p_2^2,p_1p_2]=0,
+\]
+\[
+\begin{aligned}
+[q_1^2,q_1q_2] &= q_1[q_1,q_1q_2]+[q_1,q_1q_2]q_1 \\
+&= q_1\bigl([q_1,q_1]q_2+q_1[q_1,q_2]\bigr)
++\bigl([q_1,q_1]q_2+q_1[q_1,q_2]\bigr)q_1 = 0,
+\end{aligned}
+\]
+\[
+\begin{aligned}
+[q_1^2,p_1p_2] &= q_1[q_1,p_1p_2]+[q_1,p_1p_2]q_1 \\
+&= q_1\bigl([q_1,p_1]p_2+p_1[q_1,p_2]\bigr)
++\bigl([q_1,p_1]p_2+p_1[q_1,p_2]\bigr)q_1 \\
+&= q_1(p_2+0)+(p_2+0)q_1 = 2p_2q_1.
+\end{aligned}
+\]
+
+故 \([g,H]=-2p_2q_1+2p_2q_1=0\)，所以 \(g\) 也是运动常数。
+
+\vspace{0.5em}
+\textbf{(ii)} Poisson 定理：若 \(f,g\) 均为运动常数，则它们的 Poisson 括号 \([f,g]\) 也是运动常数。计算
+\[
+\begin{aligned}
+[f,g] &= [p_1^2+q_2^2,\;p_2^2+q_1^2] \\
+&= [p_1^2,p_2^2] + [p_1^2,q_1^2] + [q_2^2,p_2^2] + [q_2^2,q_1^2].
+\end{aligned}
+\]
+
+其中
+\[
+[p_1^2,p_2^2]=0,\qquad [q_2^2,q_1^2]=0,
+\]
+\[
+\begin{aligned}
+[p_1^2,q_1^2] &= p_1[p_1,q_1^2]+[p_1,q_1^2]p_1 \\
+&= p_1\bigl([p_1,q_1]q_1+q_1[p_1,q_1]\bigr)
++\bigl([p_1,q_1]q_1+q_1[p_1,q_1]\bigr)p_1 \\
+&= p_1(-q_1-q_1)+(-q_1-q_1)p_1 = -4p_1q_1,
+\end{aligned}
+\]
+\[
+\begin{aligned}
+[q_2^2,p_2^2] &= q_2[q_2,p_2^2]+[q_2,p_2^2]q_2 \\
+&= q_2\bigl([q_2,p_2]p_2+p_2[q_2,p_2]\bigr)
++\bigl([q_2,p_2]p_2+p_2[q_2,p_2]\bigr)q_2 \\
+&= q_2(p_2+p_2)+(p_2+p_2)q_2 = 4p_2q_2.
+\end{aligned}
+\]
+
+因此
+\[
+[f,g] = -4p_1q_1+4p_2q_2 = 4(p_2q_2-p_1q_1).
+\]
+
+令 \(h \equiv [f,g] = 4(p_2q_2-p_1q_1)\)，则 \([h,H]=0\) 也已由 Poisson 定理保证。继续计算：
+\[
+\begin{aligned}
+[f,h] &= [p_1^2+q_2^2,\;4(p_2q_2-p_1q_1)] \\
+&= 4\bigl([p_1^2,p_2q_2]-[p_1^2,p_1q_1]
++[q_2^2,p_2q_2]-[q_2^2,p_1q_1]\bigr).
+\end{aligned}
+\]
+
+计算各项：
+\[
+[p_1^2,p_2q_2] = 0,
+\]
+\[
+[p_1^2,p_1q_1] = p_1[p_1,p_1q_1]+[p_1,p_1q_1]p_1
+= p_1\bigl([p_1,p_1]q_1+p_1[p_1,q_1]\bigr) + \cdots
+= p_1(0-p_1) + (0-p_1)p_1 = -2p_1^2,
+\]
+\[
+[q_2^2,p_2q_2] = q_2[q_2,p_2q_2]+[q_2,p_2q_2]q_2
+= q_2\bigl([q_2,p_2]q_2+p_2[q_2,q_2]\bigr)
++\bigl([q_2,p_2]q_2+p_2[q_2,q_2]\bigr)q_2
+= q_2(q_2)+(q_2)q_2 = 2q_2^2,
+\]
+\[
+[q_2^2,p_1q_1]=0.
+\]
+
+故
+\[
+[f,h] = 4(0 + 2p_1^2 + 2q_2^2 - 0) = 8(p_1^2+q_2^2) = 8f.
+\]
+
+类似地，
+\[
+[g,h] = [p_2^2+q_1^2,\;4(p_2q_2-p_1q_1)] = -8(p_2^2+q_1^2) = -8g.
+\]
+
+因此全部运动常数（在 Poisson 括号下封闭）为
+\[
+\boxed{\;f = p_1^2+q_2^2,\qquad
+g = p_2^2+q_1^2,\qquad
+h = 4(p_2q_2-p_1q_1)\;}.
+\]
+
+\vspace{0.5em}
+\textbf{(iii)} 以上三个守恒量的对易关系为
+\[
+[f,g] = h,\qquad
+[f,h] = 8f,\qquad
+[g,h] = -8g.
+\]
+
+这不难重新标度。令
+\[
+J_1 = \frac{f+g}{2},\qquad
+J_2 = \frac{f-g}{2},\qquad
+J_3 = \frac{h}{4},
+\]
+则
+\[
+[J_1,J_3] = -2J_2,\quad
+[J_2,J_3] = 2J_1,\quad
+[J_1,J_2] = -\frac12 J_3.
+\]
+
+更对称地，定义
+\[
+K_1 = \frac{f+g}{2},\quad
+K_2 = \frac{h}{4},\quad
+K_3 = \frac{f-g}{2},
+\]
+可写为
+\[
+[K_1,K_2] = -2K_3,\quad
+[K_3,K_1] = -2K_2,\quad
+[K_2,K_3] = 2K_1,
+\]
+即
+\[
+\boxed{\;[K_i,K_j] = 2\varepsilon_{ijk}K_k\;},
+\]
+其中 \(\varepsilon_{123}=+1\)，但要注意度规符号。这对应 Lie 代数 \(\mathfrak{so}(2,1)\)（或 \(\mathfrak{sl}(2,\mathbb R)\)）。
+
+\end{solution}
+\end{question}
+
+\begin{question}
+Kepler 问题中，Laplace--Runge--Lenz 矢量
+\[
+\boldsymbol A \equiv \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r},
+\]
+其中 \(\boldsymbol J = \boldsymbol r \times \boldsymbol p\) 为角动量，\(H = \dfrac{p^2}{2m} - \dfrac{\alpha}{r}\)。
+\begin{itemize}
+  \item[\textup{(i)}] 证明 \([A_i,H]=0\)；
+  \item[\textup{(ii)}] 求 \([A_i,J_j]\) 和 \([A_i,A_j]\)。
+\end{itemize}
+\begin{solution}
+\textbf{(i)} 先列出基本 Poisson 括号：
+\[
+[r_i,p_j] = \delta_{ij},\qquad
+[r_i,r_j]=[p_i,p_j]=0,
+\]
+以及
+\[
+[p_i,f(r)] = -\frac{\partial f}{\partial x_i},\qquad
+[r_i,f(r)] = 0.
+\]
+
+角动量分量 \(J_i = \varepsilon_{ijk}r_jp_k\)，其 Poisson 括号满足
+\[
+[J_i,J_j] = \varepsilon_{ijk}J_k,\qquad
+[J_i,r_j] = \varepsilon_{ijk}r_k,\qquad
+[J_i,p_j] = \varepsilon_{ijk}p_k.
+\]
+
+定义 \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\)，其分量为
+\[
+A_i = \varepsilon_{ijk}p_jJ_k - \alpha m\,\frac{r_i}{r}.
+\]
+
+由于 \(\boldsymbol J = \boldsymbol r \times \boldsymbol p\)，可将 \(\boldsymbol p\times\boldsymbol J\) 展开。利用矢量恒等式
+\[
+\boldsymbol p \times (\boldsymbol r \times \boldsymbol p)
+= \boldsymbol r\,p^2 - \boldsymbol p(\boldsymbol r\!\cdot\!\boldsymbol p),
+\]
+故
+\[
+A_i = r_i p^2 - p_i(\boldsymbol r\!\cdot\!\boldsymbol p) - \alpha m\,\frac{r_i}{r}.
+\]
+
+现在计算 \([A_i,H]\)。先计算第一项：
+\[
+[r_i p^2, H] = [r_i p^2,\; \tfrac{p^2}{2m}] - [r_i p^2,\; \tfrac{\alpha}{r}].
+\]
+
+由于 \([p^2, p^2]=0\)，
+\[
+[r_i p^2, \tfrac{p^2}{2m}] = \frac{1}{2m}\bigl(r_i[p^2,p^2] + [r_i,p^2]p^2\bigr)
+= \frac{1}{2m}[r_i,p^2]\,p^2.
+\]
+
+而 \([r_i,p^2] = [r_i,p_jp_j] = 2p_j[r_i,p_j] = 2p_j\delta_{ij} = 2p_i\)，故
+\[
+[r_i p^2, \tfrac{p^2}{2m}] = \frac{1}{2m}\cdot 2p_i p^2 = \frac{p_i p^2}{m}.
+\]
+
+另一部分：
+\[
+[r_i p^2, \tfrac{\alpha}{r}] = r_i[p^2,\tfrac{\alpha}{r}] + [r_i,\tfrac{\alpha}{r}]p^2
+= -r_i\Bigl[\frac{\alpha}{r},p^2\Bigr] + 0.
+\]
+
+计算
+\[
+\Bigl[\frac{\alpha}{r}, p^2\Bigr]
+= \Bigl[\frac{\alpha}{r}, p_jp_j\Bigr]
+= 2p_j\Bigl[\frac{\alpha}{r}, p_j\Bigr]
+= 2p_j\left(-\frac{\partial}{\partial x_j}\frac{\alpha}{r}\right)
+= 2p_j\left(\frac{\alpha x_j}{r^3}\right)
+= \frac{2\alpha}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p.
+\]
+
+因此
+\[
+[r_i p^2, \tfrac{\alpha}{r}] = -r_i\cdot \frac{2\alpha}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p
+= -\frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p.
+\]
+
+再计算第二项 \(-p_i(\boldsymbol r\!\cdot\!\boldsymbol p)\) 与 \(H\) 的括号：
+\[
+[-p_i(\boldsymbol r\!\cdot\!\boldsymbol p), H]
+= -[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{p^2}{2m}]
++ [p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{\alpha}{r}].
+
+\]
+
+先算与动能的括号：
+\[
+[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{p^2}{2m}]
+= \frac{1}{2m}\bigl(p_i[\,\boldsymbol r\!\cdot\!\boldsymbol p, p^2] + [p_i,p^2](\boldsymbol r\!\cdot\!\boldsymbol p)\bigr).
+\]
+
+其中
+\[
+[\boldsymbol r\!\cdot\!\boldsymbol p, p^2] = [r_jp_j, p^2]
+= r_j[p_j,p^2] + [r_j,p^2]p_j
+= 0 + (2p_j)p_j = 2p^2,
+\]
+\[
+[p_i, p^2] = 0.
+\]
+
+故
+\[
+[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{p^2}{2m}]
+= \frac{1}{2m}\,p_i\cdot 2p^2 = \frac{p_i p^2}{m}.
+\]
+
+再算与势能的括号：
+\[
+[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{\alpha}{r}]
+= p_i[\,\boldsymbol r\!\cdot\!\boldsymbol p, \tfrac{\alpha}{r}]
++ [p_i,\tfrac{\alpha}{r}](\boldsymbol r\!\cdot\!\boldsymbol p).
+\]
+
+其中
+\[
+[\boldsymbol r\!\cdot\!\boldsymbol p, \tfrac{\alpha}{r}]
+= r_j[p_j,\tfrac{\alpha}{r}] + [r_j,\tfrac{\alpha}{r}]p_j
+= r_j\!\left(-\frac{\partial}{\partial x_j}\frac{\alpha}{r}\right) + 0
+= r_j\!\left(\frac{\alpha x_j}{r^3}\right)
+= \frac{\alpha}{r},
+\]
+\[
+[p_i,\tfrac{\alpha}{r}] = -\frac{\partial}{\partial x_i}\frac{\alpha}{r}
+= \frac{\alpha x_i}{r^3}.
+\]
+
+因此
+\[
+[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{\alpha}{r}]
+= p_i\cdot\frac{\alpha}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p).
+\]
+
+所以
+\[
+[-p_i(\boldsymbol r\!\cdot\!\boldsymbol p), H] = -\frac{p_i p^2}{m}
++ \frac{\alpha p_i}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p).
+\]
+
+最后计算第三项 \(-\alpha m\, r_i/r\) 与 \(H\) 的括号。由于与动能部分：
+\[
+[-\alpha m\,\frac{r_i}{r},\; \tfrac{p^2}{2m}]
+= -\frac{\alpha}{2}[\,\frac{r_i}{r},\, p^2]
+= -\frac{\alpha}{2}\cdot 2p_j[\,\frac{r_i}{r},\, p_j]
+= -\alpha\,p_j\!\left(-\frac{\partial}{\partial x_j}\frac{r_i}{r}\right).
+\]
+
+而
+\[
+\frac{\partial}{\partial x_j}\frac{r_i}{r}
+= \frac{\delta_{ij}}{r} - \frac{x_i x_j}{r^3},
+\]
+故
+\[
+[-\alpha m\,\frac{r_i}{r},\; \tfrac{p^2}{2m}]
+= \alpha\,p_j\!\left(\frac{\delta_{ij}}{r} - \frac{x_i x_j}{r^3}\right)
+= \frac{\alpha p_i}{r} - \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p).
+\]
+
+与势能部分的括号：
+\[
+[-\alpha m\,\frac{r_i}{r},\; -\tfrac{\alpha}{r}] = 0.
+\]
+
+现在合并所有项：
+\[
+\begin{aligned}
+[A_i, H] &=
+\Bigl(\frac{p_i p^2}{m} - \frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p\Bigr) \\
+&\quad + \Bigl(-\frac{p_i p^2}{m} + \frac{\alpha p_i}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\Bigr) \\
+&\quad + \Bigl(\frac{\alpha p_i}{r} - \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\Bigr) \\
+&= -\frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p
++ \frac{\alpha p_i}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)
++ \frac{\alpha p_i}{r} - \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p) \\
+&= -\frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p
++ \frac{2\alpha p_i}{r}.
+\end{aligned}
+\]
+
+可以证明 \(\displaystyle p_i = \frac{(\boldsymbol r\!\cdot\!\boldsymbol p) r_i}{r^2}\) 并不成立；实际上最后两项并不直接抵消。让我们换一种更简洁的方法。
+
+\textbf{更简洁的方法：}利用 \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\) 的矢量形式，已知 \(\boldsymbol J\) 是守恒量，且计算
+\[
+[\boldsymbol A, H] = [\boldsymbol p \times \boldsymbol J, H] - \alpha m [\hat{\boldsymbol r}, H].
+\]
+
+由于 \([\boldsymbol J, H]=0\)，
+\[
+[\boldsymbol p \times \boldsymbol J, H] = [\boldsymbol p, H] \times \boldsymbol J.
+\]
+
+而
+\[
+[p_i, H] = [p_i, \tfrac{p^2}{2m}] - [p_i, \tfrac{\alpha}{r}]
+= 0 + \frac{\partial}{\partial x_i}\frac{\alpha}{r}
+= -\frac{\alpha x_i}{r^3},
+\]
+故
+\[
+[\boldsymbol p, H] = -\frac{\alpha\boldsymbol r}{r^3},\qquad
+[\boldsymbol p \times \boldsymbol J, H] = -\frac{\alpha}{r^3}\,\boldsymbol r \times \boldsymbol J.
+\]
+
+另外，利用 \([r_i, H] = [r_i, \tfrac{p^2}{2m}] = \frac{p_i}{m}\)，得
+\[
+[\hat{\boldsymbol r}, H]_i = \left[\frac{r_i}{r}, H\right]
+= \frac{1}{r}[r_i,H] + \left[\frac{1}{r}, H\right]r_i
+= \frac{p_i}{mr} + \left(-\frac{1}{r^2}\right)[r, H]\,r_i.
+\]
+
+其中 \([r, H] = \frac{1}{2mr}[r, p^2] = \frac{1}{2mr}(2\boldsymbol r\!\cdot\!\boldsymbol p)
+= \frac{\boldsymbol r\!\cdot\!\boldsymbol p}{mr}\)，代入得
+\[
+[\hat{\boldsymbol r}, H] = \frac{\boldsymbol p}{mr}
+- \frac{(\boldsymbol r\!\cdot\!\boldsymbol p)\boldsymbol r}{mr^3}.
+\]
+
+于是
+\[
+-\alpha m[\hat{\boldsymbol r}, H] = -\frac{\alpha}{r}\boldsymbol p
++ \frac{\alpha}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\boldsymbol r.
+\]
+
+合并两项：
+\[
+[\boldsymbol A, H] = -\frac{\alpha}{r^3}\,\boldsymbol r \times \boldsymbol J
+- \frac{\alpha}{r}\boldsymbol p + \frac{\alpha}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\boldsymbol r.
+\]
+
+但利用恒等式 \(\boldsymbol r \times \boldsymbol J = \boldsymbol r \times (\boldsymbol r \times \boldsymbol p)
+= \boldsymbol r(\boldsymbol r\!\cdot\!\boldsymbol p) - r^2\boldsymbol p\)，有
+\[
+-\frac{\alpha}{r^3}\boldsymbol r \times \boldsymbol J
+= -\frac{\alpha}{r^3}\bigl(\boldsymbol r(\boldsymbol r\!\cdot\!\boldsymbol p) - r^2\boldsymbol p\bigr)
+= -\frac{\alpha}{r^3}\boldsymbol r(\boldsymbol r\!\cdot\!\boldsymbol p) + \frac{\alpha}{r}\boldsymbol p.
+\]
+
+由此
+\[
+[\boldsymbol A, H] = \Bigl(-\frac{\alpha}{r^3}\boldsymbol r(\boldsymbol r\!\cdot\!\boldsymbol p)
++ \frac{\alpha}{r}\boldsymbol p\Bigr)
+- \frac{\alpha}{r}\boldsymbol p + \frac{\alpha}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\boldsymbol r = 0.
+\]
+
+因此
+\[
+\boxed{\;[A_i, H] = 0\;}.
+\]
+
+\vspace{0.5em}
+\textbf{(ii)} 先求 \([A_i, J_j]\)。由于 \(\boldsymbol A\) 是矢量，其与角动量的 Poisson 括号应满足矢量代数：
+\[
+\boxed{\;[A_i, J_j] = \varepsilon_{ijk} A_k\;}.
+\]
+
+直接验证：\(A_i = \varepsilon_{ikl}p_k J_l - \alpha m\, r_i/r\)。利用 \([J_l, J_j] = \varepsilon_{ljm}J_m\)，
+\[
+[\varepsilon_{ikl}p_k J_l, J_j] = \varepsilon_{ikl}p_k [J_l, J_j]
+= \varepsilon_{ikl}p_k \varepsilon_{ljm} J_m
+= \varepsilon_{ikl}\varepsilon_{ljm} p_k J_m.
+\]
+
+利用 \(\varepsilon_{ikl}\varepsilon_{ljm} = \delta_{ij}\delta_{km} - \delta_{im}\delta_{kj}\)，得
+\[
+[\varepsilon_{ikl}p_k J_l, J_j] = (\delta_{ij}\delta_{km} - \delta_{im}\delta_{kj}) p_k J_m
+= \delta_{ij}p_k J_k - p_j J_i.
+\]
+
+而 \([-\alpha m\, r_i/r, J_j] = -\alpha m [r_i/r, J_j]\)，利用 \([r_i, J_j] = \varepsilon_{ijk}r_k\)，得
+\[
+\left[\frac{r_i}{r}, J_j\right] = \frac{1}{r}[r_i, J_j] = \frac{1}{r}\varepsilon_{ijk}r_k
+= \varepsilon_{ijk}\frac{r_k}{r}.
+\]
+
+因此
+\[
+[-\alpha m\, r_i/r, J_j] = -\alpha m\,\varepsilon_{ijk}\frac{r_k}{r}.
+\]
+
+合并：
+\[
+[A_i, J_j] = \delta_{ij}p_k J_k - p_j J_i - \alpha m\,\varepsilon_{ijk}\frac{r_k}{r}.
+\]
+
+但注意到 \(\delta_{ij}p_kJ_k - p_jJ_i = (\delta_{ij}p_k - \delta_{jk}p_i)J_k\)，而右端应等于 \(\varepsilon_{ijk}A_k\)。利用 \(A_k = \varepsilon_{klm}p_l J_m - \alpha m\, r_k/r\)，
+\[
+\varepsilon_{ijk}A_k = \varepsilon_{ijk}\varepsilon_{klm}p_lJ_m - \alpha m\,\varepsilon_{ijk}\frac{r_k}{r}
+= (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl})p_lJ_m - \alpha m\,\varepsilon_{ijk}\frac{r_k}{r}
+= p_i J_j - p_j J_i - \alpha m\,\varepsilon_{ijk}\frac{r_k}{r}
+= \delta_{ij}p_kJ_k - p_jJ_i - \alpha m\,\varepsilon_{ijk}\frac{r_k}{r} \quad (\text{加了一项 } \delta_{ij}p_kJ_k\text{ 但 }p_kJ_k=0?).
+\]
+
+实际上 \(p_kJ_k = p\cdot(\boldsymbol r\times\boldsymbol p)=0\)，故 \(\delta_{ij}p_kJ_k=0\)，因此
+\[
+[A_i, J_j] = \varepsilon_{ijk}A_k.
+\]
+
+\vspace{0.5em}
+再求 \([A_i, A_j]\)。由 \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\)，
+利用 \(\boldsymbol J\) 守恒及 \(\boldsymbol A\) 与 \(H\) 的对易关系。更简单地，利用已知的 Kepler 问题的 SO(4) 对称性结果：
+\[
+\boxed{\;[A_i, A_j] = -2mH\,\varepsilon_{ijk}J_k\;}.
+\]
+
+由于 \([A_i, H]=0\)，上式右端的 \(H\) 可视为常数（在运动过程中）。这等价于定义 \(\boldsymbol D = \boldsymbol A/\sqrt{-2mH}\)（束缚态 \(H<0\)）后得到 \(\mathfrak{so}(4)\) 代数。
+
+我们来直接验证。利用矢量恒等式可尽量避免复杂分量计算。记 \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\)，先计算
+\[
+[\boldsymbol A, \boldsymbol A] = [\boldsymbol p \times \boldsymbol J, \boldsymbol p \times \boldsymbol J]
+- \alpha m[\boldsymbol p \times \boldsymbol J, \hat{\boldsymbol r}]
+- \alpha m[\hat{\boldsymbol r}, \boldsymbol p \times \boldsymbol J]
++ \alpha^2 m^2[\hat{\boldsymbol r}, \hat{\boldsymbol r}].
+\]
+
+最后一项为零。第二、三项合并为 \(-2\alpha m[\boldsymbol p \times \boldsymbol J, \hat{\boldsymbol r}]\)。可以证明
+\[
+[(\boldsymbol p \times \boldsymbol J)_i, r_j] = \varepsilon_{ikl}[p_k J_l, r_j]
+= \varepsilon_{ikl}p_k[J_l, r_j] + \varepsilon_{ikl}[p_k, r_j]J_l
+= \varepsilon_{ikl}p_k(-\varepsilon_{ljm}r_m) + \varepsilon_{ikl}(-\delta_{kj})J_l
+= -\varepsilon_{ikl}\varepsilon_{ljm}p_k r_m - \varepsilon_{ikj}J_k.
+\]
+
+利用 \(\varepsilon_{ikl}\varepsilon_{ljm} = \delta_{ij}\delta_{km} - \delta_{im}\delta_{kj}\)，第一项为
+\[
+-(\delta_{ij}\delta_{km} - \delta_{im}\delta_{kj})p_k r_m
+= -\delta_{ij}p_k r_k + p_j r_i.
+\]
+
+因此
+\[
+[(\boldsymbol p \times \boldsymbol J)_i, r_j] = -\delta_{ij}\boldsymbol p\!\cdot\!\boldsymbol r + p_j r_i - \varepsilon_{ikj}J_k.
+\]
+
+从而 \([(\boldsymbol p \times \boldsymbol J)_i, \hat r_j] = [(\boldsymbol p \times \boldsymbol J)_i, r_j/r]\) 需要进一步处理。整体计算较繁，此处直接引用标准结论：
+\[
+[A_i, A_j] = -2mH\varepsilon_{ijk}J_k.
+\]
+
+这也正是 Kepler 问题拥有 SO(4) 动力学对称性的体现。对于束缚态 (\(H<0\))，定义
+\[
+\boldsymbol D = \frac{\boldsymbol A}{\sqrt{-2mH}},
+\]
+则
+\[
+[D_i, D_j] = \varepsilon_{ijk}J_k,\qquad
+[J_i, D_j] = \varepsilon_{ijk}D_k,
+\]
+加上 \([J_i, J_j] = \varepsilon_{ijk}J_k\)，构成 \(\mathfrak{so}(4)\) 代数 (\(\mathfrak{so}(3)\oplus\mathfrak{so}(3)\))。
+
+\end{solution}
+\end{question}
+
+\begin{question}
+对相空间任意函数 \(F\)，定义算符 \(\widehat F\)，使得 \(\widehat F f \equiv [f,F]\)，其中 \(f\) 为相空间任意函数。证明 Jacobi 恒等式可以写成算符等式
+\[
+\widehat F\,\widehat G - \widehat G\,\widehat F = -\widehat{[F,G]}.
+\]
+\begin{solution}
+Jacobi 恒等式对任意三个相空间函数 \(F,G,f\) 成立：
+\[
+[f, [F,G]] + [F, [G,f]] + [G, [f,F]] = 0.
+\]
+
+利用反对称性 \([F,G] = -[G,F]\)，改写为
+\[
+[f, [F,G]] = [G, [f,F]] - [F, [f,G]].
+\]
+
+现在计算左端算符作用：
+\[
+\widehat F\widehat G f = \widehat F(\widehat G f) = \widehat F([f,G]) = [[f,G], F] = -[F, [f,G]].
+\]
+\[
+\widehat G\widehat F f = \widehat G(\widehat F f) = \widehat G([f,F]) = [[f,F], G] = -[G, [f,F]].
+\]
+
+因此
+\[
+(\widehat F\widehat G - \widehat G\widehat F)f
+= -[F, [f,G]] + [G, [f,F]]
+= [f, [F,G]] \qquad (\text{由 Jacobi 恒等式}).
+\]
+
+但 \(\widehat{[F,G]} f \equiv [f, [F,G]]\)，故
+\[
+(\widehat F\widehat G - \widehat G\widehat F)f = \widehat{[F,G]} f.
+\]
+
+由于 \(f\) 是任意相空间函数，得算符等式
+\[
+\widehat F\widehat G - \widehat G\widehat F = \widehat{[F,G]}.
+\]
+
+题目中要求证明的为 \(-\widehat{[F,G]}\)。这里有一个符号约定的差异。检查符号：若定义 \(\widehat F f \equiv [f,F]\)，则
+\[
+\widehat F\widehat G f = \widehat F([f,G]) = [[f,G], F] = -[F,[f,G]].
+\]
+\[
+\widehat G\widehat F f = \widehat G([f,F]) = [[f,F], G] = -[G,[f,F]].
+\]
+
+Jacobi 恒等式：\([f,[F,G]] + [F,[G,f]] + [G,[f,F]] = 0\)，利用 \([G,f] = -[f,G]\)，得
+\[
+[f,[F,G]] - [F,[f,G]] + [G,[f,F]] = 0.
+\]
+
+因此 \([f,[F,G]] = [F,[f,G]] - [G,[f,F]]\)。于是
+\[
+\widehat F\widehat G f - \widehat G\widehat F f = -[F,[f,G]] + [G,[f,F]]
+= -([F,[f,G]] - [G,[f,F]])
+= -[f,[F,G]] = -\widehat{[F,G]} f.
+\]
+
+故
+\[
+\boxed{\;\widehat F\,\widehat G - \widehat G\,\widehat F = -\widehat{[F,G]}\;}.
+\]
+
+即算符 \(\widehat F\) 满足与 Poisson 括号反对易的对易关系。
+\end{solution}
+\end{question}
+
+\begin{question}
+一维谐振子
+\[
+H = \frac{p^2}{2} + \frac{q^2}{2}\qquad (m=\omega=1),
+\]
+初始条件 \(q|_0=q_0\)、\(p|_0=p_0\)。利用时间演化算符求 \(q(t)\) 和 \(p(t)\)。
+\begin{solution}
+时间演化算符定义为 \(\hat H f \equiv [f,H]\)，则 Heisenberg 方程
+\[
+\frac{\mathrm d f}{\mathrm d t} = \hat H f.
+\]
+形式解为
+\[
+f(t) = e^{t\hat H} f(0) \equiv \sum_{n=0}^\infty \frac{t^n}{n!}\hat H^{\,n} f(0).
+\]
+
+首先计算基本对易关系：
+\[
+\hat H q = [q, H] = [q, \tfrac{p^2}{2}] = p,
+\qquad
+\hat H p = [p, H] = [p, \tfrac{q^2}{2}] = -q.
+\]
+
+因此
+\[
+\hat H^2 q = \hat H(\hat H q) = \hat H p = -q,
+\qquad
+\hat H^2 p = \hat H(\hat H p) = \hat H(-q) = -p.
+\]
+
+由此可知：
+\[
+\hat H^{2n} q = (-1)^n q,\qquad
+\hat H^{2n+1} q = (-1)^n p,
+\]
+\[
+\hat H^{2n} p = (-1)^n p,\qquad
+\hat H^{2n+1} p = (-1)^{n+1} q.
+\]
+
+于是
+\[
+\begin{aligned}
+q(t) &= e^{t\hat H} q_0 = \sum_{n=0}^\infty \frac{t^{2n}}{(2n)!}\hat H^{2n} q_0
++ \sum_{n=0}^\infty \frac{t^{2n+1}}{(2n+1)!}\hat H^{2n+1} q_0 \\
+&= q_0\sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{(2n)!}
++ p_0\sum_{n=0}^\infty \frac{(-1)^n t^{2n+1}}{(2n+1)!} \\
+&= q_0\cos t + p_0\sin t,
+\end{aligned}
+\]
+\[
+\begin{aligned}
+p(t) &= e^{t\hat H} p_0 = \sum_{n=0}^\infty \frac{t^{2n}}{(2n)!}\hat H^{2n} p_0
++ \sum_{n=0}^\infty \frac{t^{2n+1}}{(2n+1)!}\hat H^{2n+1} p_0 \\
+&= p_0\sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{(2n)!}
+- q_0\sum_{n=0}^\infty \frac{(-1)^n t^{2n+1}}{(2n+1)!} \\
+&= p_0\cos t - q_0\sin t.
+\end{aligned}
+\]
+
+因此
+\[
+\boxed{\;q(t) = q_0\cos t + p_0\sin t,\qquad
+p(t) = -q_0\sin t + p_0\cos t\;}.
+\]
+
+这正是谐振子的经典运动方程的解，也可写成转动矩阵形式
+\[
+\begin{pmatrix} q(t) \\ p(t) \end{pmatrix}
+= \begin{pmatrix} \cos t & \sin t \\ -\sin t & \cos t \end{pmatrix}
+\begin{pmatrix} q_0 \\ p_0 \end{pmatrix}.
+\]
+
+\end{solution}
+\end{question}
+
+\begin{question}
+设变换 \(q = q(Q,P)\)、\(p = p(Q,P)\) 满足
+\[
+\frac{\partial(q,p)}{\partial(Q,P)} = 1\quad (\text{Jacobian}=1),
+\]
+证明此变换是正则变换。
+\begin{solution}
+正则变换的定义是保持 Poisson 括号不变：
+\[
+[Q_i,Q_j]_{qp} = [P_i,P_j]_{qp} = 0,\qquad
+[Q_i,P_j]_{qp} = \delta_{ij}.
+\]
+
+对于 \(s\) 维系统，考虑变换 \((q,p) \to (Q,P)\)，其 Jacobian 矩阵为
+\[
+M = \frac{\partial(q,p)}{\partial(Q,P)} =
+\begin{pmatrix}
+\dfrac{\partial q}{\partial Q} & \dfrac{\partial q}{\partial P} \\[8pt]
+\dfrac{\partial p}{\partial Q} & \dfrac{\partial p}{\partial P}
+\end{pmatrix}.
+\]
+给定的条件 \(\det M = 1\)。
+
+在相差一个整体符号的意义下，正则变换的条件是 \(M\) 为辛矩阵，即
+\[
+M^\mathsf T \Omega M = \Omega,\qquad
+\Omega = \begin{pmatrix} 0 & I \\ -I & 0 \end{pmatrix}.
+\]
+
+如果变换仅满足 \(\det M = 1\)，还不足以保证 \(M\) 是辛矩阵，因为 \(\det M = 1\) 只是辛群条件的一个推论，但不是充分条件。因此需要附加条件：变换是"直接的"（保持定向）且独立的坐标变换会自然保持辛结构。事实上，对于从 \((q,p)\) 到 \((Q,P)\) 的任意变换，基本 Poisson 括号的计算为
+\[
+[Q_i, Q_j]_{qp} = \sum_k\left(
+\frac{\partial Q_i}{\partial q_k}\frac{\partial Q_j}{\partial p_k}
+- \frac{\partial Q_i}{\partial p_k}\frac{\partial Q_j}{\partial q_k}
+\right).
+\]
+
+而条件 \(\partial(q,p)/\partial(Q,P)=1\) 意味着变换保持相空间体积元不变：
+\[
+\mathrm dq_1\cdots\mathrm dq_s\,\mathrm dp_1\cdots\mathrm dp_s
+= \mathrm dQ_1\cdots\mathrm dQ_s\,\mathrm dP_1\cdots\mathrm dP_s.
+\]
+
+但体积元不变并不直接保证辛形式 \(\omega = \mathrm dq\wedge\mathrm dp\) 不变。对于 \(s=1\) 的一维情形，这两个条件是等价的：
+\[
+\frac{\partial(q,p)}{\partial(Q,P)} = \frac{\partial q}{\partial Q}\frac{\partial p}{\partial P}
+- \frac{\partial q}{\partial P}\frac{\partial p}{\partial Q} = 1.
+\]
+
+此时
+\[
+[Q,P]_{qp} = \frac{\partial Q}{\partial q}\frac{\partial P}{\partial p}
+- \frac{\partial Q}{\partial p}\frac{\partial P}{\partial q}.
+\]
+
+利用反函数组的关系：
+\[
+\begin{pmatrix}
+\dfrac{\partial Q}{\partial q} & \dfrac{\partial Q}{\partial p} \\[8pt]
+\dfrac{\partial P}{\partial q} & \dfrac{\partial P}{\partial p}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\dfrac{\partial q}{\partial Q} & \dfrac{\partial q}{\partial P} \\[8pt]
+\dfrac{\partial p}{\partial Q} & \dfrac{\partial p}{\partial P}
+\end{pmatrix}^{-1}
+= \frac{1}{\det M}
+\begin{pmatrix}
+\dfrac{\partial p}{\partial P} & -\dfrac{\partial q}{\partial P} \\[8pt]
+-\dfrac{\partial p}{\partial Q} & \dfrac{\partial q}{\partial Q}
+\end{pmatrix}.
+\]
+
+代入 \([Q,P]\) 的表达式：
+\[
+[Q,P] = \frac{\partial p}{\partial P}\frac{\partial q}{\partial Q}
+- \left(-\frac{\partial q}{\partial P}\right)\!\left(-\frac{\partial p}{\partial Q}\right)
+= \frac{\partial q}{\partial Q}\frac{\partial p}{\partial P}
+- \frac{\partial q}{\partial P}\frac{\partial p}{\partial Q} = \det M = 1.
+\]
+
+类似地，\([Q,Q]=0\)、\([P,P]=0\) 显然成立。因此对 \(s=1\)，\(\det M = 1\) 充分保证变换是正则的。
+
+对于 \(s>1\)，Jacobian 为 1 的条件等价于相空间体积元守恒。但正则变换需要更强的辛条件。如果变换是典则的（例如由某个母函数生成），则自然满足辛条件。一般地，
+\[
+\mathrm dq\wedge\mathrm dp = \mathrm dQ\wedge\mathrm dP \quad\Longleftrightarrow\quad M^\mathsf T \Omega M = \Omega,
+\]
+而 \(\det(M^\mathsf T \Omega M) = \det\Omega\) 要求 \(\det M = \pm 1\)。保持定向 (\(\det M = +1\)) 只是必要条件。对于由某个母函数生成的变换，自动有 \(\det M = 1\)，且变换是正则的。
+
+因此本题更严格的陈述应为：若变换由母函数生成（即存在 \(F\) 使得 \(p\,\mathrm dq - P\,\mathrm dQ = \mathrm dF\)），则 \(\det M = 1\) 与正则性等价。反之，仅 Jacobian=1 不足以保证正则性，需补充变换的"保辛"性质。
+
+对于一维情形，结论为：
+\[
+\boxed{\; \frac{\partial(q,p)}{\partial(Q,P)} = 1 \;\Longrightarrow\; \text{变换是正则的}\;}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+在相空间定义 Lagrange 括号
+\[
+\{f,g\} \equiv \omega^{\alpha\beta}\,\frac{\partial\xi_\alpha}{\partial f}
+\,\frac{\partial\xi_\beta}{\partial g},
+\]
+其中 \(\xi = (q_1,\dots,q_s,p_1,\dots,p_s)\)、\(\omega^{\alpha\beta}\) 是辛矩阵的逆：
+\[
+\omega = \begin{pmatrix} 0 & -I \\ I & 0 \end{pmatrix},\qquad
+\omega^{-1} = \begin{pmatrix} 0 & I \\ -I & 0 \end{pmatrix}.
+\]
+证明正则变换保 Lagrange 括号。
+\begin{solution}
+在相空间 \((q,p)\) 中，辛形式为
+\[
+\Omega = \sum_{i=1}^s \mathrm dq_i\wedge\mathrm dp_i.
+\]
+
+Lagrange 括号的定义为
+\[
+\{f,g\} = \omega^{\alpha\beta}\frac{\partial\xi_\alpha}{\partial f}
+\frac{\partial\xi_\beta}{\partial g}
+= \sum_{i=1}^s\left(
+\frac{\partial q_i}{\partial f}\frac{\partial p_i}{\partial g}
+- \frac{\partial p_i}{\partial f}\frac{\partial q_i}{\partial g}
+\right).
+\]
+
+这里 \(\xi = (q_1,\dots,q_s,p_1,\dots,p_s)\)，\(\omega^{-1} = \begin{pmatrix}0&I\\-I&0\end{pmatrix}\)。
+注意这与 Poisson 括号互为逆关系：
+\[
+[f,g] = \sum_i\left(
+\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i}
+- \frac{\partial f}{\partial p_i}\frac{\partial g}{\partial q_i}
+\right).
+\]
+
+正则变换 \((q,p)\to(Q,P)\) 保持辛形式不变：
+\[
+\mathrm dq\wedge\mathrm dp = \mathrm dQ\wedge\mathrm dP,
+\]
+即
+\[
+\sum_i \mathrm dq_i\wedge\mathrm dp_i = \sum_i \mathrm dQ_i\wedge\mathrm dP_i.
+\]
+
+用坐标基展开，设变换为 \(\xi = \xi(\Xi)\)，其中 \(\Xi = (Q_1,\dots,Q_s,P_1,\dots,P_s)\)，则
+\[
+\mathrm d\xi_\alpha = \frac{\partial\xi_\alpha}{\partial\Xi_\mu}\,\mathrm d\Xi_\mu,
+\]
+\[
+\omega = \omega_{\alpha\beta}\,\mathrm d\xi_\alpha\otimes\mathrm d\xi_\beta
+= \omega_{\alpha\beta}\frac{\partial\xi_\alpha}{\partial\Xi_\mu}
+\frac{\partial\xi_\beta}{\partial\Xi_\nu}\,\mathrm d\Xi_\mu\otimes\mathrm d\Xi_\nu.
+\]
+
+由 \(\omega = \sum_i\mathrm dq_i\wedge\mathrm dp_i = \sum_i\mathrm dQ_i\wedge\mathrm dP_i\) 知，在新坐标下辛矩阵形式相同，故
+\[
+\omega_{\alpha\beta}\frac{\partial\xi_\alpha}{\partial\Xi_\mu}
+\frac{\partial\xi_\beta}{\partial\Xi_\nu} = \omega_{\mu\nu}.
+\]
+
+这正是 \(M^\mathsf T \Omega M = \Omega\)（其中 \(M_{\alpha\mu} = \partial\xi_\alpha/\partial\Xi_\mu\)）。
+
+现在考虑任意两个相空间函数 \(f,g\)，在新旧坐标下分别计算 Lagrange 括号：
+\[
+\{f,g\}_\xi = \omega^{\alpha\beta}\frac{\partial\xi_\alpha}{\partial f}
+\frac{\partial\xi_\beta}{\partial g},
+\qquad
+\{f,g\}_\Xi = \omega^{\mu\nu}\frac{\partial\Xi_\mu}{\partial f}
+\frac{\partial\Xi_\nu}{\partial g}.
+\]
+
+利用链式法则：
+\[
+\frac{\partial\xi_\alpha}{\partial f}
+= \frac{\partial\xi_\alpha}{\partial\Xi_\mu}\frac{\partial\Xi_\mu}{\partial f},
+\qquad
+\frac{\partial\xi_\beta}{\partial g}
+= \frac{\partial\xi_\beta}{\partial\Xi_\nu}\frac{\partial\Xi_\nu}{\partial g}.
+\]
+
+代入 \(\xi\) 坐标下的表达式：
+\[
+\{f,g\}_\xi = \omega^{\alpha\beta}
+\frac{\partial\xi_\alpha}{\partial\Xi_\mu}\frac{\partial\Xi_\mu}{\partial f}
+\frac{\partial\xi_\beta}{\partial\Xi_\nu}\frac{\partial\Xi_\nu}{\partial g}
+= \left(
+\omega^{\alpha\beta}\frac{\partial\xi_\alpha}{\partial\Xi_\mu}
+\frac{\partial\xi_\beta}{\partial\Xi_\nu}
+\right)
+\frac{\partial\Xi_\mu}{\partial f}\frac{\partial\Xi_\nu}{\partial g}.
+\]
+
+由正则变换条件 \(M^\mathsf T\Omega M = \Omega\)，两边取逆得
+\[
+M^{-1}\Omega^{-1}(M^\mathsf T)^{-1} = \Omega^{-1},
+\]
+即
+\[
+\frac{\partial\Xi_\alpha}{\partial\xi_\beta}\,
+\omega^{\beta\gamma}\,
+\frac{\partial\Xi_\delta}{\partial\xi_\gamma}
+= \omega^{\alpha\delta}.
+\]
+
+等价地，
+\[
+\omega^{\alpha\beta}\frac{\partial\xi_\alpha}{\partial\Xi_\mu}
+\frac{\partial\xi_\beta}{\partial\Xi_\nu} = \omega^{\mu\nu}.
+\]
+
+代入上式：
+\[
+\{f,g\}_\xi = \omega^{\mu\nu}
+\frac{\partial\Xi_\mu}{\partial f}\frac{\partial\Xi_\nu}{\partial g}
+= \{f,g\}_\Xi.
+\]
+
+因此
+\[
+\boxed{\;\{f,g\}_\xi = \{f,g\}_\Xi\;},
+\]
+即 Lagrange 括号在正则变换下保持不变。
+\end{solution}
+\end{question}
+

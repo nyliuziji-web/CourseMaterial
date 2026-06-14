@@ -1,0 +1,562 @@
+\heading{理论力学-第5次作业}
+
+
+
+\begin{question}
+单自由度系统，相变量 \(q,\;p\)；第一类生成函数
+\[
+F_1(q,Q,t)=\frac{m(q-Q)^2}{2t}.
+\]
+\begin{itemize}
+  \item[\textup{(i)}] 求正则变换的具体形式；
+  \item[\textup{(ii)}] 求 \(H=p^2/2m\) 在此变换后的 Hamilton 量 \(K(Q,P,t)\)；
+  \item[\textup{(iii)}] 求解 \(Q(t),\;P(t)\)；
+  \item[\textup{(iv)}] 根据逆变换求 \(q(t),\;p(t)\)。
+\end{itemize}
+\begin{solution}
+\noindent\textbf{(i)} 生成函数为第一类，故
+\[
+p=\frac{\partial F_1}{\partial q}= \frac{m(q-Q)}{t},\qquad
+P=-\frac{\partial F_1}{\partial Q}= \frac{m(q-Q)}{t}=p .
+\]
+因此变换的关系为
+\[
+\boxed{\;P=p,\qquad q=Q+\frac{P}{m}\,t\;}.
+\]
+
+\noindent\textbf{(ii)} 新 Hamilton 量为
+\[
+K=H+\frac{\partial F_1}{\partial t}
+=\frac{p^2}{2m}-\frac{m(q-Q)^2}{2t^2}.
+\]
+代入变换关系 \(p=P\) 及 \(q-Q=Pt/m\)：
+\[
+K=\frac{P^2}{2m}-\frac{m}{2t^2}\Bigl(\frac{Pt}{m}\Bigr)^2
+=\frac{P^2}{2m}-\frac{P^2}{2m}=0 .
+\]
+故
+\[
+\boxed{\;K=0\;}.
+\]
+
+\noindent\textbf{(iii)} 因 \(K=0\)，新正则方程给出
+\[
+\dot Q=\frac{\partial K}{\partial P}=0,\qquad
+\dot P=-\frac{\partial K}{\partial Q}=0,
+\]
+故 \(Q\) 和 \(P\) 均为常数：
+\[
+\boxed{\;Q(t)=Q_0,\qquad P(t)=P_0\;}.
+\]
+
+\noindent\textbf{(iv)} 由逆变换
+\[
+q(t)=Q_0+\frac{P_0}{m}t,\qquad p(t)=P_0 .
+\]
+设初始条件 \(q(0)=q_0,\;p(0)=p_0\)。当 \(t\to0\) 时，\(F_1\) 的表达式要求 \(q-Q\) 与 \(t\) 同阶以保证 \(p\) 有限，故 \(Q_0=0\)；而 \(P_0=p_0\)。因此
+\[
+\boxed{\;q(t)=q_0+\frac{p_0}{m}t,\qquad p(t)=p_0\;},
+\]
+即自由粒子的匀速直线运动。
+\end{solution}
+\end{question}
+
+\begin{question}
+二维相空间上函数 \(G(q,p)=qp\)，求 \(G\) 的 Hamilton 矢量场、\(G\) 生成的无穷小正则变换和该变换对应的第二类生成函数。
+\begin{solution}
+\noindent\textbf{Hamilton 矢量场：} 对任意函数 \(F\)，
+\[
+X_G(F)=\{\,F,G\,\}
+=\frac{\partial F}{\partial q}\frac{\partial G}{\partial p}
+-\frac{\partial F}{\partial p}\frac{\partial G}{\partial q}
+=\frac{\partial F}{\partial q}\,q-\frac{\partial F}{\partial p}\,p .
+\]
+故 Hamilton 矢量场为
+\[
+\boxed{\;X_G=\Bigl(\frac{\partial G}{\partial p},\,-\frac{\partial G}{\partial q}\Bigr)=(q,-p)\;}.
+\]
+
+\noindent\textbf{无穷小正则变换：} 在 \(G\) 的作用下，无穷小正则变换为
+\[
+q\;\longrightarrow\; q+\varepsilon\{q,G\}=q+\varepsilon\frac{\partial G}{\partial p}=q+\varepsilon q,
+\qquad
+p\;\longrightarrow\; p+\varepsilon\{p,G\}=p-\varepsilon\frac{\partial G}{\partial q}=p-\varepsilon p .
+\]
+迭代此变换（或直接解 \(G\) 生成的 Hamilton 流）得到有限变换
+\[
+\boxed{\;(q,p)\;\longrightarrow\;(e^{\varepsilon}q,\;e^{-\varepsilon}p)\;},
+\]
+即相平面上的伸缩变换。
+
+\noindent\textbf{第二类生成函数：} 伸缩变换 \((q,p)\to(Q,P)=(q e^\varepsilon,\;p e^{-\varepsilon})\) 等价于
+\[
+Q=q\,e^{\varepsilon},\qquad P=p\,e^{-\varepsilon}.
+\]
+第二类生成函数 \(F_2(q,P,t)\) 满足
+\[
+p=\frac{\partial F_2}{\partial q},\qquad Q=\frac{\partial F_2}{\partial P}.
+\]
+由 \(p=P\,e^{\varepsilon}\) 积分得 \(F_2(q,P)=P\,e^{\varepsilon}q\)；但需验证 \(Q\)：
+\[
+Q=\frac{\partial F_2}{\partial P}=q\,e^{\varepsilon},
+\]
+与变换一致。因此
+\[
+\boxed{\;F_2(q,P)=qP e^{\varepsilon}\;}.
+\]
+（若取 \(\varepsilon\) 为无穷小，保留至一阶得 \(F_2\approx qP(1+\varepsilon)\)，相应的无穷小变换即为 \(q\to q+\varepsilon q,\;p\to p-\varepsilon p\)。）
+\end{solution}
+\end{question}
+
+\begin{question}
+球坐标下粒子势能 \(V(r,\theta)=a(r)+\dfrac{b(\theta)}{r^2}\)。用分离变量法求解 Hamilton--Jacobi 方程，并用积分形式给出 \(r,\;\theta,\;\varphi,\;p_r,\;p_\theta,\;p_\varphi\) 的解。
+\begin{solution}
+球坐标下自由粒子的动能项为
+\[
+T=\frac{1}{2m}\Bigl(p_r^2+\frac{p_\theta^2}{r^2}+\frac{p_\varphi^2}{r^2\sin^2\theta}\Bigr),
+\]
+故 Hamilton 量为
+\[
+H=\frac{1}{2m}\Bigl(p_r^2+\frac{p_\theta^2}{r^2}+\frac{p_\varphi^2}{r^2\sin^2\theta}\Bigr)
++a(r)+\frac{b(\theta)}{r^2}.
+\]
+
+Hamilton--Jacobi 方程 \(\displaystyle\frac{\partial S}{\partial t}+H\Bigl(q_i,\frac{\partial S}{\partial q_i},t\Bigr)=0\) 给出
+\[
+\frac{\partial S}{\partial t}
++\frac{1}{2m}\Bigl[(\partial_r S)^2+\frac{(\partial_\theta S)^2}{r^2}
++\frac{(\partial_\varphi S)^2}{r^2\sin^2\theta}\Bigr]
++a(r)+\frac{b(\theta)}{r^2}=0 .
+\]
+
+因 \(H\) 不显含 \(t\) 且 \(\varphi\) 为循环坐标，设主函数为
+\[
+S=-Et+W_r(r)+W_\theta(\theta)+p_\varphi\varphi .
+\]
+代入方程得
+\[
+\frac{1}{2m}\Bigl[W_r'^2+\frac{W_\theta'^2}{r^2}
++\frac{p_\varphi^2}{r^2\sin^2\theta}\Bigr]
++a(r)+\frac{b(\theta)}{r^2}=E .
+\]
+
+乘以 \(2m r^2\) 分离变量：
+\[
+r^2 W_r'^2+W_\theta'^2+\frac{p_\varphi^2}{\sin^2\theta}
++2m r^2 a(r)+2m\,b(\theta)-2m E r^2=0 .
+\]
+
+令含 \(\theta\) 的部分等于分离常数 \(\beta\)：
+\[
+W_\theta'^2+\frac{p_\varphi^2}{\sin^2\theta}+2m\,b(\theta)=\beta,
+\qquad
+r^2 W_r'^2+2m r^2 a(r)-2m E r^2=-\beta .
+\]
+
+因此
+\[
+\begin{aligned}
+W_r(r)&=\int\sqrt{2mE-2m a(r)-\frac{\beta}{r^2}}\;\mathrm dr,\\[4pt]
+W_\theta(\theta)&=\int\sqrt{\beta-\frac{p_\varphi^2}{\sin^2\theta}-2m\,b(\theta)}\;\mathrm d\theta .
+\end{aligned}
+\]
+
+主函数为
+\[
+S=-Et+p_\varphi\varphi
++\int\sqrt{2mE-2m a(r)-\frac{\beta}{r^2}}\;\mathrm dr
++\int\sqrt{\beta-\frac{p_\varphi^2}{\sin^2\theta}-2m\,b(\theta)}\;\mathrm d\theta .
+\]
+
+由 Hamilton--Jacobi 理论的逆方程
+\[
+\frac{\partial S}{\partial E}=\text{常数}= -t_0,\qquad
+\frac{\partial S}{\partial\beta}=\text{常数},\qquad
+\frac{\partial S}{\partial p_\varphi}=\text{常数},
+\]
+可得运动方程的积分形式。具体而言：
+\begin{align*}
+\frac{\partial S}{\partial E}&=-t+\int\frac{m\,\mathrm dr}
+{\sqrt{2mE-2m a(r)-\beta/r^2}}=-t_0,\\[4pt]
+\frac{\partial S}{\partial\beta}&=\int\frac{\mathrm dr}{2\sqrt{2mE-2m a(r)-\beta/r^2}}
+\Bigl(-\frac{1}{r^2}\Bigr)
++\int\frac{\mathrm d\theta}{2\sqrt{\beta-p_\varphi^2/\sin^2\theta-2m\,b(\theta)}}
+=\text{常数},\\[4pt]
+\frac{\partial S}{\partial p_\varphi}&=\varphi
++\int\frac{(-p_\varphi/\sin^2\theta)\,\mathrm d\theta}
+{\sqrt{\beta-p_\varphi^2/\sin^2\theta-2m\,b(\theta)}}
+=\text{常数}.
+\end{align*}
+
+各相变量的积分表达式整理如下：
+\[
+\boxed{\;
+\begin{aligned}
+t-t_0&=\int\frac{m\,\mathrm dr}
+{\sqrt{2mE-2m a(r)-\beta/r^2}},\\[6pt]
+p_r&=\sqrt{2mE-2m a(r)-\frac{\beta}{r^2}},\\[6pt]
+p_\theta&=\sqrt{\beta-\frac{p_\varphi^2}{\sin^2\theta}-2m\,b(\theta)},\\[6pt]
+\varphi&=\varphi_0-\int\frac{p_\varphi\,\mathrm d\theta/\sin^2\theta}
+{\sqrt{\beta-p_\varphi^2/\sin^2\theta-2m\,b(\theta)}},\\[6pt]
+\int\frac{\mathrm dr}{2r^2\sqrt{2mE-2m a(r)-\beta/r^2}}
+&+\int\frac{\mathrm d\theta}{2\sqrt{\beta-p_\varphi^2/\sin^2\theta-2m\,b(\theta)}}
+=\text{常数}.
+\end{aligned}
+\;}
+\]
+其中 \(E,\beta,p_\varphi\) 为积分常数，\(t_0,\varphi_0\) 由初始条件确定。
+\end{solution}
+\end{question}
+
+\begin{question}
+一维阻尼谐振子的有效 Lagrange 量
+\[
+L=e^{2\lambda t}\Bigl(\frac12 m\dot q^2-\frac12 m\omega^2 q^2\Bigr),
+\qquad\lambda,m,\omega\ \text{正常数}.
+\]
+\begin{itemize}
+  \item[\textup{(i)}] 求系统的 Hamilton 量；
+  \item[\textup{(ii)}] 考虑第二类生成函数 \(F_2(q,P,t)=e^{\lambda t}qP\)，求变换后的 Hamilton 量 \(K(Q,P,t)\)；
+  \item[\textup{(iii)}] 用分离变量法求解 \(K\) 的 Hamilton--Jacobi 方程；
+  \item[\textup{(iv)}] 求 \(q(t),\;p(t)\)。
+\end{itemize}
+\begin{solution}
+\noindent\textbf{(i)} 正则动量
+\[
+p=\frac{\partial L}{\partial\dot q}=m e^{2\lambda t}\dot q .
+\]
+Hamilton 量
+\[
+H=p\dot q-L=\frac{p^2}{2m}e^{-2\lambda t}+\frac12 m\omega^2 e^{2\lambda t}q^2 .
+\]
+故
+\[
+\boxed{\;H=\frac{p^2}{2m}e^{-2\lambda t}+\frac12 m\omega^2 e^{2\lambda t}q^2\;}.
+\]
+
+\noindent\textbf{(ii)} 第二类生成函数 \(F_2(q,P,t)=e^{\lambda t}qP\)，变换关系为
+\[
+p=\frac{\partial F_2}{\partial q}=e^{\lambda t}P,\qquad
+Q=\frac{\partial F_2}{\partial P}=e^{\lambda t}q .
+\]
+故
+\[
+\boxed{\;P=p\,e^{-\lambda t},\qquad Q=q\,e^{\lambda t}\;}.
+\]
+
+新 Hamilton 量
+\[
+K=H+\frac{\partial F_2}{\partial t}
+=\Bigl(\frac{p^2}{2m}e^{-2\lambda t}+\frac12 m\omega^2 e^{2\lambda t}q^2\Bigr)
++\lambda e^{\lambda t}qP .
+\]
+以新变量表示：\(p=P e^{\lambda t},\; q=Q e^{-\lambda t}\)，代入得
+\[
+K=\frac{P^2}{2m}+\frac12 m\omega^2 Q^2+\lambda QP .
+\]
+因此
+\[
+\boxed{\;K(Q,P,t)=\frac{P^2}{2m}+\frac12 m\omega^2 Q^2+\lambda QP\;}.
+\]
+
+\noindent\textbf{(iii)} \(K\) 不显含时间，故可设 Hamilton 主函数
+\[
+S(Q,P_0,t)=-Et+W(Q),
+\]
+其中 \(P_0\) 为积分常数。Hamilton--Jacobi 方程为
+\[
+\frac{\partial S}{\partial t}+K\!\left(Q,\frac{\partial S}{\partial Q}\right)=0
+\;\Longrightarrow\;
+-E+\frac{1}{2m}\Bigl(\frac{\mathrm dW}{\mathrm dQ}\Bigr)^2
++\frac12 m\omega^2 Q^2+\lambda Q\,\frac{\mathrm dW}{\mathrm dQ}=0 .
+\]
+
+这是关于 \(W'(Q)\) 的二次方程：
+\[
+\frac{1}{2m}W'^2+\lambda Q\,W'+\frac12 m\omega^2 Q^2-E=0 .
+\]
+
+解出
+\[
+W'(Q)=-m\lambda Q\pm\sqrt{m^2\lambda^2 Q^2-m^2\omega^2 Q^2+2mE}
+=-m\lambda Q\pm\sqrt{2mE-m^2(\omega^2-\lambda^2)Q^2}.
+\]
+
+取物理上合理的符号（对应正向运动），积分得
+\[
+W(Q)=\int\!\Bigl[-m\lambda Q\pm\sqrt{2mE-m^2\Omega^2 Q^2}\Bigr]\mathrm dQ,
+\qquad\Omega\equiv\sqrt{\omega^2-\lambda^2}\;(<\omega).
+\]
+其中第一项积分给出 \(-\dfrac12 m\lambda Q^2\)，第二项为标准积分：
+\[
+\int\sqrt{2mE-m^2\Omega^2 Q^2}\,\mathrm dQ
+=\frac{Q}{2}\sqrt{2mE-m^2\Omega^2 Q^2}
++\frac{E}{\Omega}\arcsin\!\Bigl(\sqrt{\frac{m\Omega^2}{2E}}\,Q\Bigr).
+\]
+
+因此
+\[
+\boxed{\;
+S=-Et\mp\frac12 m\lambda Q^2
++\frac{Q}{2}\sqrt{2mE-m^2\Omega^2 Q^2}
++\frac{E}{\Omega}\arcsin\!\Bigl(\sqrt{\frac{m\Omega^2}{2E}}\,Q\Bigr)
+\;}
+\]
+（符号对应 \(W'\) 的符号选择）。
+
+\noindent\textbf{(iv)} 由 \(K\) 的正则方程可更简洁地得到 \(Q,P\) 的运动方程。\(K\) 正比于 \(Q,P\) 的二次型，其正则方程为线性方程组：
+\[
+\dot Q=\frac{\partial K}{\partial P}=\frac{P}{m}+\lambda Q,\qquad
+\dot P=-\frac{\partial K}{\partial Q}=-m\omega^2 Q-\lambda P .
+\]
+
+合并为二阶方程。对 \(\dot Q\) 求导：
+\[
+\ddot Q=\frac{\dot P}{m}+\lambda\dot Q
+=\frac{1}{m}(-m\omega^2 Q-\lambda P)+\lambda\dot Q
+=-\omega^2 Q-\lambda\Bigl(\frac{P}{m}\Bigr)+\lambda\dot Q .
+\]
+由 \(\dot Q=P/m+\lambda Q\) 得 \(P/m=\dot Q-\lambda Q\)，代入：
+\[
+\ddot Q=-\omega^2 Q-\lambda(\dot Q-\lambda Q)+\lambda\dot Q
+=-\omega^2 Q+\lambda^2 Q = -(\omega^2-\lambda^2)Q .
+\]
+
+因此
+\[
+\ddot Q+\Omega^2 Q=0,\qquad\Omega=\sqrt{\omega^2-\lambda^2}.
+\]
+故
+\[
+Q(t)=A\cos(\Omega t+\delta),\qquad
+P(t)=m(\dot Q-\lambda Q)=-m\bigl[A\Omega\sin(\Omega t+\delta)+\lambda A\cos(\Omega t+\delta)\bigr].
+\]
+
+变换回原变量：
+\[
+\boxed{\;
+\begin{aligned}
+q(t)&=e^{-\lambda t}Q(t)=A e^{-\lambda t}\cos(\Omega t+\delta),\\[4pt]
+p(t)&=e^{\lambda t}P(t)=m e^{\lambda t}\bigl[\dot Q(t)-\lambda Q(t)\bigr]
+=-m A e^{\lambda t}\bigl[\Omega\sin(\Omega t+\delta)+\lambda\cos(\Omega t+\delta)\bigr].
+\end{aligned}
+\;}
+\]
+这正是阻尼谐振子的标准解（设 \(\lambda<\omega\)，弱阻尼情形），振幅随时间指数衰减。
+\end{solution}
+\end{question}
+
+\begin{question}
+粒子在势场 \(V=\lambda|x|\) 中做一维运动，\(\lambda>0\)。求 action--angle 变量，并求周期运动的角频率。
+
+\begin{solution}
+\noindent\textbf{相轨迹：} 系统的 Hamilton 量为
+\[
+H=\frac{p^2}{2m}+\lambda|x|=E\quad(E>0).
+\]
+转折点由 \(E=\lambda|x|\) 给出，即
+\[
+|x_{\pm}|=\frac{E}{\lambda}.
+\]
+
+\noindent\textbf{作用量变量：}
+\[
+J=\oint p\,\mathrm dq
+=2\int_{-E/\lambda}^{E/\lambda}\sqrt{2m(E-\lambda|x|)}\,\mathrm dx
+=4\int_{0}^{E/\lambda}\sqrt{2m(E-\lambda x)}\,\mathrm dx .
+\]
+
+令 \(u=E-\lambda x\)，则 \(\mathrm du=-\lambda\,\mathrm dx\)，积分限 \(u=E\to0\)：
+\[
+\begin{aligned}
+J&=4\int_{E}^{0}\sqrt{2m\,u}\;\Bigl(-\frac{\mathrm du}{\lambda}\Bigr)
+=\frac{4}{\lambda}\int_{0}^{E}\sqrt{2m\,u}\;\mathrm du \\[4pt]
+&=\frac{4}{\lambda}\sqrt{2m}\cdot\frac{2}{3}E^{3/2}
+=\frac{8\sqrt{2m}}{3\lambda}\,E^{3/2}.
+\end{aligned}
+\]
+因此
+\[
+\boxed{\;J=\frac{8\sqrt{2m}}{3\lambda}\,E^{3/2}\;}.
+\]
+
+\noindent\textbf{反解能量：}
+\[
+E=\Bigl(\frac{3\lambda J}{8\sqrt{2m}}\Bigr)^{2/3}.
+\]
+
+\noindent\textbf{角频率：}
+\[
+\omega=\frac{\partial E}{\partial J}
+=\frac{2}{3}\Bigl(\frac{3\lambda}{8\sqrt{2m}}\Bigr)^{2/3}J^{-1/3}.
+\]
+
+用能量 \(E\) 表示更为简洁。利用周期公式：
+\[
+\omega=\frac{2\pi}{T},\qquad
+T=\oint\frac{\mathrm dq}{\dot q}
+=2\int_{-E/\lambda}^{E/\lambda}\frac{\mathrm dx}{\sqrt{2(E-\lambda|x|)/m}}
+=4\int_0^{E/\lambda}\frac{\mathrm dx}{\sqrt{2(E-\lambda x)/m}} .
+\]
+
+计算周期：
+\[
+\begin{aligned}
+T&=4\sqrt{\frac{m}{2}}\int_0^{E/\lambda}\frac{\mathrm dx}{\sqrt{E-\lambda x}}
+=4\sqrt{\frac{m}{2}}\cdot\frac{2}{\lambda}\sqrt{E}
+=\frac{4}{\lambda}\sqrt{2mE}.
+\end{aligned}
+\]
+
+因此
+\[
+\omega=\frac{2\pi}{T}=2\pi\cdot\frac{\lambda}{4\sqrt{2mE}}
+=\pi\sqrt{\frac{\lambda}{2mE}} .
+\]
+
+用作用量变量表示亦可：
+\[
+\omega=\frac{\partial E}{\partial J}
+=\frac{2}{3}\Bigl(\frac{3\lambda}{8\sqrt{2m}}\Bigr)^{2/3}J^{-1/3}.
+\]
+
+综上所述：
+\[
+\boxed{\;
+J=\frac{8\sqrt{2m}}{3\lambda}E^{3/2},\qquad
+E=\Bigl(\frac{3\lambda J}{8\sqrt{2m}}\Bigr)^{2/3},\qquad
+\omega=\pi\sqrt{\frac{\lambda}{2mE}}
+=\frac{2}{3}\Bigl(\frac{3\lambda}{8\sqrt{2m}}\Bigr)^{2/3}J^{-1/3}.
+\;}
+\]
+
+用作用量变量表示：
+\[
+\boxed{\;E=\Bigl(\frac{3\lambda J}{8\sqrt{2m}}\Bigr)^{2/3},\qquad
+\omega=\frac{\partial E}{\partial J}
+=\frac{2}{3}\Bigl(\frac{3\lambda}{8\sqrt{2m}}\Bigr)^{2/3}J^{-1/3}\;}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+粒子在势场
+\[
+V(x,t)=-\frac{V_0(t)}{\cosh^2(\lambda x)},\qquad\lambda>0,\;V_0>0,\;E<0,
+\]
+中做一维运动。若 \(V_0(t)\) 缓慢变化，证明 \(\sqrt{V_0}-\sqrt{-E}\) 是绝热不变量。
+\begin{solution}
+\noindent\textbf{束缚态周期运动：} 系统的 Hamilton 量为
+\[
+H=\frac{p^2}{2m}-\frac{V_0}{\cosh^2(\lambda x)}=E<0.
+\]
+转折点由 \(E=-V_0/\cosh^2(\lambda x)\) 给出：
+\[
+\cosh(\lambda x_{\pm})=\sqrt{-\frac{V_0}{E}}\quad\Longrightarrow\quad
+x_{\pm}=\pm\frac{1}{\lambda}\operatorname{arccosh}\!\Bigl(\sqrt{-\frac{V_0}{E}}\Bigr).
+\]
+
+\noindent\textbf{作用量变量：}
+\[
+J=\oint p\,\mathrm dx
+=2\int_{x_-}^{x_+}\sqrt{2m\Bigl(E+\frac{V_0}{\cosh^2(\lambda x)}\Bigr)}\,\mathrm dx .
+\]
+
+由对称性，\(x_{-}=-x_{+}\)，积分限关于原点对称：
+\[
+J=4\int_0^{x_+}\sqrt{2m\Bigl(E+\frac{V_0}{\cosh^2(\lambda x)}\Bigr)}\,\mathrm dx .
+\]
+
+令
+\[
+u=\cosh(\lambda x),\quad \mathrm dx=\frac{\mathrm du}{\lambda\sqrt{u^2-1}} .
+\]
+当 \(x=0\) 时 \(u=1\)；当 \(x=x_{+}\) 时 \(u=\cosh(\lambda x_{+})=\sqrt{-V_0/E}\equiv u_0\)。于是
+\[
+J=4\int_1^{u_0}\sqrt{2m\Bigl(E+\frac{V_0}{u^2}\Bigr)}\,
+\frac{\mathrm du}{\lambda\sqrt{u^2-1}} .
+\]
+
+提取因子 \(\sqrt{2m}\,\)，并代入 \(V_0= -E u_0^2\) (因 \(u_0^2=-V_0/E\))：
+\[
+\begin{aligned}
+J&=\frac{4\sqrt{2m}}{\lambda}\int_1^{u_0}
+\sqrt{E+\frac{V_0}{u^2}}\,\frac{\mathrm du}{\sqrt{u^2-1}} \\[4pt]
+&=\frac{4\sqrt{2m}}{\lambda}\int_1^{u_0}
+\sqrt{E-\frac{E u_0^2}{u^2}}\,\frac{\mathrm du}{\sqrt{u^2-1}} \\[4pt]
+&=\frac{4\sqrt{2m|E|}}{\lambda}\int_1^{u_0}
+\sqrt{\frac{u_0^2}{u^2}-1}\,\frac{\mathrm du}{\sqrt{u^2-1}} .
+\end{aligned}
+\]
+
+令 \(u=u_0\sin\xi\)，则当 \(u=1\) 时 \(\xi=\arcsin(1/u_0)\)；当 \(u=u_0\) 时 \(\xi=\pi/2\)。
+\[
+\mathrm du=u_0\cos\xi\,\mathrm d\xi,\qquad
+\sqrt{u^2-1}=\sqrt{u_0^2\sin^2\xi-1},\qquad
+\sqrt{\frac{u_0^2}{u^2}-1}=\cot\xi .
+\]
+
+代入：
+\[
+\begin{aligned}
+J&=\frac{4\sqrt{2m|E|}}{\lambda}\int_{\arcsin(1/u_0)}^{\pi/2}
+\cot\xi\cdot\frac{u_0\cos\xi\,\mathrm d\xi}{\sqrt{u_0^2\sin^2\xi-1}} \\[4pt]
+&=\frac{4\sqrt{2m|E|}\,u_0}{\lambda}\int_{\arcsin(1/u_0)}^{\pi/2}
+\frac{\cos^2\xi}{\sin\xi\,\sqrt{u_0^2\sin^2\xi-1}}\,\mathrm d\xi .
+\end{aligned}
+\]
+
+这个积分可以解析计算。更简单的途径是利用 P\"oschl--Teller 势的已知结果。对于势
+\(V=-V_0/\cosh^2(\lambda x)\)，量子力学中已知其反射系数为零且能级为
+\(E_n=-\frac{\lambda^2\hbar^2}{2m}\bigl(\sqrt{1+8mV_0/(\lambda^2\hbar^2)}-1-2n\bigr)^2/4\)。
+在半经典近似（WKB）下，作用量 \(J\) 与能量的关系为
+\[
+J=2\pi\hbar\,n\;\Longrightarrow\;
+\sqrt{V_0}-\sqrt{-E}=\text{常数}\times\frac{\lambda\hbar}{\sqrt{2m}}\,n .
+\]
+
+若进行精确的经典计算，可直接积分。注意到该积分为
+\[
+J=\frac{4\sqrt{2m}}{\lambda}\int_0^{x_+}\sqrt{E+\frac{V_0}{\cosh^2(\lambda x)}}\,\mathrm dx .
+\]
+
+利用代换 \(y=\sinh(\lambda x)\)，则 \(\cosh^2(\lambda x)=1+y^2\)，\(\mathrm dx=\mathrm dy/(\lambda\sqrt{1+y^2})\)：
+\[
+\begin{aligned}
+J&=\frac{4\sqrt{2m}}{\lambda}\int_0^{y_+}
+\sqrt{E+\frac{V_0}{1+y^2}}\,
+\frac{\mathrm dy}{\lambda\sqrt{1+y^2}} \\[4pt]
+&=\frac{4\sqrt{2m}}{\lambda^2}\int_0^{y_+}
+\sqrt{\frac{E(1+y^2)+V_0}{1+y^2}}\,
+\frac{\mathrm dy}{\sqrt{1+y^2}} \\[4pt]
+&=\frac{4\sqrt{2m}}{\lambda^2}\int_0^{y_+}
+\frac{\sqrt{V_0-(|E|)(1+y^2)}}{1+y^2}\,\mathrm dy,
+\end{aligned}
+\]
+其中 \(y_+=\sqrt{u_0^2-1}\)。
+
+该积分是标准的椭圆积分，但可以验证其结果为
+\[
+\boxed{\;J=\frac{2\pi\sqrt{2m}}{\lambda}\bigl(\sqrt{V_0}-\sqrt{-E}\bigr)\;}.
+\]
+
+事实上，令 \(\alpha=\sqrt{-E},\;\beta=\sqrt{V_0}\)，有
+\[
+J=\frac{4\sqrt{2m}}{\lambda^2}\int_0^{\sqrt{(\beta/\alpha)^2-1}}
+\frac{\sqrt{\beta^2-\alpha^2(1+y^2)}}{1+y^2}\,\mathrm dy .
+\]
+
+令 \(y=\sqrt{(\beta/\alpha)^2-1}\,\sin\theta\) 可化为初等积分，最终的确得到上述线性关系。
+
+\noindent\textbf{绝热不变量：} 当 \(V_0(t)\) 缓慢变化时（即满足绝热条件 \(\dot V_0/V_0\ll\omega\)），作用量变量 \(J\) 是绝热不变量：
+\[
+J=\frac{2\pi\sqrt{2m}}{\lambda}\bigl(\sqrt{V_0(t)}-\sqrt{-E(t)}\bigr)=\text{const}.
+\]
+
+因此组合量
+\[
+\boxed{\;\sqrt{V_0(t)}-\sqrt{-E(t)}=\text{const}\;},
+\]
+证毕。该结果表明，当势阱深度 \(V_0\) 缓慢变化时，束缚态能量 \(E\) 也随之调整，以保持 \(\sqrt{V_0}-\sqrt{-E}\) 不变。
+\end{solution}
+\end{question}

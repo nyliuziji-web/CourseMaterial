@@ -1,0 +1,392 @@
+\heading{理论力学-第6次作业}
+
+
+
+\begin{question}
+一弹性系数为 \(k\) 的弦原长为 \(L_0\)，现在于弹性限度内将其拉伸至 \(L>L_0\)，并在此长度时将两端固定。这时弦线的线密度为 \(\mu\)。求该体系横振动的 Lagrange 密度，再求其运动方程，并根据运动方程求出体系中的振动传播速度 \(v\)。如果密度 \(\mu\) 是位置的函数，则运动方程如何？
+\begin{solution}
+设横振动位移为 \(y(x,t)\)。取一段微元 \(\mathrm{d}x\)，其动能为
+\[
+\mathrm{d}T=\frac12\mu\,\dot y^2\,\mathrm{d}x .
+\]
+弦已拉伸至 \(L\)，张力 \(T_0=k(L-L_0)\)（近似常数）。横振动使线元从 \(\mathrm{d}x\) 伸长为
+\[
+\mathrm{d}s=\sqrt{\mathrm{d}x^2+\mathrm{d}y^2}\approx\mathrm{d}x\!\left(1+\frac12 y_x^2\right),
+\]
+张力所做的功（势能）为
+\[
+\mathrm{d}U=T_0(\mathrm{d}s-\mathrm{d}x)=\frac12 T_0 y_x^2\,\mathrm{d}x .
+\]
+故 Lagrange 密度为
+\[
+\mathcal L=\frac12\mu\,\dot y^2-\frac12 T_0 y_x^2 .
+\]
+Euler--Lagrange 方程
+\[
+\frac{\partial}{\partial t}\frac{\partial\mathcal L}{\partial\dot y}
++\frac{\partial}{\partial x}\frac{\partial\mathcal L}{\partial y_x}=0
+\]
+给出
+\[
+\mu\,\ddot y-T_0 y_{xx}=0\quad\Longrightarrow\quad
+\ddot y=v^2 y_{xx},\qquad
+v=\sqrt{\frac{T_0}{\mu}}=\sqrt{\frac{k(L-L_0)}{\mu}} .
+\]
+若 \(\mu=\mu(x)\)，则动能密度变为 \(\frac12\mu(x)\dot y^2\)，运动方程为
+\[
+\mu(x)\,\ddot y=T_0 y_{xx}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+以 Hamilton 形式描述空气内的声振动场，并求出相应的 Hamilton 运动方程。
+\begin{solution}
+引入速度势 \(\phi\)，满足 \(\boldsymbol v=-\nabla\phi\)。空气质量密度为 \(\rho_0\)，体积模量为 \(\kappa\)，声速 \(v=\sqrt{\kappa/\rho_0}\)。Lagrange 密度可取为
+\[
+\mathcal L=\frac12\rho_0\bigl(\dot\phi^2-v^2(\nabla\phi)^2\bigr).
+\]
+正则动量密度
+\[
+\pi=\frac{\partial\mathcal L}{\partial\dot\phi}=\rho_0\dot\phi .
+\]
+Hamilton 密度为
+\[
+\mathcal H=\pi\dot\phi-\mathcal L
+=\frac{1}{2\rho_0}\pi^2+\frac12\rho_0 v^2(\nabla\phi)^2 .
+\]
+Hamilton 场方程
+\[
+\begin{aligned}
+\dot\phi &= \frac{\delta H}{\delta\pi}= \frac{\pi}{\rho_0},\\
+\dot\pi &= -\frac{\delta H}{\delta\phi}= \rho_0 v^2\nabla^2\phi .
+\end{aligned}
+\]
+结合两式即得波动方程 \(\ddot\phi=v^2\nabla^2\phi\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+已知一体系的 \(\mathcal L=\mathcal L(\eta_\alpha,\eta_{\alpha,\mu},x^\mu)\)，并且体系的 \(\mathcal H\) 不显含 \(\eta_\alpha\)，求该体系的守恒量。
+\begin{solution}
+\(\mathcal H\) 不显含 \(\eta_\alpha\) 意味着 \(\eta_\alpha\) 是循环坐标。由 Hamilton 场方程
+\[
+\dot\pi_\alpha =-\frac{\delta\mathcal H}{\delta\eta_\alpha}
+= -\left(\frac{\partial\mathcal H}{\partial\eta_\alpha}
+-\partial_i\frac{\partial\mathcal H}{\partial(\partial_i\eta_\alpha)}\right)=0,
+\]
+故正则动量密度 \(\pi_\alpha\) 满足 \(\partial_\mu\pi_\alpha^\mu=0\)（其中 \(\pi_\alpha^\mu=\partial\mathcal L/\partial(\eta_{\alpha,\mu})\)），从而
+\[
+P_\alpha=\int\pi_\alpha^0\,\mathrm d^3x=\int\frac{\partial\mathcal L}{\partial\dot\eta_\alpha}\,\mathrm d^3x
+\]
+是守恒量（总正则动量守恒）。
+\end{solution}
+\end{question}
+
+\begin{question}
+对薛定谔场
+\[
+\mathcal L = -\frac{\hbar^2}{2m}\nabla\psi^*\!\cdot\!\nabla\psi
+-V\psi^*\psi+\frac{\mathrm i\hbar}{2}\bigl(\psi^*\dot\psi-\dot\psi^*\psi\bigr),
+\]
+求其 Hamilton 密度，即体系的能量密度。其中哪项是势能密度，哪项是动能密度？
+\begin{solution}
+正则动量：
+\[
+\pi=\frac{\partial\mathcal L}{\partial\dot\psi}=\frac{\mathrm i\hbar}{2}\psi^*,\qquad
+\pi^*=\frac{\partial\mathcal L}{\partial\dot\psi^*}=-\frac{\mathrm i\hbar}{2}\psi .
+\]
+Hamilton 密度：
+\[
+\begin{aligned}
+\mathcal H &=\pi\dot\psi+\pi^*\dot\psi^*-\mathcal L \\
+&=\frac{\mathrm i\hbar}{2}(\psi^*\dot\psi-\psi\dot\psi^*)
+-\Bigl[-\frac{\hbar^2}{2m}\nabla\psi^*\!\cdot\!\nabla\psi
+-V\psi^*\psi+\frac{\mathrm i\hbar}{2}(\psi^*\dot\psi-\dot\psi^*\psi)\Bigr] \\
+&=\frac{\hbar^2}{2m}\nabla\psi^*\!\cdot\!\nabla\psi+V\psi^*\psi .
+\end{aligned}
+\]
+其中
+\begin{itemize}
+  \item 动能密度：\(\displaystyle \frac{\hbar^2}{2m}|\nabla\psi|^2\)，
+  \item 势能密度：\(\displaystyle V|\psi|^2\)。
+\end{itemize}
+\end{solution}
+\end{question}
+
+\begin{question}
+在一个伪欧式四维空间内，d'Alembert 算符为
+\[
+\square = \eta^{\mu\nu}\frac{\partial^2}{\partial x^\mu\partial x^\nu},
+\]
+这里 \(\eta^{\mu\nu}\) 是逆变度规张量。
+\begin{itemize}
+  \item[\textup{(i)}] 就迹为 \(-2\) 的度规张量（即 \(\operatorname{diag}\{+,-,-,-\}\)），求出 d'Alembert 算符的显式表示；
+  \item[\textup{(ii)}] 带电标量介子场的 Lagrange 函数密度为
+  \[
+  \mathcal L=\frac12\Bigl(\eta^{\mu\nu}\frac{\partial\varphi}{\partial x^\mu}
+  \frac{\partial\varphi^*}{\partial x^\nu}-\mu_0^2\varphi\varphi^*\Bigr),
+  \]
+  证明相应的场方程之一为 \((\square+\mu_0^2)\varphi=0\)；再证明，根据 (i) 的结论，这一方程实际上与 \(\eta^{\mu\nu}\) 取迹为 \(+2\) 时（即 \(\operatorname{diag}\{-,+,+,+\}\)）得到的方程 \((\square-\mu_0^2)\varphi=0\) 是一致的。
+\end{itemize}
+\begin{solution}
+\begin{itemize}
+  \item[\textup{(i)}] 对 \(\eta^{\mu\nu}=\operatorname{diag}\{+,-,-,-\}\)，
+  \[
+  \square = \eta^{\mu\nu}\partial_\mu\partial_\nu
+  =\frac{\partial^2}{\partial t^2}-\frac{\partial^2}{\partial x^2}
+  -\frac{\partial^2}{\partial y^2}-\frac{\partial^2}{\partial z^2}
+  =\frac{\partial^2}{\partial t^2}-\nabla^2 .
+  \]
+
+  \item[\textup{(ii)}] 对 \(\varphi^*\) 变分的 Euler--Lagrange 方程
+  \[
+  \partial_\mu\frac{\partial\mathcal L}{\partial(\partial_\mu\varphi^*)}
+  -\frac{\partial\mathcal L}{\partial\varphi^*}=0
+  \]
+  给出
+  \[
+  \frac12\eta^{\mu\nu}\partial_\mu\partial_\nu\varphi+\frac12\mu_0^2\varphi=0
+  \;\Longrightarrow\; (\square+\mu_0^2)\varphi=0 .
+  \]
+  若改用迹为 \(+2\) 的度规 \(g^{\mu\nu}=\operatorname{diag}\{-,+,+,+\}\)，则 Lagrange 密度写作
+  \[
+  \mathcal L=\frac12\Bigl(g^{\mu\nu}\partial_\mu\varphi\partial_\nu\varphi^*
+  +\mu_0^2\varphi\varphi^*\Bigr).
+  \]
+  场方程变为
+  \[
+  g^{\mu\nu}\partial_\mu\partial_\nu\varphi-\mu_0^2\varphi=0 .
+  \]
+  而 \(g^{\mu\nu}\partial_\mu\partial_\nu=-\partial_t^2+\nabla^2=-\square\)，代入得
+  \[
+  -\square\varphi-\mu_0^2\varphi=0\;\Longrightarrow\;(\square+\mu_0^2)\varphi=0,
+  \]
+  与前一形式完全相同，故两者一致。
+\end{itemize}
+\end{solution}
+\end{question}
+
+\begin{question}
+在标量带电介子的 Lagrange 密度
+\[
+\mathcal L=c^2\varphi_{,\mu}\varphi^{*,\mu}-\mu_0^2c^2\varphi\varphi^*
+\]
+中，加上代表电磁场相互作用的项 \(j^\mu A_\mu\)。这里
+\[
+j^\mu=\mathrm i\bigl(\varphi\varphi^{*,\mu}-\varphi^{*}\varphi^{,\mu}\bigr).
+\]
+求 \(\varphi\) 和 \(\varphi^*\) 的场方程如何，以及守恒流和守恒定理。
+\begin{solution}
+相互作用后的总 Lagrange 密度为
+\[
+\mathcal L_{\text{int}} = c^2\varphi_{,\mu}\varphi^{*,\mu}
+-\mu_0^2c^2\varphi\varphi^* + \mathrm i A_\mu
+\bigl(\varphi\varphi^{*,\mu}-\varphi^{*}\varphi^{,\mu}\bigr).
+\]
+对 \(\varphi^*\) 求变分：
+\[
+\frac{\partial\mathcal L}{\partial(\varphi^*_{,\mu})}=c^2\varphi^{,\mu}+\mathrm i A^\mu\varphi,\qquad
+\frac{\partial\mathcal L}{\partial\varphi^*}=-\mu_0^2c^2\varphi-\mathrm i A^\mu\varphi_{,\mu}.
+\]
+Euler--Lagrange 方程给出
+\[
+c^2\square\varphi+\mathrm i(\partial_\mu A^\mu)\varphi+2\mathrm i A^\mu\partial_\mu\varphi
++\mu_0^2c^2\varphi=0 .
+\]
+在 Lorentz 规范 \(\partial_\mu A^\mu=0\) 下简化为
+\[
+\bigl(\square+\mu_0^2\bigr)\varphi = -\frac{2\mathrm i}{c^2}A^\mu\partial_\mu\varphi .
+\]
+类似地，对 \(\varphi\) 变分得
+\[
+\bigl(\square+\mu_0^2\bigr)\varphi^* = \frac{2\mathrm i}{c^2}A^\mu\partial_\mu\varphi^* .
+\]
+总 Lagrange 密度在整体 \(U(1)\) 变换 \(\varphi\to e^{\mathrm i\alpha}\varphi\) 下不变，Noether 定理给出守恒流
+\[
+J^\mu = \frac{\partial\mathcal L}{\partial(\partial_\mu\varphi)}(\mathrm i\varphi)
++\frac{\partial\mathcal L}{\partial(\partial_\mu\varphi^*)}(-\mathrm i\varphi^*)
+= \mathrm i c^2\bigl(\varphi\varphi^{*,\mu}-\varphi^{*}\varphi^{,\mu}\bigr)
+-2c^2A^\mu\varphi\varphi^* .
+\]
+满足 \(\partial_\mu J^\mu=0\)，相应的守恒定理为
+\[
+\frac{\mathrm d}{\mathrm d t}\int J^0\,\mathrm d^3x = 0 .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+假设 Hamilton 原理中的 Lagrange 密度是场量 \(\eta_\rho\) 的高阶微商的函数
+\[
+\mathcal L = \mathcal L(\eta_\alpha,\eta_{\alpha,\mu},\eta_{\alpha,\mu\nu},x^\mu),
+\]
+又假设端点处的变分为零，求对应的场方程。
+\begin{solution}
+变分 \(\delta S=0\) 给出
+\[
+\delta S = \int\Bigl(
+\frac{\partial\mathcal L}{\partial\eta_\alpha}\delta\eta_\alpha
++\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu})}\delta(\eta_{\alpha,\mu})
++\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu\nu})}\delta(\eta_{\alpha,\mu\nu})
+\Bigr)\mathrm d^4x = 0 .
+\]
+分部积分两次处理二阶微商项：
+\[
+\int\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu\nu})}\partial_\mu\partial_\nu(\delta\eta_\alpha)
+= \int\partial_\mu\partial_\nu\!\left(\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu\nu})}\right)
+\delta\eta_\alpha\,\mathrm d^4x
++(\text{边界项}),
+\]
+边界项在端点变分为零的条件下消失。故
+\[
+\int\Bigl[
+\frac{\partial\mathcal L}{\partial\eta_\alpha}
+-\partial_\mu\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu})}
++\partial_\mu\partial_\nu\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu\nu})}
+\Bigr]\delta\eta_\alpha\,\mathrm d^4x = 0 .
+\]
+由 \(\delta\eta_\alpha\) 的任意性得高阶 Euler--Lagrange 方程
+\[
+\frac{\partial\mathcal L}{\partial\eta_\alpha}
+-\partial_\mu\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu})}
++\partial_\mu\partial_\nu\frac{\partial\mathcal L}{\partial(\eta_{\alpha,\mu\nu})}=0 .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一标量场 \(\eta\)，为简单起见，设它仅是 \(x\) 和 \(t\) 的函数。今假设 Hamilton 密度是 \(\eta\) 和 \(\pi\) 的高阶空间微商的函数，即
+\[
+\mathcal H = \mathcal H(\eta,\eta_{,x},\pi,\pi_{,x},\pi_{,xx}).
+\]
+求相应的 Hamilton 运动方程。
+\begin{solution}
+一维标量场的 Hamilton 作用量为
+\[
+S = \int\Bigl(\pi\dot\eta-\mathcal H\Bigr)\mathrm dx\,\mathrm dt .
+\]
+
+对 \(\eta\) 和 \(\pi\) 独立变分。先变分 \(\eta\)：
+\[
+\delta S = \iint\Bigl(
+\pi\,\delta\dot\eta
+-\frac{\partial\mathcal H}{\partial\eta}\delta\eta
+-\frac{\partial\mathcal H}{\partial\eta_{,x}}\delta\eta_{,x}
+\Bigr)\mathrm dx\,\mathrm dt = 0 .
+\]
+
+分部积分 \(\pi\,\delta\dot\eta = -\dot\pi\,\delta\eta\)（时间端点固定），以及
+\[
+\int\frac{\partial\mathcal H}{\partial\eta_{,x}}\delta\eta_{,x}\,\mathrm dx
+= -\int\partial_x\!\left(\frac{\partial\mathcal H}{\partial\eta_{,x}}\right)\delta\eta\,\mathrm dx
+\]
+（空间端点固定）。故
+\[
+\dot\pi = -\frac{\delta\mathcal H}{\delta\eta}
+= -\Bigl(\frac{\partial\mathcal H}{\partial\eta}
+-\partial_x\frac{\partial\mathcal H}{\partial\eta_{,x}}\Bigr).
+\]
+
+再变分 \(\pi\)：
+\[
+\delta S = \iint\Bigl(
+\dot\eta\,\delta\pi
+-\frac{\partial\mathcal H}{\partial\pi}\delta\pi
+-\frac{\partial\mathcal H}{\partial\pi_{,x}}\delta\pi_{,x}
+-\frac{\partial\mathcal H}{\partial\pi_{,xx}}\delta\pi_{,xx}
+\Bigr)\mathrm dx\,\mathrm dt = 0 .
+\]
+
+分部积分空间导数项：
+\[
+\int\Bigl(
+\frac{\partial\mathcal H}{\partial\pi_{,x}}\delta\pi_{,x}
++\frac{\partial\mathcal H}{\partial\pi_{,xx}}\delta\pi_{,xx}
+\Bigr)\mathrm dx
+= \int\Bigl[
+-\partial_x\frac{\partial\mathcal H}{\partial\pi_{,x}}
++\partial_x^2\frac{\partial\mathcal H}{\partial\pi_{,xx}}
+\Bigr]\delta\pi\,\mathrm dx .
+\]
+
+因此
+\[
+\dot\eta = \frac{\delta\mathcal H}{\delta\pi}
+= \frac{\partial\mathcal H}{\partial\pi}
+-\partial_x\frac{\partial\mathcal H}{\partial\pi_{,x}}
++\partial_x^2\frac{\partial\mathcal H}{\partial\pi_{,xx}} .
+\]
+
+Hamilton 运动方程为
+\[
+\boxed{\;\dot\eta = \frac{\partial\mathcal H}{\partial\pi}
+-\partial_x\!\left(\frac{\partial\mathcal H}{\partial\pi_{,x}}\right)
++\partial_x^2\!\left(\frac{\partial\mathcal H}{\partial\pi_{,xx}}\right),
+\qquad
+\dot\pi = -\frac{\partial\mathcal H}{\partial\eta}
++\partial_x\!\left(\frac{\partial\mathcal H}{\partial\eta_{,x}}\right)
+\;\}.
+\end{solution}
+\end{question}
+
+
+\begin{question}
+根据自由电磁场的对称化应力--能量张量
+\[
+T^\mu_{\;\nu}= \frac1{\mu_0}F^{\mu\rho}F_{\nu\rho}
+-\frac1{4\mu_0}\delta^\mu_{\;\nu}F^{\rho\lambda}F_{\rho\lambda}
+= \frac1{\mu_0}F^{\mu\rho}F_{\nu\rho}+\mathcal L\delta^\mu_{\;\nu},
+\]
+求 \(T^j_{\;0}\) 和 \(T^i_{\;j}\) 的值。这些分量的物理意义是什么？
+\begin{solution}
+采用度规 \(\eta^{\mu\nu}=\operatorname{diag}\{+,-,-,-\}\)，电磁场张量
+\[
+F^{\mu\nu}=
+\begin{pmatrix}
+0 & -E_x & -E_y & -E_z\\
+E_x & 0 & -B_z & B_y\\
+E_y & B_z & 0 & -B_x\\
+E_z & -B_y & B_x & 0
+\end{pmatrix},
+\qquad
+F_{\mu\nu}=
+\begin{pmatrix}
+0 & E_x & E_y & E_z\\
+-E_x & 0 & -B_z & B_y\\
+-E_y & B_z & 0 & -B_x\\
+-E_z & -B_y & B_x & 0
+\end{pmatrix}.
+\]
+
+\textbf{\(T^j_{\;0}\)（\(j=1,2,3\)）：}
+\[
+T^j_{\;0}= \frac1{\mu_0}F^{j\rho}F_{0\rho}
++\underbrace{\mathcal L\delta^j_{\;0}}_{=0}
+= \frac1{\mu_0}\bigl(F^{j0}F_{00}+F^{jk}F_{0k}\bigr).
+\]
+\(F_{00}=0\)，而 \(F^{j0}=E_j\)，\(F_{0k}=-E_k\)，\(F^{jk}=-\varepsilon^{jkl}B_l\)，故
+\[
+T^j_{\;0}= \frac1{\mu_0}(-\varepsilon^{jkl}B_l)(-E_k)
+= \frac1{\mu_0}\varepsilon^{jkl}E_kB_l = \frac1{\mu_0}(\boldsymbol E\times\boldsymbol B)^j .
+\]
+即 Poynting 矢量 \(\boldsymbol S=\dfrac1{\mu_0}\boldsymbol E\times\boldsymbol B\) 的第 \(j\) 分量——\textbf{能流密度}（也是动量密度乘以 \(c^2\)）。
+
+\textbf{\(T^i_{\;j}\)（\(i,j=1,2,3\)）：}
+\[
+T^i_{\;j}= \frac1{\mu_0}F^{i\rho}F_{j\rho}
+-\frac1{4\mu_0}\delta^i_{\;j}F^{\rho\lambda}F_{\rho\lambda}.
+\]
+展开后得
+\[
+T^i_{\;j}= -\frac1{\mu_0}\!\left(E_iE_j + B_iB_j\right)
++\frac1{2\mu_0}\delta_{ij}\bigl(E^2+B^2\bigr).
+\]
+这就是 \textbf{Maxwell 应力张量}（差一整体符号取决于度规约定），其物理意义：
+\begin{itemize}
+  \item 对角元 \((i=j)\) 代表电磁场对单位面积的正压力（或负的压强）；
+  \item 非对角元 \((i\neq j)\) 代表电磁场的切向应力。
+\end{itemize}
+整体上 \(T^i_{\;j}\) 描述电磁场的动量流密度（即单位时间通过单位面积的动量）。
+\end{solution}
+\end{question}

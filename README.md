@@ -1,8 +1,10 @@
 # CourseMaterial
 
-PKUPHY 往年题、模拟题与作业的 LaTeX 整理。
+PKU 往年题、模拟题与作业的 LaTeX 整理。
 
-## 结构
+如果你是第一次拿到这个项目，请参考这份手册：[docs/快速上手指南.md](docs/快速上手指南.md)。
+
+## 目录结构
 
 ```
 CourseMaterial/
@@ -12,21 +14,26 @@ CourseMaterial/
 ├── preamble.tex         # 公共宏包与格式
 ├── exam/                # 试卷（每门课一个子目录）
 ├── homework/            # 作业（每门课一个子目录）
+├── lecture/             # 课程讲义与学习资料
 ├── example/             # 编译好的现成内容
 └── build/               # 编译输出 PDF
 ```
 
-## 编译
+## 编译方式
 
 - **Windows**：运行 `compile.ps1`（PowerShell）
 - **macOS / Linux**：运行 `./compile.sh`（需先 `chmod +x compile.sh`）
 
 按菜单选择内容即可。等价地，也可以在 `main.tex` 里面手动导入所需内容进行编译。
 
-## 规范
+你可以直接进入 `example/` 查看其他用户已经编译好的 pdf。
 
-- 每个 `.tex` 文件以 `\heading{课程名-项目名}` 开头
-- `\heading` 自动解析 `-` 前后的课程名和项目名，生成标题和目录项
-- **试卷**：`exam/课程名/课程名-学期-类型.tex`
-- **作业**：`homework/课程名/章节名.tex`
-- **解答**：用 `solution` 环境，通过 `\ShowSolutionstrue/false` 控制显示
+## 提交规范
+
+如果你想提交课程资料，请参考这份手册：[docs/协作者手册.md](docs/协作者手册.md)，非常非常欢迎感谢大家多多贡献！！
+
+## 声明
+
+题目版权归原作者所有，侵删。
+
+本项目的往年题、作业题大多来自“赛艇先生”公众号或同学回忆，答案大多由 ai 生成。题目尽可能保留了来源的文件，答案尽可能进行了交叉检查，但难免有错误疏漏，请读者自行甄别。

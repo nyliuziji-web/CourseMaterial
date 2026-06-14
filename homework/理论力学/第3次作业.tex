@@ -1,0 +1,430 @@
+\heading{理论力学-第3次作业}
+
+
+
+
+\begin{question}
+若由变量 \((q,p)\) 变换为 \((\dot p,p)\)，其中 \(\dot p = -\partial H(q,p,t)/\partial q\)，特征函数相应地由 \(H(q,p,t)\) 变换为 \(L'(\dot p,p,t)\)。按 Legendre 变换，应有
+\[
+L'(\dot p,p,t) = H(q,p,t) + \dot p\,q,
+\]
+其中 \(q = q(p,\dot p,t)\) 由定义 \(\dot p = -\partial H/\partial q\) 解出。证明：由正则方程推出用 \(L'\) 函数表示的运动方程是
+\[
+\frac{\mathrm d}{\mathrm d t}\frac{\partial L'}{\partial\dot p} - \frac{\partial L'}{\partial p} = 0 .
+\]
+
+\begin{solution}
+Legendre 变换 \(H\to L'\) 的步骤如下：从正则方程
+\[
+\dot p = -\frac{\partial H}{\partial q}
+\]
+反解出 \(q = q(p,\dot p,t)\)，然后定义
+\[
+L'(\dot p,p,t) = H(q,p,t) + \dot p\,q .
+\]
+
+计算偏导数。首先，
+\[
+\frac{\partial L'}{\partial\dot p}
+= \frac{\partial H}{\partial q}\frac{\partial q}{\partial\dot p} + q + \dot p\frac{\partial q}{\partial\dot p}
+= \Bigl(\frac{\partial H}{\partial q} + \dot p\Bigr)\frac{\partial q}{\partial\dot p} + q .
+\]
+由定义 \(\dot p = -\partial H/\partial q\)，括号为零，故
+\[
+\frac{\partial L'}{\partial\dot p} = q .
+\]
+
+于是
+\[
+\frac{\mathrm d}{\mathrm d t}\frac{\partial L'}{\partial\dot p} = \dot q .
+\]
+
+其次，
+\[
+\frac{\partial L'}{\partial p}
+= \frac{\partial H}{\partial p} + \frac{\partial H}{\partial q}\frac{\partial q}{\partial p}
++ \dot p\frac{\partial q}{\partial p}
+= \frac{\partial H}{\partial p} + \Bigl(\frac{\partial H}{\partial q} + \dot p\Bigr)\frac{\partial q}{\partial p}
+= \frac{\partial H}{\partial p} .
+\]
+利用另一组正则方程 \(\dot q = \partial H/\partial p\)，得
+\[
+\frac{\partial L'}{\partial p} = \dot q .
+\]
+
+因此
+\[
+\frac{\mathrm d}{\mathrm d t}\frac{\partial L'}{\partial\dot p} - \frac{\partial L'}{\partial p}
+= \dot q - \dot q = 0 .
+\]
+
+\boxed{\;\frac{\mathrm d}{\mathrm d t}\frac{\partial L'}{\partial\dot p} - \frac{\partial L'}{\partial p} = 0\;} 得证。这表明在 Legendre 变换下 \(q\) 与 \(p\) 的地位可互换。
+\end{solution}
+\end{question}
+
+
+\begin{question}
+假设 Lagrange 量有 \(s\) 个广义坐标 \(q_\alpha\;(\alpha=1,\dots,s)\)，其中前 \(k\) 个（即 \(q_1,\dots,q_k\)）为循环坐标。在 Routh 方法中，对该 \(k\) 个循环坐标作 Legendre 变换，其余 \(s-k\) 个坐标保持不动，得到 Routhian，记为 \(R\)。用 \(R\) 推导前 \(k\) 个和后 \(s-k\) 个广义坐标需要满足的运动方程。
+
+\begin{solution}
+对循环坐标定义正则动量
+\[
+p_\alpha = \frac{\partial L}{\partial\dot q_\alpha} \qquad (\alpha = 1,\dots,k).
+\]
+Routhian 是对这 \(k\) 个循环坐标作 Legendre 变换、其余坐标保持不变的结果：
+\[
+R(q_{k+1},\dots,q_s,\;\dot q_{k+1},\dots,\dot q_s,\;p_1,\dots,p_k,\;t)
+= \sum_{\alpha=1}^{k} p_\alpha\dot q_\alpha - L .
+\]
+
+\textbf{对循环坐标：}由于 \(\partial L/\partial q_\alpha = 0\)（循环坐标的定义），
+\[
+\dot p_\alpha = -\frac{\partial H}{\partial q_\alpha} = 0,
+\]
+故
+\[
+\boxed{\;p_\alpha = \text{const} \equiv c_\alpha\;} \qquad (\alpha=1,\dots,k).
+\]
+
+\textbf{对非循环坐标：}Routhian 关于非循环坐标 \((\beta = k+1,\dots,s)\) 的 Euler--Lagrange 方程来自
+\[
+\frac{\mathrm d}{\mathrm d t}\frac{\partial R}{\partial\dot q_\beta}
+- \frac{\partial R}{\partial q_\beta} = 0 .
+\]
+这是因为 Routhian 对非循环坐标扮演着 Lagrange 量的角色。
+
+\textbf{对循环坐标的运动方程：}由 Legendre 变换的逆变换，
+\[
+\dot q_\alpha = -\frac{\partial R}{\partial p_\alpha} \qquad (\alpha=1,\dots,k).
+\]
+积分即得循环坐标随时间的演化。
+
+综上，Routh 方法将运动方程分为两组：
+\begin{itemize}
+  \item 循环坐标给出守恒量 \(p_\alpha = c_\alpha\)，其运动学由 \(\dot q_\alpha = -\partial R/\partial p_\alpha\) 描述；
+  \item 非循环坐标遵从标准的 Lagrange 型方程
+  \[
+  \boxed{\;\frac{\mathrm d}{\mathrm d t}\frac{\partial R}{\partial\dot q_\beta}
+  - \frac{\partial R}{\partial q_\beta} = 0\;}.
+  \]
+\end{itemize}
+\end{solution}
+\end{question}
+
+
+\begin{question}
+质量为 \(m\) 的质点在两个弹簧的作用下沿直线运动。两固定点距离为 \(a\) 等于两弹簧自然长度之和，弹簧弹性系数分别为 \(k_1\) 和 \(k_2\)。写出 Lagrange 量和 Hamilton 量，列出正则方程并求解。
+
+\pyfig[0.5\linewidth]{figures/hw3_q3_diagram.png}{两弹簧之间的质点运动示意图}
+\begin{solution}
+设质点距左固定点的位移为 \(x\)（向右为正）。左、右弹簧的自然长度分别记为 \(l_1\) 和 \(l_2\)，满足
+\[
+l_1 + l_2 = a .
+\]
+
+左弹簧的伸长量为 \(x\)，右弹簧的伸长量为 \((a - x) - l_2 = l_1 - x\)。体系的势能为
+\[
+V = \frac12 k_1 x^2 + \frac12 k_2 (l_1 - x)^2 .
+\]
+
+将平衡位置平移至原点：令 \(x = x' + x_0\)，其中 \(x_0\) 为平衡位置（使总势能取极小）。平衡条件 \(\mathrm d V/\mathrm d x = 0\) 给出
+\[
+k_1 x_0 - k_2 (l_1 - x_0) = 0 \;\Longrightarrow\; x_0 = \frac{k_2 l_1}{k_1 + k_2}.
+\]
+
+在新坐标 \(x'\) 下，势能化为
+\[
+V = \frac12 (k_1 + k_2) x'^2 + \text{常数},
+\]
+常数项不影响运动方程，可略去。故有效势能为 \(V = \frac12(k_1 + k_2)x'^2\)。以下将 \(x'\) 仍记为 \(x\)。
+
+\textbf{Lagrange 量}
+\[
+\boxed{\;L = \frac12 m\dot x^2 - \frac12 (k_1 + k_2) x^2\;}.
+\]
+
+\textbf{广义动量}
+\[
+p = \frac{\partial L}{\partial\dot x} = m\dot x .
+\]
+
+\textbf{Hamilton 量}
+\[
+\boxed{\;H = \frac{p^2}{2m} + \frac12 (k_1 + k_2) x^2\;}.
+\]
+
+\textbf{正则方程}
+\[
+\boxed{\;\dot x = \frac{\partial H}{\partial p} = \frac{p}{m},\qquad
+\dot p = -\frac{\partial H}{\partial x} = -(k_1 + k_2)x\;}.
+\]
+
+\textbf{求解：}消去 \(p\) 得
+\[
+m\ddot x + (k_1 + k_2)x = 0 .
+\]
+这是简谐振动方程，角频率
+\[
+\boxed{\;\omega = \sqrt{\frac{k_1 + k_2}{m}}\;}.
+\]
+
+通解为
+\[
+\boxed{\;x(t) = A\cos(\omega t + \varphi)\;},
+\]
+其中振幅 \(A\) 和初相位 \(\varphi\) 由初始条件决定。
+\end{solution}
+\end{question}
+
+
+\begin{question}
+单自由度系统的 Hamilton 量为
+\[
+H(q,p,t) = \frac{p^2}{2m} - b e^{-\lambda t} p q + \frac{mb}{2} e^{-\lambda t}(\lambda + b e^{-\lambda t}) q^2 + \frac12 k q^2,
+\]
+其中 \(m,b,\lambda,k\) 为常数。
+
+\begin{itemize}
+  \item[(i)] 求 Lagrange 量 \(L\)；
+  \item[(ii)] 利用分部积分将 \(L\) 化为等价的不显含时间的形式 \(L'\)；
+  \item[(iii)] 求 \(L'\) 对应的 Hamilton 量 \(H'\)；
+  \item[(iv)] 证明 \(H\) 和 \(H'\) 给出等价的 Hamilton 正则方程。
+\end{itemize}
+
+\begin{solution}
+\textbf{(i) 由 Legendre 变换求 \(L\)。}
+\[
+\dot q = \frac{\partial H}{\partial p} = \frac{p}{m} - b e^{-\lambda t} q .
+\]
+反解出 \(p\)：
+\[
+p = m\bigl(\dot q + b e^{-\lambda t} q\bigr).
+\]
+
+Legendre 变换 \(L = p\dot q - H\)，代入 \(p\) 和 \(H\)：
+\[
+\begin{aligned}
+L &= m(\dot q + b e^{-\lambda t} q)\dot q
+- \frac{1}{2m}\cdot m^2(\dot q + b e^{-\lambda t} q)^2
++ b e^{-\lambda t}\cdot m(\dot q + b e^{-\lambda t} q) q \\
+&\qquad - \frac{mb}{2} e^{-\lambda t}(\lambda + b e^{-\lambda t})q^2 - \frac12 k q^2 \\[2mm]
+&= m\dot q^2 + m b e^{-\lambda t} q\dot q
+- \frac12 m(\dot q + b e^{-\lambda t} q)^2
++ m b e^{-\lambda t} q\dot q + m b^2 e^{-2\lambda t} q^2 \\
+&\qquad - \frac{mb}{2} e^{-\lambda t}(\lambda + b e^{-\lambda t}) q^2 - \frac12 k q^2 .
+\end{aligned}
+\]
+
+注意到 \((\dot q + b e^{-\lambda t} q)^2 = \dot q^2 + 2b e^{-\lambda t} q\dot q + b^2 e^{-2\lambda t} q^2\)，代入化简：
+\[
+\begin{aligned}
+L &= m\dot q^2 + m b e^{-\lambda t} q\dot q
+- \frac12 m\dot q^2 - m b e^{-\lambda t} q\dot q - \frac12 m b^2 e^{-2\lambda t} q^2 \\
+&\qquad + m b e^{-\lambda t} q\dot q + m b^2 e^{-2\lambda t} q^2
+- \frac{mb}{2} e^{-\lambda t}(\lambda + b e^{-\lambda t}) q^2 - \frac12 k q^2 \\[2mm]
+&= \frac12 m\dot q^2 + m b e^{-\lambda t} q\dot q
++ \frac12 m b^2 e^{-2\lambda t} q^2
+- \frac{mb}{2} e^{-\lambda t}(\lambda + b e^{-\lambda t}) q^2 - \frac12 k q^2 .
+\end{aligned}
+\]
+
+进一步合并 \(q^2\) 项：
+\[
+\begin{aligned}
+L &= \frac12 m\dot q^2 + m b e^{-\lambda t} q\dot q
++ \frac12 m b^2 e^{-2\lambda t} q^2
+- \frac{mb\lambda}{2} e^{-\lambda t} q^2
+- \frac12 m b^2 e^{-2\lambda t} q^2 - \frac12 k q^2 \\[2mm]
+&= \frac12 m\dot q^2 + m b e^{-\lambda t} q\dot q
+- \frac{mb\lambda}{2} e^{-\lambda t} q^2 - \frac12 k q^2 .
+\end{aligned}
+\]
+
+因此
+\[
+\boxed{\;L = \frac12 m\dot q^2 + m b e^{-\lambda t} q\dot q
+- \frac{mb\lambda}{2} e^{-\lambda t} q^2 - \frac12 k q^2\;}.
+\]
+
+\textbf{(ii) 将 \(L\) 化为不显含时间的形式 \(L'\)。}
+
+考察交叉项 \(m b e^{-\lambda t} q\dot q\)。注意到
+\[
+\frac{\mathrm d}{\mathrm d t}\Bigl(\frac12 m b e^{-\lambda t} q^2\Bigr)
+= m b e^{-\lambda t} q\dot q - \frac12 m b \lambda e^{-\lambda t} q^2 .
+\]
+
+故
+\[
+m b e^{-\lambda t} q\dot q
+= \frac{\mathrm d}{\mathrm d t}\Bigl(\frac12 m b e^{-\lambda t} q^2\Bigr)
++ \frac12 m b \lambda e^{-\lambda t} q^2 .
+\]
+
+代入 \(L\)：
+\[
+L = \frac12 m\dot q^2
++ \frac{\mathrm d}{\mathrm d t}\Bigl(\frac12 m b e^{-\lambda t} q^2\Bigr)
++ \frac12 m b \lambda e^{-\lambda t} q^2
+- \frac{mb\lambda}{2} e^{-\lambda t} q^2 - \frac12 k q^2 .
+\]
+
+中间两项恰好抵消，故
+\[
+L = \frac12 m\dot q^2 - \frac12 k q^2 + \frac{\mathrm d}{\mathrm d t}\Bigl(\frac12 m b e^{-\lambda t} q^2\Bigr) .
+\]
+
+丢掉全导数项（不影响运动方程），得到等价的 Lagrange 量
+\[
+\boxed{\;L' = \frac12 m\dot q^2 - \frac12 k q^2\;}.
+\]
+
+\textbf{(iii) 求 \(L'\) 对应的 Hamilton 量 \(H'\)。}
+
+广义动量
+\[
+p' = \frac{\partial L'}{\partial\dot q} = m\dot q .
+\]
+
+Legendre 变换：
+\[
+H' = p'\dot q - L' = m\dot q^2 - \Bigl(\frac12 m\dot q^2 - \frac12 k q^2\Bigr)
+= \frac12 m\dot q^2 + \frac12 k q^2 .
+\]
+
+用正则变量 \((q,p')\) 表示：
+\[
+\boxed{\;H'(q,p') = \frac{p'^2}{2m} + \frac12 k q^2\;}.
+\]
+
+\textbf{(iv) 证明 \(H\) 和 \(H'\) 给出等价的哈密顿正则方程。}
+
+原始 Hamilton 量 \(H(q,p,t)\) 和化简后的 Hamilton 量 \(H'(q,p')\) 之间通过以下关系相联系：
+\[
+L' = L - \frac{\mathrm d}{\mathrm d t}\Bigl(\frac12 m b e^{-\lambda t} q^2\Bigr),
+\]
+即两个 Lagrange 量相差一个全导数，因此给出完全相同的 Euler--Lagrange 方程。相应的正则方程亦等价。事实上，从 \(H\) 出发的正则方程为
+\[
+\dot q = \frac{\partial H}{\partial p} = \frac{p}{m} - b e^{-\lambda t} q,\qquad
+\dot p = -\frac{\partial H}{\partial q},
+\]
+而从 \(H'\) 出发的正则方程为
+\[
+\dot q = \frac{p'}{m},\qquad
+\dot p' = -k q .
+\]
+
+它们通过变量代换 \(p' = m\dot q = p + m b e^{-\lambda t} q\) 相联系，在该代换下两组方程完全等价。因此 \(H\) 和 \(H'\) 描述同一物理系统，给出相同的运动轨迹。
+\end{solution}
+\end{question}
+
+
+\begin{question}
+在有心力势 \(V(\rho)\) 作用下，一带电粒子（质量 \(m\)，电荷 \(e\)）作平面运动。垂直于此平面加一均匀恒定磁场 \(B_0\)，矢势 \(\boldsymbol A = \dfrac12 \boldsymbol B_0 \times \boldsymbol r\)。
+
+\begin{itemize}
+  \item[(1)] 写出粒子的 Hamilton 量；
+  \item[(2)] 选以角速度 \(\boldsymbol\omega = -\dfrac{e\boldsymbol B_0}{2m}\) 转动的坐标系里的坐标为广义坐标，求粒子的 Hamilton 量。
+\end{itemize}
+
+\begin{solution}
+\textbf{(1) 原始坐标系中的 Hamilton 量。}
+
+取磁场沿 \(z\) 方向：\(\boldsymbol B_0 = B_0 \hat{\boldsymbol z}\)。矢势为
+\[
+\boldsymbol A = \frac12 \boldsymbol B_0 \times \boldsymbol r
+= \frac{B_0}{2}(-y,\;x,\;0).
+\]
+
+粒子的正则动量为 \(\boldsymbol p = m\boldsymbol v + e\boldsymbol A\)，Hamilton 量为
+\[
+H = \frac{1}{2m}\bigl(\boldsymbol p - e\boldsymbol A\bigr)^2 + V(\rho).
+\]
+
+采用平面极坐标 \((\rho,\varphi)\)，有
+\[
+x = \rho\cos\varphi,\qquad y = \rho\sin\varphi .
+\]
+
+矢势的径向分量 \(A_\rho = 0\)，横向分量
+\[
+A_\varphi = \frac{B_0}{2}\rho .
+\]
+
+Lagrange 量为
+\[
+L = \frac12 m(\dot\rho^2 + \rho^2\dot\varphi^2) + e\boldsymbol A\cdot\boldsymbol v - V(\rho)
+= \frac12 m(\dot\rho^2 + \rho^2\dot\varphi^2) + \frac{eB_0}{2}\rho^2\dot\varphi - V(\rho).
+\]
+
+正则动量：
+\[
+p_\rho = \frac{\partial L}{\partial\dot\rho} = m\dot\rho,\qquad
+p_\varphi = \frac{\partial L}{\partial\dot\varphi} = m\rho^2\dot\varphi + \frac{eB_0}{2}\rho^2 .
+\]
+
+Hamilton 量：
+\[
+\boxed{\;H = \frac{p_\rho^2}{2m}
++ \frac{1}{2m\rho^2}\Bigl(p_\varphi - \frac{eB_0}{2}\rho^2\Bigr)^2
++ V(\rho)\;}.
+\]
+
+由于 \(\varphi\) 为循环坐标，\(p_\varphi\) 为守恒量（即角动量在 \(z\) 方向的分量）。
+
+\textbf{(2) 转动坐标系中的 Hamilton 量。}
+
+选取以角速度 \(\omega = -\dfrac{eB_0}{2m}\) 绕 \(z\) 轴转动的坐标系，即
+\[
+\varphi' = \varphi - \omega t,\qquad \omega = -\frac{eB_0}{2m}.
+\]
+
+在新的转动坐标中，Lagrange 量的变换为
+\[
+L = \frac12 m\bigl[\dot\rho^2 + \rho^2(\dot\varphi' + \omega)^2\bigr]
++ \frac{eB_0}{2}\rho^2(\dot\varphi' + \omega) - V(\rho).
+\]
+
+展开并整理：
+\[
+\begin{aligned}
+L &= \frac12 m\dot\rho^2 + \frac12 m\rho^2\dot\varphi'^2
++ m\omega\rho^2\dot\varphi' + \frac12 m\omega^2\rho^2 \\
+&\qquad + \frac{eB_0}{2}\rho^2\dot\varphi' + \frac{eB_0}{2}\omega\rho^2 - V(\rho).
+\end{aligned}
+\]
+
+代入 \(\omega = -eB_0/(2m)\)，交叉项 \(m\omega\rho^2\dot\varphi' + \frac12 eB_0\rho^2\dot\varphi' = 0\) 恰好消去。同时
+\[
+\frac12 m\omega^2\rho^2 + \frac{eB_0}{2}\omega\rho^2
+= \frac12 m\Bigl(\frac{eB_0}{2m}\Bigr)^2\rho^2
+- \frac{eB_0}{2}\cdot\frac{eB_0}{2m}\rho^2
+= \frac{e^2 B_0^2}{8m}\rho^2 - \frac{e^2 B_0^2}{4m}\rho^2
+= -\frac{e^2 B_0^2}{8m}\rho^2 .
+\]
+
+因此转动系中的 Lagrange 量化为
+\[
+L = \frac12 m(\dot\rho^2 + \rho^2\dot\varphi'^2) - V_{\text{eff}}(\rho),
+\]
+其中有效势
+\[
+V_{\text{eff}}(\rho) = V(\rho) + \frac{e^2 B_0^2}{8m}\rho^2 .
+\]
+
+\textbf{注意：}这里 \(\dfrac{e^2 B_0^2}{8m}\rho^2\) 项来自转动系的离心势与磁场耦合的联合贡献（Lagrange 量中此项为负，L = T - V_{\text{eff}} 故有效势中为正）。在转动系中，磁场耦合项被完全消除。
+
+转动系中的广义动量：
+\[
+p_\rho' = m\dot\rho,\qquad p_{\varphi'}' = m\rho^2\dot\varphi' .
+\]
+
+转动系中的 Hamilton 量：
+\[
+\boxed{\;H' = \frac{p_\rho'^2}{2m} + \frac{p_{\varphi'}'^2}{2m\rho^2}
++ V(\rho) + \frac{e^2 B_0^2}{8m}\rho^2\;}.
+\]
+
+可见，在转动坐标系中磁场交叉项消失，问题转化为粒子在有效势 \(V_{\text{eff}}(\rho)\) 中的平面运动。
+\end{solution}
+\end{question}
