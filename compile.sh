@@ -211,4 +211,4 @@ else
     [ -f "$out_dir/__compile_temp.log" ] && grep "^!" "$out_dir/__compile_temp.log" 2>/dev/null | head -20
 fi
 
-read -t 5 -p "按 Enter 退出（5秒后自动退出）..." _ 2>/dev/null || true
+read -t 5 -p "按 Enter 退出..." _ 2>/dev/null || true

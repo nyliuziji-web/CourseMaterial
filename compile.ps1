@@ -123,5 +123,5 @@ Remove-Item (Join-Path $ROOT_DIR "__compile_temp.tex") -Force -ErrorAction Silen
 if ($outputs.Count -gt 0) { Write-Host "编译成功！" -ForegroundColor Green; $outputs | ForEach-Object { Write-Host "  $_"; Start-Process $_ } }
 else { Write-Host "编译出错。" -ForegroundColor Red }
 
-Write-Host "按 Enter 退出（5秒后自动退出）..." -NoNewline
+Write-Host "按 Enter 退出..." -NoNewline
 try { $cnt=5; while ($cnt -gt 0 -and -not [Console]::KeyAvailable) { Start-Sleep -Seconds 1; $cnt-- }; if ([Console]::KeyAvailable) { [Console]::ReadKey($true) | Out-Null } } catch { Start-Sleep -Seconds 5 }
