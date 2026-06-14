@@ -1,0 +1,152 @@
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\ii}{\mathrm{i}}
+\heading{数学物理方法（上）-第2次作业}
+
+\begin{question}
+设 \(z = x + \ii y\)，已知解析函数 \(f(z)=u(x,y) + \ii v(x,y)\) 的虚部 \(v(x,y)\) 如下，试求出解析函数 \(f(z)\)：
+\begin{enumerate}
+    \item \(\ee^y \cos x\)；
+    \item \(x/(x^2+y^2)\)。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+    \item 根据柯西黎曼条件，有 \(\pdv{u}{x} = \pdv{v}{y} = \ee^y \cos x, \pdv{u}{y}= -\pdv{v}{x}=\ee^y \sin x \)。因此有 \( \dd{u} = \ee^y \cos x \dd{x} + \ee^y \sin x \dd{y} \) 容易观察到 \(du\) 可以写成全微分 \(du = d(( \ee^y \sin x))\)，所以可以得到 \(u(x,y)= \ee^y \sin x +C\)，其中 \(C\) 为任意常实数。综上，我们可以写出 \( f(z)=\ee^y (\sin x + \ii  \cos x) + C = \ii \ee^{-\ii x +y} + C=\ii \ee^{-\ii z} + C  \)
+    \item 根据柯西黎曼条件，有 \(\pdv{u}{x}=\pdv{v}{y}=x/(x^2+y^2)^2 \cdot (-2y), \pdv{u}{y}=-\pdv{v}{x}=(x^2-y^2)/(x^2+y^2)^2\)。因此有\( \dd{u} = \frac{-2x y \dd{x} +(x^2 - y^2) \dd{y}}{(x^2+y^2)^2} \) 容易观察到 \(du\) 可以写成全微分 \(du=d(\frac{y}{x^2 + y^2})\)，所以可以得到 \(u(x,y)=\frac{y}{x^2+y^2}+C\)，其中 \(C\) 为任意常实数。综上，我们可以写出 \( f(z)=\frac{y+\ii x}{x^2+y^2} + C=\frac{\ii}{z} + C \)
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 \(z = x+\ii y\)，已知解析函数 \(f(z)=u(x,y)+\ii v(x,y)\) 的实部为 \( u = \sin x \cosh y. \)
+试求 \(f'(z)\)。
+\begin{solution}
+这是显然的 \[
+f'(z) = \pdv{u}{x} + \ii \pdv{v}{x} = \pdv{u}{x} -\ii \pdv{u}{y}
+= \cos x \cosh y -\ii \sin x \sinh y
+= \cos x \cos \ii y - \sin x \sin \ii y
+= \cos z
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设 \(z=x+\ii y\)，已知解析函数 \(f(z)=u(x,y)+\ii v(x,y)\) 的实部和虚部的乘积为 \( u v = 2\ee^{2x} \sin(2y). \)
+试求解析函数 \(f(z)\)。
+\begin{solution}
+考察 \(F(z)= [f(z)]^2\)，有 \(F(z)=u^2 - v^2 + \ii (2u v)\)，令 \(u'=u^2-v^2,v'=2u v\)，可以得到 \[
+\pdv{u'}{x}=\pdv{v'}{y}=8 \ee ^{2x} \cos (2y), \quad \pdv{u'}{y}=-\pdv{v'}{x}=-8\ee^{2x} \sin(2y)
+\]
+因此可以得到 \[
+du'=d(4\ee^{2x} \cos (2y))
+\]
+\[
+u'(x,y)=4 \ee^{2x} \cos(2y) + C
+\]
+所以有 \[
+F(z)= 4 \ee^{2x} [\cos(2y) + \ii \sin(2y)] + C=4 \ee ^{2z} + C
+\]
+故有 \[
+f(z) =\sqrt{4 \ee^{2z} + C}
+\]
+% 其中 \(C\) 为任意实数。
+若要求 \(f(z)\) 解析，那么 \(C=0\)，故有 \( f(z) =2\ee^{z}\) 或 \(f(z) = -2\ee^z \)
+\end{solution}
+\end{question}
+
+\begin{question}
+\(z=x+\ii y, x,y \in \mathbb{R}\)，复数 \(f(z)\) 在复平面 \(\mathbb{C}\) 内解析且不是常数函数，已知 \(f(z)\) 的实部 \(\Re f=u(x,y)\) 具有下列分离变量的形式，即 \[
+u(x,y) = a(x) + b(y)
+\]
+其中 \(a\) 和 \(b\) 都是未知的单变量实函数。求满足上述要求的复平面 \(\mathbb{C}\) 内的解析函数 \(f(z)\)。
+\begin{solution}
+由解析函数的柯西黎曼条件，可以知道 \[
+\pdv{v}{x}=-\pdv{u}{y}=-\dv{b}{y}, \quad \pdv{v}{y}=\pdv{u}{x}=\dv{a}{x}
+\]
+因此可以得到 \[
+dv=\pdv{v}{x} dx+\pdv{v}{y} dy = -\dv{b}{y} dx + \dv{a}{x} dy
+\]
+这个时候注意到 \[
+\nabla^2 u = \dv[2]{a}{x} + \dv[2]{b}{y}=0
+\]
+等式中一项只与 \(x\) 有关，一项只与 \(y\) 有关，加起来为 \(0\)，两者一定为常数。不妨设 \(\dv[2]{a}{x}=-\dv[2]{b}{y}=k\)，则有 \(\dv{a}{x}=k x + C_1,\dv{b}{y}=-k y - C_2\)，代入可以得到
+
+\[
+dv =  d(k x y + C_1 y + C_2 x)
+\]
+因此有 \(v(x,y) = k x y + C_1 y + C_2 x + C_3\)
+故有 \[
+\begin{aligned}
+f(z)&=\frac12 k (x^2 - y^2) + C_1 x - C_2 y + C_4 + \ii (k x y +C_1 y + C_2 x + C_3) \\
+&= \frac12 k z^2 + (C_1 +\ii C_2) z + C_4 + \ii C_3 \\
+&= \frac12 k z^2 + \alpha z + \beta
+\end{aligned}
+\]
+其中 \(k= \dv[2]{a}{x}, \alpha,\beta \in \mathbb{C}\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+若函数 \(f(z)\) 在区域 \(G\) 内解析，且其模为常数，证明 \(f(z)\) 本身也必为常数。
+\begin{solution}
+设 \(f(z) = \rho \ee^{\ii \phi(z)}\)，由于 \(f(z)\) 在 \(G\) 内解析，则有 \[
+\pdv{f}{x}= \rho \ee^{\ii \phi(z)} \ii \pdv{\phi}{x}, \quad \frac{1}{\ii} \pdv{f}{y} = \rho \ee^{\ii \phi(z)} \pdv{\phi}{y}
+\]
+\[
+\pdv{f}{x} =\frac{1}{\ii} \pdv{f}{y} \Rightarrow \ii \pdv{\phi}{x} = \pdv{\phi}{y}
+\]
+可以看到，等式两边一者为实数，一者为纯虚数，故两者均为 \(0\)，即 \(\pdv{\phi}{x}=\pdv{\phi}{y}=0\)，有 \(\phi(z)\) 为常数，\(f(z)\) 本身必定为常数。
+\end{solution}
+\end{question}
+
+\begin{question}
+解下列方程：\( \cos z = 4 \)
+\begin{solution}
+有
+\[
+\frac{\ee^{\ii z} + \ee^{-\ii z}}{2} = 4
+\]
+令 \(w = \ee^{\ii z}\)，有 \( w^2 -8 w + 1=0 \)
+解得， \( w=4 \pm \sqrt{15} \)
+因此有 \( z= -\ii \ln(w) = -\ii \ln |w| + \arg w + 2k \pi \)
+代入 \(w\) 后可以得到 \( z=2k \pi - \ii \ln (4 \pm \sqrt{15}) \)
+其中 \(k \in \mathbb{Z}\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+判断哪些是多值函数，哪些是函数：
+\begin{center}
+\begin{tabular}{lll}
+(1) \(\sqrt{z^2 - 1}\)； &
+(2) \(z + \sqrt{z - 1}\)； &
+(3) \(\sin \sqrt{z}\)； \\
+(4) \(\cos \sqrt{z}\)； &
+(5) \(\displaystyle \frac{\sin \sqrt{z}}{\sqrt{z}}\)； &
+(6) \(\displaystyle \frac{\cos \sqrt{z}}{\sqrt{z}}\)。
+\end{tabular}
+\end{center}
+\begin{solution}
+上述表达式中 (1)(2)(3)(6) 为多值函数，(4)(5) 为函数。
+\end{solution}
+\end{question}
+
+\begin{question}
+\(n\) 为任意给定的整数，由 \( \ee^{1+2n \pi \ii} = \ee \) 等量替换，有 \( (\ee^{1+2n \pi \ii})^{1+2n \pi \ii} = \ee \)
+又 \( \ee^{(1+2n \pi \ii)(1+2n \pi \ii)} = \ee^{(1+2n \pi \ii)^2}=\ee^{1+4n \pi \ii - 4n^2 \pi^2}=\ee \cdot \ee^{4n \pi \ii} \cdot \ee^{-4n^2 \pi^2}=\ee \cdot \ee^{-4n^2 \pi^2} \)
+比较(2)式和(3)式，得 \( \ee^{-4n^2 \pi^2}=1, \quad n=0, \pm 1, \pm 2, \dots \)
+以上推导，哪里出问题了？请分析如何修正才能得到一致的结果。
+\begin{solution}
+在上述的推导过程中，一般而言有 \( (\ee^{1+2n \pi \ii})^{1+2n \pi \ii} \neq \ee^{(1+2n \pi \ii)(1+2n \pi \ii)} \)
+为了处理更加普遍的情形，在复数域下，指数定义为 \(z^\alpha := \ee^{\alpha \ln z}\)，因此有 \[
+(z^{\alpha})^\beta = \ee^{\beta \ln z^\alpha} = \ee^{\beta \ln (\ee^{\alpha \ln z})}
+\]
+而，\( z^{\alpha \beta}= \ee^{\alpha \beta \ln z} \)
+一般而言， \( \alpha \ln z \neq \ln (\ee^{\alpha \ln z}) \)
+现在，我们选定 \(\ln z\) 中 \(0 \le \arg z < 2\pi\) 的一支，代入 \(z=\ee\)，\(\alpha = 1+2n \pi \ii\)，可以得到 \[
+\ln(\ee^{\alpha \ln z}) =\ln (\ee^{(1+2n \pi \ii)(1)})=\ln (\ee^{1+0 \ii})=1
+\]
+所以有 \[
+(z^{\alpha})^{\beta}= \ee^{(1+2\pi n \ii)(1)} =1
+\]
+\end{solution}
+\end{question}
