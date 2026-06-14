@@ -1,0 +1,195 @@
+﻿\heading{理论物理基础（II）-模拟题5-期末}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑区间 $-a<x<a$ 内的粒子，边界处为无限高势垒，并在中心加入 $\delta$ 势：
+\[
+V(x)=
+\begin{cases}
++\infty,& |x|\ge a,\\
+\lambda\delta(x),& |x|<a,
+\end{cases}
+\qquad \lambda\in\mathbb R.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 说明奇宇称本征态不受 $\delta$ 势影响，并写出其能量；
+  \item 写出偶宇称本征态波函数形式，并导出允许波数 $k$ 满足的方程；
+  \item 讨论 $\lambda\to 0$ 时偶宇称本征值方程如何回到普通无限深方势阱；
+  \item 讨论强排斥极限 $\lambda\to +\infty$ 时的能谱结构。
+\end{enumerate}
+
+\begin{solution}
+若本征态为奇宇称，则 $\psi(0)=0$，因此 $\delta$ 势不产生任何作用。此时在 $0<x<a$ 内波函数可取为
+\[
+\psi(x)=A\sin kx,
+\]
+再由 $\psi(a)=0$ 得
+\[
+ka=n\pi,
+\qquad n=1,2,3,\dots.
+\]
+故奇宇称能级为
+\ansmath{E_n^{(-)}=\frac{\hbar^2}{2m}\left(\frac{n\pi}{a}\right)^2,
+\qquad n=1,2,3,\dots.}
+
+对偶宇称，可在 $0<x<a$ 内写成
+\[
+\psi(x)=C\sin k(a-x),
+\]
+它自动满足 $\psi(a)=0$。在 $x=0$ 处用导数跳跃条件
+\[
+\psi'(0+)-\psi'(0-)=\frac{2m\lambda}{\hbar^2}\psi(0),
+\]
+而偶宇称给出 $\psi'(0-)=-\psi'(0+)$，所以
+\[
+2\psi'(0+)=\frac{2m\lambda}{\hbar^2}\psi(0).
+\]
+代入可得
+\[
+-k\cos(ka)=\frac{m\lambda}{\hbar^2}\sin(ka),
+\]
+因此偶宇称允许波数满足
+\ansmath{k\cot(ka)=-\frac{m\lambda}{\hbar^2}.}
+
+当 $\lambda\to 0$ 时，上式化为 $\cot(ka)=0$，故
+\[
+ka=\left(n+\frac12\right)\pi,
+qquad n=0,1,2,\dots,
+\]
+这正是区间 $[-a,a]$ 的普通无限深方势阱的偶宇称能级，说明结果正确回到无 $\delta$ 势的情形。
+
+当 $\lambda\to +\infty$ 时，偶宇称方程要求 $\sin(ka)\to 0$，即
+\[
+ka\to n\pi.
+\]
+所以偶宇称能级逼近奇宇称能级。物理上，中心的强排斥 $\delta$ 势把区间 $[-a,a]$ 有效切成两个彼此独立的半阱，于是左右局域态可线性组合成奇偶两类、且对应能量趋于简并。
+
+故在 $\lambda\to +\infty$ 时，能谱趋于
+\ansmath{E_n\to \frac{\hbar^2}{2m}\left(\frac{n\pi}{a}\right)^2,
+\qquad n=1,2,3,\dots,}
+并且每一级都表现为近似二重简并。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一维自由粒子的初态高斯波包
+\[
+\psi(x,0)=\frac{1}{(2\pi\sigma^2)^{1/4}}\exp\left(-\frac{x^2}{4\sigma^2}+ik_0x\right),
+\]
+其中 $\sigma>0$、$k_0$ 为实数。哈密顿量为
+\[
+\hat H=\frac{\hat p^2}{2m}.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求动量表象 $\tilde\psi(p,0)$；
+  \item 求 $t=0$ 时的 $\langle x\rangle$、$\langle p\rangle$、$\Delta x$、$\Delta p$，并验证它是最小不确定度波包；
+  \item 写出任意时刻的 $\Delta x(t)$，并求使得波包宽度变为初始宽度两倍的全部时刻。
+\end{enumerate}
+
+\begin{solution}
+用 Fourier 变换
+\[
+\tilde\psi(p,0)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}e^{-ipx/\hbar}\psi(x,0)\,dx
+\]
+可得高斯型动量表象
+\ansmath{\tilde\psi(p,0)=\left(\frac{2\sigma^2}{\pi\hbar^2}\right)^{1/4}
+\exp\left[-\frac{\sigma^2}{\hbar^2}(p-\hbar k_0)^2\right].}
+
+由该分布立刻得到
+\[
+\langle p\rangle=\hbar k_0,
+\qquad
+\Delta p=\frac{\hbar}{2\sigma}.
+\]
+在位置表象下概率密度以 $x=0$ 为中心，因此
+\[
+\langle x\rangle=0,
+\qquad
+\Delta x=\sigma.
+\]
+于是
+\ansmath{\langle x\rangle=0,
+\qquad
+\langle p\rangle=\hbar k_0,
+\qquad
+\Delta x=\sigma,
+\qquad
+\Delta p=\frac{\hbar}{2\sigma}.}
+从而
+\ansmath{\Delta x\,\Delta p=\frac{\hbar}{2},}
+说明它在初始时刻达到 Heisenberg 不确定度下界。
+
+自由演化下，高斯波包仍保持高斯形式，其中心按经典速度
+\[
+v_0=\frac{\hbar k_0}{m}
+\]
+平移，而宽度随时间展宽为
+\ansmath{\Delta x(t)=\sigma\sqrt{1+\left(\frac{\hbar t}{2m\sigma^2}\right)^2}.}
+若要求 $\Delta x(t)=2\sigma$，则
+\[
+1+\left(\frac{\hbar t}{2m\sigma^2}\right)^2=4.
+\]
+故全部这样的时刻为
+\ansmath{t=\pm\frac{2\sqrt3\,m\sigma^2}{\hbar}.}
+若只考虑 $t>0$，则取正号即可。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一维有限方势垒
+\[
+V(x)=
+\begin{cases}
+V_0,& 0<x<a,\\
+0,& x<0\ \text{或}\ x>a,
+\end{cases}
+\qquad V_0>0.
+\]
+有一束能量为 $E$ 的粒子自左向右入射。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 当 $E>V_0$ 时，写出透射系数 $T$；
+  \item 证明此时存在共振透射，并给出共振条件；
+  \item 当 $0<E<V_0$ 时，写出透射系数 $T$ 的表达式，并说明厚势垒极限下的渐近行为。
+\end{enumerate}
+
+\begin{solution}
+当 $E>V_0$ 时，定义
+\[
+k=\frac{\sqrt{2mE}}{\hbar},
+\qquad
+q=\frac{\sqrt{2m(E-V_0)}}{\hbar}.
+\]
+由三段波函数在 $x=0,a$ 处连续及导数连续，可得标准结果
+\ansmath{T=\left[1+\frac{V_0^2}{4E(E-V_0)}\sin^2(qa)\right]^{-1},
+\qquad (E>V_0).}
+
+当
+\[
+\sin(qa)=0
+\]
+时，上式给出 $T=1$，即发生共振透射。因此共振条件是
+\ansmath{qa=n\pi,
+\qquad n=1,2,3,\dots.}
+也就是说，当势垒区内部恰好容纳整数个半波长时，反射完全相消。
+
+当 $0<E<V_0$ 时，定义
+\[
+\kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}.
+\]
+此时势垒区波函数为指数型，透射系数变为
+\ansmath{T=\left[1+\frac{V_0^2}{4E(V_0-E)}\sinh^2(\kappa a)\right]^{-1},
+\qquad (0<E<V_0).}
+
+在厚势垒极限 $\kappa a\gg 1$ 下，$\sinh(\kappa a)\sim \tfrac12 e^{\kappa a}$，故
+\[
+T\sim \frac{16E(V_0-E)}{V_0^2}e^{-2\kappa a}.
+\]
+因此
+\ansmath{T\propto e^{-2\kappa a}\qquad (\kappa a\gg 1),}
+表现出典型的量子隧穿指数压低。
+\end{solution}
+\end{question}
+

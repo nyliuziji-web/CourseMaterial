@@ -1,0 +1,187 @@
+﻿\heading{实验物理中的统计方法-23春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对；其中第 2 题在 PDF 中仅记为“忘了，不过既然忘了那题应该挺简单的”。}
+
+\begin{question}
+从 $\{1,2,3,4,5\}$ 中随机抽一个数 $X$，再从 $\{1,2,\cdots,X\}$ 中随机抽一个数 $Y$，给出 $P(Y=2)$。
+\begin{solution}
+\[
+P(Y=2)=\sum_{x=2}^{5}P(X=x)P(Y=2\mid X=x)
+=\frac15\sum_{x=2}^{5}\frac1x
+=\frac{77}{300}.
+\]
+\ansmath{P(Y=2)=\sum_{x=2}^{5}P(X=x)P(Y=2\mid X=x)
+=\frac15\sum_{x=2}^{5}\frac1x
+=\frac{77}{300}}
+\end{solution}
+\end{question}
+
+\begin{question}
+忘了，不过既然忘了那题应该挺简单的。
+\begin{solution}
+上传稿中仅注明“应该较简单”，此处保留空位。
+\anstext{题面缺失，答案从略。}
+\end{solution}
+\end{question}
+
+\begin{question}
+圆的半径在 $(a,b)$（$0<a<b$）上均匀分布，求圆面积的概率密度。
+\begin{solution}
+由 $R=\sqrt{S/\pi}$，
+\[
+ f_S(s)=f_R\!\left(\sqrt{\frac{s}{\pi}}\right)\left|\frac{d}{ds}\sqrt{\frac{s}{\pi}}\right|
+ =\frac{1}{2(b-a)\sqrt{\pi s}},
+\quad \pi a^2<s<\pi b^2.
+\]
+其余处为 $0$。
+\ansmath{f_S(s)=f_R\!\left(\sqrt{\frac{s}{\pi}}\right)\left|\frac{d}{ds}\sqrt{\frac{s}{\pi}}\right|
+ =\frac{1}{2(b-a)\sqrt{\pi s}},
+\quad \pi a^2<s<\pi b^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+某电路中有两个同种元件，只有两个元件都正常工作时电路才正常工作。设元件正常工作时间 $\tau$ 的（累积）分布函数为 $F(\tau)$，给出整个电路的正常工作时间 $T$ 的累积分布函数。
+\begin{solution}
+串联电路在两个元件都未坏时才正常，因此
+\[
+T=\min(T_1,T_2),\qquad
+P(T>t)=P(T_1>t,T_2>t)=[1-F(t)]^2.
+\]
+故
+\ansmath{F_T(t)=1-[1-F(t)]^2=2F(t)-F(t)^2}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+随机变量 $X$ 满足概率密度
+\[
+f(x)=\begin{cases}
+1+x,&-1<x<0,\\
+1-x,&0<x<1,\\
+0,&\text{其他},
+\end{cases}
+\]
+求 $\operatorname{Var}[X]$。
+\begin{solution}
+该分布关于 $0$ 对称，故 $E[X]=0$。再算
+\[
+E[X^2]=2\int_0^1 x^2(1-x)\,dx
+=2\left(\frac13-\frac14\right)=\frac16.
+\]
+所以
+\[
+\operatorname{Var}(X)=E[X^2]-E[X]^2=\frac16.
+\]
+\ansmath{\operatorname{Var}(X)=E[X^2]-E[X]^2=\frac16}
+\end{solution}
+\end{question}
+
+\begin{question}
+（大意）在粒子探测实验中，可以用宇宙射线来标定闪烁体的探测效率：把两个闪烁体中间夹上待测闪烁体，放着计数，仅当顶上的闪烁体和底下的闪烁体都计数了才记录这次计数。以下是探测结果：
+\begin{itemize}[leftmargin=2em,itemsep=0.2em,topsep=0.2em]
+\item 顶上的闪烁体的计数：2000
+\item 中间的闪烁体的计数：1800
+\item 底下的闪烁体的计数：2000
+\end{itemize}
+求待测闪烁体的探测效率以及其不确定度。
+\begin{solution}
+把“顶底同时击中”视为 $N=2000$ 次有效穿过，中间层记数 $k=1800$，则效率估计
+\[
+\hat\varepsilon=\frac{k}{N}=0.9.
+\]
+若按二项分布处理，则
+\[
+\sigma_{\hat\varepsilon}=\sqrt{\frac{\hat\varepsilon(1-\hat\varepsilon)}{N}}
+=\sqrt{\frac{0.9\times 0.1}{2000}}\approx 6.7\times 10^{-3}.
+\]
+故结果可写作 $\hat\varepsilon=0.900\pm 0.007$。
+\ansmath{\sigma_{\hat\varepsilon}=\sqrt{\frac{\hat\varepsilon(1-\hat\varepsilon)}{N}}
+=\sqrt{\frac{0.9\times 0.1}{2000}}\approx 6.7\times 10^{-3}}
+\end{solution}
+\end{question}
+
+\begin{question}
+抛硬币，但是我们对这个硬币是不是“公平的”一无所知。设硬币正面朝上的概率 $\theta$，那么不妨先验地设 $\theta$ 在 $(0,1)$ 上均匀分布。现在抛了一次，是正面。又抛了一次，是反面。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求抛一次以后 $\theta$ 的后验分布。
+\item 求抛两次以后 $\theta$ 的后验分布。
+\end{enumerate}
+\begin{solution}
+均匀先验即 $\theta\sim \mathrm{Beta}(1,1)$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 抛一次得正面后，后验为
+\[
+\theta\mid H\sim \mathrm{Beta}(2,1),\qquad f(\theta\mid H)=2\theta,\ 0<\theta<1.
+\]
+\item 再抛一次得反面后，后验为
+\[
+\theta\mid H,T\sim \mathrm{Beta}(2,2),\qquad f(\theta\mid H,T)=6\theta(1-\theta),\ 0<\theta<1.
+\]
+\end{enumerate}
+\ansmath{\theta\mid H\sim \mathrm{Beta}(2,1),\qquad f(\theta\mid H)=2\theta,\ 0<\theta<1,\quad  \theta\mid H,T\sim \mathrm{Beta}(2,2),\qquad f(\theta\mid H,T)=6\theta(1-\theta),\ 0<\theta<1}
+\end{solution}
+\end{question}
+
+\begin{question}
+有个概率密度分布
+\[
+f(x,y)=\begin{cases}
+x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
+0,&\text{else},
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $t$。
+\item 求 $P(x+y>1)$。
+\item 求 $P(y>1\mid x<\frac12)$。
+\end{enumerate}
+\begin{solution}
+由归一化条件
+\[
+1=\int_0^1\int_0^2\left(x^2+\frac{xy}{t}\right)dy\,dx
+=\frac23+\frac1t,
+\]
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item \ansmath{t=3}
+\item
+\ansmath{P(x+y>1)=1-\int_0^1\int_0^{1-x}\left(x^2+\frac{xy}{3}\right)dy\,dx
+=1-\frac{7}{72}=\frac{65}{72}}
+\item
+\ansmath{P(y>1\mid x<1/2)=
+\frac{\int_0^{1/2}\int_1^2\left(x^2+\frac{xy}{3}\right)dy\,dx}
+{\int_0^{1/2}\int_0^2\left(x^2+\frac{xy}{3}\right)dy\,dx}
+=\frac58}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+探测器探测稀有事件。认为本底计数满足泊松分布，本底平均计数 4 个信号，现在探测到了 8 个疑似信号，给出这一结果的显著性水平。
+\begin{solution}
+显著性水平（$p$ 值）取右尾概率
+\ansmath{p=P(N\ge 8\mid \lambda=4)
+=1-\sum_{k=0}^{7}e^{-4}\frac{4^k}{k!}
+\approx 0.0511}
+\end{solution}
+\end{question}
+
+\begin{question}
+小明搭车。平均每分钟过 1 辆车。每个司机拒绝小明搭车的概率为 1\%，且每个司机是否拒绝相互独立。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求过了 60 辆车的时候小明没搭上车的概率。
+\item 求一个小时内小明没搭上车的概率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 过了 $60$ 辆车仍没搭上车，等价于 $60$ 人全拒绝：
+\ansmath{P=(0.01)^{60}}
+\item 一小时内车辆数 $N\sim \mathrm{Poisson}(60)$。条件于 $N=n$ 时，没搭上车概率为 $(0.01)^n$，故
+\ansmath{P=E[(0.01)^N]
+=\sum_{n=0}^{\infty}(0.01)^n e^{-60}\frac{60^n}{n!}
+=e^{-60(1-0.01)}=e^{-59.4}}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+

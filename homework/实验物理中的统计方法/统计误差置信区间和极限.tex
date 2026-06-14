@@ -1,0 +1,603 @@
+﻿\heading{实验物理中的统计方法-统计误差、置信区间和极限}
+
+
+
+
+
+\begin{question}
+假设估计量 \(\hat\theta\) 服从高斯分布，高斯分布的参数分别为
+\(\hat\theta\) 的真值 \(\theta\) 和标准偏差
+\(\sigma_{\hat\theta}\)。假设 \(\sigma_{\hat\theta}\) 已知。
+
+\begin{enumerate}
+\item
+  画出定义置信带的函数 \(u_\alpha(\theta)\) 和 \(v_\beta(\theta)\)（参见
+  Statistical Data Analysis 第 9.2 节）。
+\item
+  证明置信水平为 \(1-\gamma\) 时参数 \(\theta\) 的中心置信区间由下式给出
+\end{enumerate}
+
+\[
+\left[\hat\theta-\sigma_{\hat\theta}\Phi^{-1}(1-\gamma/2),\ \hat\theta+\sigma_{\hat\theta}\Phi^{-1}(1-\gamma/2)\right],
+\]
+
+其中 \(\Phi^{-1}\) 是标准高斯分布的分位数。
+\begin{solution}
+设估计量 \(\hat\theta\) 服从高斯分布，均值为真值
+\(\theta\)，标准差为已知常数 \(\sigma_{\hat\theta}\)。
+
+\begin{enumerate}
+\item 置信带函数
+
+若以 \(1-\alpha\) 和 \(1-\beta\) 作为上下边界的置信带，则定义
+
+\[
+P(\hat\theta\le u_\alpha(\theta)\mid \theta)=1-\alpha,
+\qquad
+P(\hat\theta\le v_\beta(\theta)\mid \theta)=\beta.
+\]
+
+由于
+
+\[
+\frac{\hat\theta-\theta}{\sigma_{\hat\theta}}\sim N(0,1),
+\]
+
+故
+
+\[
+u_\alpha(\theta)=\theta+\sigma_{\hat\theta}\Phi^{-1}(1-\alpha),
+\qquad
+v_\beta(\theta)=\theta+\sigma_{\hat\theta}\Phi^{-1}(\beta).
+\]
+
+\item 中心置信区间
+
+对中心区间取 \(\alpha=\beta=\gamma/2\)，反演置信带后得到
+
+\[
+\theta\in
+\Big[
+\hat\theta-\sigma_{\hat\theta}\Phi^{-1}(1-\gamma/2),
+\hat\theta+\sigma_{\hat\theta}\Phi^{-1}(1-\gamma/2)
+\Big].
+\]
+
+这就是式 (9.1)。
+\pyfig[0.72\linewidth]{figures/fig_09_01_gaussian_belt.png}{已知标准差的高斯估计量置信带；反演横向截线得到参数区间。}\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+随机变量 \(x\) 服从均值为 \(\xi\) 的指数分布，考虑对 \(x\) 的 \(n\)
+次观测。参数 \(\xi\) 的最大似然估计量（见 Statistical Data Analysis
+(6.6) 式）由下式给出
+
+\[
+\hat\xi=\frac1n\sum_{i=1}^{n}x_i,
+\]
+
+并且 \(\hat\xi\) 的概率密度函数（参见 Statistical Data Analysis (10.25)
+式）为
+
+\[
+g(\hat\xi;\xi)=\frac{n^n}{(n-1)!}\frac{\hat\xi^{n-1}}{\xi^n}e^{-n\hat\xi/\xi}.
+\]
+
+\begin{enumerate}
+\item
+  证明：定义置信带的曲线 \(u_\alpha(\xi)\) 和 \(v_\beta(\xi)\) 为
+\end{enumerate}
+
+\[
+\begin{split}
+u_\alpha(\xi)&=\frac{\xi}{2n}F_{\chi^2}^{-1}(1-\alpha;2n),\\
+v_\beta(\xi)&=\frac{\xi}{2n}F_{\chi^2}^{-1}(\beta;2n),
+\end{split}
+\]
+
+其中 \(F_{\chi^2}^{-1}\) 为 \(\chi^2\) 分布的分位数。根据习题
+2.6，\(\chi^2\) 分布的累积分布可以与不完全伽马函数 \(P(x,n)\) 联系起来：
+
+\[
+F_{\chi^2}(2x;2n)=P(x,n)\equiv\frac1{\Gamma(n)}\int_0^x e^{-t}t^{n-1}\,dt.
+\]
+
+取 \(\alpha=\beta=0.159\)，\(n=5\)，画出 \(u_\alpha(\xi)\) 和
+\(v_\beta(\xi)\)。（\(\chi^2\)
+分布的分位数可以从标准分布表中查出，或者在 ROOT 中调用
+\texttt{TMath::ChisquareQuantile(Double\_t\ p,\ Double\_t\ ndf)}
+函数得到。）
+
+\begin{enumerate}[start=2]
+\item
+  求出置信区间 \([a,b]\) 作为估计值 \(\hat\xi\)、样本容量 \(n\)
+  以及置信水平 \(\alpha\) 和 \(\beta\) 的函数。假设估计值为
+  \(\hat\xi=1.0\)，在 \(u_\alpha(\xi)\) 和 \(v_\beta(\xi)\)
+  的图上画出该估计量的值。取 \(n=5\)，\(\alpha=\beta=0.159\)，计算 \(a\)
+  和 \(b\)。将计算结果与估计值加减一倍标准差得到的区间进行比较。
+\end{enumerate}
+\begin{solution}
+设 \(x\) 服从均值为 \(\xi\) 的指数分布，样本均值的 MLE 为
+
+\[
+\hat\xi=\frac1n\sum_{i=1}^n x_i.
+\]
+
+其密度为
+
+\[
+g(\hat\xi;\xi)=\frac{n^n}{(n-1)!}\frac{\hat\xi^{n-1}}{\xi^n}e^{-n\hat\xi/\xi}.
+\]
+
+\begin{enumerate}
+\item 置信带函数
+
+注意到
+
+\[
+\frac{2n\hat\xi}{\xi}\sim\chi^2_{2n},
+\]
+
+故若定义
+
+\[
+P(\hat\xi\le u_\alpha(\xi)\mid\xi)=1-\alpha,
+\qquad
+P(\hat\xi\le v_\beta(\xi)\mid\xi)=\beta,
+\]
+
+则
+
+\[
+\frac{2n\,u_\alpha(\xi)}{\xi}=F_{\chi^2}^{-1}(1-\alpha;2n),
+\qquad
+\frac{2n\,v_\beta(\xi)}{\xi}=F_{\chi^2}^{-1}(\beta;2n).
+\]
+
+因此
+
+\[
+u_\alpha(\xi)=\frac{\xi}{2n}F_{\chi^2}^{-1}(1-\alpha;2n),
+\qquad
+v_\beta(\xi)=\frac{\xi}{2n}F_{\chi^2}^{-1}(\beta;2n).
+\]
+
+\item 反演区间
+
+给定观测 \(\hat\xi\)，反演后得到
+
+\[
+a=\frac{2n\hat\xi}{F_{\chi^2}^{-1}(1-\alpha;2n)},
+\qquad
+b=\frac{2n\hat\xi}{F_{\chi^2}^{-1}(\beta;2n)}.
+\]
+
+题目给出 \(\hat\xi=1.0\)，\(n=5\)，\(\alpha=\beta=0.159\)，程序算得
+
+\[
+[a,b]=[0.69845,
+1.75902].
+\]
+
+若直接用``大样本一倍标准差''近似，因
+
+\[
+\sigma_{\hat\xi}=\frac{\xi}{\sqrt n},
+\]
+
+常见近似区间为
+
+\[
+1\pm\frac{1}{\sqrt5}=[0.5528,1.4472].
+\]
+
+可以看出精确区间明显不对称，而高斯近似过于对称。
+\pyfig[0.72\linewidth]{figures/fig_09_02_exponential_belt.png}{\(n=5\)、\(\alpha=\beta=0.159\) 时指数均值参数的置信带与 \(\hat\xi=1\) 的反演。}\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+证明二项分布的参数 \(p\) 的上限和下限为
+
+\[
+p_{\rm lo}=\frac{nF_F^{-1}[\alpha;2n,2(N-n+1)]}{N-n+1+nF_F^{-1}[\alpha;2n,2(N-n+1)]},
+\]
+
+\[
+p_{\rm up}=\frac{(n+1)F_F^{-1}[1-\beta;2(n+1),2(N-n)]}{(N-n)+(n+1)F_F^{-1}[1-\beta;2(n+1),2(N-n)]}.
+\]
+
+其中上下限的置信水平分别为 \(1-\alpha\) 和 \(1-\beta\)，\(n\) 为 \(N\)
+次试验中成功的次数，\(F_F^{-1}\) 为 \(F\) 分布的分位数，由 \(F\)
+分布定义：
+
+\[
+f(x;n_1,n_2)=\left(\frac{n_1}{n_2}\right)^{n_1/2}
+\frac{\Gamma\left(\frac12(n_1+n_2)\right)}{\Gamma\left(\frac12n_1\right)\Gamma\left(\frac12n_2\right)}
+x^{n_1/2-1}\left(1+\frac{n_1}{n_2}x\right)^{-(n_1+n_2)/2},
+\]
+
+其中 \(x>0\)，参数 \(n_1\) 和 \(n_2\)
+为整数（自由度）。利用二项分布累积分布函数与自由度为 \(n_1=2(n+1)\) 和
+\(n_2=2(N-n)\) 的累积分布函数 \(F_F(x)\) 的关系
+
+\[
+\sum_{k=0}^{n}\frac{N!}{k!(N-k)!}p^k(1-p)^{N-k}
+=1-F_F\left[\frac{(N-n)p}{(n+1)(1-p)};2(n+1),2(N-n)\right].
+\]
+
+\(F\) 分布的分位数可以从标准分布表中查得，或者调用 ROOT 中的函数计算。
+\begin{solution}
+二项分布参数 \(p\) 的精确区间来自对二项分布尾概率的反演。对观测到
+\(n\) 个成功、总试验数为 \(N\) 的情形，下限 \(p_{\rm lo}\) 由
+\[
+P(X\ge n\mid p_{\rm lo})=1-\sum_{k=0}^{n-1}\binom Nk p_{\rm lo}^k(1-p_{\rm lo})^{N-k}=1-\alpha
+\]
+等价地给出；上限 \(p_{\rm up}\) 由
+\[
+P(X\le n\mid p_{\rm up})=1-\beta
+\]
+给出。利用二项尾概率与 \(F\) 分布累积分布之间的恒等式，可以把这两个反演方程写成
+\(F\) 分布分位数的形式。
+
+具体地，二项分布的 Clopper--Pearson 区间也可写成 Beta 分布分位数
+\[
+p_{\rm lo}=B^{-1}(\alpha;n,N-n+1),
+\qquad
+p_{\rm up}=B^{-1}(1-\beta;n+1,N-n),
+\]
+其中端点情形 \(n=0\) 或 \(n=N\) 需按极限理解。
+利用 Beta 分布与 \(F\) 分布分位数的关系
+\[
+B^{-1}(q;a,b)=
+\frac{aF_F^{-1}(q;2a,2b)}{b+aF_F^{-1}(q;2a,2b)},
+\]
+分别取 \((a,b)=(n,N-n+1)\) 和 \((a,b)=(n+1,N-n)\)，即得
+\[
+p_{\rm lo}=
+\frac{nF_F^{-1}[\alpha;2n,2(N-n+1)]}
+{N-n+1+nF_F^{-1}[\alpha;2n,2(N-n+1)]},
+\]
+\[
+p_{\rm up}=
+\frac{(n+1)F_F^{-1}[1-\beta;2(n+1),2(N-n)]}
+{(N-n)+(n+1)F_F^{-1}[1-\beta;2(n+1),2(N-n)]}.
+\]
+这就是题目要求证明的上下限公式。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+在 CERN 的 Gargamelle
+气室中进行了反中微子-核子散射实验。选择的事例是只产生强子的事例（通过中性流过程
+\(\bar\nu_\mu N\to\bar\nu_\mu X\)），或者是产生强子和一个 \(\mu\)
+子的事例（通过带电流过程 \(\bar\nu_\mu N\to\mu^+X\)）。从 212
+个事例样本中，64 个事例归类为中性流（NC）过程，148
+个归类为带电流（CC）过程。估计事例为中性流（NC）的概率，并求出 68.3\%
+的中心置信区间。求 NC 与 CC 过程概率之比的估计量和置信区间。
+\begin{solution}
+样本中共有 212 个事件，其中 64 个是 NC，148 个是 CC，因此
+
+\[
+\hat p=\frac{64}{212}=0.301887.
+\]
+
+按 68.3\% 中心精确区间（Clopper--Pearson）计算，程序得到
+
+\[
+p\in[0.26906,0.33672].
+\]
+
+NC 与 CC 概率之比为
+
+\[
+r=\frac{p}{1-p}.
+\]
+
+其 MLE 为
+
+\[
+\hat r=\frac{64}{148}=0.43243.
+\]
+
+因为 \(r(p)=p/(1-p)\) 是单调函数，区间可直接变换：
+
+\[
+r\in\left[
+\frac{p_{\rm lo}}{1-p_{\rm lo}},
+\frac{p_{\rm up}}{1-p_{\rm up}}
+\right]
+=[0.36810,0.50766].
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+在研究粒子碰撞的实验中，选择出来 10 个某种类型的事例，比如说某个量 \(x\)
+具有较高值的事例。这 10 个高 \(x\) 值的事例中，发现有 2 个事例包含
+\(\mu\) 子。
+
+\begin{enumerate}
+\item
+  高 \(x\) 值事例中包含 \(\mu\) 子的事例数目服从二项分布，求参数 \(p\)
+  的 68.3\% 中心置信区间。将结果表示为 \(p=\hat p^{+d}_{-c}\)，其中
+  \(\hat p\) 为 \(p\) 的最大似然估计，\([\hat p-c,\hat p+d]\)
+  为置信区间。
+\item
+  将 (a) 中的区间与 \(\hat p\pm\hat\sigma_{\hat p}\) 进行比较，其中
+  \(\hat\sigma_{\hat p}\) 为 \(\hat p\) 的标准偏差的估计量。
+\item
+  经常犯的错误是将高 \(x\) 值的事例数 10 当作随机变量，并将其方差引入
+  \(\hat p\) 的误差中（例如通过误差传递）。为什么这种方法是不正确的？
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item 精确中心区间
+
+这里样本容量固定为 10，所以
+\[
+n\sim\operatorname{Binom}(10,p),
+\qquad
+\hat p=\frac{2}{10}=0.2.
+\]
+取 \(68.3\%\) 中心区间，即两侧尾概率各约为 \((1-0.683)/2=0.1585\)。
+Clopper--Pearson 精确区间为
+\[
+p\in[0.07191,0.40555].
+\]
+写成 \(p=\hat p^{+d}_{-c}\)，有
+\[
+c=0.2-0.07191=0.12809,
+\qquad
+d=0.40555-0.2=0.20555.
+\]
+
+\item 与 \(\hat p\pm\hat\sigma_{\hat p}\) 比较
+
+大样本近似为
+\[
+\hat\sigma_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{N}}.
+\]
+代入 \(\hat p=0.2\)、\(N=10\)：
+\[
+\hat\sigma_{\hat p}=\sqrt{\frac{0.2\times0.8}{10}}=0.12649.
+\]
+故
+\[
+\hat p\pm\hat\sigma_{\hat p}=[0.07351,0.32649].
+\]
+精确区间明显不对称；简单 \(\pm1\sigma\) 近似把上误差低估得较多。
+
+\item 为什么不能把 10 也当随机量传播误差
+
+题目条件是“先选出 10 个高 \(x\) 事例”，再在这 10 个事例中数含 \(\mu\) 子的个数。也就是说，正确模型是条件在固定样本容量 \(N=10\) 下的二项分布。若再给 \(N=10\) 加上泊松或其它波动，就相当于改成了另一个无条件实验模型，会把“高 \(x\) 总率的不确定性”错误地混入“给定高 \(x\) 后含 \(\mu\) 的条件概率”中。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设为了产生习题 (9.5) 中的事例，收集的总数据对应于积分亮度为
+\(L=1\,\mathrm{pb}^{-1}\)（误差可以忽略）。产生的给定类型事例总数可以看作均值为
+\(\nu=\sigma L\) 的泊松随机变量 \(n\)，其中 \(\sigma\)
+为产生截面。（为什么是泊松分布？）
+
+\begin{enumerate}
+\item
+  对于高 \(x\) 值事例以及高 \(x\) 值的 \(\mu\)
+  子事例，假设观测到的事例数分别为 \(n_x=10\) 和
+  \(n_{x\mu}=2\)，求事例数期待值 \(\nu_x\) 和 \(\nu_{x\mu}\) 的 68.3\%
+  中心置信区间。对应的产生截面 \(\sigma_x\) 和 \(\sigma_{x\mu}\)
+  的置信区间为多少？
+\item
+  将 (a) 中得到的置信区间与通过加减一倍标准偏差得到的区间进行比较。
+\item
+  假设另外一个实验的积分亮度为 \(L'=100\,\mathrm{pb}^{-1}\)，观测到
+  \(n_x'\) 个高 \(x\) 值的事例。但是这个实验不能鉴别 \(\mu\)
+  子。利用数据 \(n_x\)，\(n_{x\mu}\) 和 \(n_x'\) 构造参数 \(\sigma_x\)
+  和 \(\sigma_{x\mu}/\sigma_x\) 的对数似然函数。证明 \(p\)
+  的最大似然估计量与 \(n_x'\) 无关。这是否说明第二个实验的结果对 \(p\)
+  的估计没有影响？
+\item
+  假设最初的实验没有测量高 \(x\) 值的事例数，只是测得了包含 \(\mu\)
+  子的高 \(x\) 值事例数。利用结果 \(n_{x\mu}=2\) 和 \(n_x'\)，构造
+  \(\sigma_x\) 和 \(p\)
+  的对数似然函数，并求出最大似然估计量。利用误差传递估计 \(\hat p\)
+  的标准偏差，并比较区间 \(\hat p\pm\sigma_{\hat p}\) 与习题 (9.5) 中
+\begin{enumerate}
+\item 和 (b) 得到的区间。选作：这种情况下，如何构造 \(p\) 的置信区间？
+\end{enumerate}
+\end{enumerate}
+\begin{solution}
+设 \(L=1\,\mathrm{pb}^{-1}\)，观测到
+\[
+n_x=10,
+\qquad
+n_{x\mu}=2.
+\]
+事例计数来自稀有独立碰撞，在固定积分亮度下可视为泊松变量，因此
+\[
+n_x\sim\operatorname{Pois}(\nu_x),
+\qquad
+n_{x\mu}\sim\operatorname{Pois}(\nu_{x\mu}),
+\]
+其中 \(\nu_x=\sigma_xL\)、\(\nu_{x\mu}=\sigma_{x\mu}L\)。
+
+\begin{enumerate}
+\item 泊松均值和截面的精确区间
+
+泊松均值 \(\nu\) 的中心区间可由 \(\chi^2\) 分位数给出：
+\[
+\nu_{\rm lo}=\frac12F_{\chi^2}^{-1}(\alpha/2;2n),
+\qquad
+\nu_{\rm up}=\frac12F_{\chi^2}^{-1}(1-\alpha/2;2(n+1)),
+\]
+其中 \(\alpha=1-0.683\)。代入得
+\[
+\nu_x\in[6.8897,14.2695],
+\qquad
+\nu_{x\mu}\in[0.7077,4.6394].
+\]
+因 \(L=1\,\mathrm{pb}^{-1}\)，所以数值上
+\[
+\sigma_x\in[6.8897,14.2695]\,\mathrm{pb},
+\qquad
+\sigma_{x\mu}\in[0.7077,4.6394]\,\mathrm{pb}.
+\]
+
+\item 与 \(\pm1\sigma\) 比较
+
+泊松大样本近似给出
+\[
+10\pm\sqrt{10}=[6.84,13.16],
+\qquad
+2\pm\sqrt2=[0.586,3.414].
+\]
+对 \(n=10\) 尚可，对 \(n=2\) 则明显过于对称且上端偏低。
+
+\item 第二个实验只测高 \(x\) 总数
+
+若另一个实验亮度为 \(L'=100\,\mathrm{pb}^{-1}\)，观测到 \(n'_x\) 个高
+\(x\) 事例且不能识别 \(\mu\)，则可写联合似然
+\[
+L(\sigma_x,p)=
+\operatorname{Pois}(n_x\mid\sigma_xL)
+\operatorname{Binom}(n_{x\mu}\mid n_x,p)
+\operatorname{Pois}(n'_x\mid\sigma_xL'),
+\]
+其中 \(p=\sigma_{x\mu}/\sigma_x\)。与 \(p\) 有关的项只有
+\[
+n_{x\mu}\log p+(n_x-n_{x\mu})\log(1-p),
+\]
+故
+\[
+\hat p=\frac{n_{x\mu}}{n_x},
+\]
+与 \(n'_x\) 无关。在这个条件二项模型下，第二个实验确实不改变
+\(p\) 的剖面似然形状；它主要改善 \(\sigma_x\) 的估计。若存在共同系统误差或采用不同的无条件参数化，结论才可能改变。
+
+\item 第一个实验只测到 \(n_{x\mu}\)
+
+若原实验没有测 \(n_x\)，只有 \(n_{x\mu}\)，再结合第二个实验的 \(n'_x\)，则联合似然为
+\[
+L(\sigma_x,p)=
+\operatorname{Pois}(n_{x\mu}\mid p\sigma_xL)
+\operatorname{Pois}(n'_x\mid\sigma_xL').
+\]
+对数似然为
+\[
+\ell=n_{x\mu}\log(p\sigma_xL)-p\sigma_xL
++n'_x\log(\sigma_xL')-\sigma_xL'+\text{const}.
+\]
+若内部极值满足 \(0<\hat p<1\)，解得
+\[
+\hat\sigma_x=\frac{n'_x}{L'},
+\qquad
+\hat p=\frac{n_{x\mu}L'}{Ln'_x}.
+\]
+若该 \(\hat p>1\)，最大值会落在物理边界 \(p=1\)。
+
+用误差传播近似，
+\[
+\hat p=\frac{L'}{L}\frac{n_{x\mu}}{n'_x},
+\]
+因此
+\[
+\sigma_{\hat p}\approx
+\hat p\sqrt{\frac1{n_{x\mu}}+\frac1{n'_x}}.
+\]
+若以 \(n'_x\approx1000\) 作为与 \(n_x=10,L'=100L\) 相容的例子，则
+\(\hat p=0.2\)，
+\[
+\sigma_{\hat p}\approx0.2\sqrt{\frac12+\frac1{1000}}=0.1416.
+\]
+这个无条件模型给出的近似区间与 9.5 的二项精确区间不同，因为它没有条件在固定的
+\(n_x=10\) 上，而是用另一个实验估计高 \(x\) 总率。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+相互作用中产生的某粒子以相对于 \(z\) 的某一角度发射出来，如图 9.1
+所示。探测器放在距离相互作用顶点为 \(d\) 处测量粒子垂直于 \(z\)
+方向的位置 \(x\)。角度 \(\theta\) 定义为 \(z\) 轴与粒子径迹在 \((x,z)\)
+平面上投影的夹角。假设测量值 \(x\) 可以看做以真值为中心值，标准偏差为
+\(\sigma_x\) 的高斯变量。
+\pyfig[0.68\linewidth]{figures/fig_09_07_detector_schematic.png}{图 9.1：探测器测量 \(x\) 并由几何关系确定散射角 \(\theta\) 的示意图。}
+
+
+\begin{enumerate}
+\item
+  求 \(\cos\theta\) 置信水平为 \(1-\gamma\) 的中心置信区间。
+\item
+  取 \(d=1\,\mathrm{m}\)，\(\sigma_x=1\,\mathrm{mm}\)，并假设测量值为
+  \(x=2.0\,\mathrm{mm}\)。求 \(\cos\theta\) 置信水平分别为 68.3\% 和
+  95\% 的中心置信区间。
+\end{enumerate}
+\begin{solution}
+几何关系为
+\[
+\tan\theta=\frac{x}{d},
+\qquad
+c\equiv\cos\theta=\frac{d}{\sqrt{d^2+x^2}}.
+\]
+测量值 \(\hat x\) 的中心置信区间为
+\[
+[x_-,x_+]=[\hat x-z_{1-\gamma/2}\sigma_x,
+\hat x+z_{1-\gamma/2}\sigma_x].
+\]
+若整个区间在 \(x\ge0\) 或 \(x\le0\) 的同一侧，则 \(c(x)\) 随 \(|x|\)
+单调下降，因此可直接把端点变换为
+\[
+c\in
+\left[
+\frac{d}{\sqrt{d^2+x_+^2}},
+\frac{d}{\sqrt{d^2+x_-^2}}
+\right]
+\quad(x_->0).
+\]
+如果区间跨过 \(x=0\)，上端应取 \(c=1\)，下端由端点中较大的 \(|x|\) 给出。
+
+题中
+\[
+d=1\,\mathrm m=1000\,\mathrm{mm},
+\qquad
+\sigma_x=1\,\mathrm{mm},
+\qquad
+\hat x=2.0\,\mathrm{mm}.
+\]
+
+\begin{itemize}
+\item 68.3\% 中心区间近似取 \(z=1\)：\(x_-=1\,\mathrm{mm}\)，
+\(x_+=3\,\mathrm{mm}\)。因此
+\[
+\cos\theta\in
+[0.999995500,
+0.999999500].
+\]
+
+\item 95\% 中心区间取 \(z=1.96\)：\(x_-=0.04\,\mathrm{mm}\)，
+\(x_+=3.96\,\mathrm{mm}\)。因此
+\[
+\cos\theta\in
+[0.999992159,
+0.999999999].
+\]
+\end{itemize}
+由于 \(x\ll d\)，角度很小，\(\cos\theta\) 的区间自然非常靠近 1。
+\pyfig[0.72\linewidth]{figures/fig_09_07_cos_interval.png}{由 \(x\) 的中心置信区间通过单调变换得到 \(\cos\theta\) 的区间。}
+\end{solution}
+\end{question}
+

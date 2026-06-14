@@ -1,0 +1,237 @@
+﻿\heading{理论物理基础（II）-模拟题3-期末}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑半径为 $R$ 的圆环上的带电非相对论粒子，电荷为 $q$，角坐标记为 $\phi\in[0,2\pi)$。圆环中心穿过磁通量 $\Phi$，取规范势使得哈密顿量写为
+\[
+\hat H=\frac{1}{2mR^2}\left(-i\hbar\frac{d}{d\phi}-\frac{q\Phi}{2\pi}\right)^2.
+\]
+设波函数满足周期性边界条件 $\psi(\phi+2\pi)=\psi(\phi)$，并记磁通量量子
+\[
+\Phi_0\equiv \frac{h}{q}.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求全部归一化本征态与本征值；
+  \item 讨论基态所对应的量子数如何随约化磁通 $\varphi\equiv \Phi/\Phi_0$ 变化；
+  \item 求能级简并出现的条件；
+  \item 定义定态 $|n\rangle$ 中的环流为
+  \[
+  I_n\equiv -\frac{\partial E_n}{\partial \Phi},
+  \]
+  求 $I_n$。
+\end{enumerate}
+
+\begin{solution}
+设 $\varphi=\Phi/\Phi_0$。因为
+\[
+\frac{q\Phi}{2\pi}=\hbar\frac{\Phi}{\Phi_0}=\hbar\varphi,
+\]
+所以哈密顿量可写为
+\[
+\hat H=\frac{\hbar^2}{2mR^2}\left(-i\frac{d}{d\phi}-\varphi\right)^2.
+\]
+周期性边界条件要求本征函数仍为圆环上的平面波
+\[
+\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}e^{in\phi},\qquad n\in\mathbb Z.
+\]
+作用哈密顿量即得
+\ansmath{\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}e^{in\phi},\qquad E_n=\frac{\hbar^2}{2mR^2}(n-\varphi)^2,\qquad n\in\mathbb Z.}
+
+基态对应使 $(n-\varphi)^2$ 最小的整数 $n$，也就是最接近 $\varphi$ 的整数。故当
+\[
+\varphi\in\left(k-\frac12,k+\frac12\right)
+\]
+时，基态量子数为 $n=k$；当 $\varphi$ 穿过半整数时，基态量子数发生跳变。
+
+若两能级 $E_n$ 与 $E_{n'}$ 简并，则
+\[
+(n-\varphi)^2=(n'-\varphi)^2.
+\]
+对 $n\neq n'$，这要求
+\[
+\varphi=\frac{n+n'}{2}.
+\]
+由于 $n,n'$ 为整数，简并恰好发生在
+\ansmath{\varphi\in \mathbb Z+\frac12.}
+此时相邻的两个整数 $n$ 给出同样的最低能量。
+
+最后，环流为
+\[
+I_n=-\frac{\partial E_n}{\partial \Phi}
+=-\frac{\partial E_n}{\partial \varphi}\frac{\partial \varphi}{\partial \Phi}
+=\frac{\hbar^2}{mR^2}(n-\varphi)\frac{1}{\Phi_0}.
+\]
+利用 $\Phi_0=h/q=2\pi\hbar/q$，可写成
+\ansmath{I_n=\frac{q\hbar}{2\pi mR^2}(n-\varphi).}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一个自旋为 $1/2$ 的粒子，哈密顿量为
+\[
+\hat H=A\sigma_x+B\sigma_z,
+\]
+其中 $A,B$ 为实常量，$\sigma_x,\sigma_z$ 为 Pauli 矩阵。取 $\sigma_z$ 的本征态 $\{|+\rangle_z,|-\rangle_z\}$ 为基，设初态为 $|\psi(0)\rangle=|+\rangle_z$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求 $\hat H$ 的本征值与一组归一化本征态；
+  \item 求任意时刻的态 $|\psi(t)\rangle$；
+  \item 求在时刻 $t$ 测量 $\sigma_z$ 与测量 $\sigma_x$ 取值为 $\pm1$ 的概率；
+  \item 讨论是否存在 $t>0$ 使系统恰好翻转到 $|-\rangle_z$。若存在，给出全部这样的时刻；若不存在，说明理由。
+\end{enumerate}
+
+\begin{solution}
+记
+\[
+E\equiv \sqrt{A^2+B^2},\qquad \cos\theta=\frac{B}{E},\qquad \sin\theta=\frac{A}{E}.
+\]
+则哈密顿量的本征值为 $\pm E$。可取对应本征态为
+\[
+|E,+\rangle=\cos\frac\theta2\,|+\rangle_z+\sin\frac\theta2\,|-\rangle_z,
+\]
+\[
+|E,-\rangle=-\sin\frac\theta2\,|+\rangle_z+\cos\frac\theta2\,|-\rangle_z.
+\]
+因此
+\ansmath{\hat H|E,\pm\rangle=\pm E\,|E,\pm\rangle.}
+
+利用指数公式 $e^{-it\hat H/\hbar}=\cos(Et/\hbar)-i(\hat H/E)\sin(Et/\hbar)$，从初态 $|+\rangle_z$ 出发可得
+\[
+|\psi(t)\rangle=
+\left[\cos\frac{Et}{\hbar}-i\frac{B}{E}\sin\frac{Et}{\hbar}\right]|+\rangle_z
+-i\frac{A}{E}\sin\frac{Et}{\hbar}\,|-\rangle_z.
+\]
+故
+\ansmath{|\psi(t)\rangle=
+\left[\cos\frac{Et}{\hbar}-i\frac{B}{E}\sin\frac{Et}{\hbar}\right]|+\rangle_z
+-i\frac{A}{E}\sin\frac{Et}{\hbar}\,|-\rangle_z.}
+
+由上式直接读出
+\[
+P_z(+;t)=\left|\cos\frac{Et}{\hbar}-i\frac{B}{E}\sin\frac{Et}{\hbar}\right|^2
+=1-\frac{A^2}{E^2}\sin^2\frac{Et}{\hbar},
+\]
+\[
+P_z(-;t)=\frac{A^2}{E^2}\sin^2\frac{Et}{\hbar}.
+\]
+再用
+\[
+|\pm\rangle_x=\frac{|+\rangle_z\pm |-\rangle_z}{\sqrt2}
+\]
+计算，得到
+\ansmath{P_z(+;t)=1-\frac{A^2}{A^2+B^2}\sin^2\frac{Et}{\hbar},
+\quad
+P_z(-;t)=\frac{A^2}{A^2+B^2}\sin^2\frac{Et}{\hbar},}
+\ansmath{P_x(+;t)=\frac12+\frac{AB}{A^2+B^2}\sin^2\frac{Et}{\hbar},
+\quad
+P_x(-;t)=\frac12-\frac{AB}{A^2+B^2}\sin^2\frac{Et}{\hbar}.}
+
+若要恰好翻转到 $|-\rangle_z$，必须使 $P_z(-;t)=1$。这要求
+\[
+\frac{A^2}{A^2+B^2}=1,
+\qquad
+\sin^2\frac{Et}{\hbar}=1.
+\]
+因此只有在 $B=0$ 时才可能发生完全翻转，此时 $E=|A|$，全部时刻为
+\ansmath{t=\left(\frac\pi2+n\pi\right)\frac{\hbar}{|A|},\qquad n=0,1,2,\dots.}
+若 $B\neq 0$，则始终有 $P_z(-;t)<1$，因此不存在完全翻转时刻。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑长度为 $L$ 的一维无限深方势阱 $0<x<L$ 中的两个无相互作用全同玻色子。每个粒子自旋为 $1/2$，单粒子本征态与能量为
+\[
+\phi_n(x)=\sqrt{\frac{2}{L}}\sin\frac{n\pi x}{L},
+\qquad
+\varepsilon_n=\frac{n^2\pi^2\hbar^2}{2mL^2},
+\qquad n=1,2,3,\dots.
+\]
+总波函数必须在交换两粒子全部自由度后对称。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求体系基态的总能量、简并度，并给出一组归一化基态波函数；
+  \item 求第一激发能级的总能量、简并度，并给出一组归一化本征态；
+  \item 对基态以及第一激发态中“空间反对称、总自旋单态”的那个本征态，分别计算
+  \[
+  \langle (x_1-x_2)^2\rangle.
+  \]
+\end{enumerate}
+
+\begin{solution}
+因为是自旋 $1/2$ 玻色子，所以总波函数必须在交换后对称：空间对称时自旋也必须对称（三重态），空间反对称时自旋必须反对称（单态）。
+
+基态时两粒子都占据单粒子基态 $n=1$，空间部分为
+\[
+\Phi_{11}(x_1,x_2)=\phi_1(x_1)\phi_1(x_2),
+\]
+它天然对称，因此只能与三个对称自旋态配对：
+\[
+|\uparrow\uparrow\rangle,
+\qquad
+\frac{|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle}{\sqrt2},
+\qquad
+|\downarrow\downarrow\rangle.
+\]
+故基态总能量与简并度为
+\ansmath{E_{\mathrm{gs}}=2\varepsilon_1=\frac{\pi^2\hbar^2}{mL^2},\qquad g_{\mathrm{gs}}=3.}
+
+第一激发需要单粒子占据数为 $(1,2)$。空间部分可组成对称与反对称两种：
+\[
+\Phi_S=\frac{\phi_1(x_1)\phi_2(x_2)+\phi_2(x_1)\phi_1(x_2)}{\sqrt2},
+\]
+\[
+\Phi_A=\frac{\phi_1(x_1)\phi_2(x_2)-\phi_2(x_1)\phi_1(x_2)}{\sqrt2}.
+\]
+它们都对应同一能量
+\[
+E_1=\varepsilon_1+\varepsilon_2=\frac{5\pi^2\hbar^2}{2mL^2}.
+\]
+其中 $\Phi_S$ 可与三个三重态配对，$\Phi_A$ 只能与一个单态
+\[
+\chi_0=\frac{|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle}{\sqrt2}
+\]
+配对，所以第一激发的总简并度为
+\ansmath{E_1=\frac{5\pi^2\hbar^2}{2mL^2},\qquad g_1=4.}
+一组本征态可取为
+\[
+\Phi_S\otimes |\uparrow\uparrow\rangle,
+\quad
+\Phi_S\otimes \frac{|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle}{\sqrt2},
+\quad
+\Phi_S\otimes |\downarrow\downarrow\rangle,
+\quad
+\Phi_A\otimes \chi_0.
+\]
+
+对基态，空间部分是独立乘积态，故
+\[
+\langle (x_1-x_2)^2\rangle_{\mathrm{gs}}=2\left(\langle x^2\rangle_1-\langle x\rangle_1^2\right).
+\]
+而
+\[
+\langle x\rangle_1=\frac{L}{2},
+\qquad
+\langle x^2\rangle_1=L^2\left(\frac13-\frac{1}{2\pi^2}\right),
+\]
+所以
+\ansmath{\langle (x_1-x_2)^2\rangle_{\mathrm{gs}}=L^2\left(\frac16-\frac{1}{\pi^2}\right).}
+
+对第一激发中的反对称空间态 $\Phi_A$，利用交换项可得
+\[
+\langle (x_1-x_2)^2\rangle_{\Phi_A}=\langle x^2\rangle_1+\langle x^2\rangle_2-2\left(\langle x\rangle_1\langle x\rangle_2-|\langle 1|x|2\rangle|^2\right).
+\]
+其中
+\[
+\langle x\rangle_2=\frac{L}{2},
+\qquad
+\langle x^2\rangle_2=L^2\left(\frac13-\frac{1}{8\pi^2}\right),
+\qquad
+\langle 1|x|2\rangle=-\frac{16L}{9\pi^2}.
+\]
+代入得到
+\ansmath{\langle (x_1-x_2)^2\rangle_{\Phi_A\otimes\chi_0}
+=L^2\left(\frac16-\frac{5}{8\pi^2}+\frac{512}{81\pi^4}\right).}
+\end{solution}
+\end{question}
+

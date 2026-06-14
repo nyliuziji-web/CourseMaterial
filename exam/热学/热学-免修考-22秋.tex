@@ -1,0 +1,277 @@
+﻿\heading{热学-免修考-22秋}
+\noteinfo{题目来源于上传的 OneNote 扫描件。扫描件只保留了部分题目图片和手写提纲；以下按可辨认内容整理，并在答案中注明无法唯一确定的几何量。}
+
+\textbf{一、简答题（扫描件可辨认部分）}
+
+\begin{question}
+在热物理学中，根据组成系统的粒子的内禀属性和遵守的统计规律，微观粒子可以分为哪几类？写出这些系统中的微观粒子按能量的分布规律的表达式，并说明 Maxwell 速率分布为什么可看作平衡态经典理想气体的实际分布律。
+\begin{solution}
+可分为经典粒子、玻色子和费米子。能级 $\varepsilon_i$、简并度 $g_i$ 的平均占有数为
+\[
+\bar n_i^{\rm MB}=g_i e^{(\mu-\varepsilon_i)/(k_BT)},\qquad
+\bar n_i^{\rm BE}=\frac{g_i}{e^{(\varepsilon_i-\mu)/(k_BT)}-1},\qquad
+\bar n_i^{\rm FD}=\frac{g_i}{e^{(\varepsilon_i-\mu)/(k_BT)}+1}.
+\]
+经典稀薄极限下，速度分布为
+\[
+f(\mathbf v)=n\left(\frac{m}{2\pi k_BT}\right)^{3/2}e^{-mv^2/(2k_BT)},
+\]
+速率分布为
+\[
+f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}.
+\]
+由于宏观系统 $N$ 极大，最概然分布附近相对涨落为 $O(N^{-1/2})$，故实际观测分布与最概然分布一致。
+\ansmath{f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一定量的气体先经过等体过程使温度升高一倍，再经等温过程使体积膨胀到原来的两倍。求末态的黏度 $\eta$、热导率 $\kappa$、扩散系数 $D$ 和平均自由程 $\bar\lambda$ 分别为初态的多少倍。
+\begin{solution}
+末态 $T=2T_0$、$n=n_0/2$。稀薄气体中
+\[
+\eta\propto\sqrt T,
+\qquad \kappa\propto\sqrt T,
+\qquad \bar\lambda\propto n^{-1},
+\qquad D\propto \bar\lambda\sqrt T.
+\]
+所以
+\[
+\frac{\eta}{\eta_0}=\sqrt2,
+\qquad
+\frac{\kappa}{\kappa_0}=\sqrt2,
+\qquad
+\frac{D}{D_0}=2\sqrt2,
+\qquad
+\frac{\bar\lambda}{\bar\lambda_0}=2.
+\]
+\ansmath{\eta,\kappa,D,\bar\lambda:\ \sqrt2,\sqrt2,2\sqrt2,2}
+\end{solution}
+\end{question}
+
+\begin{question}
+实验上测得某种气体在压强为 $p$、体积为 $V$、温度为 $T$ 的状态附近，体膨胀系数和等温压缩系数满足
+\[
+\alpha=\frac{n\nu a}{T^{n+1}V}+\frac{\nu R}{pV},
+\qquad
+\kappa_T=\frac{\nu RT}{p^2V},
+\]
+其中 $n,\nu,a,R$ 为正的常量。试确定该气体系统的状态方程。
+\begin{solution}
+由定义
+\[
+\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p,
+\qquad
+\kappa_T=-\frac1V\left(\frac{\partial V}{\partial p}\right)_T,
+\]
+得
+\[
+\left(\frac{\partial V}{\partial T}\right)_p=\frac{n\nu a}{T^{n+1}}+\frac{\nu R}{p},
+\qquad
+\left(\frac{\partial V}{\partial p}\right)_T=-\frac{\nu RT}{p^2}.
+\]
+对 $T$ 积分得
+\[
+V=-\frac{\nu a}{T^n}+\frac{\nu RT}{p}+f(p),
+\]
+对 $p$ 积分得
+\[
+V=\frac{\nu RT}{p}+g(T).
+\]
+合并得
+\[
+V=C-\frac{\nu a}{T^n}+\frac{\nu RT}{p},
+\]
+即
+\[
+p\left(V-C+\frac{\nu a}{T^n}\right)=\nu RT.
+\]
+\ansmath{p\left(V-C+\frac{\nu a}{T^n}\right)=\nu RT}
+\end{solution}
+\end{question}
+
+\begin{question}
+假定组成一质量为 $M$ 的星体的物质可以近似为单原子分子理想气体，试确定其在过程方程
+\[
+V=\frac{a_0}{p^{5/6}}
+\]
+中的比热容，并说明它与宇宙不会陷入热寂的联系。
+\begin{solution}
+设物质的量为 $\nu=M/\mu$。由 $pV=\nu RT$ 与 $V=a_0p^{-5/6}$，知 $p\propto T^6$、$V\propto T^{-5}$，所以 $dV/dT=-5V/T$。单原子理想气体 $U=3\nu RT/2$，故
+\[
+C=\frac{\delta Q}{dT}=\frac{dU+p\,dV}{dT}
+=\frac32\nu R-5\nu R=-\frac72\nu R.
+\]
+该过程热容为负，体现了自引力系统的典型负热容：放出能量时反而升温，吸收能量时可能降温。因此引力体系不趋向简单的均匀热平衡，这也是“热寂”图像在有引力系统中不能直接套用的原因之一。
+\ansmath{C=-\frac72\nu R=-\frac72\frac{M}{\mu}R}
+\end{solution}
+\end{question}
+
+\begin{question}
+一级相变的主要特征有哪些？二级相变与一级相变的主要差别有哪些？对有序无序相变，序参量大小和对称性高低有什么关系？超导相变和水的沸腾分别如何用对称性语言描述？
+\begin{solution}
+一级相变有潜热，熵、体积等热力学势的一阶导数发生跳变，并有相共存和滞后。二级相变无潜热，一阶导数连续，但热容、压缩系数、膨胀系数等二阶导数不连续或发散。高对称相通常序参量为零，低对称相序参量非零。正常金属到超导相是超导序参量出现的对称性破缺过程。水的沸腾是液气一级相变，严格说不属于典型的对称性破缺相变；若按有序度类比，从液体到气体可视作更接近对称性恢复。
+\anstext{一级：潜热和一阶导数跳变；二级：无潜热、二阶导数异常；超导：对称性破缺；沸腾：普通液气一级相变。}
+\end{solution}
+\end{question}
+
+\begin{question}
+证明液体的表面内能密度 $u_S$ 可由液体的表面张力系数 $\sigma$ 及温度 $T$ 表示为
+\[
+u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S},
+\]
+其中 $A_S$ 为表面面积。
+\begin{solution}
+表面自由能为
+\[
+F_S=\sigma A_S.
+\]
+表面熵为
+\[
+S_S=-\left(\frac{\partial F_S}{\partial T}\right)_{A_S}
+=-A_S\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}.
+\]
+表面内能 $U_S=F_S+TS_S$，因此
+\[
+U_S=A_S\left[\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}\right].
+\]
+两边除以表面积即得
+\[
+u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}.
+\]
+\ansmath{u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}}
+\end{solution}
+\end{question}
+
+\textbf{二、计算题（扫描件手写提纲可辨认部分）}
+
+\begin{question}
+验证 Maxwell 速率分布。设通过检测装置观测到的速率分布会因粒子通量而按速率加权。
+
+(1) 说明检测到的速率分布应为
+\[
+F_M(v)=\frac{v f(v)}{\bar v}.
+\]
+
+(2) 若检测缝宽或几何线度 $d$ 不可忽略，给出应如何修正测量到的分布。
+\begin{solution}
+Maxwell 速率分布 $f(v)$ 是容器内分子按速率的数目分布。穿过小孔或到达探测器的分子通量与法向速度成正比；对各向同性气体，固定速率 $v$ 的分子到达探测器的权重与 $v$ 成正比。因此通量加权后的速率分布为
+\[
+F_M(v)=Cvf(v).
+\]
+归一化条件 $\int_0^\infty F_M(v)\,dv=1$ 给出 $C=1/\bar v$，故
+\[
+F_M(v)=\frac{v f(v)}{\bar v}.
+\]
+若几何线度 $d$ 不可忽略，探测器不会选择单一速率，而是对一个速率窗口取平均。若名义速率为 $V$，由装置几何确定的分辨宽度为 $\Delta V(d)$，则应写为卷积或窗口平均
+\[
+F_M^{(d)}(V)=\int_0^\infty W_d(V,v)\frac{v f(v)}{\bar v}\,dv,
+\qquad
+\int_0^\infty W_d(V,v)\,dV=1.
+\]
+窄缝近似下可用
+\[
+F_M^{(d)}(V)\simeq\frac1{\Delta V}\int_{V-\Delta V/2}^{V+\Delta V/2}\frac{v f(v)}{\bar v}\,dv,
+\]
+其中 $\Delta V$ 由飞行距离、转速或缝宽等具体参数决定；当 $d\to0$ 时回到 $F_M(V)=Vf(V)/\bar v$。
+\ansmath{F_M(v)=\frac{v f(v)}{\bar v},\qquad F_M^{(d)}=W_d*\left(\frac{v f(v)}{\bar v}\right)}
+\end{solution}
+\end{question}
+
+\begin{question}
+肥皂泡问题。已知表面张力系数 $\sigma$ 和外界压强 $p_0$。
+
+(1) 求半径为 $R$ 时泡内气压 $p$；
+
+(2) 使泡表面带电量 $q$ 后，求新半径 $R'$ 满足的方程；
+
+(3) 说明为什么 $R'>R$。
+\begin{solution}
+肥皂泡有内、外两个表面，Laplace 压强差为
+\[
+p-p_0=\frac{4\sigma}{R},
+\]
+所以
+\[
+p=p_0+\frac{4\sigma}{R}.
+\]
+若带电后电荷均匀分布在半径 $R'$ 的球面上，电场产生的向外电压力为
+\[
+p_e=\frac{\sigma_e^2}{2\varepsilon_0}
+=\frac{q^2}{32\pi^2\varepsilon_0 R'^4}.
+\]
+若泡内气体物质的量不变且过程等温，则
+\[
+p_{\rm in}'R'^3=pR^3.
+\]
+力学平衡为“气体压强差 $+$ 电压力 $=$ 表面张力压强”，即
+\[
+p_{\rm in}'-p_0+p_e=\frac{4\sigma}{R'}.
+\]
+代入 $p=p_0+4\sigma/R$ 得 $R'$ 的方程
+\[
+\left(p_0+\frac{4\sigma}{R}\right)\frac{R^3}{R'^3}-p_0
++\frac{q^2}{32\pi^2\varepsilon_0R'^4}
+=\frac{4\sigma}{R'}.
+\]
+带电产生额外向外压力。若仍取 $R'=R$，原来的气体压强差已与表面张力平衡，再加上电压力后向外力过大，故泡会膨胀，平衡半径满足 $R'>R$。
+\ansmath{p=p_0+\frac{4\sigma}{R},\quad
+\left(p_0+\frac{4\sigma}{R}\right)\frac{R^3}{R'^3}-p_0+\frac{q^2}{32\pi^2\varepsilon_0R'^4}=\frac{4\sigma}{R'}}
+\end{solution}
+\end{question}
+
+\begin{question}
+雪线高度问题。设近地面温度为 $T_0$，雪线处温度为熔点 $T_m$，大气温度随高度按 lapse rate $\Gamma=-dT/dz$ 下降。求雪线高度。
+\begin{solution}
+若温度随高度近似线性
+\[
+T(z)=T_0-\Gamma z,
+\]
+雪线满足 $T(h)=T_m$，因此
+\[
+h=\frac{T_0-T_m}{\Gamma}.
+\]
+若采用干绝热递减率，单位质量定压热容为 $c_p$，则
+\[
+\Gamma_d=\frac{g}{c_p},
+\qquad
+h=\frac{c_p(T_0-T_m)}{g}.
+\]
+若空气接近饱和，应将 $\Gamma$ 替换为湿绝热递减率，此时因凝结潜热释放，$\Gamma$ 较小，雪线高度相应更高。
+\ansmath{h=\frac{T_0-T_m}{\Gamma}\quad(\text{干绝热时 }h=\frac{c_p(T_0-T_m)}{g})}
+\end{solution}
+\end{question}
+
+\begin{question}
+二级相变中，证明 Ehrenfest 关系
+\[
+\left(\frac{dp}{dT}\right)_{\rm tr}=\frac{\Delta\alpha}{\Delta\kappa_T}.
+\]
+\begin{solution}
+二级相变线上两相的体积相等且连续：$V_1=V_2$。沿相变线取微分，有
+\[
+dV_1=dV_2.
+\]
+对任一相
+\[
+dV=V\alpha\,dT-V\kappa_T\,dp.
+\]
+二级相变处 $V_1=V_2=V$，代入得
+\[
+V\alpha_1dT-V\kappa_{T1}dp
+=V\alpha_2dT-V\kappa_{T2}dp.
+\]
+整理为
+\[
+(\alpha_2-\alpha_1)dT=(\kappa_{T2}-\kappa_{T1})dp.
+\]
+因此
+\[
+\left(\frac{dp}{dT}\right)_{\rm tr}
+=\frac{\alpha_2-\alpha_1}{\kappa_{T2}-\kappa_{T1}}
+=\frac{\Delta\alpha}{\Delta\kappa_T}.
+\]
+\ansmath{\left(\frac{dp}{dT}\right)_{\rm tr}=\frac{\Delta\alpha}{\Delta\kappa_T}}
+\end{solution}
+\end{question}
+

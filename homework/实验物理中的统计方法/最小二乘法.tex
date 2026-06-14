@@ -1,0 +1,868 @@
+﻿\heading{实验物理中的统计方法-最小二乘法}
+
+
+
+
+
+\begin{question}
+Galileo
+研究运动的实验之一是小球和斜坡的实验。在离开斜坡边缘之前，小球的轨迹变成水平，如图
+7.1 所示。对于不同的高度 \(h\)，测量从斜坡边缘到落地点的水平距离
+\(d\)。1608 年，Galileo 测量了 5 组数据，如表 7.1 所示。假设高度 \(h\)
+的误差可以忽略，水平距离 \(d\) 可以看做独立的标准差 \(\sigma=15\) punti
+的高斯随机变量。（实际上我们不清楚 Galileo 如何估计测量误差，但是 1-2\%
+的误差是可以接受的。）此外，我们知道如果 \(h=0\)，则水平距离 \(d\)
+将为零，即，如果球从斜坡边缘出发，它将垂直落到地上。
+\pyfig[0.72\linewidth]{figures/fig_07_01_galileo_schematic.png}{图 7.1：Galileo 斜坡实验的几何关系示意图。}
+
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+\(h\) & \(d\) \\
+\midrule
+1000 & 1500 \\
+828 & 1340 \\
+800 & 1328 \\
+600 & 1172 \\
+300 & 800 \\
+\bottomrule
+\end{tabular}
+\par\vspace{0.25em}{\small 表 7.1: Galileo 斜坡实验的 5 组数据。给定初始高度 \(h\)，\(d\) 为落地前的水平距离。单位为 punti，\(1\,\mathrm{punto}\simeq1\,\mathrm{mm}\)。\par}
+\end{center}
+
+\begin{enumerate}
+\item
+  考虑 \(h\) 和 \(d\) 的关系为如下形式
+\end{enumerate}
+
+\[
+d=\alpha h
+\]
+
+以及
+
+\[
+d=\alpha h+\beta h^2.
+\]
+
+求参数 \(\alpha\) 和 \(\beta\) 的最小二乘估计量。对应于这两个假设的最小
+\(\chi^2\) 和 \(P\)-值分别为多少？
+
+\begin{enumerate}[start=2]
+\item
+  假设 \(d\) 和 \(h\) 的关系为如下形式
+\end{enumerate}
+
+\[
+d=\alpha h^\beta.
+\]
+
+写一段程序对 \(\alpha\) 和 \(\beta\)
+进行最小二乘拟合。注意这是参数的非线性函数，必须数值求解。
+
+\begin{enumerate}[start=3]
+\item
+  Galileo
+  认为运动是水平分量和垂直分量的叠加，其中水平运动是匀速运动，垂直速度在斜坡的最低处为零，随后随时间线性增加。证明这将导致关系式
+\end{enumerate}
+
+\[
+d=\alpha\sqrt{h}.
+\]
+
+求 \(\alpha\) 的最小二乘估计量以及最小 \(\chi^2\)。该假设的
+\(P\)-值是多少？
+\begin{solution}
+把数据记为
+\[
+(h_i,d_i)=(1000,1500),(828,1340),(800,1328),(600,1172),(300,800),
+\]
+并把各 \(d_i\) 视作标准差为 \(\sigma=15\) punti 的独立高斯变量。
+
+\begin{enumerate}
+\item 比较模型
+
+\begin{enumerate}
+\item
+  线性模型
+
+  \[
+  d=\alpha h.
+  \]
+
+  加权最小二乘等价于最小化
+
+  \[
+  \chi^2(\alpha)=\sum_i\frac{(d_i-\alpha h_i)^2}{\sigma^2}.
+  \]
+
+  令导数为零，得到
+
+  \[
+  \hat\alpha=\frac{\sum_i h_i d_i}{\sum_i h_i^2}.
+  \]
+\item
+  二次模型
+
+  \[
+  d=\alpha h+\beta h^2.
+  \]
+
+  这是线性参数模型，可直接由正规方程或矩阵最小二乘求出
+  \((\hat\alpha,\hat\beta)\)。
+\end{enumerate}
+
+程序计算结果：
+
+\begin{itemize}
+\item
+  \(d=\alpha h\)： \[
+  \hat\alpha=1.662756,
+  \qquad
+  \chi^2_{\min}=661.99,
+  \qquad
+  n_{\rm dof}=4,
+  \qquad
+  P\approx5.9\times10^{-142}.
+  \]
+\item
+  \(d=\alpha h+\beta h^2\)： \[
+  \hat\alpha=2.792921,
+  \qquad
+  \hat\beta=-1.35055\times10^{-3},
+  \] \[
+  \chi^2_{\min}=64.74,
+  \qquad
+  n_{\rm dof}=3,
+  \qquad
+  P\approx5.7\times10^{-14}.
+  \]
+\end{itemize}
+
+这说明如果坚持把误差取为 \(15\) punti，那么前两个模型都拟合得很差。
+
+\item 幂律模型
+
+设
+
+\[
+d=\alpha h^\beta.
+\]
+
+这是非线性参数拟合。程序数值最小化得到
+
+\[
+\hat\alpha=43.7606,
+\qquad
+\hat\beta=0.511056,
+\]
+
+\[
+\chi^2_{\min}=3.756,
+\qquad
+n_{\rm dof}=3,
+\qquad
+P=0.289.
+\]
+
+这已经是可以接受的拟合。
+
+\item Galileo 的平方根模型
+
+由 Galileo 的运动学推导可得
+
+\[
+d=\alpha\sqrt h.
+\]
+
+最小二乘估计为
+
+\[
+\hat\alpha=
+\frac{\sum_i d_i\sqrt{h_i}}{\sum_i h_i}.
+\]
+
+数值结果：
+
+\[
+\hat\alpha=47.0858,
+\qquad
+\chi^2_{\min}=4.208,
+\qquad
+n_{\rm dof}=4,
+\qquad
+P=0.379.
+\]
+
+因此在这组数据上，\(d\propto\sqrt h\)
+的物理模型优于简单线性模型，也优于随意加入 \(h^2\)
+项后的二次模型。它与幂律模型得到的 \(\beta\approx0.51\) 彼此一致。
+\pyfig[0.72\linewidth]{figures/fig_07_01_galileo_fit.png}{Galileo 数据及平方根模型、一般幂律模型的拟合曲线。}\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑对直方图的最小二乘拟合。直方图对应区间 \(i=1,\ldots,N\) 的事例数为
+\(y_i\)，理论预言值为
+
+\[
+\lambda_i(\theta)=n\int_{x_i^{\min}}^{x_i^{\max}}f(x;\theta)\,dx,
+\]
+
+其中 \(f(x;\theta)\) 依赖于未知参数 \(\theta\)。假设用参数 \(\nu\)
+代替总事例数 \(n\)，并且该参数在最小化
+
+\[
+\chi^2(\theta,\nu)=\sum_{i=1}^{N}\frac{(y_i-\lambda_i(\theta,\nu))^2}{\sigma_i^2}
+\]
+
+时与其它参数同时调整。
+
+\begin{enumerate}
+\item
+  证明如果 \(\sigma_i^2=\lambda_i\)，则总事例数的估计量为
+\end{enumerate}
+
+\[
+\hat\nu_{\rm LS}=n+\frac{\chi^2_{\min}}{2}.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  证明如果 \(\sigma_i^2=y_i\)（修正后的最小二乘），则估计量为
+\end{enumerate}
+
+\[
+\hat\nu_{\rm MLS}=n-\chi^2_{\min}.
+\]
+\begin{solution}
+若第 \(i\) 个 bin 的理论期望写作
+
+\[
+\lambda_i(\theta,\nu)=\nu\int_{x_i^{\min}}^{x_i^{\max}} f(x;\theta)\,dx,
+\]
+
+并把总归一化参数也一并放进拟合，那么：
+
+\begin{enumerate}
+\item 当取 \(\sigma_i^2=\lambda_i\) 时
+
+最小化
+
+\[
+\chi^2(\theta,\nu)=\sum_i\frac{(y_i-\lambda_i)^2}{\lambda_i}
+\]
+
+对 \(\nu\) 求导可得
+
+\[
+\hat\nu_{LS}=n+\frac{\chi^2_{\min}}{2}.
+\]
+
+因此普通 LS 会把总事件数估高。
+
+\item 当取 \(\sigma_i^2=y_i\) 时
+
+最小化
+
+\[
+\chi^2(\theta,\nu)=\sum_i\frac{(y_i-\lambda_i)^2}{y_i}
+\]
+
+则有
+
+\[
+\hat\nu_{MLS}=n-\chi^2_{\min}.
+\]
+
+所以修正最小二乘会把总事件数估低。
+
+这两个结果本质上都来自``把分母里的方差也当成与待估参数有关''后，目标函数和真正的对数似然不再一致。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑对直方图的最小二乘拟合，第 \(i\) 个区间的事例数为
+\(y_i\)，\(i=1,\ldots,N\)，对应的期待值为
+\(\lambda_i(\theta)\)。假设总事例数 \(n\) 可以看作常数，于是 \(y_i\)
+服从多项分布。
+
+\begin{enumerate}
+\item
+  求协方差矩阵
+  \(V_{ij}=\operatorname{cov}[y_i,y_j]\)。为什么该矩阵的逆不存在？
+\item
+  考虑只使用前 \(N-1\)
+  个区间进行拟合。求协方差矩阵的逆，并证明这等价于对所有 \(N\)
+  个区间进行拟合但不考虑相关性。
+\end{enumerate}
+\begin{solution}
+设总事件数固定为 \(n\)，各 bin 概率为 \(p_i\)，故
+\(y=(y_1,\ldots,y_N)\sim\operatorname{Multinomial}(n;p_1,\ldots,p_N)\)。
+
+\begin{enumerate}
+\item 协方差矩阵为
+\[
+V_{ij}=\operatorname{cov}(y_i,y_j)
+=n p_i(\delta_{ij}-p_j).
+\]
+即
+\[
+V_{ii}=np_i(1-p_i),
+\qquad
+V_{ij}=-np_ip_j\quad(i\ne j).
+\]
+该矩阵不可逆，因为总数固定给出严格约束
+\[
+\sum_{i=1}^N y_i=n.
+\]
+于是 \(\sum_i (y_i-E[y_i])=0\)，存在一个零方差方向，矩阵秩至多为
+\(N-1\)。
+
+\item 只取前 \(N-1\) 个 bin。令 \(p_N=1-\sum_{i=1}^{N-1}p_i\)，则前
+\(N-1\) 个 bin 的协方差矩阵为
+\[
+V=n(D-pp^T),
+\qquad
+D=\operatorname{diag}(p_1,\ldots,p_{N-1}).
+\]
+用 Sherman--Morrison 公式得
+\[
+(V^{-1})_{ij}=\frac1n\left(\frac{\delta_{ij}}{p_i}+\frac1{p_N}\right),
+\qquad i,j=1,\ldots,N-1.
+\]
+设残差 \(r_i=y_i-np_i\)。由于总数固定，\(r_N=-\sum_{i=1}^{N-1}r_i\)。
+于是相关协方差给出的二次型为
+\[
+\sum_{i,j=1}^{N-1}r_i(V^{-1})_{ij}r_j
+=\sum_{i=1}^{N-1}\frac{r_i^2}{np_i}
++\frac{(\sum_{i=1}^{N-1}r_i)^2}{np_N}
+=\sum_{i=1}^N\frac{r_i^2}{np_i}.
+\]
+这正是使用全部 \(N\) 个 bin、但只取对角方差
+\(\sigma_i^2=np_i\) 时的 Pearson \(\chi^2\)。因此二者等价。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设样本容量为 \(n\)，利用该样本得到 \(N\)
+个量的测量值：\(y_1,\ldots,y_N\)。这 \(N\)
+个测量值将被用于最小二乘拟合以估计若干未知参数。如果这 \(N\)
+个测量是相关的，在构造 \(\chi^2\) 时需要用到协方差矩阵的逆
+\(V^{-1}\)。一般来说，我们先通过某种办法（比如蒙特卡罗计算）得到相关系数矩阵
+\(\rho_{ij}=V_{ij}/(\sigma_i\sigma_j)\)（其中
+\(i,j=1,2,\ldots,N\)），然后再计算得到协方差矩阵的逆。
+
+\begin{enumerate}
+\item 注意到对于有效估计量，协方差矩阵的逆正比于样本容量
+\(n\)。证明：在此条件下，相关系数矩阵与样本容量 \(n\) 无关。
+
+\item 证明协方差矩阵的逆为
+
+\[
+(V^{-1})_{ij}=\frac{(\rho^{-1})_{ij}}{\sigma_i\sigma_j}.
+\]
+
+【提示：从下面等式出发
+
+\[
+\delta_{ij}=\sum_k(V^{-1})_{ik}V_{kj}=\sum_k(V^{-1})_{ik}\rho_{kj}\sigma_k\sigma_j
+\]
+
+对式（7.10）两边都乘以
+\(\rho^{-1}\)，并对适当的指标求和即可得到式（7.9）。】
+\end{enumerate}
+\begin{solution}
+若协方差矩阵写成
+
+\[
+V_{ij}=\rho_{ij}\sigma_i\sigma_j,
+\]
+
+其中 \(\rho\) 是相关系数矩阵，则
+
+\begin{enumerate}
+\item 若估计量是有效的
+
+通常 \(V\propto 1/n\)。于是 \(\sigma_i\propto n^{-1/2}\)，而
+
+\[
+\rho_{ij}=\frac{V_{ij}}{\sigma_i\sigma_j}
+\]
+
+中的 \(n\) 因子完全约去，因此 \(\rho\) 与样本量 \(n\) 无关。
+
+\item 证明逆矩阵
+
+记 \(D=\mathrm{diag}(\sigma_1,\dots,\sigma_N)\)，则
+
+\[
+V=D\rho D.
+\]
+
+因此
+
+\[
+V^{-1}=D^{-1}\rho^{-1}D^{-1},
+\]
+
+即
+
+\[
+(V^{-1})_{ij}=\frac{(\rho^{-1})_{ij}}{\sigma_i\sigma_j}.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑随机变量 \(x\) 的两个部分重叠的样本，它们的样本容量分别为 \(n\) 和
+\(m\)，共有部分的样本容量为 \(c\)。假设已知 \(x\) 的方差
+\(V[x]=\sigma^2\)。考虑样本均值
+
+\[
+y_1=\frac1n\sum_{i=1}^{n}x_i
+\]
+
+和
+
+\[
+y_2=\frac1m\sum_{i=1}^{m}x_i.
+\]
+
+\begin{enumerate}
+\item 证明协方差为
+
+\[
+\operatorname{cov}[y_1,y_2]=\frac{c\sigma^2}{nm}.
+\]
+
+\item 利用 7.6 节的结果，求 \(y_1\) 和 \(y_2\) 的加权平均和方差。
+\end{enumerate}
+\begin{solution}
+两个样本均值为
+\[
+y_1=\frac1n\sum_{i=1}^n x_i,
+\qquad
+y_2=\frac1m\sum_{j=1}^m x_j.
+\]
+只有共有的 \(c\) 个观测会同时出现在两个求和中，因此
+\[
+\operatorname{cov}(y_1,y_2)
+=\frac{1}{nm}\,c\sigma^2
+=\frac{c\sigma^2}{nm}.
+\]
+并且
+\[
+V[y_1]=\frac{\sigma^2}{n},
+\qquad
+V[y_2]=\frac{\sigma^2}{m}.
+\]
+于是
+\[
+V=\sigma^2
+\begin{pmatrix}
+1/n & c/(nm)\\[3pt]
+c/(nm)&1/m
+\end{pmatrix}.
+\]
+
+对同一真均值 \(\mu\) 的两个相关估计量，最佳线性无偏组合为
+\[
+\hat\mu=\frac{\mathbf 1^T V^{-1}y}{\mathbf 1^T V^{-1}\mathbf 1}.
+\]
+代入上面的 \(V\) 并化简，得到
+\[
+\hat\mu
+=\frac{(n-c)y_1+(m-c)y_2}{n+m-2c}.
+\]
+其方差为
+\[
+V[\hat\mu]
+=\frac{1}{\mathbf 1^T V^{-1}\mathbf 1}
+=\sigma^2\frac{nm-c^2}{nm(n+m-2c)}.
+\]
+检查两个极限：若 \(c=0\)，则 \(\hat\mu=(ny_1+my_2)/(n+m)\)，
+方差为 \(\sigma^2/(n+m)\)；若第一个样本完全包含在第二个样本中
+\((c=n<m)\)，则 \(\hat\mu=y_2\)，方差为 \(\sigma^2/m\)。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+天文学家托勒密（Claudius
+Ptolemy）利用圆盘做过光折射的实验。他把圆盘的一半浸入水中，圆心正好位于水面处，如图
+7.2 所示。大约公元 140 年，Ptolemy 对 8 组不同的入射角 \(\theta_i\)
+测量了相应的折射角 \(\theta_r\)，结果如表 7.2
+所示。本练习中，我们认为入射角已知且误差可以忽略，而把折射角看作标准差为
+\(\sigma=\frac12^\circ\)
+的高斯随机变量。（这是一个合理的假设，记录的角度精确到最邻近的半度。注意，我们可以将
+\(\theta_i\) 的误差吸收到 \(\theta_r\) 的有效误差中。）
+\pyfig[0.62\linewidth]{figures/fig_07_02_ptolemy_schematic.png}{图 7.2：Ptolemy 折射实验的角度定义示意图。}
+
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+\(\theta_i\) & \(\theta_r\) \\
+\midrule
+10 & 8 \\
+20 & \(15\frac12\) \\
+30 & \(22\frac12\) \\
+40 & 29 \\
+50 & 35 \\
+60 & \(40\frac12\) \\
+70 & \(45\frac12\) \\
+80 & 50 \\
+\bottomrule
+\end{tabular}
+\par\vspace{0.25em}{\small 表 7.2: Ptolemy 折射实验的入射角和折射角，单位均为度。\par}
+\end{center}
+
+\begin{enumerate}
+\item 直到 17 世纪才发现正确的折射定律，在此之前，通常的假设是
+
+\[
+\theta_r=\alpha\theta_i,
+\]
+
+然而 Ptolemy 更喜欢用下面的形式
+
+\[
+\theta_r=\alpha\theta_i-\beta\theta_i^2.
+\]
+
+对这两种不同的假设，求参数的最小二乘估计量，并计算最小 \(\chi^2\)
+值。评论一下两个假设的拟合优度。是否可以相信所有的数据都是从实际测量得来的？
+
+\item 1621 年 Snell 发现了折射定律
+
+\[
+\theta_r=\sin^{-1}\left(\frac{\sin\theta_i}{r}\right),
+\]
+
+其中 \(r=n_r/n_i\) 为两种介质的折射率之比。求 \(r\)
+的最小二乘估计量并计算出最小 \(\chi^2\) 值。评价对 \(\theta_r\) 作
+\(\sigma=\frac12^\circ\) 假设的合理性。
+\end{enumerate}
+\begin{solution}
+数据为
+
+\[
+(\theta_i,\theta_r)=
+(10,8),(20,15.5),(30,22.5),(40,29),(50,35),(60,40.5),(70,45.5),(80,50),
+\]
+
+且把 \(\theta_r\) 看作标准差为 \(\sigma=0.5^\circ\) 的高斯变量。
+
+\begin{enumerate}
+\item 经验模型比较
+
+\begin{enumerate}
+\item
+  线性模型 \[
+  \theta_r=\alpha\theta_i.
+  \]
+
+  得到 \[
+  \hat\alpha=0.666176,
+  \qquad
+  \chi^2_{\min}=134.65,
+  \qquad
+  n_{\rm dof}=7,
+  \qquad
+  P\approx6.7\times10^{-26}.
+  \]
+\item
+  Ptolemy 喜欢的经验式 \[
+  \theta_r=\alpha\theta_i-\beta\theta_i^2.
+  \]
+
+  得到 \[
+  \hat\alpha=0.825000,
+  \qquad
+  \hat\beta=2.5000\times10^{-3},
+  \] \[
+  \chi^2_{\min}\approx0,
+  \qquad
+  n_{\rm dof}=6,
+  \qquad
+  P\approx1.
+  \]
+\end{enumerate}
+
+这个结果看上去``好得过头''，更像是数据本身被这种简单经验式近似生成或已经经过明显取整；因此不能机械地把
+\(P=1\) 理解为``模型绝对正确''。
+
+\item Snell 定律
+
+设
+
+\[
+\theta_r=\sin^{-1}\!\left(\frac{\sin\theta_i}{r}\right),
+\]
+
+其中 \(r=n_r/n_i\)。数值最小化得到
+
+\[
+\hat r=1.31162,
+\qquad
+\chi^2_{\min}=14.00,
+\qquad
+n_{\rm dof}=7,
+\qquad
+P=0.0511.
+\]
+
+这已经接近通常的可接受边界，而且 \(r\approx1.31\)
+对空气-水界面是很合理的数值。若把 \(\sigma=0.5^\circ\)
+看作记录精度给出的``有效标准差''，那么 Snell 定律的拟合并不差。
+\pyfig[0.72\linewidth]{figures/fig_07_02_ptolemy_fit.png}{Ptolemy 折射数据及线性、二次经验式、Snell 定律拟合。}\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+重新考虑练习 6.9：\(N\) 个独立的泊松变量 \(n=(n_1,\ldots,n_N)\)，均值为
+\(\nu=(\nu_1,\ldots,\nu_N)\)，其中均值与某控制变量 \(x\) 有关，
+
+\[
+\nu(x)=\theta a(x).
+\]
+
+\begin{enumerate}
+\item
+  首先考虑最小二乘方法（LS），\(\chi^2\) 的分母使用
+  \(\sigma_i^2=\nu_i\)。证明 \(\theta\) 的最小二乘估计量为
+\end{enumerate}
+
+\[
+\hat\theta=\left(\frac{\sum_{i=1}^{N}n_i^2}{\sum_{i=1}^{N}a(x_i)}\right)^{1/2}.
+\]
+
+通过对 \(\hat\theta(n)\) 在 \(\nu\)
+处进行泰勒展开至第二阶，计算期待值，证明 (7.18) 的偏置为
+
+\[
+b=\frac{N-1}{2\sum_{i=1}^{N}a(x_i)}+O(E[(n_i-\nu_i)^3]).
+\]
+
+（利用独立泊松变量的协方差
+\(\operatorname{cov}[n_i,n_j]=\delta_{ij}\nu_j\)。）
+
+\begin{enumerate}[start=2]
+\item
+  取 \(\chi^2\) 的分母为
+  \(\sigma_i^2=n_i\)，即把观测值作为方差，用修正的最小二乘法（MLS）重复
+\begin{enumerate}
+\item 中的步骤。证明 \(\theta\) 的最小二乘估计量为
+\end{enumerate}
+
+\[
+\hat\theta=\frac{\sum_{i=1}^{N}a(x_i)}{\sum_{i=1}^{N}a(x_i)^2/n_i},
+\]
+
+并且偏置为
+
+\[
+b=-\frac{N-1}{\sum_{i=1}^{N}a(x_i)}+O(E[(n_i-\nu_i)^3]).
+\]
+
+将 (a) 和 (b) 得到的偏置与本章第 2 题进行比较。
+
+\begin{enumerate}[start=3]
+\item
+  利用误差传递，对 LS 和 MLS 两种情况估计 \(\hat\theta\) 的方差。
+\end{enumerate}
+
+注意，由于习题 (6.9) 已经证明了 \(\theta\)
+的最大似然估计量是无偏的并且方差最小，这里并不推荐最小二乘（LS）和修正的最小二乘（MLS）估计量。然而，对于足够大的数据样本，三个方法是类似的，参见习题
+(7.8)。
+\end{enumerate}
+\begin{solution}
+设 \(a_i=a(x_i)\)，\(n_i\sim\operatorname{Pois}(\nu_i)\)，且
+\(\nu_i=\theta a_i\)。
+
+\begin{enumerate}
+\item LS：\(\sigma_i^2=\nu_i=\theta a_i\)
+
+最小化
+\[
+\chi^2_{LS}=\sum_i\frac{(n_i-\theta a_i)^2}{\theta a_i}
+=\sum_i\left(\frac{n_i^2}{\theta a_i}-2n_i+\theta a_i\right).
+\]
+对 \(\theta\) 求导并令零，得到
+\[
+\hat\theta_{LS}
+=\left(\frac{\sum_i n_i^2/a_i}{\sum_i a_i}\right)^{1/2}.
+\]
+按一般的 \(\nu_i=\theta a_i\) 情形，\(n_i^2\) 项必须带有权重 \(1/a_i\)；在所有 \(a_i=1\) 时才化为不含 \(a_i\) 的形式。
+
+在 \(n_i=\nu_i\) 附近二阶展开，利用
+\(\operatorname{cov}(n_i,n_j)=\delta_{ij}\nu_i\)，可得
+\[
+b_{LS}=E[\hat\theta_{LS}]-\theta
+=\frac{N-1}{2\sum_i a_i}+O(E[(n_i-\nu_i)^3]).
+\]
+所以普通 LS 有正偏。
+
+\item MLS：\(\sigma_i^2=n_i\)
+
+最小化
+\[
+\chi^2_{MLS}=\sum_i\frac{(n_i-\theta a_i)^2}{n_i}
+=\sum_i\left(n_i-2\theta a_i+\frac{\theta^2a_i^2}{n_i}\right).
+\]
+对 \(\theta\) 求导得
+\[
+\hat\theta_{MLS}
+=\frac{\sum_i a_i}{\sum_i a_i^2/n_i}.
+\]
+同样在 \(n_i=\nu_i\) 附近展开，得到
+\[
+b_{MLS}
+= -\frac{N-1}{\sum_i a_i}+O(E[(n_i-\nu_i)^3]).
+\]
+因此 MLS 有负偏，且一阶偏置大小约为 LS 的两倍。
+
+\item 方差
+
+对两种估计量在 \(n_i=\nu_i\) 处作一阶误差传播，都有
+\[
+\left.\frac{\partial\hat\theta}{\partial n_i}\right|_{n=\nu}
+=\frac1{\sum_j a_j}.
+\]
+于是
+\[
+V[\hat\theta]
+\approx\sum_i\left(\frac1{\sum_j a_j}\right)^2V[n_i]
+=\frac{\theta}{\sum_i a_i}.
+\]
+这与第 6.9 题的 MLE 方差相同只是大样本一阶近似；有限样本下 LS 和 MLS 仍分别有上述偏置，因此泊松问题中更推荐直接使用最大似然估计量
+\[
+\hat\theta_{MLE}=\frac{\sum_i n_i}{\sum_i a_i}.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+重新考虑 Perrin 关于乳香粒子作为高度的函数（第 6 章第 11 题）。通过最小化
+
+\[
+\chi^2(k,\nu_0)=\sum_{i=1}^{N}\frac{(n_i-\nu_i(k,\nu_0))^2}{\sigma_i^2},
+\]
+
+求玻尔兹曼常数 \(k\)（或者等价于阿伏伽德罗常数 \(N_A=R/k\)）和系数
+\(\nu_0\) 的最小二乘估计量。
+
+\begin{enumerate}
+\item
+  取 \(n_i\) 的标准差 \(\sigma_i\) 为
+  \(\sqrt{\nu_i}\)（通常的最小二乘法）。
+\item
+  取 \(\sigma_i\) 为 \(\sqrt{n_i}\)（修正的最小二乘法）。
+\end{enumerate}
+
+将 (a) 和 (b) 得到的估计量与习题 (6.11) 中最大似然估计量进行比较。
+\begin{solution}
+沿用 6.11 的 Perrin 数据：
+
+\[
+(z, n)= (0,1880),(6,940),(12,530),(18,305),
+\]
+
+理论模型为
+
+\[
+\nu(z)=\nu_0\exp\!\left[-\frac{4\pi r^3\Delta\rho g z}{3kT}\right].
+\]
+
+\begin{enumerate}
+\item 取 \(\sigma_i=\sqrt{\nu_i}\)
+
+最小化
+
+\[
+\chi^2(k,\nu_0)=\sum_i\frac{(n_i-\nu_i)^2}{\nu_i}
+\]
+
+数值结果：
+
+\[
+\hat\nu_0=1845.52,
+\qquad
+\hat k=1.19946\times10^{-16}\,\mathrm{erg/K},
+\qquad
+\hat N_A=\frac{R}{\hat k}=6.936\times10^{23}\,\mathrm{mol}^{-1}.
+\]
+
+并且
+
+\[
+\chi^2_{\min}=4.569,
+\qquad
+n_{\rm dof}=2,
+\qquad
+P=0.102.
+\]
+
+\item 取 \(\sigma_i=\sqrt{n_i}\)
+
+最小化
+
+\[
+\chi^2(k,\nu_0)=\sum_i\frac{(n_i-\nu_i)^2}{n_i}
+\]
+
+得到
+
+\[
+\hat\nu_0=1843.83,
+\qquad
+\hat k=1.19710\times10^{-16}\,\mathrm{erg/K},
+\qquad
+\hat N_A=6.950\times10^{23}\,\mathrm{mol}^{-1},
+\]
+
+\[
+\chi^2_{\min}=4.619,
+\qquad
+P=0.0993.
+\]
+
+\end{enumerate}
+
+与第 6 章第 11 题的 MLE 比较。
+
+MLE 给出
+
+\[
+\hat\nu_0=1844.94,
+\qquad
+\hat k=1.19870\times10^{-16}\,\mathrm{erg/K},
+\qquad
+\hat N_A=6.941\times10^{23}\,\mathrm{mol}^{-1}.
+\]
+
+三种方法在这组数据上的中心值很接近；因为数据量虽少，但每个 bin
+的计数较大，泊松分布已接近高斯近似。不过从原则上看，MLE
+仍然更自然，因为它直接使用了泊松似然，而两种最小二乘都引入了额外的近似。
+\end{solution}
+\end{question}
+

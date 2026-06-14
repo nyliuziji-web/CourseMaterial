@@ -1,0 +1,376 @@
+﻿\heading{理论物理基础（II）-模拟题2-期中}
+\noteinfo{题目和答案由AI生成。}
+
+\instructions{默认记 $\beta=1/(k_B T)$，$z=e^{\beta\mu}$，$\lambda=h/\sqrt{2\pi m k_B T}$。必要时可直接使用积分 $\int_0^\infty \frac{x^{1/2}}{e^x-1}\,dx=\Gamma(3/2)\zeta(3/2)$。}
+
+\textbf{一、单项选择题}
+
+\begin{question}
+对于经典理想气体，单粒子配分函数随体积 $V$ 成正比，这反映了
+\begin{choiceoptions}[2]
+  \optionitem{粒子必须服从 Fermi--Dirac 统计}
+  \optionitem{平动自由度在均匀空间中的态数与体积成正比}
+  \optionitem{系统内能与体积无关}
+  \optionitem{化学势恒为零}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\begin{question}
+巨配分函数 $\Xi$ 与巨热力学势 $\Omega$ 的关系为
+\begin{choiceoptions}[2]
+  \optionitem{$\Omega=k_B T\ln\Xi$}
+  \optionitem{$\Omega=-k_B T\ln\Xi$}
+  \optionitem{$\Omega=\partial \Xi/\partial \mu$}
+  \optionitem{$\Omega=U-TS$}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\begin{question}
+关于理想 Bose 气体，下列说法正确的是
+\begin{choiceoptions}[2]
+  \optionitem{单粒子态平均占据数绝不可能大于 $1$}
+  \optionitem{化学势在平衡时可以大于基态能量}
+  \optionitem{当温度降低到一定程度时，基态可能出现宏观占据}
+  \optionitem{它在经典极限下仍与 Maxwell--Boltzmann 分布完全不同}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{C}
+\end{solution}
+\end{question}
+\begin{question}
+正则系综中，能量涨落满足
+\[
+\langle(\Delta E)^2\rangle = k_B T^2 C_V.
+\]
+这说明
+\begin{choiceoptions}[2]
+  \optionitem{热容越大，能量涨落通常越显著}
+  \optionitem{热容越大，系统越接近绝对零度}
+  \optionitem{正则系综中内能恒定不变}
+  \optionitem{只有量子系统才有能量涨落}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{A}
+\end{solution}
+\end{question}
+\begin{question}
+关于三维自由粒子的态密度 $g(\varepsilon)$，下列随能量的依赖关系正确的是
+\begin{choiceoptions}[2]
+  \optionitem{$g(\varepsilon)\propto \varepsilon^{-1/2}$}
+  \optionitem{$g(\varepsilon)\propto \varepsilon^{0}$}
+  \optionitem{$g(\varepsilon)\propto \varepsilon^{1/2}$}
+  \optionitem{$g(\varepsilon)\propto \varepsilon^{2}$}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{C}
+\end{solution}
+\end{question}
+\begin{question}
+在热力学平衡条件下，两个系统之间既可交换能量又可交换粒子，则平衡要求是
+\begin{choiceoptions}[2]
+  \optionitem{$T$ 与 $p$ 相等}
+  \optionitem{$S$ 与 $V$ 相等}
+  \optionitem{$T$ 与 $\mu$ 相等}
+  \optionitem{$F$ 与 $G$ 相等}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{C}
+\end{solution}
+\end{question}
+\textbf{二、简答题}
+
+\begin{question}
+说明热波长 $\lambda$ 的物理意义，并解释为何 $n\lambda^3\ll 1$ 可作为经典极限判据。
+
+\begin{solution}
+热波长
+\[
+\lambda=\frac{h}{\sqrt{2\pi m k_B T}}
+\]
+刻画了温度 $T$ 下粒子平动量子波包的典型空间尺度。若平均粒子间距约为 $n^{-1/3}$，则
+\[
+n\lambda^3 \sim \left(\frac{\lambda}{n^{-1/3}}\right)^3
+\]
+衡量波包重叠程度。当 $n\lambda^3\ll 1$ 时，粒子的量子波包几乎不重叠，不可分辨性与交换效应可忽略，于是 BE/FD 统计都退化为经典的 MB 统计。
+\end{solution}
+\end{question}
+\begin{question}
+写出巨正则分布的概率形式，并说明它适用于什么样的物理情形。
+
+\begin{solution}
+巨正则分布写为
+\[
+P_{r,N}=\frac{1}{\Xi}e^{-\beta(E_{r,N}-\mu N)},
+\]
+其中
+\[
+\Xi=\sum_{N}\sum_r e^{-\beta(E_{r,N}-\mu N)}.
+\]
+它适用于系统与粒子库、热库接触，系统可与外界交换粒子和能量，而体积通常保持固定的情形。比如吸附、电子开放系统、与巨大环境相连的子系统等。
+\end{solution}
+\end{question}
+\begin{question}
+从物理图像上比较 Bose 气体与 Fermi 气体在低温下的主要差别。
+
+\begin{solution}
+Bose 粒子没有泡利不相容限制，因此大量粒子可以聚集到同一单粒子态。低温下理想 Bose 气体可能出现基态宏观占据，即 Bose--Einstein 凝聚。Fermi 粒子则受泡利不相容原理限制，每个单粒子态至多被一个给定自旋态的粒子占据，因此低温下会形成依次填满到费米面的结构，即使在 $T=0$ 也保有显著的简并压，表现出与 Bose 气体完全不同的低温行为。
+\end{solution}
+\end{question}
+\textbf{三、计算与证明题}
+
+\begin{question}
+一粒子处在三维各向同性谐振势
+\[
+U(r)=\frac12 \alpha r^2
+\]
+中，视为经典粒子。系统与温度为 $T$ 的热库接触。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单粒子配分函数 $Z_1$；
+  \item 对 $N$ 个不可分辨、互不相互作用粒子，写出 $Z_N$；
+  \item 求系统内能 $U$ 与定容热容 $C_V$；
+  \item 求平衡时的空间数密度分布 $n(r)$。
+\end{enumerate}
+
+\begin{solution}
+单粒子配分函数为
+\[
+Z_1=\frac{1}{h^3}\int d^3p\,e^{-\beta p^2/2m}\int d^3r\,e^{-\beta \alpha r^2/2}.
+\]
+动量积分给出
+\[
+\int d^3p\,e^{-\beta p^2/2m}=(2\pi m k_B T)^{3/2},
+\]
+位置积分为高斯积分，
+\[
+\int d^3r\,e^{-\beta \alpha r^2/2}
+=\left(\frac{2\pi}{\beta\alpha}\right)^{3/2}
+=\left(\frac{2\pi k_B T}{\alpha}\right)^{3/2}.
+\]
+因此
+\ansmath{Z_1=\frac{(2\pi m k_B T)^{3/2}}{h^3}
+\left(\frac{2\pi k_B T}{\alpha}\right)^{3/2}.}
+
+对不可分辨经典粒子，
+\ansmath{Z_N=\frac{Z_1^N}{N!}.}
+
+因为 $\ln Z_1 \propto 3\ln T$（动量部分）$+3\ln T$（位置部分），故
+\[
+\ln Z_N = N\ln Z_1-\ln N! = 3N\ln T + 3N\ln T + \text{常数}.
+\]
+于是
+\[
+U=-\frac{\partial}{\partial\beta}\ln Z_N = 6\cdot \frac{N}{2}k_B T = 3Nk_B T.
+\]
+故
+\ansmath{U=3Nk_B T,\qquad C_V=3Nk_B.}
+
+空间分布满足玻尔兹曼分布
+\[
+n(r)=C\exp\!\left(-\frac{\alpha r^2}{2k_B T}\right).
+\]
+由
+\[
+\int n(r)\,d^3r=N
+\]
+归一化，得
+\[
+C=N\left(\frac{\alpha}{2\pi k_B T}\right)^{3/2}.
+\]
+因此
+\ansmath{n(r)=N\left(\frac{\alpha}{2\pi k_B T}\right)^{3/2}
+\exp\!\left(-\frac{\alpha r^2}{2k_B T}\right).}
+\end{solution}
+\end{question}
+\begin{question}
+Einstein 固体由 $N$ 个彼此独立、频率均为 $\omega$ 的量子简谐振子组成。每个振子的能级为
+\[
+\varepsilon_n=\left(n+\frac12\right)\hbar\omega,\qquad n=0,1,2,\dots
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单振子配分函数 $z_1$ 与总配分函数 $Z$；
+  \item 求系统内能 $U$；
+  \item 求热容 $C_V$。
+\end{enumerate}
+
+\begin{solution}
+单振子配分函数为等比级数
+\[
+z_1=\sum_{n=0}^{\infty}e^{-\beta(n+1/2)\hbar\omega}
+=e^{-\beta\hbar\omega/2}\sum_{n=0}^{\infty}(e^{-\beta\hbar\omega})^n.
+\]
+故
+\ansmath{z_1=\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}.}
+振子彼此独立，因此
+\ansmath{Z=(z_1)^N.}
+
+内能为
+\[
+U=-\frac{\partial}{\partial\beta}\ln Z
+=-N\frac{\partial}{\partial\beta}\ln z_1.
+\]
+由
+\[
+\ln z_1=-\frac12\beta\hbar\omega-\ln(1-e^{-\beta\hbar\omega}),
+\]
+得
+\[
+U=N\left[\frac12\hbar\omega+\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}\right].
+\]
+故
+\ansmath{U=N\hbar\omega\left(\frac12+\frac{1}{e^{\beta\hbar\omega}-1}\right).}
+
+令 $x=\beta\hbar\omega=\hbar\omega/(k_B T)$，则
+\[
+U=N\hbar\omega\left(\frac12+\frac{1}{e^x-1}\right).
+\]
+对 $T$ 求导得
+\ansmath{C_V
+=
+N k_B\frac{x^2 e^x}{(e^x-1)^2}.}
+高温极限 $x\ll 1$ 时，$C_V\to Nk_B$；低温极限 $x\gg 1$ 时，$C_V\to 0$。
+\end{solution}
+\end{question}
+\begin{question}
+考虑体积为 $V$ 的经典理想气体，并采用巨正则系综。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 已知正则配分函数为
+  \[
+  Z_N=\frac{1}{N!}\left(\frac{V}{\lambda^3}\right)^N,
+  \]
+  求巨配分函数 $\Xi$；
+  \item 求平均粒子数 $\langle N\rangle$；
+  \item 求粒子数分布 $P_N$，并指出它属于哪一类分布；
+  \item 求粒子数涨落 $\langle(\Delta N)^2\rangle$。
+\end{enumerate}
+
+\begin{solution}
+巨配分函数定义为
+\[
+\Xi=\sum_{N=0}^{\infty} z^N Z_N
+=\sum_{N=0}^{\infty}\frac{1}{N!}\left(\frac{zV}{\lambda^3}\right)^N.
+\]
+因此
+\ansmath{\Xi=\exp\!\left(\frac{zV}{\lambda^3}\right).}
+
+平均粒子数为
+\[
+\langle N\rangle
+=z\frac{\partial}{\partial z}\ln\Xi
+=z\frac{\partial}{\partial z}\left(\frac{zV}{\lambda^3}\right)
+=\frac{zV}{\lambda^3}.
+\]
+故
+\ansmath{\langle N\rangle=\frac{zV}{\lambda^3}.}
+
+粒子数分布为
+\[
+P_N=\frac{z^N Z_N}{\Xi}
+=
+\frac{1}{N!}\left(\frac{zV}{\lambda^3}\right)^N
+\exp\!\left(-\frac{zV}{\lambda^3}\right).
+\]
+写成 $\langle N\rangle$ 的形式即
+\ansmath{P_N=\frac{\langle N\rangle^N}{N!}e^{-\langle N\rangle},}
+这是泊松分布。
+
+由于泊松分布方差等于均值，或者直接利用巨正则公式，也可得
+\ansmath{\langle(\Delta N)^2\rangle=\langle N\rangle.}
+\end{solution}
+\end{question}
+\begin{question}
+三维理想 Bose 气体的单粒子态密度可写为
+\[
+g(\varepsilon)=C V \varepsilon^{1/2},
+\]
+其中 $C$ 为与粒子质量和基本常数有关的正常数。设基态能量取为 $0$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 证明激发态粒子数可写为
+  \[
+  N_{\mathrm{ex}}
+  =
+  \int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{z^{-1}e^{\beta\varepsilon}-1};
+  \]
+  \item 在临界温度 $T_c$ 处，说明为何可取 $z=1$；
+  \item 利用给定积分求出
+  \[
+  N_{\mathrm{ex}}^{\max}(T)
+  =
+  C V \Gamma\!\left(\frac32\right)\zeta\!\left(\frac32\right)(k_B T)^{3/2};
+  \]
+  \item 进而求出 Bose--Einstein 凝聚临界温度 $T_c$ 与粒子密度 $n=N/V$ 的关系。
+\end{enumerate}
+
+\begin{solution}
+对理想 Bose 气体，平均占据数为
+\[
+\bar n(\varepsilon)=\frac{1}{z^{-1}e^{\beta\varepsilon}-1}.
+\]
+因此激发态总粒子数为
+\ansmath{N_{\mathrm{ex}}
+=
+\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{z^{-1}e^{\beta\varepsilon}-1}.}
+
+由于 Bose 分布要求分母为正，故平衡时化学势不能超过基态能量。此处基态能量取为 $0$，所以
+\[
+\mu\le 0,\qquad z=e^{\beta\mu}\le 1.
+\]
+在临界温度 $T_c$ 处，激发态恰好容纳全部粒子，且已达到其可容纳粒子数的上限，因此
+\ansmath{z=1.}
+
+代入 $g(\varepsilon)=CV\varepsilon^{1/2}$ 与 $z=1$，
+\[
+N_{\mathrm{ex}}^{\max}(T)
+=
+CV\int_0^\infty \frac{\varepsilon^{1/2}\,d\varepsilon}{e^{\beta\varepsilon}-1}.
+\]
+令 $x=\beta\varepsilon$，则
+\[
+\varepsilon=\frac{x}{\beta}=k_BTx,\qquad d\varepsilon=k_B T\,dx,
+\]
+故
+\[
+N_{\mathrm{ex}}^{\max}(T)
+=
+CV(k_B T)^{3/2}\int_0^\infty \frac{x^{1/2}\,dx}{e^x-1}.
+\]
+利用题给积分，
+\ansmath{N_{\mathrm{ex}}^{\max}(T)
+=
+CV\Gamma\!\left(\frac32\right)\zeta\!\left(\frac32\right)(k_B T)^{3/2}.}
+
+临界温度处满足
+\[
+N=N_{\mathrm{ex}}^{\max}(T_c),
+\]
+于是
+\[
+N=CV\Gamma\!\left(\frac32\right)\zeta\!\left(\frac32\right)(k_B T_c)^{3/2}.
+\]
+写成粒子密度 $n=N/V$ 的形式，
+\[
+n=C\Gamma\!\left(\frac32\right)\zeta\!\left(\frac32\right)(k_B T_c)^{3/2}.
+\]
+因此
+\ansmath{T_c
+=
+\frac{1}{k_B}
+\left[
+\frac{n}{C\Gamma(3/2)\zeta(3/2)}
+\right]^{2/3}.}
+这表明 $T_c\propto n^{2/3}$。
+\end{solution}
+\end{question}

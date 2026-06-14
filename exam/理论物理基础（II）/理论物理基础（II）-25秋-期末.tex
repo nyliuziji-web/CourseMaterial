@@ -1,0 +1,389 @@
+﻿\heading{理论物理基础（II）-25秋-期末}
+
+\noteinfo{题目答案来源于教师。}
+
+\begin{question}
+考虑宽度 $2L$ 的一维无限深方势阱
+\[
+V(x)=
+\begin{cases}
++\infty,& |x|>L,\\
+0,& |x|<L.
+\end{cases}
+\]
+非相对论粒子的哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x).
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求出 $\hat H$ 的所有本征值和归一化本征态波函数。
+  \item 考虑波函数
+  \[
+  \psi(x)=
+  \begin{cases}
+  0,& |x|>L,\\
+  A,& 0<x<L,\\
+  -A,& -L<x<0.
+  \end{cases}
+  \]
+  求归一化常数 $A$（设为正实数），并计算 $\psi(x)$ 的动量表象 $\tilde\psi(p)$。
+  \item 在(2)中的量子态下测量能量 $\hat H$，求所有可能的测量结果及得到这些结果的概率。
+  \item 设 $\varphi(x,t)$ 按照哈密顿量 $\hat H$ 的薛定谔方程演化，初态为(2)中的量子态，$\varphi(x,0)=\psi(x)$。是否存在 $t>0$ 使得 $\varphi(x,t)=-\psi(x)$？如有，求出所有这样的 $t$；如没有，说明理由。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 在区间 $(-L,L)$ 内解定态薛定谔方程并施加边界条件 $\psi(\pm L)=0$，得
+  \[
+  E_n=\frac{\hbar^2}{2m}\left(\frac{n\pi}{2L}\right)^2,
+  \qquad n=1,2,3,\dots,
+  \]
+  一组归一化本征函数可取为
+  \ansmath{\psi_n(x)=\frac{1}{\sqrt L}\sin\left[\frac{n\pi}{2L}(x+L)\right],\qquad n=1,2,3,\dots.}
+
+  \item 归一化条件给出
+  \[
+  \int_{-L}^L |\psi(x)|^2\,dx=2L A^2=1,
+  \]
+  故
+  \[
+  A=\frac{1}{\sqrt{2L}}.
+  \]
+  动量表象为
+  \[
+  \tilde\psi(p)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}e^{-ipx/\hbar}\psi(x)\,dx
+  =\frac{A}{\sqrt{2\pi\hbar}}\left(\int_0^L e^{-ipx/\hbar}dx-\int_{-L}^0 e^{-ipx/\hbar}dx\right),
+  \]
+  化简得
+  \ansmath{A=\frac{1}{\sqrt{2L}},\qquad
+  \tilde\psi(p)=\frac{i\sqrt\hbar}{p\sqrt{\pi L}}\left[\cos\left(\frac{pL}{\hbar}\right)-1\right].}
+
+  \item 所有可能的测量结果就是各个本征值 $E_n$。概率为
+  \[
+  P_n=|\langle \psi_n|\psi\rangle|^2.
+  \]
+  计算可得只有 $n=4k+2$ 的项非零，结果为
+  \ansmath{P_n=
+  \begin{cases}
+  0,& n\text{ 为奇数},\\[0.6ex]
+  \dfrac{32}{n^2\pi^2},& n=4k+2,\\[1ex]
+  0,& n=4k,
+  \end{cases}
+  \qquad k=0,1,2,\dots.}
+  因而测得的能量只可能是
+  \[
+  E_{4k+2}=\frac{\hbar^2}{2m}\left(\frac{(4k+2)\pi}{2L}\right)^2,
+  \qquad k=0,1,2,\dots.
+  \]
+
+  \item 展开为能量本征态后，
+  \[
+  \varphi(x,t)=\sum_{n=1}^{\infty}e^{-iE_nt/\hbar}\psi_n(x)\langle \psi_n|\psi\rangle.
+  \]
+  要使 $\varphi(x,t)=-\psi(x)$，对所有非零系数都必须满足
+  \[
+  e^{-iE_nt/\hbar}=-1.
+  \]
+  这里只需对 $n=4k+2$ 的各项同时成立。代入
+  \[
+  E_{4k+2}=\frac{\hbar^2}{2m}\left(\frac{(4k+2)\pi}{2L}\right)^2,
+  \]
+  可得所需时间为
+  \ansmath{t=(2\ell+1)\frac{2mL^2}{\pi\hbar},\qquad \ell=0,1,2,\dots.}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑氢原子（哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2m_e}\nabla^2-\frac{A}{r}
+\]
+）的一些本征态波函数
+\[
+\psi_{2,1,m}(r,\theta,\phi)=C\,Y_1^m(\theta,\phi)\,r e^{-r/(2a_0)},
+\]
+其中 $m_e$ 为电子质量，
+\[
+a_0=\frac{\hbar^2}{m_eA}
+\]
+为玻尔半径，$Y_1^m$ 为球谐函数，磁量子数 $m=-1,0,1$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求归一化常数 $C$。
+  \item 以 $\psi_{2,1,1},\psi_{2,1,0},\psi_{2,1,-1}$ 为基构造三维子空间，求算符
+  \[
+  \hat O=\hat L_x^2
+  \]
+  在这组基下的矩阵表示。
+  \item 设 $\varphi(\mathbf r,t)$ 按照哈密顿量 $\hat H+D\hat O$ 的薛定谔方程演化，$D$ 为实常量，初态为
+  \[
+  \varphi(\mathbf r,0)=\psi_{2,1,1}(\mathbf r).
+  \]
+  在态 $\varphi(\mathbf r,t)$ 下先测量 $\hat L_z$，然后测量 $\hat O$，求所有可能测量结果的组合及其概率。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 由球谐函数归一化，只需考虑径向部分：
+  \[
+  1=|C|^2\int_0^{\infty}r^4e^{-r/a_0}\,dr
+  =|C|^2 a_0^5\Gamma(5)=24a_0^5|C|^2.
+  \]
+  因此
+  \ansmath{C=\frac{1}{\sqrt{24a_0^5}}.}
+
+  \item 利用
+  \[
+  \hat L_x=\frac12(\hat L_++\hat L_-)
+  \]
+  以及角动量升降关系，可得
+  \[
+  \hat L_x\lvert 2,1,1\rangle=\frac{\hbar}{\sqrt2}\lvert 2,1,0\rangle,
+  \qquad
+  \hat L_x\lvert 2,1,0\rangle=\frac{\hbar}{\sqrt2}(\lvert 2,1,1\rangle+\lvert 2,1,-1\rangle),
+  \qquad
+  \hat L_x\lvert 2,1,-1\rangle=\frac{\hbar}{\sqrt2}\lvert 2,1,0\rangle.
+  \]
+  再作用一次得到
+  \ansmath{\hat O=\hat L_x^2
+  \ \longleftrightarrow\ 
+  \frac{\hbar^2}{2}
+  \begin{pmatrix}
+  1&0&1\\
+  0&2&0\\
+  1&0&1
+  \end{pmatrix}}
+  （基的顺序为 $\psi_{2,1,1},\psi_{2,1,0},\psi_{2,1,-1}$）。
+
+  \item 先求 $\hat O$ 的本征态。它有一个本征值 $0$，对应本征态
+  \[
+  \psi_{0}=\frac{1}{\sqrt2}(\psi_{2,1,1}-\psi_{2,1,-1}),
+  \]
+  以及本征值 $\hbar^2$ 的二重简并子空间，可取基为
+  \[
+  \psi_{\hbar^2,1}=\psi_{2,1,0},
+  \qquad
+  \psi_{\hbar^2,2}=\frac{1}{\sqrt2}(\psi_{2,1,1}+\psi_{2,1,-1}).
+  \]
+  初态分解为
+  \[
+  \psi_{2,1,1}=\frac{1}{\sqrt2}(\psi_0+\psi_{\hbar^2,2}).
+  \]
+  因此随时间演化为
+  \[
+  \varphi(\mathbf r,t)=\frac{e^{-iE_2 t/\hbar}}{2}
+  \left[(1+e^{-iD\hbar t})\psi_{2,1,1}+(1-e^{-iD\hbar t})\psi_{2,1,-1}\right].
+  \]
+  所以第一次测量 $\hat L_z$ 时，可能结果只有
+  \[
+  L_z=+\hbar,\qquad P=\cos^2\frac{D\hbar t}{2};
+  \qquad
+  L_z=-\hbar,\qquad P=\sin^2\frac{D\hbar t}{2}.
+  \]
+  相应坍缩后的态分别是 $\psi_{2,1,1}$ 和 $\psi_{2,1,-1}$。而这两个态再测量 $\hat O$ 时，都以相同概率给出 $0$ 或 $\hbar^2$：
+  \[
+  P(O=0)=\frac12,
+  \qquad
+  P(O=\hbar^2)=\frac12.
+  \]
+  因而全部可能的测量结果组合及其概率为
+  \ansmath{\begin{aligned}
+  &(L_z=+\hbar,\ O=0), &&P=\frac12\cos^2\frac{D\hbar t}{2},\\
+  &(L_z=+\hbar,\ O=\hbar^2), &&P=\frac12\cos^2\frac{D\hbar t}{2},\\
+  &(L_z=-\hbar,\ O=0), &&P=\frac12\sin^2\frac{D\hbar t}{2},\\
+  &(L_z=-\hbar,\ O=\hbar^2), &&P=\frac12\sin^2\frac{D\hbar t}{2}.
+  \end{aligned}}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一维简谐势下的两个无相互作用、无自旋全同粒子，哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2m}\left(\frac{\partial^2}{\partial x_1^2}+\frac{\partial^2}{\partial x_2^2}\right)
++\frac{m\omega^2}{2}(x_1^2+x_2^2).
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 对两个全同玻色子，写出所有的能级和归一化本征函数。
+  \item 对两个全同费米子，写出所有的能级和归一化本征函数。
+  \item 对两个全同玻色子的基态，计算期望值 $\langle (x_1-x_2)^2\rangle$。
+  \item 对两个全同费米子的基态，计算期望值 $\langle (x_1-x_2)^2\rangle$。
+\end{enumerate}
+
+\begin{solution}
+设单粒子一维谐振子的归一化本征态为 $\psi_n(x)$，对应能量
+\[
+E_n^{(1)}=\hbar\omega\left(n+\frac12\right),\qquad n=0,1,2,\dots.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 玻色子的本征态必须对称，因此
+  \[
+  \psi_{n,n}^{(B)}(x_1,x_2)=\psi_n(x_1)\psi_n(x_2),
+  \qquad
+  E_{n,n}=\hbar\omega(2n+1),
+  \]
+  以及当 $n_1<n_2$ 时
+  \[
+  \psi_{n_1,n_2}^{(B)}(x_1,x_2)=\frac{\psi_{n_1}(x_1)\psi_{n_2}(x_2)+\psi_{n_2}(x_1)\psi_{n_1}(x_2)}{\sqrt2},
+  \qquad
+  E_{n_1,n_2}=\hbar\omega(n_1+n_2+1).
+  \]
+  这给出了全部玻色子能级与归一化本征函数。
+
+  \item 费米子的本征态必须反对称，因此只能有 $n_1<n_2$：
+  \ansmath{\psi_{n_1,n_2}^{(F)}(x_1,x_2)=\frac{\psi_{n_1}(x_1)\psi_{n_2}(x_2)-\psi_{n_2}(x_1)\psi_{n_1}(x_2)}{\sqrt2},
+  \qquad
+  E_{n_1,n_2}=\hbar\omega(n_1+n_2+1),
+  \qquad n_1<n_2.}
+
+  \item 玻色子基态为
+  \[
+  \psi_{0,0}^{(B)}(x_1,x_2)=\psi_0(x_1)\psi_0(x_2).
+  \]
+  由单粒子基态的性质
+  \[
+  \langle x\rangle_0=0,
+  \qquad
+  \langle x^2\rangle_0=\frac{\hbar}{2m\omega},
+  \]
+  得
+  \[
+  \langle (x_1-x_2)^2\rangle
+  =\langle x_1^2\rangle-2\langle x_1\rangle\langle x_2\rangle+\langle x_2^2\rangle
+  =2\langle x^2\rangle_0.
+  \]
+  因而
+  \ansmath{\langle (x_1-x_2)^2\rangle_{\psi_{0,0}^{(B)}}=\frac{\hbar}{m\omega}.}
+
+  \item 费米子基态为
+  \[
+  \psi_{0,1}^{(F)}(x_1,x_2)=\frac{\psi_0(x_1)\psi_1(x_2)-\psi_1(x_1)\psi_0(x_2)}{\sqrt2}.
+  \]
+  计算可得
+  \ansmath{\langle (x_1-x_2)^2\rangle_{\psi_{0,1}^{(F)}}=\frac{3\hbar}{m\omega}.}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一个 $\delta$ 势下的非相对论粒子，哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\alpha\,\delta(x-L),
+\]
+其中 $\alpha,L$ 为实数常量。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 能量为 $E$ 的本征函数 $\psi_E(x)$ 在 $x=L$ 两侧可能有导数跳变，求其导数跳变
+  \[
+  \left.\frac{d\psi_E}{dx}\right|_{x=L+0}-\left.\frac{d\psi_E}{dx}\right|_{x=L-0}.
+  \]
+  \item 考虑(1)中的散射问题，设能量
+  \[
+  E=\frac{\hbar^2 k^2}{2m}
+  \]
+  的本征态波函数为
+  \[
+  \psi(x)=
+  \begin{cases}
+  Ae^{ikx}+Be^{-ikx}, & x<L,\\
+  Fe^{ikx}+Ge^{-ikx}, & x>L.
+  \end{cases}
+  \]
+  记
+  \[
+  \binom{F}{G}=M\binom{A}{B},
+  \]
+  求转移矩阵 $M$。
+  \item 考虑由 $\delta$ 势形成的周期晶格，哈密顿量为
+  \[
+  \hat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\sum_{n=-\infty}^{\infty}\alpha\,\delta(x-nL).
+  \]
+  设 Bloch 波形式的本征态满足
+  \[
+  \psi_K(x+L)=e^{iKL}\psi_K(x),
+  \]
+  且在 $0<x<L$ 内
+  \[
+  \psi_K(x)=Ae^{ikx}+Be^{-ikx},
+  \]
+  求 $k$ 满足的方程。
+  \item 由(3)中的方程说明存在能隙；并在 $|\alpha|$ 很小时，求这些能隙区间的近似边界，结果保留到 $\alpha$ 的一阶。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 将定态薛定谔方程在 $x=L$ 附近的小区间上积分，得到波函数连续而导数跳变满足
+  \ansmath{\left.\frac{d\psi_E}{dx}\right|_{x=L+0}-\left.\frac{d\psi_E}{dx}\right|_{x=L-0}=\frac{2\alpha m}{\hbar^2}\,\psi_E(L).}
+
+  \item 在 $x=L$ 处用连续条件与导数跳变条件。定义
+  \[
+  \beta=\frac{\alpha m}{\hbar^2 k},
+  \]
+  则化简后得到
+  \ansmath{M=
+  \begin{pmatrix}
+  1-i\beta & -i\beta\,e^{-2ikL}\\
+  i\beta\,e^{2ikL} & 1+i\beta
+  \end{pmatrix}.}
+
+  \item 将(2)中的转移矩阵与 Bloch 条件结合，要求矩阵
+  \[
+  \begin{pmatrix}
+  (1-i\beta)e^{ikL} & -i\beta e^{-ikL}\\
+  i\beta e^{ikL} & (1+i\beta)e^{-ikL}
+  \end{pmatrix}
+  \]
+  具有本征值 $e^{iKL}$。于是其迹满足
+  \[
+  e^{iKL}+e^{-iKL}=2\cos(KL)=2\cos(kL)+2\beta\sin(kL).
+  \]
+  因而
+  \ansmath{\cos(kL)+\frac{\alpha mL}{\hbar^2}\,\frac{\sin(kL)}{kL}=\cos(KL).}
+
+  \item 因为右边满足 $|\cos(KL)|\le 1$，所以只有当
+  \[
+  \left|\cos(kL)+\frac{\alpha mL}{\hbar^2}\,\frac{\sin(kL)}{kL}\right|\le 1
+  \]
+  时，对应的能量才能取到；当上式绝对值大于 $1$ 时，就出现能隙。
+
+  当 $|\alpha|\ll 1$ 时，在 $kL=n\pi$ 附近展开：
+
+  \begin{itemize}[leftmargin=2em]
+    \item 对 $n=0$，可得可达能量的下界为
+    \[
+    E\ge \frac{\alpha}{L}.
+    \]
+    因而最低能隙近似为
+    \[
+    (-\infty,\,\alpha/L).
+    \]
+
+    \item 对 $n\ge 1$，在 $kL=n\pi+\delta$ 附近解得
+    \[
+    \delta=\frac{2\alpha mL}{\hbar^2 n\pi}+O(\alpha^2),
+    \]
+    所以禁带边界为
+    \[
+    \frac{\hbar^2 n^2\pi^2}{2mL^2}
+    \quad\text{和}\quad
+    \frac{\hbar^2 n^2\pi^2}{2mL^2}+\frac{2\alpha}{L}.
+    \]
+  \end{itemize}
+
+  因此一阶近似下的能隙区间为
+  \ansmath{(-\infty,\,\alpha/L)
+  \quad\text{以及}\quad
+  \left(\frac{\hbar^2 n^2\pi^2}{2mL^2},\ \frac{\hbar^2 n^2\pi^2}{2mL^2}+\frac{2\alpha}{L}\right),
+  \qquad n=1,2,\dots.}
+  若 $\alpha<0$，则第二类区间应理解为
+  \[
+  \left(\frac{\hbar^2 n^2\pi^2}{2mL^2}+\frac{2\alpha}{L},\ \frac{\hbar^2 n^2\pi^2}{2mL^2}\right).
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+

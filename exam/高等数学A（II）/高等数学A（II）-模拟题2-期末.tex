@@ -1,0 +1,207 @@
+﻿\heading{高等数学A（II）-模拟题2-期末}
+
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+求解下列初值问题：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item $xy'+2y=x^3\ln x,\quad x>0,\ y(1)=0$；
+\item $x^2y''-3xy'+4y=x^2,\quad x>0,\ y(1)=0,\ y'(1)=1$.
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 方程为一阶线性方程：
+\[
+y'+\frac{2}{x}y=x^2\ln x.
+\]
+积分因子为 $x^2$，故
+\[
+(x^2y)'=x^4\ln x.
+\]
+积分得
+\[
+x^2y=\int x^4\ln x\,dx=
+\frac{x^5}{5}\ln x-\frac{x^5}{25}+C.
+\]
+由 $y(1)=0$ 得 $C=1/25$，故
+\ansmath{y(x)=\frac{x^3}{5}\ln x-\frac{x^3}{25}+\frac{1}{25x^2}.}
+
+\item 这是 Euler 方程。令 $x=e^t$，并设 $y(x)=x^2v(t)$，则可化为
+\[
+v''(t)=1.
+\]
+故
+\[
+v(t)=\frac{t^2}{2}+C_1t+C_2,
+\qquad t=\ln x.
+\]
+因此
+\[
+y(x)=x^2\left(\frac{(\ln x)^2}{2}+C_1\ln x+C_2\right).
+\]
+由 $y(1)=0$ 得 $C_2=0$。又
+\[
+y'(x)=2x\left(\frac{(\ln x)^2}{2}+C_1\ln x\right)+x(\ln x+C_1),
+\]
+故 $y'(1)=C_1=1$。于是
+\ansmath{y(x)=x^2\left(\frac{(\ln x)^2}{2}+\ln x\right).}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+讨论函数项级数
+\[
+\sum_{n=1}^{\infty}\frac{x^n}{1+n},
+\qquad 0\le x\le 1,
+\]
+在下列区间上的一致收敛性：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item $[0,a]$，其中 $0<a<1$；
+\item $[0,1]$.
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 当 $0\le x\le a<1$ 时，
+\[
+0\le \frac{x^n}{n+1}\le a^n.
+\]
+而 $\sum a^n$ 收敛，故由 Weierstrass 判别法，原级数在 $[0,a]$ 上一致收敛。
+
+\item 在 $x=1$ 处，级数化为
+\[
+\sum_{n=1}^{\infty}\frac1{n+1},
+\]
+发散。因此原级数在 $[0,1]$ 上甚至不逐点收敛，更不可能一致收敛。
+\end{enumerate}
+故结论为
+\ansmath{\text{在 }[0,a]\ (0<a<1)\text{ 上一致收敛，在 }[0,1]\text{ 上不一致收敛。}}
+\end{solution}
+\end{question}
+
+\begin{question}
+求函数
+\[
+f(x)=\frac{\ln(1+x)}{1-x}
+\]
+在 $x=0$ 附近的幂级数展开，并给出收敛半径。
+\begin{solution}
+
+在 $|x|<1$ 内，
+\[
+\ln(1+x)=\sum_{k=1}^{\infty}\frac{(-1)^{k-1}}{k}x^k,
+\qquad
+\frac{1}{1-x}=\sum_{m=0}^{\infty}x^m.
+\]
+故 Cauchy 乘积给出
+\[
+f(x)=\sum_{n=1}^{\infty}\left(\sum_{k=1}^{n}\frac{(-1)^{k-1}}{k}\right)x^n.
+\]
+前几项为
+\[
+f(x)=x+\frac{x^2}{2}+\frac{5x^3}{6}+\frac{7x^4}{12}+\cdots.
+\]
+因此
+\ansmath{\frac{\ln(1+x)}{1-x}=
+\sum_{n=1}^{\infty}\left(\sum_{k=1}^{n}\frac{(-1)^{k-1}}{k}\right)x^n,
+\quad |x|<1.}
+离原点最近的奇点为 $x=1$ 与 $x=-1$，故收敛半径
+\ansmath{R=1.}
+\end{solution}
+\end{question}
+
+\begin{question}
+求函数 $f(x)=|\sin x|$ 在区间 $[-\pi,\pi]$ 上的 Fourier 级数，并由此求和
+\[
+\sum_{n=1}^{\infty}\frac{1}{4n^2-1}.
+\]
+\begin{solution}
+
+$f$ 为偶函数，只含余弦项。常数项
+\[
+a_0=\frac{2}{\pi}\int_0^{\pi}|\sin x|\,dx=\frac{4}{\pi}.
+\]
+又对 $n\ge1$，利用 $|\sin x|=\sin x\ (0<x<\pi)$，得
+\[
+a_n=\frac{2}{\pi}\int_0^{\pi}\sin x\cos nx\,dx.
+\]
+由积化和差可知奇数 $n$ 时 $a_n=0$；令 $n=2m$，则
+\[
+a_{2m}=-\frac{4}{\pi(4m^2-1)}.
+\]
+故 Fourier 级数为
+\ansmath{|\sin x|=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{\cos(2mx)}{4m^2-1}.}
+令 $x=0$，得
+\[
+1=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{4m^2-1}.
+\]
+应注意上式常数项应为 $a_0/2=2/\pi$，故整理得
+\[
+1=\frac{2}{\pi}+\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{1-4m^2}
+=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{4m^2-1}.
+\]
+从而
+\ansmath{\sum_{m=1}^{\infty}\frac{1}{4m^2-1}=\frac12.}
+\end{solution}
+\end{question}
+
+\begin{question}
+设参数积分
+\[
+F(a)=\int_0^1 \frac{x^a-1}{\ln x}\,dx,
+\qquad a>-1.
+\]
+求 $F(a)$。
+\begin{solution}
+
+对参数求导：
+\[
+F'(a)=\int_0^1 x^a\,dx=\frac{1}{a+1}.
+\]
+因此
+\[
+F(a)=\ln(a+1)+C.
+\]
+由 $F(0)=0$ 得 $C=0$，故
+\ansmath{F(a)=\ln(a+1),\qquad a>-1.}
+\end{solution}
+\end{question}
+
+\begin{question}
+计算广义积分
+\[
+I=\int_0^{\infty}\frac{\arctan x}{x(1+x^2)}\,dx.
+\]
+\begin{solution}
+
+令 $x=\tan t$，则 $t\in(0,\pi/2)$，并且
+\[
+dx=\sec^2 t\,dt,
+\qquad x(1+x^2)=\tan t\sec^2 t.
+\]
+故
+\[
+I=\int_0^{\pi/2} t\cot t\,dt.
+\]
+分部积分，取
+\[
+u=t,
+\qquad dw=\cot t\,dt,
+\qquad w=\ln(\sin t).
+\]
+于是
+\[
+I=\bigl[t\ln(\sin t)\bigr]_0^{\pi/2}-\int_0^{\pi/2}\ln(\sin t)\,dt.
+\]
+边界项为 $0$，再用经典积分
+\[
+\int_0^{\pi/2}\ln(\sin t)\,dt=-\frac{\pi}{2}\ln 2,
+\]
+故
+\ansmath{I=\frac{\pi}{2}\ln 2.}
+\end{solution}
+\end{question}
+
+

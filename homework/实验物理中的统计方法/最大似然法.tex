@@ -1,0 +1,951 @@
+﻿\heading{实验物理中的统计方法-最大似然法}
+
+
+
+
+
+\begin{question}
+\begin{enumerate}
+\item
+  给定一组服从高斯分布的数据样本 \(x_1,\ldots,x_n\)，求均值 \(\mu\)
+  和方差 \(\sigma^2\) 的最大似然估计量。
+\item
+  将估计量 \(\hat\mu\) 和 \(\hat\sigma^2\) 同《统计数据分析》第 5
+  章定义的估计量 \(\bar x\) 和 \(s^2\) 联系起来，计算 \(\hat\mu\) 和
+  \(\hat\sigma^2\) 的期待值和方差。
+\item
+  通过计算
+\end{enumerate}
+
+\[
+(V^{-1})_{ij}=-E\left[\frac{\partial^2\log L}{\partial\theta_i\partial\theta_j}\right],
+\]
+
+近似求解协方差矩阵的逆（大统计样本有效）。其中 \(\theta_i\) 和
+\(\theta_j\ (i,j=1,2)\) 分别为 \(\mu\) 和 \(\sigma^2\)。对 \(V^{-1}\)
+求逆，计算出协方差矩阵，并将对角元素（方差）与 (b)
+中求得的精确值比较。注意到，在大样本极限下，(b) 和 (c) 的结果符合。
+\begin{solution}
+设 \(x_1,\dots,x_n\) 独立同分布于 \(N(\mu,\sigma^2)\)。
+
+\begin{enumerate}
+\item 求 \(\hat\mu,\hat\sigma^2\)
+
+对数似然为
+
+\[
+\log L(\mu,\sigma^2)
+=-\frac n2\log(2\pi)-\frac n2\log\sigma^2-
+\frac1{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2.
+\]
+
+对 \(\mu\) 求偏导：
+
+\[
+\frac{\partial\log L}{\partial\mu}
+=\frac1{\sigma^2}\sum_{i=1}^n(x_i-\mu)=0
+\quad\Rightarrow\quad
+\hat\mu=\bar x.
+\]
+
+再对 \(\sigma^2\) 求偏导：
+
+\[
+\frac{\partial\log L}{\partial\sigma^2}
+=-\frac{n}{2\sigma^2}+\frac1{2\sigma^4}\sum_{i=1}^n(x_i-\hat\mu)^2=0,
+\]
+
+所以
+
+\[
+\hat\sigma^2=\frac1n\sum_{i=1}^n(x_i-\bar x)^2.
+\]
+
+\item 期望与方差
+
+由样本均值的性质：
+
+\[
+E[\hat\mu]=\mu,\qquad V[\hat\mu]=\frac{\sigma^2}{n}.
+\]
+
+又因为
+
+\[
+\hat\sigma^2=\frac{n-1}{n}s^2,
+\]
+
+而第五章已知 \(E[s^2]=\sigma^2\)，高斯情形下
+
+\[
+V[s^2]=\frac{2\sigma^4}{n-1},
+\]
+
+所以
+
+\[
+E[\hat\sigma^2]=\frac{n-1}{n}\sigma^2,
+\qquad
+V[\hat\sigma^2]=\left(\frac{n-1}{n}\right)^2\frac{2\sigma^4}{n-1}
+=\frac{2(n-1)}{n^2}\sigma^4.
+\]
+
+\item Fisher 信息近似协方差矩阵
+
+取参数 \(\theta=(\mu,\sigma^2)\)，可算得 Fisher 信息矩阵
+
+\[
+I(\theta)=
+\begin{pmatrix}
+\dfrac{n}{\sigma^2} & 0\\[4pt]
+0 & \dfrac{n}{2\sigma^4}
+\end{pmatrix}.
+\]
+
+故大样本下
+
+\[
+\mathrm{Cov}(\hat\theta)\approx I^{-1}(\theta)=
+\begin{pmatrix}
+\dfrac{\sigma^2}{n} & 0\\[4pt]
+0 & \dfrac{2\sigma^4}{n}
+\end{pmatrix}.
+\]
+
+其中右下角是大样本极限；精确结果是 \(2(n-1)\sigma^4/n^2\)。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑某二项分布变量，即 \(N\) 次试验中成功的次数
+\(n\)，单个实验试验成功的概率为 \(p\)。如果只进行一次观测得到
+\(n\)，\(p\) 的最大似然估计量为多少？证明 \(\hat p\)
+是无偏的，并求其方差。证明 \(\hat p\)
+的方差等于最小方差边界（见《统计数据分析》(6.16) 式）。
+\begin{solution}
+若单次观测到成功次数 \(n\)，总试验数为 \(N\)，则
+
+\[
+P(n\mid N,p)=\binom Nn p^n(1-p)^{N-n}.
+\]
+
+对数似然：
+
+\[
+\log L=n\log p+(N-n)\log(1-p)+C.
+\]
+
+求导并令其为零：
+
+\[
+\frac{n}{p}-\frac{N-n}{1-p}=0
+\quad\Rightarrow\quad
+\hat p=\frac nN.
+\]
+
+无偏性：
+
+\[
+E[\hat p]=\frac{E[n]}{N}=p.
+\]
+
+方差：
+
+\[
+V[\hat p]=\frac{V[n]}{N^2}=\frac{Np(1-p)}{N^2}=\frac{p(1-p)}{N}.
+\]
+
+二项分布的 Fisher 信息为 \(I(p)=N/[p(1-p)]\)，故 CRLB 为
+\(p(1-p)/N\)，刚好达到下界，因此 \(\hat p\) 是有效估计量。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+\begin{enumerate}
+\item
+  重新考虑二项分布的随机变量 \(n\)，每次试验结果（成功或失败）的概率为
+  \(p\) 和 \(q=1-p\)。利用本章第 2 题得到的 \(p\) 的估计量，构造不对称度
+\end{enumerate}
+
+\[
+\alpha=p-q=2p-1
+\]
+
+的最大似然估计量 \(\hat\alpha\)，并求标准差 \(\sigma_{\hat\alpha}\)。
+
+\begin{enumerate}[start=2]
+\item
+  假设需要测量某个非常小的不对称度，预计大约是 \(\alpha\approx10^{-3}\)
+  水平。如果要求标准差不大于 \(\alpha\) 的三分之一，至少需要多少次试验？
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item MLE 与标准差
+
+由不变性，
+
+\[
+\hat\alpha=2\hat p-1=2\frac nN-1.
+\]
+
+因为 \(\alpha=2p-1\)，故 \(p=(1+\alpha)/2\)，于是
+
+\[
+V[\hat\alpha]=4V[\hat p]=\frac{4p(1-p)}{N}=\frac{1-\alpha^2}{N}.
+\]
+
+所以
+
+\[
+\sigma_{\hat\alpha}=\sqrt{\frac{1-\alpha^2}{N}}.
+\]
+
+\item 估计所需试验次数
+
+若 \(\alpha\approx10^{-3}\)，要求
+
+\[
+\sigma_{\hat\alpha}\le \frac\alpha3,
+\]
+
+则近似 \(1-\alpha^2\approx1\)，得到
+
+\[
+\frac1{\sqrt N}\lesssim\frac{10^{-3}}3
+\quad\Rightarrow\quad
+N\gtrsim9\times10^6.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑泊松变量的单次观测值 \(n\)。均值 \(\nu\)
+的最大似然估计量为多少？证明该估计量是无偏的并求其方差。证明 \(\hat\nu\)
+的方差等于最小方差边界。
+\begin{solution}
+若单次观测 \(n_0\sim\mathrm{Poisson}(\nu)\)，则
+
+\[
+P(n_0\mid\nu)=e^{-\nu}\frac{\nu^{n_0}}{n_0!}.
+\]
+
+对数似然
+
+\[
+\log L=-\nu+n_0\log\nu+C.
+\]
+
+求导：
+
+\[
+-1+\frac{n_0}{\nu}=0
+\quad\Rightarrow\quad
+\hat\nu=n_0.
+\]
+
+于是
+
+\[
+E[\hat\nu]=E[n_0]=\nu,
+\qquad
+V[\hat\nu]=V[n_0]=\nu.
+\]
+
+泊松分布的 Fisher 信息为 \(I(\nu)=1/\nu\)，故 CRLB 为
+\(\nu\)，等于估计量方差，因此它也是有效估计量。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+支持粒子物理标准模型的早期证据是观测到左手 (R) 和右手 (L)
+极化的电子与氘靶的非弹散射截面 \(\sigma_R\) 和 \(\sigma_L\)
+不同。对于给定积分亮度
+\(L\)（正比于电子束流密度以及取数时间），两种类型的事例数 \(n_R\) 和
+\(n_L\) 均为泊松变量，平均值分别为 \(\nu_R\) 和
+\(\nu_L\)。均值与散射截面的关系为 \(\nu_R=\sigma_R L\) 和
+\(\nu_L=\sigma_L L\)，并且实验中两种情形的亮度 \(L\)
+相同。利用习题的结果，构造计划不对称度的估计量 \(\hat\alpha\)，
+
+\[
+\alpha=\frac{\sigma_R-\sigma_L}{\sigma_R+\sigma_L},
+\]
+
+利用误差传递，求标准差 \(\sigma_{\hat\alpha}\)，用 \(\alpha\) 和
+\(\nu_{\rm tot}=\nu_R+\nu_L\) 表示。将此与本章第 3 题
+的结果进行比较。预计不对称度大约为 \(10^{-4}\) 水平，要想使
+\(\sigma_{\hat\alpha}\)
+比不对称度小一个数量级，需要多少散射事例？（事例数非常大，以至于事例不能单独记录下来，而是测量探测器输出电流。参见
+C.Y. Prescott et al., Parity non-conservation in inelastic electron
+scattering, Phys. Lett. B77(1978)347.）
+\begin{solution}
+由
+\[
+\alpha=\frac{\sigma_R-\sigma_L}{\sigma_R+\sigma_L}
+=\frac{\nu_R-\nu_L}{\nu_R+\nu_L}
+\]
+可取自然估计量
+\[
+\hat\alpha=\frac{n_R-n_L}{n_R+n_L}.
+\]
+记 \(N=n_R+n_L\)。对函数 \(g(n_R,n_L)=(n_R-n_L)/(n_R+n_L)\)，有
+\[
+\frac{\partial g}{\partial n_R}=\frac{2n_L}{N^2},
+\qquad
+\frac{\partial g}{\partial n_L}=-\frac{2n_R}{N^2}.
+\]
+用误差传播并代入 \(V[n_R]=\nu_R\)、\(V[n_L]=\nu_L\) 得
+\[
+V[\hat\alpha]\approx
+\left(\frac{2\nu_L}{\nu_{\rm tot}^2}\right)^2\nu_R+
+\left(\frac{2\nu_R}{\nu_{\rm tot}^2}\right)^2\nu_L
+=\frac{4\nu_R\nu_L}{\nu_{\rm tot}^3}.
+\]
+又
+\[
+\nu_R=\frac{1+\alpha}{2}\nu_{\rm tot},
+\qquad
+\nu_L=\frac{1-\alpha}{2}\nu_{\rm tot},
+\]
+所以
+\[
+V[\hat\alpha]\approx\frac{1-\alpha^2}{\nu_{\rm tot}},
+\qquad
+\sigma_{\hat\alpha}=\sqrt{\frac{1-\alpha^2}{\nu_{\rm tot}}}.
+\]
+这与第 6 章第 3 题的二项模型结果形式相同：固定总数时 \(N\) 被这里的期望总事例数
+\(\nu_{\rm tot}\) 取代。
+
+若 \(\alpha\sim10^{-4}\)，并要求标准差比不对称度小一个数量级，即
+\(\sigma_{\hat\alpha}\le10^{-5}\)，则在 \(\alpha^2\ll1\) 下需要
+\[
+\nu_{\rm tot}\gtrsim\frac1{(10^{-5})^2}=10^{10}.
+\]
+也就是说需要约 \(10^{10}\) 个散射事例量级。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+随机变量 \(x\) 服从分布 \(f(x;\theta)\)，其中 \(\theta\)
+为未知参数。考虑样本空间 \(\mathbf{x}=(x_1,\ldots,x_n)\)，以此构造
+\(\theta\) 的估计量
+\(\hat\theta(\mathbf{x})\)（不限于最大似然估计量）。证明
+Rao-Cramér-Fréchet (RCF) 不等式
+
+\[
+V[\hat\theta]\ge \frac{\left(1+\frac{\partial b}{\partial\theta}\right)^2}{-E\left[\frac{\partial^2\log L}{\partial\theta^2}\right]},
+\]
+
+其中 \(b=E[\hat\theta]-\theta\) 为估计量的偏置。可分以下几步证明：
+
+\begin{enumerate}
+\item
+  首先，证明 Cauchy-Schwarz 不等式，即对任意两个随机变量 \(u\) 和
+  \(v\)，
+\end{enumerate}
+
+\[
+V[u]V[v]\ge (\operatorname{cov}[u,v])^2,
+\]
+
+其中 \(V[u]\) 和 \(V[v]\) 为方差，\(\operatorname{cov}[u,v]\)
+为协方差。利用 \(\alpha u+v\) 的方差必定大于等于零（对任意
+\(\alpha\)）。然后考虑特殊情形 \(\alpha=(V[v]/V[u])^{1/2}\)。
+
+\begin{enumerate}[start=2]
+\item
+  利用 Cauchy-Schwarz 不等式，令
+\end{enumerate}
+
+\[
+u=\hat\theta,\qquad v=\frac{\partial}{\partial\theta}\log L,
+\]
+
+其中 \(L=f_{\rm joint}(\mathbf{x};\theta)\) 为似然函数，也是
+\(\mathbf{x}\) 的联合概率密度函数。代入 (6.5)，表示出 \(V[\hat\theta]\)
+的下界。这里要注意的是，我们将似然函数看成 \(\mathbf{x}\)
+的函数，即似然函数本身也是一个随机变量。
+
+\begin{enumerate}[start=3]
+\item
+  假设对 \(\theta\) 的微分可以移到积分的外面，证明
+\end{enumerate}
+
+\[
+E\left[\frac{\partial}{\partial\theta}\log L\right]
+=\frac{\partial}{\partial\theta}\int\cdots\int f_{\rm joint}(\mathbf{x};\theta)\,dx_1\cdots dx_n=0.
+\]
+
+我们将推导的 RCF
+不等式的形式依赖于该假设，这在感兴趣的问题中一般都成立。（只要积分的极限不依赖于
+\(\theta\)，该假设总是成立的。）利用 (6.7) 与 (6.5)、(6.6)，证明
+
+\[
+V[\hat\theta]\ge \frac{\left(E\left[\hat\theta\frac{\partial\log L}{\partial\theta}\right]\right)^2}{E\left[\left(\frac{\partial\log L}{\partial\theta}\right)^2\right]}.
+\]
+
+\begin{enumerate}[start=4]
+\item
+  证明 (6.8) 的分子可以表示为
+\end{enumerate}
+
+\[
+E\left[\hat\theta\frac{\partial\log L}{\partial\theta}\right]=1+\frac{\partial b}{\partial\theta},
+\]
+
+分母可以表示为
+
+\[
+E\left[\left(\frac{\partial\log L}{\partial\theta}\right)^2\right]
+=-E\left[\frac{\partial^2\log L}{\partial\theta^2}\right].
+\]
+
+再次假设对 \(\theta\) 的微分与对 \(x\) 的积分可以互换次序。将 (c) 和 (d)
+的结果放到一起即可证明 (6.4)。
+\begin{solution}
+记 score 为
+\[
+U(\theta)=\frac{\partial}{\partial\theta}\log L.
+\]
+题目中的正则条件保证对 \(\theta\) 的微分可与积分交换。
+
+\begin{enumerate}
+\item 对任意随机变量 \(u,v\)，由
+\(V[\alpha u+v]\ge0\) 对所有 \(\alpha\) 成立，二次式判别式非正，得
+\[
+V[u]V[v]\ge\operatorname{cov}(u,v)^2.
+\]
+这就是 Cauchy--Schwarz 不等式的方差形式。
+
+\item 取 \(u=\hat\theta\)、\(v=U(\theta)\)，则
+\[
+V[\hat\theta]\ge
+\frac{\operatorname{cov}(\hat\theta,U)^2}{V[U]}.
+\]
+
+\item 因为 \(L\) 作为联合密度满足 \(\int L(\mathbf x;\theta)d\mathbf x=1\)，所以
+\[
+E[U]=\int L\frac{\partial\log L}{\partial\theta}d\mathbf x
+=\int\frac{\partial L}{\partial\theta}d\mathbf x
+=\frac{\partial}{\partial\theta}1=0.
+\]
+因此 \(\operatorname{cov}(\hat\theta,U)=E[\hat\theta U]\)，且
+\(V[U]=E[U^2]\)。
+
+\item 设偏置 \(b(\theta)=E[\hat\theta]-\theta\)。由于估计量函数本身不显含
+\(\theta\)，
+\[
+\frac{\partial}{\partial\theta}E[\hat\theta]
+=\frac{\partial}{\partial\theta}\int\hat\theta L\,d\mathbf x
+=\int\hat\theta\frac{\partial L}{\partial\theta}d\mathbf x
+=E[\hat\theta U].
+\]
+另一方面 \(E[\hat\theta]=\theta+b(\theta)\)，所以
+\[
+E[\hat\theta U]=1+\frac{\partial b}{\partial\theta}.
+\]
+又由 \(E[U]=0\) 再对 \(\theta\) 求导：
+\[
+0=\frac{\partial}{\partial\theta}E[U]
+=E\left[\frac{\partial U}{\partial\theta}\right]+E[U^2]
+=E\left[\frac{\partial^2\log L}{\partial\theta^2}\right]+E[U^2].
+\]
+故
+\[
+E[U^2]=-E\left[\frac{\partial^2\log L}{\partial\theta^2}\right].
+\]
+代回 Cauchy--Schwarz 不等式得到
+\[
+V[\hat\theta]
+\ge
+\frac{\left(1+\partial b/\partial\theta\right)^2}
+{-E\left[\partial^2\log L/\partial\theta^2\right]}.
+\]
+无偏情形 \(b=0\) 时恢复标准 Cram\\'{e}r--Rao 下界。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+写一段程序，根据指数分布
+
+\[
+f(t;\tau)=\frac{1}{\tau}e^{-t/\tau},\qquad t\ge0,
+\]
+
+产生样本容量为 \(n\) 的样本 \((t_1,\ldots,t_n)\)。
+
+\begin{enumerate}
+\item
+  证明 \(\tau\) 的最大似然估计量由样本平均
+  \(\hat\tau=\frac1n\sum_{i=1}^{n}t_i\) 给出。产生 1000 个
+  \(\tau=1\)，\(n=10\) 的样本。对每个样本计算 \(\hat\tau\)
+  并做直方图。比较 \(\hat\tau\) 的均值与真值 \(\tau=1\)。
+\item
+  假设 \(t\) 的概率密度函数的参数为 \(\lambda=1/\tau\)，即
+\end{enumerate}
+
+\[
+f(t;\lambda)=\lambda e^{-\lambda t},\qquad t\ge0,
+\]
+
+证明 \(\lambda\) 的最大似然估计量为
+\(\hat\lambda=1/\sum_{i=1}^{n}t_i\)。修改 (a) 中的程序，加入
+\(\hat\lambda\) 的直方图。比较 \(\hat\lambda\) 的均值与真值
+\(\lambda=1\)。对 \(n=5,10,100\) 三种情况，分别数值计算偏置
+\(b=E[\hat\lambda]-\lambda\)。
+\begin{solution}
+指数分布均值参数形式为
+\[
+f(t;\tau)=\frac1\tau e^{-t/\tau},\qquad t\ge0.
+\]
+样本对数似然为
+\[
+\log L=-n\log\tau-\frac1\tau\sum_{i=1}^n t_i.
+\]
+令导数为零：
+\[
+-\frac n\tau+\frac1{\tau^2}\sum_i t_i=0,
+\]
+得到
+\[
+\hat\tau=\frac1n\sum_{i=1}^n t_i=\bar t.
+\]
+并且
+\[
+E[\hat\tau]=\tau,
+\qquad
+V[\hat\tau]=\frac{\tau^2}{n}.
+\]
+因此 \(\hat\tau\) 无偏；对 \(\tau=1,n=10\) 的 1000 次模拟，
+\(\hat\tau\) 的直方图应以 1 为中心，标准差约为 \(1/\sqrt{10}\)。
+
+若改用率参数 \(\lambda=1/\tau\)，密度为
+\[
+f(t;\lambda)=\lambda e^{-\lambda t}.
+\]
+对数似然为
+\[
+\log L=n\log\lambda-\lambda\sum_i t_i.
+\]
+令导数为零得
+\[
+\hat\lambda=\frac{n}{\sum_i t_i}=\frac1{\bar t}.
+\]
+因此率参数的最大似然估计量为样本均值的倒数；若使用 \(1/\sum_i t_i\)，则它不是 \(n\) 个独立样本下的最大似然估计量。
+
+因为 \(S=\sum_i t_i\sim\operatorname{Gamma}(n,\text{rate}=\lambda)\)，当
+\(n>1\) 时
+\[
+E\left[\frac1S\right]=\frac{\lambda}{n-1},
+\]
+所以
+\[
+E[\hat\lambda]=nE\left[\frac1S\right]
+=\lambda\frac{n}{n-1},
+\qquad
+b=E[\hat\lambda]-\lambda=\frac{\lambda}{n-1}.
+\]
+对 \(\lambda=1\)，三个样本量的偏置为
+\[
+b(n=5)=0.25,
+\qquad
+b(n=10)=0.1111,
+\qquad
+b(n=100)=0.01010.
+\]
+因此 \(\hat\lambda\) 有正偏，但偏置随 \(n\) 增大而消失。
+\pyfig[0.72\linewidth]{figures/fig_06_07_exp_mle.png}{\(\hat\lambda=1/\bar t\) 的模拟分布；小样本时右偏明显，且均值高于真值。}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+日内瓦的出租车牌照号是从 1 一直到总数目 \(N_{\rm taxi}\)。对牌照的 \(N\)
+次观测得到观测数字 \(n_1,\ldots,n_N\)。
+
+\begin{enumerate}
+\item
+  构造出租车总数目的最大似然估计量。这是最大似然估计量有偏并且不有效的常见例子；
+  困难的根源在于数据的边界依赖于参数。
+\item
+  提出出租车数目更好的估计量并给出均值和方差。
+\end{enumerate}
+\begin{solution}
+设真实牌照从 \(1\) 到 \(N_{\mathrm{taxi}}\)，观测到 \(N\) 次号码
+\(n_1,\dots,n_N\)，记最大值为
+
+\[
+m=\max(n_1,\dots,n_N).
+\]
+
+\begin{enumerate}
+\item 最大似然估计
+
+当 \(N_{\mathrm{taxi}}\ge m\) 时，似然与 \(N_{\mathrm{taxi}}\) 成反比：
+
+\[
+L(N_{\mathrm{taxi}})\propto N_{\mathrm{taxi}}^{-N}.
+\]
+
+它随 \(N_{\mathrm{taxi}}\) 单调下降，所以最大似然估计是边界点
+
+\[
+\hat N_{\mathrm{ML}}=m.
+\]
+
+它显然偏小。
+
+\item 更好的估计
+
+经典无偏估计是
+
+\[
+\hat N=\frac{N+1}{N}m-1.
+\]
+
+方差为
+
+\[
+V[\hat N]=\frac{(N_{\mathrm{taxi}}-N)(N_{\mathrm{taxi}}+1)}{N(N+2)}.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑 \(N\) 个独立的泊松变量 \(n_1,\ldots,n_N\)，均值为
+\(\nu_1,\ldots,\nu_N\)。假设均值依赖于某可控变量 \(x\)，
+
+\[
+\nu(x)=\theta a(x),
+\]
+
+其中 \(\theta\) 为未知参数，\(a(x)\) 为任意已知函数。\(N\) 个 \(\nu_i\)
+因而可以由 \(\nu(x_i)=\theta a(x_i)\) 给出，其中假设 \(x_1,\ldots,x_N\)
+已知。证明 \(\theta\) 的最大似然估计量为
+
+\[
+\hat\theta=\frac{\sum_{i=1}^{N}n_i}{\sum_{i=1}^{N}a(x_i)}.
+\]
+
+证明 \(\hat\theta\) 为无偏的，并且其方差由最小方差边界给出（参见习题
+6.6）。
+\begin{solution}
+对数似然为
+
+\[
+\log L=\sum_{i=1}^N\left[n_i\log(\theta a_i)-\theta a_i-\log(n_i!)\right].
+\]
+
+对 \(\theta\) 求导：
+
+\[
+\frac{\partial\log L}{\partial\theta}=
+\sum_i\left(\frac{n_i}{\theta}-a_i\right)=0.
+\]
+
+因此
+
+\[
+\hat\theta=\frac{\sum_i n_i}{\sum_i a_i}.
+\]
+
+无偏性：
+
+\[
+E[\hat\theta]=\frac{\sum_i E[n_i]}{\sum_i a_i}
+=\frac{\sum_i \theta a_i}{\sum_i a_i}=\theta.
+\]
+
+方差：
+
+\[
+V[\hat\theta]=\frac{\sum_i V[n_i]}{(\sum_i a_i)^2}
+=\frac{\theta\sum_i a_i}{(\sum_i a_i)^2}
+=\frac{\theta}{\sum_i a_i}.
+\]
+
+Fisher 信息为
+
+\[
+I(\theta)=\frac{\sum_i a_i}{\theta},
+\]
+
+故 CRLB 为 \(\theta/\sum_i a_i\)，恰好达到下界。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+第 6 章第 9 题描述的状况的例子之一为（反）中微子-核子散射。根据夸克-部分子模型，反应
+\(\nu N\to\mu^-X\) 和 \(\bar\nu N\to\mu^+X\) 的截面为
+
+\[
+\begin{split}
+\sigma(\nu N\to\mu^-X)&=\frac{G^2ME}{\pi}\left(\langle q\rangle+\frac13\langle\bar q\rangle\right)\equiv\theta_\nu E,\\
+\sigma(\bar\nu N\to\mu^+X)&=\frac{G^2ME}{\pi}\left(\frac13\langle q\rangle+\langle\bar q\rangle\right)\equiv\theta_{\bar\nu}E.
+\end{split}
+\]
+
+其中 \(E\) 为入射（反）中微子的能量，\(M=0.938\,\mathrm{GeV}\)
+为靶核子的质量，\(G=1.16\times10^{-6}\,\mathrm{GeV}^{-2}\)
+为费米常数（取自然单位制 \(c=1\)）。这里变量 \(x\) 对应于能量 \(E\)，式
+(6.15) 右端的参数对应两个不同的参数 \(\theta_\nu\) 和
+\(\theta_{\bar\nu}\)。假设在 \(N\)
+个不同能量值处收集了数据。每个能量点，事例数的期待值为
+
+\[
+\nu_i=\sigma(E_i)\epsilon(E_i)L_i,
+\]
+
+其中 \(\sigma(E_i)\) 为（反）中微子在能量为 \(E_i\) 时的截面，\(L_i\)
+为积分亮度，\(\epsilon(E_i)\)
+为记录事例的概率（效率），效率通常为能量的函数。出于本习题的目的，我们假设能量
+\(E_i\)，积分亮度 \(L_i\) 以及效率 \(\epsilon(E_i)\)
+精确已知没有不确定度。（再假设没有本底事例。）确定参数 \(\theta_\nu\) 和
+\(\theta_{\bar\nu}\) 的最大似然估计量，并据此求 \(\langle q\rangle\) 和
+\(\langle\bar q\rangle\)
+的估计量。在夸克-部分子模型中，它们分别对应夸克和反夸克携带的动量占核子动量的份额。确定除了正反夸克外其它粒子（即，胶子）携带的动量份额
+\(\langle g\rangle=1-\langle q\rangle-\langle\bar q\rangle\)。
+\begin{solution}
+每个能量点的期望事例数可写为
+\[
+\nu_i=\sigma(E_i)\epsilon_iL_i=\theta E_i\epsilon_iL_i.
+\]
+令
+\[
+a_i=E_i\epsilon_iL_i.
+\]
+由第 6 章第 9 题，若中微子和反中微子样本分别记为
+\(n_i^{(\nu)}\)、\(n_i^{(\bar\nu)}\)，则
+\[
+\hat\theta_\nu=
+\frac{\sum_i n_i^{(\nu)}}{\sum_i E_i\epsilon_i^{(\nu)}L_i^{(\nu)}},
+\qquad
+\hat\theta_{\bar\nu}=
+\frac{\sum_i n_i^{(\bar\nu)}}{\sum_i E_i\epsilon_i^{(\bar\nu)}L_i^{(\bar\nu)}}.
+\]
+若两组数据的 \(E_i,\epsilon_i,L_i\) 完全相同，上式的分母才相同。
+
+记
+\[
+C=\frac{G^2M}{\pi}.
+\]
+题设给出
+\[
+\theta_\nu=C\left(\langle q\rangle+\frac13\langle\bar q\rangle\right),
+\qquad
+\theta_{\bar\nu}=C\left(\frac13\langle q\rangle+\langle\bar q\rangle\right).
+\]
+解这个二元线性方程组，得到
+\[
+\langle q\rangle
+=\frac{3}{8C}(3\theta_\nu-\theta_{\bar\nu})
+=\frac{3\pi}{8G^2M}(3\theta_\nu-\theta_{\bar\nu}),
+\]
+\[
+\langle\bar q\rangle
+=\frac{3}{8C}(3\theta_{\bar\nu}-\theta_\nu)
+=\frac{3\pi}{8G^2M}(3\theta_{\bar\nu}-\theta_\nu).
+\]
+把 \(\theta\) 换成对应的 MLE 即得 \(\langle q\rangle\) 和
+\(\langle\bar q\rangle\) 的估计量。最后
+\[
+\langle g\rangle=1-\langle q\rangle-\langle\bar q\rangle.
+\]
+
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+确定阿伏伽德罗常数的最早实验之一是基于布朗运动，实验装置如图 6.1
+所示。Jean Perrin 用该装置观测悬浮在水中的乳香（一种抛光材料）颗粒。
+\pyfig[0.72\linewidth]{figures/fig_06_11_perrin_schematic.png}{图 6.1：Perrin 实验中通过移动显微镜焦平面统计不同高度粒子数的示意图。}
+
+
+粒子为半径 \(r=0.52\,\mu\mathrm{m}\) 的球状颗粒，密度为
+\(1.063\,\mathrm{g/cm^3}\)，即，比水的密度大
+\(0.063\,\mathrm{g/cm^3}\)。在显微镜中观测这些颗粒，只有大约
+\(1\,\mu\mathrm{m}\)
+的一层在聚焦范围内，范围之外的粒子观测不到。通过调节显微镜的透镜，焦平面可以垂直移动。在
+4 个不同高度 \(z\) 处拍摄了照片（最低高度任意设为 \(z=0\)），并数出不同
+\(z\) 处的粒子数 \(n(z)\)。数据如表 6.1 所示。
+
+{% do not increment counter
+\begin{longtable}[]{@{}rr@{}}
+\toprule\noalign{}
+高度 \(z\,(\mu\mathrm{m})\) & 粒子数 \(n\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 1880 \\
+6 & 940 \\
+12 & 530 \\
+18 & 305 \\
+\end{longtable}
+}
+
+表 6.1: Perrin 观测的数据，乳剂中不同高度 \(z\) 处乳香粒子的数目。
+
+水中球状乳香粒子的引力势能为
+
+\[
+E=\frac43\pi r^3\Delta\rho gz,
+\]
+
+其中 \(\Delta\rho=\rho_{\text{乳香}}-\rho_{\text{水}}=0.063\,\mathrm{g/cm^3}\)
+为密度差，\(g=980\,\mathrm{cm/s^2}\)
+为重力加速度。统计力学预言，粒子处在能量为 \(E\) 的态的概率正比于
+
+\[
+P(E)\propto e^{-E/kT},
+\]
+
+其中 \(k\) 为 Boltzmann 常数，\(T\)
+为绝对温度。因此，粒子数作为高度的函数服从指数规律，其中在 \(z\)
+处观测到的粒子数 \(n\) 可以看作均值为 \(\nu(z)\) 的泊松变量。结合式
+(6.17) 和 (6.18) 得到
+
+\[
+\nu(z)=\nu_0\exp\left(-\frac{4\pi r^3\Delta\rho gz}{3kT}\right),
+\]
+
+其中 \(\nu_0\) 为 \(z=0\) 时粒子数的期待值。
+
+\begin{enumerate}
+\item
+  写程序用最大似然法计算参数 \(k\) 和 \(\nu_0\)。利用表 6.1
+  中的数据按照泊松概率构造最大似然函数（参见《统计数据分析》6.10 节），
+\end{enumerate}
+
+\[
+\log L(\nu_0,k)=\sum_{i=1}^{N}(n_i\log\nu_i-\nu_i),
+\]
+
+其中 \(N=4\) 为测量次数。温度取 \(T=293\,\mathrm{K}\)。
+
+\begin{enumerate}[start=2]
+\item
+  利用得到的 \(k\)，通过下面的关系计算阿伏伽德罗常数
+\end{enumerate}
+
+\[
+N_A=R/k,
+\]
+
+其中 \(R\) 为气体常数。Perrin 计算时取值为
+\(R=8.32\times10^7\,\mathrm{erg/(mol\,K)}\)。
+
+\begin{enumerate}[start=3]
+\item
+  不求解对数似然函数 (6.20) 的最大值，而是通过最小化
+\end{enumerate}
+
+\[
+\chi_P^2(\nu_0,k)=2\sum_{i=1}^{N}\left(n_i\log\frac{n_i}{\nu_i}+\nu_i-n_i\right),
+\]
+
+其中 \(\nu_i=\nu(z_i)\) 通过式 (6.19) 依赖于 \(\nu_0\) 和 \(k\)。利用
+\(\chi_P^2\) 的值计算拟合优度（参见《统计数据分析》6.11 节）。讨论
+Perrin 测量 \(N_A\) 中可能的系统不确定度。
+\begin{solution}
+题目给出
+
+\[
+\nu(z)=\nu_0\exp\left(-\frac{4\pi r^3\Delta\rho gz}{3kT}\right),
+\]
+
+其中 \(z=0,6,12,18\,\mu\mathrm m\) 处观测到的计数分别是
+
+\[
+1880,\ 940,\ 530,\ 305.
+\]
+
+\begin{enumerate}
+\item 最大似然估计
+
+把不同高度的计数视为独立泊松变量，似然函数为
+
+\[
+\log L(\nu_0,k)=\sum_{i=1}^4(n_i\log\nu_i-\nu_i)+\text{const}.
+\]
+
+程序对 \((\nu_0,k)\) 做数值极大化，得到
+
+\[
+\hat\nu_0\approx1.846\times10^3,
+\qquad
+\hat k\approx1.20\times10^{-16}\ \mathrm{erg/K}.
+\]
+
+\item 阿伏伽德罗常数
+
+由
+
+\[
+N_A=\frac{R}{k},\qquad R=8.32\times10^7\ \mathrm{erg/(mol\,K)},
+\]
+
+得到
+
+\[
+\hat N_A\approx6.95\times10^{23}\ \mathrm{mol}^{-1}.
+\]
+
+\item Pearson 似然卡方
+
+定义
+
+\[
+\chi_P^2=2\sum_i\left(n_i\log\frac{n_i}{\nu_i}+\nu_i-n_i\right).
+\]
+
+把极大似然点代入，得到大约
+
+\[
+\chi_P^2\approx4.59.
+\]
+
+如果按 \(4\) 个数据点减去 \(2\) 个拟合参数，取自由度约为
+\(2\)，则得到一个中等大小的 \(p\)
+值，说明拟合并不差，但样本点非常少，结论仍受系统误差影响。
+\pyfig[0.72\linewidth]{figures/fig_06_11_perrin_fit.png}{Perrin 计数数据与泊松最大似然指数模型的拟合结果。}
+可能的系统误差。
+
+\begin{itemize}
+\item
+  颗粒半径 \(r\) 的标定误差；
+\item
+  实际可见焦深不一定严格为常数；
+\item
+  焦平面高度 \(z\) 的刻度误差；
+\item
+  温度、密度差 \(\Delta\rho\) 的不确定性；
+\item
+  计数之间未必完全独立泊松。
+\end{itemize}
+\end{enumerate}
+\end{solution}
+\end{question}
+

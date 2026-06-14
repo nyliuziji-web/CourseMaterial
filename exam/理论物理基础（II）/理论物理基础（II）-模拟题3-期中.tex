@@ -1,0 +1,337 @@
+﻿\heading{理论物理基础（II）-模拟题3-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\textbf{计算题（共 100 分）}
+
+\begin{question}[14分]
+两个 Einstein 固体 $A,B$ 可以交换能量但总振子数与总能量子数固定。已知 $A$ 含有 $N_A=4$ 个独立振子，$B$ 含有 $N_B=3$ 个独立振子，总能量子数为 $q=8$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 写出当 $A$ 含有 $q_A$ 个能量子时两部分的多重度 $\Omega_A,\Omega_B$；
+\item 求总多重度 $\Omega_{\mathrm{tot}}(q_A)$；
+\item 找出最概然的 $q_A$，并说明为什么“最概然分配”不一定等于把能量子严格按振子数比例平均分完后的整数部分。
+\end{enumerate}
+\begin{solution}
+
+Einstein 固体的多重度为
+\[
+\Omega(N,q)=\binom{q+N-1}{q}.
+\]
+因此
+\[
+\Omega_A(q_A)=\binom{q_A+3}{q_A},\qquad
+\Omega_B(q_B)=\binom{q_B+2}{q_B},
+\qquad q_B=8-q_A.
+\]
+故总多重度
+\[
+\Omega_{\mathrm{tot}}(q_A)=\Omega_A(q_A)\Omega_B(8-q_A)
+=\binom{q_A+3}{q_A}\binom{10-q_A}{8-q_A}.
+\]
+
+逐项计算得
+\[
+\begin{array}{c|ccccccccc}
+q_A & 0&1&2&3&4&5&6&7&8\\ \hline
+\Omega_A & 1&4&10&20&35&56&84&120&165\\
+\Omega_B & 45&36&28&21&15&10&6&3&1\\
+\Omega_{\mathrm{tot}} & 45&144&280&420&525&560&504&360&165
+\end{array}
+\]
+所以总多重度在 $q_A=5$ 时达到最大，即
+\ansmath{q_A^{\ast}=5,\qquad q_B^{\ast}=3.}
+
+若只按振子数比例平均，则
+\[
+q_A\approx q\frac{N_A}{N_A+N_B}=8\cdot\frac{4}{7}\approx4.57,
+\]
+这说明“最概然分配”来自组合数最大化，而不是简单地把总能量按振子数比例作四舍五入；只有在大数极限下，两者才会越来越接近。
+\end{solution}
+\end{question}
+
+\begin{question}[18分]
+有 $N$ 个彼此独立、固定在格点上的自旋 $1/2$ 磁矩置于均匀磁场 $B$ 中。取平行于磁场的单粒子能量为 $-\mu B$，反平行能量为 $+\mu B$。设全系统总能量为 $U$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 设有 $n$ 个磁矩处于低能级，写出 $\Omega(n)$ 与 $U(n)$；
+\item 在热力学极限下用 Stirling 公式求 $1/T=(\partial S/\partial U)_{N,B}$；
+\item 由此求出 $U(T)$ 与定磁场热容 $C_B$，并说明什么时候会出现负温度。
+\end{enumerate}
+\begin{solution}
+
+若有 $n$ 个磁矩在低能级，则其余 $N-n$ 个在高能级，因此
+\[
+\Omega(n)=\binom{N}{n},
+\]
+总能量为
+\[
+U(n)=(-\mu B)n+(+\mu B)(N-n)=(N-2n)\mu B.
+\]
+故
+\[
+n=\frac{N-U/(\mu B)}{2}.
+\]
+
+熵为
+\[
+S=k\ln \Omega
+\approx k\left[N\ln N-n\ln n-(N-n)\ln(N-n)\right].
+\]
+于是
+\[
+\frac{\partial S}{\partial n}
+=k\ln\frac{N-n}{n},
+\qquad
+\frac{\partial U}{\partial n}=-2\mu B.
+\]
+所以
+\[
+\frac{1}{T}
+=\left(\frac{\partial S}{\partial U}\right)_{N,B}
+=\frac{\partial S/\partial n}{\partial U/\partial n}
+=\frac{k}{2\mu B}\ln\frac{n}{N-n}.
+\]
+再代入 $n=\frac{N-U/(\mu B)}{2}$，得
+\ansmath{
+\frac{1}{T}
+=\frac{k}{2\mu B}
+\ln\!\left(\frac{N-U/(\mu B)}{N+U/(\mu B)}\right).
+}
+
+令 $x=\mu B/(kT)$。由上式可化为
+\[
+\exp(2x)=\frac{N+U/(\mu B)}{N-U/(\mu B)},
+\]
+从而
+\[
+U=-N\mu B\tanh x.
+\]
+故
+\ansmath{U(T)=-N\mu B\tanh\!\left(\frac{\mu B}{kT}\right).}
+
+定磁场热容
+\[
+C_B=\left(\frac{\partial U}{\partial T}\right)_B
+=N\mu B\,\operatorname{sech}^2 x\cdot \frac{\mu B}{kT^2}
+\]
+即
+\ansmath{
+C_B
+=Nk\left(\frac{\mu B}{kT}\right)^2
+\operatorname{sech}^2\!\left(\frac{\mu B}{kT}\right).
+}
+
+当 $U<0$（低能级占多数）时，括号中的对数为正，故 $T>0$；当 $U>0$（高能级占多数、发生粒子数反转）时，对数为负，故
+\ansmath{U>0\ \Longleftrightarrow\ T<0.}
+\end{solution}
+\end{question}
+
+\begin{question}[16分]
+有 $N$ 个彼此独立、彼此可区分的局域中心。每个中心有一个基态，能量为 $0$；还有三个简并激发态，能量都为 $\varepsilon$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求单中心配分函数 $z$ 和全系统配分函数 $Z_N$；
+\item 求平均能量 $U$ 与热容 $C$；
+\item 证明热容峰值位置满足一个超越方程。
+\end{enumerate}
+\begin{solution}
+
+记
+\[
+x=\beta\varepsilon=\frac{\varepsilon}{kT}.
+\]
+单中心配分函数为
+\[
+z=1+3e^{-x},
+\]
+故全系统配分函数
+\ansmath{Z_N=(1+3e^{-x})^N.}
+
+平均能量
+\[
+U=-\frac{\partial}{\partial \beta}\ln Z_N
+=-N\frac{\partial}{\partial \beta}\ln(1+3e^{-x})
+=N\varepsilon\frac{3e^{-x}}{1+3e^{-x}}.
+\]
+因此
+\ansmath{
+U=N\varepsilon\frac{3e^{-x}}{1+3e^{-x}}.
+}
+
+热容
+\[
+C=\left(\frac{\partial U}{\partial T}\right)_N
+=Nkx^2\frac{3e^{-x}}{(1+3e^{-x})^2}.
+\]
+故
+\ansmath{
+C=Nk\left(\frac{\varepsilon}{kT}\right)^2
+\frac{3e^{-\varepsilon/(kT)}}{\left(1+3e^{-\varepsilon/(kT)}\right)^2}.
+}
+
+令
+\[
+f(x)=x^2\frac{3e^{-x}}{(1+3e^{-x})^2}.
+\]
+对 $x$ 求导并令其为零，可得峰值位置满足
+\[
+( x-2)e^x=3(x+2).
+\]
+因此热容峰值温度 $T_\ast$ 由
+\ansmath{
+\left(\frac{\varepsilon}{kT_\ast}-2\right)e^{\varepsilon/(kT_\ast)}
+=
+3\left(\frac{\varepsilon}{kT_\ast}+2\right)
+}
+确定。
+\end{solution}
+\end{question}
+
+\begin{question}[16分]
+考虑一个最简单的吸附模型：共有 $M$ 个彼此独立的吸附位，每个位至多容纳一个粒子；某位被占据时其能量为 $-\varepsilon$，空位能量取为 $0$。体系与温度为 $T$、化学势为 $\mu$ 的粒子库接触。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求巨配分函数 $\Xi$；
+\item 求恰有 $n$ 个位被占据的概率 $P(n)$；
+\item 求平均占据数 $\langle n\rangle$ 与涨落 $\mathrm{Var}(n)$。
+\end{enumerate}
+\begin{solution}
+
+单个位只有两种可能：空位对应权重 $1$，占据对应权重
+\[
+e^{-\beta(E-\mu N)}=e^{-\beta(-\varepsilon-\mu)}=e^{\beta(\mu+\varepsilon)}.
+\]
+故单个位的巨配分函数为
+\[
+\Xi_1=1+e^{\beta(\mu+\varepsilon)}.
+\]
+由于各位独立，
+\ansmath{
+\Xi=\left(1+e^{\beta(\mu+\varepsilon)}\right)^M.
+}
+
+恰有 $n$ 个位被占据时，组合因子为 $\binom{M}{n}$，相应权重为 $e^{\beta(\mu+\varepsilon)n}$，故
+\[
+P(n)=\frac{\binom{M}{n}e^{\beta(\mu+\varepsilon)n}}{\Xi}
+=\binom{M}{n}f^n(1-f)^{M-n},
+\]
+其中
+\[
+f=\frac{e^{\beta(\mu+\varepsilon)}}{1+e^{\beta(\mu+\varepsilon)}}
+=\frac{1}{e^{-\beta(\mu+\varepsilon)}+1}.
+\]
+所以
+\ansmath{
+P(n)=\binom{M}{n}f^n(1-f)^{M-n},
+\qquad
+f=\frac{1}{e^{-\beta(\mu+\varepsilon)}+1}.
+}
+
+由二项分布立刻得到
+\[
+\langle n\rangle=Mf,\qquad
+\mathrm{Var}(n)=Mf(1-f).
+\]
+故
+\ansmath{
+\langle n\rangle=\frac{M}{e^{-\beta(\mu+\varepsilon)}+1},
+\qquad
+\mathrm{Var}(n)=Mf(1-f).
+}
+这里的单个位平均占据率正是 Fermi--Dirac 形式，容易与“粒子是费米子”混淆；其实这里出现这一形式的根本原因只是\textbf{每个位至多占一个粒子}。
+\end{solution}
+\end{question}
+
+\begin{question}[18分]
+设两边各装有 $N$ 个、温度相同的单原子理想气体，体积都为 $V$。先讨论两边是同一种气体的情形，再讨论它们是两种不同气体的情形。用热德布罗意波长 $\lambda$ 表示理想气体熵。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 若错误地把同种气体中的粒子当成可区分粒子，不写 $1/N!$ 修正，求抽去隔板后的熵变；
+\item 若采用正确的 Gibbs 修正，求同种气体混合的熵变；
+\item 若左右两侧本来是两种不同气体，各有 $N$ 个粒子，求混合熵。
+\end{enumerate}
+\begin{solution}
+
+若把粒子错误地当成可区分粒子，则熵可写成
+\[
+S_{\mathrm{wrong}}=Nk\ln\frac{V}{\lambda^3}+\text{与 }T\text{ 有关但与 }V\text{ 无关的项}.
+\]
+初态两边总熵为
+\[
+S_i=2Nk\ln\frac{V}{\lambda^3}+\text{常数},
+\]
+末态每个粒子都可进入总体积 $2V$，故
+\[
+S_f=2Nk\ln\frac{2V}{\lambda^3}+\text{常数}.
+\]
+因此错误做法给出
+\ansmath{\Delta S_{\mathrm{wrong}}=2Nk\ln 2.}
+
+正确做法应写入 Gibbs 修正：
+\[
+S=Nk\left[\ln\!\left(\frac{V}{N\lambda^3}\right)+\frac52\right].
+\]
+对于同种气体，初态总熵
+\[
+S_i=2Nk\left[\ln\!\left(\frac{V}{N\lambda^3}\right)+\frac52\right].
+\]
+末态是 $2N$ 个同种粒子处于总体积 $2V$ 中，因此
+\[
+S_f=2Nk\left[\ln\!\left(\frac{2V}{2N\lambda^3}\right)+\frac52\right]
+=2Nk\left[\ln\!\left(\frac{V}{N\lambda^3}\right)+\frac52\right].
+\]
+故
+\ansmath{\Delta S_{\mathrm{same}}=0.}
+
+若左右为两种不同气体，则它们即使在混合后也必须分别计数：每一类气体的可用体积都从 $V$ 变成 $2V$，于是各自增加
+\[
+Nk\ln 2.
+\]
+总混合熵为
+\ansmath{\Delta S_{\mathrm{mix}}=2Nk\ln 2.}
+\end{solution}
+\end{question}
+
+\begin{question}[18分]
+三维体积为 $V$ 的盒中有 $N$ 个自旋 $1/2$、互不相互作用的理想费米子，温度取 $T=0$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求费米波数 $k_F$ 与费米能 $\varepsilon_F$；
+\item 求基态总能量 $U$；
+\item 求压强 $p$ 与平均每粒子能量 $\bar\varepsilon$。
+\end{enumerate}
+\begin{solution}
+
+三维动量空间中，每个量子态占据体积 $(2\pi/L)^3=(2\pi)^3/V$，自旋简并度为 $2$。在 $T=0$ 时所有 $|\bm k|\le k_F$ 的态都被占满，因此
+\[
+N=2\cdot \frac{V}{(2\pi)^3}\cdot \frac{4\pi k_F^3}{3}
+=\frac{Vk_F^3}{3\pi^2}.
+\]
+故
+\[
+k_F=(3\pi^2 n)^{1/3},\qquad n=\frac{N}{V}.
+\]
+费米能为
+\ansmath{
+\varepsilon_F=\frac{\hbar^2k_F^2}{2m}
+=\frac{\hbar^2}{2m}(3\pi^2 n)^{2/3}.
+}
+
+总能量
+\[
+U=2\cdot \frac{V}{(2\pi)^3}\int_{|\bm k|\le k_F}\frac{\hbar^2k^2}{2m}\,d^3k
+=\frac{V\hbar^2}{2m\pi^2}\int_0^{k_F}k^4\,dk
+=\frac{V\hbar^2k_F^5}{10m\pi^2}.
+\]
+利用 $N=\frac{Vk_F^3}{3\pi^2}$ 化简，得
+\ansmath{U=\frac35 N\varepsilon_F.}
+
+于是平均每粒子能量为
+\ansmath{\bar\varepsilon=\frac{U}{N}=\frac35\varepsilon_F.}
+
+对于自由粒子体系有
+\[
+p=\frac{2}{3}\frac{U}{V},
+\]
+因此
+\ansmath{
+p=\frac{2}{5}n\varepsilon_F.
+}
+\end{solution}
+\end{question}
+

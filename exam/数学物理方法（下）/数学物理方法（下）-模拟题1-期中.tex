@@ -1,0 +1,307 @@
+﻿\heading{数学物理方法（下）-模拟题1-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+设一根长度为 $l$ 的均匀细杆作纵振动。杆受到与速度成正比的阻尼和与位移成正比的回复力，位移记为 $u(x,t)$，其中 $0<x<l$。杆的上端固定，下端自由。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 写出控制方程与边界条件；
+\item 令 $u(x,t)=X(x)T(t)$，写出相应的分离后常微分方程；
+\item 写出空间本征值问题，并给出本征值、本征函数与模方。
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 可写为
+\[
+\rho u_{tt}+d u_t-Eu_{xx}+ku=0,
+\qquad 0<x<l,
+\]
+其中 $\rho$ 为线密度，$E$ 为等效弹性常数。上端固定、下端自由对应
+\[
+ u(0,t)=0,\qquad u_x(l,t)=0.
+\]
+\item 代入 $u=XT$ 并除以 $XT$，得
+\[
+\rho \frac{T''}{T}+d\frac{T'}{T}+k=E\frac{X''}{X}=-\lambda.
+\]
+故
+\[
+X''+\frac{\lambda}{E}X=0,
+\qquad
+\rho T''+dT'+(k+\lambda)T=0.
+\]
+\item 空间本征值问题为
+\[
+X''+\mu^2X=0,
+\qquad X(0)=0,\quad X'(l)=0,
+\qquad \mu^2=\frac{\lambda}{E}.
+\]
+通解 $X=A\cos\mu x+B\sin\mu x$。由 $X(0)=0$ 得 $A=0$，再由 $X'(l)=0$ 得
+\[
+\cos(\mu l)=0\Longrightarrow \mu_n=\frac{(n+\tfrac12)\pi}{l},\quad n=0,1,2,\dots
+\]
+故
+\[
+\lambda_n=E\mu_n^2=E\Bigl(\frac{(n+\tfrac12)\pi}{l}\Bigr)^2,
+\qquad X_n(x)=\sin\frac{(n+\tfrac12)\pi x}{l}.
+\]
+模方为
+\[
+\|X_n\|^2=\int_0^l X_n(x)^2\,dx=\frac l2.
+\]
+归一化后可取 $\sqrt{2/l}\,X_n(x)$。
+\end{enumerate}
+\ansmath{\lambda_n=E\mu_n^2=E\Bigl(\frac{(n+\tfrac12)\pi}{l}\Bigr)^2,
+\qquad X_n(x)=\sin\frac{(n+\tfrac12)\pi x}{l}\quad \|X_n\|^2=\int_0^l X_n(x)^2\,dx=\frac l2}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+讨论下列势函数对应的薛定谔方程在哪些坐标系中可分离变量，并简述理由：
+\[
+V_1(x,y,z)=\alpha(x^2+y^2+z^2),\qquad V_2(x,y,z)=\beta z^2,
+\qquad V_3(x,y,z)=\frac{\gamma}{x^2+y^2+z^2}.
+\]
+可选坐标系：直角坐标、柱坐标、球坐标。
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item $V_1=\alpha r^2$ 是中心势，因此在球坐标可分离；又因 $r^2=x^2+y^2+z^2$ 是三个单变量项之和，所以在直角坐标也可分离；在柱坐标中 $r^2=\rho^2+z^2$，同样可分离。故三种坐标都可分离。
+\item $V_2=\beta z^2$ 只依赖 $z$，因此在直角坐标中可分离；在柱坐标中仍只依赖 $z$，也可分离；在球坐标中 $z=r\cos\theta$，势写成 $\beta r^2\cos^2\theta$，耦合了 $r,\theta$，一般不可分离。
+\item $V_3=\gamma/r^2$ 仅依赖 $r$，在球坐标可分离；在柱坐标中写成 $\gamma/(\rho^2+z^2)$，耦合 $\rho,z$，不可分离；在直角坐标中写成 $\gamma/(x^2+y^2+z^2)$，耦合三个变量，也不可分离。
+\end{enumerate}
+\anstext{见上。}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑区间 $0<x<l$ 上的算符
+\[
+Ly=-y'',
+\]
+边界条件为
+\[
+y(l)=\alpha y(0),\qquad y'(l)=\beta y'(0),
+\]
+其中 $\alpha,\beta\in\mathbb C$ 为常数。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求该边值问题自伴的条件；
+\item 在自伴条件下，说明本征值为实数；
+\item 当 $\alpha=\beta=1$ 时，求全部本征值和本征函数。
+\end{enumerate}
+\begin{solution}
+
+对任意足够光滑的 $y,z$，Green 公式给出
+\[
+\langle Ly,z\rangle-\langle y,Lz\rangle=[-y'\bar z+y\bar z']_0^l.
+\]
+由边界条件代入，边界项化为
+\[
+-y'(l)\overline{z(l)}+y(l)\overline{z'(l)}+y'(0)\overline{z(0)}-y(0)\overline{z'(0)}
+=(1-\beta\overline\alpha)y'(0)\overline{z(0)}+(\alpha\overline\beta-1)y(0)\overline{z'(0)}.
+\]
+因此对所有满足同类边界条件的 $y,z$ 都为零，当且仅当
+\[
+\alpha\overline\beta=1.
+\]
+这就是自伴条件。
+
+自伴后，标准 Sturm--Liouville 理论立即推出本征值为实数；也可令 $Ly=\lambda y$，取内积得
+\[
+\lambda\langle y,y\rangle=\langle Ly,y\rangle\in\mathbb R.
+\]
+
+当 $\alpha=\beta=1$ 时是周期边界条件。方程
+\[
+-y''=\lambda y
+\]
+分三种情形：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item $\lambda=0$：解为常数，故有本征值 $\lambda_0=0$，本征函数 $y_0(x)=1$；
+\item $\lambda=\mu^2>0$：通解 $A\cos\mu x+B\sin\mu x$。由周期条件得到
+\[
+\mu l=2n\pi,\qquad n=1,2,\dots
+\]
+故
+\[
+\lambda_n=\Bigl(\frac{2n\pi}{l}\Bigr)^2,
+\quad y_n^{(1)}=\cos\frac{2n\pi x}{l},
+\quad y_n^{(2)}=\sin\frac{2n\pi x}{l};
+\]
+\item $\lambda<0$ 时只有零解，不给本征值。
+\end{enumerate}
+\ansmath{\mu l=2n\pi,\qquad n=1,2,\dots\quad \lambda_n=\Bigl(\frac{2n\pi}{l}\Bigr)^2,
+\quad y_n^{(1)}=\cos\frac{2n\pi x}{l},
+\quad y_n^{(2)}=\sin\frac{2n\pi x}{l};}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+求解定解问题
+\[
+\begin{cases}
+ u_{tt}-a^2u_{xx}=0, & 0<x<\pi,\ t>0,\\
+ u_x(0,t)=0,\quad u_x(\pi,t)=0, & t>0,\\
+ u(x,0)=x(\pi-x),\quad u_t(x,0)=\cos 2x.
+\end{cases}
+\]
+
+\begin{solution}
+
+Neumann 边界对应本征函数系 $\{\cos nx\}_{n\ge0}$，故解设为
+\[
+u(x,t)=A_0+B_0t+\sum_{n=1}^{\infty}\bigl(A_n\cos nat+B_n\sin nat\bigr)\cos nx.
+\]
+先把初位移与初速度作余弦展开。
+
+对 $f(x)=x(\pi-x)$，
+\[
+A_0=\frac1\pi\int_0^{\pi}x(\pi-x)\,dx=\frac{\pi^2}{6}.
+\]
+对 $n\ge1$，
+\[
+A_n=\frac{2}{\pi}\int_0^{\pi}x(\pi-x)\cos nx\,dx
+=\begin{cases}
+-\dfrac{4}{n^2},& n\text{ 偶},\\[0.3em]
+0,& n\text{ 奇}.
+\end{cases}
+\]
+又 $g(x)=\cos2x$ 说明只有 $n=2$ 的速度模态非零，因此
+\[
+B_2\cdot 2a=1\Longrightarrow B_2=\frac1{2a},\qquad B_n=0\ (n\ne2),\quad B_0=0.
+\]
+故
+\ansmath{u(x,t)=\frac{\pi^2}{6}-\sum_{m=1}^{\infty}\frac1{m^2}\cos(2ma t)\cos(2mx)+\frac{1}{2a}\sin(2at)\cos 2x.}
+其中用了 $A_{2m}=-1/m^2$。
+\end{solution}
+\end{question}
+
+\begin{question}
+求解热传导问题
+\[
+\begin{cases}
+ u_t=\kappa u_{xx}, & 0<x<l,\ t>0,\\
+ -K u_x(0,t)=q,\qquad u(l,t)=0, & t>0,\\
+ u(x,0)=0.
+\end{cases}
+\]
+要求写成“稳态项 $+$ 瞬态级数”的形式。
+\begin{solution}
+
+先求稳态解 $v(x)$：
+\[
+\kappa v''=0,
+\qquad -K v'(0)=q,
+\qquad v(l)=0.
+\]
+故
+\[
+ v(x)=\frac{q}{K}(l-x).
+\]
+令 $w=u-v$，则 $w$ 满足
+\[
+\begin{cases}
+ w_t=\kappa w_{xx},\\
+ w_x(0,t)=0,\quad w(l,t)=0,\\
+ w(x,0)=-\dfrac{q}{K}(l-x).
+\end{cases}
+\]
+相应本征问题
+\[
+X''+\mu^2X=0,
+\qquad X'(0)=0,
+\quad X(l)=0
+\]
+给出
+\[
+\mu_n=\frac{(n+\tfrac12)\pi}{l},\qquad X_n(x)=\cos\mu_n x.
+\]
+故
+\[
+ w(x,t)=\sum_{n=0}^{\infty}c_n e^{-\kappa\mu_n^2 t}\cos\mu_n x.
+\]
+系数为
+\[
+ c_n=\frac{2}{l}\int_0^l\left(-\frac{q}{K}(l-x)\right)\cos\mu_n x\,dx
+ =-\frac{2q}{Kl\mu_n^2}.
+\]
+因此
+\ansmath{u(x,t)=\frac{q}{K}(l-x)-\sum_{n=0}^{\infty}\frac{2q}{Kl\mu_n^2}e^{-\kappa\mu_n^2 t}\cos\mu_n x,
+\qquad \mu_n=\frac{(n+\tfrac12)\pi}{l}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+在上半环域
+\[
+ a<r<b,\qquad 0<\theta<\pi
+\]
+中求解 Laplace 方程
+\[
+\nabla^2u=0,
+\]
+满足边界条件
+\[
+\frac{\partial u}{\partial r}(a,\theta)=0,
+\qquad u(b,\theta)=0,
+\qquad u(r,0)=u(r,\pi)=0.
+\]
+写出分离变量后的本征结构，不必求出所有展开系数。
+\begin{solution}
+
+取 $u(r,\theta)=R(r)\Theta(\theta)$。代入后得
+\[
+\frac{r^2R''+rR'}{R}=-\frac{\Theta''}{\Theta}=\lambda.
+\]
+由于 $u(r,0)=u(r,\pi)=0$，角向满足
+\[
+\Theta''+n^2\Theta=0,
+\qquad \Theta(0)=\Theta(\pi)=0,
+\]
+故
+\[
+\Theta_n(\theta)=\sin n\theta,
+\qquad n=1,2,\dots
+\]
+对于每个 $n$，径向满足 Euler 方程
+\[
+r^2R''+rR'-n^2R=0,
+\]
+故
+\[
+R_n(r)=A_n r^n+B_n r^{-n}.
+\]
+边界条件
+\[
+R_n'(a)=0,
+\qquad R_n(b)=0
+\]
+给出
+\[
+A_n a^{n-1}-B_n a^{-n-1}=0,
+\qquad A_n b^n+B_n b^{-n}=0.
+\]
+解得比例关系
+\[
+B_n=nA_n a^{2n}
+\quad\text{（或直接由两式联立给出）},
+\]
+更方便的写法是取
+\[
+R_n(r)=r^n+\frac{a^{2n}}{r^n},
+\]
+再用 $R_n(b)=0$ 调整整体常数，或写成
+\[
+R_n(r)=\left(r^n+\frac{a^{2n}}{r^n}\right)-\frac{b^n+a^{2n}b^{-n}}{b^n-a^{2n}b^{-n}}\left(r^n-\frac{a^{2n}}{r^n}\right).
+\]
+因此通解结构为
+\ansmath{u(r,\theta)=\sum_{n=1}^{\infty}C_n R_n(r)\sin n\theta,}
+其中 $R_n$ 满足上面的两个径向边界条件，系数由额外边界数据决定。
+\end{solution}
+\end{question}
+
+

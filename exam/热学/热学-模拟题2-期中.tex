@@ -1,0 +1,212 @@
+﻿\heading{热学-模拟题2-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\textbf{一、简答题}
+\begin{question}
+写出 Maxwell 速率分布下最概然速率 $v_{\rm mp}$。
+\begin{solution}
+
+\ansmath{v_{\rm mp}=\sqrt{\frac{2k_BT}{m}}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+写出稀薄硬球气体的平均自由程 $\ell$。
+\begin{solution}
+
+若数密度为 $n$、碰撞截面为 $\sigma$，则
+\ansmath{\ell=\frac{1}{\sqrt2\,n\sigma}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+对具有 $f$ 个二次自由度的理想气体，写出 $C_V$ 与绝热指数 $\gamma$。
+\begin{solution}
+
+\ansmath{C_V=\frac{f}{2}R,
+\qquad
+\gamma=\frac{f+2}{f}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+写出理想气体绝热声速的表达式。
+\begin{solution}
+
+\ansmath{c=\sqrt{\gamma\frac{p}{\rho}}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+若气体处于温度为 $T$ 的平衡态，单个分子的平均平动动能是多少？
+\begin{solution}
+
+\ansmath{\langle \varepsilon\rangle=\frac32 k_BT.}
+\end{solution}
+\end{question}
+
+\textbf{二、计算与证明题}
+\begin{question}
+一圆柱形刚性容器绕其轴线以角速度 $\omega$ 匀速旋转，内部为温度恒定的稀薄理想气体。设数密度只与到轴距离 $r$ 有关。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求平衡数密度 $n(r)$；
+\item 若容器半径为 $R$，求边壁与轴线上压强之比 $p(R)/p(0)$。
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 在旋转参考系中，单位质量受到离心势
+\[
+\Phi(r)=-\frac12\omega^2r^2.
+\]
+Boltzmann 分布给出
+\[
+n(r)=n(0)\exp\left(-\frac{m\Phi(r)}{k_BT}\right)
+=n(0)\exp\left(\frac{m\omega^2r^2}{2k_BT}\right).
+\]
+故
+\ansmath{n(r)=n(0)\exp\left(\frac{m\omega^2r^2}{2k_BT}\right).}
+
+\item 由 $p=nk_BT$，有
+\ansmath{\frac{p(R)}{p(0)}=
+\exp\left(\frac{m\omega^2R^2}{2k_BT}\right).}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+由 Maxwell 速率分布推导单个分子的平动动能
+\[
+\varepsilon=\frac12 mv^2
+\]
+的概率密度函数，并求其均值与方差。
+\begin{solution}
+
+速率分布为
+\[
+f_v(v)=4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)},
+\qquad v>0.
+\]
+由
+\[
+v=\sqrt{\frac{2\varepsilon}{m}},
+\qquad \frac{dv}{d\varepsilon}=\frac{1}{\sqrt{2m\varepsilon}},
+\]
+得动能密度
+\[
+f_{\varepsilon}(\varepsilon)=f_v(v)\left|\frac{dv}{d\varepsilon}\right|
+=\boxed{\frac{2}{\sqrt\pi}\frac{\sqrt\varepsilon}{(k_BT)^{3/2}}e^{-\varepsilon/(k_BT)}},
+\qquad \varepsilon>0.
+\]
+这是形状参数 $3/2$ 的 Gamma 分布，因此
+\ansmath{E(\varepsilon)=\frac32k_BT,
+\qquad
+\operatorname{Var}(\varepsilon)=\frac32(k_BT)^2.}
+\end{solution}
+\end{question}
+
+\begin{question}
+容器壁上开有一很小的小孔，外部是真空。设容器内气体处于温度 $T$ 的平衡态。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 写出穿过小孔的分子速率分布；
+\item 求逸出分子的平均速率，并与容器内分子的平均速率比较。
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 逸出几率与法向速度成正比，因此逸出分子的速率分布与 $v f_v(v)$ 成正比。归一化后得
+\ansmath{f_{\rm eff}(v)=2\left(\frac{m}{2k_BT}\right)^2 v^3 e^{-mv^2/(2k_BT)},
+\qquad v>0.}
+
+\item 平均速率为
+\[
+\langle v\rangle_{\rm eff}=\int_0^{\infty}v f_{\rm eff}(v)\,dv
+=\boxed{\frac{3\sqrt\pi}{4}\sqrt{\frac{2k_BT}{m}}}.
+\]
+而容器内普通 Maxwell 分布的平均速率为
+\[
+\langle v\rangle=\sqrt{\frac{8k_BT}{\pi m}}.
+\]
+二者之比为
+\[
+\frac{\langle v\rangle_{\rm eff}}{\langle v\rangle}=\frac{3\pi}{8}>1.
+\]
+因此逸出分子平均更快。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+设理想气体摩尔热容 $C_V$ 为常数。推导准静态绝热过程满足的关系式
+\[
+pV^{\gamma}=\text{常数},
+\]
+并求刚性双原子理想气体从体积 $V_0$ 压缩到 $V_0/4$ 时温度比 $T_f/T_i$。
+\begin{solution}
+
+绝热过程中 $\delta Q=0$，故
+\[
+dU+p\,dV=0.
+\]
+对理想气体，$dU=nC_VdT$ 且 $pV=nRT$，因此
+\[
+nC_VdT+\frac{nRT}{V}dV=0.
+\]
+整理得
+\[
+\frac{dT}{T}+\frac{R}{C_V}\frac{dV}{V}=0.
+\]
+积分可得
+\[
+TV^{R/C_V}=\text{常数}.
+\]
+利用 $\gamma=1+R/C_V$，于是
+\ansmath{pV^{\gamma}=\text{常数}.}
+对刚性双原子理想气体，$f=5$，故
+\[
+\gamma=\frac75.
+\]
+由 $TV^{\gamma-1}=\text{常数}$，得
+\[
+\frac{T_f}{T_i}=\left(\frac{V_i}{V_f}\right)^{\gamma-1}=4^{2/5}.
+\]
+故
+\ansmath{\frac{T_f}{T_i}=4^{2/5}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+设大气温度恒定为 $T$，但重力加速度随高度变化为
+\[
+g(z)=g_0\left(\frac{R}{R+z}\right)^2,
+\]
+其中 $R$ 为地球半径常量。求压强分布 $p(z)$。
+\begin{solution}
+
+静力平衡给出
+\[
+\frac{dp}{dz}=-\rho g(z).
+\]
+理想气体状态方程写成
+\[
+\rho=\frac{\mu p}{RT},
+\]
+其中 $\mu$ 为摩尔质量。故
+\[
+\frac{dp}{p}=-\frac{\mu g_0}{RT}\left(\frac{R}{R+z}\right)^2dz.
+\]
+从 $0$ 积分到 $z$：
+\[
+\ln\frac{p(z)}{p_0}=-\frac{\mu g_0}{RT}\int_0^z\frac{R^2}{(R+\xi)^2}d\xi.
+\]
+而
+\[
+\int_0^z\frac{R^2}{(R+\xi)^2}d\xi=\frac{Rz}{R+z}.
+\]
+故
+\ansmath{p(z)=p_0\exp\left[-\frac{\mu g_0R}{RT}\frac{z}{R+z}\right].}
+\end{solution}
+\end{question}
+
+

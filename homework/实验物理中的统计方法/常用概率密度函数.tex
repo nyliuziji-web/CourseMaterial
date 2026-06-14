@@ -1,0 +1,337 @@
+﻿\heading{实验物理中的统计方法-常用概率密度函数}
+
+
+
+
+
+\begin{question}
+考虑 \(N\) 个服从多项分布的随机变量 \(n=(n_1,\ldots,n_N)\)，概率为
+\(p=(p_1,\ldots,p_N)\)，并且总试验次数为
+\(n_{\rm tot}=\sum_{i=1}^{N}n_i\)。假设变量 \(k\) 定义为前 \(M\) 个
+\(n_i\) 之和，
+
+\[
+k=\sum_{i=1}^{M}n_i,\qquad M\le N.
+\]
+
+利用误差传递以及多项分布的协方差
+
+\[
+\operatorname{cov}[n_i,n_j]=\delta_{ij}n_{\rm tot}p_i(1-p_i)+(\delta_{ij}-1)p_ip_jn_{\rm tot},
+\]
+
+求 \(k\) 的方差。证明该方差等于 \(p=\sum_{i=1}^{M}p_i\) 并且总试验次数为
+\(n_{\rm tot}\) 的二项分布的方差。
+\begin{solution}
+有
+
+\[
+k=\sum_{i=1}^M n_i.
+\]
+
+因此
+
+\[
+V[k]=\sum_{i=1}^M\sum_{j=1}^M\operatorname{cov}(n_i,n_j).
+\]
+
+多项分布中
+
+\[
+\operatorname{Var}(n_i)=n_{\rm tot}p_i(1-p_i),\qquad
+\operatorname{cov}(n_i,n_j)=-n_{\rm tot}p_ip_j\quad(i\ne j).
+\]
+
+所以
+
+\[
+\begin{split}
+V[k]
+&=n_{\rm tot}\sum_{i=1}^M p_i(1-p_i)-2n_{\rm tot}\sum_{i<j}p_ip_j\\
+&=n_{\rm tot}\left[\sum_i p_i-\left(\sum_i p_i\right)^2\right].
+\end{split}
+\]
+
+令 \(p=\sum_{i=1}^M p_i\)，则
+
+\[
+V[k]=n_{\rm tot}p(1-p),
+\]
+
+正是参数为 \(n_{\rm tot},p\) 的二项分布方差。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设随机变量 \(x\) 均匀分布于区间
+\([\alpha,\beta]\)，\(\alpha,\beta>0\)。求 \(1/x\) 的期待值，并将结果与
+\(1/E[x]\) 进行比较，取 \(\alpha=1,\beta=2\)。
+\begin{solution}
+若 \(x\sim U[\alpha,\beta]\)，则
+
+\[
+E\left[\frac1x\right]=\frac{1}{\beta-\alpha}\int_\alpha^\beta\frac1x\,dx
+=\frac{\log\beta-\log\alpha}{\beta-\alpha}.
+\]
+
+而
+
+\[
+\frac1{E[x]}=\frac{2}{\alpha+\beta}.
+\]
+
+取 \(\alpha=1,\beta=2\)，
+
+\[
+E[1/x]=\log2\approx0.6931,
+\qquad
+1/E[x]=2/3\approx0.6667.
+\]
+
+两者不相等，这是非线性函数期待值一般不等于函数作用在期待值上的结果。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑指数分布
+
+\[
+f(x;\xi)=\frac{1}{\xi}e^{-x/\xi},\qquad x\ge0.
+\]
+
+\begin{enumerate}
+\item
+  证明对应的累积分布函数为
+\end{enumerate}
+
+\[
+F(x)=1-e^{-x/\xi},\qquad x\ge0.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  证明给定 \(x>x_0\) 时 \(x\) 处于 \(x_0\) 与 \(x_0+x'\)
+  之间的条件概率等于 \(x\) 小于 \(x'\) 的概率（非条件概率），即
+\end{enumerate}
+
+\[
+P(x\le x_0+x'\mid x\ge x_0)=P(x\le x').
+\]
+
+\begin{enumerate}[start=3]
+\item
+  产生于大气上层的宇宙线 \(\mu\)
+  子进入海平面的探测器，其中的一部分在探测器中停止并衰变。进入探测器与衰变的时间差
+  \(t\) 服从指数分布，\(t\) 的均值等于 \(\mu\) 子的平均寿命（近似为
+  \(2.2\,\mu\mathrm{s}\)）。解释为什么 \(\mu\)
+  子进入探测器前存活的时间对确定平均寿命没有影响。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item
+  对指数密度积分：
+\end{enumerate}
+
+\[
+F(x)=\int_0^x\frac1\xi e^{-t/\xi}dt=1-e^{-x/\xi},\qquad x\ge0.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  对 \(x_0,x'>0\)，
+\end{enumerate}
+
+\[
+\begin{split}
+P(x\le x_0+x'|x\ge x_0)
+&=\frac{P(x_0\le x\le x_0+x')}{P(x\ge x_0)}\\
+&=\frac{e^{-x_0/\xi}-e^{-(x_0+x')/\xi}}{e^{-x_0/\xi}}\\
+&=1-e^{-x'/\xi}=P(x\le x').
+\end{split}
+\]
+
+这就是指数分布的无记忆性。
+
+\begin{enumerate}[start=3]
+\item
+  \(\mu\) 子进入探测器前已经存活了某段时间，相当于已知
+  \(t\ge t_0\)。由于指数分布无记忆，进入前已经存活多久不改变之后剩余寿命的分布。因此用进入探测器到衰变的时间差仍可估计平均寿命。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设 \(y\) 服从均值为 \(\mu\)，方差为 \(\sigma^2\) 的高斯分布。
+
+\begin{enumerate}
+\item
+  证明
+\end{enumerate}
+
+\[
+x=\frac{y-\mu}{\sigma}
+\]
+
+服从标准高斯分布 \(\phi(x)\)（即，均值为零，方差为 1）。
+
+\begin{enumerate}[start=2]
+\item
+  证明累积分布函数 \(F(y)\) 与 \(\Phi(x)\) 相等，即
+\end{enumerate}
+
+\[
+F(y)=\Phi\left(\frac{y-\mu}{\sigma}\right).
+\]
+\begin{solution}
+\begin{enumerate}
+\item
+  令 \(x=(y-\mu)/\sigma\)，即
+  \(y=\mu+\sigma x\)，\(|dy/dx|=\sigma\)。于是
+\end{enumerate}
+
+\[
+f_X(x)=f_Y(\mu+\sigma x)\sigma
+=\frac1{\sqrt{2\pi}}e^{-x^2/2},
+\]
+
+即标准高斯分布。
+
+\begin{enumerate}[start=2]
+\item
+  因为 \(y\le y_0\) 等价于 \(x\le (y_0-\mu)/\sigma\)，故
+\end{enumerate}
+
+\[
+F_Y(y)=\Phi\left(\frac{y-\mu}{\sigma}\right).
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+\begin{enumerate}
+\item
+  证明，如果 \(y\) 服从均值为 \(\mu\)、方差为 \(\sigma^2\)
+  的高斯分布，则 \(x=e^y\) 服从对数正态分布，
+\end{enumerate}
+
+\[
+f(x;\mu,\sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}}\frac{1}{x}\exp\left[-\frac{(\log x-\mu)^2}{2\sigma^2}\right].
+\]
+
+\begin{enumerate}[start=2]
+\item
+  通过积分
+\end{enumerate}
+
+\[
+\begin{split}
+E[x]&=\int x f(x;\mu,\sigma^2)\,dx,\\
+V[x]&=\int (x-E[x])^2 f(x;\mu,\sigma^2)\,dx.
+\end{split}
+\]
+
+求 \(x\) 的均值与方差。
+
+\begin{enumerate}[start=3]
+\item
+  将 (b)
+  中求得的方差与通过误差传递（\(V[y]=\sigma^2\)）得到的近似结果进行比较。在什么条件下误差传递近似成立？（注意
+  \(y\) 是无量纲的，因而 \(\sigma^2\) 也是无量纲的。）
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item
+  \(x=e^y\)，反变换 \(y=\log x\)，Jacobian 为 \(|dy/dx|=1/x\)。所以
+\end{enumerate}
+
+\[
+f_X(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\frac1x
+\exp\left[-\frac{(\log x-\mu)^2}{2\sigma^2}\right],\qquad x>0.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  由于 \(x=e^y\)，且 \(y\sim N(\mu,\sigma^2)\)，高斯矩母函数给出
+\end{enumerate}
+
+\[
+E[x]=E[e^y]=e^{\mu+\sigma^2/2}.
+\]
+
+又
+
+\[
+E[x^2]=E[e^{2y}]=e^{2\mu+2\sigma^2},
+\]
+
+因此
+
+\[
+V[x]=e^{2\mu+2\sigma^2}-e^{2\mu+\sigma^2}
+=e^{2\mu+\sigma^2}(e^{\sigma^2}-1).
+\]
+
+\begin{enumerate}[start=3]
+\item
+  误差传递近似给出
+\end{enumerate}
+
+\[
+V[x]\approx \left(\frac{dx}{dy}\bigg|_{\mu}\right)^2V[y]=e^{2\mu}\sigma^2.
+\]
+
+精确结果在 \(\sigma^2\ll1\) 时
+
+\[
+e^{2\mu+\sigma^2}(e^{\sigma^2}-1)
+\approx e^{2\mu}\sigma^2,
+\]
+
+所以误差传递近似在 \(y\) 的相对波动较小，即 \(\sigma^2\ll1\) 时成立。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+证明自由度为 \(n\) 的 \(\chi^2\) 分布的累积分布函数可以表示为
+
+\[
+F_{\chi^2}(x;n)=P\left(\frac{x}{2},\frac{n}{2}\right),
+\]
+
+其中 \(P\) 为不完全伽马函数（incomplete gamma function）
+
+\[
+P(x,n)=\frac{1}{\Gamma(n)}\int_0^x e^{-t}t^{n-1}\,dt.
+\]
+\begin{solution}
+自由度为 \(n\) 的 \(\chi^2\) 密度为
+
+\[
+f(t;n)=\frac{1}{2^{n/2}\Gamma(n/2)}t^{n/2-1}e^{-t/2},\qquad t>0.
+\]
+
+累积分布
+
+\[
+F_{\chi^2}(x;n)=\int_0^x f(t;n)dt.
+\]
+
+令 \(u=t/2\)，\(dt=2du\)，则
+
+\[
+F_{\chi^2}(x;n)=\frac{1}{\Gamma(n/2)}\int_0^{x/2}e^{-u}u^{n/2-1}du
+=P\left(\frac{x}{2},\frac{n}{2}\right).
+\]
+\end{solution}
+\end{question}
+

@@ -1,0 +1,297 @@
+﻿\heading{热学-17春-期中}
+
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\textbf{一、选择题（15 分，每题 3 分）}
+\begin{question}
+以下哪种气体可以被近似看成是理想气体？
+\begin{choiceoptions}
+\item 低温高压气体
+\item 低温低压气体
+\item 高温低压气体
+\item 气、液共存时的气体
+\end{choiceoptions}
+\begin{solution}
+高温、低压时分子间相互作用和分子体积修正都最小，因此最接近理想气体。
+\ansmath{\text{C}}
+\end{solution}
+\end{question}
+
+\begin{question}
+在固定压强下给物质以热量，下列哪种物质可能不会改变温度？
+\begin{choiceoptions}
+\item 理想气体
+\item 满足麦克斯韦速度分布的气体
+\item 处于相变点的气体
+\item 单原子气体
+\end{choiceoptions}
+\begin{solution}
+在相变点输入热量时，热量可全部用于相变潜热而温度保持不变。
+\ansmath{\text{C}}
+\end{solution}
+\end{question}
+
+\begin{question}
+对测温物质属性随温度变化的函数关系应该是：
+\begin{choiceoptions}
+\item 线性函数
+\item 升函数
+\item 降函数
+\item 单调函数
+\end{choiceoptions}
+\begin{solution}
+温标只要求可一一对应，因此测温属性对温度应当是单调的，不必线性，也不必一定单调增加。
+\ansmath{\text{D}}
+\end{solution}
+\end{question}
+
+\begin{question}
+下列哪种说法关于麦克斯韦速率分布是正确的？
+\begin{choiceoptions}
+\item 是高斯分布的一种形式
+\item 是众多可能出现的气体速率分布的一种
+\item 在存在外势场时失效
+\item 描述在任何条件下的气体速率分布
+\end{choiceoptions}
+\begin{solution}
+速率分布不是高斯分布；在热平衡且局域温度一定时仍服从麦克斯韦型；也不是“任何条件下”都成立。四项中相对正确的是它是平衡态下的一类特定分布律。
+\ansmath{\text{B}}
+\end{solution}
+\end{question}
+
+\begin{question}
+三维泻流粒子的速率分布满足以下哪种分布？
+\begin{choiceoptions}
+\item 正态分布
+\item 三维空间麦克斯韦速率分布
+\item 幂率分布
+\item 都不是
+\end{choiceoptions}
+\begin{solution}
+泻流分布满足 $F_B(v)\propto v^3e^{-mv^2/(2k_BT)}$，与通常体相中的麦克斯韦速率分布不同。
+\ansmath{\text{D}}
+\end{solution}
+\end{question}
+
+\textbf{二、简答题（15 分，每题 3 分）}
+\begin{question}
+近代物理学中常用电子伏特 eV 作为能量单位。问在多高温度下分子的平均平动动能为 $1\,\mathrm{eV}$？已知 $e\approx1.6\times10^{-19}\,\mathrm{C}$，$k_B\approx1.38\times10^{-23}\,\mathrm{J/K}$。
+\begin{solution}
+由
+\[
+\frac32k_BT=1\,\mathrm{eV}=1.6\times10^{-19}\,\mathrm{J}
+\]
+得
+\[
+T=\frac{2\times1.6\times10^{-19}}{3\times1.38\times10^{-23}}\approx7.73\times10^3\,\mathrm{K}.
+\]
+\ansmath{T\approx7.7\times10^3\,\mathrm{K}}
+\end{solution}
+\end{question}
+
+\begin{question}
+重力场中微观粒子随高度的等温分布满足玻尔兹曼分布。若单个气体分子质量为 $m$、温度恒为 $T$，求每个气体分子的重力势能平均值。
+\begin{solution}
+概率密度与 $e^{-mgz/(k_BT)}$ 成正比。归一化后
+\[
+\langle U\rangle=\int_0^{\infty}mgz\cdot \frac{mg}{k_BT}e^{-mgz/(k_BT)}\,dz=k_BT.
+\]
+\ansmath{\langle U\rangle=k_BT}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个氢气球自由上升。若忽略大气温度、摩尔质量及重力加速度随高度的变化，且忽略橡皮膜造成的内外压差，问球在上升过程中所受浮力是否变化？
+\begin{solution}
+等温大气中 $\rho(z)\propto p(z)$；而气球内气体近似满足 $V(z)\propto1/p(z)$。故浮力
+\[
+F_b=\rho(z)gV(z)
+\]
+中两项正好相消，与高度无关。
+\ansmath{F_b\text{ 不随高度变化}}
+\end{solution}
+\end{question}
+
+\begin{question}
+玻尔兹曼常数为 $k_B$，温度为 $T$。热平衡下每个单原子分子、刚性双原子分子和非刚性双原子分子的平均内能各是多少？
+\begin{solution}
+由能均分定理：单原子分子有 3 个平动自由度；刚性双原子分子有 3 个平动和 2 个转动自由度；非刚性双原子再加 2 个振动二次项。
+\ansmath{\frac32k_BT,\qquad \frac52k_BT,\qquad \frac72k_BT.}
+\end{solution}
+\end{question}
+
+\begin{question}
+若每个分子可近似为直径为 $d$ 的小球，证明分子平均碰撞频率为
+\[
+\bar Z=\sqrt2\,n\sigma\bar v,
+\qquad \sigma=\pi d^2,
+\qquad \bar v=\sqrt{\frac{8k_BT}{\pi m}}.
+\]
+\begin{solution}
+平均自由程满足
+\[
+\lambda=\frac{1}{\sqrt2\,n\sigma}.
+\]
+碰撞频率等于单位时间行进的平均“程数”，故
+\[
+\bar Z=\frac{\bar v}{\lambda}=\sqrt2\,n\sigma\bar v.
+\]
+\ansmath{\bar Z=\sqrt2\,n\sigma\bar v}
+\end{solution}
+\end{question}
+
+\textbf{三、计算题与证明题（70 分，每题 10 分）}
+\begin{question}
+用 $L$ 表示液体温度计中液柱长度，并定义温标 $t^*$ 与 $L$ 的关系为
+\[
+t^*=a\ln L+b.
+\]
+规定凝固点为 $0^\circ$，沸点为 $100^\circ$。已知冰点时 $L_i=5.0\,\mathrm{cm}$，沸点时 $L_s=25.0\,\mathrm{cm}$。求 $0^\circ$ 到 $10^\circ$ 之间的液柱长度差，以及 $90^\circ$ 到 $100^\circ$ 之间的液柱长度差。
+\begin{solution}
+由两定点定标得
+\[
+t^*=100\,\frac{\ln(L/L_i)}{\ln(L_s/L_i)}=100\,\frac{\ln(L/5)}{\ln5}.
+\]
+故
+\[
+L(t)=5\cdot 5^{t/100}\,\mathrm{cm}.
+\]
+于是
+\[
+\Delta L_{0\to10}=5(5^{0.1}-1)\approx0.873\,\mathrm{cm},
+\]
+\[
+\Delta L_{90\to100}=25-5\cdot 5^{0.9}\approx3.717\,\mathrm{cm}.
+\]
+\ansmath{\Delta L_{0\to10}\approx0.873\,\mathrm{cm},\qquad \Delta L_{90\to100}\approx3.717\,\mathrm{cm}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+已知某种气体在状态 $(p,V,T)$ 附近的等体压强系数
+\[
+\beta=\frac1p\left(\frac{\partial p}{\partial T}\right)_V=\frac1T,
+\]
+等温压缩系数
+\[
+\kappa=-\frac1V\left(\frac{\partial V}{\partial p}\right)_T=\frac1p\left(1-\frac{b}{V}\right),
+\]
+其中 $b>0$ 为常量。求该气体的状态方程。
+\begin{solution}
+由 $\beta=1/T$ 得
+\[
+\frac{1}{p}\left(\frac{\partial p}{\partial T}\right)_V=\frac1T
+\quad\Longrightarrow\quad
+p=T\,f(V).
+\]
+再由
+\[
+\left(\frac{\partial p}{\partial V}\right)_T=-\frac{1}{\kappa V}=-\frac{p}{V-b}
+\]
+代入 $p=T f(V)$，得到
+\[
+\frac{f'(V)}{f(V)}=-\frac{1}{V-b}.
+\]
+积分得
+\[
+f(V)=\frac{C}{V-b}.
+\]
+因此
+\ansmath{p(V-b)=CT}
+其中 $C$ 为与物质的量有关的常数。
+\end{solution}
+\end{question}
+
+\begin{question}
+分子束实验中，从蒸气源小孔中射出的分子射线中分子的速率分布率为
+\[
+F_B(v)=\frac{v}{\bar v}F_M(v),
+\]
+其中 $F_M(v)\propto v^2 e^{-mv^2/(2k_BT)}$ 为三维麦克斯韦速率分布，$\bar v=\sqrt{8k_BT/(\pi m)}$。求该分子束的最概然速率、平均速率和方均根速率。
+\begin{solution}
+有
+\[
+F_B(v)\propto v^3e^{-\alpha v^2},\qquad \alpha=\frac{m}{2k_BT}.
+\]
+最概然速率由 $\frac{d}{dv}\ln F_B(v)=0$ 得
+\ansmath{v_{\mathrm{mp}}=\sqrt{\frac{3k_BT}{m}}}.
+平均速率为
+\[
+\langle v\rangle=\frac{\int_0^{\infty}v^4e^{-\alpha v^2}dv}{\int_0^{\infty}v^3e^{-\alpha v^2}dv}
+=\frac{3\sqrt\pi}{2\sqrt2}\sqrt{\frac{k_BT}{m}}
+=\frac{3\pi}{8}\bar v.
+\]
+方均根速率为
+\[
+\sqrt{\langle v^2\rangle}=\left(\frac{\int_0^{\infty}v^5e^{-\alpha v^2}dv}{\int_0^{\infty}v^3e^{-\alpha v^2}dv}\right)^{1/2}
+=2\sqrt{\frac{k_BT}{m}}.
+\]
+\ansmath{v_{\mathrm{mp}}=\sqrt{\frac{3k_BT}{m}},\qquad \langle v\rangle=\frac{3\pi}{8}\bar v,\qquad v_{\mathrm{rms}}=2\sqrt{\frac{k_BT}{m}}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+暴露在分子质量为 $m$、分子数密度为 $n$、温度为 $T$ 的理想气体中的干净固体表面，只吸收法向速度分量至少为 $v_s$ 的分子。求吸收速率（单位时间单位面积吸收的分子数）。
+\begin{solution}
+设表面法向为 $x$ 方向，则吸收通量为
+\[
+\Gamma=n\int_{v_x\ge v_s}v_x\,f_x(v_x)\,dv_x,
+\]
+其中一维 Maxwell 分布为
+\[
+f_x(v_x)=\sqrt{\frac{m}{2\pi k_BT}}\exp\!\left(-\frac{mv_x^2}{2k_BT}\right).
+\]
+直接积分得
+\[
+\Gamma=n\sqrt{\frac{k_BT}{2\pi m}}\exp\!\left(-\frac{mv_s^2}{2k_BT}\right).
+\]
+因此
+\ansmath{\Gamma=n\sqrt{\frac{k_BT}{2\pi m}}\exp\!\left(-\frac{mv_s^2}{2k_BT}\right).}
+当 $v_s=0$ 时退化为普通入射通量 $\Gamma=\frac14n\bar v$。
+\end{solution}
+\end{question}
+
+\begin{question}
+两个体积都为 $V$ 的容器由长度为 $L$、横截面积很小的水平管道连通。开始时左容器中一氧化碳分压为 $p_0$，右容器中一氧化碳分压为 $0$；氮气保证总压保持为 $p$。设双向扩散系数都为 $D$，求左容器中一氧化碳分压随时间的变化。
+\begin{solution}
+设左、右两侧一氧化碳分压分别为 $p_L(t),p_R(t)$。由总量守恒知
+\[
+p_L+p_R=p_0.
+\]
+管中近似线性分布，Fick 定律给出摩尔流率
+\[
+J=\frac{AD}{k_BT L}(p_L-p_R)=\frac{AD}{k_BT L}(2p_L-p_0).
+\]
+又左侧一氧化碳物质的量为 $N_L=p_LV/(k_BT)$，故
+\[
+\frac{V}{k_BT}\frac{dp_L}{dt}=-\frac{AD}{k_BT L}(2p_L-p_0).
+\]
+解得
+\[
+p_L(t)-\frac{p_0}{2}=\left(p_0-\frac{p_0}{2}\right)e^{-2ADt/(VL)}.
+\]
+因此
+\ansmath{p_L(t)=\frac{p_0}{2}\left(1+e^{-2ADt/(VL)}\right).}
+\end{solution}
+\end{question}
+
+\begin{question}
+用麦克斯韦速度分布函数证明理想气体压强公式。
+\begin{solution}
+单位体积内、速度分量落在 $(v_x,v_x+dv_x)$ 的分子数为 $n f_x(v_x)dv_x$。撞到壁面后法向动量改变量为 $2mv_x$。对 $v_x>0$ 的分子积分，单位时间单位面积受到的压强为
+\[
+p=\int_0^{\infty}2mv_x\cdot v_x\cdot n f_x(v_x)\,dv_x
+=nm\langle v_x^2\rangle.
+\]
+由各向同性，
+\[
+\langle v_x^2\rangle=\langle v_y^2\rangle=\langle v_z^2\rangle=\frac13\langle v^2\rangle.
+\]
+因此
+\ansmath{p=\frac13nm\langle v^2\rangle.}
+再配合能均分定理即可得到 $p=nk_BT$。
+\end{solution}
+\end{question}
+
+
+

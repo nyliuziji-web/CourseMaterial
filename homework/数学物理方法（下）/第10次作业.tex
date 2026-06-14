@@ -1,0 +1,231 @@
+﻿\heading{数学物理方法（下）-第10次作业}
+
+
+\begin{question}
+求解圆形薄膜的受迫振动。设膜半径为 \(R\)，边缘固定，初位移和初速度均为零，膜上单位质量受周期力
+\[
+f(\rho,t)=A\left(1-\frac{\rho^2}{R^2}\right)\sin\omega t
+\]
+作用。
+\begin{solution}
+轴对称振动满足
+\[
+u_{tt}=a^2\left(u_{\rho\rho}+\frac1\rho u_\rho\right)+
+A\left(1-\frac{\rho^2}{R^2}\right)\sin\omega t,\qquad u(R,t)=0.
+\]
+令 \(\alpha_n\) 为 \(J_0\) 的正零点，取
+\[
+u(\rho,t)=\sum_{n=1}^{\infty}q_n(t)J_0\left(\alpha_n\frac{\rho}{R}\right).
+\]
+设
+\[
+A\left(1-\frac{\rho^2}{R^2}\right)=\sum_{n=1}^{\infty}F_nJ_0\left(\alpha_n\frac{\rho}{R}\right),
+\]
+其中
+\[
+F_n=\frac{8A}{\alpha_n^3J_1(\alpha_n)}.
+\]
+模态方程为
+\[
+q_n''+\Omega_n^2q_n=F_n\sin\omega t,\qquad
+\Omega_n=\frac{a\alpha_n}{R}.
+\]
+若 \(\omega\ne\Omega_n\)，
+\[
+q_n(t)=\frac{F_n}{\Omega_n^2-\omega^2}
+\left(\sin\omega t-\frac{\omega}{\Omega_n}\sin\Omega_nt\right).
+\]
+共振时取相应极限。
+\end{solution}
+\end{question}
+
+\begin{question}
+高为 \(h\)、半径为 \(a\) 的圆柱体，上下底保持温度为零，柱体侧面绝热，初温为 \(u_0f(\rho)\)，求柱体内温度的分布和变化。
+\begin{solution}
+温度满足柱坐标热方程
+\[
+u_t=\kappa\left(u_{\rho\rho}+\frac1\rho u_\rho+u_{zz}\right),
+\quad u(\rho,0,t)=u(\rho,h,t)=0,\quad u_\rho(a,z,t)=0.
+\]
+径向本征值由
+\[
+J_1(\alpha_m a)=0
+\]
+给出，其中 \(\alpha_0=0\) 对应常数径向模。故
+\[
+u(\rho,z,t)=\sum_{m=0}^{\infty}\sum_{n=1}^{\infty}
+A_{mn}J_0(\alpha_m\rho)\sin\frac{n\pi z}{h}
+\exp\left[-\kappa\left(\alpha_m^2+\frac{n^2\pi^2}{h^2}\right)t\right].
+\]
+由初值 \(u_0f(\rho)\) 与 \(z\) 无关得
+\[
+A_{mn}=\frac{2u_0}{hN_m}\int_0^a f(\rho)J_0(\alpha_m\rho)\rho\,d\rho
+\int_0^h\sin\frac{n\pi z}{h}\,dz,
+\]
+其中
+\[
+N_m=\frac{a^2}{2}J_0^2(\alpha_ma),\qquad m=0,1,2,\ldots .
+\]
+因此偶数 \(n\) 的系数为零；奇数 \(n\) 时
+\[
+A_{mn}=\frac{8u_0}{n\pi a^2J_0^2(\alpha_ma)}
+\int_0^a f(\rho)J_0(\alpha_m\rho)\rho\,d\rho .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+高为 \(h\)、半径为 \(a\) 的圆柱体，上下底保持温度为零，柱体侧面温度保持为 \(u_0\)，求柱体内稳态温度分布。
+\begin{solution}
+稳态解满足
+\[
+u_{\rho\rho}+\frac1\rho u_\rho+u_{zz}=0,\quad
+u(\rho,0)=u(\rho,h)=0,\quad u(a,z)=u_0.
+\]
+设
+\[
+u(\rho,z)=\sum_{n=1}^{\infty}A_n
+\frac{I_0(n\pi\rho/h)}{I_0(n\pi a/h)}
+\sin\frac{n\pi z}{h}.
+\]
+由侧面边界 \(u_0\) 的正弦展开
+\[
+u_0=\sum_{n=1}^{\infty}A_n\sin\frac{n\pi z}{h}
+\]
+得
+\[
+A_n=\frac{2u_0}{n\pi}\bigl(1-(-1)^n\bigr).
+\]
+因此
+\[
+u(\rho,z)=\sum_{n=1}^{\infty}
+\frac{2u_0(1-(-1)^n)}{n\pi}
+\frac{I_0(n\pi\rho/h)}{I_0(n\pi a/h)}
+\sin\frac{n\pi z}{h}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+计算
+\[
+\sum_{n=0}^{\infty}(2n+1)J_{2n+1}(x).
+\]
+\begin{solution}
+利用 Bessel 函数生成函数或平面波展开。由
+\[
+\sin(x\sin\theta)=2\sum_{n=0}^{\infty}J_{2n+1}(x)\sin(2n+1)\theta
+\]
+对 \(\theta\) 求导并令 \(\theta=0\)，得
+\[
+x=2\sum_{n=0}^{\infty}(2n+1)J_{2n+1}(x).
+\]
+故
+\[
+\sum_{n=0}^{\infty}(2n+1)J_{2n+1}(x)=\frac{x}{2}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解底面绝热的半球内热传导问题
+\[
+\begin{cases}
+u_t-\kappa\nabla^2u=z,\qquad x^2+y^2+z^2<a^2,\ z>0,\ t>0,\\
+\text{半球底面绝热},\\
+u|_{x^2+y^2+z^2=a^2}=0,\\
+u|_{t=0}=0.
+\end{cases}
+\]
+\begin{solution}
+由轴对称性设 \(z=r\cos\theta\)。底面 \(\theta=\pi/2\) 绝热，源项正比 \(P_1(\cos\theta)\)，故只需 \(l=1\) 模态：
+\[
+u(r,\theta,t)=U(r,t)\cos\theta.
+\]
+径向本征函数取球 Bessel 函数
+\[
+R_n(r)=j_1(\alpha_nr/a),\qquad j_1(\alpha_n)=0.
+\]
+展开
+\[
+r=\sum_{n=1}^{\infty}F_nj_1(\alpha_nr/a),
+\]
+则
+\[
+u(r,\theta,t)=\cos\theta
+\sum_{n=1}^{\infty}
+\frac{F_n}{\kappa(\alpha_n/a)^2}
+\left(1-e^{-\kappa(\alpha_n/a)^2t}\right)
+j_1(\alpha_nr/a).
+\]
+其中
+\[
+F_n=-\frac{2a(1+\alpha_n^2)\cos\alpha_n}{\alpha_n},
+\qquad \tan\alpha_n=\alpha_n.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求长圆柱形和球形轴块的临界半径。
+\begin{solution}
+临界条件来自中子扩散方程的基模：
+\[
+\nabla^2u+B^2u=0,\qquad u|_{\partial\Omega}=0.
+\]
+长圆柱的基模为 \(J_0(\alpha_1\rho/R)\)，其中 \(\alpha_1\) 是 \(J_0\) 的第一个正零点，故
+\[
+R_c=\frac{\alpha_1}{B}.
+\]
+球形轴块的基模为 \(\sin Br/r\)，边界给出
+\[
+BR_c=\pi,\qquad R_c=\frac{\pi}{B}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+将
+\[
+\frac1z\cos\sqrt{z^2-2zt}
+\]
+在 \(t=0\) 邻域作 Taylor 展开，规定 \(\sqrt{z^2-2zt}|_{t=0}=z\)。
+\begin{solution}
+由球 Bessel 函数生成关系可写成
+\[
+\frac1z\cos\sqrt{z^2-2zt}
+=\sum_{n=0}^{\infty}\frac{t^n}{n!}
+\left(\frac1z\frac d{dz}\right)^n\frac{\cos z}{z}.
+\]
+该式即所需 Taylor 展开，前几项为
+\[
+\frac{\cos z}{z}
++t\left(-\frac{\sin z}{z^2}-\frac{\cos z}{z^3}\right)+\cdots .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+将函数 \(e^{r\cos\theta}J_0(r\sin\theta)\) 按 Legendre 多项式 \(P_l(\cos\theta)\) 展开。
+\begin{solution}
+该函数满足 Laplace 方程，故有
+\[
+e^{r\cos\theta}J_0(r\sin\theta)
+=\sum_{l=0}^{\infty}c_lr^lP_l(\cos\theta).
+\]
+令 \(\theta=0\)，得
+\[
+e^r=\sum_{l=0}^{\infty}c_lr^l.
+\]
+由 Taylor 展开唯一性，
+\[
+c_l=\frac1{l!}.
+\]
+因此
+\[
+e^{r\cos\theta}J_0(r\sin\theta)
+=\sum_{l=0}^{\infty}\frac{r^l}{l!}P_l(\cos\theta).
+\]
+\end{solution}
+\end{question}
+

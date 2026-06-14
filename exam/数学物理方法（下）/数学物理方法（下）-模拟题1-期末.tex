@@ -1,0 +1,221 @@
+﻿\heading{数学物理方法（下）-模拟题1-期末}
+
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+计算卷积积分
+\[
+I(x)=\int_0^x \sin(x-t)J_0(t)\,dt,
+\]
+其中 $J_0$ 为第一类零阶 Bessel 函数。
+\begin{solution}
+
+用 Laplace 变换。已知
+\[
+\mathcal L\{\sin x\}=\frac{1}{s^2+1},\qquad \mathcal L\{J_0(x)\}=\frac{1}{\sqrt{s^2+1}}.
+\]
+故
+\[
+\mathcal L\{I\}=\frac{1}{(s^2+1)^{3/2}}.
+\]
+又利用恒等式
+\[
+\frac{d}{dx}\bigl(xJ_1(x)\bigr)=xJ_0(x)
+\]
+可知
+\[
+\mathcal L\{1-J_0(x)\}=\frac{1}{s}-\frac{1}{\sqrt{s^2+1}}
+=\frac{\sqrt{s^2+1}-s}{s\sqrt{s^2+1}},
+\]
+不够直接；更直接地注意到
+\[
+\mathcal L\left\{\int_0^x tJ_0(t)\,dt\right\}=\frac1s\mathcal L\{xJ_0(x)\}=\frac1s\frac{s}{(s^2+1)^{3/2}}=\frac{1}{(s^2+1)^{3/2}}.
+\]
+因此
+\[
+I(x)=\int_0^x tJ_0(t)\,dt=xJ_1(x).
+\]
+故
+\ansmath{\int_0^x \sin(x-t)J_0(t)\,dt=xJ_1(x).}
+\end{solution}
+\end{question}
+
+\begin{question}
+在圆盘 $x^2+y^2<a^2$ 中求解泊松方程
+\[
+-\kappa\nabla^2u=y,
+\qquad u|_{x^2+y^2=a^2}=x^2-y^2.
+\]
+要求写出一个显式特解，并说明一般解结构。
+\begin{solution}
+
+先取边界项的调和延拓
+\[
+ u_1=x^2-y^2.
+\]
+再找零边界特解。注意到二维中
+\[
+\nabla^2(r^2y)=8y,
+\qquad r^2=x^2+y^2.
+\]
+因此可取
+\[
+ u_2=-\frac{(r^2-a^2)y}{8\kappa}.
+\]
+因为在边界 $r=a$ 时 $u_2=0$，且
+\[
+-\kappa\nabla^2u_2=y.
+\]
+故一个显式解为
+\ansmath{u(x,y)=x^2-y^2-\frac{(x^2+y^2-a^2)y}{8\kappa}.}
+若只要求满足同样边界数据，则这已是唯一解；若题目改成带时间项的热方程，则一般解应写成“该稳态解 $+$ 圆盘上零边界齐次热方程的 Bessel 本征展开”。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定算符
+\[
+\hat L=-\frac{d}{dx},
+\qquad D(\hat L)=\{u\in L^2(0,\pi):u(\pi)=\gamma u(0)\},
+\]
+求伴算符 $\hat L^\dagger$，并求何时有 $\hat L^\dagger=-\hat L$。在该条件下求全部本征值和本征函数。
+\begin{solution}
+
+对 $u\in D(\hat L)$、$v\in D(\hat L^\dagger)$，
+\[
+\langle \hat Lu,v\rangle=-\int_0^{\pi}u'\bar v\,dx=
+\int_0^{\pi}u\overline{v'}\,dx-u(\pi)\overline{v(\pi)}+u(0)\overline{v(0)}.
+\]
+利用 $u(\pi)=\gamma u(0)$，边界项为
+\[
+u(0)\bigl(\overline{v(0)}-\gamma\overline{v(\pi)}\bigr).
+\]
+对任意 $u$ 消失，当且仅当
+\[
+ v(0)=\overline\gamma\,v(\pi).
+\]
+故
+\ansmath{\hat L^\dagger=\frac{d}{dx},\qquad D(\hat L^\dagger)=\{v:v(0)=\overline\gamma v(\pi)\}.}
+要使 $\hat L^\dagger=-\hat L$，只需定义域相同，即
+\[
+ v(\pi)=\gamma v(0)\iff v(0)=\overline\gamma v(\pi),
+\]
+这等价于
+\ansmath{|\gamma|=1.}
+设 $\gamma=e^{i\theta}$。本征方程
+\[
+ v'=\lambda v
+\]
+给出
+\[
+ v(x)=Ce^{\lambda x}.
+\]
+代入 $v(0)=e^{-i\theta}v(\pi)$，得
+\[
+1=e^{-i\theta}e^{\lambda\pi}\Longrightarrow e^{\lambda\pi}=e^{i\theta}.
+\]
+故
+\ansmath{\lambda_n=\frac{i(\theta+2\pi n)}{\pi},\qquad v_n(x)=e^{\lambda_n x},\qquad n\in\mathbb Z.}
+\end{solution}
+\end{question}
+
+\begin{question}
+求解无界域热方程
+\[
+\begin{cases}
+ u_t-\kappa u_{xx}=e^{-\alpha t}\delta(x), & -\infty<x<\infty,\ t>0,\\
+ u(x,0)=0.
+\end{cases}
+\]
+
+\begin{solution}
+
+利用热核
+\[
+G(x,t)=\frac{1}{\sqrt{4\pi\kappa t}}\exp\!\left(-\frac{x^2}{4\kappa t}\right),\qquad t>0.
+\]
+Duhamel 原理给出
+\[
+ u(x,t)=\int_0^t e^{-\alpha\tau}G(x,t-\tau)\,d\tau.
+\]
+因此
+\ansmath{u(x,t)=\int_0^t \frac{e^{-\alpha\tau}}{\sqrt{4\pi\kappa (t-\tau)}}
+\exp\!\left(-\frac{x^2}{4\kappa (t-\tau)}\right)d\tau.}
+若换元 $s=t-\tau$，也可写成
+\[
+ u(x,t)=e^{-\alpha t}\int_0^t \frac{e^{\alpha s}}{\sqrt{4\pi\kappa s}}
+\exp\!\left(-\frac{x^2}{4\kappa s}\right)ds.
+\]
+这就是所求显式积分表示。
+\end{solution}
+\end{question}
+
+\begin{question}
+把半径为 $a$、总电量为 $Q$ 的均匀带电圆环放在平面 $z=0$ 上、圆心在原点。分别写出其在直角坐标、柱坐标、球坐标下的电荷密度分布。
+\begin{solution}
+
+圆环是线电荷，线密度
+\[
+\lambda=\frac{Q}{2\pi a}.
+\]
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 在柱坐标下最简洁：圆环满足 $\rho=a,\ z=0$，故
+\ansmath{\rho_e(\rho,\varphi,z)=\frac{Q}{2\pi a}\,\delta(\rho-a)\delta(z).}
+注意体元为 $dV=\rho\,d\rho\,d\varphi\,dz$，积分后恰给出 $Q$。
+\item 在直角坐标下可写成
+\ansmath{\rho_e(x,y,z)=\frac{Q}{2\pi a}\,\delta\!\left(\sqrt{x^2+y^2}-a\right)\delta(z).}
+也可用 $\delta(x^2+y^2-a^2)$ 改写，但需同时补上雅可比因子。
+\item 在球坐标中圆环对应 $r=a,\ \theta=\pi/2$。因体元为 $r^2\sin\theta\,dr\,d\theta\,d\varphi$，可取
+\ansmath{\rho_e(r,\theta,\varphi)=\frac{Q}{2\pi a^2}\,\delta(r-a)\,\delta\!\left(\theta-\frac\pi2\right).}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+在半圆域
+\[
+0<r<R,\qquad 0<\theta<\pi
+\]
+上写出满足零边界条件
+\[
+G|_{\theta=0}=G|_{\theta=\pi}=G|_{r=R}=0
+\]
+的 Laplace 算符 Green 函数的本征展开结构。提示：先做分离变量。
+\begin{solution}
+
+零边界条件下，角向本征函数为
+\[
+\Theta_n(\theta)=\sin n\theta,\qquad n=1,2,\dots
+\]
+径向部分满足 Bessel 方程，且在 $r=0$ 有界、在 $r=R$ 为零，因此应取
+\[
+R_{n,m}(r)=J_n\!\left(\frac{j_{n,m}}{R}r\right),
+\qquad J_n(j_{n,m})=0,
+\qquad m=1,2,\dots
+\]
+于是 Green 函数可按完整正交系展开为
+\ansmath{G(r,\theta;r',\theta')=
+\sum_{n=1}^{\infty}\sum_{m=1}^{\infty}
+\frac{C_{n,m}}{\lambda_{n,m}}
+J_n\!\left(\frac{j_{n,m}}{R}r_<\right)
+J_n\!\left(\frac{j_{n,m}}{R}r_>\right)
+\sin n\theta\sin n\theta',}
+其中
+\[
+\lambda_{n,m}=\left(\frac{j_{n,m}}{R}\right)^2,
+\]
+$C_{n,m}$ 由正交归一化决定。更标准地写成
+\[
+G=\sum_{n,m}
+\frac{J_n(j_{n,m}r/R)J_n(j_{n,m}r'/R)\sin n\theta\sin n\theta'}{
+\lambda_{n,m}\,N_{n,m}},
+\]
+其中
+\[
+N_{n,m}=\int_0^{\pi}\!\sin^2 n\theta\,d\theta\int_0^R rJ_n^2(j_{n,m}r/R)\,dr.
+\]
+这就是所求本征展开结构。
+\end{solution}
+\end{question}
+
+

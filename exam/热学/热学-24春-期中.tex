@@ -1,0 +1,197 @@
+﻿\heading{热学-24春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\textbf{一、单选题}
+\begin{question}
+上传稿仅保留答案键：\textbf{C C D B D}。
+\end{question}
+
+\textbf{二、简答题}
+\begin{question}
+重力场中的 Boltzmann 分布及平均势能。
+\begin{solution}
+平衡分布
+\[
+f(z)=\frac{mg}{k_BT}e^{-mgz/(k_BT)},\qquad z>0.
+\]
+故平均重力势能
+\[
+\langle \varepsilon_p\rangle=\int_0^{\infty} mgz\,f(z)\,dz=k_BT.
+\]
+\ansmath{\langle \varepsilon_p\rangle=\int_0^{\infty} mgz\,f(z)\,dz=k_BT}
+\end{solution}
+\end{question}
+
+\begin{question}
+推导极端相对论性气体的压强公式。
+\begin{solution}
+由动量流定义压强，可写成
+\[
+p=n\langle mv_\alpha^2\rangle.
+\]
+极端相对论情形下
+\[
+\varepsilon_k=pc=\sum_{\alpha=x,y,z}mv_\alpha^2,
+\]
+各方向平均相同，因此
+\[
+p=\frac13 n\langle \varepsilon_k\rangle.
+\]
+\ansmath{p=\frac13 n\langle \varepsilon_k\rangle}
+\end{solution}
+\end{question}
+
+\begin{question}
+说明气球在等温大气中上升时浮力不变。
+\begin{solution}
+等温大气中
+\[
+\rho(z)=\frac{p(z)\mu}{RT}.
+\]
+气球内气体近似理想气体，若其内部物质的量不变，则
+\[
+V(z)=\frac{p_0V_0}{p(z)}.
+\]
+故浮力
+\[
+F(z)=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},
+\]
+与高度无关。
+\ansmath{F(z)=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},}
+\end{solution}
+\end{question}
+
+\begin{question}
+泻流数与碰撞频率。
+\begin{solution}
+泻流数
+\[
+\Gamma=\frac14 n\langle u\rangle,
+\qquad \langle u\rangle=\sqrt2\,\langle v\rangle.
+\]
+若分子有效截面为 $\sigma=\pi d^2$，则碰撞频率
+\[
+\langle Z\rangle=\Gamma\,4\pi d^2
+=\sqrt2\,n\sigma\langle v\rangle.
+\]
+\ansmath{\langle Z\rangle=\Gamma\,4\pi d^2
+=\sqrt2\,n\sigma\langle v\rangle}
+\end{solution}
+\end{question}
+
+\begin{question}
+单原子、刚性双原子、非刚性双原子的平均内能。
+\begin{solution}
+\[
+\langle \varepsilon\rangle=
+\frac32k_BT,\qquad \frac52k_BT,\qquad \frac72k_BT.
+\]
+（上传稿末项误写为 $7/5\,k_BT$，此处按能均分定理改正为 $7/2\,k_BT$。）
+\ansmath{\langle \varepsilon\rangle=
+\frac32k_BT,\qquad \frac52k_BT,\qquad \frac72k_BT}
+\end{solution}
+\end{question}
+
+\begin{question}
+Feynman 棘轮为什么长期平均不转？
+\begin{solution}
+若顺转需克服能垒 $\varepsilon$，则顺转概率与反转概率都受热涨落控制，量级同为
+\[
+p_+\propto e^{-\varepsilon/(k_BT)},
+\qquad p_-\propto e^{-\varepsilon/(k_BT)}.
+\]
+因此长期平均无净转动，不能从单一热源中无代价取功。
+\ansmath{p_+\propto e^{-\varepsilon/(k_BT)},
+\qquad p_-\propto e^{-\varepsilon/(k_BT)}}
+\end{solution}
+\end{question}
+
+\textbf{三、计算与证明题（按原稿保留结论）}
+\begin{question}
+题 1：由数据解得
+\[
+L=5^{\,t^*/100+1},
+\]
+并有
+\[
+\Delta L_1=5(5^{0.1}-1)\,\mathrm{cm},
+\qquad
+\Delta L_2=25(1-5^{-0.1})\,\mathrm{cm}.
+\]
+\end{question}
+
+\begin{question}
+题 2：由题给全微分关系
+\[
+\frac{\partial p}{p\,\partial T}=\frac1T,
+\qquad
+\frac{\partial p}{p\,\partial V}=-\frac{1}{V-b},
+\]
+积分得状态方程
+\[
+\frac{p(V-b)}{T}=C.
+\]
+\end{question}
+
+\begin{question}
+题 3：速率大于 $v_0$ 的分子撞击容器壁单位时间单位面积次数为
+\[
+\Gamma(v_0)=\frac{n}{4}\sqrt{\frac{8k_BT}{\pi m}}
+\left(1+\frac{mv_0^2}{2k_BT}\right)e^{-mv_0^2/(2k_BT)}.
+\]
+\end{question}
+
+\begin{question}
+题 4：利用布朗分布求 Avogadro 常数，结论为
+\[
+N_A=\frac{3RT}{4\pi r^3(\rho-\rho_0)g\,\Delta h}\ln\frac{n_1}{n_2}.
+\]
+\end{question}
+
+\begin{question}
+题 5：大气温度线性递减模型 $T(z)=T_0-\alpha z$ 下，压强分布
+\[
+p(z)=p_0\left(1-\frac{\alpha z}{T_0}\right)^{\mu g/(R\alpha)}.
+\]
+当 $\alpha\to 0$ 时退化为等温结果
+\[
+p(z)=p_0 e^{-\mu gz/(RT_0)}.
+\]
+\end{question}
+
+\begin{question}
+题 6：两热容 $C_1,C_2$ 初温分别为 $\tau_{10},\tau_{20}$，传热满足 $\dot Q_{12}=\kappa(\tau_1-\tau_2)$。则温差满足
+\[
+\frac{d(\tau_1-\tau_2)}{dt}
+=-\kappa\frac{C_1+C_2}{C_1C_2}(\tau_1-\tau_2),
+\]
+故半衰时间
+\[
+t_{1/2}=\frac{C_1C_2}{\kappa(C_1+C_2)}\ln2.
+\]
+此时两侧温度为
+\[
+\tau_{1,1/2}=\frac{(2C_1+C_2)\tau_{10}+C_2\tau_{20}}{2(C_1+C_2)},
+\qquad
+\tau_{2,1/2}=\frac{(C_1+2C_2)\tau_{20}+C_1\tau_{10}}{2(C_1+C_2)}.
+\]
+\end{question}
+
+\begin{question}
+题 7：Poiseuille 定律。
+\begin{solution}
+由牛顿黏滞定律得速度分布
+\[
+u(\rho)=\frac{\Delta p}{4\eta L}(r^2-\rho^2),
+\]
+积分得体积流量
+\[
+Q=\int_0^r 2\pi\rho\,u(\rho)\,d\rho
+=\frac{\Delta p\,\pi r^4}{8\eta L}.
+\]
+\ansmath{Q=\int_0^r 2\pi\rho\,u(\rho)\,d\rho
+=\frac{\Delta p\,\pi r^4}{8\eta L}}
+\end{solution}
+\end{question}
+
+

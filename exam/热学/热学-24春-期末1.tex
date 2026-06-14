@@ -1,0 +1,303 @@
+﻿\heading{热学-24春-期末1}
+\noteinfo{题目来源于赛艇，答案由AI生成。第 11 题缺失。}
+
+\textbf{一、选择题}
+\begin{question}
+节流过程熵变化？
+\begin{solution}
+熵增，即 $\Delta S>0$。
+\ansmath{\Delta S>0}
+\end{solution}
+\end{question}
+
+\begin{question}
+理想气体初态相同，分别经过可逆、不可逆绝热压缩到同一末压，比较末温。
+\begin{solution}
+可逆绝热满足 $\Delta S_R=0$，不可逆绝热满足 $\Delta S_{IR}>0$。对理想气体
+\[
+\Delta S=C_p\ln\frac{T_f}{T_i}-\nu R\ln\frac{p_f}{p_i}.
+\]
+在 $p_f/p_i$ 相同的条件下，$\Delta S_{IR}>\Delta S_R$ 推出
+\[
+T_{IR}>T_R.
+\]
+\ansmath{T_{IR}>T_R}
+\end{solution}
+\end{question}
+
+\begin{question}
+若气体满足 $\left(\partial U/\partial V\right)_T=-p$，则小过程是否有 $dS=0$？
+\begin{solution}
+由基本关系
+\[
+TdS=dU+p\,dV.
+\]
+若该小过程是等温过程，则
+\[
+dU=\left(\frac{\partial U}{\partial V}\right)_T dV=-p\,dV,
+\]
+于是 $TdS=0$，故 $dS=0$。
+\ansmath{dU=\left(\frac{\partial U}{\partial V}\right)_T dV=-p\,dV,}
+\end{solution}
+\end{question}
+
+\begin{question}
+化学势 $\mu$ 的定义。
+\begin{solution}
+\[
+\mu=\left(\frac{\partial G}{\partial N}\right)_{p,T}.
+\]
+\ansmath{\mu=\left(\frac{\partial G}{\partial N}\right)_{p,T}}
+\end{solution}
+\end{question}
+
+\begin{question}
+纯物质临界点附近的表面张力系数符号。
+\begin{solution}
+临界点附近表面张力趋于零，即 $\sigma\to 0$。
+\ansmath{\sigma\to 0}
+\end{solution}
+\end{question}
+
+\textbf{二、简答题}
+\begin{question}
+电解水反应 $\mathrm{H_2O(l)}\to \mathrm{H_2(g)}+\tfrac12\mathrm{O_2(g)}$，已知 298 K 下标准摩尔熵和 $\Delta_f H_m^\Theta$，求吸放热 $Q$ 与消耗电能 $E$。
+\begin{solution}
+先算熵变
+\[
+\Delta S_m^\Theta=S_m^\Theta(\mathrm{H_2})+\frac12S_m^\Theta(\mathrm{O_2})-S_m^\Theta(\mathrm{H_2O}).
+\]
+若过程在 $T=298\,\mathrm K$ 可逆进行，则
+\[
+Q=T\Delta S_m^\Theta.
+\]
+再由第一定律，电解所需总能量为焓变，故
+\[
+E=\Delta_f H_m^\Theta-Q=\Delta G_m^\Theta.
+\]
+\ansmath{E=\Delta_f H_m^\Theta-Q=\Delta G_m^\Theta}
+\end{solution}
+\end{question}
+
+\begin{question}
+证明等温线与绝热线不可能交于两点。
+\begin{solution}
+反证：若某条等温线与绝热线交于两点，则沿等温线和绝热线可围成一个循环。该循环要么从单一热源吸热并全部转化为功，要么违背 Clausius 不等式，分别与第一、第二定律矛盾，因此不可能。
+\anstext{反证：若某条等温线与绝热线交于两点，则沿等温线和绝热线可围成一个循环。该循环要么从单一热源吸热并全部转化为功，要么违背 Clausius 不等式，分别与第一、第二定律矛盾，因此不可能。}
+\end{solution}
+\end{question}
+
+\begin{question}
+证明表面内能公式
+\[
+u_s=A_s\left(\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)\right).
+\]
+\begin{solution}
+表面自由能
+\[
+F_s=\sigma A_s.
+\]
+表面熵
+\[
+S_s=-\left(\frac{\partial F_s}{\partial T}\right)_{A_s}=-A_s\left(\frac{\partial\sigma}{\partial T}\right).
+\]
+故表面内能
+\[
+U_s=F_s+TS_s=A_s\left(\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)\right).
+\]
+\ansmath{U_s=F_s+TS_s=A_s\left(\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)\right)}
+\end{solution}
+\end{question}
+
+\begin{question}
+叙述一级相变特点及气液相平衡条件。
+\begin{solution}
+一级相变具有潜热和体积跃变；两相平衡条件为
+\[
+T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2.
+\]
+\ansmath{T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2}
+\end{solution}
+\end{question}
+
+\begin{question}
+叙述过热液体、过冷蒸气，并说明在等温线上的位置。
+\begin{solution}
+过热液体是已达到汽化条件却仍未汽化的液体，过冷蒸气是已达到液化条件却仍未液化的蒸气；它们都属亚稳态。在 vdW 等温线中，共存平台两侧的亚稳分支分别对应过热液体与过冷蒸气。
+\anstext{过热液体是已达到汽化条件却仍未汽化的液体，过冷蒸气是已达到液化条件却仍未液化的蒸气；它们都属亚稳态。在 vdW 等温线中，共存平台两侧的亚稳分支分别对应过热液体与过冷蒸气。}
+\end{solution}
+\end{question}
+
+\textbf{三、计算题}
+\begin{question}
+37 届决赛“量子热机”题。
+\begin{solution}
+上传稿未附题面，原稿仅注“自行搜索”，此处保留空位。
+\anstext{题面缺失，答案从略。}
+\end{solution}
+\end{question}
+
+\begin{question}
+设离散体系满足 Maxwell--Boltzmann 分布
+\[
+p_i=\frac{e^{-E_i/(k_BT)}}{\sum_j e^{-E_j/(k_BT)}}.
+\]
+证明熵与自由能关系，并求熵函数。
+\begin{solution}
+配分函数 $Z=\sum_i e^{-E_i/(k_BT)}$，自由能
+\[
+F=-k_BT\ln Z.
+\]
+于是
+\[
+S=-\left(\frac{\partial F}{\partial T}\right)_V.
+\]
+再利用 $p_i=e^{-E_i/(k_BT)}/Z$，得
+\[
+F=U-TS,
+\qquad U=\sum_i p_iE_i.
+\]
+化简即可得到
+\[
+S=-k_B\sum_i p_i\ln p_i.
+\]
+\ansmath{S=-k_B\sum_i p_i\ln p_i}
+\end{solution}
+\end{question}
+
+\begin{question}
+$1\,$mol vdW 气体节流过程，已知 $C_V,a,b,V_0,V_f,p_0,p_f$，求温度变化 $\Delta T$。
+\begin{solution}
+摩尔焓写为
+\[
+H_m=C_VT-\frac{a}{V_m}+pV_m+H_0.
+\]
+节流过程满足焓不变，故
+\[
+C_V(T_f-T_0)-\frac{a}{V_f}+p_fV_f+\frac{a}{V_0}-p_0V_0=0.
+\]
+因此
+\[
+\Delta T=T_f-T_0=\frac{a\left(\frac1{V_f}-\frac1{V_0}\right)-\left(p_fV_f-p_0V_0\right)}{C_V}.
+\]
+\ansmath{\Delta T=T_f-T_0=\frac{a\left(\frac1{V_f}-\frac1{V_0}\right)-\left(p_fV_f-p_0V_0\right)}{C_V}}
+\end{solution}
+\end{question}
+
+\begin{question}
+如图所示：左侧等容热容块热容 $C_r$，右侧理想气体有 $N$ 个粒子，热容记为 $C_g$；整体绝热，中间导热良好，左右同温。求过程方程及右侧从 $V_i$ 变到 $V_f$ 时的做功 $W$ 与传热 $Q_{rg}$。
+\begin{solution}
+右侧气体满足
+\[
+C_g dT+p\,dV=\delta Q_g,
+\qquad p=\frac{Nk_BT}{V}.
+\]
+左侧热容块放热
+\[
+\delta Q_g=-dU_r=-C_r dT.
+\]
+故
+\[
+(C_r+C_g)dT+\frac{Nk_BT}{V}dV=0.
+\]
+积分得过程方程
+\[
+V\,T^{\frac{C_r+C_g}{Nk_B}}=\text{常数}
+\qquad\text{或}\qquad
+V^{Nk_B}T^{C_r+C_g}=\text{常数}.
+\]
+于是
+\[
+T_f=T_0\left(\frac{V_i}{V_f}\right)^{\frac{Nk_B}{C_r+C_g}}.
+\]
+做功可由
+\[
+dW=p\,dV=-(C_r+C_g)dT
+\]
+积分得
+\[
+W=(C_r+C_g)(T_0-T_f).
+\]
+若 $Q_{rg}$ 表示左侧传给右侧的热量，则
+\[
+Q_{rg}=C_r(T_0-T_f).
+\]
+\ansmath{Q_{rg}=C_r(T_0-T_f)}
+\end{solution}
+\end{question}
+
+\begin{question}
+三相（冰、水、水蒸气）各 $1\,$g，在 $t=0.01^\circ\mathrm C$ 下混合；给定热量 $Q$ 后求质量变化。
+\begin{solution}
+上传稿未给出完整数值与路径条件，无法唯一数值化。一般思路是：在三相点附近温度保持不变，所有热量先用于相变，按
+\[
+Q=L_f\,\Delta m_{\text{冰}\to\text{水}}+L_v\,\Delta m_{\text{水}\to\text{汽}}
+\]
+分段求解，并检查三相质量是否仍非负。
+\ansmath{Q=L_f\,\Delta m_{\text{冰}\to\text{水}}+L_v\,\Delta m_{\text{水}\to\text{汽}}}
+\end{solution}
+\end{question}
+
+\begin{question}
+毛细管直径 $d$、高度 $h$，在高度 $h_1$ 处有侧支管口，完全浸润。求：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 毛细上升高度 $h$；
+\item 侧口接触角；
+\item 为什么不能构成永动机。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 顶部液面压强
+\[
+p_t=p_0-\frac{4\sigma}{d}=p_0-\rho gh,
+\]
+故
+\[
+h=\frac{4\sigma}{\rho gd}.
+\]
+\item 侧口液面压强
+\[
+p_s=p_t+\rho g(h-h_1)=p_0-\rho gh_1<p_0.
+\]
+故液面向内凹，且
+\[
+\left|\Delta p_s\right|=\frac{4\sigma\cos\theta}{d}=\rho gh_1,
+\]
+因此
+\[
+\cos\theta=\frac{\rho gh_1d}{4\sigma}.
+\]
+\item 因侧口液面向内凹，水不会自发从侧口滴出，故不能持续输出重力势能，不构成永动机。
+\end{enumerate}
+\anstext{见上。}
+\end{solution}
+\end{question}
+
+\begin{question}
+已知压缩系数 $\beta$、表面张力 $\sigma$，求半径为 $r$ 的液滴相对平液面的密度比。
+\begin{solution}
+由 Laplace 压差
+\[
+\Delta p=\frac{2\sigma}{r}.
+\]
+压缩系数定义
+\[
+\beta=-\frac1V\frac{dV}{dp}.
+\]
+积分得
+\[
+\ln\frac{V_f}{V_i}=-\beta\Delta p
+\quad\Rightarrow\quad
+\ln\frac{\rho_i}{\rho_f}=-\beta\Delta p.
+\]
+当 $\beta\Delta p\ll1$ 时，
+\[
+\frac{\rho_f}{\rho_i}\approx 1+\beta\Delta p
+=1+\frac{2\sigma\beta}{r}.
+\]
+\ansmath{\frac{\rho_f}{\rho_i}\approx 1+\beta\Delta p
+=1+\frac{2\sigma\beta}{r}}
+\end{solution}
+\end{question}
+
+

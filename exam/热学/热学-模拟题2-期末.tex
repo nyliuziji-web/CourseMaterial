@@ -1,0 +1,214 @@
+﻿\heading{热学-模拟题2-期末}
+
+\noteinfo{题目和答案由AI生成。}
+
+\textbf{一、简答题}
+\begin{question}
+写出单组分体系 Gibbs 自由能的微分形式。
+\begin{solution}
+
+\ansmath{dG=-S\,dT+V\,dp+\mu\,dN.}
+\end{solution}
+\end{question}
+
+\begin{question}
+写出热力学稳定性的一个机械判据。
+\begin{solution}
+
+在定温下应有
+\ansmath{\left(\frac{\partial p}{\partial V}\right)_T<0.}
+\end{solution}
+\end{question}
+
+\begin{question}
+写出 Joule--Thomson 系数的定义。
+\begin{solution}
+
+\ansmath{\mu_{JT}=\left(\frac{\partial T}{\partial p}\right)_H.}
+\end{solution}
+\end{question}
+
+\begin{question}
+写出一个常用的 Maxwell 关系式。
+\begin{solution}
+
+例如由 $dG=-S\,dT+V\,dp$ 得
+\ansmath{\left(\frac{\partial S}{\partial p}\right)_T=-\left(\frac{\partial V}{\partial T}\right)_p.}
+\end{solution}
+\end{question}
+
+\begin{question}
+两相平衡时单组分物质满足哪三个量相等？
+\begin{solution}
+
+\ansmath{T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2.}
+\end{solution}
+\end{question}
+
+\textbf{二、解答题}
+\begin{question}
+两个有限热源的热容分别为 $C_h,C_c$（常数），初始温度分别为 $T_h>T_c$。若允许它们之间通过可逆热机交换能量，直到达到共同终温。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求终温 $T_*$；
+\item 求可输出的最大功。
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 可逆过程总熵不变，故
+\[
+C_h\ln\frac{T_*}{T_h}+C_c\ln\frac{T_*}{T_c}=0.
+\]
+解得
+\ansmath{T_*=T_h^{\,C_h/(C_h+C_c)}T_c^{\,C_c/(C_h+C_c)}.}
+
+\item 最大输出功等于初始总内能减去末态总内能：
+\[
+W_{\max}=C_h(T_h-T_*)-C_c(T_*-T_c).
+\]
+故
+\ansmath{W_{\max}=C_hT_h+C_cT_c-(C_h+C_c)T_*.}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+低压近似下 van der Waals 气体满足
+\[
+\left(p+\frac{a}{V_m^2}\right)(V_m-b)=RT.
+\]
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 推导 Joule--Thomson 系数近似公式；
+\item 求反转温度 $T_{\rm inv}$。
+\end{enumerate}
+\begin{solution}
+
+Joule--Thomson 系数的一般公式为
+\[
+\mu_{JT}=\frac{1}{C_p}\left[T\left(\frac{\partial V_m}{\partial T}\right)_p-V_m\right].
+\]
+低压时由 van der Waals 方程可解得
+\[
+V_m\approx \frac{RT}{p}+b-\frac{a}{RT}.
+\]
+因此
+\[
+T\left(\frac{\partial V_m}{\partial T}\right)_p
+=T\left(\frac{R}{p}+\frac{a}{RT^2}\right)
+=\frac{RT}{p}+\frac{a}{RT}.
+\]
+故
+\[
+T\left(\frac{\partial V_m}{\partial T}\right)_p-V_m
+=\frac{RT}{p}+\frac{a}{RT}-\left(\frac{RT}{p}+b-\frac{a}{RT}\right)
+=\frac{2a}{RT}-b.
+\]
+于是
+\ansmath{\mu_{JT}\approx \frac{1}{C_p}\left(\frac{2a}{RT}-b\right).}
+反转温度由 $\mu_{JT}=0$ 给出：
+\ansmath{T_{\rm inv}=\frac{2a}{Rb}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+在过饱和蒸气中生成半径为 $r$ 的液滴时，自由能变化写作
+\[
+\Delta G(r)=4\pi r^2\sigma-\frac{4\pi}{3}r^3\Delta p,
+\]
+其中 $\sigma$ 为表面张力，$\Delta p>0$ 为相变驱动力。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求临界半径 $r_c$；
+\item 求成核势垒 $\Delta G_c$。
+\end{enumerate}
+\begin{solution}
+
+对 $r$ 求导：
+\[
+\frac{d\Delta G}{dr}=8\pi r\sigma-4\pi r^2\Delta p.
+\]
+令其为零，得
+\ansmath{r_c=\frac{2\sigma}{\Delta p}.}
+代回 $\Delta G(r)$：
+\[
+\Delta G_c=4\pi r_c^2\sigma-\frac{4\pi}{3}r_c^3\Delta p
+=\frac{16\pi\sigma^3}{3\Delta p^2}.
+\]
+故
+\ansmath{\Delta G_c=\frac{16\pi\sigma^3}{3\Delta p^2}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+把黑体辐射视为光子气体。设一个立方腔体边长由 $L$ 缓慢增大到 $2L$，过程中绝热且始终保持平衡。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求温度如何变化；
+\item 求总能量如何变化；
+\item 求峰值波长如何变化。
+\end{enumerate}
+\begin{solution}
+
+光子气体满足
+\[
+U=aVT^4,
+\qquad S\propto VT^3.
+\]
+绝热可逆过程 $S$ 不变，因此
+\[
+VT^3=\text{常数}
+\quad\Longrightarrow\quad
+T\propto V^{-1/3}.
+\]
+立方腔边长加倍时，体积变为原来的 $8$ 倍，所以
+\ansmath{T_f=T_i/2.}
+总能量变化为
+\[
+\frac{U_f}{U_i}=\frac{V_fT_f^4}{V_iT_i^4}=8\cdot\left(\frac12\right)^4=\frac12.
+\]
+故
+\ansmath{U_f=U_i/2.}
+由 Wien 位移定律 $\lambda_{\max}T=\text{常数}$，得
+\ansmath{\lambda_{\max,f}=2\lambda_{\max,i}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+设半径为 $r$ 的液滴与其蒸气平衡。假定液体摩尔体积为常量 $V_m$，蒸气为理想气体，平面液面对应的饱和蒸气压为 $p_\infty(T)$。推导 Kelvin 公式
+\[
+\ln\frac{p(r)}{p_\infty}=\frac{2\sigma V_m}{rRT}.
+\]
+\begin{solution}
+
+平衡条件为曲面液滴与蒸气的化学势相等：
+\[
+\mu_l(p_l,T)=\mu_v(p_v,T).
+\]
+相对于平面液面平衡态 $(p_\infty,T)$ 作比较，有
+\[
+\mu_l(p_l,T)-\mu_l(p_\infty,T)=\mu_v(p_v,T)-\mu_v(p_\infty,T).
+\]
+液体近似不可压缩，故
+\[
+\mu_l(p_l,T)-\mu_l(p_\infty,T)=V_m(p_l-p_\infty).
+\]
+蒸气视为理想气体，故
+\[
+\mu_v(p_v,T)-\mu_v(p_\infty,T)=RT\ln\frac{p_v}{p_\infty}.
+\]
+曲面液滴内外压差满足 Laplace 公式
+\[
+p_l-p_v=\frac{2\sigma}{r}.
+\]
+而平面界面时 $p_l=p_v=p_\infty$，忽略蒸气侧微小压差差别，可取
+\[
+p_l-p_\infty\approx \frac{2\sigma}{r}.
+\]
+于是
+\[
+RT\ln\frac{p(r)}{p_\infty}=V_m\frac{2\sigma}{r}.
+\]
+故得
+\ansmath{\ln\frac{p(r)}{p_\infty}=\frac{2\sigma V_m}{rRT}.}
+\end{solution}
+\end{question}
+
+

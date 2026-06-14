@@ -1,0 +1,227 @@
+﻿\heading{实验物理中的统计方法-25春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对。}
+
+\begin{question}
+已知 $E[XY]=E[X]E[Y]$，下列一定成立的是：
+\begin{enumerate}[label=\alph*.,leftmargin=2.2em,itemsep=0.2em]
+\item $D[XY]=D[X]D[Y]$
+\item $D[X+Y]=D[X]+D[Y]$
+\item $X,Y$ 独立
+\item $X,Y$ 相关
+\end{enumerate}
+\begin{solution}
+$E[XY]=E[X]E[Y]$ 等价于 $\operatorname{Cov}(X,Y)=0$。因此一定成立的是
+\[
+\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y).
+\]
+故选 \textbf{B}。
+\ansmath{\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)}
+\end{solution}
+\end{question}
+
+\begin{question}
+从集合 $\{1,2,3,4,5\}$ 中随机选择一个数 $X$，再从 $\{1,\cdots,X\}$ 中随机选择一个数 $Y$，求 $P(Y=2)$。
+\begin{solution}
+\ansmath{P(Y=2)=\frac15\left(\frac12+\frac13+\frac14+\frac15\right)=\frac{77}
+{300}}
+\end{solution}
+\end{question}
+
+\begin{question}
+从 $\{1,\cdots,N\}$ 中随机生成 $n$ 个数（可重复），求最大值恰为 $k$ 的概率。
+\begin{solution}
+\[
+P(M\le k)=\left(\frac{k}{N}\right)^n,
+\qquad
+P(M=k)=\left(\frac{k}{N}\right)^n-\left(\frac{k-1}{N}\right)^n.
+\]
+\ansmath{P(M\le k)=\left(\frac{k}{N}\right)^n,
+\qquad
+P(M=k)=\left(\frac{k}{N}\right)^n-\left(\frac{k-1}{N}\right)^n}
+\end{solution}
+\end{question}
+
+\begin{question}
+若圆的直径 $d$ 在区间 $[a,b]$ 上服从均匀分布，求面积 $S=\dfrac{\pi d^2}{4}$ 的概率密度函数。
+\begin{solution}
+由 $d=2\sqrt{S/\pi}$，
+\[
+f_S(s)=\frac{1}{(b-a)\sqrt{\pi s}},
+\qquad \frac{\pi a^2}{4}<s<\frac{\pi b^2}{4}.
+\]
+\ansmath{f_S(s)=\frac{1}{(b-a)\sqrt{\pi s}},
+\qquad \frac{\pi a^2}{4}<s<\frac{\pi b^2}{4}}
+\end{solution}
+\end{question}
+
+\begin{question}
+某元件的正常工作时间的累积分布函数为 $F(T)$，两个元件相互独立，只有同时正常工作电路才正常，求电路正常工作的累积分布函数。
+\begin{solution}
+\[
+F_{\text{sys}}(t)=1-[1-F(t)]^2.
+\]
+\ansmath{F_{\text{sys}}(t)=1-[1-F(t)]^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+$X\sim N(0,2^2)$，$Y\sim N(0,2^2)$，且 $V[X-Y]=0$，求 $(X,Y)$ 的协方差矩阵。
+\begin{solution}
+同上题型，$\operatorname{Cov}(X,Y)=4$，故
+\ansmath{\Sigma=\begin{pmatrix}4&4\\4&4\end{pmatrix}}
+\end{solution}
+\end{question}
+
+\begin{question}
+$X\sim N(0,1)$，$Y\sim N(0,1)$，令 $Z=X-Y$，求 $E[Z]$、$E[|Z|]$ 和 $V[|Z|]$。
+\begin{solution}
+$Z\sim N(0,2)$，故
+\[
+E[Z]=0,
+\qquad E[|Z|]=\frac{2}{\sqrt\pi},
+\qquad \operatorname{Var}(|Z|)=2-\frac{4}{\pi}.
+\]
+\ansmath{E[Z]=0,
+\qquad E[|Z|]=\frac{2}{\sqrt\pi},
+\qquad \operatorname{Var}(|Z|)=2-\frac{4}{\pi}}
+\end{solution}
+\end{question}
+
+\begin{question}
+将 $n$ 个编号为 $1\sim n$ 的礼物随机放入编号为 $1\sim n$ 的 $n$ 个盒子中，求配对数（即礼物编号等于盒子编号的个数）$k$ 的方差。
+\begin{solution}
+配对数即随机排列的不动点个数，故
+\ansmath{\operatorname{Var}(k)=1}
+\end{solution}
+\end{question}
+
+\begin{question}
+给定三个半衰期为 10 年的粒子，求 20 年后恰有 2 个粒子衰变的概率。
+\begin{solution}
+单个粒子 $20$ 年内衰变概率为 $3/4$，故
+\ansmath{P=\binom32\left(\frac34\right)^2\left(\frac14\right)=\frac{27}
+{64}}
+\end{solution}
+\end{question}
+
+\begin{question}
+已知 $P(X>x_1)=1-\alpha$，$P(X<x_2)=1-\beta$，且 $x_1<x_2$，求 $P(x_1<X<x_2)$。
+\begin{solution}
+\ansmath{P(x_1<X<x_2)=1-P(X\le x_1)-P(X\ge x_2)=1-\alpha-\beta}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+蒲丰投针问题：设针长为 $l$，平行线间距为 $a$，且 $l<a$，求针与线相交的概率。（10）
+\begin{solution}
+设针与平行线夹角为 $\theta\in[0,\pi/2]$，针中心到最近直线距离为 $x\in[0,a/2]$。相交条件为
+\[
+x\le \frac{l}{2}\sin\theta.
+\]
+故
+\[
+P=\frac{2}{a\pi}\int_0^{\pi/2} l\sin\theta\,d\theta
+=\frac{2l}{\pi a}.
+\]
+\ansmath{P=\frac{2}{a\pi}\int_0^{\pi/2} l\sin\theta\,d\theta
+=\frac{2l}{\pi a}}
+\end{solution}
+\end{question}
+
+\begin{question}
+证明公式 $E[X]=E[E[X\mid Y]]$，并应用该公式计算经过两个独立的串联子电倍增管电子数（服从泊松分布，均值分别为 $\nu_1,\nu_2$）的期望和方差。具体而言，将一个电子打入一个电极中，产生的电子数 $N$ 服从均值为 $\nu_1$ 的泊松分布，这些电子全部入射第二个电极，产生的电子数 $X_i$ 服从均值为 $\nu_2$ 的泊松独立同分布，求统计量 $Y=\sum_{i=1}^{N}X_i$ 的期望和方差。（20）
+\begin{solution}
+全期望公式为
+\[
+E[X]=E\bigl(E[X\mid Y]\bigr).
+\]
+在本题中，给定 $N$ 后，
+\[
+Y\mid N\sim \mathrm{Poisson}(N\nu_2),
+\qquad E[Y\mid N]=N\nu_2,
+\qquad \operatorname{Var}(Y\mid N)=N\nu_2.
+\]
+因此
+\[
+E[Y]=E[E(Y\mid N)]=\nu_2E[N]=\nu_1\nu_2.
+\]
+再由全方差公式
+\[
+\operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid N)]+\operatorname{Var}(E[Y\mid N])
+=\nu_2E[N]+\nu_2^2\operatorname{Var}(N)
+=\nu_1\nu_2+\nu_1\nu_2^2.
+\]
+\ansmath{\operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid N)]+\operatorname{Var}(E[Y\mid N])
+=\nu_2E[N]+\nu_2^2\operatorname{Var}(N)
+=\nu_1\nu_2+\nu_1\nu_2^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X\sim U(0,1)$，定义 $Y=\tan\bigl(\pi(X-\frac12)\bigr)$，求 $Y$ 的分布。（10）
+\begin{solution}
+令 $U=\pi(X-1/2)$，则 $U\sim U(-\pi/2,\pi/2)$，而 $Y=\tan U$。故 $Y$ 服从标准 Cauchy 分布：
+\[
+f_Y(y)=\frac{1}{\pi(1+y^2)},\qquad y\in\mathbb R.
+\]
+\ansmath{f_Y(y)=\frac{1}{\pi(1+y^2)},\qquad y\in\mathbb R}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_i\sim U(0,\theta)$，$i=1,\cdots,n$ 独立同分布，令 $Y=\max(X_i)$，求 $Y$ 的概率密度函数、期望和方差。（10）
+\begin{solution}
+\[
+F_Y(y)=\left(\frac{y}{\theta}\right)^n,\qquad 0<y<\theta,
+\]
+故
+\[
+f_Y(y)=\frac{n y^{n-1}}{\theta^n},\qquad 0<y<\theta.
+\]
+并且
+\[
+E[Y]=\frac{n}{n+1}\theta,
+\qquad
+\operatorname{Var}(Y)=\frac{n\theta^2}{(n+1)^2(n+2)}.
+\]
+\ansmath{E[Y]=\frac{n}{n+1}\theta,
+\qquad
+\operatorname{Var}(Y)=\frac{n\theta^2}{(n+1)^2(n+2)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+某粒子束流中含 $10^{-4}$ 的电子，其余为光子。粒子经过双层探测器，在 0、1 或 2 层中被探测的条件概率如下：
+\[
+P(0\mid e)=0.001,\qquad P(1\mid e)=0.01,\qquad P(2\mid e)=0.989,
+\]
+\[
+P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{-5}.
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 若只有一层探测器发出信号，粒子为光子的概率是多少？（10）
+\item 若两层探测器都发出信号，粒子为电子的概率是多少？（10）
+\end{enumerate}
+\begin{solution}
+\ansmath{P(\gamma\mid 1)\approx 0.9990009,
+\qquad P(e\mid 2)\approx 0.908181}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X\sim \mathrm{Poisson}(\nu_1)$，$Y\sim \mathrm{Poisson}(\nu_2)$，求 $Z=X+Y$ 的分布。（10）
+\begin{solution}
+卷积可得
+\[
+P(Z=k)=\sum_{j=0}^{k}e^{-\nu_1}\frac{\nu_1^j}{j!}
+\,e^{-\nu_2}\frac{\nu_2^{k-j}}{(k-j)!}
+=e^{-(\nu_1+\nu_2)}\frac{(\nu_1+\nu_2)^k}{k!}.
+\]
+故
+\ansmath{Z\sim \mathrm{Poisson}(\nu_1+\nu_2)}
+\end{solution}
+\end{question}
+
+

@@ -1,0 +1,300 @@
+﻿\heading{高等数学A（II）-25春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\begin{question}[计算积分]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 计算
+\[
+\iint_D\sqrt{|y-x^2|}\,dx\,dy,
+\qquad D=[-1,1]\times[0,2].
+\]
+\item 计算
+\[
+\int_{-1}^{1}dx\int_{0}^{\sqrt{1-x^2}}dy\int_{1}^{1+\sqrt{1-x^2-y^2}}
+\frac{dz}{\sqrt{x^2+y^2+z^2}}.
+\]
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 先对 $y$ 积分，并按 $y=x^2$ 分段。计算结果为
+\ansmath{\iint_D\sqrt{|y-x^2|}\,dx\,dy=\frac{5}{3}+\frac{\pi}{2}.}
+
+\item 把区域改写成
+\[
+ x^2+y^2+(z-1)^2\le1,\qquad y\ge0,\qquad z\ge1.
+\]
+在以原点为极点的球坐标中，这相当于
+\[
+ 0\le\theta\le\pi,
+ \qquad 0\le\varphi\le\frac{\pi}{4},
+ \qquad \sec\varphi\le\rho\le2\cos\varphi,
+\]
+其中 $\varphi$ 是与正 $z$ 轴的夹角。因被积函数为 $1/\rho$，故
+\[
+ I=\int_0^{\pi}\!d\theta\int_0^{\pi/4}\!\sin\varphi\,d\varphi
+ \int_{\sec\varphi}^{2\cos\varphi}\rho\,d\rho.
+\]
+算得
+\ansmath{I=\frac{\pi}{6}(7-4\sqrt2).}
+\end{enumerate}
+
+\end{solution}
+\end{question}
+
+\begin{question}[曲线积分]
+
+计算曲线积分
+\[
+ I=\int_{\Gamma}\frac{(x-\tfrac12-y)\,dx+(x-\tfrac12+y)\,dy}{(x-\tfrac12)^2+y^2},
+\]
+其中 $\Gamma$ 从 $(0,-1)$ 沿抛物线 $y^2=1-x$ 到 $(0,1)$。
+
+\begin{solution}
+
+参数化取
+\[
+ x=1-t^2,\qquad y=t,\qquad -1\le t\le1.
+\]
+则
+\[
+ dx=-2t\,dt,\qquad dy=dt.
+\]
+代入后得到一个有理函数积分，直接计算可得
+\ansmath{I=\frac{\pi}{2}+2\arctan 3.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[曲面积分]
+
+计算曲面积分
+\[
+ I=\iint_{\Sigma}2xy\,dy\,dz-y^2\,dz\,dx-x^2\,dx\,dy,
+\]
+其中 $\Sigma$ 是抛物面 $x^2+y^2=z$ 在 $z=0$ 和 $z=1$ 之间的部分，取外侧。
+
+\begin{solution}
+
+把它看成向量场
+\[
+ \mathbf F=(2xy,-y^2,-x^2)
+\]
+穿过抛物面侧面的通量。其散度为
+\[
+ \nabla\cdot\mathbf F=\frac{\partial(2xy)}{\partial x}+\frac{\partial(-y^2)}{\partial y}+\frac{\partial(-x^2)}{\partial z}=2y-2y+0=0.
+\]
+把侧面与顶盖 $z=1$ 的圆盘补成闭曲面，由 Gauss 定理知：侧面通量等于顶盖通量的相反数。顶盖法向量向上，故
+\[
+ I_{\text{top}}=\iint_{x^2+y^2\le1}(-x^2)\,dxdy=-\frac{\pi}{4}.
+\]
+底部 $z=0$ 退化为一点，没有贡献，因此
+\ansmath{I=-I_{\text{top}}=\frac{\pi}{4}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[区域面积]
+
+求曲线
+\[
+ x^3+y^3=xy
+\]
+所围成区域的面积。
+
+\begin{solution}
+
+该曲线关于直线 $y=x$ 对称，在第一象限形成一条闭曲线。令
+\[
+ y=tx,
+\]
+代入得
+\[
+ x^3(1+t^3)=tx^2\Longrightarrow x=\frac{t}{1+t^3},\qquad y=\frac{t^2}{1+t^3},\qquad t\in[0,\infty).
+\]
+利用参数曲线面积公式
+\[
+ S=\frac12\int (x\,dy-y\,dx),
+\]
+可得
+\[
+ S=\frac12\int_0^{\infty}\frac{t^2}{(1+t^3)^2}\,dt=\frac16.
+\]
+因此
+\ansmath{S=\frac16.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[立体体积]
+
+求旋转抛物面
+\[
+ z=6-x^2-y^2
+\]
+和圆锥面
+\[
+ z=\sqrt{x^2+y^2}
+\]
+所围成立体的体积。
+
+\begin{solution}
+
+改用柱坐标 $r=\sqrt{x^2+y^2}$。交线满足
+\[
+ 6-r^2=r
+ \Longrightarrow r=2.
+\]
+因此体积
+\[
+ V=\int_0^{2\pi}\!d\theta\int_0^2 (6-r^2-r)r\,dr
+ =2\pi\int_0^2(6r-r^3-r^2)\,dr.
+\]
+计算得
+\ansmath{V=\frac{32\pi}{3}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[微分方程]
+
+求以下方程的通解：
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item $y'-y=xy^5$;
+\item $y''+y'=4\sin x+x\cos2x$。
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 对 $y\ne0$，令 $v=y^{-4}$，则
+\[
+ v'=-4y^{-5}y'=-4(v+x).
+\]
+即
+\[
+ v'+4v=-4x.
+\]
+解得
+\[
+ v=Ce^{-4x}-x+\frac14.
+\]
+故
+\ansmath{y=(Ce^{-4x}-x+\tfrac14)^{-1/4}.}
+另有平凡解 $y\equiv0$。
+
+\item 齐次方程 $y''+y'=0$ 的通解为
+\[
+ y_h=C_1+C_2e^{-x}.
+\]
+取特解后可得
+\ansmath{y=C_1+C_2e^{-x}+\frac{x\sin2x}{10}-\frac{x\cos2x}{5}-2\sin x-2\cos x+\frac{4}{25}\sin2x+\frac{13}{100}\cos2x.}
+\end{enumerate}
+
+\end{solution}
+\end{question}
+
+\begin{question}[Green 定理不等式]
+
+设 $\Gamma$ 是取逆时针方向的圆周
+\[
+ (x-1)^2+(y-1)^2=1,
+\]
+且 $f(t)$ 为正的连续函数。证明：
+\[
+\oint_{\Gamma}x f(y)\,dy-\frac{y}{f(x)}\,dx\ge2\pi.
+\]
+
+\begin{solution}
+
+令
+\[
+ P(x,y)=-\frac{y}{f(x)},\qquad Q(x,y)=xf(y).
+\]
+则由 Green 定理
+\[
+\oint_{\Gamma}P\,dx+Q\,dy
+=\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\,dA,
+\]
+其中 $D$ 是圆盘区域。这里
+\[
+ \frac{\partial Q}{\partial x}=f(y),
+ \qquad
+ -\frac{\partial P}{\partial y}=\frac{1}{f(x)}.
+\]
+所以
+\[
+\oint_{\Gamma}x f(y)\,dy-\frac{y}{f(x)}\,dx
+=\iint_D\left(f(y)+\frac{1}{f(x)}\right)dA.
+\]
+由 $a+1/a\ge2$（对 $a>0$）得
+\[
+ f(y)+\frac{1}{f(x)}\ge2.
+\]
+而 $D$ 的面积为 $\pi$，故
+\[
+\oint_{\Gamma}x f(y)\,dy-\frac{y}{f(x)}\,dx
+\ge2\iint_D1\,dA=2\pi.
+\]
+得证。
+
+\ansmath{\oint_{\Gamma}x f(y)\,dy-\frac{y}{f(x)}\,dx
+\ge2\iint_D1\,dA=2\pi}
+
+\end{solution}
+\end{question}
+
+\begin{question}[单调性证明]
+
+假设 $f(t)$ 为连续的正函数，证明：当 $t>0$ 时，
+\[
+F(t)=
+\frac{\iiint_{x^2+y^2+z^2\le t^2}f(x^2+y^2+z^2)\,dxdydz}
+{\iint_{x^2+y^2\le t^2}(x^2+y^2)f(x^2+y^2)\,dxdy}
+\]
+是严格单调递减函数。
+
+\begin{solution}
+
+把分子分母都改写成极坐标/球坐标积分。记
+\[
+ A(t)=\int_0^t r^2 f(r^2)\,dr,
+ \qquad
+ B(t)=\int_0^t r^3 f(r^2)\,dr.
+\]
+则
+\[
+\iiint_{x^2+y^2+z^2\le t^2}f(r^2)\,dV=4\pi A(t),
+\qquad
+\iint_{x^2+y^2\le t^2}(x^2+y^2)f(r^2)\,dA=2\pi B(t).
+\]
+因此
+\[
+ F(t)=2\frac{A(t)}{B(t)}.
+\]
+求导：
+\[
+ F'(t)=2\frac{A'(t)B(t)-A(t)B'(t)}{B(t)^2}
+ =2\frac{t^2f(t^2)B(t)-t^3f(t^2)A(t)}{B(t)^2}.
+\]
+提取公因子得
+\[
+ F'(t)=\frac{2t^2f(t^2)}{B(t)^2}\Bigl(B(t)-tA(t)\Bigr).
+\]
+但对 $0\le r\le t$ 有 $r^3\le tr^2$，且 $f(r^2)>0$，故
+\[
+ B(t)=\int_0^t r^3f(r^2)\,dr
+< t\int_0^t r^2f(r^2)\,dr=tA(t).
+\]
+从而
+\[
+ F'(t)<0.
+\]
+所以
+\ansmath{F(t)\text{ 在 }t>0\text{ 上严格单调递减。}}
+
+\end{solution}
+\end{question}
+

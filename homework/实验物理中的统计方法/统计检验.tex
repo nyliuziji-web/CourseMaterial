@@ -1,0 +1,518 @@
+﻿\heading{实验物理中的统计方法-统计检验}
+
+
+
+
+
+\begin{question}
+带电粒子穿过气体会发生电离现象，电离的数目与入射粒子的类型有关。假设基于电离的测量构造了某个检验统计量
+\(t\)，使其服从高斯分布：如果带电粒子是电子，则高斯分布的均值为
+0，标准差为 1；如果带电粒子是 \(\pi\) 介子，则高斯分布的均值为
+2，标准差为 1。构造某个检验，通过要求 \(t<1\) 来选择电子事件。
+
+\begin{enumerate}
+\item 该检验的显著水平（significance
+level）如何？（显著性水平即在拒绝域中接受电子的概率。）
+
+\item 该检验排除粒子为 \(\pi\)
+介子的假设的功效（power）多大？有多大概率将 \(\pi\) 介子鉴别为电子？
+
+\item 假定已知样本中包含 99\% 的 \(\pi\) 介子和 1\% 的电子，\(t<1\)
+的判选条件得到的电子样本的纯度（purity）为多少？
+
+\item 假定要求电子样本的纯度至少
+95\%，应该如何选择统计检验的拒绝域（即判选条件）？如果选用该判选条件，则该检验接受电子的效率为多少，显著性水平多大？
+\pyfig[0.76\linewidth]{figures/fig_04_01_e_pi_test.png}{图 4.1：电子和 \(\pi\) 介子假设下的 \(t\) 分布及判选阈值。}\end{enumerate}
+\begin{solution}
+记电子假设下 \(t\sim N(0,1)\)，\(\pi\) 介子假设下
+\(t\sim N(2,1)\)，电子判选条件为 \(t<1\)。这里把
+\(H_0=\pi\) 看作要被排除的假设，则拒绝域是 \(t<1\)。
+
+\begin{enumerate}
+\item 显著性水平
+
+显著性水平是零假设 \(H_0=\pi\) 为真时落入拒绝域的概率：
+\[
+\alpha=P(t<1\mid\pi)=\Phi(1-2)=\Phi(-1)=0.158655.
+\]
+这也是把 \(\pi\) 介子误判为电子的概率。
+
+\item 功效和误判概率
+
+功效是备择假设（电子）为真时正确拒绝 \(\pi\) 假设的概率：
+\[
+1-\beta=P(t<1\mid e)=\Phi(1)=0.841345.
+\]
+把 \(\pi\) 介子鉴别为电子的概率仍为
+\[
+P(t<1\mid\pi)=0.158655.
+\]
+
+\item 电子样本纯度
+
+若先验比例为 \(P(e)=0.01\)、\(P(\pi)=0.99\)，则
+\[
+\operatorname{purity}
+=\frac{P(e)P(t<1\mid e)}{P(e)P(t<1\mid e)+P(\pi)P(t<1\mid\pi)}.
+\]
+代入数值得
+\[
+\operatorname{purity}
+=\frac{0.01\times0.841345}{0.01\times0.841345+0.99\times0.158655}
+=0.05084,
+\]
+即约 \(5.1\%\)。虽然电子效率高，但由于 \(\pi\) 背景先验比例太大，判选后纯度仍很低。
+
+\item 要求纯度至少 \(95\%\)
+
+把判选条件改为 \(t<c\)。要求
+\[
+\frac{0.01\,\Phi(c)}{0.01\,\Phi(c)+0.99\,\Phi(c-2)}\ge0.95.
+\]
+数值求解等号得到
+\[
+c\simeq -2.5153.
+\]
+于是电子接受效率为
+\[
+\varepsilon_e=P(t<c\mid e)=\Phi(-2.5153)=5.95\times10^{-3},
+\]
+显著性水平（\(\pi\) 被误判为电子的概率）为
+\[
+\alpha=P(t<c\mid\pi)=\Phi(-4.5153)=3.16\times10^{-6}.
+\]
+若把“以电子为原假设时拒绝电子”的概率称为显著性水平，则它为
+\(1-\varepsilon_e=0.9941\)；但对本题“排除 \(\pi\) 假设”的检验，通常应使用上面的
+\(\alpha=3.16\times10^{-6}\)。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑某检验统计量 \(t\) 为输入变量 \(\mathbf{x}=(x_1,\ldots,x_n)\)
+的线性组合，系数为 \(\mathbf{a}=(a_1,\ldots,a_n)\)，即
+
+\[
+t(\mathbf{x})=\sum_{i=1}^{n}a_i x_i=\mathbf{a}^T\mathbf{x}.
+\]
+
+假定在 \(H_0\) 和 \(H_1\) 两个假设下，\(\mathbf{x}\) 的均值分别为
+\(\mu_0\) 和 \(\mu_1\)，协方差矩阵分别为 \(V_0\) 和 \(V_1\)，检验统计量
+\(t\) 的均值分别为 \(\tau_0\) 和 \(\tau_1\)，方差为 \(\Sigma_0^2\) 和
+\(\Sigma_1^2\)（见 Statistical Data Analysis 第 4.4.1 节）。
+
+\begin{enumerate}
+\item 证明：当系数 \(\mathbf{a}\) 为 \(\mathbf{a}=W^{-1}(\mu_0-\mu_1)\)
+时（其中 \(W=V_0+V_1\)），下式定义的分离量达到最大值：
+
+\[
+J(\mathbf{a})=\frac{(\tau_0-\tau_1)^2}{\Sigma_0^2+\Sigma_1^2}.
+\]
+
+这定义了 Fisher 线性甄别量。
+
+\item 假定 \(V_0=V_1=V\)，且输入变量的概率密度函数 \(f(\mathbf{x}|H_0)\)
+和 \(f(\mathbf{x}|H_1)\) 是多维高斯分布，均值分别为 \(\mu_0\) 和
+\(\mu_1\)（参见 Statistical Data Analysis 的式
+4.26）。取两个假设的先验概率分别为 \(\pi_0\) 和 \(\pi_1\)。利用 Bayes
+定理，求验后概率 \(P(H_0|\mathbf{x})\) 和 \(P(H_1|\mathbf{x})\) 作为
+\(t\) 的函数。
+
+\item 推广该检验统计量，使其包含一个偏倚：
+
+\[
+t(\mathbf{x})=a_0+\sum_{i=1}^{n}a_i x_i.
+\]
+
+证明此时验后概率 \(P(H_0|\mathbf{x})\) 可以表示为
+
+\[
+P(H_0|\mathbf{x})=\frac{1}{1+e^{-t}},
+\]
+
+其中偏倚 \(a_0\) 为
+
+\[
+a_0=-\frac12\mu_0^T V^{-1}\mu_0+\frac12\mu_1^T V^{-1}\mu_1+\log\frac{\pi_0}{\pi_1}.
+\]
+\end{enumerate}
+\begin{solution}
+定义
+\[
+\Delta\mu=\mu_0-\mu_1,
+\qquad
+W=V_0+V_1.
+\]
+线性统计量 \(t(\mathbf x)=\mathbf a^T\mathbf x\) 在两假设下的均值差和方差和为
+\[
+\tau_0-\tau_1=\mathbf a^T\Delta\mu,
+\qquad
+\Sigma_0^2+\Sigma_1^2=\mathbf a^TW\mathbf a.
+\]
+因此
+\[
+J(\mathbf a)=\frac{(\mathbf a^T\Delta\mu)^2}{\mathbf a^TW\mathbf a}.
+\]
+由 Cauchy--Schwarz 不等式，
+\[
+(\mathbf a^T\Delta\mu)^2
+=\{\mathbf a^T W^{1/2}W^{-1/2}\Delta\mu\}^2
+\le (\mathbf a^TW\mathbf a)(\Delta\mu^TW^{-1}\Delta\mu),
+\]
+等号在 \(\mathbf a\propto W^{-1}\Delta\mu\) 时成立。比例因子不影响
+\(J\)，故可取
+\[
+\mathbf a=W^{-1}(\mu_0-\mu_1).
+\]
+
+当 \(V_0=V_1=V\) 且两类都是多维高斯时，后验概率比为
+\[
+\log\frac{P(H_0\mid\mathbf x)}{P(H_1\mid\mathbf x)}
+=\log\frac{\pi_0f(\mathbf x\mid H_0)}{\pi_1f(\mathbf x\mid H_1)}.
+\]
+展开高斯指数得
+\[
+\log\frac{P(H_0\mid\mathbf x)}{P(H_1\mid\mathbf x)}
+=a_0+\mathbf a^T\mathbf x,
+\]
+其中
+\[
+\mathbf a=V^{-1}(\mu_0-\mu_1),
+\]
+\[
+a_0=-\frac12\mu_0^TV^{-1}\mu_0
++\frac12\mu_1^TV^{-1}\mu_1+
+\log\frac{\pi_0}{\pi_1}.
+\]
+若最初定义的不含偏置的 Fisher 变量为 \(t_F=\mathbf a^T\mathbf x\)，则
+\[
+P(H_0\mid\mathbf x)=
+\frac{1}{1+\exp[-(a_0+t_F)]},
+\qquad
+P(H_1\mid\mathbf x)=
+\frac{1}{1+\exp[a_0+t_F]}.
+\]
+若把偏置并入检验统计量
+\[
+t(\mathbf x)=a_0+\sum_i a_ix_i,
+\]
+则
+\[
+P(H_0\mid\mathbf x)=\frac{1}{1+e^{-t}},
+\qquad
+P(H_1\mid\mathbf x)=\frac{1}{1+e^{t}}.
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+正负电子对撞中观测到具有特殊运动学性质的事件数可以被视为泊松变量。假定对于给定积分亮度（即给定束流强度时的取数时间），预期从某已知过程得到的事件数为
+3.9，而实际上观测到 16
+个事件。零假设为没有新物理过程对观测到的事件数有贡献；计算零假设的
+\(P\)-值。计算泊松分布求和时，可以利用关系式
+
+\[
+\sum_{n=0}^{m}P(n;\nu)=1-F_{\chi^2}(2\nu;n_{\rm dof}),
+\]
+
+其中 \(P(n;\nu)\) 是均值为 \(\nu\) 的泊松分布的概率，\(F_{\chi^2}\)
+是自由度数目为 \(n_{\rm dof}=2(m+1)\) 的 \(\chi^2\)
+分布的累积分布。可以调用 ROOT 里面的 TMath 名字空间下的函数
+\texttt{TMath::Prob(double\ chi2,\ int\ ndf)} 计算，或者查表得到。
+\begin{solution}
+零假设下事件数 \(n\sim \mathrm{Poisson}(\nu=3.9)\)，实际观测到
+\(n=16\)。
+
+关心的是``至少这么极端''的上尾概率：
+
+\[
+P(n\ge 16\mid \nu=3.9)=\sum_{n=16}^{\infty} P(n;3.9).
+\]
+
+数值为
+
+\[
+P=3.58\times 10^{-6}.
+\]
+
+这说明在零假设下出现 16 个或更多事件的概率极小，零假设被强烈拒绝。
+\pyfig[0.70\linewidth]{figures/fig_04_03_poisson_tail.png}{\(\nu=3.9\) 的泊松分布；阴影部分对应观测到 \(n\ge16\) 的上尾。}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+表 4.1
+是实验获取的分区间数据和理论预言值。第二、三列是区间边界，第四列是对应区间的观测事件数
+\(n_i\ (i=1,\ldots,20)\)，服从泊松分布。第五、六列是两种理论对期待值
+\(\nu_i=E[n_i]\) 的预言，如图 4.2 所示。
+
+\begin{enumerate}
+\item 写一段程序，将表中 20
+个区间的实验观测值和理论预期值画成直方图，画到一张图上，并根据
+Statistical Data Analysis 的式（4.39）计算 \(\chi^2\) 统计量。
+
+\item 因为很多区间的事件数很小甚至为零，前面计算的统计量不太可能服从
+\(\chi^2\) 分布。写一段程序，根据两种理论假设（theory1 和
+theory2）给出真实的 \(\chi^2\)
+分布。如果利用（a）中的数据计算统计检验，其
+\(P\)-值是多少？如果利用正常的 \(\chi^2\) 分布计算，\(P\)-值是多少？
+
+{% do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+序号
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(x_{\min}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(x_{\max}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(n\) (data)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\nu\) (theory1)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\nu\) (theory2)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 0.0 & 0.5 & 1 & 0.2 & 0.2 \\
+2 & 0.5 & 1.0 & 0 & 1.2 & 0.7 \\
+3 & 1.0 & 1.5 & 3 & 1.9 & 1.1 \\
+4 & 1.5 & 2.0 & 4 & 3.2 & 1.6 \\
+5 & 2.0 & 2.5 & 6 & 4.0 & 1.9 \\
+6 & 2.5 & 3.0 & 3 & 4.5 & 2.2 \\
+7 & 3.0 & 3.5 & 3 & 4.7 & 2.7 \\
+8 & 3.5 & 4.0 & 4 & 4.8 & 3.3 \\
+9 & 4.0 & 4.5 & 5 & 4.8 & 3.6 \\
+10 & 4.5 & 5.0 & 7 & 4.5 & 3.9 \\
+11 & 5.0 & 5.5 & 4 & 4.1 & 4.0 \\
+12 & 5.5 & 6.0 & 5 & 3.5 & 4.0 \\
+13 & 6.0 & 6.5 & 2 & 3.0 & 3.9 \\
+14 & 6.5 & 7.0 & 0 & 2.4 & 3.5 \\
+15 & 7.0 & 7.5 & 1 & 1.6 & 3.2 \\
+16 & 7.5 & 8.0 & 0 & 0.9 & 2.8 \\
+17 & 8.0 & 8.5 & 0 & 0.5 & 2.2 \\
+18 & 8.5 & 9.0 & 1 & 0.3 & 1.5 \\
+19 & 9.0 & 9.5 & 0 & 0.2 & 1.0 \\
+20 & 9.5 & 10.0 & 0 & 0.1 & 0.5 \\
+\end{longtable}
+}
+
+表 4.1: 实验获取的分区间数据和理论预言值。第二、三列是区间边界。
+\pyfig[0.78\linewidth]{figures/fig_04_04_binned_data.png}{图 4.2：表 4.1 的观测数据及两种理论预言。}\end{enumerate}
+\begin{solution}
+表 4.1 中的观测值为 \(n_i\)，两种理论给出期望 \(\nu_i\)。按题目所指的
+Pearson 型统计量（书中式 4.39）应取
+\[
+\chi^2=\sum_i\frac{(n_i-\nu_i)^2}{\nu_i}.
+\]
+代入 20 个区间的数据得到
+\[
+\chi^2_{\rm theory1}=15.8193,
+\qquad
+\chi^2_{\rm theory2}=35.9653.
+\]
+若直接近似为自由度 20 的 \(\chi^2\) 分布，则
+\[
+P_{\chi^2}(\text{theory1})=0.7278,
+\qquad
+P_{\chi^2}(\text{theory2})=0.0155.
+\]
+
+由于许多区间的期望事件数很小，Pearson 统计量的真实分布不一定很好地服从
+\(\chi^2_{20}\)。更可靠的做法是：在某个理论 \(\nu_i\) 下为每个 bin
+产生独立泊松伪数据 \(n_i^{\rm MC}\)，每组都计算同一个
+\(\chi^2_{\rm MC}\)，再用
+\[
+P_{\rm MC}=P(\chi^2_{\rm MC}\ge\chi^2_{\rm obs})
+\]
+估计真实 \(P\)-值。用大量伪实验可得到近似结果
+\[
+P_{\rm MC}(\text{theory1})\simeq0.65,
+\qquad
+P_{\rm MC}(\text{theory2})\simeq0.036.
+\]
+结论是：theory1 与数据相容；theory2 的 \(P\)-值较小，拟合明显较差。
+\pyfig[0.76\linewidth]{figures/fig_04_04_chi2_contrib.png}{各区间对 Pearson \(\chi^2\) 的贡献；theory2 在高 \(x\) 区间贡献明显偏大。}
+若改用泊松似然比 deviance
+\[
+2\sum_i\left[\nu_i-n_i+n_i\log\frac{n_i}{\nu_i}\right]
+\]
+也可以做检验，但那不是本题式 (4.39) 所要求的 Pearson 统计量。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+在放射性实验中，卢瑟福和盖革记录了固定时间间隔内 \(\alpha\)
+衰变的次数。数据如表 4.2
+所示。假定放射源中放射性核素的数目非常大，且任意一个核素在小时间间隔内发射一个
+\(\alpha\) 粒子的概率很小，则可以认为在时间间隔 \(\Delta t\)
+内发生衰变的次数 \(m\)
+服从泊松分布。如果观测结果与泊松分布的假设存在差异，则表明核素的
+\(\alpha\) 衰变不相互独立，比如某个核素发生 \(\alpha\)
+衰变可能会引发邻近核素也发生衰变，从而在短时间间隔内形成衰变簇团。
+
+\begin{enumerate}
+\item 利用表 4.2 的数据，计算样本均值
+
+\[
+\bar m=\frac{1}{n_{\rm tot}}\sum_m n_m m,
+\]
+
+以及样本方差
+
+\[
+s^2=\frac{1}{n_{\rm tot}-1}\sum_m n_m(m-\bar m)^2.
+\]
+
+{% do not increment counter
+\begin{longtable}[]{@{}rrrr@{}}
+\toprule\noalign{}
+\(m\) & \(n_m\) & \(m\) & \(n_m\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 57 & 8 & 45 \\
+1 & 203 & 9 & 27 \\
+2 & 383 & 10 & 10 \\
+3 & 525 & 11 & 4 \\
+4 & 532 & 12 & 0 \\
+5 & 408 & 13 & 1 \\
+6 & 273 & 14 & 1 \\
+7 & 139 & \textgreater14 & 0 \\
+\end{longtable}
+}
+
+表 4.2: 卢瑟福与盖革实验数据，即在时间间隔 \(\Delta t=7.5\,\mathrm{s}\)
+内发生 \(m\) 次 \(\alpha\) 衰变的次数。
+
+其中 \(n_m\) 是发生 \(m\) 个衰变的次数，\(n_{\rm tot}=\sum_m n_m=2608\)
+是测量时间内总衰变次数。求和从 \(m=0\)
+一直到测量时间内最大的衰变次数（次数为 \(m=14\)）。利用 \(\bar m\) 和
+\(s^2\)，求分散度
+
+\[
+t=\frac{s^2}{\bar m}.
+\]
+
+\(\bar m\) 和 \(s^2\) 分别为 \(m\) 的均值和方差的估计量（参见
+Statistical Data Analysis 第 5 章）；如果 \(m\) 服从泊松分布，则
+\(\bar m\) 和 \(s^2\) 应该相等，于是可以预期 \(t\) 大约为
+1。可以证明对于泊松分布，当 \(n_{\rm tot}\) 很大时，\((n_{\rm tot}-1)t\)
+服从自由度为 \(n_{\rm tot}-1\) 的 \(\chi^2\) 分布。而且，当
+\(n_{\rm tot}\) 很大时，该分布变成均值为 \(n_{\rm tot}-1\)，方差为
+\(2(n_{\rm tot}-1)\) 的高斯分布。
+
+\item \(m\) 服从泊松分布这一假设的 \(P\)-值为多少？为了表征 \(t\)
+的观测值与泊松假设相符或不相符，应该选取什么样的 \(t\) 值（即 \(t\)
+大表示相符还是 \(t\) 小表示相符）？
+
+\item 写一段蒙特卡罗程序产生很多组数据，每组数据包含 \(n_{\rm tot}\)
+个服从泊松分布的 \(m\) 值。（泊松分布的随机数可以在 ROOT
+中直接调用，\(\texttt{gRandom->Poisson}(\nu)\)。）对于 \(m\)
+的均值，可以取表 4.2 中数据的均值 \(\bar m\)。对于每组数据，计算 \(t\)
+的值并填充至直方图。利用直方图和从卢瑟福实验数据得到的 \(t\)
+值，计算泊松假设的 \(P\)-值。将该结果与（a）中的结果进行比较。（选作：将
+\((n_{\rm tot}-1)t\) 记录至直方图，与均值为 \(n_{\rm tot}-1\)，方差为
+\(2(n_{\rm tot}-1)\) 的高斯分布进行比较。）
+\end{enumerate}
+\begin{solution}
+表 4.2 给出在固定时间窗 \(\Delta t=7.5\,\mathrm{s}\) 内，发生 \(m\) 次
+\(\alpha\) 衰变的次数 \(n_m\)。
+
+\begin{enumerate}
+\item 样本均值与样本方差
+
+总样本数
+
+\[
+n_{tot} = \sum_m n_m = 2608.
+\]
+
+样本均值
+
+\[
+\bar m = \frac{1}{n_{tot}}\sum_m n_m m = 3.871549.
+\]
+
+样本方差
+
+\[
+s^2 = \frac{1}{n_{tot}-1}\sum_m n_m (m-\bar m)^2 = 3.696191.
+\]
+
+分散度统计量
+
+\[
+t=\frac{s^2}{\bar m}=0.954706.
+\]
+
+若严格服从泊松分布，应有 \(t\approx 1\)。
+
+\item P 值应看哪一侧？
+
+若问题是``是否与泊松分布一致''，则偏大和偏小都表示不一致，因此应该使用
+双侧 P 值。
+
+又因为本题实际观测到 \(t<1\)，所以若只看单侧，应看 下尾。
+
+利用大样本近似
+
+\[
+(n_{tot}-1)t \sim \chi^2_{n_{tot}-1},
+\]
+
+得到
+
+\begin{itemize}
+\item
+  下尾：\(P_{\mathrm{lower}}=0.04933\)
+\item
+  上尾：\(P_{\mathrm{upper}}=0.95067\)
+\item
+  双侧： \[
+  P_{2s} = 2\min(P_{lower},P_{upper}) = 0.09866.
+  \]
+\end{itemize}
+
+\item 蒙特卡罗检验
+
+程序用 \(\lambda=\bar m\) 生成很多组 Poisson 数据，每组都含
+\(n_{\mathrm{tot}}=2608\) 个观测，再计算 \(t\)。
+
+得到
+
+\begin{itemize}
+\item
+  \(P_{\mathrm{lower,MC}}=0.05013\)
+\item
+  \(P_{\mathrm{upper,MC}}=0.94988\)
+\item
+  \(P_{\mathrm{two\,sided,MC}}=0.10025\)
+\end{itemize}
+
+与 \(\chi^2\) 近似非常一致。
+
+结论：本数据的 \(t=0.9547\) 比 1 略小，但双侧 \(P\) 值约为
+\(0.10\)，不足以强烈拒绝泊松假设，因此这组数据与泊松统计基本相容。
+\pyfig[0.72\linewidth]{figures/fig_04_05_rutherford_poisson.png}{卢瑟福--盖革数据与均值取样本均值的泊松模型比较。}\end{enumerate}
+\end{solution}
+\end{question}
+

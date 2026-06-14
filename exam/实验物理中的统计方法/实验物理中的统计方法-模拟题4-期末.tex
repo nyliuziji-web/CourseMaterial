@@ -1,0 +1,316 @@
+﻿\heading{实验物理中的统计方法-模拟题4-期末}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较前两套期末模拟题再提高一些。}
+
+\begin{question}
+设物理量
+\[
+R=\frac{X}{X+Y},
+\]
+其中 $X,Y$ 的标准差分别为 $\sigma_X,\sigma_Y$，协方差为 $c=\operatorname{Cov}(X,Y)$。写出小误差近似下 $R$ 的不确定度公式。
+\begin{solution}
+由误差传播公式，
+\[
+\sigma_R^2\approx
+\left(\frac{\partial R}{\partial X}\right)^2\sigma_X^2+
+\left(\frac{\partial R}{\partial Y}\right)^2\sigma_Y^2+
+2\frac{\partial R}{\partial X}\frac{\partial R}{\partial Y}c.
+\]
+而
+\[
+\frac{\partial R}{\partial X}=\frac{Y}{(X+Y)^2},
+\qquad
+\frac{\partial R}{\partial Y}=-\frac{X}{(X+Y)^2}.
+\]
+故
+\ansmath{\sigma_R^2\approx \frac{Y^2\sigma_X^2+X^2\sigma_Y^2-2XYc}{(X+Y)^4}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\cdots,X_n$ 独立同分布于 Bernoulli$(p)$。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $p$ 的极大似然估计量；
+\item 求 Fisher 信息；
+\item 写出大样本下 $\hat p$ 的近似方差；
+\item 若 $n=100$，观测到成功 $37$ 次，给出 $p$ 的近似 $95\%$ 置信区间。
+\end{enumerate}
+\begin{solution}
+设 $\sum_{i=1}^n X_i=k$，则似然函数为
+\[
+L(p)=p^k(1-p)^{n-k}.
+\]
+求导并令零得
+\[
+\hat p=\frac{k}{n}=\bar X.
+\]
+故
+\ansmath{\hat p=\bar X}
+单个样本的 Fisher 信息为
+\[
+I_1(p)=\frac{1}{p(1-p)}.
+\]
+因此
+\ansmath{I_n(p)=\frac{n}{p(1-p)}}
+由极大似然估计的渐近正态性，
+\[
+\operatorname{Var}(\hat p)\approx \frac{p(1-p)}{n}.
+\]
+所以
+\ansmath{\operatorname{Var}(\hat p)\approx \frac{p(1-p)}{n}}
+当 $n=100,k=37$ 时，
+\[
+\hat p=0.37,
+\qquad
+\sigma_{\hat p}\approx \sqrt{\frac{0.37\times 0.63}{100}}\approx 0.0483.
+\]
+用正态近似给出 $95\%$ 置信区间：
+\[
+0.37\pm 1.96\times 0.0483
+\approx 0.37\pm 0.0947.
+\]
+因此
+\ansmath{p\in (0.275,\ 0.465)\qquad (\text{approx. }95\%\ \text{CI})}
+\end{solution}
+\end{question}
+
+\begin{question}
+从正态总体中抽取 $n=12$ 个样本，得到
+\[
+\sum_{i=1}^{12}(X_i-\bar X)^2=26.4.
+\]
+假设总体均值未知，求总体方差 $\sigma^2$ 的 $95\%$ 置信区间。已知
+\[
+\chi^2_{0.975}(11)=21.920,
+\qquad
+\chi^2_{0.025}(11)=3.816.
+\]
+\begin{solution}
+对正态总体，有
+\[
+\frac{(n-1)S^2}{\sigma^2}=\frac{\sum (X_i-\bar X)^2}{\sigma^2}\sim \chi^2(n-1).
+\]
+故
+\[
+P\left(\chi^2_{0.025}(11)\le \frac{26.4}{\sigma^2}\le \chi^2_{0.975}(11)\right)=0.95.
+\]
+解得
+\[
+\frac{26.4}{21.920}\le \sigma^2\le \frac{26.4}{3.816}.
+\]
+数值为
+\[
+1.204\lesssim \sigma^2\lesssim 6.918.
+\]
+因此
+\ansmath{\sigma^2\in (1.204,\ 6.918)\qquad (95\%\ \text{CI})}
+\end{solution}
+\end{question}
+
+\begin{question}
+某物理量有两次测量：
+\[
+A_1=10.2\pm 0.3_{\rm stat}\pm 0.2_{\rm sys},
+\qquad
+A_2=9.8\pm 0.4_{\rm stat}\pm 0.2_{\rm sys}.
+\]
+统计误差彼此独立，系统误差完全相关。求合并测量结果。
+\begin{solution}
+由于系统误差完全相关，合并中心值时只按统计误差做加权平均。权重为
+\[
+w_1=\frac{1/0.3^2}{1/0.3^2+1/0.4^2}=\frac{16}{25}=0.64,
+\qquad w_2=0.36.
+\]
+故合并中心值为
+\[
+\bar A=0.64\times 10.2+0.36\times 9.8=10.056.
+\]
+统计不确定度为
+\[
+\sigma_{\rm stat}=\left(\frac1{0.3^2}+\frac1{0.4^2}\right)^{-1/2}=0.24.
+\]
+系统不确定度因完全相关而保持不变：
+\[
+\sigma_{\rm sys}=0.2.
+\]
+因此
+\ansmath{\bar A=10.06\pm 0.24_{\rm stat}\pm 0.20_{\rm sys}}
+若合成为单个不确定度，则
+\[
+\sigma_{\rm tot}=\sqrt{0.24^2+0.2^2}\approx 0.312.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+对二项分布作简单假设检验：
+\[
+H_0:p=0.2,
+\qquad
+H_1:p=0.6.
+\]
+现做 $10$ 次独立伯努利试验，记成功次数为 $X$。要求显著性水平不超过 $\alpha=0.05$。试用 Neyman--Pearson 原理给出最强检验的拒绝域，并求该检验在 $H_1$ 下的功效。
+\begin{solution}
+二项分布关于成功次数 $X$ 具有单调似然比，因此最强检验应取“大成功次数拒绝 $H_0$”。找最小整数 $k$ 使
+\[
+P_{p=0.2}(X\ge k)\le 0.05.
+\]
+计算得
+\[
+P_{0.2}(X\ge 4)\approx 0.1209,
+\qquad
+P_{0.2}(X\ge 5)\approx 0.0328.
+\]
+因此拒绝域应取
+\ansmath{X\ge 5}
+该检验在 $H_1:p=0.6$ 下的功效为
+\[
+P_{0.6}(X\ge 5)=\sum_{x=5}^{10}\binom{10}{x}0.6^x0.4^{10-x}.
+\]
+数值上
+\[
+P_{0.6}(X\ge 5)\approx 0.8338.
+\]
+故
+\ansmath{\text{power}\approx 0.834}
+\end{solution}
+\end{question}
+
+\begin{question}
+某模型预言 5 个箱中的期望计数之比为
+\[
+1:1:2:2:4.
+\]
+总归一化未知。现观测到的计数分别为
+\[
+9,\ 12,\ 18,\ 17,\ 44.
+\]
+试作 $\chi^2$ 拟合优度检验，并判断是否需要拒绝该模型。可取自由度为 4 时 $5\%$ 显著性水平的临界值
+\[
+\chi^2_{0.95}(4)=9.488.
+\]
+\begin{solution}
+设期望计数为
+\[
+(A,A,2A,2A,4A).
+\]
+总计数为
+\[
+9+12+18+17+44=100,
+\]
+故
+\[
+10A=100,
+\qquad A=10.
+\]
+于是期望计数为
+\[
+(10,10,20,20,40).
+\]
+统计量为
+\[
+\chi^2=\frac{(9-10)^2}{10}+\frac{(12-10)^2}{10}+\frac{(18-20)^2}{20}+\frac{(17-20)^2}{20}+\frac{(44-40)^2}{40}.
+\]
+计算得
+\[
+\chi^2=0.1+0.4+0.2+0.45+0.4=1.55.
+\]
+因为拟合了 1 个归一化参数，所以自由度为
+\[
+5-1=4.
+\]
+显然
+\[
+1.55<9.488.
+\]
+故
+\anstext{在 $5\%$ 显著性水平下，不拒绝该模型。}
+\end{solution}
+\end{question}
+
+\begin{question}
+做线性刻度实验，模型为
+\[
+y=a+bx.
+\]
+现有四个测量点
+\[
+(0,0.9),\ (1,2.2),\ (2,2.9),\ (3,4.1),
+\]
+并认为各点 $y$ 的测量标准差都为 $0.2$，彼此独立。用最小二乘法求 $a,b$，并给出 $\chi^2_{\min}$。
+\begin{solution}
+由于各点误差相同，普通最小二乘即可。先算均值：
+\[
+\bar x=\frac{0+1+2+3}{4}=1.5,
+\qquad
+\bar y=\frac{0.9+2.2+2.9+4.1}{4}=2.525.
+\]
+斜率为
+\[
+\hat b=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sum (x_i-\bar x)^2}
+=\frac{5.15}{5}=1.03.
+\]
+截距为
+\[
+\hat a=\bar y-\hat b\bar x=2.525-1.03\times1.5=0.98.
+\]
+故
+\ansmath{\hat a=0.98,
+\qquad \hat b=1.03}
+再算
+\[
+\chi^2_{\min}=\sum_{i=1}^4\frac{(y_i-\hat a-\hat b x_i)^2}{0.2^2}.
+\]
+代入得到
+\[
+\chi^2_{\min}=1.15.
+\]
+因此
+\ansmath{\chi^2_{\min}=1.15}
+\end{solution}
+\end{question}
+
+\begin{question}
+一次稀有信号搜索中观测到 $n=1$ 个事例，已知本底均值为 $b=1$，信号均值记为 $s$。若采用平坦先验
+\[
+\pi(s)\propto 1,
+\qquad s\ge 0,
+\]
+求 $s$ 的后验分布，并给出 $90\%$ 的后验上限。
+\begin{solution}
+似然函数为
+\[
+L(s)\propto e^{-(s+b)}(s+b).
+\]
+代入 $b=1$ 并乘以平坦先验后，得
+\[
+p(s\mid n=1)\propto e^{-s}(s+1),
+\qquad s\ge 0.
+\]
+归一化常数为
+\[
+\int_0^{\infty} e^{-s}(s+1)\,ds=2.
+\]
+故后验密度为
+\ansmath{p(s\mid n=1)=\frac12 e^{-s}(s+1),
+\qquad s\ge 0}
+设 $s_{90}$ 满足
+\[
+\int_0^{s_{90}}\frac12 e^{-s}(s+1)\,ds=0.9.
+\]
+即
+\[
+1-\frac12 e^{-s_{90}}(s_{90}+2)=0.9.
+\]
+因此需解
+\[
+e^{-s_{90}}(s_{90}+2)=0.2.
+\]
+数值上
+\[
+s_{90}\approx 3.27.
+\]
+故
+\ansmath{s_{90}\approx 3.27}
+\end{solution}
+\end{question}
+

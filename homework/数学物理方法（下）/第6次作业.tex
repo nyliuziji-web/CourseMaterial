@@ -1,0 +1,80 @@
+﻿\heading{数学物理方法（下）-第6次作业}
+
+
+\begin{question}
+试根据 Legendre 方程在 \(x=-1\) 邻域内的级数解求解本征值问题
+\[
+\begin{cases}
+\dfrac d{dx}\left[(1-x^2)y'(x)\right]+\lambda y(x)=0,\qquad -1<x<1,\\
+y(\pm1)\text{ 有界}.
+\end{cases}
+\]
+\begin{solution}
+该方程即 Legendre 方程。把它展开为
+\[
+(1-x^2)y''-2xy'+\lambda y=0.
+\]
+在 \(x=-1\) 附近令 \(s=x+1\)，按 Frobenius 方法设
+\[
+y=s^\alpha\sum_{n=0}^{\infty}a_ns^n,\qquad a_0\ne0.
+\]
+最低次项给出指标方程 \(\alpha^2=0\)，故一个解有界，另一个解含 \(\ln s\) 型奇性。若只要求在 \(x=-1\) 有界，可以保留第一个级数解；但同一个解延拓到 \(x=1\) 时，一般会混入在 \(x=1\) 发散的第二类 Legendre 函数。要使两端同时有界，级数必须截断为多项式。
+
+由 Legendre 方程的幂级数递推关系可知，截断发生当且仅当
+\[
+\lambda=l(l+1),\qquad l=0,1,2,\ldots
+\]
+此时有界解就是 Legendre 多项式。本征函数为
+\[
+y_l(x)=P_l(x).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+证明
+\[
+\int_x^1P_k(t)P_l(t)\,dt
+=(1-x^2)\frac{P'_k(x)P_l(x)-P'_l(x)P_k(x)}{k(k+1)-l(l+1)},\qquad k\ne l.
+\]
+\begin{solution}
+Legendre 方程给出
+\[
+\frac d{dx}\left[(1-x^2)P_k'\right]+k(k+1)P_k=0,
+\]
+\[
+\frac d{dx}\left[(1-x^2)P_l'\right]+l(l+1)P_l=0.
+\]
+分别乘以 \(P_l,P_k\) 后相减：
+\[
+\frac d{dx}\left[(1-x^2)(P_k'P_l-P_l'P_k)\right]
+\{k(k+1)-l(l+1)\}P_kP_l=0.
+\]
+从 \(x\) 到 \(1\) 积分，并用 \(1-x^2\) 在 \(x=1\) 为零，即得所证公式。
+\end{solution}
+\end{question}
+
+\begin{question}
+求解本征值问题
+\[
+\begin{cases}
+\dfrac d{dx}\left[(1-x^2)y'\right]+\lambda y=0,\\
+y(0)=0,\qquad y(1)\text{ 有界}.
+\end{cases}
+\]
+\begin{solution}
+在 \(x=1\) 有界的解为 \(P_l(x)\)，本征值仍为
+\[
+\lambda=l(l+1).
+\]
+边界 \(y(0)=0\) 要求 \(P_l(0)=0\)。Legendre 多项式奇偶性为
+\[
+P_l(-x)=(-1)^lP_l(x),
+\]
+故只有奇数 \(l=2m+1\) 满足条件。本征值与本征函数为
+\[
+\lambda_m=(2m+1)(2m+2),\qquad y_m(x)=P_{2m+1}(x).
+\]
+\end{solution}
+\end{question}
+

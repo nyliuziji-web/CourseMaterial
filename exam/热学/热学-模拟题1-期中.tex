@@ -1,0 +1,237 @@
+﻿\heading{热学-模拟题1-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\textbf{一、简答题}
+\begin{question}
+写出重力场中处于热平衡的稀薄理想气体数密度分布 $n(z)$，并求单个分子的平均势能。
+\begin{solution}
+
+Boltzmann 分布给出
+\[
+ n(z)=n_0 e^{-mgz/(k_BT)}.
+\]
+归一化后的概率密度可写为
+\[
+ f(z)=\frac{mg}{k_BT}e^{-mgz/(k_BT)},\qquad z>0.
+\]
+故平均势能
+\[
+\langle U\rangle=\int_0^{\infty}mgz\,f(z)\,dz=k_BT.
+\]
+\ansmath{\langle U\rangle=\int_0^{\infty}mgz\,f(z)\,dz=k_BT}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+说明为什么等温大气中上升的理想气球所受浮力与高度无关。
+\begin{solution}
+
+等温大气中
+\[
+\rho(z)=\frac{p(z)\mu}{RT}.
+\]
+若气球中气体物质的量不变，则
+\[
+V(z)=\frac{p_0V_0}{p(z)}.
+\]
+故浮力
+\[
+F_b=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},
+\]
+与 $z$ 无关。
+\ansmath{F_b=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+写出泻流数（单位时间单位面积穿过小孔的粒子数）和碰撞频率的公式。
+\begin{solution}
+
+\[
+\Gamma=\frac14 n\langle v\rangle,
+\qquad
+\langle Z\rangle=\sqrt2\,n\sigma\langle v\rangle,
+\]
+其中 $\sigma=\pi d^2$ 为有效碰撞截面。
+\ansmath{\Gamma=\frac14 n\langle v\rangle,
+\qquad
+\langle Z\rangle=\sqrt2\,n\sigma\langle v\rangle,}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+利用能均分定理写出单原子、刚性双原子、非刚性双原子的平均内能。
+\begin{solution}
+
+\[
+\langle\varepsilon\rangle=\frac32k_BT,\qquad \frac52k_BT,\qquad \frac72k_BT.
+\]
+\ansmath{\langle\varepsilon\rangle=\frac32k_BT,\qquad \frac52k_BT,\qquad \frac72k_BT}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+为什么 Feynman 棘轮在与单一热源接触时长期平均不能输出净功？
+\begin{solution}
+
+因为棘轮与卡扣都受同一热源的热涨落控制，顺转与逆转都以相同的玻尔兹曼因子被激发，长期平均无净转动；否则将违背第二定律。
+\anstext{见上。}
+
+\end{solution}
+\end{question}
+
+\textbf{二、计算与证明题}
+\begin{question}
+从 Maxwell 速率分布出发，求速率大于 $v_0$ 的分子在单位时间单位面积上撞击容器壁的次数。
+\begin{solution}
+
+对指向容器壁的半空间积分，
+\[
+\Gamma(v_0)=\int_{v\ge v_0,\ v_x>0}v_x f(\mathbf v)\,d^3v.
+\]
+将角度积分做完，得到
+\[
+\Gamma(v_0)=\frac{n}{4}\sqrt{\frac{8k_BT}{\pi m}}
+\left(1+\frac{mv_0^2}{2k_BT}\right)e^{-mv_0^2/(2k_BT)}.
+\]
+这是题中常用结论。
+\ansmath{\Gamma(v_0)=\frac{n}{4}\sqrt{\frac{8k_BT}{\pi m}}
+\left(1+\frac{mv_0^2}{2k_BT}\right)e^{-mv_0^2/(2k_BT)}}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+设一竖直圆筒内气体满足 van der Waals 近似
+\[
+\left(p+\frac{a}{V_m^2}\right)(V_m-b)=RT.
+\]
+若忽略分子间引力项 $a$，证明其状态方程可写成
+\[
+\frac{p(V-b)}{T}=C.
+\]
+
+\begin{solution}
+
+忽略 $a$ 后有
+\[
+p(V-b)=RT.
+\]
+若以固定物质的量写成总体积形式，右边只差常数因子，故直接整理得
+\ansmath{\frac{p(V-b)}{T}=C.}
+若从全微分形式出发，也可写为
+\[
+\frac{dp}{p}=\frac{dT}{T}-\frac{dV}{V-b},
+\]
+积分后即得同样结果。
+\end{solution}
+\end{question}
+
+\begin{question}
+设两个热容分别为 $C_1,C_2$ 的物体，初温分别为 $T_{10}>T_{20}$，通过一块热导率常数为 $\kappa$ 的薄板交换热量，满足
+\[
+\dot Q=\kappa(T_1-T_2).
+\]
+求温差减半所需时间。
+\begin{solution}
+
+能量守恒给出
+\[
+-C_1\dot T_1=C_2\dot T_2=\kappa(T_1-T_2).
+\]
+令 $\Delta=T_1-T_2$，则
+\[
+\dot\Delta=\dot T_1-\dot T_2=-\kappa\left(\frac1{C_1}+\frac1{C_2}\right)\Delta.
+\]
+故
+\[
+\Delta(t)=\Delta_0\exp\!\left[-\kappa\frac{C_1+C_2}{C_1C_2}t\right].
+\]
+令 $\Delta(t_{1/2})=\Delta_0/2$，得
+\ansmath{t_{1/2}=\frac{C_1C_2}{\kappa(C_1+C_2)}\ln2.}
+\end{solution}
+\end{question}
+
+\begin{question}
+推导圆管层流的 Poiseuille 定律。已知液体粘滞系数为 $\eta$，管长 $L$、半径 $R$，压强差为 $\Delta p$。
+\begin{solution}
+
+取半径为 $r$ 的圆柱壳，受压强驱动力与粘滞阻力平衡：
+\[
+\Delta p\,\pi r^2=2\pi rL\,\eta\left(-\frac{du}{dr}\right).
+\]
+故
+\[
+\frac{du}{dr}=-\frac{\Delta p}{2\eta L}r.
+\]
+结合无滑移边界条件 $u(R)=0$，得速度分布
+\[
+ u(r)=\frac{\Delta p}{4\eta L}(R^2-r^2).
+\]
+流量
+\[
+Q=\int_0^R2\pi r u(r)\,dr=\frac{\pi R^4}{8\eta L}\Delta p.
+\]
+即
+\ansmath{Q=\frac{\pi R^4}{8\eta L}\Delta p.}
+\end{solution}
+\end{question}
+
+\begin{question}
+半径为 $r$ 的小球悬浮在液体中，液体和小球密度分别为 $\rho_0,\rho$，在重力场中达到热平衡。测得高度差 $\Delta h$ 处的平衡数密度分别为 $n_1,n_2$。推导 Avogadro 常数的计算公式。
+\begin{solution}
+
+小球在高度 $z$ 处的有效重力势能为
+\[
+ U(z)=\frac43\pi r^3(\rho-\rho_0)gz.
+\]
+由 Boltzmann 分布
+\[
+ n(z)\propto e^{-N_AU(z)/(RT)}.
+\]
+因此
+\[
+\frac{n_1}{n_2}=\exp\left(\frac{4\pi r^3(\rho-\rho_0)g\Delta h}{3RT}N_A\right).
+\]
+解得
+\ansmath{N_A=\frac{3RT}{4\pi r^3(\rho-\rho_0)g\Delta h}\ln\frac{n_1}{n_2}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+设大气温度线性递减：
+\[
+T(z)=T_0-\alpha z,
+\qquad 0\le z<T_0/\alpha.
+\]
+求压强分布 $p(z)$。
+\begin{solution}
+
+静力平衡
+\[
+\frac{dp}{dz}=-\rho g.
+\]
+理想气体状态方程给出
+\[
+\rho=\frac{p\mu}{RT(z)}=\frac{p\mu}{R(T_0-\alpha z)}.
+\]
+故
+\[
+\frac{dp}{p}=-\frac{\mu g}{R(T_0-\alpha z)}dz.
+\]
+积分得
+\[
+\ln\frac{p(z)}{p_0}=\frac{\mu g}{R\alpha}\ln\left(1-\frac{\alpha z}{T_0}\right).
+\]
+因此
+\ansmath{p(z)=p_0\left(1-\frac{\alpha z}{T_0}\right)^{\mu g/(R\alpha)}.}
+当 $\alpha\to0$ 时回到等温大气公式 $p(z)=p_0e^{-\mu gz/(RT_0)}$。
+\end{solution}
+\end{question}
+
+

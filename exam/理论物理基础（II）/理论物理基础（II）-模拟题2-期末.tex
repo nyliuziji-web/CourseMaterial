@@ -1,0 +1,299 @@
+﻿\heading{理论物理基础（II）-模拟题2-期末}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑一维谐振子
+\[
+\hat H=\frac{\hat p^2}{2m}+\frac12 m\omega^2 x^2.
+\]
+给定波函数
+\[
+\psi(x)=A\left(1+\sqrt{\frac{2m\omega}{\hbar}}\,x\right)e^{-m\omega x^2/(2\hbar)}.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求归一化常数 $A$，并将 $\psi(x)$ 展开到谐振子能量本征态基底；
+  \item 在该态下测量能量，求所有可能结果及其概率，并求平均能量 $\langle H\rangle$；
+  \item 写出随时间演化后的波函数 $\psi(x,t)$；
+  \item 求 $\langle x\rangle_t$，并求所有使得概率密度 $|\psi(x,t)|^2$ 恢复到初始形式的时刻。
+\end{enumerate}
+
+\begin{solution}
+设
+\[
+\alpha=\frac{m\omega}{\hbar}.
+\]
+谐振子前两个归一化本征态为
+\[
+\psi_0(x)=\left(\frac{\alpha}{\pi}\right)^{1/4}e^{-\alpha x^2/2},
+\qquad
+\psi_1(x)=\left(\frac{\alpha}{\pi}\right)^{1/4}\sqrt{2\alpha}\,x\,e^{-\alpha x^2/2}.
+\]
+因此题设波函数正比于 $\psi_0+\psi_1$。归一化后
+\ansmath{A=\frac{1}{\sqrt2}\left(\frac{m\omega}{\pi\hbar}\right)^{1/4},
+\qquad
+\psi(x)=\frac{1}{\sqrt2}\bigl(\psi_0(x)+\psi_1(x)\bigr).}
+
+因此测量能量时只有两种可能结果：
+\[
+E_0=\frac12\hbar\omega,
+\qquad
+E_1=\frac32\hbar\omega,
+\]
+且概率均为 $1/2$。于是
+\ansmath{P(E_0)=P(E_1)=\frac12,
+\qquad
+\langle H\rangle=\frac12 E_0+\frac12 E_1=\hbar\omega.}
+
+时间演化为
+\ansmath{\psi(x,t)=\frac{1}{\sqrt2}\left(e^{-i\omega t/2}\psi_0(x)+e^{-i3\omega t/2}\psi_1(x)\right).}
+
+位置算符只连接相邻能级，因此
+\[
+\langle x\rangle_t=\frac12\left(e^{-i\omega t}\langle 0|x|1\rangle+e^{i\omega t}\langle 1|x|0\rangle\right)
+=\sqrt{\frac{\hbar}{2m\omega}}\cos(\omega t).
+\]
+故
+\ansmath{\langle x\rangle_t=\sqrt{\frac{\hbar}{2m\omega}}\cos(\omega t).}
+
+概率密度中只出现相对相位 $e^{-i\omega t}$，因此当
+\[
+e^{-i\omega t}=1
+\]
+时恢复到初始形式，即
+\ansmath{t=\ell\frac{2\pi}{\omega},\qquad \ell=1,2,3,\dots.}
+若只要求概率密度恢复，而不要求波函数本身严格相同，则同样的条件已经足够且必要。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑二维各向同性谐振子
+\[
+\hat H_0=-\frac{\hbar^2}{2m}(\partial_x^2+\partial_y^2)+\frac12 m\omega^2(x^2+y^2).
+\]
+其第一激发态的两组归一化波函数可取为
+\[
+\psi_x(x,y)=C\,x\,e^{-m\omega(x^2+y^2)/(2\hbar)},
+\qquad
+\psi_y(x,y)=C\,y\,e^{-m\omega(x^2+y^2)/(2\hbar)}.
+\]
+现引入微扰哈密顿量 $D\hat L_z$，总哈密顿量为
+\[
+\hat H=\hat H_0+D\hat L_z,
+\qquad D>0.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求归一化常数 $C$；
+  \item 在基 $\{\psi_x,\psi_y\}$ 下求 $\hat L_z$ 的矩阵表示，并求其本征态与本征值；
+  \item 若初态为 $\psi_x$，求任意时刻的量子态 $\psi(t)$；
+  \item 求时刻 $t$ 处于态 $\psi_x$ 与 $\psi_y$ 的概率，并求所有使得 $\psi(t)$ 与 $\psi_y$ 仅差一个整体相位的时刻。
+\end{enumerate}
+
+\begin{solution}
+设 $\alpha=m\omega/\hbar$。利用
+\[
+1=C^2\int x^2 e^{-\alpha(x^2+y^2)}dxdy=C^2\cdot \frac{\pi}{2\alpha^2},
+\]
+得
+\ansmath{C=\sqrt{\frac{2}{\pi}}\,\frac{m\omega}{\hbar}.}
+这两态都属于第一激发能级，能量为
+\[
+E_1=2\hbar\omega.
+\]
+
+直接作用可得
+\[
+\hat L_z\psi_x=i\hbar\psi_y,
+\qquad
+\hat L_z\psi_y=-i\hbar\psi_x.
+\]
+故在基 $\{\psi_x,\psi_y\}$ 下
+\ansmath{\hat L_z\ \longleftrightarrow\ \hbar
+\begin{pmatrix}
+0&-i\\
+i&0
+\end{pmatrix}.}
+其本征态为
+\[
+\psi_+=\frac{\psi_x+i\psi_y}{\sqrt2},
+\qquad
+\psi_-=\frac{\psi_x-i\psi_y}{\sqrt2},
+\]
+对应本征值分别为 $+\hbar$ 与 $-\hbar$。
+
+初态可写作
+\[
+\psi_x=\frac{\psi_++\psi_-}{\sqrt2}.
+\]
+因此时间演化为
+\[
+\psi(t)=\frac{1}{\sqrt2}\left(e^{-i(E_1+D\hbar)t/\hbar}\psi_++e^{-i(E_1-D\hbar)t/\hbar}\psi_-\right).
+\]
+化回 $\{\psi_x,\psi_y\}$ 基，得
+\ansmath{\psi(t)=e^{-iE_1 t/\hbar}\left[\cos(Dt)\,\psi_x+\sin(Dt)\,\psi_y\right].}
+
+因此
+\ansmath{P_x(t)=\cos^2(Dt),
+\qquad
+P_y(t)=\sin^2(Dt).}
+当
+\[
+\cos(Dt)=0,
+\qquad \sin(Dt)=\pm 1
+\]
+时，$\psi(t)$ 与 $\psi_y$ 只差一个整体相位。故全部这样的时刻为
+\ansmath{t=\frac{\pi/2+\ell\pi}{D},\qquad \ell=0,1,2,\dots.}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一维谐振势中的两个无相互作用全同费米子，每个粒子自旋为 $1/2$。单粒子哈密顿量为
+\[
+\hat h=\frac{\hat p^2}{2m}+\frac12 m\omega^2 x^2,
+\]
+单粒子能级为
+\[
+\varepsilon_n=\hbar\omega\left(n+\frac12\right),
+\qquad n=0,1,2,\dots.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 写出体系基态的总能量与归一化总波函数；
+  \item 求第一激发能级及其简并度，并给出一组归一化本征态；
+  \item 对基态计算 $\langle (x_1-x_2)^2\rangle$；
+  \item 对最低三重态之一计算 $\langle (x_1-x_2)^2\rangle$。
+\end{enumerate}
+
+\begin{solution}
+基态时，两粒子都占据单粒子 $n=0$ 轨道，但自旋必须组成反对称单态。因此总能量为
+\ansmath{E_{\mathrm{gs}}=2\cdot \frac12\hbar\omega=\hbar\omega.}
+归一化总波函数可写为
+\ansmath{\Psi_{\mathrm{gs}}(x_1,s_1;x_2,s_2)=\psi_0(x_1)\psi_0(x_2)\cdot \frac{1}{\sqrt2}\bigl(\uparrow\downarrow-\downarrow\uparrow\bigr).}
+
+第一激发时，一个粒子占据 $n=0$，另一个占据 $n=1$，总能量为
+\ansmath{E_1=\left(\frac12+\frac32\right)\hbar\omega=2\hbar\omega.}
+空间部分既可以取对称组合，也可以取反对称组合：
+\[
+\Psi_{\pm}^{\text{space}}=\frac{\psi_0(x_1)\psi_1(x_2)\pm \psi_1(x_1)\psi_0(x_2)}{\sqrt2}.
+\]
+其中对称空间部分必须配自旋单态，反对称空间部分必须配自旋三重态。因此第一激发能级的简并度为
+\ansmath{1+3=4.}
+可取的一组归一化本征态为
+\[
+\Psi_+^{\text{space}}\otimes \frac{1}{\sqrt2}(\uparrow\downarrow-\downarrow\uparrow),
+\]
+以及
+\[
+\Psi_-^{\text{space}}\otimes \uparrow\uparrow,
+\qquad
+\Psi_-^{\text{space}}\otimes \frac{1}{\sqrt2}(\uparrow\downarrow+\downarrow\uparrow),
+\qquad
+\Psi_-^{\text{space}}\otimes \downarrow\downarrow.
+\]
+
+在基态中，空间波函数就是 $\psi_0(x_1)\psi_0(x_2)$，故
+\[
+\langle (x_1-x_2)^2\rangle=\langle x_1^2\rangle+\langle x_2^2\rangle-2\langle x_1\rangle\langle x_2\rangle=2\langle x^2\rangle_0.
+\]
+而
+\[
+\langle x^2\rangle_0=\frac{\hbar}{2m\omega},
+\]
+故
+\ansmath{\langle (x_1-x_2)^2\rangle_{\mathrm{gs}}=\frac{\hbar}{m\omega}.}
+
+对最低三重态之一，其空间部分正是
+\[
+\Psi_-^{\text{space}}=\frac{\psi_0(x_1)\psi_1(x_2)-\psi_1(x_1)\psi_0(x_2)}{\sqrt2}.
+\]
+这与无自旋两费米子的一维谐振子基态相同，因此
+\ansmath{\langle (x_1-x_2)^2\rangle_{\mathrm{triplet}}=\frac{2\hbar}{m\omega}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一维势阶散射：
+\[
+V(x)=
+\begin{cases}
+0,& x<0,\\
+V_0,& x>0,
+\end{cases}
+\qquad V_0>0.
+\]
+有一束能量为 $E$ 的粒子自左向右入射。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 当 $E>V_0$ 时，写出定态波函数并求反射系数 $R$ 与透射系数 $T$；
+  \item 验证 $R+T=1$；
+  \item 当 $0<E<V_0$ 时，写出定态波函数并求反射系数。
+\end{enumerate}
+
+\begin{solution}
+当 $E>V_0$ 时，设
+\[
+k=\frac{\sqrt{2mE}}{\hbar},
+\qquad
+q=\frac{\sqrt{2m(E-V_0)}}{\hbar}.
+\]
+取自左入射，波函数可写为
+\[
+\psi(x)=
+\begin{cases}
+e^{ikx}+r e^{-ikx},& x<0,\\
+t e^{iqx},& x>0.
+\end{cases}
+\]
+在 $x=0$ 处连续并令导数连续，得
+\[
+1+r=t,
+\qquad
+k(1-r)=qt.
+\]
+解得
+\[
+r=\frac{k-q}{k+q},
+\qquad
+t=\frac{2k}{k+q}.
+\]
+因此
+\ansmath{R=|r|^2=\left(\frac{k-q}{k+q}\right)^2,
+\qquad
+T=\frac{q}{k}|t|^2=\frac{4kq}{(k+q)^2}.}
+
+直接相加即得
+\[
+R+T=\frac{(k-q)^2+4kq}{(k+q)^2}=1.
+\]
+故
+\ansmath{R+T=1.}
+
+当 $0<E<V_0$ 时，设
+\[
+\kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}.
+\]
+由于右侧为禁阻区，波函数取为衰减形式：
+\[
+\psi(x)=
+\begin{cases}
+e^{ikx}+r e^{-ikx},& x<0,\\
+t e^{-\kappa x},& x>0.
+\end{cases}
+\]
+边界条件给出
+\[
+1+r=t,
+\qquad
+ik(1-r)=-\kappa t.
+\]
+解得
+\[
+r=\frac{k-i\kappa}{k+i\kappa}.
+\]
+于是
+\ansmath{R=|r|^2=1.}
+这说明当粒子能量低于势阶高度时，不存在透射流，但右侧仍有指数衰减的穿透尾巴。
+\end{solution}
+\end{question}
+

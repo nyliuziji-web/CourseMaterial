@@ -1,0 +1,308 @@
+﻿\heading{理论物理基础（II）-模拟题1-期末}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑半径为 $R$ 的圆环上的非相对论粒子，其角坐标记为 $\phi\in[0,2\pi)$，满足周期性边界条件 $\psi(\phi+2\pi)=\psi(\phi)$。哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2mR^2}\frac{d^2}{d\phi^2}.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求 $\hat H$ 的全部本征值与归一化本征态；
+  \item 给定初态
+  \[
+  \psi(\phi)=A(1+\cos\phi),
+  \]
+  求归一化常数 $A$，并将其展开到能量本征态基底；
+  \item 在该初态下测量能量，求所有可能的测量结果与概率；
+  \item 设系统按 $\hat H$ 演化，是否存在 $t>0$ 使得 $\psi(\phi,t)=\psi(\phi,0)$？若有，求出所有这样的时刻；是否存在 $t>0$ 使得 $\psi(\phi,t)=-\psi(\phi,0)$？
+\end{enumerate}
+
+\begin{solution}
+在圆环上，定态方程解为平面波 $e^{in\phi}$。周期性条件要求 $n\in\mathbb Z$。因此
+\ansmath{\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}e^{in\phi},
+\qquad
+E_n=\frac{\hbar^2 n^2}{2mR^2},
+\qquad n\in\mathbb Z.}
+
+对初态，归一化条件给出
+\[
+1=A^2\int_0^{2\pi}(1+\cos\phi)^2d\phi=A^2(2\pi+\pi)=3\pi A^2,
+\]
+故
+\[
+A=\frac{1}{\sqrt{3\pi}}.
+\]
+又因
+\[
+1+\cos\phi=1+\frac{e^{i\phi}+e^{-i\phi}}{2},
+\]
+所以
+\[
+\psi(\phi)=\sqrt{\frac{2}{3}}\,\psi_0(\phi)+\frac{1}{\sqrt6}\,\psi_1(\phi)+\frac{1}{\sqrt6}\,\psi_{-1}(\phi).
+\]
+即
+\ansmath{A=\frac{1}{\sqrt{3\pi}},
+\qquad
+\psi=\sqrt{\frac23}\,\psi_0+\frac{1}{\sqrt6}\,\psi_1+\frac{1}{\sqrt6}\,\psi_{-1}.}
+
+因此测量能量时，可能结果只有
+\[
+E_0=0,
+\qquad
+E_{\pm1}=\frac{\hbar^2}{2mR^2}.
+\]
+注意 $n=\pm1$ 对应同一个能量。概率为
+\ansmath{P(E=0)=\frac23,
+\qquad
+P\!\left(E=\frac{\hbar^2}{2mR^2}\right)=\frac13.}
+
+随时间演化后
+\[
+\psi(\phi,t)=\sqrt{\frac23}\,\psi_0(\phi)+e^{-iE_1t/\hbar}\left[\frac{1}{\sqrt6}\,\psi_1(\phi)+\frac{1}{\sqrt6}\,\psi_{-1}(\phi)\right],
+\qquad E_1=\frac{\hbar^2}{2mR^2}.
+\]
+要使其回到初态，只需满足
+\[
+e^{-iE_1 t/\hbar}=1,
+\]
+故
+\ansmath{t=\ell\,\frac{4\pi mR^2}{\hbar},\qquad \ell=1,2,3,\dots.}
+
+而若要满足 $\psi(\phi,t)=-\psi(\phi,0)$，则 $n=0$ 分量也必须变号，但它始终不随时间改变，因此这是不可能的。故
+\anstext{不存在 $t>0$ 使得 $\psi(\phi,t)=-\psi(\phi,0)$。}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一个自旋为 $1$ 的粒子。取 $\hat S_z$ 的本征态 $\{|1\rangle,|0\rangle,|-1\rangle\}$ 为基。定义哈密顿量为
+\[
+\hat H=D\hat S_y,
+\]
+其中 $D$ 为实常数。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求算符 $\hat S_y$ 在 $\{|1\rangle,|0\rangle,|-1\rangle\}$ 基下的矩阵表示；
+  \item 求 $\hat S_y$ 的本征值与一组归一化本征态；
+  \item 若初态为 $|1\rangle$，求时刻 $t$ 的量子态 $|\psi(t)\rangle$；
+  \item 在态 $|\psi(t)\rangle$ 下先测量 $\hat S_z$，再测量 $\hat S_y$，求所有可能测量结果的组合及其概率。
+\end{enumerate}
+
+\begin{solution}
+自旋 $1$ 的角动量算符满足
+\[
+\hat S_y=\frac{1}{\sqrt2}
+\begin{pmatrix}
+0&-i\hbar&0\\
+i\hbar&0&-i\hbar\\
+0&i\hbar&0
+\end{pmatrix}
+\]
+（基的顺序为 $|1\rangle,|0\rangle,|-1\rangle$）。因此
+\ansmath{\hat S_y\ \longleftrightarrow\ \frac{\hbar}{\sqrt2}
+\begin{pmatrix}
+0&-i&0\\
+i&0&-i\\
+0&i&0
+\end{pmatrix}.}
+
+$\hat S_y$ 的本征值为 $+\hbar,0,-\hbar$。可取归一化本征态为
+\[
+|+\rangle_y=\frac{1}{2}
+\begin{pmatrix}-1\\-i\sqrt2\\1\end{pmatrix},
+\qquad
+|0\rangle_y=\frac{1}{\sqrt2}
+\begin{pmatrix}1\\0\\1\end{pmatrix},
+\qquad
+|-\rangle_y=\frac{1}{2}
+\begin{pmatrix}-1\\i\sqrt2\\1\end{pmatrix}.
+\]
+也就是
+\ansmath{\hat S_y|\pm\rangle_y=\pm\hbar|\pm\rangle_y,
+\qquad
+\hat S_y|0\rangle_y=0.}
+
+将初态 $|1\rangle$ 按 $\hat S_y$ 本征态展开后再演化，或直接利用旋转矩阵，都可得
+\[
+|\psi(t)\rangle=e^{-iDt\hat S_y/\hbar}|1\rangle
+=\cos^2\frac{Dt}{2}\,|1\rangle+\frac{\sin Dt}{\sqrt2}|0\rangle+\sin^2\frac{Dt}{2}\,|-1\rangle.
+\]
+因此
+\ansmath{|\psi(t)\rangle=
+\cos^2\frac{Dt}{2}\,|1\rangle+\frac{\sin Dt}{\sqrt2}|0\rangle+\sin^2\frac{Dt}{2}\,|-1\rangle.}
+
+第一次测量 $\hat S_z$ 时，可能结果与概率分别为
+\[
+S_z=+\hbar,\\ P=\cos^4\frac{Dt}{2};
+\qquad
+S_z=0,\\ P=\frac12\sin^2 Dt;
+\qquad
+S_z=-\hbar,\\ P=\sin^4\frac{Dt}{2}.
+\]
+坍缩后分别为 $|1\rangle,|0\rangle,|-1\rangle$。再测量 $\hat S_y$ 时：
+\[
+|1\rangle \to (+\hbar,0,-\hbar)\ \text{的概率分别为}\ \frac14,\frac12,\frac14;
+\]
+\[
+|0\rangle \to (+\hbar,0,-\hbar)\ \text{的概率分别为}\ \frac12,0,\frac12;
+\]
+\[
+|-1\rangle \to (+\hbar,0,-\hbar)\ \text{的概率分别为}\ \frac14,\frac12,\frac14.
+\]
+故全部可能的结果组合及其概率为
+\ansmath{\begin{aligned}
+&(S_z=+\hbar,\ S_y=+\hbar), &&P=\frac14\cos^4\frac{Dt}{2},\\
+&(S_z=+\hbar,\ S_y=0), &&P=\frac12\cos^4\frac{Dt}{2},\\
+&(S_z=+\hbar,\ S_y=-\hbar), &&P=\frac14\cos^4\frac{Dt}{2},\\
+&(S_z=0,\ S_y=+\hbar), &&P=\frac14\sin^2 Dt,\\
+&(S_z=0,\ S_y=-\hbar), &&P=\frac14\sin^2 Dt,\\
+&(S_z=-\hbar,\ S_y=+\hbar), &&P=\frac14\sin^4\frac{Dt}{2},\\
+&(S_z=-\hbar,\ S_y=0), &&P=\frac12\sin^4\frac{Dt}{2},\\
+&(S_z=-\hbar,\ S_y=-\hbar), &&P=\frac14\sin^4\frac{Dt}{2}.
+\end{aligned}}
+其中 $(S_z=0,S_y=0)$ 的概率为 $0$。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑圆环上的两个无相互作用、无自旋全同粒子。单粒子哈密顿量为
+\[
+\hat h=-\frac{\hbar^2}{2mR^2}\frac{d^2}{d\phi^2},
+\]
+单粒子归一化本征态为
+\[
+\varphi_n(\phi)=\frac{1}{\sqrt{2\pi}}e^{in\phi},
+\qquad
+\varepsilon_n=\frac{\hbar^2 n^2}{2mR^2},
+\qquad n\in\mathbb Z.
+\]
+总哈密顿量为
+\[
+\hat H=\hat h_1+\hat h_2.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 对两个全同玻色子，写出全部能级与归一化本征态；
+  \item 对两个全同费米子，写出全部能级与归一化本征态；
+  \item 求玻色子基态的期望值 $\langle \cos(\phi_1-\phi_2)\rangle$；
+  \item 取一个费米子基态
+  \[
+  \Psi_{0,1}^{(F)}(\phi_1,\phi_2)=\frac{\varphi_0(\phi_1)\varphi_1(\phi_2)-\varphi_1(\phi_1)\varphi_0(\phi_2)}{\sqrt2},
+  \]
+  求该态中的 $\langle \cos(\phi_1-\phi_2)\rangle$。
+\end{enumerate}
+
+\begin{solution}
+两个玻色子的总波函数必须对称，因此当 $n_1=n_2$ 时
+\[
+\Psi_{n,n}^{(B)}(\phi_1,\phi_2)=\varphi_n(\phi_1)\varphi_n(\phi_2),
+\qquad
+E_{n,n}=2\varepsilon_n.
+\]
+当 $n_1<n_2$ 时
+\ansmath{\Psi_{n_1,n_2}^{(B)}=\frac{\varphi_{n_1}(\phi_1)\varphi_{n_2}(\phi_2)+\varphi_{n_2}(\phi_1)\varphi_{n_1}(\phi_2)}{\sqrt2},
+\qquad
+E_{n_1,n_2}=\varepsilon_{n_1}+\varepsilon_{n_2}.}
+这给出了全部玻色子能级和归一化本征态。
+
+两个费米子的总波函数必须反对称，因此只能有 $n_1<n_2$：
+\ansmath{\Psi_{n_1,n_2}^{(F)}=\frac{\varphi_{n_1}(\phi_1)\varphi_{n_2}(\phi_2)-\varphi_{n_2}(\phi_1)\varphi_{n_1}(\phi_2)}{\sqrt2},
+\qquad
+E_{n_1,n_2}=\varepsilon_{n_1}+\varepsilon_{n_2}.}
+
+玻色子基态为两粒子都占据 $n=0$：
+\[
+\Psi_{0,0}^{(B)}=\frac{1}{2\pi}.
+\]
+于是
+\[
+\langle \cos(\phi_1-\phi_2)\rangle
+=\frac{1}{4\pi^2}\int_0^{2\pi}d\phi_1\int_0^{2\pi}d\phi_2\,\cos(\phi_1-\phi_2)=0.
+\]
+故
+\ansmath{\langle \cos(\phi_1-\phi_2)\rangle_{\Psi_{0,0}^{(B)}}=0.}
+
+对费米子态 $\Psi_{0,1}^{(F)}$，其概率密度为
+\[
+|\Psi_{0,1}^{(F)}|^2=\frac{1}{4\pi^2}\bigl(1-\cos(\phi_1-\phi_2)\bigr).
+\]
+因此
+\[
+\langle \cos(\phi_1-\phi_2)\rangle
+=\frac{1}{4\pi^2}\int d\phi_1d\phi_2\,\cos(\phi_1-\phi_2)\bigl(1-\cos(\phi_1-\phi_2)\bigr).
+\]
+第一项积分为零，第二项给出 $-1/2$，故
+\ansmath{\langle \cos(\phi_1-\phi_2)\rangle_{\Psi_{0,1}^{(F)}}=-\frac12.}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一维对称有限深势阱
+\[
+V(x)=
+\begin{cases}
+-V_0,& |x|<a,\\
+0,& |x|>a,
+\end{cases}
+\qquad V_0>0.
+\]
+考虑束缚态 $-V_0<E<0$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 写出偶宇称与奇宇称束缚态的波函数形式，并导出它们各自满足的本征值方程；
+  \item 证明该势阱总至少存在一个偶宇称束缚态；
+  \item 证明存在奇宇称束缚态的条件为
+  \[
+  a\sqrt{\frac{2mV_0}{\hbar^2}}>\frac{\pi}{2};
+  \]
+  \item 在深阱极限下，写出前几个束缚能级的近似表达式。
+\end{enumerate}
+
+\begin{solution}
+记
+\[
+k=\frac{\sqrt{2m(E+V_0)}}{\hbar},
+\qquad
+\kappa=\frac{\sqrt{-2mE}}{\hbar},
+\qquad
+k^2+\kappa^2=\frac{2mV_0}{\hbar^2}.
+\]
+
+偶宇称束缚态可写为
+\[
+\psi(x)=
+\begin{cases}
+A\cos(kx),& |x|<a,\\
+B e^{-\kappa |x|},& |x|>a.
+\end{cases}
+\]
+在 $x=a$ 处连续并令导数连续，得
+\ansmath{k\tan(ka)=\kappa.}
+
+奇宇称束缚态可写为
+\[
+\psi(x)=
+\begin{cases}
+A\sin(kx),& |x|<a,\\
+B\,\mathrm{sgn}(x)e^{-\kappa |x|},& |x|>a.
+\end{cases}
+\]
+同样由边界匹配得到
+\ansmath{-k\cot(ka)=\kappa.}
+
+对偶宇称方程，函数 $y=k\tan(ka)$ 在区间 $0<ka<\pi/2$ 上从 $0$ 连续增至 $+\infty$；而 $\kappa=\sqrt{2mV_0/\hbar^2-k^2}$ 在该区间上是正的连续函数。因此两条曲线必有交点，所以总至少存在一个偶宇称束缚态。
+
+对奇宇称方程，要有解必须使得 $ka$ 能进入区间 $(\pi/2,\pi)$。由于 $ka$ 的最大可能值为
+\[
+ka\le a\sqrt{\frac{2mV_0}{\hbar^2}},
+\]
+所以存在奇宇称束缚态的必要且充分条件是
+\ansmath{a\sqrt{\frac{2mV_0}{\hbar^2}}>\frac{\pi}{2}.}
+
+在深阱极限下，$\kappa a\gg 1$，阱壁近似为无限高，故宽度为 $2a$ 的无限深势阱近似成立。于是能级近似为
+\ansmath{E_n\approx -V_0+\frac{\hbar^2\pi^2 n^2}{8ma^2},
+\qquad n=1,2,3,\dots.}
+其中 $n=1,3,5,\dots$ 对应偶宇称，$n=2,4,6,\dots$ 对应奇宇称。
+\end{solution}
+\end{question}
+

@@ -1,0 +1,368 @@
+﻿\heading{实验物理中的统计方法-基本概念}
+
+
+
+
+
+\begin{question}
+考虑某样本空间 \(S\) 以及给定子空间 \(B\)，并假设 \(P(B)>0\)。证明条件概率
+
+\[
+P(A|B)=\frac{P(A\cap B)}{P(B)}.
+\]
+
+满足概率的公理。
+\begin{solution}
+对固定的 \(B\) 且 \(P(B)>0\)，定义
+\(P_B(A)=P(A|B)=P(A\cap B)/P(B)\)。验证概率公理：
+
+\begin{enumerate}
+\item
+  非负性：\(P(A\cap B)\ge0\)，故 \(P_B(A)\ge0\)。
+\item
+  归一性：\(P_B(S)=P(S\cap B)/P(B)=P(B)/P(B)=1\)。
+\item
+  可列可加性：若 \(A_i\) 两两不交，则 \((A_i\cap B)\) 也两两不交，故
+\end{enumerate}
+
+\[
+P_B\left(\bigcup_i A_i\right)=\frac{P\left(\bigcup_i(A_i\cap B)\right)}{P(B)}
+=\frac{\sum_iP(A_i\cap B)}{P(B)}=\sum_iP_B(A_i).
+\]
+
+因此条件概率满足概率公理。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+证明
+
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+\]
+
+(提示：将 \(A\cup B\) 表示成 3 个不相交的子集的并。)
+\begin{solution}
+把 \(A\cup B\) 分成三个互不相交的部分：
+
+\[
+A\cup B=(A\setminus B)\cup(B\setminus A)\cup(A\cap B).
+\]
+
+于是
+
+\[
+P(A\cup B)=P(A\setminus B)+P(B\setminus A)+P(A\cap B).
+\]
+
+又
+
+\[
+P(A)=P(A\setminus B)+P(A\cap B),\qquad
+P(B)=P(B\setminus A)+P(A\cap B),
+\]
+
+所以
+
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B).
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+某粒子束流包含 \(10^{-4}\) 的电子，其余为光子。粒子通过某双层探测器，可能在两层都给出信号，也可能只有一层给出信号或者没有任何信号。电子 \((e)\) 和光子 \((\gamma)\) 在穿过该双层探测器给出 0，1 或 2 个信号的概率如下
+
+\[
+\begin{split}
+P(0|e)&=0.001,\qquad P(0|\gamma)=0.99899,\\
+P(1|e)&=0.01,\qquad P(1|\gamma)=0.001,\\
+P(2|e)&=0.989,\qquad P(2|\gamma)=10^{-5}.
+\end{split}
+\]
+
+\begin{enumerate}
+\item
+  如果只有一层给出信号，该粒子为光子的概率是多少？
+\item
+  如果两层都给出了信号，该粒子为电子的概率是多少？
+\end{enumerate}
+\begin{solution}
+设先验概率 \(P(e)=10^{-4}\)，\(P(\gamma)=1-10^{-4}=0.9999\)。
+
+\begin{enumerate}
+\item
+  只有一层给出信号时，用 Bayes 公式：
+\end{enumerate}
+
+\[
+P(\gamma|1)=\frac{P(1|\gamma)P(\gamma)}{P(1|e)P(e)+P(1|\gamma)P(\gamma)}.
+\]
+
+代入数值：
+
+\[
+P(\gamma|1)=\frac{0.001\times0.9999}{0.01\times10^{-4}+0.001\times0.9999}
+\approx0.9990.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  两层都给出信号时：
+\end{enumerate}
+
+\[
+P(e|2)=\frac{P(2|e)P(e)}{P(2|e)P(e)+P(2|\gamma)P(\gamma)}
+=\frac{0.989\times10^{-4}}{0.989\times10^{-4}+10^{-5}\times0.9999}
+\approx0.9082.
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设随机变量 \(x\) 的概率密度函数为 \(f(x)\)。证明 \(y=x^2\) 的概率密度函数为
+
+\[
+g(y)=\frac{1}{2\sqrt{y}}f(\sqrt{y})+\frac{1}{2\sqrt{y}}f(-\sqrt{y}).
+\]
+\begin{solution}
+令 \(y=x^2\)。当 \(y>0\) 时，反解有两个分支 \(x=\sqrt y\) 和
+\(x=-\sqrt y\)，且
+
+\[
+\left|\frac{dx}{dy}\right|=\frac{1}{2\sqrt y}.
+\]
+
+变量变换公式给出
+
+\[
+g(y)=f(\sqrt y)\frac{1}{2\sqrt y}+f(-\sqrt y)\frac{1}{2\sqrt y},\qquad y>0.
+\]
+
+即
+
+\[
+g(y)=\frac{1}{2\sqrt y}f(\sqrt y)+\frac{1}{2\sqrt y}f(-\sqrt y).
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设两个独立的随机变量 \(x\) 和 \(y\) 都服从 0 到 1 之间的均匀分布，即概率密度函数 \(g(x)\) 为
+
+\[
+g(x)=\begin{cases}
+1, & 0<x<1,\\
+0, & \text{其它}.
+\end{cases}
+\]
+
+概率密度函数 \(h(y)\) 与 \(g(x)\) 类似。
+
+\begin{enumerate}
+\item 利用 Statistical Data Analysis 中的 (1.35) 式，证明 \(z=xy\) 的概率密度函数 \(f(z)\) 为
+\[
+f(z)=\begin{cases}
+-\log z, & 0<z<1,\\
+0, & \text{其它}.
+\end{cases}
+\]
+
+\begin{enumerate}[start=2]
+\item
+  利用 Statistical Data Analysis 的 (1.37) 和 (1.38)
+  式，通过另外定义一个函数 \(u=x\)，求 \(z=xy\) 的概率密度函数。首先求 \(z\) 和
+  \(u\) 的联合概率密度函数，然后对 \(u\) 进行积分求出 \(z\) 的概率密度函数。
+\item
+  证明 \(z\) 的累积分布为
+\[
+  F(z)=z(1-\log z).
+  \]
+\end{enumerate}
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item
+  对 \(z=xy\)，且 \(x,y\sim U(0,1)\) 独立。固定 \(x\)，由
+  \(y=z/x\)，需要 \(0<z/x<1\)，即 \(z<x<1\)。因此
+\end{enumerate}
+
+\[
+f_Z(z)=\int_z^1 1\cdot1\cdot\frac{1}{x}\,dx=-\log z,\qquad 0<z<1.
+\]
+
+其它 \(z\) 区间密度为 0。
+
+\begin{enumerate}[start=2]
+\item
+  令 \(u=x\)，\(z=xy\)，则 \(x=u\)，\(y=z/u\)。Jacobian 为
+\end{enumerate}
+
+\[
+\left|\frac{\partial(x,y)}{\partial(z,u)}\right|=
+\begin{vmatrix}
+0&1\\
+1/u&-z/u^2
+\end{vmatrix}=\frac{1}{u}.
+\]
+
+由于 \(0<u<1\) 且 \(0<z/u<1\)，有 \(z<u<1\)。所以联合密度
+
+\[
+f_{Z,U}(z,u)=\frac1u,\qquad 0<z<u<1.
+\]
+
+积分掉 \(u\)：
+
+\[
+f_Z(z)=\int_z^1\frac1u\,du=-\log z.
+\]
+
+\begin{enumerate}[start=3]
+\item
+  累积分布为
+\end{enumerate}
+
+\[
+F(z)=P(XY\le z)=\int_0^z[-\log t]dt=z(1-\log z),\qquad 0<z<1.
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑随机变量 \(x\) 与常数 \(\alpha\) 和 \(\beta\)。证明
+
+\[
+\begin{split}
+E[\alpha x+\beta]&=\alpha E[x]+\beta,\\
+V[\alpha x+\beta]&=\alpha^2 V[x].
+\end{split}
+\]
+\begin{solution}
+利用期待值线性性：
+
+\[
+E[\alpha x+\beta]=\alpha E[x]+\beta.
+\]
+
+方差为
+
+\[
+V[\alpha x+\beta]=E[(\alpha x+\beta-\alpha E[x]-\beta)^2]
+=E[\alpha^2(x-E[x])^2]=\alpha^2V[x].
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑两个随机变量 \(x\) 和 \(y\)。
+
+\begin{enumerate}
+\item
+  证明 \(\alpha x+y\) 的方差为
+\end{enumerate}
+
+\[
+\begin{split}
+V[\alpha x+y]&=\alpha^2 V[x]+V[y]+2\alpha\operatorname{cov}[x,y]\\
+&=\alpha^2 V[x]+V[y]+2\alpha\rho\sigma_x\sigma_y.
+\end{split}
+\]
+
+其中 \(\alpha\) 为任意常数，\(\sigma_x^2=V[x]\)，\(\sigma_y^2=V[y]\)，关联系数 \(\rho=\operatorname{cov}[x,y]/(\sigma_x\sigma_y)\)。
+
+\begin{enumerate}[start=2]
+\item 利用 (a) 的结果，证明关联系数总是位于区间 \(-1\le \rho\le 1\)。(利用 \(V[\alpha x+y]\) 的方差总是大于或等于零。)
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item
+  由方差定义：
+\end{enumerate}
+
+\[
+\begin{split}
+V[\alpha x+y]
+&=E[(\alpha(x-E[x])+(y-E[y]))^2]\\
+&=\alpha^2V[x]+V[y]+2\alpha\operatorname{cov}[x,y]\\
+&=\alpha^2\sigma_x^2+\sigma_y^2+2\alpha\rho\sigma_x\sigma_y.
+\end{split}
+\]
+
+\begin{enumerate}[start=2]
+\item
+  因为方差非负，对任意 \(\alpha\)，二次函数
+\end{enumerate}
+
+\[
+\alpha^2\sigma_x^2+2\alpha\rho\sigma_x\sigma_y+
+\sigma_y^2\ge0.
+\]
+
+其判别式必须不大于 0：
+
+\[
+(2\rho\sigma_x\sigma_y)^2-4\sigma_x^2\sigma_y^2\le0.
+\]
+
+若 \(\sigma_x\sigma_y>0\)，得到 \(\rho^2\le1\)，即
+\(-1\le\rho\le1\)。若某个方差为零，相关系数退化，结论可由极限理解。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设随机变量 \(x=(x_1,\ldots,x_n)^T\) 用联合概率密度函数 \(f(x)\) 描述，而变量 \(y=(y_1,\ldots,y_n)^T\) 由下面的线性变换定义
+
+\[
+y_i=\sum_{j=1}^{n} A_{ij}x_j.
+\]
+
+假设反变换 \(x=A^{-1}y\) 存在。
+
+\begin{enumerate}
+\item 证明 \(y\) 的联合概率密度函数为
+\[
+g(y)=f(A^{-1}y)\left|\det(A^{-1})\right|.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  当 \(A\) 为正交矩阵，即 \(A^{-1}=A^T\) 时，求 \(g(y)\)。
+\end{enumerate}
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item
+  线性变换为 \(y=Ax\)，反变换 \(x=A^{-1}y\)。多维变量变换公式给出
+\end{enumerate}
+
+\[
+g(y)=f(A^{-1}y)\left|\det\frac{\partial x}{\partial y}\right|
+=f(A^{-1}y)|\det(A^{-1})|.
+\]
+
+\begin{enumerate}[start=2]
+\item
+  若 \(A\) 为正交矩阵，则 \(A^{-1}=A^T\)，且 \(|\det(A^{-1})|=1\)。因此
+\end{enumerate}
+
+\[
+g(y)=f(A^Ty).
+\]
+\end{solution}
+\end{question}
+

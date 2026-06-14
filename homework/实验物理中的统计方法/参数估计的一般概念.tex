@@ -1,0 +1,287 @@
+﻿\heading{实验物理中的统计方法-参数估计的一般概念}
+
+
+
+
+
+\begin{question}
+考虑随机数 \(x\)，其均值和方差分别为 \(\mu\) 和
+\(\sigma^2\)。假设样本空间由 \(n\) 次观测结果 \(x_1,x_2,\cdots,x_n\)
+构成。本题的目的是证明样本均值
+
+\[
+\bar x=\frac1n\sum_{i=1}^{n}x_i
+\]
+
+为均值 \(\mu\) 的一致性估计量。
+
+\begin{enumerate}
+\item
+  第一步要证明 Chebyshev 不等式，即只要 \(x\) 的方差存在，对任意
+  \(a>0\)，下面式子成立：
+\end{enumerate}
+
+\[
+P(|x-\mu|\ge a)\le \frac{\sigma^2}{a^2}.
+\]
+
+该式的证明需要用到方差的定义，
+
+\[
+\sigma^2=\int_{-\infty}^{\infty}(x-\mu)^2f(x)\,dx,
+\]
+
+其中 \(f(x)\) 为随机变量 \(x\)
+的概率密度函数。利用如下事实：如果积分区域限定为
+\(|x-\mu|\ge a\)，则积分 (5.3) 会变小，如果用 \(a^2\) 替换
+\((x-\mu)^2\)，则积分会更小。
+
+\begin{enumerate}[start=2]
+\item
+  利用 Chebyshev 不等式证明大数弱定理，即，对任意 \(\epsilon>0\)，
+\end{enumerate}
+
+\[
+\lim_{n\to\infty}P\left(\left|\frac1n\sum_{i=1}^{n}x_i-\mu\right|\ge\epsilon\right)=0.
+\]
+
+这等价于，\(\bar x\) 是 \(\mu\) 的一致性估计量，只要 \(x\) 的方差存在。
+\begin{solution}
+设随机变量 \(x\) 的均值与方差分别为 \(\mu,\sigma^2\)，样本均值为
+
+\[
+\bar x=\frac1n\sum_{i=1}^n x_i.
+\]
+
+\begin{enumerate}
+\item 证明 Chebyshev 不等式
+
+由方差定义
+
+\[
+\sigma^2=E[(x-\mu)^2]=\int_{-\infty}^{\infty}(x-\mu)^2 f(x)\,dx.
+\]
+
+在区域 \(|x-\mu|\ge a\) 上，恒有 \((x-\mu)^2\ge a^2\)，于是
+
+\[
+\sigma^2 \ge \int_{|x-\mu|\ge a}(x-\mu)^2f(x)\,dx
+\ge a^2\int_{|x-\mu|\ge a}f(x)\,dx.
+\]
+
+因此
+
+\[
+P(|x-\mu|\ge a)\le \frac{\sigma^2}{a^2}.
+\]
+
+这就是 Chebyshev 不等式。
+
+\item 用 Chebyshev 证明大数弱定理
+
+若 \(x_1,\dots,x_n\) 独立同分布，均值为 \(\mu\)，方差为 \(\sigma^2\)，则
+
+\[
+E[\bar x]=\mu,\qquad V[\bar x]=\frac{\sigma^2}{n}.
+\]
+
+对任意 \(\varepsilon>0\)，由 Chebyshev 不等式，
+
+\[
+P(|\bar x-\mu|\ge \varepsilon)
+\le \frac{V[\bar x]}{\varepsilon^2}
+=\frac{\sigma^2}{n\varepsilon^2}
+\xrightarrow[n\to\infty]{}0.
+\]
+
+故 \(\bar x\) 依概率收敛到 \(\mu\)，即 \(\bar x\) 是 \(\mu\)
+的一致估计量。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑均值为 \(\mu\)，方差为 \(\sigma^2\) 的随机变量 \(x\)，并得到样本值为
+\(x_1,x_2,\cdots,x_n\) 的样本空间。
+
+\begin{enumerate}
+\item
+  假设均值 \(\mu\) 已经利用样本均值 \(\bar x\) 估计。证明样本方差
+\end{enumerate}
+
+\[
+s^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar x)^2=\frac{n}{n-1}(\overline{x^2}-\bar x^2)
+\]
+
+为方差 \(\sigma^2\) 的无偏估计量。（利用
+\(E[x_ix_j]=\mu^2\ (i\ne j)\)，\(E[x_i^2]=\mu^2+\sigma^2\ (i=1,2,\ldots,n)\)。）
+
+\begin{enumerate}[start=2]
+\item
+  假设均值 \(\mu\) 已知。证明 \(\sigma^2\) 的无偏估计量为
+\end{enumerate}
+
+\[
+S^2=\frac1n\sum_{i=1}^{n}(x_i-\mu)^2=\overline{x^2}-\mu^2.
+\]
+\begin{solution}
+样本方差定义为
+
+\[
+s^2=\frac1{n-1}\sum_{i=1}^n (x_i-\bar x)^2.
+\]
+
+先用恒等式
+
+\[
+\sum_{i=1}^n (x_i-\bar x)^2=\sum_{i=1}^n (x_i-\mu)^2-n(\bar x-\mu)^2.
+\]
+
+两边取期望：
+
+\[
+E\left[\sum_{i=1}^n (x_i-\bar x)^2\right]
+= n\sigma^2 - nV(\bar x)
+= n\sigma^2 - n\frac{\sigma^2}{n}
+= (n-1)\sigma^2.
+\]
+
+因此
+
+\[
+E[s^2]=\sigma^2.
+\]
+
+所以 \(s^2\) 是无偏估计量。
+
+\begin{enumerate}[start=2]
+\item 若均值 \(\mu\) 已知，证明
+
+\[
+S^2=\frac1n\sum_{i=1}^n (x_i-\mu)^2
+\]
+
+是 \(\sigma^2\) 的无偏估计。
+
+直接取期望：
+
+\[
+E[S^2]=\frac1n\sum_{i=1}^n E[(x_i-\mu)^2]=\frac1n\sum_{i=1}^n \sigma^2=\sigma^2.
+\]
+
+因此 \(S^2\) 无偏。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+\begin{enumerate}
+\item
+  证明样本方差 \(s^2\) (5.5) 的方差为
+\end{enumerate}
+
+\[
+V[s^2]=E[s^4]-(E[s^2])^2=\frac1n\left(\mu_4-\frac{n-3}{n-1}\mu_2^2\right),
+\]
+
+其中 \(\mu_k=E[(x-\mu)^k]\) 为 \(x\) 的 \(k\) 阶中心矩。为此，需要先证明
+\(s^2\) 可以写为
+
+\[
+s^2=\frac{1}{n-1}\sum_{i=1}^{n}x_i^2-\frac{1}{n(n-1)}\sum_{i,j=1}^{n}x_ix_j.
+\]
+
+然后证明 \(s^4\) 的期待值为
+
+\[
+\begin{split}
+E[s^4]=&\frac{1}{(n-1)^2}\sum_{i,j=1}^{n}E[x_i^2x_j^2]
+-\frac{2}{n(n-1)^2}\sum_{i,j,k=1}^{n}E[x_ix_jx_k^2]\\
+&+\frac{1}{n^2(n-1)^2}\sum_{i,j,k,l=1}^{n}E[x_ix_jx_kx_l].
+\end{split}
+\]
+
+计算每个求和给出多少项代数矩 \(\mu'_4\) 或
+\(\mu_2'^2\)。注意其余所有项都含 \(\mu\) 的一次项或高次项。令
+\(\mu=0\)，将结果表示为中心矩 \(\mu_2\) 和 \(\mu_4\)
+的函数。从中减掉本章第 2 题得到的 \((E[s^2])^2\) 即可得到结果。
+
+\begin{enumerate}[start=2]
+\item
+  如果 \(x\) 服从高斯分布，计算 \(s^2\) 的方差。利用高斯分布的 4
+  阶中心矩为 \(\mu_4=3\sigma^4\)。
+\end{enumerate}
+\begin{solution}
+\[
+V[s^2]=E[s^4]-(E[s^2])^2=
+\frac1n\left(\mu_4-\frac{n-3}{n-1}\mu_2^2\right),
+\]
+
+其中 \(\mu_k=E[(x-\mu)^k]\) 是中心矩。
+
+把随机变量平移到均值为 0 的情形（不影响方差与中心矩），写成
+
+\[
+s^2=\frac1{n-1}\sum_{i=1}^n x_i^2-
+\frac1{n(n-1)}\sum_{i,j=1}^n x_ix_j.
+\]
+
+接着平方并对所有指标重合方式分类求期望：
+
+\begin{itemize}
+\item
+  四个指标全不相同；
+\item
+  有两个指标重合；
+\item
+  三个重合；
+\item
+  两对重合；
+\item
+  四个全重合。
+\end{itemize}
+
+由于独立同分布且 \(E[x]=0\)，许多项会消失，只剩下由 \(\mu_2=E[x^2]\) 与
+\(\mu_4=E[x^4]\) 组成的项。整理后可得
+
+\[
+E[s^4]=\frac1n\mu_4+
+\frac{n^2-2n+3}{n(n-1)}\mu_2^2,
+\]
+
+再减去
+
+\[
+(E[s^2])^2=\mu_2^2,
+\]
+
+便得到题目给出的结果：
+
+\[
+V[s^2]=\frac1n\left(\mu_4-\frac{n-3}{n-1}\mu_2^2\right).
+\]
+
+\begin{enumerate}[start=2]
+\item 若 \(x\) 服从高斯分布
+
+高斯分布满足
+
+\[
+\mu_2=\sigma^2,\qquad \mu_4=3\sigma^4.
+\]
+
+代回上式：
+
+\[
+V[s^2]
+=\frac1n\left(3\sigma^4-\frac{n-3}{n-1}\sigma^4\right)
+=\frac{2\sigma^4}{n-1}.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+

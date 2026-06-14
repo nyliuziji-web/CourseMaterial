@@ -1,0 +1,189 @@
+﻿\heading{理论物理基础（II）-模拟题5-期中}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑由 $N$ 个不可分辨、互不相互作用的经典理想气体分子组成的系统。每个分子除平动外还具有内部自由度：基态能量为 $0$，简并度为 $1$；激发态能量为 $\Delta$，简并度为 $3$。系统与温度为 $T$ 的热库接触，体积为 $V$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单粒子配分函数 $Z_1$ 与 $N$ 粒子系统的正则配分函数 $Z_N$；
+  \item 求系统的内能 $U$ 与定容热容 $C_V$；
+  \item 讨论 $T\to 0$ 与 $T\to \infty$ 时 $C_V$ 的极限。
+\end{enumerate}
+
+\begin{solution}
+单粒子配分函数可分解为平动部分与内部部分之积。平动部分为
+\[
+Z_{\mathrm{tr}}=\frac{V}{\lambda^3},
+\qquad
+\lambda=\frac{h}{\sqrt{2\pi m k_B T}}.
+\]
+内部部分为
+\[
+Z_{\mathrm{int}}=1+3e^{-\beta\Delta},
+\qquad \beta=\frac{1}{k_B T}.
+\]
+因此
+\ansmath{Z_1=\frac{V}{\lambda^3}\left(1+3e^{-\beta\Delta}\right).}
+对不可分辨经典粒子，
+\ansmath{Z_N=\frac{Z_1^N}{N!}.}
+
+内能由
+\[
+U=-\frac{\partial}{\partial\beta}\ln Z_N
+\]
+给出。由
+\[
+\ln Z_N=N\ln\frac{V}{\lambda^3}+N\ln(1+3e^{-\beta\Delta})-\ln N!
+\]
+可得平动部分贡献 $\tfrac32 Nk_B T$，内部部分贡献为
+\[
+N\Delta\frac{3e^{-\beta\Delta}}{1+3e^{-\beta\Delta}}.
+\]
+故
+\ansmath{U=\frac32 Nk_B T+N\Delta\frac{3e^{-\beta\Delta}}{1+3e^{-\beta\Delta}}.}
+
+进一步求导得
+\ansmath{C_V=\frac32 Nk_B+3Nk_B(\beta\Delta)^2\frac{e^{-\beta\Delta}}{(1+3e^{-\beta\Delta})^2}.}
+
+当 $T\to 0$ 时，激发态几乎不被占据，内部自由度被冻结，因此
+\[
+C_V\to \frac32 Nk_B.
+\]
+当 $T\to \infty$ 时，内部两能级的占据趋于常数比 $1:3$，内部能对温度的一阶变化消失，于是同样有
+\[
+C_V\to \frac32 Nk_B.
+\]
+也就是说，内部自由度只在中间温区提供一个 Schottky 型附加热容峰。
+\end{solution}
+\end{question}
+
+\begin{question}
+两只容器由一张只允许组分 $A$ 通过、但不允许组分 $B$ 通过的半透膜隔开。温度恒为 $T$。左侧体积为 $V_L$，其中装有经典理想混合气体 $A+B$，粒子数分别为 $N_A^{(L)}$ 与 $N_B$；右侧体积为 $V_R$，其中装有纯经典理想气体 $A$，粒子数为 $N_A^{(R)}$。设达到平衡后两侧压强分别为 $p_L,p_R$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 写出平衡条件；
+  \item 证明两侧平衡时满足
+  \[
+  \frac{N_A^{(L)}}{V_L}=\frac{N_A^{(R)}}{V_R};
+  \]
+  \item 求渗透压差 $\Pi\equiv p_L-p_R$，并说明它只与哪一个组分有关。
+\end{enumerate}
+
+\begin{solution}
+由于半透膜只允许 $A$ 通过，平衡条件是两侧 $A$ 的化学势相等：
+\[
+\mu_A^{(L)}=\mu_A^{(R)}.
+\]
+对经典理想气体，化学势满足
+\[
+\mu_A=k_B T\ln(n_A\lambda_A^3)+\text{const},
+\qquad n_A=\frac{N_A}{V}.
+\]
+因此化学势相等立刻给出
+\[
+\frac{N_A^{(L)}}{V_L}=\frac{N_A^{(R)}}{V_R}.
+\]
+
+左侧为理想混合气体，右侧为纯 $A$ 气体，因此
+\[
+p_L=\left(\frac{N_A^{(L)}+N_B}{V_L}\right)k_B T,
+\qquad
+p_R=\frac{N_A^{(R)}}{V_R}k_B T.
+\]
+利用上面的平衡关系，$A$ 组分在两侧的数密度相等，于是其分压相互抵消，得到
+\ansmath{\Pi=p_L-p_R=\frac{N_B}{V_L}k_B T.}
+
+因此渗透压只由不能通过半透膜的溶质组分 $B$ 的数密度决定，这正是经典理想稀溶液的范特霍夫定律。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑面积为 $A$ 的二维自由电子气，电子为自旋 $1/2$ 的非相对论性费米子，系统与温度为 $T$ 的热库接触。设电子总数为 $N$，且无外场。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求二维自由电子气的单粒子态密度 $g(\varepsilon)$；
+  \item 由粒子数方程求化学势 $\mu(T,n)$，其中 $n=N/A$；
+  \item 设 $T\ll T_F$，求内能的低温展开与定容热容 $C_V$ 的低温主导项，其中 $k_B T_F\equiv \varepsilon_F$。
+\end{enumerate}
+
+\begin{solution}
+二维自由粒子满足 $\varepsilon=p^2/(2m)$。计入自旋简并度 $g_s=2$ 后，二维单粒子态密度为常数：
+\ansmath{g(\varepsilon)=\frac{mA}{\pi\hbar^2}.}
+
+粒子数方程为
+\[
+N=\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{e^{\beta(\varepsilon-\mu)}+1}
+=\frac{mA}{\pi\hbar^2}k_B T\ln\left(1+e^{\beta\mu}\right).
+\]
+因此
+\[
+\ln(1+e^{\beta\mu})=\frac{\pi\hbar^2 n}{m k_B T}=\frac{\varepsilon_F}{k_B T},
+\qquad
+\varepsilon_F\equiv \frac{\pi\hbar^2 n}{m}.
+\]
+解得
+\ansmath{\mu(T,n)=k_B T\ln\left(e^{\varepsilon_F/(k_B T)}-1\right).}
+
+当 $T\ll T_F$ 时，$\mu=\varepsilon_F+O(e^{-\varepsilon_F/(k_B T)})$。内能可写为
+\[
+U=\int_0^\infty \frac{g(\varepsilon)\,\varepsilon\,d\varepsilon}{e^{\beta(\varepsilon-\mu)}+1}.
+\]
+对常数态密度应用 Sommerfeld 展开，得
+\[
+U=\frac{g(\varepsilon_F)\varepsilon_F^2}{2}+\frac{\pi^2}{6}g(\varepsilon_F)(k_B T)^2+O\!\left(e^{-\varepsilon_F/(k_B T)}\right).
+\]
+而零温内能为
+\[
+U_0=\frac{N\varepsilon_F}{2}.
+\]
+于是
+\ansmath{U=\frac{N\varepsilon_F}{2}+\frac{\pi^2}{6}\frac{mA}{\pi\hbar^2}(k_B T)^2+O\!\left(e^{-\varepsilon_F/(k_B T)}\right).}
+从而
+\ansmath{C_V=\left(\frac{\partial U}{\partial T}\right)_{A,N}=\frac{\pi^2}{3}\frac{mA}{\pi\hbar^2}k_B^2 T=\frac{\pi^2}{3}Nk_B\frac{T}{T_F}.}
+这表明二维简并费米气体在低温下热容正比于 $T$。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑面积为 $A$ 的二维自由、无自旋理想玻色气体，粒子质量为 $m$，总粒子数为 $N$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求二维体系的粒子数方程 $N=N(T,\mu,A)$；
+  \item 解出化学势 $\mu(T,n)$，其中 $n=N/A$；
+  \item 讨论二维理想玻色气体在有限温度下是否发生 Bose--Einstein 凝聚。
+\end{enumerate}
+
+\begin{solution}
+二维自由无自旋玻色子的单粒子态密度为
+\[
+g(\varepsilon)=\frac{mA}{2\pi\hbar^2}.
+\]
+因此粒子数方程为
+\[
+N=\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{e^{\beta(\varepsilon-\mu)}-1}
+=\frac{mA}{2\pi\hbar^2}\int_0^\infty \frac{d\varepsilon}{z^{-1}e^{\beta\varepsilon}-1},
+\qquad z=e^{\beta\mu}<1.
+\]
+令 $x=\beta\varepsilon$，可得
+\[
+N=\frac{mA}{2\pi\hbar^2}k_B T\int_0^\infty \frac{dx}{z^{-1}e^x-1}
+= -\frac{mA}{2\pi\hbar^2}k_B T\ln(1-z).
+\]
+故
+\ansmath{N=-\frac{mA}{2\pi\hbar^2}k_B T\ln(1-z).}
+
+用粒子数密度 $n=N/A$ 表示，得
+\[
+1-z=\exp\left(-\frac{2\pi\hbar^2 n}{m k_B T}\right),
+\]
+从而
+\ansmath{\mu(T,n)=k_B T\ln\left[1-\exp\left(-\frac{2\pi\hbar^2 n}{m k_B T}\right)\right]<0.}
+
+对任意有限的 $T>0$ 和有限的 $n$，上式都给出一个严格小于零的有限化学势，也即对应某个严格小于 $1$ 的逸度 $z$。因此二维自由理想玻色气体在有限温度下总能通过激发态容纳全部粒子，不需要出现基态的宏观占据。
+
+故结论是：
+\anstext{二维自由理想玻色气体在有限温度下不发生 Bose--Einstein 凝聚。}
+只有当 $T\to 0$ 时，$\mu\to 0^{-}$，体系才逼近凝聚条件。
+\end{solution}
+\end{question}
+

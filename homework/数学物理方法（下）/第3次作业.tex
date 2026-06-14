@@ -1,0 +1,420 @@
+﻿\heading{数学物理方法（下）-第3次作业}
+
+
+\begin{question}
+长为 \(l\)、两端固定的均匀弦，初始时被拉成图示折线：在 \(x=c\) 处位移为 \(h\)，两端位移为零。达到平衡后突然放手，求解弦的振动。
+\begin{solution}
+弦满足
+\[
+u_{tt}=a^2u_{xx},\qquad u(0,t)=u(l,t)=0,
+\]
+初始条件为
+\[
+u(x,0)=f(x),\qquad u_t(x,0)=0,
+\]
+其中
+\[
+f(x)=
+\begin{cases}
+\dfrac{h}{c}x,&0\le x\le c,\\
+\dfrac{h}{l-c}(l-x),&c\le x\le l.
+\end{cases}
+\]
+分离变量得
+\[
+u(x,t)=\sum_{n=1}^{\infty}b_n\sin\frac{n\pi x}{l}\cos\frac{n\pi at}{l}.
+\]
+由正弦级数系数
+\[
+b_n=\frac{2}{l}\int_0^l f(x)\sin\frac{n\pi x}{l}\,dx
+=\frac{2hl^2}{\pi^2n^2c(l-c)}\sin\frac{n\pi c}{l}.
+\]
+因此
+\[
+u(x,t)=\sum_{n=1}^{\infty}
+\frac{2hl^2}{\pi^2n^2c(l-c)}\sin\frac{n\pi c}{l}
+\sin\frac{n\pi x}{l}\cos\frac{n\pi at}{l}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解细杆的导热问题。杆长为 \(l\)，\(x=0\) 端保持零度，\(x=l\) 端绝热，初始温度分布为
+\[
+u(x,0)=\frac{b x(l-x)}{l^2}.
+\]
+\begin{solution}
+方程和边界条件为
+\[
+u_t=\kappa u_{xx},\qquad u(0,t)=0,\\qquad u_x(l,t)=0.
+\]
+空间本征问题
+\[X''+\lambda X=0,\qquad X(0)=0,\\quad X'(l)=0
+\]
+给出
+\[
+X_n(x)=\sin\frac{(n+\frac12)\pi x}{l},\qquad
+\lambda_n=\left(\frac{(n+\frac12)\pi}{l}\right)^2,
+\quad n=0,1,2,\ldots .
+\]
+故
+\[
+u(x,t)=\sum_{n=0}^{\infty}B_n
+\sin\frac{(n+\frac12)\pi x}{l}
+\exp\left[-\kappa\left(\frac{(n+\frac12)\pi}{l}\right)^2t\right],
+\]
+其中
+\[
+B_n=\frac{2b}{l^3}\int_0^l x(l-x)
+\sin\frac{(n+\frac12)\pi x}{l}\,dx
+=\frac{2b}{l^3}\frac{2-(-1)^n\alpha_nl}{\alpha_n^3},
+\qquad
+\alpha_n=\frac{(n+\frac12)\pi}{l}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+长为 \(2l\) 的均匀杆，两端受力作用而分别压缩了 \(\varepsilon l\)。\(t=0\) 时撤去外力，求解此杆的纵振动问题。
+\begin{solution}
+取坐标 \(0<x<2l\)。撤去外力后两端自由，因此
+\[
+u_{tt}=a^2u_{xx},\qquad u_x(0,t)=u_x(2l,t)=0.
+\]
+若左端向右、右端向左各压缩 \(\varepsilon l\)，初始位移可取为线性函数
+\[
+u(x,0)=\varepsilon(l-x),\qquad u_t(x,0)=0.
+\]
+自由端本征函数为
+\[
+1,\\quad \cos\frac{n\pi x}{2l}\quad(n\ge1).
+\]
+于是
+\[
+u(x,t)=A_0+\sum_{n=1}^{\infty}A_n
+\cos\frac{n\pi x}{2l}\cos\frac{n\pi at}{2l}.
+\]
+由初始函数关于中点反对称可知 \(A_0=0\)，且
+\[
+A_n=\frac1l\int_0^{2l}\varepsilon(l-x)\cos\frac{n\pi x}{2l}\,dx
+=\frac{2\varepsilon l}{n^2\pi^2}\bigl(1-(-1)^n\bigr).
+\]
+即只有奇数项存在：
+\[
+u(x,t)=\sum_{m=0}^{\infty}
+\frac{4\varepsilon l}{(2m+1)^2\pi^2}
+\cos\frac{(2m+1)\pi x}{2l}
+\cos\frac{(2m+1)\pi at}{2l}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解 Laplace 方程
+\[
+\begin{cases}
+u_{xx}+u_{yy}=0,&0<x<a,
+\quad 0<y<b,\\
+u_x(0,y)=u_0,
+\quad u(a,y)=u_0\left(3\dfrac{y^2}{b^2}-2\dfrac{y^3}{b^3}\right),\\
+u_y(x,0)=0,
+\quad u_y(x,b)=0.
+\end{cases}
+\]
+其中 \(u_0\) 为常数。
+\begin{solution}
+取
+\[
+u(x,y)=u_0x+w(x,y).
+\]
+则 \(w_x(0,y)=0\)，\(w_y(x,0)=w_y(x,b)=0\)，且
+\[
+w(a,y)=u_0\left(3\frac{y^2}{b^2}-2\frac{y^3}{b^3}-a\right).
+\]
+满足 Neumann 条件的 \(y\) 向本征函数为 \(\cos(n\pi y/b)\)。故
+\[
+w(x,y)=C_0+\sum_{n=1}^{\infty}C_n
+\frac{\cosh(n\pi x/b)}{\cosh(n\pi a/b)}\cos\frac{n\pi y}{b}.
+\]
+其中
+\[
+C_0=u_0\left(\frac12-a\right),
+\]
+\[
+C_n=\frac{24u_0}{n^4\pi^4}\bigl((-1)^n-1\bigr),\qquad n\ge1.
+\]
+于是
+\[
+u(x,y)=u_0x+u_0\left(\frac12-a\right)
++\sum_{n=1}^{\infty}
+\frac{24u_0\bigl((-1)^n-1\bigr)}{n^4\pi^4}
+\frac{\cosh(n\pi x/b)}{\cosh(n\pi a/b)}
+\cos\frac{n\pi y}{b}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一均匀各向同性矩形弹性薄膜，\(0\le x\le l,\ 0\le y\le l\)，四周夹紧。初始位移为
+\[
+Axy(l-x)(l-y),
+\]
+初始速度为零。求解膜的横振动。
+\begin{solution}
+薄膜满足
+\[
+u_{tt}=a^2(u_{xx}+u_{yy}),\qquad u|_{\partial\Omega}=0.
+\]
+四边固定给出双正弦展开
+\[
+u(x,y,t)=\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}B_{mn}
+\sin\frac{m\pi x}{l}\sin\frac{n\pi y}{l}
+\cos\left(\frac{a\pi}{l}\sqrt{m^2+n^2}\,t\right).
+\]
+系数为
+\[
+B_{mn}=\frac{4}{l^2}\int_0^l\int_0^l
+Axy(l-x)(l-y)
+\sin\frac{m\pi x}{l}\sin\frac{n\pi y}{l}\,dxdy.
+\]
+由于积分可分离，
+\[
+\int_0^l x(l-x)\sin\frac{m\pi x}{l}\,dx
+=\frac{2l^3}{m^3\pi^3}\bigl(1-(-1)^m\bigr).
+\]
+故
+\[
+B_{mn}=\frac{16Al^4}{m^3n^3\pi^6}
+\bigl(1-(-1)^m\bigr)\bigl(1-(-1)^n\bigr).
+\]
+只有 \(m,n\) 均为奇数时系数非零。
+\end{solution}
+\end{question}
+
+\begin{question}
+求解
+\[
+\begin{cases}
+u_{tt}-a^2u_{xx}=b x(l-x),&0<x<l,
+\quad t>0,\\
+u(0,t)=0,
+\quad u_x(l,t)=0,\\
+u(x,0)=0,
+\quad u_t(x,0)=0.
+\end{cases}
+\]
+\begin{solution}
+采用本征函数
+\[
+X_n(x)=\sin\frac{(n+\frac12)\pi x}{l},
+\qquad
+\omega_n=a\frac{(n+\frac12)\pi}{l}.
+\]
+令
+\[
+bx(l-x)=\sum_{n=0}^{\infty}F_nX_n(x),
+\qquad
+F_n=\frac{2b}{l}\frac{2-(-1)^n\alpha_nl}{\alpha_n^3},
+\qquad
+\alpha_n=\frac{(n+\frac12)\pi}{l}.
+\]
+模态方程为
+\[
+q_n''+\omega_n^2q_n=F_n,
+\qquad q_n(0)=q_n'(0)=0.
+\]
+故
+\[
+q_n(t)=\frac{F_n}{\omega_n^2}(1-\cos\omega_nt).
+\]
+因此
+\[
+u(x,t)=\sum_{n=0}^{\infty}\frac{F_n}{\omega_n^2}
+(1-\cos\omega_nt)
+\sin\frac{(n+\frac12)\pi x}{l}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解具有放射性衰变的扩散问题
+\[
+\begin{cases}
+u_t-\kappa u_{xx}=Ae^{-\beta t},&0<x<l,
+\quad t>0,\\
+u_x(0,t)=0,
+\quad u(l,t)=0,\\
+u(x,0)=u_0.
+\end{cases}
+\]
+\begin{solution}
+使用满足边界条件的本征函数
+\[
+X_n(x)=\cos\frac{(n+\frac12)\pi x}{l},
+\qquad
+\lambda_n=\left(\frac{(n+\frac12)\pi}{l}\right)^2.
+\]
+展开
+\[
+u(x,t)=\sum_{n=0}^{\infty}q_n(t)X_n(x),
+\quad
+1=\sum_{n=0}^{\infty}c_nX_n(x),
+\]
+其中
+\[
+c_n=\frac2l\int_0^l\cos\frac{(n+\frac12)\pi x}{l}\,dx
+=\frac{2(-1)^n}{(n+\frac12)\pi}.
+\]
+模态方程为
+\[
+q_n'+\kappa\lambda_nq_n=Ac_ne^{-\beta t},
+\qquad q_n(0)=u_0c_n.
+\]
+若 \(\beta\ne\kappa\lambda_n\)，
+\[
+q_n(t)=u_0c_ne^{-\kappa\lambda_nt}
++\frac{Ac_n}{\kappa\lambda_n-\beta}
+\left(e^{-\beta t}-e^{-\kappa\lambda_nt}\right).
+\]
+代回即得解。
+\end{solution}
+\end{question}
+
+\begin{question}
+在矩形区域 \(0\le x\le a,\ -b/2\le y\le b/2\) 中求解
+\[
+\nabla^2u=-2,
+\]
+且 \(u\) 在边界上的数值均为 \(0\)。
+\begin{solution}
+取特解
+\[
+u_p=x(a-x),
+\qquad \nabla^2u_p=-2.
+\]
+令 \(u=u_p+v\)，则 \(v\) 满足 Laplace 方程，且
+\[
+v(0,y)=v(a,y)=0,
+\qquad
+v(x,\pm b/2)=-x(a-x).
+\]
+取正弦展开
+\[
+v(x,y)=\sum_{n=1}^{\infty}A_n
+\sin\frac{n\pi x}{a}
+\frac{\cosh(n\pi y/a)}{\cosh(n\pi b/(2a))}.
+\]
+边界 \(y=\pm b/2\) 给出
+\[
+A_n=-\frac2a\int_0^a x(a-x)\sin\frac{n\pi x}{a}\,dx
+=-\frac{4a^2}{n^3\pi^3}\bigl(1-(-1)^n\bigr).
+\]
+因此
+\[
+u(x,y)=x(a-x)-\sum_{n=1}^{\infty}
+\frac{4a^2(1-(-1)^n)}{n^3\pi^3}
+\sin\frac{n\pi x}{a}
+\frac{\cosh(n\pi y/a)}{\cosh(n\pi b/(2a))}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解定解问题
+\[
+\begin{cases}
+u_{tt}-a^2u_{xx}=0,&0<x<l,
+\quad t>0,\\
+u(0,t)=\cos\dfrac{\pi at}{l},
+\quad u_x(l,t)=0,\\
+u(x,0)=\cos\dfrac{\pi x}{l},
+\quad u_t(x,0)=\sin\dfrac{\pi x}{2l}.
+\end{cases}
+\]
+\begin{solution}
+先取
+\[
+w(x,t)=\cos\frac{\pi x}{l}\cos\frac{\pi at}{l}.
+\]
+它满足方程、边界 \(w(0,t)=\cos(\pi at/l)\)、\(w_x(l,t)=0\)，且
+\[
+w(x,0)=\cos\frac{\pi x}{l},\qquad w_t(x,0)=0.
+\]
+令 \(v=u-w\)，则 \(v(0,t)=0,
+ v_x(l,t)=0\)，初值为
+\[
+v(x,0)=0,
+\qquad v_t(x,0)=\sin\frac{\pi x}{2l}.
+\]
+这正是第一本征函数，因此
+\[
+v(x,t)=\frac{2l}{a\pi}
+\sin\frac{a\pi t}{2l}
+\sin\frac{\pi x}{2l}.
+\]
+所求解为
+\[
+u(x,t)=\cos\frac{\pi x}{l}\cos\frac{\pi at}{l}
++\frac{2l}{a\pi}\sin\frac{a\pi t}{2l}\sin\frac{\pi x}{2l}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解热方程定解问题
+\[
+\begin{cases}
+u_t-\kappa u_{xx}=0,&0<x<l,
+\quad t>0,\\
+u_x(0,t)=A e^{-\alpha^2\kappa t},
+\quad u(l,t)=B e^{-\beta^2\kappa t},\\
+u(x,0)=0.
+\end{cases}
+\]
+\begin{solution}
+设
+\[
+u=P(x)e^{-\alpha^2\kappa t}+Q(x)e^{-\beta^2\kappa t}+v(x,t),
+\]
+其中
+\[
+P''+\alpha^2P=0,
+\quad P'(0)=A,
+\quad P(l)=0,
+\]
+\[
+Q''+\beta^2Q=0,
+\quad Q'(0)=0,
+\quad Q(l)=B.
+\]
+可取
+\[
+P(x)=\frac{A}{\alpha}\sin\alpha x
+-\frac{A\sin\alpha l}{\alpha\cos\alpha l}\cos\alpha x,
+\qquad
+Q(x)=\frac{B\cos\beta x}{\cos\beta l}.
+\]
+于是 \(v\) 满足齐次边界条件
+\[
+v_x(0,t)=0,
+\quad v(l,t)=0,
+\]
+初值为
+\[
+v(x,0)=-P(x)-Q(x).
+\]
+故
+\[
+v(x,t)=\sum_{n=0}^{\infty}C_n
+\cos\frac{(n+\frac12)\pi x}{l}
+\exp\left[-\kappa\left(\frac{(n+\frac12)\pi}{l}\right)^2t\right],
+\]
+其中
+\[
+C_n=\frac2l\int_0^l[-P(x)-Q(x)]
+\cos\frac{(n+\frac12)\pi x}{l}\,dx.
+\]
+以上即为所求。
+\end{solution}
+\end{question}
+

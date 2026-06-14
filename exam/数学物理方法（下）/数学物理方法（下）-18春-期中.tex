@@ -1,0 +1,248 @@
+﻿\heading{数学物理方法（下）-18春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\instructions{现已根据拍照页与补录内容整理本套现存四题，并补全答案。}
+
+\begin{question}[第1题（20分）]
+
+求解下列定解问题
+\[
+\begin{cases}
+\displaystyle \frac{\partial^2 u(x,t)}{\partial t^2} - a^2 \frac{\partial^2 u(x,t)}{\partial x^2} = \sin\omega t, & -\infty < x < \infty,\ t>0,\\[6pt]
+\displaystyle u(x,t)\big|_{x=-at} = a^2 t^2, & t\geq 0,\\[6pt]
+\displaystyle u(x,t)\big|_{x=at} = 0, & t\geq 0.
+\end{cases}
+\]
+其中 $a,\omega>0$ 为常数。
+
+\begin{solution}
+
+设
+\[
+\xi=x+at,\qquad \eta=x-at,\qquad U(\xi,\eta)=u(x,t).
+\]
+则
+\[
+\frac{\partial^2 u}{\partial t^2}-a^2\frac{\partial^2 u}{\partial x^2}=4a^2\frac{\partial^2 U}{\partial \xi\partial \eta},
+\qquad t=\frac{\xi-\eta}{2a},
+\]
+故方程化为
+\[
+U_{\xi\eta}=\frac{1}{4a^2}\sin\!\left(\frac{\omega(\xi-\eta)}{2a}\right).
+\]
+边界条件在特征线上变成
+\[
+U(0,\eta)=a^2\!\left(-\frac{\eta}{2a}\right)^2=\frac{\eta^2}{4},
+\qquad
+U(\xi,0)=0.
+\]
+于是由 Goursat 问题积分公式，得到（在两条特征线围成的区域 $|x|<at$ 内）
+\[
+\begin{aligned}
+U(\xi,\eta)
+&=U(\xi,0)+U(0,\eta)-U(0,0)
++\int_0^{\xi}\int_0^{\eta}
+\frac{1}{4a^2}\sin\!\left(\frac{\omega(\xi'-\eta')}{2a}\right)
+\,\mathrm d\eta'\,\mathrm d\xi'\\
+&=\frac{\eta^2}{4}+\frac{1}{\omega^2}\left[
+\sin\!\left(\frac{\omega\eta}{2a}\right)
+-\sin\!\left(\frac{\omega\xi}{2a}\right)
+-\sin\!\left(\frac{\omega(\eta-\xi)}{2a}\right)
+\right].
+\end{aligned}
+\]
+代回 $\xi=x+at,\ \eta=x-at$，并利用 $\eta-\xi=-2at$，得
+\ansmath{u(x,t)=\frac{(x-at)^2}{4}+\frac{1}{\omega^2}\left[
+\sin\!\left(\frac{\omega(x-at)}{2a}\right)
+-\sin\!\left(\frac{\omega(x+at)}{2a}\right)
++\sin(\omega t)
+\right],\quad |x|<at.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[第2题]
+
+求解热传导定解问题
+\[
+\begin{cases}
+\dfrac{\partial u(x, t)}{\partial t}-\kappa \dfrac{\partial^{2} u(x, t)}{\partial x^{2}}=0, & 0<x<l,\ t>0,\\
+\left.\dfrac{\partial u}{\partial x}\right|_{x=0}=0,\quad \left.\dfrac{\partial u}{\partial x}\right|_{x=l}=e^{-\alpha^{2} t}, & t>0,\\
+\left.u\right|_{t=0}=A, & 0<x<l.
+\end{cases}
+\]
+其中 $\kappa,\alpha,A>0$ 为常数。
+
+\begin{solution}
+
+令
+\[
+\beta=\frac{\alpha}{\sqrt{\kappa}},\qquad
+u(x,t)=v(x,t)+e^{-\alpha^2 t}\phi(x),
+\]
+其中 $\phi$ 取为满足
+\[
+\kappa\phi''-\alpha^2\phi=0,\qquad \phi'(0)=0,\qquad \phi'(l)=1
+\]
+的函数。解得
+\[
+\phi(x)=\frac{\cosh(\beta x)}{\beta\sinh(\beta l)}.
+\]
+于是 $e^{-\alpha^2 t}\phi(x)$ 本身满足热方程，并且正好给出非齐次边界条件，因此 $v$ 满足齐次 Neumann 问题
+\[
+\begin{cases}
+ v_t-\kappa v_{xx}=0, & 0<x<l,\ t>0,\\
+ v_x(0,t)=0,\quad v_x(l,t)=0, & t>0,\\
+ v(x,0)=A-\phi(x), & 0<x<l.
+\end{cases}
+\]
+故可展开为余弦级数
+\[
+v(x,t)=c_0+\sum_{n=1}^{\infty}c_n e^{-\kappa n^2\pi^2 t/l^2}\cos\frac{n\pi x}{l}.
+\]
+其中
+\[
+c_0=\frac1l\int_0^l\bigl(A-\phi(x)\bigr)\,\mathrm dx
+=A-\frac1l\cdot\frac{1}{\beta^2}
+=A-\frac{\kappa}{\alpha^2 l},
+\]
+而对 $n\ge 1$，
+\[
+\begin{aligned}
+c_n
+&=\frac{2}{l}\int_0^l\bigl(A-\phi(x)\bigr)\cos\frac{n\pi x}{l}\,\mathrm dx
+=-\frac{2}{l}\int_0^l\phi(x)\cos\frac{n\pi x}{l}\,\mathrm dx\\
+&=-\frac{2}{l}\cdot\frac{1}{\beta\sinh(\beta l)}
+\int_0^l \cosh(\beta x)\cos\frac{n\pi x}{l}\,\mathrm dx
+=\frac{2\kappa l(-1)^{n+1}}{\alpha^2 l^2+\kappa n^2\pi^2}.
+\end{aligned}
+\]
+因此
+\ansmath{u(x,t)=\frac{e^{-\alpha^2 t}\cosh\!\left(\frac{\alpha x}{\sqrt{\kappa}}\right)}{\left(\frac{\alpha}{\sqrt{\kappa}}\right)\sinh\!\left(\frac{\alpha l}{\sqrt{\kappa}}\right)}
++ A-\frac{\kappa}{\alpha^2 l}
++\sum_{n=1}^{\infty}
+\frac{2\kappa l(-1)^{n+1}}{\alpha^2 l^2+\kappa n^2\pi^2}
+ e^{-\kappa n^2\pi^2 t/l^2}\cos\frac{n\pi x}{l}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[第3题]
+
+求解球内拉普拉斯定解问题
+\[
+\begin{cases}
+\nabla^{2} u(x, y, z)=0,\quad x^2+y^2+z^2<a^2,\\
+\left.u\right|_{x^2+y^2+z^2=a^2}=\ln(a+z).
+\end{cases}
+\]
+规定 $\ln(a+z)\big|_{z=0}=\ln a$，$a>0$ 为常数。
+
+\begin{solution}
+
+该边值只与 $r=\sqrt{x^2+y^2+z^2}$ 和 $\mu=\cos\theta=z/r$ 有关，故取球内轴对称调和函数的一般形式
+\[
+u(r,\theta)=\sum_{n=0}^{\infty}A_n r^n P_n(\cos\theta).
+\]
+在球面 $r=a$ 上，边界条件为
+\[
+u(a,\theta)=\ln(a+a\cos\theta)=\ln a+\ln(1+\mu),\qquad \mu=\cos\theta.
+\]
+于是需把 $f(\mu)=\ln a+\ln(1+\mu)$ 展成 Legendre 级数：
+\[
+f(\mu)=\sum_{n=0}^{\infty}A_n a^n P_n(\mu).
+\]
+由正交性，
+\[
+A_0=\frac12\int_{-1}^1 f(\mu)\,\mathrm d\mu
+=\ln a+\frac12\int_{-1}^1\ln(1+\mu)\,\mathrm d\mu
+=\ln(2a)-1.
+\]
+对 $n\ge 1$，常数项不贡献系数，且
+\[
+\int_{-1}^1\ln(1+\mu)P_n(\mu)\,\mathrm d\mu
+=\frac{2(-1)^{n+1}}{n(n+1)},
+\]
+故
+\[
+A_n a^n
+=\frac{2n+1}{2}\int_{-1}^1\ln(1+\mu)P_n(\mu)\,\mathrm d\mu
+=(-1)^{n+1}\frac{2n+1}{n(n+1)}.
+\]
+因此球内解为
+\ansmath{u(r,\theta)=\ln(2a)-1+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{2n+1}{n(n+1)}\left(\frac{r}{a}\right)^nP_n(\cos\theta),\qquad r<a.}
+其中 $r=\sqrt{x^2+y^2+z^2}$，$P_n$ 为 Legendre 多项式。
+
+\end{solution}
+\end{question}
+
+\begin{question}[第4题（20分）]
+
+拉盖尔多项式 $L_n(x)$（$n=0,1,2,\dots$）满足方程
+\[
+xy''+(1-x)y'+ny=0,
+\]
+递推关系
+\[
+\frac{\mathrm{d}}{\mathrm{d}x}L_n(x)=\left(\frac{\mathrm{d}}{\mathrm{d}x}-1\right)L_{n-1}(x),\qquad n=1,2,\dots,
+\]
+生成函数定义为
+\[
+g(x,t)=\sum_{n=0}^{\infty}L_n(x)t^n,\qquad |t|<1.
+\]
+已知 $L_0(x)=1$，$L_n(0)=1$。求 $g(x,t)$ 的表达式，并导出 $L_n(x)$ 的另一递推关系。
+
+\begin{solution}
+
+由已知递推关系
+\[
+L_n'(x)=\bigl(\tfrac{\mathrm d}{\mathrm dx}-1\bigr)L_{n-1}(x),\qquad n\ge1,
+\]
+两边乘以 $t^n$ 并对 $n\ge1$ 求和，得
+\[
+\sum_{n=1}^{\infty}L_n'(x)t^n
+=t\sum_{m=0}^{\infty}\bigl(L_m'(x)-L_m(x)\bigr)t^m.
+\]
+即
+\[
+\frac{\partial g}{\partial x}=t\left(\frac{\partial g}{\partial x}-g\right),
+\qquad
+(1-t)\frac{\partial g}{\partial x}+tg=0.
+\]
+所以
+\[
+\frac{\partial g}{\partial x}=-\frac{t}{1-t}g.
+\]
+把它看成关于 $x$ 的一阶微分方程，积分得
+\[
+g(x,t)=C(t)\exp\!\left(-\frac{xt}{1-t}\right).
+\]
+再由 $L_n(0)=1$，有
+\[
+g(0,t)=\sum_{n=0}^{\infty}t^n=\frac1{1-t},
+\]
+故
+\[
+C(t)=\frac1{1-t}.
+\]
+从而
+\ansmath{g(x,t)=\frac{1}{1-t}\exp\!\left(-\frac{xt}{1-t}\right),\qquad |t|<1.}
+
+再由上式直接求导，得
+\[
+(1-t)^2\frac{\partial g}{\partial t}=(1-x-t)g.
+\]
+将
+\[
+g(x,t)=\sum_{n=0}^{\infty}L_n(x)t^n
+\]
+代入并比较 $t^n$ 的系数，可得
+\[
+(n+1)L_{n+1}(x)=(2n+1-x)L_n(x)-nL_{n-1}(x),\qquad n\ge1.
+\]
+等价地，把指标下移一位，也可写成熟悉的三项递推式
+\ansmath{nL_n(x)=(2n-1-x)L_{n-1}(x)-(n-1)L_{n-2}(x),\qquad n\ge2.}
+
+\end{solution}
+\end{question}
+

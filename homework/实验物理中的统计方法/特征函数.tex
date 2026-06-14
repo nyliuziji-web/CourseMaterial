@@ -1,0 +1,519 @@
+﻿\heading{实验物理中的统计方法-特征函数}
+
+
+
+
+
+\begin{question}
+证明高斯分布
+
+\[
+f(x;\mu,\sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{(x-\mu)^2}{2\sigma^2}\right]
+\]
+
+的特征函数为
+
+\[
+\phi(k)=\exp\left(i\mu k-\frac12\sigma^2k^2\right).
+\]
+\begin{solution}
+设
+
+\[
+f(x;\mu,\sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}\exp\!\left[-\frac{(x-\mu)^2}{2\sigma^2}\right].
+\]
+
+则
+
+\[
+\phi(k)=\int_{-\infty}^{\infty} e^{ikx} f(x;\mu,\sigma^2)\,dx.
+\]
+
+把指数配方：
+
+\[
+ikx-\frac{(x-\mu)^2}{2\sigma^2}
+=
+-\frac{(x-\mu-i\sigma^2 k)^2}{2\sigma^2}+ik\mu-\frac12\sigma^2k^2.
+\]
+
+因此高斯积分部分仍为 1，得到
+
+\[
+\phi(k)=\exp\!\left(ik\mu-\frac12\sigma^2k^2\right).
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+证明指数分布
+
+\[
+f(x;\xi)=\frac1\xi e^{-x/\xi}
+\]
+
+的特征函数为
+
+\[
+\phi(k)=\frac{1}{1-ik\xi}.
+\]
+\begin{solution}
+设
+
+\[
+f(x;\xi)=\frac1{\xi}e^{-x/\xi},\qquad x\ge 0.
+\]
+
+则
+
+\[
+\phi(k)=\int_0^\infty e^{ikx}\frac1{\xi}e^{-x/\xi}\,dx
+=\frac1{\xi}\int_0^\infty e^{-x(1/\xi-ik)}\,dx.
+\]
+
+只要 \(\Re(1/\xi-ik)=1/\xi>0\)，积分收敛，故
+
+\[
+\phi(k)=\frac1{\xi}\cdot \frac1{1/\xi-ik}
+=\frac1{1-ik\xi}.
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+证明自由度为 \(n\) 的 \(\chi^2\) 分布
+
+\[
+f(z;n)=\frac{1}{2^{n/2}\Gamma(n/2)}z^{n/2-1}e^{-z/2}
+\]
+
+的特征函数为
+
+\[
+\phi(k)=(1-2ik)^{-n/2}.
+\]
+
+提示：证明中需要用到伽马函数，定义为
+
+\[
+\Gamma(x)=\int_0^\infty e^{-t}t^{x-1}\,dt.
+\]
+\begin{solution}
+若 \(Z\sim \chi^2_n\)，其密度为
+
+\[
+f(z;n)=\frac{1}{2^{n/2}\Gamma(n/2)}z^{n/2-1}e^{-z/2},\qquad z>0.
+\]
+
+则
+
+\[
+\phi(k)=\frac{1}{2^{n/2}\Gamma(n/2)}
+\int_0^\infty z^{n/2-1}e^{-z(1/2-ik)}\,dz.
+\]
+
+利用伽马积分 \[
+\int_0^\infty z^{a-1}e^{-bz}\,dz=\frac{\Gamma(a)}{b^a},
+\] 得
+
+\[
+\phi(k)=\frac{1}{2^{n/2}}\frac{1}{(1/2-ik)^{n/2}}
+=(1-2ik)^{-n/2}.
+\]
+
+故
+
+\[
+\phi_{\chi^2_n}(k)=(1-2ik)^{-n/2}.
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假定随机变量 \(x_1,\ldots,x_n\) 相互独立，且都服从均值为 \(\mu\)、方差为
+\(\sigma^2\) 的高斯分布。第 5 章和第 6 章给出，可以用样本均值
+
+\[
+\bar x=\frac1n\sum_{i=1}^{n}x_i
+\]
+
+作为均值 \(\mu\) 的估计量。
+
+\begin{enumerate}
+\item 求样本均值的特征函数。
+
+\item 利用特征函数证明 \(\bar x\) 服从高斯分布，并求其均值和方差。
+\end{enumerate}
+\begin{solution}
+设 \(x_1,\dots,x_n\) 独立同分布，且
+
+\[
+x_i\sim N(\mu,\sigma^2),\qquad \bar x=\frac1n\sum_{i=1}^n x_i.
+\]
+
+由独立性，
+
+\[
+\phi_{\bar x}(k)
+=E\!\left[\exp\!\left(ik\frac1n\sum_i x_i\right)\right]
+=\prod_{i=1}^n \phi_{x_i}(k/n).
+\]
+
+代入 10.1 的结果：
+
+\[
+\phi_{\bar x}(k)
+=\left[\exp\!\left(i\mu\frac{k}{n}-\frac12\sigma^2\frac{k^2}{n^2}\right)\right]^n
+=\exp\!\left(ik\mu-\frac12\frac{\sigma^2}{n}k^2\right).
+\]
+
+这正是高斯分布 \(N(\mu,\sigma^2/n)\) 的特征函数，所以
+
+\[
+\bar x\sim N\!\left(\mu,\frac{\sigma^2}{n}\right).
+\]
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+利用特征函数证明高斯分布的前 4 阶代数矩为
+
+\[
+\begin{split}
+E[x]&=\mu,\\
+E[x^2]&=\mu^2+\sigma^2,\\
+E[x^3]&=\mu^3+3\mu\sigma^2,\\
+E[x^4]&=3(\mu^2+\sigma^2)^2-2\mu^4.
+\end{split}
+\]
+\begin{solution}
+由
+
+\[
+\phi(k)=\exp\!\left(ik\mu-\frac12\sigma^2k^2\right)
+\]
+
+在 \(k=0\) 展开，或者直接使用 \[
+E[X^m]=\left.\frac{1}{i^m}\frac{d^m\phi}{dk^m}\right|_{k=0},
+\] 可得
+
+\[
+E[X]=\mu,
+\] \[
+E[X^2]=\mu^2+\sigma^2,
+\] \[
+E[X^3]=\mu^3+3\mu\sigma^2,
+\] \[
+E[X^4]=\mu^4+6\mu^2\sigma^2+3\sigma^4
+=3(\mu^2+\sigma^2)^2-2\mu^4.
+\]
+
+故书上给出的结果成立。
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+\begin{enumerate}
+\item 利用特征函数证明自由度为 \(n\) 的 \(\chi^2\) 分布的均值和方差分别为
+\(n\) 和 \(2n\)。
+
+\item 假设 \(z\) 服从自由度为 \(n\) 的 \(\chi^2\) 分布。证明：在大 \(n\)
+极限下，\(\chi^2\) 分布变为均值为 \(\mu=n\)、方差为 \(\sigma^2=2n\)
+的高斯分布。提示：证明中需要定义变量
+
+\[
+y=\frac{z-n}{\sqrt{2n}},
+\]
+
+\(y\) 的均值为零，标准差为 1。证明 \(y\) 的特征函数为
+
+\[
+\phi_y(k)=e^{-ik\sqrt{n/2}}\phi_z\left(\frac{k}{\sqrt{2n}}\right).
+\]
+
+将 \(\phi_y(k)\) 的对数展开，并只保留大 \(n\)
+极限下不消失的项，然后再变换回变量 \(z\) 得到要证明的结果。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item 均值与方差
+
+由
+
+\[
+\phi(k)=(1-2ik)^{-n/2}
+\]
+
+取对数： \[
+\log \phi(k)=-\frac n2 \log(1-2ik).
+\]
+
+也可直接求矩母函数 \(M(t)=(1-2t)^{-n/2}\)。于是
+
+\[
+E[Z]=M'(0)=n,\qquad \mathrm{Var}(Z)=M''(0)-M'(0)^2=2n.
+\]
+
+故
+
+\[
+E[Z]=n,\qquad \mathrm{Var}(Z)=2n.
+\]
+
+\item 渐近高斯性
+
+定义标准化变量
+
+\[
+Y=\frac{Z-n}{\sqrt{2n}}.
+\]
+
+则其特征函数为
+
+\[
+\phi_Y(k)=e^{-ik\sqrt{n/2}}\phi_Z\!\left(\frac{k}{\sqrt{2n}}\right)
+=e^{-ik\sqrt{n/2}}\left(1-\frac{2ik}{\sqrt{2n}}\right)^{-n/2}.
+\]
+
+取对数并在 \(n\to\infty\) 下展开：
+
+\[
+\log\phi_Y(k)
+=
+-ik\sqrt{\frac n2}
+-\frac n2 \log\!\left(1-\frac{\sqrt{2}ik}{\sqrt n}\right)
+\to -\frac12 k^2.
+\]
+
+故 \[
+\phi_Y(k)\to e^{-k^2/2},
+\] 这就是标准正态分布的特征函数，因此
+
+\[
+\frac{Z-n}{\sqrt{2n}}\xrightarrow[n\to\infty]{d}N(0,1).
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+假设 \(n\) 个相互独立的随机变量 \(x_1,\ldots,x_n\)
+都服从标准高斯分布，即对所有 \(i=1,\ldots,n\)，
+
+\[
+\phi(x_i)=\frac{1}{\sqrt{2\pi}}e^{-x_i^2/2}.
+\]
+
+考虑下面这个变量的性质：
+
+\[
+y=\left(\sum_{i=1}^{n}x_i^2\right)^{1/2}.
+\]
+
+\begin{enumerate}
+\item 首先只考虑某一个 \(x_i\)。通过变量变换，证明 \(u=x_i^2\)
+的概率密度函数为
+
+\[
+f(u)=\frac{1}{\sqrt{2\pi u}}e^{-u/2}.
+\]
+
+这是自由度为 1 的 \(\chi^2\) 分布。
+
+\item 证明 \(u\) 的特征函数为
+
+\[
+\phi_u(k)=\frac{1}{\sqrt{1-2ik}}.
+\]
+
+\item 利用相加定理，求下面变量的特征函数
+
+\[
+v=\sum_{i=1}^{n}x_i^2.
+\]
+
+\item 利用变量变换，证明 \(y=\left(\sum_{i=1}^{n}x_i^2\right)^{1/2}\)
+的概率密度函数为
+
+\[
+h(y)=\frac{1}{2^{n/2-1}\Gamma(n/2)}y^{n-1}e^{-y^2/2}.
+\]
+
+\item 写出 \(n=3\) 时的概率密度函数。这是 Maxwell-Boltzmann
+分布。假设气体中分子的速度分量 \(v_x\)，\(v_y\) 和 \(v_z\)
+都服从均值为零、标准差为 \(\sigma\) 的高斯分布。写出分子速度
+\(v=(v_x^2+v_y^2+v_z^2)^{1/2}\) 的概率密度函数。
+
+\item 写出 \(n=1\) 时的概率密度函数。即，如果 \(x\) 服从标准高斯分布，则
+\(y=|x|\) 的概率密度函数是什么？
+\end{enumerate}
+\begin{solution}
+设 \(x_i\sim N(0,1)\) 相互独立。
+
+\begin{enumerate}
+\item 令 \(u=x_i^2\)。由两个反函数分支 \(x_i=\pm\sqrt u\) 得
+\[
+f_U(u)=\frac{1}{\sqrt{2\pi u}}e^{-u/2},\qquad u>0,
+\]
+这就是自由度为 1 的 \(\chi^2\) 分布。
+
+\item 因此
+\[
+\phi_u(k)=E(e^{iku})=(1-2ik)^{-1/2}.
+\]
+
+\item 令 \(v=\sum_{i=1}^n x_i^2\)。由独立性，
+\[
+\phi_v(k)=\prod_{i=1}^n\phi_u(k)=(1-2ik)^{-n/2},
+\]
+所以 \(v\sim\chi_n^2\)。
+
+\item 因 \(y=\sqrt v\)，即 \(v=y^2\)，有 \(dv/dy=2y\)。于是
+\[
+h(y)=f_v(y^2)\,2y
+=\frac{1}{2^{n/2-1}\Gamma(n/2)}y^{n-1}e^{-y^2/2},
+\qquad y>0.
+\]
+
+\item 当 \(n=3\) 时，
+\[
+h(y)=\sqrt{\frac{2}{\pi}}\,y^2e^{-y^2/2},\qquad y>0.
+\]
+若速度分量 \(v_x,v_y,v_z\sim N(0,\sigma^2)\)，则速率 \(r\) 的密度为
+\[
+f(r)=\sqrt{\frac{2}{\pi}}\frac{r^2}{\sigma^3}e^{-r^2/(2\sigma^2)},\qquad r>0.
+\]
+
+\item 当 \(n=1\) 时，
+\[
+h(y)=\sqrt{\frac{2}{\pi}}e^{-y^2/2},\qquad y>0.
+\]
+一般地，若 \(x\sim N(0,\sigma^2)\) 且 \(y=|x|\)，则
+\[
+h(y)=\sqrt{\frac{2}{\pi}}\frac1{\sigma}e^{-y^2/(2\sigma^2)},\qquad y>0.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑服从柯西分布的随机变量 \(x\)，
+
+\[
+f(x)=\frac{1}{\pi}\frac{1}{1+x^2}.
+\]
+
+\begin{enumerate}
+\item 证明其特征函数为
+
+\[
+\phi(k)=e^{-|k|}.
+\]
+
+（利用留数定理，\(k>0\) 时选取上半平面的路径，\(k<0\)
+时选取下半平面的路径。）
+
+\item 考虑柯西随机变量 \(x\) 的某个样本，样本容量为
+\(n\)。利用（a）中得到的特征函数并应用相加定理，证明样本均值
+\(\bar x=\frac1n\sum_{i=1}^{n}x_i\) 也服从柯西分布。这是一个特例，即
+\(\bar x\)
+的概率密度函数不随样本容量的增加而改变，这与柯西分布的各阶矩不存在有关。
+\end{enumerate}
+\begin{solution}
+设
+
+\[
+f(x)=\frac{1}{\pi(1+x^2)}.
+\]
+
+\begin{enumerate}
+\item 特征函数
+
+计算
+
+\[
+\phi(k)=\int_{-\infty}^{\infty}\frac{e^{ikx}}{\pi(1+x^2)}\,dx.
+\]
+
+利用留数定理：当 \(k>0\) 时取上半平面闭路，包围极点 \(x=i\)；当 \(k<0\)
+时取下半平面闭路，包围极点 \(x=-i\)。两种情形都得到
+
+\[
+\phi(k)=e^{-|k|}.
+\]
+
+\item 样本均值仍服从柯西分布
+
+若 \(x_1,\dots,x_n\) 独立同分布为柯西，则
+
+\[
+\phi_{\bar x}(k)
+=\prod_{i=1}^n \phi_x(k/n)
+=\left(e^{-|k|/n}\right)^n
+=e^{-|k|}.
+\]
+
+因此 \(\bar x\)
+与原变量同分布，仍是柯西分布。这解释了为什么柯西分布没有通常意义上的大数定律行为。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+狄拉克 \(\delta\) 函数
+
+\[
+f(x;\mu)=\delta(x-\mu)
+\]
+
+定义为
+
+\[
+\delta(x-\mu)=0,\quad x\ne\mu,
+\]
+
+\[
+\int_{-\infty}^{\infty}\delta(x-\mu)\,dx=1.
+\]
+
+即，\(\delta(x-\mu)\) 在 \(x=\mu\)
+处为无限尖锐的峰，但在其它地方都等于零。求 \(\delta(x-\mu)\)
+的特征函数，并据此得到 \(\delta\) 函数的积分表示。
+\begin{solution}
+\[
+f(x;\mu)=\delta(x-\mu).
+\]
+
+其特征函数直接为
+
+\[
+\phi(k)=\int_{-\infty}^{\infty} e^{ikx}\delta(x-\mu)\,dx=e^{ik\mu}.
+\]
+
+反过来，由傅里叶反演公式，
+
+\[
+\delta(x-\mu)=\frac{1}{2\pi}\int_{-\infty}^{\infty} e^{-ik\mu}e^{ikx}\,dk
+=\frac1{2\pi}\int_{-\infty}^{\infty} e^{ik(x-\mu)}\,dk .
+\]
+
+这就是 \(\delta\) 函数的积分表示。
+\end{solution}
+\end{question}
+

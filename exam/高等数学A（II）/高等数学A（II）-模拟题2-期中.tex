@@ -1,0 +1,255 @@
+﻿\heading{高等数学A（II）-模拟题2-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+计算三重积分
+\[
+I=\iiint_{\Omega} z\,dV,
+\]
+其中 $\Omega$ 为球面 $x^2+y^2+z^2=4z$ 内且位于圆锥面 $z=\sqrt{x^2+y^2}$ 上方的部分。
+\begin{solution}
+
+取球坐标 $z=\rho\cos\varphi$，则球面为 $\rho=4\cos\varphi$，圆锥面为 $\varphi=\pi/4$。故
+\[
+0\le \theta\le 2\pi,\qquad 0\le \varphi\le \frac\pi4,
+\qquad 0\le \rho\le 4\cos\varphi.
+\]
+于是
+\[
+I=\int_0^{2\pi}\!\int_0^{\pi/4}\!\int_0^{4\cos\varphi}
+(\rho\cos\varphi)\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta.
+\]
+先对 $\rho$ 积分：
+\[
+I=2\pi\int_0^{\pi/4}64\cos^5\varphi\sin\varphi\,d\varphi
+=128\pi\int_0^{\pi/4}\cos^5\varphi\sin\varphi\,d\varphi.
+\]
+令 $u=\cos\varphi$，得
+\[
+I=128\pi\cdot \frac{1-(\frac{\sqrt2}{2})^6}{6}
+=128\pi\cdot\frac{7}{48}=
+\boxed{\frac{56\pi}{3}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设闭曲线 $C$ 为平面 $x+y+z=1$ 与圆柱面 $x^2+y^2=1$ 的交线，从 $z$ 轴正向看去取逆时针方向。计算线积分
+\[
+\oint_C \bigl(z\,dx+x\,dy+y\,dz\bigr).
+\]
+\begin{solution}
+
+设向量场
+\[
+\mathbf F=(z,x,y).
+\]
+则
+\[
+\nabla\times\mathbf F=
+\begin{vmatrix}
+\mathbf i&\mathbf j&\mathbf k\\
+\partial_x&\partial_y&\partial_z\\
+z&x&y
+\end{vmatrix}=(1,1,1).
+\]
+由 Stokes 公式，取曲线围成的平面圆盘 $S$ 为积分曲面。平面写成 $z=1-x-y$，上向取向对应
+\[
+\mathbf n\,dS=(-z_x,-z_y,1)\,dxdy=(1,1,1)\,dxdy.
+\]
+于是
+\[
+\oint_C \mathbf F\cdot d\mathbf r
+=\iint_S (\nabla\times\mathbf F)\cdot \mathbf n\,dS
+=\iint_{x^2+y^2\le 1}(1,1,1)\cdot(1,1,1)\,dxdy.
+\]
+故
+\[
+\oint_C \bigl(z\,dx+x\,dy+y\,dz\bigr)=3\iint_{x^2+y^2\le 1}dxdy=\boxed{3\pi}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设曲面片
+\[
+\Sigma:\ \mathbf r(u,v)=(u\cos v,u\sin v,v),
+\qquad 0\le u\le 1,\ 0\le v\le 2\pi.
+\]
+计算积分
+\[
+\iint_{\Sigma}(x^2+y^2)\,dS.
+\]
+\begin{solution}
+
+由参数方程知
+\[
+x^2+y^2=u^2.
+\]
+又
+\[
+\mathbf r_u=(\cos v,\sin v,0),
+\qquad
+\mathbf r_v=(-u\sin v,u\cos v,1),
+\]
+因此
+\[
+|\mathbf r_u\times \mathbf r_v|=\sqrt{1+u^2}.
+\]
+故
+\[
+\iint_{\Sigma}(x^2+y^2)\,dS=
+\int_0^{2\pi}\!\int_0^1 u^2\sqrt{1+u^2}\,du\,dv
+=2\pi\int_0^1 u^2\sqrt{1+u^2}\,du.
+\]
+原函数可取
+\[
+\int u^2\sqrt{1+u^2}\,du
+=\frac18\Bigl(u(2u^2+1)\sqrt{1+u^2}-\operatorname{arsinh}u\Bigr).
+\]
+代入 $0,1$ 得
+\[
+\iint_{\Sigma}(x^2+y^2)\,dS
+=2\pi\cdot\frac18\Bigl(3\sqrt2-\operatorname{arsinh}1\Bigr).
+\]
+而
+\[
+\operatorname{arsinh}1=\ln(1+\sqrt2).
+\]
+故结果为
+\ansmath{\frac{\pi}{4}\Bigl(3\sqrt2-\ln(1+\sqrt2)\Bigr)}.
+\end{solution}
+\end{question}
+
+\begin{question}
+计算二重积分
+\[
+I=\iint_D (x+y)\cos(x-y)\,dxdy,
+\]
+其中 $D$ 由直线 $x+y=1,\ x+y=3,\ x-y=0,\ x-y=2$ 围成。
+\begin{solution}
+
+作代换
+\[
+u=x+y,\qquad v=x-y.
+\]
+则
+\[
+x=\frac{u+v}{2},\qquad y=\frac{u-v}{2},
+\qquad \left|\frac{\partial(x,y)}{\partial(u,v)}\right|=\frac12.
+\]
+区域 $D$ 化为矩形
+\[
+1\le u\le 3,
+\qquad 0\le v\le 2.
+\]
+故
+\[
+I=\frac12\int_1^3\!\int_0^2 u\cos v\,dv\,du
+=\frac12\left(\int_1^3u\,du\right)\left(\int_0^2\cos v\,dv\right).
+\]
+于是
+\[
+I=\frac12\cdot\frac{3^2-1^2}{2}\cdot \sin2
+=\boxed{2\sin2}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $\Omega$ 为抛物面 $z=x^2+y^2$ 与平面 $z=4$ 围成的立体，取外侧法向。计算通量
+\[
+\iint_{\partial\Omega}(xz\,dy\,dz+yz\,dz\,dx+z^2\,dx\,dy).
+\]
+\begin{solution}
+
+对应向量场为
+\[
+\mathbf F=(xz,yz,z^2).
+\]
+由 Gauss 公式
+\[
+\iint_{\partial\Omega}\mathbf F\cdot d\mathbf S
+=\iiint_{\Omega}\nabla\cdot \mathbf F\,dV.
+\]
+计算散度：
+\[
+\nabla\cdot\mathbf F=z+z+2z=4z.
+\]
+改用柱坐标，区域为
+\[
+0\le \theta\le 2\pi,
+\quad 0\le r\le 2,
+\quad r^2\le z\le 4.
+\]
+故
+\[
+\iiint_{\Omega}4z\,dV
+=\int_0^{2\pi}\!\int_0^2\!\int_{r^2}^{4}4z\,r\,dz\,dr\,d\theta
+=2\pi\int_0^2(32r-2r^5)\,dr.
+\]
+计算得
+\[
+2\pi\left[16r^2-\frac{r^6}{3}\right]_0^2
+=2\pi\left(64-\frac{64}{3}\right)
+=\boxed{\frac{256\pi}{3}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求函数 $f(x,y,z)=xyz$ 在椭球面
+\[
+x^2+2y^2+3z^2=1
+\]
+上的最大值与最小值。
+\begin{solution}
+
+由对称性，只需求 $|xyz|$ 的最大值。设拉格朗日函数
+\[
+L=xyz-\lambda(x^2+2y^2+3z^2-1).
+\]
+驻点满足
+\[
+yz=2\lambda x,
+\qquad xz=4\lambda y,
+\qquad xy=6\lambda z.
+\]
+若某变量为零，则 $xyz=0$，不是极值的最大绝对值情形。故设 $xyz\neq0$，三式两两相除得
+\[
+x^2=2y^2,
+\qquad x^2=3z^2.
+\]
+设
+\[
+x^2=t,
+\qquad y^2=\frac t2,
+\qquad z^2=\frac t3.
+\]
+代入约束：
+\[
+t+2\cdot\frac t2+3\cdot\frac t3=3t=1,
+\qquad t=\frac13.
+\]
+故
+\[
+x^2=\frac13,
+\qquad y^2=\frac16,
+\qquad z^2=\frac19.
+\]
+于是
+\[
+|xyz|=\sqrt{\frac13\cdot\frac16\cdot\frac19}=\frac{1}{9\sqrt2}.
+\]
+因此
+\ansmath{f_{\max}=\frac{1}{9\sqrt2},\qquad f_{\min}=-\frac{1}{9\sqrt2}.}
+取值点满足
+\[
+|x|=\frac1{\sqrt3},\quad |y|=\frac1{\sqrt6},\quad |z|=\frac13,
+\]
+且符号组合使 $xyz$ 分别为正或负。
+\end{solution}
+\end{question}
+
+

@@ -1,0 +1,197 @@
+﻿\heading{数学物理方法（下）-21春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\begin{question}[回答以下问题]
+
+第一问包含 3 个小问：
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 一根有质量的杆固定在电梯顶部的内侧。电梯和杆处于自由落体状态，现令电梯突然停止，写出杆上点的位移满足的方程与定解条件。
+\item 将方程
+\[
+ i\hbar\frac{\partial\psi}{\partial t}
+ =-\frac{\hbar^2}{2m}\nabla^2\psi+\frac{e^2A^2}{4m}\cos^2(kz)\,\psi
+\]
+分别在直角坐标、柱坐标、球坐标下讨论分离变量。
+\item 考虑圆心角为 $\pi$、内外半径分别为 $a,b$ 的扇形区域
+\[
+ a^2<x^2+y^2<b^2,\qquad y>0,
+\]
+其定解问题为
+\[
+\begin{cases}
+\nabla^2u=0, & a^2<x^2+y^2<b^2,\ y>0,\\
+\left.\dfrac{\partial u}{\partial n}\right|_{x^2+y^2=a^2}=0,
+\qquad u|_{x^2+y^2=b^2}=0,\\
+ u|_{y=0}=f(x).
+\end{cases}
+\]
+试分离变量，求本征值问题，并说明正交性与模方。
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 按标准的纵振动模型，取 $x\in[0,l]$ 为从上端向下的坐标，杆位移记为 $u(x,t)$。电梯骤停后，杆满足一维波动方程
+\[
+ u_{tt}=c^2u_{xx},
+\]
+上端固定、下端自由，故边界条件为
+\[
+ u(0,t)=0,\qquad u_x(l,t)=0.
+\]
+若以骤停时刻为 $t=0$，则可取
+\[
+ u(x,0)=0,
+\qquad u_t(x,0)=v_0
+\]
+（即各点具有共同的初速度 $v_0$，方向与电梯原先运动方向一致）。
+
+\item 该势函数只依赖于 $z$，因此：
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 在直角坐标中可分离。令 $\psi=X(x)Y(y)Z(z)T(t)$，得到
+\[
+X''+\lambda_x X=0,
+\qquad Y''+\lambda_y Y=0,
+\]
+\[
+Z''+\Bigl(\frac{2mE}{\hbar^2}-\lambda_x-\lambda_y-\frac{e^2A^2}{2\hbar^2}\cos^2(kz)\Bigr)Z=0.
+\]
+\item 在柱坐标中也可分离，因为势仍只与 $z$ 有关。令 $\psi=R(\rho)\Theta(\varphi)Z(z)T(t)$，则角向为 $\Theta''+m^2\Theta=0$，径向为 Bessel 型方程，$z$ 向仍是带有 $\cos^2(kz)$ 势项的一维方程。
+\item 在球坐标中一般\emph{不能}分离变量，因为 $\cos^2(kz)=\cos^2(kr\cos\theta)$ 同时耦合了 $r$ 与 $\theta$，不再是中心势。
+\end{enumerate}
+
+\item 在极坐标中，区域为 $a<r<b,\ 0<\theta<\pi$。设 $u(r,\theta)=R(r)\Theta(\theta)$，则
+\[
+\frac{r^2R''+rR'}{R}=-\frac{\Theta''}{\Theta}=\lambda.
+\]
+于是径向本征值问题可写成
+\[
+(rR')'+\frac{\lambda}{r}R=0,
+\qquad R'(a)=0,\quad R(b)=0.
+\]
+令 $s=\ln r$，则方程化为
+\[
+\frac{d^2Y}{ds^2}+\lambda Y=0,
+\qquad Y'(\ln a)=0,\quad Y(\ln b)=0.
+\]
+故
+\[
+\mu_n=\frac{(n+\tfrac12)\pi}{\ln(b/a)},
+\qquad \lambda_n=\mu_n^2,
+\qquad R_n(r)=\cos\Bigl(\mu_n\ln\frac{r}{a}\Bigr),
+\quad n=0,1,2,\dots
+\]
+相应角向满足
+\[
+\Theta_n''-\mu_n^2\Theta_n=0.
+\]
+正交性为
+\[
+\int_a^b \frac{1}{r}R_m(r)R_n(r)\,dr=0\qquad (m\ne n),
+\]
+模方为
+\[
+\int_a^b \frac{1}{r}R_n(r)^2\,dr=\frac12\ln\frac{b}{a}.
+\]
+\end{enumerate}
+
+\ansmath{\int_a^b \frac{1}{r}R_m(r)R_n(r)\,dr=0\qquad (m\ne n),\quad \int_a^b \frac{1}{r}R_n(r)^2\,dr=\frac12\ln\frac{b}{a}}
+
+\end{solution}
+\end{question}
+
+\begin{question}[定解问题（三）]
+
+求解
+\[
+\begin{cases}
+\dfrac{\partial^2u}{\partial t^2}-a^2\dfrac{\partial^2u}{\partial x^2}=0,
+&0<x<\pi,\ t>0,\\
+\left.\dfrac{\partial u}{\partial x}\right|_{x=0}=0,
+\qquad \left.\dfrac{\partial u}{\partial x}\right|_{x=\pi}=0,
+&t>0,\\
+u|_{t=0}=\sin x,
+\qquad \left.\dfrac{\partial u}{\partial t}\right|_{t=0}=0.
+\end{cases}
+\]
+
+\begin{solution}
+
+Neumann 边界对应本征函数为 $\cos nx$。把初值 $\sin x$ 展开成余弦级数：
+\[
+\sin x=\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos nx,
+\qquad
+ a_n=\frac{2}{\pi}\int_0^{\pi}\sin x\cos nx\,dx.
+\]
+计算得
+\[
+ a_0=\frac{4}{\pi},
+ \qquad a_{2m}=\frac{4}{\pi(1-4m^2)},
+ \qquad a_{2m-1}=0\ (m\ge1).
+\]
+因此解为
+\[
+ u(x,t)=\frac{2}{\pi}+
+ \sum_{m=1}^{\infty}\frac{4}{\pi(1-4m^2)}
+ \cos(2mx)\cos(2ma t).
+\]
+
+\ansmath{u(x,t)=\frac{2}{\pi}+
+ \sum_{m=1}^{\infty}\frac{4}{\pi(1-4m^2)}
+ \cos(2mx)\cos(2ma t)}
+
+\end{solution}
+\end{question}
+
+\begin{question}[原卷第四题（25分）]
+
+求解定解问题
+\[
+\begin{cases}
+\nabla^2 u = z^2,\qquad x^2+y^2+z^2<a^2,\\
+\left.u\right|_{x^2+y^2+z^2=a^2}=\ln(a-z).
+\end{cases}
+\]
+
+\begin{solution}
+
+可先取特解
+\[
+ u_p=\frac{z^4}{12},\qquad \nabla^2 u_p=z^2.
+\]
+再令 $u=u_p+v$，则 $v$ 满足球内 Laplace 方程，边界条件为
+\[
+ v\big|_{r=a}=\ln(a-z)-\frac{z^4}{12}\Big|_{r=a}.
+\]
+随后把边界数据按球谐函数展开，即可写出唯一解。这里先把正确题面补入源码，详细展开暂缺。
+
+\ansmath{v\big|_{r=a}=\ln(a-z)-\frac{z^4}{12}\Big|_{r=a}}
+
+\end{solution}
+\end{question}
+
+\begin{question}[原卷第五题（20分）]
+
+一根长为 $l$ 的杆子左端保持温度为 $0$，右端有恒定热流流入，初始状态有
+\[
+\frac{x(l-x)}{2}
+\]
+的温度分布，求解任意时刻的杆上的温度。
+
+\begin{solution}
+
+这是带混合边界条件的热传导问题。标准做法是先补成完整定解问题
+\[
+ u_t=\kappa u_{xx},\qquad 0<x<l,\ t>0,
+\]
+配合左端 Dirichlet 条件、右端常通量 Neumann 条件以及初值
+\[
+ u(x,0)=\frac{x(l-x)}{2}.
+\]
+再减去稳态项使边界齐次化，并按相应本征函数展开。这里先把题面补入源码，详细答案暂缺。
+
+\ansmath{u(x,0)=\frac{x(l-x)}{2}}
+
+\end{solution}
+\end{question}
+

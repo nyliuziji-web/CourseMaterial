@@ -1,0 +1,271 @@
+﻿\heading{理论物理基础（II）-25秋-期中}
+
+\noteinfo{题目答案来源于教师。}
+
+\begin{question}
+考虑一个非理想单元气体，满足物态方程
+\[
+p\,(V-Nb)=Nk_B T,
+\]
+其中 $b$ 为常量。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 证明这个气体的定容热容 $C_V$ 与 $V$ 无关，即
+  \[
+  \left(\frac{\partial C_V}{\partial V}\right)_{T,N}=0.
+  \]
+  \item 设定容比热 $c_V\equiv C_V/N$ 为常数，计算该单元气体的组成“分子”的化学势
+  \[
+  \mu=\mu(T,V,N),
+  \]
+  结果可以包含待定积分常数。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 利用
+  \[
+  C_V=\left(\frac{\partial U}{\partial T}\right)_{V,N},
+  \qquad
+  \left(\frac{\partial U}{\partial V}\right)_{T,N}
+  =T\left(\frac{\partial p}{\partial T}\right)_{V,N}-p,
+  \]
+  得
+  \[
+  \left(\frac{\partial C_V}{\partial V}\right)_{T,N}
+  =\left(\frac{\partial}{\partial T}\left(\frac{\partial U}{\partial V}\right)_{T,N}\right)_{V,N}
+  =T\left(\frac{\partial^2 p}{\partial T^2}\right)_{V,N}.
+  \]
+  对本题的状态方程
+  \[
+  p=\frac{Nk_B T}{V-Nb},
+  \]
+  右边对 $T$ 的二阶导数为零，因此
+  \ansmath{\left(\frac{\partial C_V}{\partial V}\right)_{T,N}=0.}
+
+  \item 记比体积 $v=V/N$，比内能 $u=U/N$，比熵 $s=S/N$。由(1)可知 $u=u(T)$，又因
+  \[
+  \left(\frac{\partial u}{\partial T}\right)_v=c_V,
+  \]
+  所以
+  \[
+  u(T)=c_V(T-T_0)+u_0,
+  \]
+  其中 $T_0,u_0$ 为积分常数。
+
+  由热力学关系 $du=T\,ds-p\,dv$ 得
+  \[
+  ds=\frac{c_V}{T}\,dT+\frac{k_B}{v-b}\,dv,
+  \]
+  从而
+  \[
+  s(T,v)=c_V\ln\frac{T}{T_0}+k_B\ln\frac{v-b}{v_0-b}+s_0,
+  \]
+  其中 $v_0,s_0$ 为常数。再利用
+  \[
+  \mu=u-Ts+pv,
+  \qquad p=\frac{k_B T}{v-b},
+  \]
+  得
+  \[
+  \mu=c_V(T-T_0)-Tc_V\ln\frac{T}{T_0}-k_B T\ln\frac{v-b}{v_0-b}
+  +\frac{k_BTv}{v-b}-s_0T+u_0.
+  \]
+  用 $v=V/N$ 表示，即
+  \ansmath{\mu(T,V,N)=c_V(T-T_0)-Tc_V\ln\frac{T}{T_0}-k_B T\ln\frac{V/N-b}{v_0-b}+\frac{k_BTV}{V-Nb}-s_0T+u_0.}
+  其中 $T_0,v_0,u_0,s_0$ 均为积分常数。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑三维空间中体积为 $V$ 的刚性绝热容器内的粒子数为 $N$ 的单原子经典理想气体，其组成原子的质量为 $m$。该容器以速度 $\mathbf v_0$ 平动一段时间后内部气体达到平衡，且原子速度为 $\mathbf v$ 的概率分布密度正比于温度为 $T$ 的“平移”后的 Maxwell 分布
+\[
+\propto \exp\!\left[-\frac{m(\mathbf v-\mathbf v_0)^2}{2k_B T}\right].
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 无限缓慢地将容器的速度从 $\mathbf v_0$ 降低到 $0$。计算这个过程中气体的内能、熵、温度的变化量 $\Delta U,\Delta S,\Delta T$。
+  \item 将容器的速度瞬间降低到 $0$，等待一段时间后内部气体达到平衡。计算这个过程中气体的内能、熵、温度的变化量 $\Delta U,\Delta S,\Delta T$。
+\end{enumerate}
+
+\begin{solution}
+设 $\mathbf v'=\mathbf v-\mathbf v_0$，则 $\mathbf v'$ 服从通常的 Maxwell 分布，所以
+\[
+\left\langle \frac{m v^2}{2}\right\rangle
+=\left\langle \frac{m(\mathbf v'+\mathbf v_0)^2}{2}\right\rangle
+=\frac32 k_B T+\frac{m v_0^2}{2}.
+\]
+这表明初态内能比静止容器中的平衡态多出整体平动贡献 $Nm v_0^2/2$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 过程无限缓慢且容器绝热，因此它是可逆绝热过程，熵不变：
+  \[
+  \Delta S=0.
+  \]
+  速度分布只是整体平移，分布形状不变，因此温度也不变：
+  \[
+  \Delta T=0.
+  \]
+  最终平动能消失，所以内能减少
+  \ansmath{\Delta U=-\frac12 Nm v_0^2,\qquad \Delta S=0,\qquad \Delta T=0.}
+
+  \item 瞬间减速过程中既不做功也不传热，因此总内能不变：
+  \[
+  \Delta U=0.
+  \]
+  设末态温度为 $T'$，则末态满足
+  \[
+  \frac32 k_B T'=\frac32 k_B T+\frac12 m v_0^2,
+  \]
+  故
+  \[
+  T'=T+\frac{m v_0^2}{3k_B},
+  \qquad
+  \Delta T=\frac{m v_0^2}{3k_B}.
+  \]
+  对单原子理想气体，
+  \[
+  S(T,V)=\frac32 Nk_B\ln T+Nk_B\ln V+\text{const},
+  \]
+  体积不变，因此
+  \[
+  \Delta S=\frac32 Nk_B\ln\frac{T'}{T}
+  =\frac32 Nk_B\ln\left(1+\frac{m v_0^2}{3k_B T}\right).
+  \]
+  故
+  \ansmath{\Delta U=0,\qquad \Delta T=\frac{m v_0^2}{3k_B},\qquad \Delta S=\frac32 Nk_B\ln\left(1+\frac{m v_0^2}{3k_B T}\right).}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑 $d$ 维空间中“体积”为 $V$、温度为 $T$ 的光子气体，已知其内能为
+\[
+U=aVT^{d+1},
+\]
+其“压强”为
+\[
+p=bT^{d+1},
+\]
+这里 $a,b$ 为常数。利用热力学关系求出 $b$，用 $a,d$ 和其它物理常数等表示。
+
+\begin{solution}
+光子数不守恒，因此热力学基本关系为
+\[
+dU=T\,dS-p\,dV.
+\]
+由题设
+\[
+dU=aT^{d+1}dV+(d+1)aVT^d dT,
+\]
+于是
+\[
+dS=\frac{dU+p\,dV}{T}=(a+b)T^d dV+(d+1)aVT^{d-1}dT.
+\]
+因此
+\[
+\left(\frac{\partial S}{\partial V}\right)_T=(a+b)T^d,
+\qquad
+\left(\frac{\partial S}{\partial T}\right)_V=(d+1)aVT^{d-1}.
+\]
+由混合偏导相等，
+\[
+\frac{\partial}{\partial V}\left(\frac{\partial S}{\partial T}\right)_V
+=
+\frac{\partial}{\partial T}\left(\frac{\partial S}{\partial V}\right)_T,
+\]
+可得
+\[
+(d+1)a=d(a+b).
+\]
+故
+\ansmath{b=\frac{a}{d}.}
+也即光子气体满足
+\[
+pV=\frac{U}{d}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑二维空间中“体积”为 $V$ 的自由电子气。电子视为自旋为 $\uparrow$ 和 $\downarrow$ 的“两种”非相对论性费米子。在外加 Zeeman 场 $B$ 下，“两种”电子的能量分别为
+\[
+\varepsilon_{\uparrow,\mathbf p}=\frac{p^2}{2m}-\gamma B,
+\qquad
+\varepsilon_{\downarrow,\mathbf p}=\frac{p^2}{2m}+\gamma B,
+\]
+其中 $\mathbf p$ 是电子动量，$\gamma>0$ 为常数。设气体内存在使电子自旋翻转的过程，因此电子总数
+\[
+N=N_\uparrow+N_\downarrow
+\]
+守恒，而两种电子可相互转化。电子气的磁矩为
+\[
+M=\gamma(N_\uparrow-N_\downarrow).
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求零温电子气的总内能 $U(T=0,N,V,M)$。
+  \item 固定 $N,V$，改变外场 $B$ 时，讨论零温电子气是否有相变；如果有，判断其级数。
+  \item 判断在有限温度下，改变 $B$ 时是否有相变，并说明理由。
+\end{enumerate}
+
+\begin{solution}
+对二维自由费米气体，单一自旋分量在零温下若化学势为 $\mu$，则
+\[
+N=\frac{2\pi mV}{h^2}\mu,
+\qquad
+U=\frac{\pi mV}{h^2}\mu^2.
+\]
+由于自旋翻转达到平衡，两种电子具有共同化学势 $\mu_0$，故
+\[
+N_\uparrow=\frac{2\pi mV}{h^2}(\mu_0+\gamma B)_+,
+\qquad
+N_\downarrow=\frac{2\pi mV}{h^2}(\mu_0-\gamma B)_+,
+\]
+其中 $(x)_+=\max(x,0)$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 若 $|M|<\gamma N$，两种自旋都被占据，此时
+  \[
+  N_\uparrow=\frac12\left(N+\frac{M}{\gamma}\right),
+  \qquad
+  N_\downarrow=\frac12\left(N-\frac{M}{\gamma}\right).
+  \]
+  代入零温二维费米气体的能量公式可得
+  \[
+  U=\frac{h^2}{8\pi mV}\left(N^2+\frac{M^2}{\gamma^2}\right).
+  \]
+  若 $|M|=\gamma N$，体系完全极化，只剩一个自旋分量，故
+  \[
+  U=\frac{h^2N^2}{4\pi mV}.
+  \]
+  因此
+  \ansmath{U(T=0,N,V,M)=
+  \begin{cases}
+  \dfrac{h^2}{8\pi mV}\left(N^2+\dfrac{M^2}{\gamma^2}\right), & |M|\le \gamma N,\\[1.1ex]
+  \dfrac{h^2N^2}{4\pi mV}, & |M|=\gamma N.
+  \end{cases}}
+
+  \item 固定 $N,V$，由上式可得零温磁化曲线
+  \[
+  M(B)=
+  \begin{cases}
+  \dfrac{4\pi mV}{h^2}\gamma^2 B, & |B|<B_c,\\[1.1ex]
+  \gamma N\,\operatorname{sgn}(B), & |B|\ge B_c,
+  \end{cases}
+  \qquad
+  B_c=\frac{h^2N}{4\pi mV\gamma}.
+  \]
+  在 $B=\pm B_c$ 处，$M$ 连续，但磁化率
+  \[
+  \chi=\left(\frac{\partial M}{\partial B}\right)_{T,V,N}
+  \]
+  发生跳变，因此零温下存在相变，而且按 Ehrenfest 分类可视为二级相变。
+  \ansmath{B_c=\frac{h^2N}{4\pi mV\gamma},\qquad \text{零温相变为二级相变。}}
+
+  \item 有限温时，两种自旋的占据由 Fermi--Dirac 分布给出。对任意有限 $T>0$，相关费米积分对参数 $(\mu,B,T)$ 都是解析的，热力学势因而也是 $B$ 的解析函数，不会出现非解析点。故有限温下随 $B$ 变化\textbf{没有相变}。
+\end{enumerate}
+\end{solution}
+\end{question}
+

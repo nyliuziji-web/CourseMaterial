@@ -1,0 +1,281 @@
+﻿\heading{实验物理中的统计方法-模拟题3-期中}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较前两套期中模拟题再提高一些。}
+
+\begin{question}
+从 $\{1,2,\cdots,n\}$ 中随机取一个数 $X$，再从 $\{1,2,\cdots,X\}$ 中随机取一个数 $Y$。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $P(Y=m)$（其中 $1\le m\le n$）；
+\item 求 $E[Y]$。
+\end{enumerate}
+\begin{solution}
+对 $1\le m\le n$，有
+\[
+P(Y=m)=\sum_{x=m}^{n}P(X=x)P(Y=m\mid X=x)
+=\frac1n\sum_{x=m}^{n}\frac1x.
+\]
+故
+\ansmath{P(Y=m)=\frac1n\sum_{x=m}^{n}\frac1x=\frac{H_n-H_{m-1}}{n}}
+其中 $H_k=\sum_{j=1}^k\frac1j$ 为调和数。
+又由条件期望公式，
+\[
+E[Y\mid X=x]=\frac{x+1}{2},
+\qquad
+E[Y]=E\bigl(E[Y\mid X]\bigr)=\frac{E[X]+1}{2}.
+\]
+而
+\[
+E[X]=\frac{n+1}{2}.
+\]
+因此
+\ansmath{E[Y]=\frac{\frac{n+1}{2}+1}{2}=\frac{n+3}{4}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X,Y$ 相互独立，且都服从 $U(0,1)$。令
+\[
+U=\min(X,Y),\qquad V=\max(X,Y).
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $(U,V)$ 的联合概率密度；
+\item 求 $P(V-U<t)$，其中 $0<t<1$。
+\end{enumerate}
+\begin{solution}
+在区域 $0<u<v<1$ 上，$(u,v)$ 对应 $(x,y)$ 的两个排列，因此联合密度为
+\[
+f_{U,V}(u,v)=2,
+\qquad 0<u<v<1.
+\]
+故
+\ansmath{f_{U,V}(u,v)=\begin{cases}2,&0<u<v<1,\\0,&\text{其他} .\end{cases}}
+再求
+\[
+P(V-U<t)=P(|X-Y|<t).
+\]
+在单位正方形中，满足 $|x-y|\ge t$ 的区域是两块边长为 $1-t$ 的直角三角形，总面积为 $(1-t)^2$。因此
+\[
+P(|X-Y|<t)=1-(1-t)^2=2t-t^2.
+\]
+所以
+\ansmath{P(V-U<t)=2t-t^2,
+\qquad 0<t<1}
+\end{solution}
+\end{question}
+
+\begin{question}
+某电路由三个相互独立、同分布的元件 $A,B,C$ 组成。只有当元件 $A$ 正常，且元件 $B,C$ 至少有一个正常时，整个电路才正常。设单个元件正常工作时间的累积分布函数为 $F(t)$。求整个电路正常工作时间 $T$ 的累积分布函数。
+\begin{solution}
+电路在时刻 $t$ 仍正常工作的条件是：
+\[
+A>t,\qquad B>t\ \text{或}\ C>t.
+\]
+因此
+\[
+P(T>t)=P(A>t)P(B>t\ \text{或}\ C>t).
+\]
+又
+\[
+P(A>t)=1-F(t),
+\]
+\[
+P(B>t\ \text{或}\ C>t)=1-P(B\le t,C\le t)=1-F(t)^2.
+\]
+故
+\[
+P(T>t)=[1-F(t)][1-F(t)^2].
+\]
+于是
+\ansmath{F_T(t)=1-[1-F(t)][1-F(t)^2]}
+\end{solution}
+\end{question}
+
+\begin{question}
+随机变量 $(X,Y)$ 的联合概率密度为
+\[
+f(x,y)=\begin{cases}
+ c(x+2y),&0<y<x<1,\\
+ 0,&\text{其他}.
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求常数 $c$；
+\item 求边缘密度 $f_X(x)$；
+\item 求 $P\!\left(Y>\dfrac{X}{2}\right)$；
+\item 求 $E[Y\mid X=x]$。
+\end{enumerate}
+\begin{solution}
+由归一化条件，
+\[
+1=c\int_0^1\int_0^x (x+2y)\,dy\,dx
+=c\int_0^1 2x^2\,dx
+=\frac{2c}{3}.
+\]
+故
+\ansmath{c=\frac32}
+边缘密度为
+\[
+f_X(x)=\int_0^x \frac32(x+2y)\,dy
+=\frac32\cdot 2x^2=3x^2,
+\qquad 0<x<1.
+\]
+所以
+\ansmath{f_X(x)=3x^2,
+\qquad 0<x<1}
+再算概率：
+\[
+P\!\left(Y>\frac X2\right)=\int_0^1\int_{x/2}^{x}\frac32(x+2y)\,dy\,dx.
+\]
+计算得
+\[
+\int_{x/2}^{x}(x+2y)\,dy=\frac{5x^2}{4},
+\]
+故
+\[
+P\!\left(Y>\frac X2\right)=\int_0^1 \frac32\cdot \frac{5x^2}{4}\,dx=\frac58.
+\]
+因此
+\ansmath{P\!\left(Y>\frac X2\right)=\frac58}
+条件密度为
+\[
+f_{Y\mid X}(y\mid x)=\frac{\frac32(x+2y)}{3x^2}=\frac{x+2y}{2x^2},
+\qquad 0<y<x.
+\]
+于是
+\[
+E[Y\mid X=x]=\int_0^x y\,\frac{x+2y}{2x^2}\,dy=\frac{7x}{12}.
+\]
+故
+\ansmath{E[Y\mid X=x]=\frac{7x}{12}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $\{N(t),t\ge 0\}$ 是参数为 $\lambda$ 的泊松过程，$T_1<T_2<T_3<\cdots$ 为各次到达时刻。求条件密度 $f_{T_2\mid T_3=t}(u)$。
+\begin{solution}
+条件于 $T_3=t$ 后，$T_1,T_2$ 就是在区间 $(0,t)$ 上两个独立均匀点的顺序统计量。因此
+\[
+\frac{T_2}{t}
+\]
+服从两个 $U(0,1)$ 样本中较大者的分布，其密度为
+\[
+f(w)=2w,
+\qquad 0<w<1.
+\]
+令 $w=u/t$，则
+\[
+f_{T_2\mid T_3=t}(u)=2\frac{u}{t}\cdot \frac1t
+=\frac{2u}{t^2},
+\qquad 0<u<t.
+\]
+所以
+\ansmath{f_{T_2\mid T_3=t}(u)=\frac{2u}{t^2},
+\qquad 0<u<t}
+\end{solution}
+\end{question}
+
+\begin{question}
+用宇宙射线标定探测器。把两块完全相同、相互独立的待测闪烁体串联放在上下两块触发闪烁体之间。现记录到“上下两块都击中”的有效穿过共 $3000$ 次，其中两块待测闪烁体都击中的次数为 $2523$ 次。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 设单块待测闪烁体效率为 $\varepsilon$，求 $\varepsilon$ 的估计值；
+\item 求该估计值的统计不确定度；
+\item 若把这两块闪烁体改成“只要至少一块击中就算通过”，求系统效率的估计值。
+\end{enumerate}
+\begin{solution}
+设两块都击中的概率为 $p=\varepsilon^2$。由数据得
+\[
+\hat p=\frac{2523}{3000}=0.841.
+\]
+故
+\[
+\hat\varepsilon=\sqrt{\hat p}=\sqrt{0.841}\approx 0.9171.
+\]
+所以
+\ansmath{\hat\varepsilon\approx 0.917}
+按二项分布近似，
+\[
+\sigma_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{N}}
+=\sqrt{\frac{0.841\times 0.159}{3000}}
+\approx 0.00668.
+\]
+又因 $\varepsilon=\sqrt p$，故
+\[
+\sigma_{\hat\varepsilon}\approx \left|\frac{d\varepsilon}{dp}\right|\sigma_{\hat p}
+=\frac{1}{2\hat\varepsilon}\sigma_{\hat p}
+\approx \frac{0.00668}{2\times 0.9171}
+\approx 0.00364.
+\]
+因此
+\ansmath{\hat\varepsilon=0.917\pm 0.004}
+若改成“至少一块击中”，则系统效率为
+\[
+\varepsilon_{\rm sys}=1-(1-\varepsilon)^2.
+\]
+代入估计值得
+\[
+\hat\varepsilon_{\rm sys}=1-(1-0.9171)^2\approx 0.9931.
+\]
+故
+\ansmath{\hat\varepsilon_{\rm sys}\approx 0.993}
+\end{solution}
+\end{question}
+
+\begin{question}
+设探测效率 $\varepsilon$ 的先验分布为
+\[
+\pi(\varepsilon)\propto \varepsilon(1-\varepsilon)^2,
+\qquad 0<\varepsilon<1.
+\]
+现做了 $10$ 次标准刻度，其中有 $8$ 次探测到信号。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求后验分布；
+\item 求后验均值；
+\item 求接下来两次刻度都探测到信号的后验预测概率。
+\end{enumerate}
+\begin{solution}
+先验可写成
+\[
+\varepsilon\sim \mathrm{Beta}(2,3).
+\]
+观测到 $8$ 次成功、$2$ 次失败后，后验分布为
+\[
+\varepsilon\mid D\sim \mathrm{Beta}(10,5).
+\]
+即
+\ansmath{\varepsilon\mid D\sim \mathrm{Beta}(10,5)}
+后验均值为
+\[
+E[\varepsilon\mid D]=\frac{10}{15}=\frac23.
+\]
+故
+\ansmath{E[\varepsilon\mid D]=\frac23}
+后面两次都成功的后验预测概率为
+\[
+E[\varepsilon^2\mid D]
+=\frac{10\cdot 11}{15\cdot 16}
+=\frac{11}{24}.
+\]
+因此
+\ansmath{P(\text{后两次都成功}\mid D)=\frac{11}{24}}
+\end{solution}
+\end{question}
+
+\begin{question}
+某稀有事件搜索中，本底计数服从参数为 $3$ 的泊松分布。现观测到 $7$ 个候选事例。若只考虑“本底涨落到不小于观测值”的显著性水平，求对应的 $p$ 值。
+\begin{solution}
+所求为
+\[
+p=P(N\ge 7\mid \lambda=3)=1-P(N\le 6\mid \lambda=3).
+\]
+即
+\[
+p=1-e^{-3}\sum_{k=0}^{6}\frac{3^k}{k!}.
+\]
+数值上
+\[
+p\approx 0.0335.
+\]
+故
+\ansmath{p=P(N\ge 7\mid \lambda=3)=1-e^{-3}\sum_{k=0}^{6}\frac{3^k}{k!}\approx 0.0335}
+\end{solution}
+\end{question}
+

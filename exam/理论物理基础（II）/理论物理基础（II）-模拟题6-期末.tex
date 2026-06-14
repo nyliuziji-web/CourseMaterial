@@ -1,0 +1,201 @@
+﻿\heading{理论物理基础（II）-模拟题6-期末}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑一维谐振子，初始哈密顿量为
+\[
+\hat H_i=\frac{\hat p^2}{2m}+\frac12 m\omega^2 x^2,
+\]
+体系最初处于其基态。某一时刻频率瞬时变为 $\Omega$，之后哈密顿量变为
+\[
+\hat H_f=\frac{\hat p^2}{2m}+\frac12 m\Omega^2 x^2.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求跃迁后立刻测量新哈密顿量时处于新基态的概率；
+  \item 说明为什么所有奇数激发态的概率都为零；
+  \item 求跃迁后立刻的平均能量 $\langle H_f\rangle$；
+  \item 对特例 $\Omega=2\omega$，写出新基态概率 $P_0$ 与平均能量 $\langle H_f\rangle$。
+\end{enumerate}
+
+\begin{solution}
+初始基态波函数为
+\[
+\psi_i(x)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-m\omega x^2/(2\hbar)},
+\]
+而新哈密顿量的基态为
+\[
+\psi_0^{(f)}(x)=\left(\frac{m\Omega}{\pi\hbar}\right)^{1/4}e^{-m\Omega x^2/(2\hbar)}.
+\]
+两者重叠给出新基态振幅
+\[
+c_0=\int_{-\infty}^{\infty} \bigl(\psi_0^{(f)}\bigr)^*\psi_i\,dx
+=\left(\frac{2\sqrt{\omega\Omega}}{\omega+\Omega}\right)^{1/2}.
+\]
+因此
+\ansmath{P_0=|c_0|^2=\frac{2\sqrt{\omega\Omega}}{\omega+\Omega}.}
+
+初始态与新哈密顿量的本征态都具有确定偶宇称；由于初始基态是偶函数，而新哈密顿量的奇数激发态波函数为奇函数，所以它们与初态的重叠全部为零。故
+\anstext{所有奇数激发态的测量概率都为零。}
+
+跃迁后立刻的平均能量可直接在旧基态上计算：
+\[
+\langle H_f\rangle=\frac{\langle p^2\rangle_i}{2m}+\frac12 m\Omega^2\langle x^2\rangle_i.
+\]
+旧基态满足
+\[
+\langle p^2\rangle_i=\frac12 m\hbar\omega,
+\qquad
+\langle x^2\rangle_i=\frac{\hbar}{2m\omega},
+\]
+因此
+\ansmath{\langle H_f\rangle=\frac{\hbar}{4\omega}(\omega^2+\Omega^2).}
+
+当 $\Omega=2\omega$ 时，代入即得
+\ansmath{P_0=\frac{2\sqrt2}{3},
+\qquad
+\langle H_f\rangle=\frac{5}{4}\hbar\omega=\frac{5}{8}\hbar\Omega.}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑刚性转子，哈密顿量为
+\[
+\hat H=\frac{\hat L^2}{2I}+D\hat L_x,
+\]
+其中 $I$ 为转动惯量，$D$ 为实常数。只考虑 $\ell=1$ 的三维子空间，以 $|1,1\rangle,|1,0\rangle,|1,-1\rangle$ 为基。设初态为 $|\psi(0)\rangle=|1,0\rangle$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求 $\hat L_x$ 在该基下的矩阵表示；
+  \item 求任意时刻的态 $|\psi(t)\rangle$；
+  \item 求时刻 $t$ 测量 $L_z$ 得到 $m=1,0,-1$ 的概率；
+  \item 求所有使得 $|\psi(t)\rangle$ 与
+  \[
+  \frac{|1,1\rangle+|1,-1\rangle}{\sqrt2}
+  \]
+  只差一个整体相位的时刻。
+\end{enumerate}
+
+\begin{solution}
+在 $\ell=1$ 子空间中，$\hat L^2=2\hbar^2$ 为常数，而
+\[
+\hat L_x=\frac12(\hat L_++\hat L_-).
+\]
+利用角动量升降关系可得
+\ansmath{\hat L_x\ \longleftrightarrow\ \frac{\hbar}{\sqrt2}
+\begin{pmatrix}
+0&1&0\\
+1&0&1\\
+0&1&0
+\end{pmatrix}}
+（基的顺序为 $|1,1\rangle,|1,0\rangle,|1,-1\rangle$）。
+
+由于 $\hat L^2$ 在本子空间中只是整体常数，只需考虑 $e^{-iDt\hat L_x/\hbar}$ 对初态的作用。它等价于绕 $x$ 轴旋转。由直接指数化或利用转动矩阵可得
+\[
+|\psi(t)\rangle=e^{-i\hbar t/I}\left[\cos(Dt)|1,0\rangle-
+\frac{i\sin(Dt)}{\sqrt2}\bigl(|1,1\rangle+|1,-1\rangle\bigr)\right].
+\]
+故
+\ansmath{|\psi(t)\rangle=e^{-i\hbar t/I}\left[\cos(Dt)|1,0\rangle-
+\frac{i\sin(Dt)}{\sqrt2}\bigl(|1,1\rangle+|1,-1\rangle\bigr)\right].}
+
+因此测量 $L_z$ 时的概率为
+\ansmath{P(m=0;t)=\cos^2(Dt),
+\qquad
+P(m=1;t)=P(m=-1;t)=\frac12\sin^2(Dt).}
+
+若要使态与
+\[
+\frac{|1,1\rangle+|1,-1\rangle}{\sqrt2}
+\]
+只差一个整体相位，就必须令 $|1,0\rangle$ 分量消失，且其余两项系数非零。这要求
+\[
+\cos(Dt)=0.
+\]
+于是全部这样的时刻为
+\ansmath{t=\frac{\pi/2+n\pi}{D},\qquad n=0,1,2,\dots.}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑边长为 $L$ 的二维正方形无限深方势阱 $0<x<L$、$0<y<L$ 中的两个无相互作用无自旋全同粒子。单粒子归一化本征态与能量为
+\[
+\phi_{n_x,n_y}(x,y)=\frac{2}{L}\sin\frac{n_x\pi x}{L}\sin\frac{n_y\pi y}{L},
+\]
+\[
+\varepsilon_{n_x,n_y}=\frac{\pi^2\hbar^2}{2mL^2}(n_x^2+n_y^2),
+\qquad n_x,n_y=1,2,3,\dots.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 对两个全同玻色子，求基态与第一激发态的总能量、简并度，并给出一组归一化本征态；
+  \item 对两个全同费米子，求基态与第一激发态的总能量、简并度，并给出一组归一化本征态；
+  \item 说明为什么费米子基态出现简并，而玻色子基态不简并。
+\end{enumerate}
+
+\begin{solution}
+最低单粒子能级为 $(1,1)$，能量
+\[
+\varepsilon_{11}=\frac{\pi^2\hbar^2}{mL^2}.
+\]
+第一激发的单粒子能级是 $(1,2)$ 与 $(2,1)$，它们简并，能量都为
+\[
+\varepsilon_{12}=\varepsilon_{21}=\frac{5\pi^2\hbar^2}{2mL^2}.
+\]
+
+对玻色子，基态时两粒子都占据 $(1,1)$，故
+\ansmath{E_{\mathrm{gs}}^{(B)}=2\varepsilon_{11}=\frac{2\pi^2\hbar^2}{mL^2},
+\qquad g_{\mathrm{gs}}^{(B)}=1.}
+相应波函数为
+\[
+\Phi_{\mathrm{gs}}^{(B)}=\phi_{11}(1)\phi_{11}(2).
+\]
+第一激发时，一个粒子仍在 $(1,1)$，另一个粒子可在 $(1,2)$ 或 $(2,1)$，因此有两组正交的对称态：
+\[
+\Phi_{12}^{(B)}=\frac{\phi_{11}(1)\phi_{12}(2)+\phi_{12}(1)\phi_{11}(2)}{\sqrt2},
+\]
+\[
+\Phi_{21}^{(B)}=\frac{\phi_{11}(1)\phi_{21}(2)+\phi_{21}(1)\phi_{11}(2)}{\sqrt2}.
+\]
+故
+\ansmath{E_{1}^{(B)}=\varepsilon_{11}+\varepsilon_{12}=\frac{7\pi^2\hbar^2}{2mL^2},
+\qquad g_{1}^{(B)}=2.}
+
+对费米子，由于泡利原理，两粒子不能同时占据 $(1,1)$。因此基态必须由一个粒子占据 $(1,1)$，另一个占据 $(1,2)$ 或 $(2,1)$。相应反对称态为
+\[
+\Phi_{12}^{(F)}=\frac{\phi_{11}(1)\phi_{12}(2)-\phi_{12}(1)\phi_{11}(2)}{\sqrt2},
+\]
+\[
+\Phi_{21}^{(F)}=\frac{\phi_{11}(1)\phi_{21}(2)-\phi_{21}(1)\phi_{11}(2)}{\sqrt2}.
+\]
+故费米子基态的总能量与简并度为
+\ansmath{E_{\mathrm{gs}}^{(F)}=\frac{7\pi^2\hbar^2}{2mL^2},
+\qquad g_{\mathrm{gs}}^{(F)}=2.}
+
+费米子的第一激发可以有两类：
+\[
+(1,1)+(2,2),
+\qquad
+(1,2)+(2,1).
+\]
+它们的总能量都为
+\[
+\varepsilon_{11}+\varepsilon_{22}=\frac{10\pi^2\hbar^2}{2mL^2},
+\qquad
+\varepsilon_{12}+\varepsilon_{21}=\frac{10\pi^2\hbar^2}{2mL^2}.
+\]
+所以第一激发态简并度为 $2$。可取的一组归一化态为
+\[
+\Phi_{11,22}^{(F)}=\frac{\phi_{11}(1)\phi_{22}(2)-\phi_{22}(1)\phi_{11}(2)}{\sqrt2},
+\]
+\[
+\Phi_{12,21}^{(F)}=\frac{\phi_{12}(1)\phi_{21}(2)-\phi_{21}(1)\phi_{12}(2)}{\sqrt2}.
+\]
+因此
+\ansmath{E_1^{(F)}=\frac{5\pi^2\hbar^2}{mL^2},
+\qquad g_1^{(F)}=2.}
+
+玻色子基态不简并，是因为两粒子都可以同时占据最低单粒子态 $(1,1)$，且这个最低单粒子态本身不简并。费米子基态则必须把第二个粒子放到下一个可用单粒子能级，而该能级恰好由 $(1,2)$ 与 $(2,1)$ 两个态构成二重简并，所以费米子基态也随之二重简并。
+\end{solution}
+\end{question}
+

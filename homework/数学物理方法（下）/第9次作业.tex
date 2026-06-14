@@ -1,0 +1,144 @@
+﻿\heading{数学物理方法（下）-第9次作业}
+
+
+\begin{question}
+判断 \(\lambda=0\) 是否为本征值问题
+\[
+\begin{cases}
+\dfrac1\rho\dfrac d{d\rho}\left(\rho R'\right)+\left(\lambda-\dfrac1{\rho^2}\right)R=0,\\
+R(a)=0,\qquad R'(b)=0
+\end{cases}
+\]
+的本征值。若是，求本征函数；若不是，说明理由。
+\begin{solution}
+当 \(\lambda=0\) 时
+\[
+\rho^2R''+\rho R'-R=0,
+\]
+故
+\[
+R=C\rho+\frac D\rho.
+\]
+由 \(R(a)=0\) 得 \(D=-Ca^2\)，再由
+\[
+R'(b)=C-\frac D{b^2}=C\left(1+\frac{a^2}{b^2}\right)=0
+\]
+得 \(C=0\)，从而 \(D=0\)。只有零解，所以 \(\lambda=0\) 不是本征值。
+\end{solution}
+\end{question}
+
+\begin{question}
+将
+\[
+\left.\frac{\partial N_\nu(x)}{\partial\nu}\right|_{\nu=0}
+\]
+表示为柱函数的线性组合。
+\begin{solution}
+利用
+\[
+N_\nu(x)=\frac{J_\nu(x)\cos\nu\pi-J_{-\nu}(x)}{\sin\nu\pi}
+\]
+并在 \(\nu=0\) 附近展开。由于分子和分母在 \(\nu=0\) 同时为零，先由一阶项得到
+\[
+\left.\frac{\partial J_\nu(x)}{\partial\nu}\right|_{\nu=0}=\frac\pi2N_0(x)
+\]
+这是 \(N_0\) 的定义式。再比较二阶项，或者对上式作关于 \(\nu\) 的 Laurent 展开并消去奇异项，可得
+\[
+\left.\frac{\partial N_\nu(x)}{\partial\nu}\right|_{\nu=0}
+=-\frac\pi2J_0(x).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+计算若干 Bessel 函数积分。
+\begin{solution}
+常用递推关系为
+\[
+\frac d{dx}\left[x^\nu J_\nu(x)\right]=x^\nu J_{\nu-1}(x),\qquad
+\frac d{dx}\left[x^{-\nu}J_\nu(x)\right]=-x^{-\nu}J_{\nu+1}(x),
+\]
+对 \(N_\nu\) 也成立。这两式可由
+\[
+J_\nu'=\frac12(J_{\nu-1}-J_{\nu+1}),\qquad
+\frac{\nu}{x}J_\nu=\frac12(J_{\nu-1}+J_{\nu+1})
+\]
+相加、相减得到。于是
+\[
+\int_0^x t^{n+1}J_n(t)\,dt=x^{n+1}J_{n+1}(x)
+\]
+由第一条递推式直接得到。其余题目通过分部积分把多余的 \(t\) 次幂降下去，再反复用上面的递推式化为相邻阶柱函数。例如
+\[
+\int_0^x t^3J_0(t)\,dt
+\]
+令 \(dv=tJ_0(t)\,dt=d[tJ_1(t)]\)，则
+\[
+\int_0^x t^3J_0(t)\,dt
+=x^3J_1(x)-2\int_0^x t^2J_1(t)\,dt.
+\]
+再由 \(d[t^2J_2(t)]=t^2J_1(t)\,dt\)，得
+\[
+\int_0^x t^3J_0(t)\,dt
+=x^3J_1(x)-2x^2J_2(x).
+\]
+因此
+\[
+\int_0^x t^3J_0(t)\,dt=x^3J_1(x)-2x^2J_2(x).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+若 \(m\ne n\)，证明
+\[
+\int \frac1xJ_n(x)J_m(x)\,dx
+=\frac{x}{m^2-n^2}\left[J_mJ_{n+1}-J_{m+1}J_n\right]
++\frac1{m+n}J_mJ_n,
+\]
+并求
+\[
+\int_0^\infty\frac{J_1^2(x)}{x^2}\,dx.
+\]
+\begin{solution}
+证明从 Bessel 方程
+\[
+x^2J_\nu''+xJ_\nu'+(x^2-\nu^2)J_\nu=0
+\]
+出发。把 \(m,n\) 两个方程分别乘以 \(J_n,J_m\) 后相减，得
+\[
+\frac d{dx}\left[x(J_m'J_n-J_n'J_m)\right]
+=\frac{m^2-n^2}{x}J_mJ_n.
+\]
+因此
+\[
+\int\frac1xJ_nJ_m\,dx
+=\frac{x(J_m'J_n-J_n'J_m)}{m^2-n^2}.
+\]
+再用递推式
+\[
+J_\nu'=\frac12(J_{\nu-1}-J_{\nu+1}),\qquad
+\frac{\nu}{x}J_\nu=\frac12(J_{\nu-1}+J_{\nu+1})
+\]
+把导数和 \(J_{\nu-1}\) 改写成 \(J_\nu,J_{\nu+1}\)，即得到题设不定积分公式。
+
+为求定积分，不能把
+\[
+\frac{J_1(x)}x=\frac{J_0(x)+J_2(x)}2
+\]
+代入后逐项积分，因为单个平方积分并不绝对收敛。应直接使用收敛的 Weber--Schafheitlin 积分
+\[
+\int_0^\infty x^{-\lambda}J_\nu^2(x)\,dx
+=\frac{\Gamma(\lambda)\Gamma\left(\nu+\frac{1-\lambda}{2}\right)}
+{2^\lambda\Gamma^2\left(\frac{\lambda+1}{2}\right)
+\Gamma\left(\nu+\frac{1+\lambda}{2}\right)},
+\qquad 0<\lambda<2\nu+1.
+\]
+取 \(\nu=1,\lambda=2\)，得到
+\[
+\int_0^\infty\frac{J_1^2(x)}{x^2}\,dx=\frac{4}{3\pi}.
+\]
+\end{solution}
+\end{question}
+
+\setcounter{section}{10}
+

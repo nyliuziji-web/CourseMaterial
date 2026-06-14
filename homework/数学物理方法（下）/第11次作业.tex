@@ -1,0 +1,282 @@
+﻿\heading{数学物理方法（下）-第11次作业}
+
+
+\begin{question}
+将下列方程化为 Sturm--Liouville 型方程的标准形式：
+\[
+\begin{gathered}
+xy''+2y'+(x+\lambda)y=0,\\
+x(1-x)y''+(a-bx)y'-\lambda y=0,\\
+xy''+(1-x)y'+\lambda y=0,\\
+y''-2xy'+2\lambda y=0.
+\end{gathered}
+\]
+\begin{solution}
+一般二阶方程
+\[
+a_2y''+a_1y'+(\lambda w-q)y=0
+\]
+乘以积分因子 \(\mu\)，使 \((\mu a_2)'=\mu a_1\)，即可化为
+\[
+(py')'+(\lambda w-q)y=0.
+\]
+这里
+\[
+p=\mu a_2,\qquad
+\frac{\mu'}{\mu}=\frac{a_1-a_2'}{a_2}.
+\]
+也就是说，每一题都先把 \(y''\) 前的系数和 \(y'\) 前的系数配成一个全导数。
+
+第一式中 \(a_2=x,\ a_1=2\)，故
+\[
+\frac{\mu'}{\mu}=\frac{2-1}{x}=\frac1x,\qquad \mu=x.
+\]
+于是
+\[
+(x^2y')'+(\lambda x+x^2)y=0.
+\]
+
+第二式中 \(a_2=x(1-x),\ a_1=a-bx\)，故
+\[
+\frac{\mu'}{\mu}
+=\frac{a-bx-(1-2x)}{x(1-x)}
+=\frac{a-1+(2-b)x}{x(1-x)}.
+\]
+积分得
+\[
+\mu=x^{a-1}(1-x)^{b-a-1}.
+\]
+因此
+\[
+\left[x^a(1-x)^{b-a}y'\right]'
+-\lambda x^{a-1}(1-x)^{b-a-1}y=0.
+\]
+
+第三式中
+\[
+\frac{\mu'}{\mu}=\frac{1-x-1}{x}=-1,\qquad \mu=e^{-x},
+\]
+故
+\[
+(xe^{-x}y')'+\lambda e^{-x}y=0.
+\]
+
+第四式中
+\[
+\frac{\mu'}{\mu}=-2x,\qquad \mu=e^{-x^2},
+\]
+故
+\[
+(e^{-x^2}y')'+2\lambda e^{-x^2}y=0.
+\]
+综上，四式分别对应
+\[
+p=x^2,\quad w=x;
+\]
+\[
+p=x^a(1-x)^{b-a},\quad w=x^{a-1}(1-x)^{b-a-1};
+\]
+\[
+p=xe^{-x},\quad w=e^{-x};
+\]
+\[
+p=e^{-x^2},\quad w=2e^{-x^2}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+定义
+\[
+\hat Ly=-\frac d{dx}\left(p(x)y'\right)+q(x)y,
+\]
+并给定相应边界条件。求 \(\hat L\) 的伴算符并判断其是否自伴。
+\begin{solution}
+形式伴随仍为
+\[
+\hat L^\dagger z=-\frac d{dx}\left(p(x)z'\right)+q(x)z
+\]
+因为 \(p,q\) 为实函数。这个结论不是直接猜出来的，而是由分部积分得到。对任意允许函数 \(y,z\)，
+\[
+\int_a^b z\left[-(py')'+qy\right]dx
+=\int_a^b pz'y'\,dx+\int_a^b qzy\,dx-\left[zpy'\right]_a^b,
+\]
+再对 \(pz'\) 项反向分部积分：
+\[
+\int_a^b y\left[-(pz')'+qz\right]dx
++\left[p(yz'-zy')\right]_a^b.
+\]
+于是 Green 公式为
+\[
+\int_a^b(z\hat Ly-y\hat Lz)\,dx
+=\left[p(x)(yz'-zy')\right]_a^b.
+\]
+题设边界条件将 \(b\) 端的 \(y(b),y'(b)\) 与 \(a\) 端的 \(y(a),y'(a)\) 线性联系。伴随边界条件正是要求上式边界项对所有 \(y\in D(\hat L)\) 都为零。由于题设有 \(p(a)=p(b)\)、\(q(a)=q(b)\)，且两条边界条件成周期型配对，代入可使
+\[
+\left[p(yz'-zy')\right]_a^b=0
+\]
+对所有允许 \(y,z\) 成立。因此伴算符与原算符相同，\(\hat L\) 是自伴算符。
+\end{solution}
+\end{question}
+
+\begin{question}
+求解本征值问题
+\[
+X''(x)+\lambda^2X(x)=0,\qquad
+X(0)=0,\qquad X'(l)-i\lambda\beta X(l)=0,
+\]
+其中 \(0<\beta\ll1\)。
+\begin{solution}
+由 \(X(0)=0\)，取
+\[
+X=A\sin\lambda x.
+\]
+代入 \(x=l\) 的边界条件：
+\[
+\lambda A\cos\lambda l-i\lambda\beta A\sin\lambda l=0.
+\]
+非零解要求
+\[
+\cot\lambda l=i\beta.
+\]
+因此
+\[
+\lambda_n l=\frac{(2n+1)\pi}{2}+i\,\operatorname{arctanh}\beta,
+\qquad n=0,1,2,\ldots .
+\]
+当 \(\beta\ll1\) 时
+\[
+\lambda_n\approx \frac{(2n+1)\pi}{2l}+i\frac{\beta}{l}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解本征值问题
+\[
+i\frac d{dx}y(x)=\lambda y(x),\qquad a<x<b,\qquad
+y(b)=e^{i\theta}y(a).
+\]
+\begin{solution}
+方程解为
+\[
+y=C e^{-i\lambda x}.
+\]
+边界条件给出
+\[
+e^{-i\lambda b}=e^{i\theta}e^{-i\lambda a},
+\]
+故
+\[
+\lambda_n=\frac{2n\pi-\theta}{b-a},\qquad n\in\mathbb Z.
+\]
+本征函数可取
+\[
+y_n(x)=\exp\left(-i\lambda_n x\right).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设有两个半无界杆，初始温度分别为 \(0\) 和 \(u_0\)。在 \(t=0\) 时将两个端点相接，求 \(t>0\) 时杆中各点的温度分布。
+
+\begin{solution}
+把两根杆接成整条实线，初值为阶跃函数
+\[
+u(x,0)=
+\begin{cases}
+0,&x<0,\\
+u_0,&x>0.
+\end{cases}
+\]
+热方程基本解给出
+\[
+u(x,t)=\frac{u_0}{\sqrt{4\pi\kappa t}}\int_0^\infty
+\exp\left[-\frac{(x-\xi)^2}{4\kappa t}\right]d\xi.
+\]
+即
+\[
+u(x,t)=\frac{u_0}{2}\left[
+1+\operatorname{erf}\left(\frac{x}{2\sqrt{\kappa t}}\right)
+\right].
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+利用积分变换求解半直线波动问题
+\[
+\begin{cases}
+u_{tt}-a^2u_{xx}=\cos\omega t,\qquad 0<x<\infty,\ t>0,\\
+u(0,t)=0,\qquad u_x(\infty,t)=0,\\
+u(x,0)=0,\qquad u_t(x,0)=0.
+\end{cases}
+\]
+\begin{solution}
+先取全空间常数特解
+\[
+p(t)=\frac{1-\cos\omega t}{\omega^2}.
+\]
+为满足边界 \(u(0,t)=0\)，令 \(u=p+v\)，则 \(v\) 满足齐次波动方程和边界值 \(v(0,t)=-p(t)\)。半直线上的边界波向右传播，故
+\[
+v(x,t)=
+\begin{cases}
+0,&0<t<x/a,\\
+-p(t-x/a),&t\ge x/a.
+\end{cases}
+\]
+于是
+\[
+u(x,t)=
+\begin{cases}
+\dfrac{1-\cos\omega t}{\omega^2},&0<t<x/a,\\[0.6em]
+\dfrac{\cos\omega(t-x/a)-\cos\omega t}{\omega^2},&t\ge x/a.
+\end{cases}
+\]
+其中 \(l\ge1\) 时，可把 Legendre 方程
+\[
+\frac d{dx}\left[(1-x^2)P_l'(x)\right]+l(l+1)P_l(x)=0
+\]
+乘以 \(\ln(1-x)\) 后分部积分。边界项为零，而
+\[
+\frac d{dx}\ln(1-x)=-\frac1{1-x}
+\]
+使积分化为端点处 \(P_l(1)=1,\ P_l(-1)=(-1)^l\) 的贡献，最终得到上式。
+\end{solution}
+\end{question}
+
+\begin{question}
+电子光学中的等径双筒镜可近似为两个无限接近的等径同轴长圆筒，半径为 \(a\)，电势分别为 \(V_0\) 和 \(-V_0\)。求筒内静电势。
+
+\begin{solution}
+在圆柱坐标中，筒内满足
+\[
+u_{\rho\rho}+\frac1\rho u_\rho+u_{zz}=0,\qquad 0<\rho<a.
+\]
+按提示先取边界
+\[
+u(a,z)=V_0e^{-k|z|}\operatorname{sgn}z
+\]
+作 Fourier 变换。对 \(z\) 变换后径向方程为
+\[
+\hat u_{\rho\rho}+\frac1\rho\hat u_\rho-s^2\hat u=0,
+\]
+有界解为
+\[
+\hat u(\rho,s)=\hat f(s)\frac{I_0(|s|\rho)}{I_0(|s|a)}.
+\]
+令 \(k\to0^+\)，其中 \(f(z)=V_0\operatorname{sgn}z\)，得
+\[
+u(\rho,z)=\frac1{2\pi}\int_{-\infty}^{\infty}
+\hat f(s)\frac{I_0(|s|\rho)}{I_0(|s|a)}e^{isz}\,ds,
+\qquad
+\hat f(s)=\frac{2V_0}{is}.
+\]
+等价地，
+\[
+u(\rho,z)=\frac{2V_0}{\pi}\int_0^\infty
+\frac{I_0(k\rho)}{I_0(ka)}\frac{\sin kz}{k}\,dk.
+\]
+\end{solution}
+\end{question}
+

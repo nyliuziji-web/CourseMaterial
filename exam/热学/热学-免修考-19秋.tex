@@ -1,0 +1,406 @@
+﻿\heading{热学-免修考-19秋}
+\noteinfo{题目来源于上传 PDF，答案经复核整理。原 PDF 标题写作“2019 年春季学期热学免修考试试题（回忆）”。}
+
+\textbf{一、简答题（共 40 分）}
+
+\begin{question}
+在热物理学中，根据组成系统的粒子的内禀属性和遵守的统计规律，微观粒子可以分为哪几类？写出这些系统中的微观粒子按能量的分布规律的表达式，并说明为什么说麦克斯韦速度（速率）分布律是处于平衡态的经典理想气体系统中分子的速度（速率）的实际分布律。
+\begin{solution}
+按自旋与统计规律可分为经典可分辨粒子、玻色子和费米子。能级 $\varepsilon_i$、简并度 $g_i$ 上的平均占有数可写为
+\[
+\bar n_i^{\rm MB}=g_i e^{(\mu-\varepsilon_i)/(k_BT)},\qquad
+\bar n_i^{\rm BE}=\frac{g_i}{e^{(\varepsilon_i-\mu)/(k_BT)}-1},\qquad
+\bar n_i^{\rm FD}=\frac{g_i}{e^{(\varepsilon_i-\mu)/(k_BT)}+1}.
+\]
+经典稀薄理想气体满足 MB 分布，由
+\[
+f(\mathbf v)=n\left(\frac{m}{2\pi k_BT}\right)^{3/2}
+\exp\!\left(-\frac{mv^2}{2k_BT}\right)
+\]
+对方向积分得 Maxwell 速率分布
+\[
+f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2
+\exp\!\left(-\frac{mv^2}{2k_BT}\right).
+\]
+平衡态宏观粒子数极大，最概然分布附近的相对涨落为 $O(N^{-1/2})$，因此最概然分布、平均分布和实际观测分布几乎一致。
+\ansmath{f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+根据低温下稀薄气体的容器壁上可吸附气体分子的现象，人们发明了可以提高真空度的“低温泵”。考虑一半径为 $0.2\,\mathrm m$ 的球形容器，除对其壁上一面积为 $1.0\,\mathrm{cm^2}$ 的区域冷却到 $77\,\mathrm K$ 外，其余部分及其内部都保持温度 $300\,\mathrm K$。假设初始时刻容器中水蒸气的压强为 $1.33\,\mathrm{Pa}$，每个水分子碰到上述被冷却的区域即被吸附或凝结到上面，试问需要多长时间可以使容器内的压强降低到 $1.33\times10^{-6}\,\mathrm{Pa}$？
+\begin{solution}
+冷却面积 $A$ 吸附分子，单位面积单位时间撞击数为
+\[
+\Gamma=\frac14 n\bar v,
+\qquad \bar v=\sqrt{\frac{8RT}{\pi M_{\rm H_2O}}}.
+\]
+容器体积 $V=4\pi R^3/3$，且 $p\propto n$，故
+\[
+\frac{dN}{dt}=-\frac14\frac{N}{V}\bar v A,
+\qquad
+p(t)=p_0\exp\!\left(-\frac{A\bar v}{4V}t\right).
+\]
+因此
+\[
+t=\frac{4V}{A\bar v}\ln\frac{p_0}{p_f}.
+\]
+代入 $R=0.2\,\mathrm m$、$A=1.0\times10^{-4}\,\mathrm{m^2}$、$T=300\,\mathrm K$、$M_{\rm H_2O}=18.0\times10^{-3}\,\mathrm{kg\,mol^{-1}}$，得 $\bar v\simeq5.94\times10^2\,\mathrm{m\,s^{-1}}$，
+\[
+t\simeq 31.2\,\mathrm s.
+\]
+\ansmath{t=\frac{4V}{A\bar v}\ln\frac{p_0}{p_f}\simeq 3.1\times10^1\,\mathrm s}
+\end{solution}
+\end{question}
+
+\begin{question}
+一定量的气体先经过一个等体过程，使其温度升高一倍；再经过一个等温过程，使其体积膨胀为原来的两倍。试问在上列过程达到的状态下，这种气体的粘度 $\eta$、热导率 $\kappa$、扩散系数 $D$ 及组成该气体的分子的平均自由程 $\bar\lambda$ 分别变化为原来的多少倍？
+\begin{solution}
+末态温度为 $2T_0$，体积为 $2V_0$，数密度为 $n_0/2$。稀薄气体中
+\[
+\eta\propto \sqrt T,
+\qquad \kappa\propto \sqrt T,
+\qquad \bar\lambda\propto \frac1n,
+\qquad D\sim \frac13\bar\lambda\bar v\propto \frac{\sqrt T}{n}.
+\]
+故
+\[
+\frac{\eta}{\eta_0}=\sqrt2,\\quad
+\frac{\kappa}{\kappa_0}=\sqrt2,
+\quad
+\frac{\bar\lambda}{\bar\lambda_0}=2,
+\quad
+\frac{D}{D_0}=2\sqrt2.
+\]
+\ansmath{\eta:\kappa:D:\bar\lambda=\sqrt2:\sqrt2:2\sqrt2:2\text{（相对于原值的倍数）}}
+\end{solution}
+\end{question}
+
+\begin{question}
+实验上测得某 $p$-$V$-$T$ 系统在压强为 $p$、体积为 $V$、温度为 $T$ 的状态附近的体膨胀系数与状态参量的关系为
+\[
+\alpha=\frac{3aT^2}{V},
+\]
+等温压缩系数与状态参量的关系为
+\[
+\kappa_T=\frac{b}{p^2V},
+\]
+其中 $a,b$ 为数值大于零的常量，试确定该系统的状态方程。
+\begin{solution}
+由定义
+\[
+\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p,
+\qquad
+\kappa_T=-\frac1V\left(\frac{\partial V}{\partial p}\right)_T,
+\]
+可得
+\[
+\left(\frac{\partial V}{\partial T}\right)_p=3aT^2,
+\qquad
+\left(\frac{\partial V}{\partial p}\right)_T=-\frac{b}{p^2}.
+\]
+分别积分并合并得
+\[
+V=aT^3+\frac{b}{p}+C,
+\]
+其中 $C$ 为积分常量。等价地，状态方程可写为
+\[
+p\,(V-aT^3-C)=b.
+\]
+\ansmath{V=aT^3+\frac{b}{p}+C\quad\text{或}\quad p(V-aT^3-C)=b}
+\end{solution}
+\end{question}
+
+\begin{question}
+在 LHC 大型对撞机中，高速铅原子核与铅原子核对撞，在极高温下产生新物质，一般认为在对撞结束小段时间内形成夸克-胶子等离子体。求这种物质的摩尔热容量。
+\begin{solution}
+夸克-胶子等离子体中的组分可近似看作极端相对论性气体。对极端相对论性理想气体
+\[
+p=\frac13\varepsilon,
+\qquad pV=\nu RT,
+\]
+故内能
+\[
+U=\varepsilon V=3pV=3\nu RT.
+\]
+所以摩尔定容热容
+\[
+C_{V,m}=\left(\frac{\partial U}{\partial T}\right)_V\frac1\nu=3R.
+\]
+若题目要求定压热容，由 $H=U+pV=4\nu RT$ 得 $C_{p,m}=4R$。
+\ansmath{C_{V,m}=3R\quad(\text{若为定压热容，则 }C_{p,m}=4R)}
+\end{solution}
+\end{question}
+
+\begin{question}
+假定组成一质量为 $M$ 的星体的物质可以近似为单原子分子理想气体，试确定其在一个过程方程可以表示为
+\[
+V=\frac{a_0}{p^{5/6}}
+\]
+（其中 $a_0$ 为正的常量）的过程中的比热容。
+\begin{solution}
+设物质的量为 $\nu=M/\mu$。由 $pV=\nu RT$ 与 $V=a_0p^{-5/6}$，有
+\[
+pV=a_0p^{1/6}=\nu RT,
+\]
+因此 $p\propto T^6$，$V\propto T^{-5}$，即
+\[
+\frac{dV}{dT}=-5\frac{V}{T}.
+\]
+单原子理想气体 $U=\frac32\nu RT$，于是
+\[
+\delta Q=dU+p\,dV=\frac32\nu R\,dT+p\left(-5\frac{V}{T}dT\right)
+=\left(\frac32-5\right)\nu R\,dT.
+\]
+过程热容为
+\[
+C=-\frac72\nu R=-\frac72\frac{M}{\mu}R.
+\]
+\ansmath{C=-\frac72\nu R=-\frac72\frac{M}{\mu}R}
+\end{solution}
+\end{question}
+
+\begin{question}
+一级相变的主要特征有哪些？二级相变与一级相变的主要差别有哪些？对有序无序相变，通常可由序参量的演化来表示其相变过程，并与对称性的高低相联系，对称性的高低与序参量的大小的对应关系是什么？用对称性的语言来讲，可以呈现超导态的金属由正常导体相到超导相的相变过程是一个对称性破缺的过程还是一个对称性恢复的过程？水的沸腾是一个对称性破缺的过程还是一个对称性恢复的过程？
+\begin{solution}
+一级相变的典型特征是相变时熵、体积等 Gibbs 自由能的一阶导数发生有限跳变，存在潜热、相共存和滞后等现象，并满足 Clausius-Clapeyron 方程。二级相变通常无潜热，熵和体积连续，而热容、压缩系数、膨胀系数等二阶导数不连续或发散，序参量连续地从零变为非零。
+
+有序无序相变中，高对称相通常对应序参量为零，低对称相对应序参量非零。正常金属到超导态时，超导序参量出现并破坏整体规范相位对称性，通常称为对称性破缺。水的沸腾是液-气一级相变，通常不属于严格的对称性破缺相变；若只按“有序度降低、高温相更对称”的直观语言，可说从液体到气体更接近对称性恢复。
+\anstext{一级相变：潜热与一阶导数跳变；二级相变：无潜热、二阶导数异常；超导：对称性破缺；沸腾：通常不按严格对称性破缺分类。}
+\end{solution}
+\end{question}
+
+\begin{question}
+液体的热运动具有什么性质？液体的粘滞系数满足什么规律？其物理本质是什么？液体的表面张力系数与哪些因素有关？其物理本质是什么？证明液体的表面内能密度 $u_S$ 可以由液体的表面张力系数 $\sigma$ 及温度 $T$ 表示为
+\[
+u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S},
+\]
+其中 $A_S$ 为表面面积。
+\begin{solution}
+液体分子热运动兼有固体和气体特征：具有短程有序，分子在暂时平衡位置附近振动，同时不断发生迁移。液体黏滞系数通常随温度升高而减小，常用经验式近似为
+\[
+\eta=Ae^{E/(RT)},
+\]
+其本质是分子克服局域势垒发生迁移的活化过程。表面张力系数与液体种类、温度、杂质、溶质以及相邻介质有关，其本质是表面层分子受内聚力不平衡而使表面积趋于减小。
+
+表面 Helmholtz 自由能为
+\[
+F_S=\sigma A_S.
+\]
+表面熵
+\[
+S_S=-\left(\frac{\partial F_S}{\partial T}\right)_{A_S}
+=-A_S\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}.
+\]
+由 $U_S=F_S+TS_S$，得
+\[
+U_S=A_S\left[\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}\right].
+\]
+故表面内能密度
+\[
+u_S=\frac{U_S}{A_S}=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}.
+\]
+\ansmath{u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}}
+\end{solution}
+\end{question}
+
+\textbf{二、计算和证明题（共 60 分）}
+
+\begin{question}
+设由离子源射出的电子束在数密度为 $n$、分子有效直径为 $d$ 的气体中行进。
+
+(1) 若电子的体积与气体分子的体积相比可以忽略不计，并且电子运动的速度比气体分子运动的速率大得多，试求电子的平均自由程 $\bar\lambda$；
+
+(2) 假设离子源处电子流强度为 $5.00\,\mu\mathrm A$ 的电子束射入压强为 $1.00\,\mathrm{Pa}$ 的气体中时，在与离子源距离为 $0.10\,\mathrm m$ 处的探测器测得的电子流强度为 $1.85\,\mu\mathrm A$。试问：(i) 该情况下，电子的平均自由程 $\bar\lambda'$ 为多大？(ii) 如果气体分子的有效直径为 $0.10\,\mathrm{nm}$，则气体的温度为多高？(iii) 考虑实际工程情况，电子直线加速器的离子源与加速电极之间会有小的“空隙”，记该空隙长度为 $0.20\,\mathrm m$，为使进入加速腔的电子流强不低于离子源处的 $99.999999\%$，则该空隙中真空度至少为多高？
+\begin{solution}
+电子速度远大于气体分子速度且电子体积可忽略时，碰撞截面为 $\sigma=\pi d^2$，没有相同分子碰撞中的 $\sqrt2$ 因子，故
+\[
+\bar\lambda=\frac1{n\pi d^2}.
+\]
+电子束强度按
+\[
+I(x)=I_0e^{-x/\bar\lambda'}
+\]
+衰减，因此
+\[
+\bar\lambda'=-\frac{x}{\ln(I/I_0)}
+=-\frac{0.10}{\ln(1.85/5.00)}\,\mathrm m
+\simeq 1.01\times10^{-1}\,\mathrm m.
+\]
+由 $n=p/(k_BT)$ 和 $\bar\lambda'=1/(n\pi d^2)$，
+\[
+T=\frac{p\pi d^2\bar\lambda'}{k_B}.
+\]
+代入 $p=1.00\,\mathrm{Pa}$、$d=1.0\times10^{-10}\,\mathrm m$，得
+\[
+T\simeq 2.29\times10^2\,\mathrm K.
+\]
+要求 $I/I_0\ge 0.99999999$，长度 $L=0.20\,\mathrm m$，则
+\[
+\lambda_{\min}=-\frac{L}{\ln(0.99999999)}\simeq2.0\times10^7\,\mathrm m.
+\]
+若取上一步温度，最大允许压强为
+\[
+p_{\max}=\frac{k_BT}{\pi d^2\lambda_{\min}}
+\simeq5.0\times10^{-9}\,\mathrm{Pa}.
+\]
+若按室温 $300\,\mathrm K$ 估计，则 $p_{\max}\simeq6.6\times10^{-9}\,\mathrm{Pa}$。
+\ansmath{\bar\lambda=\frac1{n\pi d^2},\quad \bar\lambda'\simeq0.101\,\mathrm m,
+\quad T\simeq229\,\mathrm K,
+\quad p_{\max}\sim 10^{-9}\,\mathrm{Pa}}
+\end{solution}
+\end{question}
+
+\begin{question}
+研究表明，$p$-$V$-$T$ 系统的状态方程既可以由状态参量之间的关系 $p=p(V,T)$ 表述，也可以由系统的压强与能量密度 $\varepsilon$ 之间的函数关系 $p=p(\varepsilon)$ 表示，其中的能量密度即单位体积内的系统的能量。
+
+(1) 试从分子动理论出发证明，理想气体的状态方程可以一般地表示为 $p_{IG}=K\varepsilon_{IG}$，其中 $K$ 为正的常数，并且，对非相对论性理想气体，$K=2/3$，对极端相对论性理想气体，$K=1/3$。
+
+(2) 在 (1) 的基础上，给出理想气体的绝热压缩系数由常数 $K$ 和压强 $p$ 表示的表达式。
+
+(3) 近年来的宇宙学观测表明，我们所处的宇宙在加速膨胀，这表明，宇宙的组分除包含物质外，还包含着被称为暗能量的成分。假设暗能量的状态方程也可以表示为 $p=K_{DE}\varepsilon$。试在 $E$ 与理想气体的 $E_{IG}$ 有相同特征的假设下，根据相（不）稳定条件，给出系数 $K_{DE}$ 的取值范围。
+\begin{solution}
+分子动理论给出
+\[
+p=\frac13 n\langle \mathbf p\cdot\mathbf v\rangle.
+\]
+非相对论情形 $\mathbf p=m\mathbf v$，单个粒子动能为 $mv^2/2$，所以
+\[
+p=\frac13 nm\langle v^2\rangle=\frac23\varepsilon.
+\]
+极端相对论情形 $\varepsilon_{\rm single}=pc$ 且 $v=c$，于是
+\[
+p=\frac13 n\langle pc\rangle=\frac13\varepsilon.
+\]
+因此 $p=K\varepsilon$，非相对论 $K=2/3$，极端相对论 $K=1/3$。
+
+绝热过程满足 $dE=-p\,dV$，而 $E=\varepsilon V=pV/K$，故
+\[
+d\left(\frac{pV}{K}\right)=-p\,dV.
+\]
+整理得
+\[
+V\,dp=-(K+1)p\,dV,
+\qquad pV^{K+1}=\text{const}.
+\]
+绝热压缩系数
+\[
+\kappa_S=-\frac1V\left(\frac{\partial V}{\partial p}\right)_S
+=\frac1{(K+1)p}.
+\]
+
+宇宙加速膨胀需要引力意义上的有效压强足够负，即
+\[
+\varepsilon+3p<0\quad\Rightarrow\quad K_{DE}<-\frac13.
+\]
+若还要求暗能量密度随膨胀像通常能量那样减小，则由 $d\varepsilon/\varepsilon=-(K_{DE}+1)dV/V$ 得 $K_{DE}>-1$，于是
+\[
+-1<K_{DE}<-\frac13.
+\]
+但此区间内 $p<0$ 且按上式给出的机械稳定性条件 $(K+1)p>0$ 不满足，表现为相不稳定。若强制要求该流体本身机械稳定且 $p<0$，则需 $K_{DE}<-1$。因此常见物理结论是：加速膨胀要求 $K_{DE}< -1/3$，而 $-1<K_{DE}<-1/3$ 对应负压但机械不稳定的情形。
+\ansmath{K_{DE}<-\frac13;\quad \text{若取通常能量随膨胀降低且允许不稳定，则 }-1<K_{DE}<-\frac13}
+\end{solution}
+\end{question}
+
+\begin{question}
+实验测得某液体表面张力波的频率为 $\nu$，波长为 $\lambda$，密度为 $\rho$，求该液体的表面张力系数。
+\begin{solution}
+对深液体的毛细波，在忽略重力项时色散关系为
+\[
+\omega^2=\frac{\sigma}{\rho}k^3.
+\]
+其中 $\omega=2\pi\nu$、$k=2\pi/\lambda$。故
+\[
+\sigma=\rho\frac{\omega^2}{k^3}
+=\rho\frac{(2\pi\nu)^2}{(2\pi/\lambda)^3}
+=\frac{\rho\nu^2\lambda^3}{2\pi}.
+\]
+\ansmath{\sigma=\frac{\rho\nu^2\lambda^3}{2\pi}}
+\end{solution}
+\end{question}
+
+\begin{question}
+半径为 $r_0$ 的微小粒子在粘滞系数为 $\eta$、密度为 $\rho$ 的液体中作布朗运动。试证明粒子在液体中的平均位移 $s$ 满足 $\overline{s^2}=2Dt$，并求出扩散系数 $D$ 的表达式。说明为什么粒子的半径不能太大。
+\begin{solution}
+一维扩散方程
+\[
+\frac{\partial f}{\partial t}=D\frac{\partial^2 f}{\partial x^2}
+\]
+在初始点源条件下的解为
+\[
+f(x,t)=\frac1{\sqrt{4\pi Dt}}\exp\left(-\frac{x^2}{4Dt}\right).
+\]
+由 Gaussian 积分得
+\[
+\overline{x^2}=\int_{-\infty}^{\infty}x^2 f(x,t)\,dx=2Dt.
+\]
+写 $s=x$ 即得 $\overline{s^2}=2Dt$。由 Einstein 关系 $D=\mu k_BT$，球形粒子的 Stokes 迁移率
+\[
+\mu=\frac1{6\pi\eta r_0},
+\]
+所以
+\[
+D=\frac{k_BT}{6\pi\eta r_0}.
+\]
+粒子半径过大时 $D\propto1/r_0$ 很小，布朗位移不易观测，同时重力沉降等宏观效应会掩盖热涨落。
+\ansmath{\overline{s^2}=2Dt,\qquad D=\frac{k_BT}{6\pi\eta r_0}}
+\end{solution}
+\end{question}
+
+\begin{question}
+熵是物理系统的重要的态函数，是系统的有序无序程度的度量；剪切黏度是表征物理系统输运性质的重要物理量。近年来，剪切黏度与熵（或熵密度）的比值和声速被作为描述系统由组分粒子间耦合较强的相到组分粒子间耦合较弱的相之间的相变的重要物理量而备受关注。现有一系统，其温度由低于沸点（记为 $T_B$）的 $T_L$ 上升到高于沸点的 $T_G$，系统发生明显的液气相变。范德瓦尔斯模型是一个能够同时描述气液两相并能描述相变的模型。
+
+(1) 试分析该过程中系统的剪切黏度和摩尔熵分别随温度变化的行为；
+
+(2) 试通过计算和分析上述相变过程中系统的剪切黏度与摩尔熵的比值随温度变化的行为，说明由组分粒子间耦合较强的相到组分粒子间耦合较弱的相的相变过程中系统的剪切黏度与摩尔熵的比值随温度变化的规律；
+
+(3) 根据范德瓦尔斯模型，分别求出在压强等于临界压强、大于和小于临界压强的情况下系统中声速随温度变化的表达式并作出示意图，解释为什么声速可以作为表征相变的依据。
+\begin{solution}
+液体可近似采用经验规律
+\[
+\eta_l(T)=A\exp\left(\frac{E}{RT}\right),
+\]
+故温度升高时液体黏度显著降低。气体可近似用稀薄气体规律
+\[
+\eta_g(T)\propto \sqrt T,
+\]
+故气体黏度随温度缓慢增大。摩尔熵随温度升高而增加，并在沸点处因潜热发生跃增
+\[
+\Delta S_m=\frac{L_m}{T_B}.
+\]
+因此从液相到气相时，$\eta/S_m$ 一般随温度先下降，在液气相变处明显降低或出现尖锐极小，进入气相后由于 $\eta_g\sim\sqrt T$ 而 $S_m$ 只对数式增加，$\eta/S_m$ 可缓慢上升。这个低谷反映了从强耦合液体相到弱耦合气体相的转变。
+
+范德瓦尔斯方程写为
+\[
+p=\frac{RT}{v-b}-\frac{a}{v^2},
+\]
+其中 $v$ 为摩尔体积。取摩尔定容热容 $C_V$ 近似为常数，熵微分给出
+\[
+dS_m=C_V\frac{dT}{T}+R\frac{dv}{v-b}.
+\]
+绝热条件 $dS_m=0$ 下
+\[
+\left(\frac{\partial T}{\partial v}\right)_S=-\frac{RT}{C_V(v-b)}.
+\]
+于是
+\[
+\left(\frac{\partial p}{\partial v}\right)_S
+=-\frac{RT}{(v-b)^2}+\frac{2a}{v^3}
++\frac{R}{v-b}\left(\frac{\partial T}{\partial v}\right)_S
+=-\gamma\frac{RT}{(v-b)^2}+\frac{2a}{v^3},
+\]
+其中 $\gamma=1+R/C_V$。若摩尔质量为 $M_m$，声速平方为
+\[
+c^2=\left(\frac{\partial p}{\partial \rho}\right)_S
+=-\frac{v^2}{M_m}\left(\frac{\partial p}{\partial v}\right)_S
+=\frac{v^2}{M_m}\left[\gamma\frac{RT}{(v-b)^2}-\frac{2a}{v^3}\right].
+\]
+这里 $v=v(T;p)$ 由范德瓦尔斯方程确定。临界参量为
+\[
+p_c=\frac{a}{27b^2},\qquad T_c=\frac{8a}{27Rb},\qquad v_c=3b.
+\]
+当 $p>p_c$ 时只有单一稳定支，$c(T)$ 随 $T$ 平滑变化；当 $p=p_c$ 时在临界点附近出现显著软化或极小；当 $p<p_c$ 时存在气液共存，$v$ 在沸点处从液相支跳到气相支，因而 $c(T)$ 也出现跳变或尖锐异常。故声速能反映压缩性和相变时的力学软化，是表征相变的量。
+\ansmath{c^2=\frac{v^2}{M_m}\left[\gamma\frac{RT}{(v-b)^2}-\frac{2a}{v^3}\right]}
+\end{solution}
+\end{question}
+

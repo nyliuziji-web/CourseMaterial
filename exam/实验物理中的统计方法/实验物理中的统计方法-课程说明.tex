@@ -1,0 +1,376 @@
+﻿\heading{实验物理中的统计方法-课程说明}
+\noteinfo{本说明在保留压缩复习导向的同时，系统整理本课程高频概率模型与典型题型。写法尽量采用讲义风格：先给模型，再给公式，再给参数化例题与解题框架。适合作为复习提纲，也适合作为做题前的模型识别清单。}
+
+\textbf{一、课程定位与复习目标}
+
+本课程的核心不在于记忆大量孤立公式，而在于完成以下三步：
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.18em,topsep=0.2em]
+  \item 将实验或抽样情景准确翻译为随机试验，明确样本空间、随机变量、参数、独立性与条件结构；
+  \item 识别题目对应的标准概率模型，判断应使用计数方法、连续密度方法、参数估计、区间估计还是假设检验；
+  \item 在统一记号下完成计算，并对结果给出物理或统计解释，例如效率、纯度、显著性、后验概率、不确定度等。
+\end{enumerate}
+
+从历年题型看，失分往往不是因为不会积分或不会求导，而是因为\textbf{模型识别错误}：把不放回抽样错当成二项分布，把等待时间错当成计数变量，把 $P(A\mid B)$ 和 $P(B\mid A)$ 混淆，把 ``不拒绝 $H_0$'' 误说成 ``接受 $H_0$ 为真''。因此，本说明按照“模型 $\to$ 公式 $\to$ 参数化题型 $\to$ 常见误区”的顺序组织内容。
+
+\textbf{二、全课程最常见的概率模型总表}
+
+\begin{itemize}[leftmargin=2em,itemsep=0.18em,topsep=0.18em]
+  \item \textbf{Bernoulli / 二项模型：}适用于“独立重复试验，每次只有成功/失败两类结果”的情形，如探测是否触发、事件是否通过筛选、器件是否失效。
+  \item \textbf{几何 / 负二项模型：}适用于“等待第一次成功”或“等待第 $r$ 次成功”的情形，如第一次击中出现在第几次试验、第 $r$ 次触发发生在第几轮。
+  \item \textbf{超几何模型：}适用于有限总体中的不放回抽样，如从一批样品中抽查次品、从含红白球的盒中连续取球。
+  \item \textbf{Poisson 模型：}适用于单位时间、单位面积或单位长度上的稀有随机计数，如本底计数、到达事件数、缺陷个数。
+  \item \textbf{指数模型：}适用于泊松过程中的等待时间与寿命问题，如到下一次事件的间隔、粒子寿命、失效率恒定情形。
+  \item \textbf{均匀分布与几何概率：}适用于“随机落点、随机时刻、随机方向”等连续且无偏的情形，如会合问题、投针问题、随机取点区域概率。
+  \item \textbf{正态模型：}适用于测量误差、样本均值、独立小扰动叠加后的近似分布，也是大量检验与区间估计的基础。
+  \item \textbf{Bayes 更新模型：}适用于先验已知且要根据观测更新结论的情形，如纯度计算、分类问题、Beta-Binomial 和 Gamma-Poisson 共轭更新。
+\end{itemize}
+
+\textbf{三、离散概率模型：定义、公式与题型模板}
+
+\textbf{（1）Bernoulli 试验与二项分布}
+
+设一次试验只有“成功”和“失败”两种结果，成功概率为 $p$。若重复进行 $n$ 次且各次独立，记成功次数为 $X$，则
+\[
+X\sim \mathrm{Bin}(n,p),\qquad P(X=k)=\binom{n}{k}p^k(1-p)^{n-k},\quad k=0,1,\dots,n.
+\]
+其均值与方差为
+\[
+E[X]=np,\qquad \operatorname{Var}(X)=np(1-p).
+\]
+
+\textbf{参数化题型 A：}某探测器对单个事件的通过概率为 $p$，独立检测 $n$ 个事件。求恰有 $k$ 个事件通过的概率、至少一个事件通过的概率以及通过率的估计标准差。
+
+\textbf{解题框架：}
+\begin{itemize}[leftmargin=2em,itemsep=0.12em,topsep=0.12em]
+  \item 恰有 $k$ 个通过：直接用二项公式；
+  \item 至少一个通过：优先用对立事件
+  \[
+  P(X\ge 1)=1-P(X=0)=1-(1-p)^n;
+  \]
+  \item 若观测到 $k$ 个通过，则效率的自然估计为 $\hat p=k/n$，大样本下标准差写作
+  \[
+  \sigma_{\hat p}\approx \sqrt{\frac{\hat p(1-\hat p)}{n}}.
+  \]
+\end{itemize}
+
+\textbf{常见误区：}二项模型要求“\textbf{独立}且每次成功概率\textbf{不变}”。若题目是不放回抽样，则一般不能直接套用二项分布。
+
+\textbf{（2）几何分布与负二项分布}
+
+若独立重复进行 Bernoulli 试验，单次成功概率为 $p$，记第一次成功发生在第 $T$ 次，则
+\[
+T\sim \mathrm{Geom}(p),\qquad P(T=k)=(1-p)^{k-1}p,\quad k=1,2,\dots
+\]
+且
+\[
+E[T]=\frac{1}{p},\qquad \operatorname{Var}(T)=\frac{1-p}{p^2}.
+\]
+
+若记第 $r$ 次成功发生在第 $N$ 次试验，则
+\[
+P(N=n)=\binom{n-1}{r-1}p^r(1-p)^{n-r},\qquad n=r,r+1,\dots
+\]
+这就是负二项模型。
+
+\textbf{参数化题型 B：}某装置单次点火成功率为 $p$。求第一次点火成功恰好发生在第 $k$ 次的概率，以及第 $r$ 次成功恰好出现在第 $n$ 次试验的概率。
+
+\textbf{解题框架：}
+\begin{itemize}[leftmargin=2em,itemsep=0.12em,topsep=0.12em]
+  \item ``第一次成功在第 $k$ 次'' 等价于“前 $k-1$ 次都失败，第 $k$ 次成功”；
+  \item ``第 $r$ 次成功在第 $n$ 次'' 等价于“前 $n-1$ 次中恰有 $r-1$ 次成功，第 $n$ 次成功”。
+\end{itemize}
+
+\textbf{（3）超几何分布：不放回抽样的标准模型}
+
+设总体共有 $N$ 个对象，其中“特殊对象”有 $M$ 个，其余 $N-M$ 个为普通对象。若不放回抽取 $n$ 个，记抽到的特殊对象个数为 $X$，则
+\[
+X\sim \mathrm{Hypergeometric}(N,M,n),\qquad
+P(X=k)=\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}.
+\]
+其均值与方差为
+\[
+E[X]=n\frac{M}{N},\qquad
+\operatorname{Var}(X)=n\frac{M}{N}\left(1-\frac{M}{N}\right)\frac{N-n}{N-1}.
+\]
+
+\textbf{参数化题型 C：}盒中有红球 $R$ 个、白球 $W$ 个，从中不放回取 $n$ 个。求恰有 $k$ 个红球、至少一个红球、全部同色的概率。
+
+\textbf{解题框架：}
+\begin{itemize}[leftmargin=2em,itemsep=0.12em,topsep=0.12em]
+  \item 恰有 $k$ 个红球：
+  \[
+  P(X=k)=\frac{\binom{R}{k}\binom{W}{n-k}}{\binom{R+W}{n}};
+  \]
+  \item 至少一个红球：
+  \[
+  P(X\ge 1)=1-\frac{\binom{W}{n}}{\binom{R+W}{n}};
+  \]
+  \item 全部同色：分 ``全红'' 与 ``全白'' 两种互斥情况相加。
+\end{itemize}
+
+\textbf{近似关系：}若总体很大而抽样比例很小，则超几何模型可近似为二项模型
+\[
+X\approx \mathrm{Bin}\left(n,\frac{M}{N}\right).
+\]
+
+\textbf{（4）Poisson 分布：稀有事件计数的核心模型}
+
+若单位时间（或单位面积、单位长度）内事件平均发生率为 $\lambda$，且不相交区间中的计数独立，则长度为 $t$ 的区间内事件数 $N_t$ 服从
+\[
+N_t\sim \mathrm{Poisson}(\lambda t),\qquad
+P(N_t=k)=e^{-\lambda t}\frac{(\lambda t)^k}{k!},\quad k=0,1,2,\dots
+\]
+并且
+\[
+E[N_t]=\lambda t,\qquad \operatorname{Var}(N_t)=\lambda t.
+\]
+
+\textbf{参数化题型 D：}本底事件以速率 $\lambda$ 到达，观测窗口长度为 $t$。求窗口内恰有 $k$ 个本底计数的概率、至少一个计数的概率，以及“观测到不小于 $n_\mathrm{obs}$ 个计数”的右尾概率。
+
+\textbf{解题框架：}
+\begin{itemize}[leftmargin=2em,itemsep=0.12em,topsep=0.12em]
+  \item 恰有 $k$ 个计数：直接代入 Poisson 公式；
+  \item 至少一个计数：
+  \[
+  P(N_t\ge 1)=1-e^{-\lambda t};
+  \]
+  \item 右尾概率（显著性）通常写为
+  \[
+  p\text{-value}=P(N_t\ge n_{\mathrm{obs}}\mid H_0)=\sum_{k=n_{\mathrm{obs}}}^{\infty} e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
+  \]
+\end{itemize}
+
+\textbf{常见误区：}Poisson 模型描述的是“计数”，指数模型描述的是“等待时间”，两者对应同一泊松过程的不同随机变量，不能混淆。
+
+\textbf{四、连续概率模型：定义、公式与题型模板}
+
+\textbf{（1）均匀分布与几何概率}
+
+若 $X\sim U(a,b)$，则其密度为
+\[
+f_X(x)=\frac{1}{b-a},\qquad a\le x\le b,
+\]
+且
+\[
+E[X]=\frac{a+b}{2},\qquad \operatorname{Var}(X)=\frac{(b-a)^2}{12}.
+\]
+若随机点在某一区域 $\Omega$ 上均匀分布，则事件 $A\subseteq \Omega$ 的概率为
+\[
+P(A)=\frac{\text{Area}(A)}{\text{Area}(\Omega)}
+\]
+（在三维情形则换成体积比）。
+
+\textbf{参数化题型 E：会合问题。}两人独立且均匀地在时间区间 $[0,T]$ 内到达，每人最多等待 $w$ 单位时间。求两人相遇概率。
+
+\textbf{解题框架：}设到达时刻为 $(X,Y)$，则 $(X,Y)$ 在正方形 $[0,T]^2$ 上均匀分布，相遇条件为
+\[
+|X-Y|\le w.
+\]
+因此
+\[
+P(\text{相遇})=1-\frac{(T-w)^2}{T^2},\qquad 0\le w\le T.
+\]
+
+\textbf{参数化题型 F：布丰投针。}平行线间距为 $d$，投一根长度为 $l$ 的针，且 $l\le d$。记针中心到最近平行线的距离为 $X\sim U(0,d/2)$，针与平行线的夹角为 $\Theta\sim U(0,\pi/2)$。针与某条线相交当且仅当
+\[
+X\le \frac{l}{2}\sin\Theta.
+\]
+积分后得到
+\[
+P(\text{相交})=\frac{2l}{\pi d}.
+\]
+这类题的关键在于：先选对连续随机变量，再把几何条件改写成平面区域积分。
+
+\textbf{（2）指数分布：等待时间与寿命模型}
+
+若泊松过程的速率为 $\lambda$，则相邻两次事件之间的等待时间 $T$ 服从指数分布
+\[
+T\sim \mathrm{Exp}(\lambda),\qquad f_T(t)=\lambda e^{-\lambda t},\quad t>0.
+\]
+其分布函数、均值和方差为
+\[
+P(T\le t)=1-e^{-\lambda t},\qquad E[T]=\frac{1}{\lambda},\qquad \operatorname{Var}(T)=\frac{1}{\lambda^2}.
+\]
+
+\textbf{参数化题型 G：}某探测器本底触发满足泊松过程，平均速率为 $\lambda$。求等待下一次本底触发超过 $t$ 的概率。
+
+\textbf{解题框架：}
+\[
+P(T>t)=e^{-\lambda t}.
+\]
+这也体现了指数分布的无记忆性：对任意 $s,t>0$，有
+\[
+P(T>s+t\mid T>s)=P(T>t).
+\]
+
+\textbf{（3）正态分布：测量误差与渐近近似的核心模型}
+
+若
+\[
+X\sim N(\mu,\sigma^2),
+\]
+则其密度为
+\[
+f_X(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left[-\frac{(x-\mu)^2}{2\sigma^2}\right].
+\]
+正态计算的第一步通常是标准化：
+\[
+Z=\frac{X-\mu}{\sigma}\sim N(0,1),\qquad P(X\le x)=\Phi\!\left(\frac{x-\mu}{\sigma}\right).
+\]
+
+\textbf{参数化题型 H：}统计量 $T$ 在原假设 $H_0$ 下服从 $N(\mu_0,\sigma_0^2)$，拒绝域取为 $T<c$。求显著性水平，并写出若真实分布为 $N(\mu_1,\sigma_1^2)$ 时的功效。
+
+\textbf{解题框架：}
+\[
+\alpha=P(T<c\mid H_0)=\Phi\!\left(\frac{c-\mu_0}{\sigma_0}\right),
+\]
+\[
+\text{Power}=P(T<c\mid H_1)=\Phi\!\left(\frac{c-\mu_1}{\sigma_1}\right).
+\]
+这里必须区分：显著性水平是 ``在 $H_0$ 为真时误拒绝 $H_0$ 的概率''，功效是 ``在备择为真时正确拒绝 $H_0$ 的概率''。
+
+\textbf{五、条件概率、全概率公式与 Bayes 公式}
+
+若 $B_1,\dots,B_m$ 构成样本空间的一个划分，则
+\[
+P(A)=\sum_{i=1}^m P(A\mid B_i)P(B_i)
+\]
+称为全概率公式；进一步有
+\[
+P(B_j\mid A)=\frac{P(A\mid B_j)P(B_j)}{\sum_{i=1}^m P(A\mid B_i)P(B_i)}
+\]
+称为 Bayes 公式。
+
+\textbf{参数化题型 I：两层抽样/分类纯度。}总体中 A 类对象占比为 $\pi_A$，B 类对象占比为 $\pi_B$，其中 $\pi_A+\pi_B=1$。某筛选规则对 A 类通过的概率为 $\varepsilon_A$，对 B 类误通过的概率为 $\varepsilon_B$。求被筛选通过的样本中 A 类对象的纯度。
+
+\textbf{解题框架：}记事件 $S$ 表示“通过筛选”，则
+\[
+P(S)=\varepsilon_A\pi_A+\varepsilon_B\pi_B,
+\]
+而纯度为
+\[
+P(A\mid S)=\frac{\varepsilon_A\pi_A}{\varepsilon_A\pi_A+\varepsilon_B\pi_B}.
+\]
+这是课程中大量“粒子鉴别、置信更新、医学检测、分类后验概率”问题的统一模板。
+
+\textbf{常见误区：}把 $P(A\mid S)$ 错写为 $P(S\mid A)$。前者是“后验纯度”，后者只是“对 A 类的通过效率”。
+
+\textbf{六、参数估计、不确定度与大样本近似}
+
+\textbf{（1）矩估计与极大似然估计}
+
+若观测样本为 $x_1,\dots,x_n$，模型参数为 $\theta$，则似然函数为
+\[
+L(\theta)=\prod_{i=1}^n f(x_i\mid \theta).
+\]
+极大似然估计的标准步骤是：写出 $L(\theta)$，取对数得到 $\ell(\theta)=\log L(\theta)$，再求导并令其为零。
+
+\textbf{参数化题型 J：}若 $X_1,\dots,X_n\overset{\mathrm{iid}}{\sim}\mathrm{Poisson}(\lambda)$，求 $\lambda$ 的极大似然估计。
+
+\textbf{解题框架：}
+\[
+L(\lambda)=\prod_{i=1}^n e^{-\lambda}\frac{\lambda^{x_i}}{x_i!},\qquad
+\ell(\lambda)=-n\lambda+\left(\sum_{i=1}^n x_i\right)\log\lambda + C.
+\]
+求导得
+\[
+\hat\lambda_{\mathrm{MLE}}=\bar X.
+\]
+
+\textbf{（2）误差传播公式}
+
+若待求量为 $f(x_1,\dots,x_m)$，各输入量误差较小且彼此独立，则一阶近似下
+\[
+\sigma_f^2\approx \sum_{i=1}^m\left(\frac{\partial f}{\partial x_i}\right)^2\sigma_i^2.
+\]
+若输入量存在相关性，则必须加入协方差项。
+
+\textbf{（3）大样本近似}
+
+课程题中常见的三类近似关系如下：
+\begin{itemize}[leftmargin=2em,itemsep=0.12em,topsep=0.12em]
+  \item 当 $N$ 大且抽样比例小，超几何分布可近似为二项分布；
+  \item 当 $n$ 大、$p$ 小且 $np=\lambda$ 适中，二项分布可近似为 Poisson 分布；
+  \item 当样本量足够大时，样本均值和许多估计量可近似服从正态分布，这是中心极限定理与渐近正态性的直接应用。
+\end{itemize}
+
+\textbf{七、假设检验：课程范围内的标准语言}
+
+设原假设为 $H_0$，备择假设为 $H_1$，统计量为 $T$。假设检验的核心步骤为：
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.15em,topsep=0.15em]
+  \item 在 $H_0$ 下求出统计量 $T$ 的分布；
+  \item 依据题目给定的显著性水平 $\alpha$ 或给定的拒绝域，计算对应阈值；
+  \item 将观测值 $t_{\mathrm{obs}}$ 代入，计算 $p$ 值或判断是否落入拒绝域；
+  \item 用规范语言表述结论：只能说“拒绝 $H_0$”或“不拒绝 $H_0$”，不能说“证明 $H_0$ 正确”。
+\end{enumerate}
+
+\textbf{参数化题型 K：Poisson 本底显著性。}若 $H_0$ 表示“只有本底，期望计数为 $b$”，观测到总计数 $n_{\mathrm{obs}}$。则单侧显著性为
+\[
+p\text{-value}=P(N\ge n_{\mathrm{obs}}\mid N\sim \mathrm{Poisson}(b)).
+\]
+若需将其转换为 ``若服从标准正态，则相当于多少个 $\sigma$''，可再求右尾等价的正态分位数 $Z$。
+
+\textbf{八、Bayes 统计的最小框架}
+
+Bayes 统计的核心关系只有一条：
+\[
+p(\theta\mid x)\propto p(\theta)\,p(x\mid \theta).
+\]
+其中 $p(\theta)$ 是先验，$p(x\mid\theta)$ 是似然，$p(\theta\mid x)$ 是后验。课程内最常见的是共轭更新。
+
+\textbf{参数化题型 L：Beta-Binomial 更新。}若某通过概率 $p$ 的先验为
+\[
+p\sim \mathrm{Beta}(\alpha,\beta),
+\]
+观测到 $n$ 次独立试验中成功 $k$ 次，则后验为
+\[
+p\mid k \sim \mathrm{Beta}(\alpha+k,\beta+n-k).
+\]
+
+\textbf{参数化题型 M：Gamma-Poisson 更新。}若 Poisson 强度 $\lambda$ 的先验为 Gamma 分布，观测到一定时间内的计数后，后验仍为 Gamma 分布。考试中一般不要求背诵所有归一化常数，但必须会写出“后验 $\propto$ 先验 $\times$ 似然”的结构并识别参数如何更新。
+
+\textbf{九、模型识别速查表：看到题面时应立即想到什么}
+
+\begin{itemize}[leftmargin=2em,itemsep=0.15em,topsep=0.15em]
+  \item 看到“独立重复 $n$ 次、每次成功概率为 $p$”$\to$ 二项分布；
+  \item 看到“直到第一次成功”$\to$ 几何分布；
+  \item 看到“直到第 $r$ 次成功”$\to$ 负二项分布；
+  \item 看到“有限总体中不放回抽样”$\to$ 超几何分布；
+  \item 看到“单位时间内发生多少次”$\to$ Poisson 分布；
+  \item 看到“等待下一次事件需要多久”$\to$ 指数分布；
+  \item 看到“随机取点、随机时刻、面积比”$\to$ 均匀分布与几何概率；
+  \item 看到“测量误差、样本均值、标准化统计量”$\to$ 正态模型；
+  \item 看到“先验 + 观测 + 后验”$\to$ Bayes 更新；
+  \item 看到“给定原假设下分布，要求显著性或功效”$\to$ 假设检验框架。
+\end{itemize}
+
+\textbf{十、最小公式表（考前最后一遍建议默写）}
+
+\begin{itemize}[leftmargin=2em,itemsep=0.12em,topsep=0.12em]
+  \item 条件概率：$P(A\mid B)=P(A\cap B)/P(B)$；
+  \item 全概率：$P(A)=\sum_i P(A\mid B_i)P(B_i)$；
+  \item Bayes：$P(B_i\mid A)=\dfrac{P(A\mid B_i)P(B_i)}{\sum_j P(A\mid B_j)P(B_j)}$；
+  \item 二项：$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}$；
+  \item 几何：$P(T=k)=(1-p)^{k-1}p$；
+  \item 超几何：$P(X=k)=\dfrac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}$；
+  \item Poisson：$P(X=k)=e^{-\lambda}\lambda^k/k!$；
+  \item 指数：$P(T>t)=e^{-\lambda t}$，$E[T]=1/\lambda$；
+  \item 正态标准化：$Z=(X-\mu)/\sigma$；
+  \item 方差与协方差：$\operatorname{Var}(X\pm Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\pm 2\operatorname{Cov}(X,Y)$；
+  \item 误差传播：$\sigma_f^2\approx \sum_i(\partial f/\partial x_i)^2\sigma_i^2$（独立情形）；
+  \item Bayes 更新：$p(\theta\mid x)\propto p(\theta)p(x\mid\theta)$。
+\end{itemize}
+
+\textbf{十一、复习建议与做题顺序}
+
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.18em,topsep=0.18em]
+  \item 先用一到两天把条件概率、全概率、Bayes、随机变量变换、边缘密度与条件密度刷熟；
+  \item 再集中复习二项、超几何、Poisson、指数、正态五类最常见分布，做到“看题面能立即识别模型”；
+  \item 接着练效率、纯度、显著性、寿命、不确定度传播这几类应用题；
+  \item 最后补极大似然、渐近分布、Bayes 共轭更新与 Monte Carlo 的最小框架。
+\end{enumerate}
+
+\textbf{十二、一句话总结}
+
+这门课最重要的能力是：\textbf{把物理或实验表述迅速翻译为概率模型，再用最合适的分布、估计或检验工具完成计算与解释。}一旦模型识别正确，绝大多数题目都会退化成标准分布公式、条件概率公式或一维积分问题；真正决定分数的，不是公式数量，而是对题目结构的判断是否准确。
+

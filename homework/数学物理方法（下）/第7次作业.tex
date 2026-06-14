@@ -1,0 +1,148 @@
+﻿\heading{数学物理方法（下）-第7次作业}
+
+
+\begin{question}
+设有半径为 \(a\) 的导体半球，球面温度为 \(u_0\sin^2\theta\)，底面绝热，求半球内稳态温度分布。
+\begin{solution}
+轴对称球坐标中
+\[
+\nabla^2u=0,\qquad 0<r<a,\quad 0<\theta<\frac\pi2.
+\]
+底面绝热为 \(u_\theta(r,\pi/2)=0\)。因此只取偶阶 Legendre 多项式：
+\[
+u(r,\theta)=\sum_{m=0}^{\infty}A_{2m}r^{2m}P_{2m}(\cos\theta).
+\]
+边界 \(\sin^2\theta=1-\cos^2\theta\) 可写成
+\[
+\sin^2\theta=\frac23\left(P_0(\cos\theta)-P_2(\cos\theta)\right).
+\]
+故
+\[
+u(r,\theta)=\frac{2u_0}{3}
+\left[1-\left(\frac ra\right)^2P_2(\cos\theta)\right].
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+将若干函数按 Legendre 多项式展开，并计算若干含 Legendre 多项式的积分。
+\begin{solution}
+Legendre 展开的统一公式为
+\[
+f(x)=\sum_{l=0}^{\infty}a_lP_l(x),\qquad
+a_l=\frac{2l+1}{2}\int_{-1}^{1}f(x)P_l(x)\,dx.
+\]
+这个公式来自正交性。把展开式两端同乘 \(P_k(x)\) 后积分，除 \(l=k\) 外各项为零，故
+\[
+\int_{-1}^{1}f(x)P_k(x)\,dx
+=a_k\int_{-1}^{1}P_k^2(x)\,dx
+=a_k\frac{2}{2k+1}.
+\]
+若函数只定义在 \(0\le x\le1\)，可先按题意作奇延拓、偶延拓或零延拓，再用同一公式。常用结果有
+\[
+x^3=\frac25P_1(x)+\frac35P_3(x),
+\]
+这是因为
+\[
+P_1(x)=x,\qquad P_3(x)=\frac12(5x^3-3x),
+\]
+解出 \(x^3=(2P_3+3P_1)/5\) 即得。又如奇函数 \(\operatorname{sgn}x\) 只含奇阶项，
+\[
+\operatorname{sgn}x=\sum_{\substack{l=1\\ l\ {\rm odd}}}^{\infty}
+\frac{2l+1}{2}\left(\int_0^1P_l(x)\,dx-\int_{-1}^0P_l(x)\,dx\right)P_l(x).
+\]
+积分题主要使用正交性
+\[
+\int_{-1}^{1}P_k(x)P_l(x)\,dx=\frac{2}{2l+1}\delta_{kl},
+\]
+以及 Legendre 方程的 Lagrange 恒等式。特别地，
+\[
+\int_{-1}^{1}P_l(x)\ln(1-x)\,dx
+=
+\begin{cases}
+2\ln2-2,&l=0,\\
+-\dfrac{2}{l(l+1)},&l\ge1.
+\end{cases}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设函数 \(F(x,t)=G(2xt-t^2)\) 可在 \(t=0\) 展开为
+\[
+G(2xt-t^2)=\sum_{n=0}^{\infty}g_n(x)t^n.
+\]
+证明 \(g_n(-x)=(-1)^ng_n(x)\)，并证明递推关系
+\[
+g_0'(x)=0,\qquad xg_n'(x)-ng_n(x)=g'_{n-1}(x).
+\]
+\begin{solution}
+由
+\[
+G(-2xt-t^2)=G(2x(-t)-(-t)^2)
+\]
+比较 \(t^n\) 系数即得
+\[
+g_n(-x)=(-1)^ng_n(x).
+\]
+对展开式关于 \(x,t\) 求导：
+\[
+F_x=2tG'(2xt-t^2),\qquad
+F_t=(2x-2t)G'(2xt-t^2).
+\]
+消去 \(G'\) 得
+\[
+(x-t)F_x=tF_t.
+\]
+代入级数并比较 \(t^n\) 系数：
+\[
+xg_n'-g_{n-1}'=ng_n,
+\]
+即所需递推关系。于是 \(g_n\) 为不高于 \(n\) 次的多项式。
+\end{solution}
+\end{question}
+
+\begin{question}
+有一半径为 \(R\) 的接地理想导体球壳，外部放有半径为 \(a\)、总电量为 \(Q\) 的均匀带电圆环，\(a>R\)，环心与球心重合。求球外的电势分布。
+\begin{solution}
+圆环位于赤道平面时，其在球心附近的势可展开为
+\[
+\Phi_{\rm ext}(r,\theta)=\frac{Q}{4\pi\varepsilon_0}
+\sum_{l=0}^{\infty}\frac{r^l}{a^{l+1}}P_l(0)P_l(\cos\theta),
+\qquad r<a.
+\]
+接地球面要求在 \(r=R\) 上总势为零。像解为
+\[
+\Phi_{\rm im}(r,\theta)=
+-\frac{Q}{4\pi\varepsilon_0}
+\sum_{l=0}^{\infty}\frac{R^{2l+1}}{a^{l+1}r^{l+1}}
+P_l(0)P_l(\cos\theta).
+\]
+故球外且环内区域的电势为两者之和；环外区域再加上相应外部多极展开即可。该式满足 \(r=R\) 接地条件。
+\end{solution}
+\end{question}
+
+\begin{question}
+半径为 \(a\) 的接地理想导体球壳外有一单位点电荷，点电荷与球心相距 \(d>a\)，求球外电势分布。
+\begin{solution}
+由电像法，像电荷位于同一直线上，距离球心
+\[
+d'=\frac{a^2}{d},
+\]
+电量为
+\[
+q'=-\frac ad.
+\]
+若真实电荷位于 \(\bm r_0\)，则球外电势为
+\[
+\Phi(\bm r)=\frac1{4\pi\varepsilon_0}
+\left(
+\frac1{|\bm r-\bm r_0|}
+-\frac ad\frac1{|\bm r-\bm r_0'|}
+\right),
+\qquad |\bm r|>a,
+\]
+其中 \(\bm r_0'=(a^2/d^2)\bm r_0\)。在 \(r=a\) 上两项正好相消。
+\end{solution}
+\end{question}
+

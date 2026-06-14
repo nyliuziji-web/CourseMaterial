@@ -1,0 +1,344 @@
+﻿\heading{实验物理中的统计方法-解谱法}
+
+
+
+
+
+\begin{question}
+考虑图 9.1 的探测器设备。假设 \(x\) 的分辨率函数服从高斯分布
+
+\[
+s(x|x')=\frac{1}{\sqrt{2\pi}\sigma_x}\exp\left[-\frac{(x-x')^2}{2\sigma_x^2}\right].
+\]
+
+求 \(\cos\theta=a/\sqrt{x^2+a^2}\) 的分辨率函数。
+\begin{solution}
+记
+\[
+c=\cos\theta=\frac{a}{\sqrt{x^2+a^2}},
+\qquad 0<c\le1.
+\]
+由于这个变换依赖于 \(x^2\)，一般不是一一对应的。对给定 \(c\)，反解为
+\[
+x_\pm(c)=\pm a\frac{\sqrt{1-c^2}}{c}.
+\]
+并且
+\[
+\left|\frac{dx_\pm}{dc}\right|
+=\frac{a}{c^2\sqrt{1-c^2}}.
+\]
+
+若 \(x\) 是可正可负的测量坐标，则测得的 \(c\) 在真值 \(x'\) 下的分辨率函数应对两个分支求和：
+\[
+\begin{split}
+s_c(c\mid x')
+&=\sum_{\epsilon=\pm1}
+ s\left(\epsilon a\frac{\sqrt{1-c^2}}{c}\middle|x'\right)
+ \frac{a}{c^2\sqrt{1-c^2}}\\
+&=\frac{a}{c^2\sqrt{1-c^2}}
+\frac{1}{\sqrt{2\pi}\sigma_x}
+\left\{
+\exp\left[-\frac{(x_+(c)-x')^2}{2\sigma_x^2}\right]
++
+\exp\left[-\frac{(x_-(c)-x')^2}{2\sigma_x^2}\right]
+\right\}.
+\end{split}
+\]
+其中 \(0<c\le1\)。
+
+若问题物理上只允许 \(x\ge0\) 的单支（例如 \(x\) 表示非负距离），则只保留正分支：
+\[
+s_c(c\mid c')=
+\frac{1}{\sqrt{2\pi}\sigma_x}
+\exp\left[-\frac{(x(c)-x(c'))^2}{2\sigma_x^2}\right]
+\frac{a}{c^2\sqrt{1-c^2}},
+\]
+其中
+\[
+x(c)=a\frac{\sqrt{1-c^2}}{c}.
+\]
+\pyfig[0.72\linewidth]{figures/fig_11_01_cos_resolution.png}{单支 \(x\ge0\) 情形下，非线性变换后 \(c=\cos\theta\) 分辨率函数的示例。}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+对等区间宽度的直方图 \(\mu=(\mu_1,\ldots,\mu_M)\)，考虑 \(k=1\) 的
+Tikhonov 正规化函数，
+
+\[
+S(\mu)=-\sum_{i=1}^{M-1}(\mu_i-\mu_{i+1})^2.
+\]
+
+求 \(M\times M\) 维矩阵 \(G\)，使得 \(S(\mu)\) 可以表示成以下形式
+
+\[
+S(\mu)=-\sum_{i,j=1}^{M}G_{ij}\mu_i\mu_j=-\mu^T G\mu.
+\]
+\begin{solution}
+展开平方和：
+\[
+\sum_{i=1}^{M-1}(\mu_i-\mu_{i+1})^2
+=\mu_1^2+\mu_M^2+2\sum_{i=2}^{M-1}\mu_i^2
+-2\sum_{i=1}^{M-1}\mu_i\mu_{i+1}.
+\]
+因此 \(S(\mu)=-\mu^T G\mu\)，其中
+\[
+G=
+\begin{pmatrix}
+1 & -1 & 0 & \cdots & 0\\
+-1 & 2 & -1 & \ddots & \vdots\\
+0 & -1 & 2 & \ddots & 0\\
+\vdots & \ddots & \ddots & 2 & -1\\
+0 & \cdots & 0 & -1 & 1
+\end{pmatrix}.
+\]
+等价地，
+\[
+G_{11}=G_{MM}=1,\qquad
+G_{ii}=2\ (2\le i\le M-1),\qquad
+G_{i,i+1}=G_{i+1,i}=-1,
+\]
+其余矩阵元为 \(0\)。这就是离散一阶差分平方对应的二次型矩阵。
+\pyfig[0.56\linewidth]{figures/fig_11_02_tikhonov_matrix.png}{\(M=8\) 时一阶 Tikhonov 矩阵 \(G\) 的结构示意。}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑期待值为 \(\mu=(\mu_1,\ldots,\mu_M)\) 的直方图，对应的概率为
+\(p=\mu/\mu_{\rm tot}\)，其中 \(\mu_{\rm tot}=\sum_{i=1}^{M}\mu_i\)。
+
+\begin{enumerate}
+\item
+  证明 Shannon 熵
+\end{enumerate}
+
+\[
+H(p)=-\sum_{i=1}^{M}p_i\log p_i,
+\]
+
+在所有区间 \(i\) 的 \(p_i=1/M\) 时最大。（利用 Lagrange
+乘子法引入限制条件 \(\sum_{i=1}^{M}p_i=1\)。）
+
+\begin{enumerate}[start=2]
+\item
+  证明交叉熵
+\end{enumerate}
+
+\[
+K(p;q)=-\sum_{i=1}^{M}p_i\log\frac{p_i}{Mq_i},
+\]
+
+在概率 \(p\) 等于参考分布 \(q\) 时最大。
+\begin{solution}
+设 \(p_i=\mu_i/\mu_{\rm tot}\)，于是 \(\sum_i p_i=1\)。
+
+\begin{enumerate}
+\item 在约束 \(\sum_i p_i=1\) 下，对 Shannon 熵
+\[
+H(\mathbf p)=-\sum_{i=1}^M p_i\log p_i
+\]
+作 Lagrange 乘子法：
+\[
+L(\mathbf p,\lambda)
+=-\sum_i p_i\log p_i+\lambda\left(\sum_i p_i-1\right).
+\]
+由
+\[
+\frac{\partial L}{\partial p_i}=-(\log p_i+1)+\lambda=0
+\]
+可知所有 \(p_i\) 相等。结合归一化条件，得到
+\[
+p_i=\frac1M,\qquad H_{\max}=\log M.
+\]
+
+\item 将题中的量改写为
+\[
+K(\mathbf p;\mathbf q)
+=-\sum_{i=1}^M p_i\log\frac{p_i}{Mq_i}
+=\log M-\sum_{i=1}^M p_i\log\frac{p_i}{q_i}
+=\log M-D_{\mathrm{KL}}(\mathbf p\Vert\mathbf q).
+\]
+由于 \(D_{\mathrm{KL}}(\mathbf p\Vert\mathbf q)\ge 0\)，且等号仅在
+\(\mathbf p=\mathbf q\) 时成立，所以
+\[
+K(\mathbf p;\mathbf q)\le \log M.
+\]
+因此 \(K\) 在 \(p=q\) 时达到最大值。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑观测到的直方图 \(n=(n_1,\ldots,n_N)\)，对应的期待值
+\(\nu=(\nu_1,\ldots,\nu_N)\) 与真值直方图 \(\mu=(\mu_1,\ldots,\mu_N)\)
+的关系为 \(\nu=R\mu\)。假设协方差矩阵 \(V\) 和响应矩阵 \(R\)
+已知，并且直方图中没有本底。
+
+\begin{enumerate}
+\item
+  通过最大化 \(\Phi(\mu)\) 构造 \(\mu\) 的估计量
+\end{enumerate}
+
+\[
+\Phi(\mu)=-\frac{\alpha}{2}\chi^2(\mu)+S(\mu)
+\]
+
+\[
+=-\frac{\alpha}{2}(n-R\mu)^T V^{-1}(n-R\mu)-\mu^T G\mu,
+\]
+
+其中 \(\alpha\) 为正规化参数，\(M\times M\) 对称矩阵 \(G\)
+由已知常数确定（参考 Statistical Data Analysis 中 11.5.1
+节）。证明估计量 \(\hat\mu\) 为
+
+\[
+\hat\mu=(\alpha R^T V^{-1}R+2G)^{-1}\alpha R^T V^{-1}n,
+\]
+
+并求协方差矩阵 \(U_{ij}=\operatorname{cov}[\hat\mu_i,\hat\mu_j]\)。
+
+\begin{enumerate}[start=2]
+\item
+  考虑限制条件
+  \(\nu_{\rm tot}=\sum_{i=1}^{N}\nu_i=\sum_{i=1}^{N}\sum_{j=1}^{M}R_{ij}\mu_j\)
+  等于总观测事例数 \(n_{\rm tot}=\sum_{i=1}^{N}n_i\)，通过对参数 \(\mu\)
+  和 Lagrange 乘子 \(\lambda\) 最大化 \(\phi(\mu)\) 求得结果
+\end{enumerate}
+
+\[
+\phi(\mu)=-\frac{\alpha}{2}(n-R\mu)^T V^{-1}(n-R\mu)-\mu^T G\mu+\lambda(n_{\rm tot}-\nu_{\rm tot}).
+\]
+
+求估计量 \(\hat\mu\) 及其协方差。
+
+\begin{enumerate}[start=3]
+\item
+  利用 Statistical Data Analysis 中方程 (11.76)，对 (a) 和 (b)
+  两种情况分别构造偏置 \(b=E[\hat\mu]-\mu\) 的估计量 \(\hat b\)。
+\end{enumerate}
+\begin{solution}
+记
+\[
+M=\alpha R^T V^{-1}R+2G.
+\]
+
+\begin{enumerate}
+\item 无总数约束
+
+对
+\[
+\Phi(\mu)=
+-\frac\alpha2(n-R\mu)^TV^{-1}(n-R\mu)-\mu^TG\mu
+\]
+求驻点：
+\[
+\alpha R^TV^{-1}(n-R\hat\mu)-2G\hat\mu=0.
+\]
+故
+\[
+\hat\mu=M^{-1}\alpha R^TV^{-1}n.
+\]
+令
+\[
+A=M^{-1}\alpha R^TV^{-1},
+\]
+则 \(\hat\mu=An\)。若 \(\operatorname{cov}(n)=V\)，则
+\[
+U=\operatorname{cov}(\hat\mu)=AVA^T
+=\alpha^2M^{-1}R^TV^{-1}R M^{-1}.
+\]
+
+\item 加总数约束
+
+令 \(\mathbf 1_N\) 为 \(N\) 维全 1 向量，
+\[
+c=R^T\mathbf 1_N.
+\]
+约束为
+\[
+c^T\mu=\mathbf 1_N^Tn.
+\]
+带 Lagrange 乘子的驻点方程为
+\[
+M\hat\mu=\alpha R^TV^{-1}n+\lambda c.
+\]
+先定义无约束线性解
+\[
+\mu_0=M^{-1}\alpha R^TV^{-1}n.
+\]
+由约束得
+\[
+\lambda=
+\frac{\mathbf 1_N^Tn-c^T\mu_0}{c^TM^{-1}c}.
+\]
+所以
+\[
+\hat\mu
+=\mu_0+M^{-1}c\frac{\mathbf 1_N^Tn-c^T\mu_0}{c^TM^{-1}c}.
+\]
+为避免排版歧义，上式也可写成
+\[
+\hat\mu=Bn,
+\]
+其中
+\[
+B=M^{-1}\alpha R^TV^{-1}
++M^{-1}c\,
+\frac{\mathbf 1_N^T-c^TM^{-1}\alpha R^TV^{-1}}{c^TM^{-1}c}.
+\]
+于是
+\[
+U_{\rm constr}=BVB^T.
+\]
+
+\item 偏置估计
+\pyfig[0.58\linewidth]{figures/fig_11_04_response_matrix.png}{解谱问题中一个响应矩阵的示意；列归一化表示每个真值 bin 对观测 bin 的迁移概率。}
+若线性估计量写成 \(\hat\mu=An\)，且 \(E[n]=R\mu\)，则
+\[
+b=E[\hat\mu]-\mu=(AR-I)\mu.
+\]
+实际中 \(\mu\) 未知，按书中式 (11.76) 的思想可用估计量代入，取
+\[
+\hat b=(AR-I)\hat\mu.
+\]
+无约束情形
+\[
+A=M^{-1}\alpha R^TV^{-1},
+\]
+并且利用 \(M=\alpha R^TV^{-1}R+2G\)，有
+\[
+AR-I=-2M^{-1}G,
+\]
+因此
+\[
+\hat b_a=-2M^{-1}G\hat\mu.
+\]
+
+带约束情形只需把 \(A\) 换成 \(B\)：
+\[
+\hat b_b=(BR-I)\hat\mu.
+\]
+若展开，可得
+\[
+BR-I=-2M^{-1}
+\left(
+G-\frac{c\,c^TM^{-1}G}{c^TM^{-1}c}
+\right),
+\]
+所以
+\[
+\hat b_b=-2M^{-1}
+\left(
+G-\frac{c\,c^TM^{-1}G}{c^TM^{-1}c}
+\right)\hat\mu.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+

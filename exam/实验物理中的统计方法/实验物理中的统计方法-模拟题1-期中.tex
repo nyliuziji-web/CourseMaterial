@@ -1,0 +1,322 @@
+﻿\heading{实验物理中的统计方法-模拟题1-期中}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较往年期中略高。}
+
+\begin{question}
+从 $\{1,2,3,4,5,6\}$ 中随机取一个数 $X$，再从 $\{1,2,\cdots,X\}$ 中随机取一个数 $Y$。求 $E[Y]$。
+\begin{solution}
+由条件期望公式，
+\[
+E[Y\mid X=x]=\frac{1+x}{2}.
+\]
+于是
+\[
+E[Y]=E\bigl(E[Y\mid X]\bigr)=\frac{1+E[X]}{2}.
+\]
+而
+\[
+E[X]=\frac{1+2+3+4+5+6}{6}=\frac72.
+\]
+故
+\ansmath{E[Y]=\frac{1+\frac72}{2}=\frac94}
+\end{solution}
+\end{question}
+
+\begin{question}
+$X,Y$ 相互独立，且都服从参数为 $\lambda$ 的指数分布。令
+\[
+U=\min(X,Y),\qquad I=\mathbf 1\{X<Y\}.
+\]
+求 $U$ 的分布，并说明 $U$ 与 $I$ 是否独立。
+\begin{solution}
+对 $u>0$，
+\[
+P(U>u)=P(X>u,Y>u)=e^{-\lambda u}e^{-\lambda u}=e^{-2\lambda u}.
+\]
+故
+\[
+F_U(u)=1-e^{-2\lambda u},\qquad
+f_U(u)=2\lambda e^{-2\lambda u},\quad u>0.
+\]
+再看 $I$，有
+\[
+P(I=1)=P(X<Y)=\frac12,\qquad P(I=0)=\frac12.
+\]
+并且对任意 $u>0$，
+\[
+P(U>u,I=1)=P(X>u,X<Y).
+\]
+由无记忆性或直接积分可得
+\[
+P(U>u,I=1)=\frac12 e^{-2\lambda u}=P(U>u)P(I=1).
+\]
+同理对 $I=0$ 也成立，所以
+\anstext{$U$ 与 $I$ 独立，且 $U\sim \mathrm{Exp}(2\lambda)$。}
+\end{solution}
+\end{question}
+
+\begin{question}
+有 $n$ 个编号为 $1$ 到 $n$ 的球，$n$ 个编号为 $1$ 到 $n$ 的盒子，将球随机放入盒子，每个盒子放且仅放一个球。称“球号与盒号相同”为一次配对。设配对数为 $K$，求 $E[K(K-1)]$ 及 $\operatorname{Var}(K)$。
+\begin{solution}
+记
+\[
+I_i=\mathbf 1\{\pi(i)=i\},
+\qquad K=\sum_{i=1}^n I_i.
+\]
+则
+\[
+E[I_i]=\frac1n,\qquad E[I_iI_j]=\frac{(n-2)!}{n!}=\frac{1}{n(n-1)}\quad(i\ne j).
+\]
+于是
+\[
+E[K(K-1)]=\sum_{i\ne j}E[I_iI_j]
+=n(n-1)\cdot \frac{1}{n(n-1)}=1.
+\]
+又
+\[
+E[K]=\sum_i E[I_i]=1,
+\qquad
+E[K^2]=E[K(K-1)]+E[K]=2.
+\]
+故
+\ansmath{\operatorname{Var}(K)=E[K^2]-E[K]^2=2-1=1}
+\end{solution}
+\end{question}
+
+\begin{question}
+圆的半径在 $(a,b)$（$0<a<b$）上均匀分布。求圆周长 $C$ 与圆面积 $S$ 的概率密度函数。
+\begin{solution}
+设半径为 $R$，则
+\[
+f_R(r)=\frac{1}{b-a},\qquad a<r<b.
+\]
+对圆周长 $C=2\pi R$，有
+\[
+r=\frac{c}{2\pi},\qquad \frac{dr}{dc}=\frac{1}{2\pi},
+\]
+故
+\ansmath{f_C(c)=\frac{1}{2\pi(b-a)},\qquad 2\pi a<c<2\pi b}
+对面积 $S=\pi R^2$，有
+\[
+r=\sqrt{\frac{s}{\pi}},\qquad
+\left|\frac{dr}{ds}\right|=\frac{1}{2\sqrt{\pi s}}.
+\]
+因此
+\ansmath{f_S(s)=\frac{1}{2(b-a)\sqrt{\pi s}},\qquad \pi a^2<s<\pi b^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个仪器在时间轴上发生故障的次数服从参数为 $\lambda t$ 的泊松过程。记第一次故障时刻为 $T_1$，第二次故障时刻为 $T_2$。求条件密度 $f_{T_1\mid T_2=t}(u)$。
+\begin{solution}
+已知在区间 $(0,t)$ 内恰有两次到达，两个到达时刻的顺序统计量与两个独立均匀点在 $(0,t)$ 上的顺序统计量等价。因此
+\[
+T_1\mid T_2=t
+\]
+就是两个均匀点中较小者的分布。也可直接由联合密度写出
+\[
+f_{T_1,T_2}(u,t)=\lambda^2 e^{-\lambda t},\qquad 0<u<t.
+\]
+而
+\[
+f_{T_2}(t)=\lambda^2 t e^{-\lambda t},\qquad t>0.
+\]
+故
+\[
+f_{T_1\mid T_2=t}(u)=\frac{f_{T_1,T_2}(u,t)}{f_{T_2}(t)}
+=\frac{1}{t},\qquad 0<u<t.
+\]
+所以
+\ansmath{T_1\mid T_2=t\sim U(0,t)}
+\end{solution}
+\end{question}
+
+\begin{question}
+随机变量 $(X,Y)$ 的联合概率密度为
+\[
+f(x,y)=\begin{cases}
+c(x+y),&0<x<1,\ 0<y<1-x,\\
+0,&\text{其他}.
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求常数 $c$；
+\item 求边缘密度 $f_X(x)$；
+\item 求 $P(Y>X)$。
+\end{enumerate}
+\begin{solution}
+由归一化条件，
+\[
+1=c\int_0^1\int_0^{1-x}(x+y)\,dy\,dx
+=c\cdot \frac13,
+\]
+所以
+\ansmath{c=3}
+再算边缘密度：
+\[
+f_X(x)=\int_0^{1-x}3(x+y)\,dy
+=3x(1-x)+\frac32(1-x)^2
+=\frac32(1-x^2),\qquad 0<x<1.
+\]
+故
+\ansmath{f_X(x)=\frac32(1-x^2),\qquad 0<x<1}
+由于区域与密度都关于直线 $x=y$ 对称，而三角区域被 $x=y$ 平分，因此
+\ansmath{P(Y>X)=\frac12}
+\end{solution}
+\end{question}
+
+\begin{question}
+用宇宙射线标定一块闪烁体的探测效率：把待测闪烁体夹在上下两个闪烁体中间，只有上下两块都计数时才认为有一次有效穿过。现测得上下两块同时计数 $2500$ 次，其中中间闪烁体计数 $2310$ 次。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求待测闪烁体效率的估计值及其统计不确定度；
+\item 若现在串联放两块完全相同且相互独立的待测闪烁体，要求两块都计数才算通过，求系统效率及其统计不确定度。
+\end{enumerate}
+\begin{solution}
+把有效穿过次数视为 $N=2500$，中间层记数 $k=2310$，则效率估计
+\[
+\hat\varepsilon=\frac{k}{N}=0.924.
+\]
+按二项分布近似，
+\[
+\sigma_{\hat\varepsilon}
+=\sqrt{\frac{\hat\varepsilon(1-\hat\varepsilon)}{N}}
+=\sqrt{\frac{0.924\times 0.076}{2500}}
+\approx 5.30\times 10^{-3}.
+\]
+故
+\ansmath{\hat\varepsilon=0.924\pm 0.0053}
+若两块相同且独立，则系统效率
+\[
+\hat\varepsilon_{\rm sys}=\hat\varepsilon^2=0.8538.
+\]
+由误差传播，
+\[
+\sigma_{\hat\varepsilon_{\rm sys}}
+\approx \left|2\hat\varepsilon\right|\sigma_{\hat\varepsilon}
+\approx 2\times 0.924\times 0.00530
+\approx 9.79\times 10^{-3}.
+\]
+因此
+\ansmath{\hat\varepsilon_{\rm sys}=0.8538\pm 0.0098}
+\end{solution}
+\end{question}
+
+\begin{question}
+抛一枚硬币，其正面概率记为 $\theta$。先验取为
+\[
+\pi(\theta)\propto \theta(1-\theta),\qquad 0<\theta<1.
+\]
+现观测到 6 次抛掷结果，其中 4 次正面、2 次反面。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\theta$ 的后验分布；
+\item 求下一次仍为正面的后验预测概率；
+\item 求后面两次都为正面的后验预测概率。
+\end{enumerate}
+\begin{solution}
+给定先验
+\[
+\theta\sim \mathrm{Beta}(2,2).
+\]
+观测到 4 正 2 反后，
+\[
+\theta\mid D\sim \mathrm{Beta}(2+4,2+2)=\mathrm{Beta}(6,4).
+\]
+故
+\ansmath{\theta\mid D\sim \mathrm{Beta}(6,4)}
+后验均值为
+\[
+E[\theta\mid D]=\frac{6}{10}=\frac35,
+\]
+所以下一次为正面的预测概率为
+\ansmath{P(H_{\rm next}\mid D)=\frac35}
+再由
+\[
+P(HH\mid D)=E[\theta^2\mid D]
+=\frac{6\cdot 7}{10\cdot 11},
+\]
+得
+\ansmath{P(HH\mid D)=\frac{21}{55}}
+\end{solution}
+\end{question}
+
+\begin{question}
+将一个电子打到第一级倍增极，产生的电子数 $N$ 服从均值为 $\nu_1$ 的泊松分布。每一个电子再打到第二级倍增极，各自产生的电子数 $X_i$ 独立同分布，且都服从均值为 $\nu_2$ 的泊松分布。求
+\[
+Y=\sum_{i=1}^{N}X_i
+\]
+的期望和方差。
+\begin{solution}
+给定 $N$ 后，有
+\[
+Y\mid N\sim \mathrm{Poisson}(N\nu_2),
+\]
+因此
+\[
+E[Y\mid N]=N\nu_2,\qquad \operatorname{Var}(Y\mid N)=N\nu_2.
+\]
+由全期望公式，
+\[
+E[Y]=E(E[Y\mid N])=\nu_2E[N]=\nu_1\nu_2.
+\]
+由全方差公式，
+\[
+\operatorname{Var}(Y)=E(\operatorname{Var}(Y\mid N))+\operatorname{Var}(E[Y\mid N])
+=\nu_2E[N]+\nu_2^2\operatorname{Var}(N).
+\]
+由于 $N\sim \mathrm{Poisson}(\nu_1)$，故 $E[N]=\operatorname{Var}(N)=\nu_1$，从而
+\ansmath{E[Y]=\nu_1\nu_2,\qquad \operatorname{Var}(Y)=\nu_1\nu_2+\nu_1\nu_2^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+雷达显示屏的有效区域是一个内半径为 $a$、外半径为 $b$ 的圆环（$0<a<b$）。假设光点在圆环内均匀出现。求光点到圆心距离 $R$ 的概率密度函数与期望。
+\begin{solution}
+按面积均匀分布，半径 $r$ 的密度与环带面积元成正比，因此
+\[
+f_R(r)=\frac{2r}{b^2-a^2},\qquad a<r<b.
+\]
+故
+\ansmath{f_R(r)=\frac{2r}{b^2-a^2},\qquad a<r<b}
+期望为
+\[
+E[R]=\int_a^b r\frac{2r}{b^2-a^2}\,dr
+=\frac{2}{b^2-a^2}\cdot \frac{b^3-a^3}{3}.
+\]
+即
+\ansmath{E[R]=\frac{2(b^3-a^3)}{3(b^2-a^2)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+三个元件相互独立，单个元件在时刻 $t$ 以前失效的概率为 $F(t)$。若系统只有在至少两个元件仍正常工作时才正常工作，求系统正常工作时间 $T$ 的累积分布函数。
+\begin{solution}
+记
+\[
+q(t)=P(\text{单个元件在 }t\text{ 时仍正常})=1-F(t).
+\]
+系统在时刻 $t$ 仍正常，等价于三者中至少两个仍正常。因此
+\[
+P(T>t)=\binom32 q(t)^2(1-q(t))+\binom33 q(t)^3
+=3q(t)^2-2q(t)^3.
+\]
+所以
+\[
+F_T(t)=1-P(T>t).
+\]
+即
+\ansmath{F_T(t)=1-3[1-F(t)]^2+2[1-F(t)]^3}
+\end{solution}
+\end{question}
+
+\begin{question}
+某稀有事例实验中，本底事例数服从均值为 $2.5$ 的泊松分布。现观测到 $7$ 个疑似信号，求这一结果对应的显著性水平（$p$ 值）。
+\begin{solution}
+显著性水平取右尾概率：
+\[
+p=P(N\ge 7\mid \lambda=2.5)
+=1-\sum_{k=0}^{6}e^{-2.5}\frac{2.5^k}{k!}.
+\]
+数值上
+\ansmath{p\approx 0.0142}
+\end{solution}
+\end{question}
+

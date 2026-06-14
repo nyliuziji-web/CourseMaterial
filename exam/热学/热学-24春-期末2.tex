@@ -1,0 +1,235 @@
+﻿\heading{热学-24春-期末2}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\begin{question}
+写出热力学第一定律，并说明它与能量守恒的关系。
+\begin{solution}
+第一定律可写为
+\[
+dU=\delta Q-\delta W.
+\]
+对有限过程，
+\[
+\Delta U=Q-W.
+\]
+含义是：系统内能的增量等于外界传给系统的热量减去系统对外所作的功。它是能量守恒定律在热学中的具体表达，其中热和功是能量传递的两种方式；但第一定律本身不说明过程方向，这要靠第二定律。
+\ansmath{\Delta U=Q-W}
+\end{solution}
+\end{question}
+
+\begin{question}
+写出熵表述的第二定律，并由此证明卡诺定理。
+\begin{solution}
+熵表述为：任意循环满足
+\[
+\oint \frac{\delta Q}{T}\le 0,
+\]
+等号仅对可逆循环成立。设热机从高温热源 $T_h$ 吸热 $Q_h$，向低温热源 $T_c$ 放热 $Q_c$，则
+\[
+\frac{Q_h}{T_h}-\frac{Q_c}{T_c}\le 0
+\quad\Rightarrow\quad
+\frac{Q_c}{Q_h}\ge \frac{T_c}{T_h}.
+\]
+因此效率
+\[
+\eta=1-\frac{Q_c}{Q_h}\le 1-\frac{T_c}{T_h}.
+\]
+等号仅对可逆机成立，所以在同样两热源之间，没有任何热机效率能超过可逆卡诺机；所有可逆机效率相同，这就是卡诺定理。
+\ansmath{\eta=1-\frac{Q_c}{Q_h}\le 1-\frac{T_c}{T_h}}
+\end{solution}
+\end{question}
+
+\begin{question}
+硬币插入干冰会“发抖”，钢球压在干冰上会“尖叫”，为什么？
+\begin{solution}
+干冰会迅速升华。硬币或钢球与干冰接触后，其下方不断产生二氧化碳气体，形成很薄的气膜。气膜的喷射与局部接触会引起周期性的滑移/振动：
+\begin{itemize}[leftmargin=1.8em,itemsep=0.2em]
+\item 硬币较轻，振动频率较低，表现为“发抖”；
+\item 钢球压得更紧，气体从狭缝高速喷出，更容易激发高频机械振动，故会发出尖锐声音。
+\end{itemize}
+本质上都是升华气体导致的自激振动与声辐射。
+\anstext{见上。}
+\end{solution}
+\end{question}
+
+\begin{question}
+黑色陶瓷和白色陶瓷一起加热到约 $1000^\circ\mathrm C$ 时看起来分别是什么颜色？可总结什么规律？
+\begin{solution}
+两者都会发出明显热辐射，肉眼看上去都接近暗红到红橙色；黑色陶瓷通常更亮一些，但颜色主调主要由温度决定，而不是室温下的反射颜色。可总结：\textbf{热辐射光谱主要由温度决定；吸收率高的材料往往发射率也高}（Kirchhoff 定律）。
+\anstext{两者都会发出明显热辐射，肉眼看上去都接近暗红到红橙色；黑色陶瓷通常更亮一些，但颜色主调主要由温度决定，而不是室温下的反射颜色。可总结：（Kirchhoff 定律）。}
+\end{solution}
+\end{question}
+
+\begin{question}
+理想气体 Brayton 循环：$1\to2,3\to4$ 为绝热，$2\to3,4\to1$ 为等压。请提出至少两种提高热效率的方法。
+\begin{solution}
+对理想 Brayton 循环，热效率可写成
+\[
+\eta=1-\frac{T_4-T_1}{T_3-T_2}.
+\]
+提高效率的常见办法有：
+\begin{itemize}[leftmargin=1.8em,itemsep=0.2em]
+\item 提高压比 $p_2/p_1$；
+\item 提高涡轮进口温度 $T_3$；
+\item 加装回热器（再生器），用尾气预热压缩后的工质；
+\item 采用多级压缩配中间冷却、或多级膨胀配再热并优化参数。
+\end{itemize}
+只要答出其中两条并说明其物理原因即可。
+\ansmath{\eta=1-\frac{T_4-T_1}{T_3-T_2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+在绝热容器中，质量都为 $m$ 的两份水，初温分别为 $T_1,T_2$，压强一定，比热 $C_p$ 取常数。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求总熵变；
+\item 对每一份水分别看，该过程是否可逆？第二定律怎样表述才正确？
+\item 若 $T_1>T_2$，利用混合前两份水作为热源，最多可输出多少功？
+\end{enumerate}
+\begin{solution}
+设直接混合后的平衡温度为
+\[
+T_f=\frac{T_1+T_2}{2}.
+\]
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 总熵变
+\[
+\Delta S=mC_p\ln\frac{T_f}{T_1}+mC_p\ln\frac{T_f}{T_2}
+=mC_p\ln\frac{(T_1+T_2)^2}{4T_1T_2}\ge 0.
+\]
+\item 对每一部分水而言，实际换热都跨越有限温差，因此都是\textbf{不可逆}过程。若把单独一部分水拿出来看，它不是孤立系，故不能直接说“熵不减”；正确说法是 Clausius 不等式适用于实际过程，而对整个绝热复合系统则有总熵增加。
+\item 若通过可逆热机榨取最大功，则总熵守恒，末态共同温度满足
+\[
+2mC_p\ln T_f^{(\max W)}=mC_p\ln T_1+mC_p\ln T_2,
+\]
+故
+\[
+T_f^{(\max W)}=\sqrt{T_1T_2}.
+\]
+最大输出功为
+\[
+W_{\max}=mC_p(T_1+T_2-2\sqrt{T_1T_2})
+=mC_p(\sqrt{T_1}-\sqrt{T_2})^2.
+\]
+\end{enumerate}
+\anstext{见上。}
+\end{solution}
+\end{question}
+
+\begin{question}
+水的气液相变。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 用熵判据推导气液共存时的平衡条件；
+\item 饱和蒸气视为理想气体，且 $v_g\gg v_l$、汽化热 $L$ 为常量，求饱和蒸气压方程。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 对孤立两相系统，平衡时总熵极大。对两相间微小交换 $dU,dV,dN$，有
+\[
+dS_{\text{tot}}=\left(\frac1{T_g}-\frac1{T_l}\right)dU+
+\left(\frac{p_g}{T_g}-\frac{p_l}{T_l}\right)dV-
+\left(\frac{\mu_g}{T_g}-\frac{\mu_l}{T_l}\right)dN.
+\]
+平衡时对任意允许扰动都应为零，故
+\[
+T_g=T_l,\qquad p_g=p_l,\qquad \mu_g=\mu_l.
+\]
+\item Clausius--Clapeyron 方程为
+\[
+\frac{dp}{dT}=\frac{L}{T(v_g-v_l)}\approx \frac{L}{T v_g}.
+\]
+又理想气体近似 $v_g=RT/p$，故
+\[
+\frac{dp}{dT}=\frac{Lp}{RT^2}.
+\]
+分离变量积分得
+\[
+\ln p=-\frac{L}{RT}+C,
+\]
+即
+\[
+p(T)=p_*\exp\left[-\frac{L}{R}\left(\frac1T-\frac1{T_*}\right)\right],
+\]
+或写作 $p=Ae^{-L/(RT)}$。
+\end{enumerate}
+\anstext{见上。}
+\end{solution}
+\end{question}
+
+\begin{question}
+光子气体：已知压强 $p=u/3$，且内能密度 $u$ 只依赖于温度 $T$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 推导 $U$ 与 $T,V$ 的关系；
+\item 推导绝热过程中 $V,T$ 的关系。
+\end{enumerate}
+\begin{solution}
+设总内能
+\[
+U=Vu(T).
+\]
+由
+\[
+dS=\frac{1}{T}dU+\frac{p}{T}dV
+=\frac{V u'(T)}{T}dT+\frac{u+p}{T}dV
+=\frac{V u'(T)}{T}dT+\frac{4u}{3T}dV.
+\]
+由 $S(T,V)$ 的全微分可积条件，得
+\[
+\frac{u'}{T}=\frac{d}{dT}\left(\frac{4u}{3T}\right)
+\quad\Rightarrow\quad
+u'(T)=\frac{4u(T)}{T}.
+\]
+解得
+\[
+u(T)=aT^4,
+\qquad U=aVT^4.
+\]
+绝热可逆时 $dS=0$，等价于
+\[
+dU+p\,dV=0.
+\]
+代入 $U=aVT^4$ 与 $p=aT^4/3$，得
+\[
+4aVT^3dT+\frac{4}{3}aT^4dV=0
+\quad\Rightarrow\quad
+\frac{dT}{T}=-\frac13\frac{dV}{V}.
+\]
+故
+\[
+TV^{1/3}=\text{常数}.
+\]
+\ansmath{TV^{1/3}=\text{常数}}
+\end{solution}
+\end{question}
+
+\begin{question}
+半径 $r=1\,\mathrm{mm}$ 的气泡位于水下 $h=10\,\mathrm m$，水温 $T_0=300\,\mathrm K$，表面张力系数 $\alpha=0.073\,\mathrm{N/m}$，泡内初压约为 $10^{-5}$ 个大气压，估算内爆时最高温度；可能出现什么现象？设水蒸气 $C_V=3R$。
+\begin{solution}
+取外压为
+\[
+p_f\approx p_0+\rho gh+\frac{2\alpha}{r}
+\approx 1\,\text{atm}+0.97\,\text{atm}+0.0014\,\text{atm}
+\approx 2.0\,\text{atm}.
+\]
+初压
+\[
+p_i\approx 10^{-5}\,\text{atm}.
+\]
+因为 $C_V=3R$，故
+\[
+\gamma=\frac{C_p}{C_V}=\frac{4R}{3R}=\frac43.
+\]
+把内爆近似为绝热压缩，
+\[
+T_f=T_0\left(\frac{p_f}{p_i}\right)^{(\gamma-1)/\gamma}
+=300\left(\frac{2.0}{10^{-5}}\right)^{1/4}
+\approx 6.3\times 10^3\,\mathrm K.
+\]
+量级约为数千开。如此高温下可能出现强烈发光（声致发光）、局部电离等现象。
+\ansmath{T_f=T_0\left(\frac{p_f}{p_i}\right)^{(\gamma-1)/\gamma}
+=300\left(\frac{2.0}{10^{-5}}\right)^{1/4}
+\approx 6.3\times 10^3\,\mathrm K}
+\end{solution}
+\end{question}
+
+

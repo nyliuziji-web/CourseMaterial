@@ -1,0 +1,171 @@
+﻿\heading{数学物理方法（下）-模拟题2-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑弦振动问题
+\[
+\begin{cases}
+ u_{tt}=c^2u_{xx}, & 0<x<l,\ t>0,\\
+ u_x(0,t)-h u(0,t)=0,\qquad u(l,t)=0, & t>0,\\
+ u(x,0)=f(x),\qquad u_t(x,0)=0.
+\end{cases}
+\]
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 用分离变量导出空间本征值问题；
+\item 写出本征值方程与本征函数；
+\item 写出形式解及展开系数。
+\end{enumerate}
+\begin{solution}
+
+设 $u(x,t)=X(x)T(t)$，代入得
+\[
+\frac{T''}{c^2T}=\frac{X''}{X}=-\mu^2.
+\]
+于是空间方程为
+\[
+X''+\mu^2X=0,
+\qquad X'(0)-hX(0)=0,
+\qquad X(l)=0.
+\]
+由 $X(l)=0$，可取
+\[
+X(x)=A\sin\mu(l-x).
+\]
+再代入 $X'(0)-hX(0)=0$，得到本征值方程
+\[
+-\mu\cos(\mu l)-h\sin(\mu l)=0,
+\qquad\text{即}\qquad
+\boxed{\mu\cos(\mu l)+h\sin(\mu l)=0.}
+\]
+对应本征函数可取
+\ansmath{X_n(x)=\sin\mu_n(l-x).}
+时间部分满足
+\[
+T_n''+c^2\mu_n^2T_n=0,
+\]
+因初速度为零，故形式解为
+\ansmath{u(x,t)=\sum_{n=1}^{\infty}a_n\cos(c\mu_n t)X_n(x).}
+展开系数由正交性得
+\ansmath{a_n=\frac{\int_0^l f(x)X_n(x)\,dx}{\int_0^l X_n(x)^2\,dx}.}
+其中
+\[
+\int_0^l X_n(x)^2\,dx
+=\frac l2-\frac{\sin(2\mu_n l)}{4\mu_n}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+在半无限长条形区域
+\[
+0<x<a,\qquad y>0
+\]
+内求解 Laplace 方程
+\[
+\nabla^2u=0,
+\]
+满足边界条件
+\[
+u(0,y)=u(a,y)=0,\qquad u(x,0)=f(x),\qquad u(x,y)\to0\ (y\to\infty).
+\]
+\begin{solution}
+
+设 $u(x,y)=X(x)Y(y)$，则
+\[
+\frac{X''}{X}=-\frac{Y''}{Y}=-\lambda.
+\]
+由边界 $u(0,y)=u(a,y)=0$ 得
+\[
+X_n(x)=\sin\frac{n\pi x}{a},
+\qquad \lambda_n=\left(\frac{n\pi}{a}\right)^2,
+\qquad n=1,2,\dots
+\]
+而 $y\to\infty$ 时衰减要求
+\[
+Y_n(y)=e^{-n\pi y/a}.
+\]
+故解为
+\[
+u(x,y)=\sum_{n=1}^{\infty}b_n e^{-n\pi y/a}\sin\frac{n\pi x}{a}.
+\]
+由底边条件 $u(x,0)=f(x)$，得
+\ansmath{b_n=\frac{2}{a}\int_0^a f(\xi)\sin\frac{n\pi \xi}{a}\,d\xi.}
+因此
+\ansmath{u(x,y)=\sum_{n=1}^{\infty}\left(\frac{2}{a}\int_0^a f(\xi)\sin\frac{n\pi \xi}{a}\,d\xi\right)e^{-n\pi y/a}\sin\frac{n\pi x}{a}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+求解周期热传导问题
+\[
+\begin{cases}
+ u_t=\kappa u_{xx}, & -\pi<x<\pi,\ t>0,\\
+ u(-\pi,t)=u(\pi,t),\quad u_x(-\pi,t)=u_x(\pi,t), & t>0,\\
+ u(x,0)=x^2.
+\end{cases}
+\]
+\begin{solution}
+
+在 $[-\pi,\pi]$ 上，$x^2$ 的 Fourier 级数为
+\[
+x^2=\frac{\pi^2}{3}+4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}\cos(nx).
+\]
+周期热方程对每个 Fourier 模态仅带来衰减因子 $e^{-\kappa n^2t}$，故解为
+\ansmath{u(x,t)=\frac{\pi^2}{3}+4\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}e^{-\kappa n^2t}\cos(nx).}
+\end{solution}
+\end{question}
+
+\begin{question}
+在扇形区域
+\[
+0<r<a,\qquad 0<\theta<\beta
+\]
+内求解 Laplace 方程
+\[
+\nabla^2u=0,
+\]
+边界条件为
+\[
+u(r,0)=u(r,\beta)=0,
+\qquad
+u(a,\theta)=g(\theta).
+\]
+写出分离变量解。
+\begin{solution}
+
+取 $u(r,\theta)=R(r)\Theta(\theta)$，代入极坐标 Laplace 方程得
+\[
+\frac{r^2R''+rR'}{R}=-\frac{\Theta''}{\Theta}=\lambda.
+\]
+由角向边界条件
+\[
+\Theta(0)=\Theta(\beta)=0
+\]
+可得
+\[
+\Theta_n(\theta)=\sin\frac{n\pi\theta}{\beta},
+\qquad
+\lambda_n=\left(\frac{n\pi}{\beta}\right)^2,
+\qquad n=1,2,\dots
+\]
+径向方程为 Euler 方程
+\[
+r^2R''+rR'-\left(\frac{n\pi}{\beta}\right)^2R=0,
+\]
+在 $r=0$ 有界要求舍去负幂项，故
+\[
+R_n(r)=C_n r^{n\pi/\beta}.
+\]
+于是解写成
+\[
+u(r,\theta)=\sum_{n=1}^{\infty}A_n\left(\frac{r}{a}\right)^{n\pi/\beta}\sin\frac{n\pi\theta}{\beta}.
+\]
+由 $u(a,\theta)=g(\theta)$，得
+\ansmath{A_n=\frac{2}{\beta}\int_0^{\beta}g(\phi)\sin\frac{n\pi\phi}{\beta}\,d\phi.}
+故
+\ansmath{u(r,\theta)=\sum_{n=1}^{\infty}\left(\frac{2}{\beta}\int_0^{\beta}g(\phi)\sin\frac{n\pi\phi}{\beta}\,d\phi\right)\left(\frac{r}{a}\right)^{n\pi/\beta}\sin\frac{n\pi\theta}{\beta}.}
+\end{solution}
+\end{question}
+
+

@@ -1,0 +1,220 @@
+﻿\heading{理论物理基础（II）-模拟题4-期末}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑一维对称双 $\delta$ 吸引势
+\[
+V(x)=-\alpha\bigl[\delta(x-a)+\delta(x+a)\bigr],
+\qquad \alpha>0,
+\qquad a>0.
+\]
+设束缚态能量为
+\[
+E=-\frac{\hbar^2\kappa^2}{2m},\qquad \kappa>0.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 写出偶宇称与奇宇称束缚态波函数的形式；
+  \item 分别导出偶宇称与奇宇称束缚态满足的本征值方程；
+  \item 证明奇宇称束缚态存在的条件为
+  \[
+  \frac{2m\alpha a}{\hbar^2}>1;
+  \]
+  \item 在 $a$ 很大时，求偶宇称与奇宇称束缚态对应的 $\kappa$ 的近似表达式，保留首个指数小修正。
+\end{enumerate}
+
+\begin{solution}
+由于势能关于原点对称，束缚态可分为偶宇称与奇宇称。
+
+偶宇称时可写为
+\[
+\psi_+(x)=
+\begin{cases}
+A\cosh(\kappa x),& |x|<a,\\
+B e^{-\kappa |x|},& |x|>a.
+\end{cases}
+\]
+奇宇称时可写为
+\[
+\psi_-(x)=
+\begin{cases}
+A\sinh(\kappa x),& |x|<a,\\
+B\,\mathrm{sgn}(x)e^{-\kappa |x|},& |x|>a.
+\end{cases}
+\]
+
+在 $x=a$ 处，波函数连续而导数满足跳跃条件
+\[
+\psi'(a+0)-\psi'(a-0)=-\frac{2m\alpha}{\hbar^2}\psi(a).
+\]
+对偶宇称代入后，得到
+\ansmath{\kappa=\frac{m\alpha}{\hbar^2}\left(1+e^{-2\kappa a}\right).}
+对奇宇称代入后，得到
+\ansmath{\kappa=\frac{m\alpha}{\hbar^2}\left(1-e^{-2\kappa a}\right).}
+
+对奇宇称方程，记
+\[
+g\equiv \frac{m\alpha}{\hbar^2}.
+\]
+其右边在 $\kappa=0$ 附近展开为
+\[
+g\left(1-e^{-2\kappa a}\right)=2ag\,\kappa+O(\kappa^2).
+\]
+要使方程 $\kappa=g(1-e^{-2\kappa a})$ 在 $\kappa>0$ 处存在非零解，必须有右边在原点处斜率大于 $1$，即
+\[
+2ag>1.
+\]
+故奇宇称束缚态存在的条件为
+\ansmath{\frac{2m\alpha a}{\hbar^2}>1.}
+
+当 $a$ 很大时，两个束缚态都接近单个吸引 $\delta$ 势的结果 $\kappa=g$。将 $\kappa=g+\delta$ 代入，可得
+\[
+\kappa_+=g\left(1+e^{-2ga}\right)+O(e^{-4ga}),
+\qquad
+\kappa_-=g\left(1-e^{-2ga}\right)+O(e^{-4ga}).
+\]
+因此
+\ansmath{\kappa_+\simeq \frac{m\alpha}{\hbar^2}\left(1+e^{-2m\alpha a/\hbar^2}\right),
+\qquad
+\kappa_-\simeq \frac{m\alpha}{\hbar^2}\left(1-e^{-2m\alpha a/\hbar^2}\right).}
+对应能量分裂为偶宇称更低、奇宇称更高。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑氢原子的 $n=2$ 简并子空间中的两个态
+\[
+\psi_{200}(r,\theta,\phi)=\frac{1}{4\sqrt{2\pi a_0^3}}\left(2-\frac{r}{a_0}\right)e^{-r/(2a_0)},
+\]
+\[
+\psi_{210}(r,\theta,\phi)=\frac{1}{4\sqrt{2\pi a_0^3}}\frac{r}{a_0}\cos\theta\,e^{-r/(2a_0)}.
+\]
+现在加入微扰哈密顿量
+\[
+\hat H'=F z,
+\]
+其中 $F$ 为实常数，$z=r\cos\theta$。只考虑由这两个态张成的二维子空间。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 计算矩阵元 $\langle 200|z|200\rangle$、$\langle 210|z|210\rangle$ 与 $\langle 200|z|210\rangle$；
+  \item 写出总哈密顿量 $\hat H_0+\hat H'$ 在基 $\{\psi_{200},\psi_{210}\}$ 下的矩阵，并求其本征值与归一化本征态；
+  \item 若初态为 $\psi_{200}$，求任意时刻的态；
+  \item 在该态下测量宇称，求得到偶宇称和奇宇称的概率。
+\end{enumerate}
+
+\begin{solution}
+由于 $z$ 在宇称下为奇函数，故对角元都为零：
+\[
+\langle 200|z|200\rangle=0,
+\qquad
+\langle 210|z|210\rangle=0.
+\]
+而非对角元为
+\[
+\langle 200|z|210\rangle
+=\int \psi_{200}^*(r,\theta,\phi)\,r\cos\theta\,\psi_{210}(r,\theta,\phi)\,d^3r
+=-3a_0.
+\]
+因此
+\ansmath{\langle 200|z|200\rangle=\langle 210|z|210\rangle=0,
+\qquad
+\langle 200|z|210\rangle=\langle 210|z|200\rangle=-3a_0.}
+
+设氢原子第 $n=2$ 能级为 $E_2$，则在基 $\{\psi_{200},\psi_{210}\}$ 下
+\[
+\hat H_0+\hat H'\ \longleftrightarrow\ 
+\begin{pmatrix}
+E_2 & -3Fa_0\\
+-3Fa_0 & E_2
+\end{pmatrix}.
+\]
+其本征值与本征态为
+\ansmath{E_{\pm}=E_2\pm 3Fa_0,}
+\ansmath{\psi_{\pm}=\frac{1}{\sqrt2}\bigl(\psi_{200}\mp \psi_{210}\bigr).}
+
+把初态写成
+\[
+\psi_{200}=\frac{1}{\sqrt2}(\psi_++\psi_-),
+\]
+于是时间演化为
+\[
+\psi(t)=\frac{1}{\sqrt2}\left(e^{-iE_+ t/\hbar}\psi_++e^{-iE_- t/\hbar}\psi_-\right).
+\]
+再化回原基底，得
+\ansmath{\psi(t)=e^{-iE_2 t/\hbar}\left[\cos\left(\frac{3Fa_0 t}{\hbar}\right)\psi_{200}+i\sin\left(\frac{3Fa_0 t}{\hbar}\right)\psi_{210}\right].}
+
+因为 $\psi_{200}$ 为偶宇称态、$\psi_{210}$ 为奇宇称态，所以测量宇称时的概率就是各自振幅模方：
+\ansmath{P_{\mathrm{even}}(t)=\cos^2\left(\frac{3Fa_0 t}{\hbar}\right),
+\qquad
+P_{\mathrm{odd}}(t)=\sin^2\left(\frac{3Fa_0 t}{\hbar}\right).}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑三维球形无限深势阱
+\[
+V(r)=
+\begin{cases}
+0,& 0<r<a,\\
++\infty,& r\ge a.
+\end{cases}
+\]
+粒子质量为 $m$。设波函数分离为
+\[
+\psi(r,\theta,\phi)=R_{E\ell}(r)Y_\ell^m(\theta,\phi),
+\qquad u(r)=rR_{E\ell}(r).
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 写出径向方程与边界条件；
+  \item 对 $\ell=0$，求基态能量与归一化波函数；
+  \item 说明第一激发态对应于哪一个 $\ell$，写出其能量方程与简并度。
+\end{enumerate}
+
+\begin{solution}
+球对称势下径向方程为
+\[
+\left[-\frac{\hbar^2}{2m}\frac{d^2}{dr^2}+\frac{\hbar^2\ell(\ell+1)}{2mr^2}\right]u(r)=Eu(r),
+\qquad 0<r<a.
+\]
+边界条件是
+\[
+u(0)=0,
+\qquad u(a)=0.
+\]
+其中第二个条件来自 $r=a$ 处无限高势垒。
+
+对 $\ell=0$，有
+\[
+u''+k^2u=0,
+\qquad k=\frac{\sqrt{2mE}}{\hbar}.
+\]
+满足 $u(0)=0$ 的解为 $u(r)=A\sin kr$。再由 $u(a)=0$ 得
+\[
+ka=n\pi,
+\qquad n=1,2,3,\dots.
+\]
+基态对应 $n=1$，故
+\ansmath{E_{\mathrm{gs}}=\frac{\pi^2\hbar^2}{2ma^2}.}
+归一化条件 $\int_0^a |u(r)|^2dr=1$ 给出 $A=\sqrt{2/a}$，从而
+\ansmath{u_{\mathrm{gs}}(r)=\sqrt{\frac{2}{a}}\sin\frac{\pi r}{a},
+\qquad
+R_{\mathrm{gs}}(r)=\sqrt{\frac{2}{a}}\frac{\sin(\pi r/a)}{r},}
+相应总波函数为
+\[
+\psi_{\mathrm{gs}}(r,\theta,\phi)=\frac{1}{\sqrt{4\pi}}R_{\mathrm{gs}}(r).
+\]
+
+第一激发态不是 $\ell=0$ 的第二个径向根，而是 $\ell=1$ 的第一个根。对 $\ell=1$，径向解与球贝塞尔函数 $j_1(kr)$ 成正比，边界条件要求
+\[
+j_1(ka)=0.
+\]
+这等价于
+\ansmath{\tan(ka)=ka.}
+其第一个正根记为 $x_1\approx 4.493$，所以第一激发能量为
+\ansmath{E_{1\mathrm{st}}=\frac{\hbar^2 x_1^2}{2ma^2},\qquad x_1\approx 4.493.}
+由于 $\ell=1$ 时磁量子数 $m=-1,0,1$，该能级的简并度为
+\ansmath{g=2\ell+1=3.}
+\end{solution}
+\end{question}
+

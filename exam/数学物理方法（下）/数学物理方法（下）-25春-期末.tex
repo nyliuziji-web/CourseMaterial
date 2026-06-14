@@ -1,0 +1,226 @@
+﻿\heading{数学物理方法（下）-25春-期末}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\begin{question}[伴算符与斜自伴]
+
+给定算符
+\[
+\hat L=-\frac{d}{dx},
+\qquad
+D(\hat L)=\{u(x):0<x<\pi,\ u\in L^2[0,\pi],\ u(\pi)=\gamma u(0)\}.
+\]
+求 $\hat L$ 的伴算符 $\hat L^\dagger$;并问复数 $\gamma$ 满足什么条件时有 $\hat L^\dagger=-\hat L$，并求此条件下 $\hat L^\dagger$ 的所有本征值和相应本征函数。
+
+\begin{solution}
+
+对任意 $u\in D(\hat L)$、$v\in D(\hat L^\dagger)$，有
+\[
+\langle \hat Lu,v\rangle
+=-\int_0^{\pi}u'(x)\overline{v(x)}\,dx
+=\int_0^{\pi}u(x)\overline{v'(x)}\,dx-u(\pi)\overline{v(\pi)}+u(0)\overline{v(0)}.
+\]
+由 $u(\pi)=\gamma u(0)$ 可得边界项为
+\[
+ u(0)\bigl(\overline{v(0)}-\gamma\overline{v(\pi)}\bigr).
+\]
+要对任意 $u$ 消失，必须有
+\[
+ v(0)=\overline{\gamma}\,v(\pi).
+\]
+于是
+\ansmath{\hat L^\dagger=\frac{d}{dx}},
+\qquad
+\boxed{D(\hat L^\dagger)=\{v:0<x<\pi,\ v\in L^2[0,\pi],\ v(0)=\overline\gamma\,v(\pi)\}.}
+
+因为 $-\hat L=d/dx$，要使 $\hat L^\dagger=-\hat L$，只需两个定义域一致，即
+\[
+ v(\pi)=\gamma v(0)
+\quad\Longleftrightarrow\quad
+ v(0)=\overline\gamma\,v(\pi).
+\]
+这当且仅当
+\ansmath{|\gamma|=1.}
+
+令 $\gamma=e^{i\theta}$（$\theta\in\mathbb R$），求 $\hat L^\dagger$ 的本征值：
+\[
+ v'=\lambda v
+ \Longrightarrow v(x)=Ce^{\lambda x}.
+\]
+代入边界条件 $v(0)=\overline\gamma v(\pi)=e^{-i\theta}v(\pi)$ 得
+\[
+1=e^{-i\theta}e^{\lambda\pi}
+\Longrightarrow
+ e^{\lambda\pi}=e^{i\theta}.
+\]
+故
+\ansmath{\lambda_n=\frac{i(\theta+2\pi n)}{\pi},\qquad n\in\mathbb Z,}
+对应本征函数可取
+\ansmath{v_n(x)=e^{\lambda_n x}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[一维无限长杆上的热传导]
+
+求解
+\[
+\begin{cases}
+\dfrac{\partial u}{\partial t}-\kappa\dfrac{\partial^2u}{\partial x^2}=e^{-\alpha t},
+&-\infty<x<+\infty,\ t>0,\\
+u|_{t=0}=\delta(x).
+\end{cases}
+\]
+
+\begin{solution}
+
+把解分成两部分：
+\[
+ u=u_1+u_2.
+\]
+其中 $u_1$ 为热核对应于初值 $\delta(x)$ 的解：
+\[
+ u_1(x,t)=\frac{1}{\sqrt{4\pi\kappa t}}\exp\!\left(-\frac{x^2}{4\kappa t}\right).
+\]
+
+对强迫项，由于右端仅依赖于 $t$，可令 $u_2=u_2(t)$，则
+\[
+ u_2'(t)=e^{-\alpha t},\qquad u_2(0)=0.
+\]
+故
+\[
+ u_2(t)=\frac{1-e^{-\alpha t}}{\alpha}.
+\]
+所以
+\ansmath{u(x,t)=\frac{1}{\sqrt{4\pi\kappa t}}\exp\!\left(-\frac{x^2}{4\kappa t}\right)
+ +\frac{1-e^{-\alpha t}}{\alpha}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[二维半圆形薄膜振动的 Green 函数]
+
+求半圆域
+\[
+ y>0,\qquad x^2+y^2<R^2
+\]
+中波动方程
+\[
+\begin{cases}
+\dfrac{\partial^2u}{\partial t^2}-a^2\nabla^2u=f(x,y,t),\\
+u|_{y=0}=g(x,y,t),\qquad u|_{x^2+y^2=R^2}=h(x,y,t),\\
+u|_{t=0}=\phi(x,y),\qquad \left.\dfrac{\partial u}{\partial t}\right|_{t=0}=\psi(x,y)
+\end{cases}
+\]
+的 Green 函数。提示：
+\[
+\delta(x-x')\delta(y-y')=\frac1\rho\delta(\rho-\rho')\delta(\varphi-\varphi').
+\]
+
+\begin{solution}
+
+在极坐标下，半圆域对应于
+\[
+ 0<\rho<R,\qquad 0<\varphi<\pi.
+\]
+若按齐次 Dirichlet 边界讨论 Green 函数，则角向本征函数为
+\[
+ \sin(n\varphi),\qquad n=1,2,\dots
+\]
+径向本征函数为
+\[
+ J_n\!\Bigl(\frac{j_{n,m}}{R}\rho\Bigr),
+\qquad m=1,2,\dots,
+\]
+其中 $j_{n,m}$ 是 $J_n$ 的第 $m$ 个正零点。对应特征值
+\[
+ \lambda_{n,m}=\frac{j_{n,m}}{R}.
+\]
+归一化模方为
+\[
+N_{n,m}=
+\int_0^{\pi}\!\sin^2(n\varphi)\,d\varphi
+\int_0^R \rho J_n^2\!\Bigl(\frac{j_{n,m}}{R}\rho\Bigr)\,d\rho
+=\frac{\pi R^2}{4}J_{n+1}(j_{n,m})^2.
+\]
+因此 Green 函数可写成
+\ansmath{G(\rho,\varphi,t;\rho',\varphi',t')
+=H(t-t')
+\sum_{n=1}^{\infty}\sum_{m=1}^{\infty}
+\frac{\sin\bigl(a\lambda_{n,m}(t-t')\bigr)}{a\lambda_{n,m}N_{n,m}}
+J_n\!\Bigl(\frac{j_{n,m}}{R}\rho\Bigr)
+J_n\!\Bigl(\frac{j_{n,m}}{R}\rho'\Bigr)
+\sin(n\varphi)\sin(n\varphi').}
+将 $N_{n,m}$ 代入，可进一步写成
+\[
+G=H(t-t')\sum_{n,m}
+\frac{4}{\pi a R j_{n,m}J_{n+1}(j_{n,m})^2}
+\sin\Bigl(\frac{a j_{n,m}}{R}(t-t')\Bigr)
+J_n\!\Bigl(\frac{j_{n,m}}{R}\rho\Bigr)
+J_n\!\Bigl(\frac{j_{n,m}}{R}\rho'\Bigr)
+\sin(n\varphi)\sin(n\varphi').
+\]
+
+\end{solution}
+\end{question}
+
+\begin{question}[泛函极值曲线]
+
+求泛函
+\[
+J[u]=\iiint_{z>0,\ x^2+y^2+z^2<a^2}\bigl((\nabla u)^2-k^2u^2-zu\bigr)\,dxdydz
+\]
+的极值曲线 $u(x,y,z)$，其中
+\[
+ u|_{z=0}=0,
+ \qquad u|_{x^2+y^2+z^2=a^2}=0,
+\]
+且 $a,k>0$ 并满足 $ka\ne \tan ka$。
+
+\begin{solution}
+
+Euler--Lagrange 方程为
+\[
+\frac{\partial L}{\partial u}-\nabla\cdot\frac{\partial L}{\partial (\nabla u)}=0
+\quad\Longrightarrow\quad
+\Delta u+k^2u=-\frac{z}{2}.
+\]
+右端与区域都关于 $z$ 轴对称，且源项正比于 $z=r\cos\theta$，因此设
+\[
+ u(r,\theta)=v(r)\cos\theta.
+\]
+一个显然的特解是
+\[
+ u_p=-\frac{z}{2k^2}.
+\]
+齐次方程
+\[
+(\Delta+k^2)u_h=0
+\]
+中，与 $\cos\theta$ 相应的正则解为球 Bessel 函数
+\[
+ u_h=A j_1(kr)\cos\theta.
+\]
+故总解为
+\[
+ u=\Bigl(Aj_1(kr)-\frac{r}{2k^2}\Bigr)\cos\theta.
+\]
+由球面边界 $u(a,\theta)=0$ 得
+\[
+ A=\frac{a}{2k^2j_1(ka)}.
+\]
+于是
+\ansmath{u(r,\theta)=\left[\frac{a}{2k^2j_1(ka)}j_1(kr)-\frac{r}{2k^2}\right]\cos\theta.}
+因 $z=r\cos\theta$，也可写成
+\ansmath{u(x,y,z)=\frac{z}{2k^2}\left[\frac{a}{r}\frac{j_1(kr)}{j_1(ka)}-1\right],
+ \qquad r=\sqrt{x^2+y^2+z^2}.}
+其中
+\[
+ j_1(x)=\frac{\sin x-x\cos x}{x^2}.
+\]
+条件 $ka\ne \tan ka$ 恰好保证 $j_1(ka)\ne 0$。
+
+\end{solution}
+\end{question}
+
+\clearpage
+

@@ -1,0 +1,263 @@
+﻿\heading{实验物理中的统计方法-模拟题4-期中}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较前两套期中模拟题再提高一些。}
+
+\begin{question}
+设 $X,Y$ 服从二维正态分布，且
+\[
+E[X]=E[Y]=0,
+\qquad \operatorname{Var}(X)=4,
+\qquad \operatorname{Var}(Y)=1,
+\]
+并已知
+\[
+\operatorname{Var}(X-Y)=3.
+\]
+求 $(X,Y)$ 的协方差矩阵。
+\begin{solution}
+由
+\[
+\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)-2\operatorname{Cov}(X,Y),
+\]
+得
+\[
+3=4+1-2\operatorname{Cov}(X,Y).
+\]
+故
+\[
+\operatorname{Cov}(X,Y)=1.
+\]
+于是协方差矩阵为
+\ansmath{\Sigma=\begin{pmatrix}4&1\\1&1\end{pmatrix}}
+\end{solution}
+\end{question}
+
+\begin{question}
+从 $\{1,2,\cdots,N\}$ 中独立、等概率地抽取 $n$ 次（可重复），记样本最大值为 $M$。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $M$ 恰好只出现一次的概率；
+\item 写出这一概率的求和表达式。
+\end{enumerate}
+\begin{solution}
+若最大值恰为 $k$ 且只出现一次，则必须有一个样本等于 $k$，其余 $n-1$ 个样本都落在 $\{1,\cdots,k-1\}$ 中。故
+\[
+P(\text{最大值恰为 }k\text{ 且只出现一次})
+=\binom{n}{1}\frac1N\left(\frac{k-1}{N}\right)^{n-1}.
+\]
+对 $k=1,2,\cdots,N$ 求和，得到
+\[
+P(M\text{ 只出现一次})
+=\sum_{k=1}^{N}n\frac1N\left(\frac{k-1}{N}\right)^{n-1}.
+\]
+因此
+\ansmath{P(M\text{ 只出现一次})=\frac{n}{N^n}\sum_{j=0}^{N-1}j^{n-1}}
+\end{solution}
+\end{question}
+
+\begin{question}
+球的半径 $R$ 在 $(a,b)$（$0<a<b$）上均匀分布。设球体体积为
+\[
+V=\frac{4\pi}{3}R^3,
+\]
+球表面积为
+\[
+S=4\pi R^2.
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $V$ 的概率密度函数；
+\item 求 $E[S]$。
+\end{enumerate}
+\begin{solution}
+半径密度为
+\[
+f_R(r)=\frac1{b-a},\qquad a<r<b.
+\]
+由
+\[
+r=\left(\frac{3v}{4\pi}\right)^{1/3},
+\qquad
+\frac{dr}{dv}=\frac{1}{4\pi r^2}
+=\frac{1}{4\pi\left(\frac{3v}{4\pi}\right)^{2/3}},
+\]
+得
+\[
+f_V(v)=f_R(r)\left|\frac{dr}{dv}\right|
+=\frac{1}{4\pi(b-a)\left(\frac{3v}{4\pi}\right)^{2/3}},
+\]
+其中
+\[
+\frac{4\pi a^3}{3}<v<\frac{4\pi b^3}{3}.
+\]
+故
+\ansmath{f_V(v)=\frac{1}{4\pi(b-a)\left(\frac{3v}{4\pi}\right)^{2/3}},
+\qquad \frac{4\pi a^3}{3}<v<\frac{4\pi b^3}{3}}
+又
+\[
+E[S]=4\pi E[R^2]
+=\frac{4\pi}{b-a}\int_a^b r^2\,dr
+=\frac{4\pi}{3}(a^2+ab+b^2).
+\]
+因此
+\ansmath{E[S]=\frac{4\pi}{3}(a^2+ab+b^2)}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $\{N(t),t\ge 0\}$ 是泊松过程。已知在区间 $(0,T)$ 内恰好有 $4$ 次到达。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求前 $T/3$ 时间内恰好有 $2$ 次到达的概率；
+\item 求第一次到达时刻 $T_1$ 的条件密度 $f_{T_1\mid N(T)=4}(t)$。
+\end{enumerate}
+\begin{solution}
+条件于 $N(T)=4$ 后，4 个到达时刻等价于 4 个独立均匀点在 $(0,T)$ 上的顺序统计量。
+前 $T/3$ 内的到达数服从二项分布 $\mathrm{Bin}(4,1/3)$，故
+\[
+P\bigl(N(T/3)=2\mid N(T)=4\bigr)=\binom42\left(\frac13\right)^2\left(\frac23\right)^2.
+\]
+所以
+\ansmath{P\bigl(N(T/3)=2\mid N(T)=4\bigr)=\frac{8}{27}}
+第一次到达时刻是 4 个均匀点中的最小者，其分布满足
+\[
+P(T_1\leqt\mid N(T)=4)=1-\left(1-\frac{t}{T}\right)^4,
+\qquad 0<t<T.
+\]
+对 $t$ 求导得密度
+\[
+f_{T_1\mid N(T)=4}(t)=\frac{4}{T}\left(1-\frac{t}{T}\right)^3,
+\qquad 0<t<T.
+\]
+故
+\ansmath{f_{T_1\mid N(T)=4}(t)=\frac{4}{T}\left(1-\frac{t}{T}\right)^3,
+\qquad 0<t<T}
+\end{solution}
+\end{question}
+
+\begin{question}
+随机变量 $(X,Y)$ 的联合概率密度为
+\[
+f(x,y)=\begin{cases}
+cy,&0<x<y<1,\\
+0,&\text{其他}.
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求常数 $c$；
+\item 求边缘密度 $f_Y(y)$；
+\item 求 $P(X+Y<1)$；
+\item 求 $E[X\mid Y=y]$。
+\end{enumerate}
+\begin{solution}
+归一化条件给出
+\[
+1=c\int_0^1\int_0^y y\,dx\,dy=c\int_0^1 y^2\,dy=\frac{c}{3}.
+\]
+故
+\ansmath{c=3}
+边缘密度为
+\[
+f_Y(y)=\int_0^y 3y\,dx=3y^2,
+\qquad 0<y<1.
+\]
+因此
+\ansmath{f_Y(y)=3y^2,
+\qquad 0<y<1}
+再求概率。由条件 $0<x<y<1$ 与 $x+y<1$，需分两段积分：
+\[
+P(X+Y<1)=\int_0^{1/2}\int_0^y 3y\,dx\,dy+\int_{1/2}^{1}\int_0^{1-y}3y\,dx\,dy.
+\]
+计算得
+\[
+P(X+Y<1)=\frac38.
+\]
+故
+\ansmath{P(X+Y<1)=\frac38}
+条件密度为
+\[
+f_{X\mid Y}(x\mid y)=\frac{3y}{3y^2}=\frac1y,
+\qquad 0<x<y.
+\]
+因此 $X\mid Y=y\sim U(0,y)$，从而
+\ansmath{E[X\mid Y=y]=\frac{y}{2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+用宇宙射线做刻度。已知在“上下两块都击中”的触发条件下，共记录到 $5000$ 次有效穿过；其中中间探测器有 $4620$ 次给出信号。另一方面，电子学门宽所导致的偶然击中概率为 $p_a=0.01$。设中间探测器的真实效率为 $\varepsilon$，且“偶然击中”和“真实探测到”相互独立。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\varepsilon$ 的估计值；
+\item 忽略 $p_a$ 的误差，求 $\varepsilon$ 的统计不确定度的近似表达式。
+\end{enumerate}
+\begin{solution}
+记观测到的总击中概率为 $p_{\rm obs}$，则
+\[
+p_{\rm obs}=\varepsilon+(1-\varepsilon)p_a.
+\]
+由数据
+\[
+\hat p_{\rm obs}=\frac{4620}{5000}=0.924.
+\]
+于是
+\[
+\hat\varepsilon=\frac{\hat p_{\rm obs}-p_a}{1-p_a}
+=\frac{0.924-0.01}{0.99}
+\approx 0.9232.
+\]
+故
+\ansmath{\hat\varepsilon\approx 0.923}
+若把 $\hat p_{\rm obs}$ 视为二项分布的样本比例，则
+\[
+\sigma_{\hat p_{\rm obs}}\approx \sqrt{\frac{\hat p_{\rm obs}(1-\hat p_{\rm obs})}{5000}}
+=\sqrt{\frac{0.924\times 0.076}{5000}}.
+\]
+由于
+\[
+\varepsilon=\frac{p_{\rm obs}-p_a}{1-p_a},
+\]
+故
+\[
+\sigma_{\hat\varepsilon}\approx \frac{1}{1-p_a}\sigma_{\hat p_{\rm obs}}
+\approx \frac{1}{0.99}\sqrt{\frac{0.924\times 0.076}{5000}}
+\approx 0.0038.
+\]
+因此
+\ansmath{\sigma_{\hat\varepsilon}\approx \frac{1}{1-p_a}\sqrt{\frac{\hat p_{\rm obs}(1-\hat p_{\rm obs})}{N}}\approx 0.0038}
+\end{solution}
+\end{question}
+
+\begin{question}
+某束流中电子所占比例为 $10^{-4}$，其余都是光子。粒子通过三层探测器时，响应概率如下：
+\[
+P(3\mid e)=0.97,\qquad P(2\mid e)=0.02,
+\]
+\[
+P(3\mid \gamma)=10^{-6},\qquad P(2\mid \gamma)=10^{-4}.
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 若观测到 3 个信号，求该粒子为电子的后验概率；
+\item 若观测到 2 个信号，求该粒子为电子的后验概率。
+\end{enumerate}
+\begin{solution}
+先验为
+\[
+P(e)=10^{-4},\qquad P(\gamma)=1-10^{-4}.
+\]
+由 Bayes 公式，
+\[
+P(e\mid 3)=\frac{P(3\mid e)P(e)}{P(3\mid e)P(e)+P(3\mid \gamma)P(\gamma)}
+=\frac{0.97\times 10^{-4}}{0.97\times 10^{-4}+10^{-6}(1-10^{-4})}.
+\]
+数值上
+\[
+P(e\mid 3)\approx 0.9066.
+\]
+故
+\ansmath{P(e\mid 3)\approx 0.907}
+同理
+\[
+P(e\mid 2)=\frac{0.02\times 10^{-4}}{0.02\times 10^{-4}+10^{-4}(1-10^{-4})}
+\approx 0.0196.
+\]
+因此
+\ansmath{P(e\mid 2)\approx 0.0196}
+\end{solution}
+\end{question}
+

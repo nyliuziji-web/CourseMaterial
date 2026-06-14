@@ -1,0 +1,225 @@
+﻿\heading{数学物理方法（下）-17春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\begin{question}[简单计算和回答]
+
+设第一大题含 3 个小问：
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 在弦的横振动问题中，如果弦受到一个与速度成正比的阻尼（比例系数为 $d$），以及和弦的位移成正比的回复力（比例系数为 $k$），写出此时弦的振动方程。
+\item 试在直角坐标系、柱坐标系、球坐标系中对三维球对称线性谐振子的薛定谔方程分离变量：
+\[
+ i\hbar\frac{\partial \psi}{\partial t}=-\frac{\hbar^2}{2m}\nabla^2\psi+\frac12 m\omega^2(x^2+y^2+z^2)\psi.
+\]
+\item 求解本征值问题，并计算本征函数的模方：
+\[
+\begin{cases}
+X''(x)+\lambda X(x)=0, & -l\le x\le l,\\
+X'(-l)=0,\quad X'(l)=0.
+\end{cases}
+\]
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 若已把张力和线密度归一化为波速 $c$，则弦位移 $u(x,t)$ 满足
+\[
+ u_{tt}+d u_t-c^2u_{xx}+ku=0.
+\]
+若不归一化，也可写成 $\rho u_{tt}+d u_t-Tu_{xx}+ku=0$。
+
+\item 分离变量写成 $\psi=\Phi e^{-iEt/\hbar}$。
+
+直角坐标下再令 $\Phi=X(x)Y(y)Z(z)$，可得
+\[
+X''+\Bigl(\frac{2mE_x}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}x^2\Bigr)X=0,
+\]
+\[
+Y''+\Bigl(\frac{2mE_y}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}y^2\Bigr)Y=0,
+\]
+\[
+Z''+\Bigl(\frac{2mE_z}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}z^2\Bigr)Z=0,
+\quad E_x+E_y+E_z=E.
+\]
+
+柱坐标下令 $\Phi=R(\rho)\Theta(\varphi)Z(z)$，得
+\[
+\Theta''+m^2\Theta=0,
+\]
+\[
+Z''+\Bigl(\frac{2mE_z}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}z^2\Bigr)Z=0,
+\]
+\[
+R''+\frac1\rho R'+\Bigl(\frac{2mE_\perp}{\hbar^2}-\frac{m^2}{\rho^2}-\frac{m^2\omega^2}{\hbar^2}\rho^2\Bigr)R=0,
+\quad E_\perp+E_z=E.
+\]
+
+球坐标下令 $\Phi=R(r)Y_{\ell}^{m}(\theta,\varphi)$，则角向部分给出球谐函数，径向满足
+\[
+R''+\frac{2}{r}R'+\Bigl(\frac{2mE}{\hbar^2}-\frac{m^2\omega^2}{\hbar^2}r^2-\frac{\ell(\ell+1)}{r^2}\Bigr)R=0.
+\]
+
+\item 令 $\lambda=\mu^2\ge 0$。通解为 $X=A\cos \mu x+B\sin \mu x$。由边界条件
+\[
+X'(\pm l)=0
+\]
+可得两族本征对：
+\[
+\lambda_0=0,\qquad X_0(x)=1,
+\]
+\[
+\lambda_n^{(c)}=\Bigl(\frac{n\pi}{l}\Bigr)^2,\qquad X_n^{(c)}(x)=\cos\frac{n\pi x}{l},\quad n=1,2,\dots,
+\]
+\[
+\lambda_n^{(s)}=\Bigl(\frac{(n+\tfrac12)\pi}{l}\Bigr)^2,
+\qquad X_n^{(s)}(x)=\sin\frac{(n+\tfrac12)\pi x}{l},\quad n=0,1,2,\dots.
+\]
+模方为
+\[
+\|X_0\|^2=\int_{-l}^{l}1\,dx=2l,
+\qquad
+\|X_n^{(c)}\|^2=\|X_n^{(s)}\|^2=l.
+\]
+故归一化后可取
+\[
+\frac{1}{\sqrt{2l}},\qquad \frac{1}{\sqrt l}\cos\frac{n\pi x}{l},
+\qquad \frac{1}{\sqrt l}\sin\frac{(n+\tfrac12)\pi x}{l}.
+\]
+\end{enumerate}
+
+\ansmath{\|X_0\|^2=\int_{-l}^{l}1\,dx=2l,
+\qquad
+\|X_n^{(c)}\|^2=\|X_n^{(s)}\|^2=l\quad \frac{1}{\sqrt{2l}},\qquad \frac{1}{\sqrt l}\cos\frac{n\pi x}{l},
+\qquad \frac{1}{\sqrt l}\sin\frac{(n+\tfrac12)\pi x}{l}}
+
+\end{solution}
+\end{question}
+
+\begin{question}[一维弦受迫振动的半无界定解问题]
+
+求解
+\[
+\begin{cases}
+\dfrac{\partial^2u}{\partial t^2}-a^2\dfrac{\partial^2u}{\partial x^2}=A\cos\omega t,
+&0\le x<\infty,\ t\ge 0,\\
+\left.\dfrac{\partial u}{\partial x}\right|_{x=0}=0,\\
+u|_{t=0}=x^2,\qquad \left.\dfrac{\partial u}{\partial t}\right|_{t=0}=x.
+\end{cases}
+\]
+
+\begin{solution}
+
+采用偶延拓。令全轴上的初位移、初速度分别为
+\[
+f_e(x)=x^2,\qquad g_e(x)=|x|,
+\]
+则满足 Neumann 边界条件的解可由全轴达朗贝尔公式给出：
+\[
+ u(x,t)=\frac{f_e(x+at)+f_e(x-at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}g_e(\xi)\,d\xi
+ +\int_0^t (t-\tau)A\cos\omega\tau\,d\tau.
+\]
+化简得
+\[
+ u(x,t)=x^2+a^2t^2+\frac{1}{2a}\int_{x-at}^{x+at}|\xi|\,d\xi+\frac{A}{\omega^2}(1-\cos\omega t).
+\]
+其中
+\[
+\int_{x-at}^{x+at}|\xi|\,d\xi
+=\frac{(x+at)|x+at|-(x-at)|x-at|}{2}.
+\]
+因此也可以写成
+\[
+ u(x,t)=x^2+a^2t^2+
+ \frac{(x+at)|x+at|-(x-at)|x-at|}{4a}
+ +\frac{A}{\omega^2}(1-\cos\omega t),\qquad x>0,\ t>0.
+\]
+
+\ansmath{u(x,t)=x^2+a^2t^2+
+ \frac{(x+at)|x+at|-(x-at)|x-at|}{4a}
+ +\frac{A}{\omega^2}(1-\cos\omega t),\qquad x>0,\ t>0}
+
+\end{solution}
+\end{question}
+
+\begin{question}[导热细杆]
+
+一个长度为 $l$ 的均匀导热细杆，侧面散热忽略，$x=0$ 端单位时间单位面积从外界吸收热量 $q$，$x=l$ 端保持温度为 $0$，初始温度分布为 $x-\cos x$。求杆中的温度分布随时间的变化。
+
+\begin{solution}
+
+记热方程为
+\[
+ u_t=\kappa u_{xx},\qquad 0<x<l,
+\]
+边界条件写成
+\[
+ -K u_x(0,t)=q,\qquad u(l,t)=0,
+\]
+其中 $K$ 为导热系数。先取稳态项
+\[
+ v(x)=\frac{q}{K}(l-x),
+\]
+则 $v''=0$ 且满足边界条件。令 $w=u-v$，则
+\[
+ w_t=\kappa w_{xx},\qquad w_x(0,t)=0,\quad w(l,t)=0.
+\]
+这是混合边值问题，其本征函数为
+\[
+ X_n(x)=\cos\mu_n x,
+\qquad \mu_n=\frac{(n+\tfrac12)\pi}{l},\quad n=0,1,2,\dots
+\]
+故解可写成
+\[
+ u(x,t)=\frac{q}{K}(l-x)+\sum_{n=0}^{\infty}c_n e^{-\kappa\mu_n^2 t}\cos(\mu_n x),
+\]
+其中系数由初值
+\[
+ u(x,0)=x-\cos x
+\]
+决定，即
+\[
+ c_n=\frac{2}{l}\int_0^l\Bigl[x-\cos x-\frac{q}{K}(l-x)\Bigr]\cos(\mu_n x)\,dx.
+\]
+这就是温度分布的标准展开式。
+
+\ansmath{c_n=\frac{2}{l}\int_0^l\Bigl[x-\cos x-\frac{q}{K}(l-x)\Bigr]\cos(\mu_n x)\,dx}
+
+\end{solution}
+\end{question}
+
+\begin{question}[空心导体圆柱的电势]
+
+一个半径为 $a$ 的无穷长空心导体圆柱，分成互相绝缘的两半，一半电势为 $V$，另一半接地，求圆柱内的电势分布。
+
+\begin{solution}
+
+这是二维 Laplace 方程的圆域边值问题。若以极坐标 $(r,\theta)$ 表示，并假定边界取值为
+\[
+ u(a,\theta)=
+ \begin{cases}
+ V,&0<\theta<\pi,\\
+ 0,&\pi<\theta<2\pi,
+ \end{cases}
+\]
+则其 Fourier 展开为
+\[
+ u(a,\theta)=\frac{V}{2}+\frac{2V}{\pi}\sum_{m=0}^{\infty}
+ \frac{\sin( (2m+1)\theta)}{2m+1}.
+\]
+圆内调和延拓为
+\[
+ u(r,\theta)=\frac{V}{2}+\frac{2V}{\pi}\sum_{m=0}^{\infty}
+ \frac{1}{2m+1}\Bigl(\frac{r}{a}\Bigr)^{2m+1}\sin((2m+1)\theta),
+ \qquad 0\le r<a.
+\]
+若原图所示两半的分割方向不同，只需把上式中的正弦项换成相应的余弦项即可，本质完全相同。
+
+\ansmath{u(r,\theta)=\frac{V}{2}+\frac{2V}{\pi}\sum_{m=0}^{\infty}
+ \frac{1}{2m+1}\Bigl(\frac{r}{a}\Bigr)^{2m+1}\sin((2m+1)\theta),
+ \qquad 0\le r<a}
+
+\end{solution}
+\end{question}
+
+\clearpage
+

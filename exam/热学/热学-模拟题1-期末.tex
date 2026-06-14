@@ -1,0 +1,277 @@
+﻿\heading{热学-模拟题1-期末}
+
+\noteinfo{题目和答案由AI生成。}
+
+\textbf{一、简答题}
+\begin{question}
+写出热力学第一定律，并说明它与能量守恒定律的关系。
+\begin{solution}
+
+\[
+dU=\delta Q-\delta W.
+\]
+它表明系统内能的改变等于传入热量减去系统对外做功，是能量守恒定律在热学中的具体表达。
+\ansmath{dU=\delta Q-\delta W}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+写出熵表述的第二定律，并说明可逆循环满足的积分关系。
+\begin{solution}
+
+任意循环满足 Clausius 不等式
+\[
+\oint\frac{\delta Q}{T}\le0,
+\]
+等号当且仅当循环可逆。
+\ansmath{\oint\frac{\delta Q}{T}\le0,}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+写出两相平衡时的条件。
+\begin{solution}
+
+\[
+T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2.
+\]
+\ansmath{T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+临界点附近纯物质的表面张力有何特征？
+\begin{solution}
+
+临界点附近液气两相差别消失，因此表面张力趋于零。
+\anstext{见上。}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+化学势的定义是什么？
+\begin{solution}
+
+\[
+\mu=\left(\frac{\partial G}{\partial N}\right)_{p,T}.
+\]
+\ansmath{\mu=\left(\frac{\partial G}{\partial N}\right)_{p,T}}
+
+\end{solution}
+\end{question}
+
+\textbf{二、解答题}
+\begin{question}
+理想气体 Brayton 循环中，$1\to2$ 和 $3\to4$ 为可逆绝热，$2\to3$ 和 $4\to1$ 为等压。设绝热指数为 $\gamma$，压比为 $r_p=p_2/p_1$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 推导循环热效率；
+\item 给出至少两种提高效率的办法。
+\end{enumerate}
+\begin{solution}
+
+可逆绝热满足
+\[
+\frac{T_2}{T_1}=\left(\frac{p_2}{p_1}\right)^{(\gamma-1)/\gamma}=r_p^{(\gamma-1)/\gamma},
+\qquad
+\frac{T_3}{T_4}=r_p^{(\gamma-1)/\gamma}.
+\]
+等压吸热、放热分别为
+\[
+Q_{in}=C_p(T_3-T_2),
+\qquad
+Q_{out}=C_p(T_4-T_1).
+\]
+因此
+\[
+\eta=1-\frac{Q_{out}}{Q_{in}}=1-\frac{T_4-T_1}{T_3-T_2}.
+\]
+利用绝热关系可化简为
+\ansmath{\eta=1-r_p^{-(\gamma-1)/\gamma}.}
+提高效率的方法例如：提高压比；提高涡轮进口温度并配合再生器；采用多级压缩中间冷却/多级膨胀再热并优化参数。
+\end{solution}
+\end{question}
+
+\begin{question}
+在绝热容器中，质量均为 $m$ 的两份水初温分别为 $T_1,T_2$，压强固定，比热取常数 $C_p$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 直接混合后的平衡温度与总熵变；
+\item 若 $T_1>T_2$，利用初始两份水作为热源，最多可输出多少功？
+\end{enumerate}
+\begin{solution}
+
+直接混合能量守恒给出
+\[
+T_f=\frac{T_1+T_2}{2}.
+\]
+总熵变
+\[
+\Delta S=mC_p\ln\frac{T_f}{T_1}+mC_p\ln\frac{T_f}{T_2}
+=mC_p\ln\frac{(T_1+T_2)^2}{4T_1T_2}\ge0.
+\]
+若经可逆热机榨取最大功，则末态共同温度应满足总熵不变：
+\[
+2mC_p\ln T_* = mC_p\ln T_1+mC_p\ln T_2,
+\]
+故
+\[
+T_*=\sqrt{T_1T_2}.
+\]
+最大输出功为初始总焓减最终总焓：
+\[
+W_{\max}=mC_p(T_1-T_*)+mC_p(T_2-T_*)
+= mC_p(T_1+T_2-2\sqrt{T_1T_2}).
+\]
+即
+\ansmath{W_{\max}=mC_p(\sqrt{T_1}-\sqrt{T_2})^2.}
+\end{solution}
+\end{question}
+
+\begin{question}
+利用相平衡条件推出 Clausius--Clapeyron 方程；再在饱和蒸气视为理想气体、$v_g\gg v_l$、汽化热 $L$ 为常量的近似下，求饱和蒸气压 $p(T)$。
+\begin{solution}
+
+两相平衡时 $\mu_g=\mu_l$。沿共存曲线微分，
+\[
+ d\mu_g=d\mu_l.
+\]
+又对单组分体系
+\[
+ d\mu=-s_m dT+v_m dp,
+\]
+故
+\[
+ (s_g-s_l)dT=(v_g-v_l)dp.
+\]
+由于 $L=T(s_g-s_l)$，得到
+\ansmath{\frac{dp}{dT}=\frac{L}{T(v_g-v_l)}.}
+在题设近似下 $v_g\approx RT/p$，故
+\[
+\frac{dp}{dT}=\frac{Lp}{RT^2}.
+\]
+分离变量积分：
+\[
+\frac{dp}{p}=\frac{L}{R}\frac{dT}{T^2}
+\Longrightarrow
+\ln p=-\frac{L}{RT}+C.
+\]
+即
+\ansmath{p(T)=p_0\exp\!\left(-\frac{L}{RT}\right)}
+（其中 $p_0=e^C$ 为常数）。
+\end{solution}
+\end{question}
+
+\begin{question}
+将黑体辐射视为光子气体，已知压强 $p=u/3$，其中 $u=U/V$ 为能量密度。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 由热力学关系推出 $u\propto T^4$；
+\item 推导绝热过程中 $TV^{1/3}=\text{常数}$。
+\end{enumerate}
+\begin{solution}
+
+对光子气体，粒子数不守恒，故基本关系可写为
+\[
+ dU=T dS-p dV.
+\]
+又 $U=u(T)V$。于是
+\[
+ dU=V\frac{du}{dT}dT+u\,dV.
+\]
+代入并用
+\[
+ p=\frac{u}{3}
+\]
+得
+\[
+T dS=V\frac{du}{dT}dT+\frac{4u}{3}dV.
+\]
+因为 $S$ 是状态函数，令 $dS$ 为全微分，比较混合偏导可得
+\[
+\frac{d u}{dT}=\frac{4u}{T}.
+\]
+积分得
+\ansmath{u=aT^4},
+其中 $a$ 为常数，因此
+\[
+U=aVT^4.
+\]
+绝热过程 $dS=0$，故
+\[
+ dU+p dV=0.
+\]
+代入 $U=aVT^4$ 与 $p=u/3=aT^4/3$，有
+\[
+4aVT^3dT+aT^4dV+\frac{aT^4}{3}dV=0.
+\]
+化简为
+\[
+4\frac{dT}{T}+\frac{4}{3}\frac{dV}{V}=0
+\Longrightarrow
+\boxed{TV^{1/3}=\text{常数}.}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一根半径为 $d/2$ 的毛细管竖直插入液体中，液体完全浸润。求液面上升高度 $h$。若在距液面下方 $h_1$ 处开一侧孔，求侧孔处液面的接触角 $\theta$，并解释为什么不能靠侧孔滴水构成永动机。
+\begin{solution}
+
+完全浸润时主管口液面曲率半径约为 $d/2$，Laplace 压差满足
+\[
+\Delta p=\frac{4\sigma}{d}.
+\]
+静力平衡给出
+\[
+\rho gh=\frac{4\sigma}{d}
+\Longrightarrow
+\boxed{h=\frac{4\sigma}{\rho gd}.}
+\]
+侧孔处液面内压强为
+\[
+p_s=p_0-\rho gh_1.
+\]
+由 Laplace 公式
+\[
+\rho gh_1=\frac{4\sigma\cos\theta}{d},
+\]
+得
+\ansmath{\cos\theta=\frac{\rho gh_1 d}{4\sigma}.}
+由于侧孔处液面向内凹，液体不会自发滴出并持续做功，因此不能构成永动机。
+\end{solution}
+\end{question}
+
+\begin{question}
+螳螂虾挥动掠足在水中形成半径约 $r=1\,\mathrm{mm}$ 的气泡。设环境压强为 $p_0+\rho gh$，气泡内初始压强约为 $10^{-5}$ 个大气压，且气泡近似绝热压缩，内部水蒸气摩尔定容热容取 $C_V=3R$。估算气泡内可能达到的最高温度量级，并说明可能出现什么现象。
+\begin{solution}
+
+绝热压缩满足
+\[
+TV^{\gamma-1}=\text{常数},
+\qquad \gamma=1+\frac{R}{C_V}=\frac43.
+\]
+若把终压近似取为环境压强加表面张力修正，数量级为
+\[
+p_f\sim p_0+\rho gh+\frac{2\sigma}{r}\approx 2\times10^5\ \mathrm{Pa}
+\]
+（取 $h\sim10\,\mathrm m$ 时）。初压约
+\[
+p_i\sim10^{-5}p_\text{atm}\sim1\ \mathrm{Pa}.
+\]
+故压强比数量级为 $10^5$。绝热关系也可写成
+\[
+T_f=T_i\left(\frac{p_f}{p_i}\right)^{(\gamma-1)/\gamma}=T_i\left(\frac{p_f}{p_i}\right)^{1/4}.
+\]
+取 $T_i\approx300\,\mathrm K$，得
+\[
+T_f\sim 300\times (10^5)^{1/4}\approx 5\times10^3\,\mathrm K.
+\]
+因此最高温度量级可达几千开。如此高温会导致\textbf{空化内爆发光、局部冲击波甚至短时等离子体效应}，这也是声致发光/空化发光的典型物理图景。
+\ansmath{T_f\sim 300\times (10^5)^{1/4}\approx 5\times10^3\,\mathrm K}
+
+\end{solution}
+\end{question}
+
+

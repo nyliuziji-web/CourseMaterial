@@ -1,0 +1,164 @@
+﻿\heading{数学物理方法（下）-模拟题2-期末}
+
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+在整条实轴上求解对流--扩散方程初值问题
+\[
+\begin{cases}
+ u_t+v u_x=\kappa u_{xx}, & -\infty<x<\infty,\ t>0,\\
+ u(x,0)=e^{-\alpha x^2}, & \alpha>0.
+\end{cases}
+\]
+要求写出显式解。
+\begin{solution}
+
+可先作平移变换 $\xi=x-vt$，令 $u(x,t)=w(\xi,t)$，则
+\[
+ w_t=\kappa w_{\xi\xi},
+ \qquad w(\xi,0)=e^{-\alpha \xi^2}.
+\]
+Gaussian 初值在热方程下保持 Gaussian 形式，故
+\[
+ w(\xi,t)=\frac{1}{\sqrt{1+4\alpha\kappa t}}
+ \exp\left(-\frac{\alpha \xi^2}{1+4\alpha\kappa t}\right).
+\]
+代回 $\xi=x-vt$，得
+\ansmath{u(x,t)=\frac{1}{\sqrt{1+4\alpha\kappa t}}
+\exp\left[-\frac{\alpha (x-vt)^2}{1+4\alpha\kappa t}\right].}
+\end{solution}
+\end{question}
+
+\begin{question}
+求三维上半空间
+\[
+\mathbb R_+^3=\{(x,y,z):z>0\}
+\]
+中 Dirichlet 问题的 Green 函数：
+\[
+\nabla^2 G(\mathbf r,\mathbf r')=-\delta(\mathbf r-\mathbf r'),
+\qquad G|_{z=0}=0.
+\]
+并写出位于 $(0,0,h)$ 的单位点源所产生的势函数。
+\begin{solution}
+
+用镜像法。记
+\[
+\mathbf r'=(x',y',z'),
+\qquad
+\mathbf r'^*=(x',y',-z').
+\]
+则上半空间 Dirichlet Green 函数为
+\ansmath{G(\mathbf r,\mathbf r')=
+\frac{1}{4\pi|\mathbf r-\mathbf r'|}-
+\frac{1}{4\pi|\mathbf r-\mathbf r'^*|}.}
+它在 $z=0$ 上确为零，且满足所需奇性。
+
+若单位点源位于 $(0,0,h)$，则 $\mathbf r_0=(0,0,h)$，其镜像点为 $\mathbf r_0^*=(0,0,-h)$。势函数即为
+\ansmath{u(\mathbf r)=\frac{1}{4\pi}\left(\frac{1}{|\mathbf r-\mathbf r_0|}-\frac{1}{|\mathbf r-\mathbf r_0^*|}\right).}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑 Hilbert 空间 $L^2(0,2\pi)$ 上的算符
+\[
+\hat L=-i\frac{d}{dx},
+\qquad
+D(\hat L)=\{u\in H^1(0,2\pi):u(2\pi)=e^{i\theta}u(0)\},
+\]
+其中 $\theta\in\mathbb R$ 为常数。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 证明 $\hat L$ 是自伴的；
+\item 求全部本征值与本征函数。
+\end{enumerate}
+\begin{solution}
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 对 $u,v\in D(\hat L)$，有
+\[
+\langle \hat L u,v\rangle-\langle u,\hat L v\rangle
+=-i\int_0^{2\pi}u'\bar v\,dx+i\int_0^{2\pi}u\overline{v'}\,dx
+=-i[u\bar v]_0^{2\pi}.
+\]
+而准周期边界给出
+\[
+u(2\pi)=e^{i\theta}u(0),\qquad v(2\pi)=e^{i\theta}v(0),
+\]
+故
+\[
+[u\bar v]_0^{2\pi}=e^{i\theta}u(0)e^{-i\theta}\overline{v(0)}-u(0)\overline{v(0)}=0.
+\]
+因此 $\hat L$ 对称；其伴随域满足同样边界条件，所以 $\hat L$ 自伴。
+
+\item 本征方程
+\[
+-i u'=\lambda u
+\]
+解为
+\[
+u(x)=C e^{i\lambda x}.
+\]
+代入边界条件：
+\[
+e^{i2\pi\lambda}=e^{i\theta}.
+\]
+故
+\[
+2\pi\lambda=\theta+2\pi n,
+\qquad n\in\mathbb Z.
+\]
+于是全部本征值为
+\ansmath{\lambda_n=n+\frac{\theta}{2\pi},\qquad n\in\mathbb Z,}
+相应本征函数可取
+\ansmath{u_n(x)=\frac{1}{\sqrt{2\pi}}e^{i(n+\theta/(2\pi))x}.}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+在区间 $0<x<l$ 上求算符
+\[
+L=-\frac{d^2}{dx^2}+a^2\qquad (a>0)
+\]
+配以 Dirichlet 边界条件 $u(0)=u(l)=0$ 的 Green 函数，即求 $G(x,\xi)$ 使得
+\[
+\left(-\frac{d^2}{dx^2}+a^2\right)G(x,\xi)=\delta(x-\xi),
+\qquad G(0,\xi)=G(l,\xi)=0.
+\]
+并写出方程 $Lu=f(x)$ 的解的积分表示。
+\begin{solution}
+
+对 $x\neq \xi$，有齐次方程
+\[
+-G''+a^2G=0,
+\]
+其解为双曲函数。为满足左右边界，可取
+\[
+G(x,\xi)=
+\begin{cases}
+A(\xi)\sinh(ax), & 0<x<\xi,\\
+B(\xi)\sinh(a(l-x)), & \xi<x<l.
+\end{cases}
+\]
+在 $x=\xi$ 处连续，且由方程积分得导数跃变
+\[
+G_x(\xi+0,\xi)-G_x(\xi-0,\xi)=-1.
+\]
+解得
+\ansmath{G(x,\xi)=\frac{1}{a\sinh(al)}
+\sinh(a x_<)\sinh\bigl(a(l-x_>)\bigr),}
+其中
+\[
+x_<=\min\{x,\xi\},\qquad x_>=\max\{x,\xi\}.
+\]
+因此边值问题
+\[
+\left(-\frac{d^2}{dx^2}+a^2\right)u=f(x),
+\qquad u(0)=u(l)=0
+\]
+的解为
+\ansmath{u(x)=\int_0^l G(x,\xi)f(\xi)\,d\xi.}
+\end{solution}
+\end{question}
+
+

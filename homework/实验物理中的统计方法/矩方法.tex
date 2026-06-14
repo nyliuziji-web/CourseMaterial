@@ -1,0 +1,232 @@
+﻿\heading{实验物理中的统计方法-矩方法}
+
+
+
+
+
+\begin{question}
+考虑服从高斯分布的随机变量 \(x\)，均值 \(\mu\) 和方差 \(\sigma^2\)
+未知，并假设样本为 \(x_1,\ldots,x_n\)。
+
+\begin{enumerate}
+\item
+  利用矩方法构造 \(\mu\) 和 \(\sigma^2\) 的估计量。利用函数
+  \(a_1=x\)，\(a_2=x^2\)，使得期待值 \(E[a_i(x)]\) 对应于 \(x\)
+  的一阶和二阶代数矩。
+\item
+  计算 (a) 中得到的估计量 \(\hat\mu\) 与 \(\hat\sigma^2\)
+  的期待值。这两个估计量是否是无偏的？
+\end{enumerate}
+\begin{solution}
+设样本 \(x_1,\dots,x_n\) 来自高斯分布
+\(N(\mu,\sigma^2)\)，但这里我们不用最大似然，而用矩方法。
+
+\begin{enumerate}
+\item 构造 \(\mu\) 与 \(\sigma^2\) 的矩估计
+
+取
+
+\[
+a_1(x)=x,
+\qquad
+a_2(x)=x^2.
+\]
+
+理论矩为
+
+\[
+E[x]=\mu,
+\qquad E[x^2]=\mu^2+\sigma^2.
+\]
+
+样本矩为
+
+\[
+\overline x=\frac1n\sum_{i=1}^n x_i,
+\qquad
+\overline{x^2}=\frac1n\sum_{i=1}^n x_i^2.
+\]
+
+令样本矩等于理论矩：
+
+\[
+\hat\mu=\overline x,
+\qquad
+\hat\sigma^2=\overline{x^2}-\overline x^{\,2}.
+\]
+
+也就是
+
+\[
+\hat\sigma^2=\frac1n\sum_{i=1}^n (x_i-\overline x)^2.
+\]
+
+这正好与高斯模型下的方差 MLE 一致。
+
+\item 期望值：是否无偏
+
+显然
+
+\[
+E[\hat\mu]=E[\overline x]=\mu,
+\]
+
+因此 \(\hat\mu\) 无偏。
+
+对方差估计量，利用第五章结论
+
+\[
+s^2=\frac1{n-1}\sum_{i=1}^n (x_i-\overline x)^2
+\]
+
+是 \(\sigma^2\) 的无偏估计，而
+
+\[
+\hat\sigma^2=\frac{n-1}{n}s^2,
+\]
+
+所以
+
+\[
+E[\hat\sigma^2]=\frac{n-1}{n}\sigma^2.
+\]
+
+因此矩方法得到的 \(\hat\sigma^2\) 不是无偏估计，它向下偏。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+
+
+\begin{question}
+考虑粒子反应中产生的 \(\rho^0\) 介子衰变为两个带电 \(\pi\)
+介子（\(\pi^+\pi^-\)）。衰变角定义为，在 \(\pi^+\pi^-\) 质心系中
+\(\pi^+\) 运动方向与 \(\rho\) 的原初方向的夹角，见图 8.1。由于
+\(\rho^0\) 的自旋为 1，\(\pi\) 介子的自旋为 0，可以证明 \(\cos\theta\)
+的分布具有如下形式
+\pyfig[0.62\linewidth]{figures/fig_08_01_rho_decay_schematic.png}{图 8.1：\(\rho^0\to\pi^+\pi^-\) 衰变角定义示意图。}
+
+
+\[
+f(\cos\theta;\eta)=\frac12(1-\eta)+\frac32\eta\cos^2\theta,
+\]
+
+其中自旋排列参数 \(\eta\) 的取值范围为 \(-\frac12\le\eta\le1\)。
+
+\begin{enumerate}
+\item
+  假设某反应产生的 \(\rho^0\) 中，测量到 \(n\) 个 \(\cos\theta\)
+  值。利用矩方法，取 \(a=x^2\)，构造自旋排列参数的估计量
+  \(\hat\eta\)。为什么不能用 \(a=x\) 构造估计量？
+\item
+  计算 \(\hat\eta\) 的期待值和方差。
+\end{enumerate}
+\begin{solution}
+定义 \(x=\cos\theta\)，分布为
+
+\[
+f(x;\eta)=\frac12(1-\eta)+\frac32\eta x^2,
+\qquad -1\le x\le 1,
+\qquad -\frac12\le\eta\le 1.
+\]
+
+\begin{enumerate}
+\item 用矩方法构造 \(\eta\) 的估计量；为何不能取 \(a=x\)
+
+先计算一阶矩：
+
+\[
+E[x]=\int_{-1}^1 x f(x;\eta)\,dx = 0.
+\]
+
+这与 \(\eta\) 无关，所以用 \(a=x\) 不能区分不同的
+\(\eta\)，自然无法构造估计量。
+
+于是取二阶矩 \(a=x^2\)。先算
+
+\[
+E[x^2]=\int_{-1}^1 x^2 f(x;\eta)\,dx
+=\frac{1-\eta}{2}\int_{-1}^1 x^2dx + \frac{3\eta}{2}\int_{-1}^1 x^4dx.
+\]
+
+利用
+
+\[
+\int_{-1}^1 x^2dx=\frac23,
+\qquad
+\int_{-1}^1 x^4dx=\frac25,
+\]
+
+得到
+
+\[
+E[x^2]=\frac{1-\eta}{3}+\frac{3\eta}{5}=\frac{5+4\eta}{15}.
+\]
+
+令样本二阶矩
+
+\[
+\overline{x^2}=\frac1n\sum_{i=1}^n x_i^2
+\]
+
+等于理论矩，解出
+
+\[
+\hat\eta = \frac{15\overline{x^2}-5}{4}.
+\]
+
+\item 计算 \(E[\hat\eta]\) 与 \(V[\hat\eta]\)
+
+由构造直接知道
+
+\[
+E[\hat\eta]=\eta,
+\]
+
+因此它是无偏估计量。
+
+接着要算方差。先求四阶矩：
+
+\[
+E[x^4]=\frac{1-\eta}{2}\int_{-1}^1 x^4dx + \frac{3\eta}{2}\int_{-1}^1 x^6dx.
+\]
+
+再用
+
+\[
+\int_{-1}^1 x^6dx=\frac27,
+\]
+
+得到
+
+\[
+E[x^4]=\frac{1-\eta}{5}+\frac{3\eta}{7}=\frac{7+8\eta}{35}.
+\]
+
+于是
+
+\[
+V(\overline{x^2})=\frac1n\left(E[x^4]-E[x^2]^2\right).
+\]
+
+而
+
+\[
+\hat\eta = \frac{15}{4}\overline{x^2}-\frac54,
+\]
+
+故
+
+\[
+V[\hat\eta]=\left(\frac{15}{4}\right)^2 V(\overline{x^2}).
+\]
+\pyfig[0.72\linewidth]{figures/fig_08_02_eta_density.png}{不同 \(\eta\) 下 \(x=\cos\theta\) 的理论密度；对称性说明一阶矩恒为 0。}
+代入并化简后得到
+
+\[
+V[\hat\eta]=\frac{-28\eta^2+20\eta+35}{28n}.
+\]
+\end{enumerate}
+\end{solution}
+\end{question}
+

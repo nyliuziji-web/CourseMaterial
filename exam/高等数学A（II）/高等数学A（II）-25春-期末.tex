@@ -1,0 +1,475 @@
+﻿\heading{高等数学A（II）-25春-期末}
+\noteinfo{题目由用户提供，解答按本仓库现有版式整理。}
+
+\begin{question}[正项级数的敛散性]
+
+判别下列正项级数的敛散性：
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item $\sum_{n=1}^{\infty}\left(\ln \dfrac{1}{n}-\ln \sin \dfrac{1}{n}\right)$；
+\item $\sum_{n=1}^{\infty}\dfrac{n!\arctan\!\bigl(2+(-1)^n\bigr)}{n^n}$；
+\item $\sum_{n=1}^{\infty}\left(\arctan\dfrac{1}{n}\right)^\alpha\dfrac{1}{\ln(1+n+n^2)}\ (\alpha>0)$；
+\item $\sum_{n=1}^{\infty}\left(\cos\dfrac{1}{\sqrt n}\right)^{n^2}$。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 记
+\[
+a_n=\ln\frac{1/n}{\sin(1/n)}=\ln\frac{x}{\sin x}\Big|_{x=1/n}.
+\]
+当 $x\to0$ 时，
+\[
+\sin x=x-\frac{x^3}{6}+O(x^5),
+\qquad
+\frac{x}{\sin x}=1+\frac{x^2}{6}+O(x^4),
+\]
+从而
+\[
+\ln\frac{x}{\sin x}=\frac{x^2}{6}+O(x^4).
+\]
+取 $x=1/n$，得
+\[
+a_n=\frac{1}{6n^2}+O\!\left(\frac{1}{n^4}\right).
+\]
+故原级数与 $\sum 1/n^2$ 同敛散，所以
+\ansmath{\sum_{n=1}^{\infty}\left(\ln \frac{1}{n}-\ln \sin \frac{1}{n}\right)\text{ 收敛。}}
+
+\item 由于
+\[
+\arctan 1\le \arctan\!\bigl(2+(-1)^n\bigr)\le \arctan 3,
+\]
+故它只差一个正常数因子。设
+\[
+b_n=\frac{n!\arctan\!\bigl(2+(-1)^n\bigr)}{n^n}.
+\]
+则
+\[
+\frac{b_{n+1}}{b_n}
+=\frac{\arctan(2+(-1)^{n+1})}{\arctan(2+(-1)^n)}
+\left(\frac{n}{n+1}\right)^n.
+\]
+而
+\[
+\left(\frac{n}{n+1}\right)^n\to e^{-1},
+\]
+前面的比值有界，因此 $\limsup\limits_{n\to\infty} b_{n+1}/b_n<1$。由比值判别法知原级数收敛，即
+\ansmath{\sum_{n=1}^{\infty}\frac{n!\arctan\!\bigl(2+(-1)^n\bigr)}{n^n}\text{ 收敛。}}
+
+\item 设
+\[
+c_n=\left(\arctan\frac1n\right)^\alpha\frac{1}{\ln(1+n+n^2)}.
+\]
+由
+\[
+\arctan\frac1n\sim \frac1n,
+\qquad
+\ln(1+n+n^2)\sim 2\ln n
+\]
+可得
+\[
+c_n\sim \frac{1}{2n^\alpha\ln n}.
+\]
+故原级数与
+\[
+\sum_{n=2}^{\infty}\frac{1}{n^\alpha\ln n}
+\]
+同敛散，从而
+\ansmath{\alpha>1\text{ 时收敛，}\ 0<\alpha\le1\text{ 时发散。}}
+
+\item 用根值判别法。设
+\[
+d_n=\left(\cos\frac{1}{\sqrt n}\right)^{n^2},
+\qquad
+\sqrt[n]{d_n}=\left(\cos\frac{1}{\sqrt n}\right)^n.
+\]
+当 $x\to0$ 时，
+\[
+\ln(\cos x)=-\frac{x^2}{2}+o(x^2),
+\]
+于是
+\[
+n\ln\!\left(\cos\frac{1}{\sqrt n}\right)\to -\frac12,
+\qquad
+\left(\cos\frac{1}{\sqrt n}\right)^n\to e^{-1/2}<1.
+\]
+故原级数收敛，即
+\ansmath{\sum_{n=1}^{\infty}\left(\cos\frac{1}{\sqrt n}\right)^{n^2}\text{ 收敛。}}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[含参数级数的敛散性]
+
+根据 $\alpha$ 的取值讨论下列级数的敛散性；若是非正项级数，需进一步讨论条件收敛与绝对收敛：
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item $\sum_{n=2}^{\infty}\ln\!\left(1+\dfrac{(-1)^n}{n^\alpha}\right)$，$\alpha\in\mathbb R$；
+\item $\sum_{n=1}^{\infty}\left(\sqrt[n]{\alpha}-\sqrt{1+\dfrac{1}{n}}\right)$，$\alpha>0$。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 当 $\alpha\le0$ 时，奇数项中
+\[
+1+\frac{(-1)^n}{n^\alpha}=1-\frac{1}{n^\alpha}
+\]
+从某项起不为正，因此该级数本身无意义。下面只讨论 $\alpha>0$。
+
+令
+\[
+u_n=\frac{(-1)^n}{n^\alpha}.
+\]
+由 Taylor 展开，
+\[
+\ln(1+u_n)=u_n-\frac{u_n^2}{2}+O(u_n^3)
+=\frac{(-1)^n}{n^\alpha}-\frac{1}{2n^{2\alpha}}+O\!\left(\frac{1}{n^{3\alpha}}\right).
+\]
+于是原级数可分解为
+\[
+\sum \frac{(-1)^n}{n^\alpha}-\frac12\sum \frac{1}{n^{2\alpha}}
++\sum O\!\left(\frac{1}{n^{3\alpha}}\right).
+\]
+从而：
+\begin{itemize}[leftmargin=2em,itemsep=0.2em,topsep=0.2em]
+\item 当 $\alpha>1$ 时，$\sum |\ln(1+u_n)|$ 收敛，故绝对收敛；
+\item 当 $\frac12<\alpha\le1$ 时，$\sum (-1)^n/n^\alpha$ 收敛，而 $\sum 1/n^{2\alpha}$ 也收敛，所以原级数收敛但不绝对收敛；
+\item 当 $0<\alpha\le\frac12$ 时，$\sum 1/n^{2\alpha}$ 发散，且展开中的二次项为负，故原级数发散。
+\end{itemize}
+综上，
+\ansmath{
+\begin{cases}
+\alpha>1,& \text{绝对收敛},\\[2mm]
+\dfrac12<\alpha\le1,& \text{条件收敛},\\[2mm]
+0<\alpha\le\dfrac12,& \text{发散},\\[2mm]
+\alpha\le0,& \text{级数无意义}.
+\end{cases}}
+
+\item 记
+\[
+a_n=\alpha^{1/n}-\sqrt{1+\frac1n}.
+\]
+当 $n\to\infty$ 时，
+\[
+\alpha^{1/n}=e^{(\ln\alpha)/n}
+=1+\frac{\ln\alpha}{n}+O\!\left(\frac{1}{n^2}\right),
+\]
+\[
+\sqrt{1+\frac1n}=1+\frac{1}{2n}+O\!\left(\frac{1}{n^2}\right).
+\]
+故
+\[
+a_n=\frac{\ln\alpha-\frac12}{n}+O\!\left(\frac{1}{n^2}\right).
+\]
+于是：
+\begin{itemize}[leftmargin=2em,itemsep=0.2em,topsep=0.2em]
+\item 若 $\ln\alpha\ne \frac12$，即 $\alpha\ne \sqrt e$，则 $a_n\sim c/n$，级数发散；
+\item 若 $\alpha=\sqrt e$，则首项消去，有 $a_n=O(1/n^2)$，故级数收敛。
+\end{itemize}
+因此
+\ansmath{\sum_{n=1}^{\infty}\left(\sqrt[n]{\alpha}-\sqrt{1+\frac1n}\right)\text{ 当且仅当 }\alpha=\sqrt e\text{ 时收敛。}}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[幂级数展开与求和]
+
+求函数
+\[
+f(x)=\arctan\frac{1-2x}{1+2x}
+\]
+在 $0$ 处的幂级数展开式，并求
+\[
+\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}
+\]
+的和。
+
+\begin{solution}
+在 $|x|<\frac12$ 内，
+\[
+\arctan\frac{1-2x}{1+2x}=\frac{\pi}{4}-\arctan(2x),
+\]
+因为
+\[
+\tan\!\left(\frac{\pi}{4}-\arctan(2x)\right)=\frac{1-2x}{1+2x},
+\]
+且两边在 $x=0$ 时都等于 $\pi/4$。
+
+又
+\[
+\arctan t=\sum_{n=0}^{\infty}\frac{(-1)^n t^{2n+1}}{2n+1},
+\qquad |t|<1,
+\]
+取 $t=2x$，得
+\[
+f(x)=\frac{\pi}{4}-\sum_{n=0}^{\infty}\frac{(-1)^n(2x)^{2n+1}}{2n+1},
+\qquad |x|<\frac12.
+\]
+即
+\ansmath{
+f(x)=\frac{\pi}{4}-\sum_{n=0}^{\infty}\frac{(-1)^n2^{2n+1}}{2n+1}x^{2n+1},
+\qquad |x|<\frac12.}
+
+再取 $x=\frac12$，则左边为
+\[
+f\!\left(\frac12\right)=\arctan 0=0,
+\]
+右边化为
+\[
+\frac{\pi}{4}-\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}.
+\]
+故
+\ansmath{\sum_{n=0}^{\infty}\frac{(-1)^n}{2n+1}=\frac{\pi}{4}.}
+\end{solution}
+\end{question}
+
+\begin{question}[求和]
+
+求级数
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n}{3n-1}.
+\]
+
+\begin{solution}
+将其改写为
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n}{3n-1}
+=-\sum_{n=0}^{\infty}\frac{(-1)^n}{3n+2}.
+\]
+利用
+\[
+\frac{1}{3n+2}=\int_0^1 x^{3n+1}\,dx,
+\]
+得
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n}{3n-1}
+=-\int_0^1\sum_{n=0}^{\infty}(-1)^n x^{3n+1}\,dx
+=-\int_0^1\frac{x}{1+x^3}\,dx.
+\]
+对
+\[
+\frac{x}{1+x^3}
+\]
+作部分分式分解：
+\[
+\frac{x}{1+x^3}
+=-\frac{1}{3(x+1)}+\frac{x+1}{3(x^2-x+1)}.
+\]
+故
+\[
+\int \frac{x}{1+x^3}\,dx
+=-\frac13\ln(x+1)+\frac16\ln(x^2-x+1)
++\frac{1}{\sqrt3}\arctan\frac{2x-1}{\sqrt3}+C.
+\]
+代入 $0$ 与 $1$，得
+\[
+\int_0^1\frac{x}{1+x^3}\,dx=-\frac13\ln2+\frac{\pi}{3\sqrt3}.
+\]
+因此
+\ansmath{\sum_{n=1}^{\infty}\frac{(-1)^n}{3n-1}=\frac13\ln2-\frac{\pi}{3\sqrt3}.}
+\end{solution}
+\end{question}
+
+\begin{question}[Fourier 级数与 $\sum 1/n^6$]
+
+设 $f$ 是 $\mathbb R$ 上 $2\pi$ 周期的奇函数，在 $[0,\pi]$ 上
+\[
+f(x)=x(\pi-x).
+\]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 证明：对任意 $x\in\mathbb R$，
+\[
+f(x)=\frac{8}{\pi}\sum_{n=1}^{\infty}\frac{\sin\bigl((2n-1)x\bigr)}{(2n-1)^3}.
+\]
+\item 求 $\sum_{n=1}^{\infty}\dfrac{1}{n^6}$。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*),leftmargin=2.6em,itemsep=0.25em,topsep=0.2em]
+\item 由于 $f$ 为奇函数，其 Fourier 级数只有正弦项：
+\[
+f(x)\sim \sum_{n=1}^{\infty}b_n\sin nx,
+\qquad
+b_n=\frac{2}{\pi}\int_0^{\pi}x(\pi-x)\sin nx\,dx.
+\]
+分部积分两次可得
+\[
+b_n=\frac{4\bigl(1-(-1)^n\bigr)}{\pi n^3}.
+\]
+故偶数项系数为 $0$，奇数项系数为
+\[
+b_{2n-1}=\frac{8}{\pi(2n-1)^3}.
+\]
+于是
+\ansmath{f(x)=\frac{8}{\pi}\sum_{n=1}^{\infty}\frac{\sin\bigl((2n-1)x\bigr)}{(2n-1)^3}.}
+
+\item 由 Parseval 等式，
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi}|f(x)|^2\,dx=\sum_{n=1}^{\infty}b_n^2.
+\]
+因为 $f$ 是奇函数，
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi}|f(x)|^2\,dx
+=\frac{2}{\pi}\int_0^{\pi}x^2(\pi-x)^2\,dx
+=\frac{2}{\pi}\cdot \frac{\pi^5}{30}
+=\frac{\pi^4}{15}.
+\]
+另一方面，
+\[
+b_{2n-1}^2=\frac{64}{\pi^2(2n-1)^6},
+\qquad b_{2n}=0,
+\]
+故
+\[
+\frac{64}{\pi^2}\sum_{n=1}^{\infty}\frac{1}{(2n-1)^6}=\frac{\pi^4}{15},
+\]
+即
+\[
+\sum_{n=1}^{\infty}\frac{1}{(2n-1)^6}=\frac{\pi^6}{960}.
+\]
+设
+\[
+S=\sum_{n=1}^{\infty}\frac{1}{n^6},
+\]
+则
+\[
+\sum_{n=1}^{\infty}\frac{1}{(2n-1)^6}=S-\frac{1}{2^6}S=\frac{63}{64}S.
+\]
+因此
+\[
+\frac{63}{64}S=\frac{\pi^6}{960},
+\]
+从而
+\ansmath{\sum_{n=1}^{\infty}\frac{1}{n^6}=\frac{\pi^6}{945}.}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[反常积分的收敛条件]
+
+设
+\[
+\int_0^{\infty}\frac{x^n(1-e^{-x})}{(1+x)^m}\,dx
+\]
+收敛，求 $m,n$ 的取值范围。
+
+\begin{solution}
+分别考察 $x\to0$ 与 $x\to\infty$。
+
+当 $x\to0$ 时，
+\[
+1-e^{-x}\sim x,
+\qquad
+(1+x)^m\sim 1,
+\]
+故被积函数满足
+\[
+\frac{x^n(1-e^{-x})}{(1+x)^m}\sim x^{n+1}.
+\]
+于是积分在 $0$ 附近收敛当且仅当
+\[
+n+1>-1,
+\qquad\text{即}\qquad n>-2.
+\]
+
+当 $x\to\infty$ 时，
+\[
+1-e^{-x}\to1,
+\qquad
+(1+x)^m\sim x^m,
+\]
+故被积函数满足
+\[
+\frac{x^n(1-e^{-x})}{(1+x)^m}\sim x^{n-m}.
+\]
+于是积分在无穷远处收敛当且仅当
+\[
+n-m<-1,
+\qquad\text{即}\qquad m-n>1.
+\]
+
+综上，
+\ansmath{n>-2,\qquad m-n>1.}
+\end{solution}
+\end{question}
+
+\begin{question}[广义积分的敛散性]
+
+判断广义积分
+\[
+\int_1^{\infty}\frac{(\arctan x)\ln x}{x^2}\,dx
+\]
+的敛散性。
+
+\begin{solution}
+当 $x\ge1$ 时，
+\[
+0<\arctan x<\frac{\pi}{2},
+\]
+故
+\[
+0\le \frac{(\arctan x)\ln x}{x^2}
+\le \frac{\pi}{2}\cdot \frac{\ln x}{x^2}.
+\]
+而
+\[
+\int_1^{\infty}\frac{\ln x}{x^2}\,dx
+\]
+收敛，所以由比较判别法可知原广义积分收敛。故
+\ansmath{\int_1^{\infty}\frac{(\arctan x)\ln x}{x^2}\,dx\text{ 收敛。}}
+\end{solution}
+\end{question}
+
+\begin{question}[恒等式证明与高斯积分]
+
+设
+\[
+f(t)=\left(\int_0^t e^{-x^2}\,dx\right)^2,
+\qquad
+g(t)=\int_0^1\frac{e^{-t^2(1+x^2)}}{1+x^2}\,dx.
+\]
+证明 $f(t)+g(t)=\dfrac{\pi}{4}$，并由此计算
+\[
+\int_0^{\infty}e^{-x^2}\,dx.
+\]
+
+\begin{solution}
+先求导。由链式法则，
+\[
+f'(t)=2e^{-t^2}\int_0^t e^{-x^2}\,dx.
+\]
+对 $g(t)$ 在积分号下求导，得
+\[
+g'(t)=\int_0^1\frac{-2t(1+x^2)e^{-t^2(1+x^2)}}{1+x^2}\,dx
+=-2t e^{-t^2}\int_0^1 e^{-t^2x^2}\,dx.
+\]
+令 $u=tx$，则
+\[
+\int_0^1 e^{-t^2x^2}\,dx=\frac1t\int_0^t e^{-u^2}\,du.
+\]
+故
+\[
+g'(t)=-2e^{-t^2}\int_0^t e^{-u^2}\,du=-f'(t).
+\]
+因此
+\[
+\bigl(f(t)+g(t)\bigr)'=0,
+\]
+即 $f(t)+g(t)$ 为常数。
+
+取 $t=0$，有
+\[
+f(0)=0,
+\qquad
+g(0)=\int_0^1\frac{dx}{1+x^2}=\frac{\pi}{4}.
+\]
+所以
+\ansmath{f(t)+g(t)=\frac{\pi}{4}.}
+
+再令 $t\to\infty$，由夹逼或控制收敛定理知 $g(t)\to0$，于是
+\[
+\left(\int_0^{\infty}e^{-x^2}\,dx\right)^2=\lim_{t\to\infty}f(t)=\frac{\pi}{4}.
+\]
+由于该积分为正，故
+\ansmath{\int_0^{\infty}e^{-x^2}\,dx=\frac{\sqrt\pi}{2}.}
+\end{solution}
+\end{question}
+

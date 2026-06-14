@@ -1,0 +1,213 @@
+﻿\heading{数学物理方法（下）-第12次作业}
+
+
+\begin{question}
+设本征值问题
+\[
+\nabla^2\Phi+\lambda\Phi=0,\qquad \Phi|_\Sigma=0
+\]
+的归一化本征函数为 \(\Phi_k\)，本征值为 \(\lambda_k\)。证明当 \(\lambda=0\) 不是本征值时，Poisson 方程第一类边值问题
+\[
+\nabla^2u=-f,\qquad u|_\Sigma=0
+\]
+的解为
+\[
+u=\sum_k\frac{A_k}{\lambda_k}\Phi_k,\qquad
+f=\sum_kA_k\Phi_k.
+\]
+\begin{solution}
+设
+\[
+u=\sum_ku_k\Phi_k.
+\]
+这里使用的是 Dirichlet Laplacian 的本征函数完备性：满足同一齐次边界条件的函数可以按 \(\{\Phi_k\}\) 展开。由于题设中
+\[
+f=\sum_kA_k\Phi_k,
+\]
+代入 Poisson 方程并逐项比较系数即可。
+由
+\[
+\nabla^2\Phi_k=-\lambda_k\Phi_k
+\]
+得
+\[
+\nabla^2u=-\sum_k\lambda_ku_k\Phi_k.
+\]
+与 \(-f=-\sum_kA_k\Phi_k\) 比较，得
+\[
+u_k=\frac{A_k}{\lambda_k}.
+\]
+若 \(\lambda=0\) 不是本征值，则不存在除零问题，公式成立。
+\end{solution}
+\end{question}
+
+\begin{question}
+利用“同时用两组本征函数展开”的方法，求矩形区域 \(0\le x\le a,\ 0\le y\le b\) 内 Poisson 方程
+\[
+u_{xx}+u_{yy}=-f(x,y)
+\]
+在边界条件
+\[
+u|_{x=0}=u|_{x=a}=0,\qquad
+u_y|_{y=0}=u_y|_{y=b}=0
+\]
+下的解。
+\begin{solution}
+取
+\[
+X_m=\sin\frac{m\pi x}{a},\qquad
+Y_n=\cos\frac{n\pi y}{b},
+\]
+其中 \(m=1,2,\ldots\)，\(n=0,1,2,\ldots\)。展开
+\[
+f(x,y)=\sum_{m=1}^{\infty}\sum_{n=0}^{\infty}F_{mn}X_mY_n.
+\]
+则
+\[
+u(x,y)=\sum_{m=1}^{\infty}\sum_{n=0}^{\infty}
+\frac{F_{mn}}{(m\pi/a)^2+(n\pi/b)^2}
+\sin\frac{m\pi x}{a}\cos\frac{n\pi y}{b}.
+\]
+其中
+\[
+F_{mn}=\frac{4}{ab(1+\delta_{n0})}
+\int_0^a\int_0^b f(x,y)
+\sin\frac{m\pi x}{a}\cos\frac{n\pi y}{b}\,dy\,dx.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+单位球内定解问题
+\[
+\nabla^2u=0,\qquad x^2+y^2+z^2<1,\qquad
+u|_{r=1}=f(z).
+\]
+在球坐标中选择合适的积分核，对 \(\theta\) 作积分变换，求 \(u\) 的像函数。能否对 \(r\) 作积分变换？
+\begin{solution}
+因边界只依赖 \(z=\cos\theta\)，问题轴对称。取 Legendre 变换
+\[
+f(\cos\theta)=\sum_{l=0}^{\infty}a_lP_l(\cos\theta),
+\qquad
+a_l=\frac{2l+1}{2}\int_{-1}^{1}f(\mu)P_l(\mu)\,d\mu.
+\]
+球内有界解为
+\[
+u(r,\theta)=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta).
+\]
+因此像函数为
+\[
+\hat u_l(r)=a_lr^l.
+\]
+\(r\) 方向不是有限区间上的自伴本征问题，且 \(r=0\) 是奇点；通常不对 \(r\) 作同类积分变换，而是用有界性选出 \(r^l\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+求下列常微分方程边值问题相应的 Green 函数：
+\[
+\frac d{dx}\left[(1-x^2)y'\right]=-\phi(x),\qquad
+y(-1),y(1)\text{ 有界}.
+\]
+\begin{solution}
+算子
+\[
+L=\frac d{dx}\left[(1-x^2)\frac d{dx}\right]
+\]
+有零模常数函数，因此 Green 函数需在零均值子空间上理解。令
+\[
+L_xG(x,\xi)=-\delta(x-\xi)+\frac12.
+\]
+加入 \(1/2\) 是为了使右端在 \([-1,1]\) 上积分为零，从而满足 Neumann 型问题的相容条件。对 \(x\ne\xi\)，方程化为
+\[
+\frac d{dx}\left[(1-x^2)G_x\right]=\frac12.
+\]
+在 \(\xi\) 的左右两侧分别积分，并要求端点 \(x=\pm1\) 处 \((1-x^2)G_x\) 不产生不可积奇性，可得
+\[
+G_x(x,\xi)=
+\begin{cases}
+\dfrac{x+1}{2(1-x^2)},&x<\xi,\\
+\dfrac{x-1}{2(1-x^2)},&x>\xi.
+\end{cases}
+\]
+同时在 \(x=\xi\) 处有跳跃条件
+\[
+\left[(1-x^2)G_x\right]_{\xi-}^{\xi+}=-1,
+\]
+这正对应右端的 \(-\delta(x-\xi)\)。
+积分并取对称规范，可写为
+\[
+G(x,\xi)=\frac12\ln\frac{1-x_<}{1+x_<}
++C(\xi),
+\]
+其中 \(x_<=\min(x,\xi)\)，常数由所取零均值条件确定。解存在的相容条件为
+\[
+\int_{-1}^{1}\phi(x)\,dx=0.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求一维和二维无界空间 Helmholtz 方程散射问题的 Green 函数，时间因子取 \(e^{-i\omega t}\)。
+\begin{solution}
+取出射波条件。方程
+\[
+(\nabla^2+k^2)G=-\delta
+\]
+在一维中的 Green 函数为
+\[
+G_1(x,x')=\frac{i}{2k}e^{ik|x-x'|}.
+\]
+二维中
+\[
+G_2(\bm r,\bm r')=\frac{i}{4}H_0^{(1)}(k|\bm r-\bm r'|).
+\]
+其中 \(H_0^{(1)}\) 的远场渐近正对应出射圆柱波。
+\end{solution}
+\end{question}
+
+\begin{question}
+求二维 Poisson 方程
+\[
+\nabla^2G(x,y;x',y')=-4\pi\delta(x-x')\delta(y-y')
+\]
+的通解。
+\begin{solution}
+二维基本解满足
+\[
+\nabla^2\ln|\bm r-\bm r'|=2\pi\delta(\bm r-\bm r').
+\]
+因此一个特解为
+\[
+G_0(\bm r,\bm r')=-2\ln|\bm r-\bm r'|.
+\]
+通解为
+\[
+G(\bm r,\bm r')=-2\ln|\bm r-\bm r'|+H(\bm r,\bm r'),
+\]
+其中 \(H\) 对 \(\bm r\) 是任意调和函数，由具体边界条件确定。
+\end{solution}
+\end{question}
+
+\begin{question}
+求无界空间二维波动问题
+\[
+u_{tt}-a^2\nabla^2u=f(x,y,t),\qquad
+u|_{t=0}=\psi(x,y),\qquad u_t|_{t=0}=\xi(x,y)
+\]
+相应的 Green 函数。
+\begin{solution}
+迟滞 Green 函数满足
+\[
+G_{tt}-a^2\nabla^2G=\delta(x-x')\delta(y-y')\delta(t-t'),\qquad G=0\quad(t<t').
+\]
+二维波动方程的迟滞 Green 函数为
+\[
+G=\frac{H(\tau-R/a)}{2\pi a^2\sqrt{\tau^2-R^2/a^2}},
+\qquad
+\tau=t-t',\quad R=|\bm r-\bm r'|.
+\]
+故解可由 Duhamel 原理写成源项卷积加初值贡献。
+\end{solution}
+\end{question}
+

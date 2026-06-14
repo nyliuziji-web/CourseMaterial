@@ -1,0 +1,332 @@
+﻿\heading{实验物理中的统计方法-模拟题1-期末}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较往年期末略高。}
+
+\begin{question}
+设物理量
+\[
+Z=\frac{X}{Y},
+\]
+其中 $X,Y$ 的标准差分别为 $\sigma_X,\sigma_Y$，协方差为 $c=\operatorname{Cov}(X,Y)$。写出小误差近似下 $Z$ 的不确定度公式。
+\begin{solution}
+由误差传播公式，
+\[
+\sigma_Z^2\approx
+\left(\frac{\partial Z}{\partial X}\right)^2\sigma_X^2+
+\left(\frac{\partial Z}{\partial Y}\right)^2\sigma_Y^2+
+2\frac{\partial Z}{\partial X}\frac{\partial Z}{\partial Y}c.
+\]
+而
+\[
+\frac{\partial Z}{\partial X}=\frac1Y,\qquad
+\frac{\partial Z}{\partial Y}=-\frac{X}{Y^2}.
+\]
+故
+\ansmath{\sigma_Z^2\approx \frac{\sigma_X^2}{Y^2}+\frac{X^2\sigma_Y^2}{Y^4}-\frac{2Xc}{Y^3}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X$ 服从自由度为 $2n$ 的卡方分布。$n$ 很大时，$\sqrt{X}$ 近似服从什么分布？
+\begin{solution}
+对卡方分布，
+\[
+E[X]=2n,\qquad \operatorname{Var}(X)=4n.
+\]
+令
+\[
+g(x)=\sqrt{x},
+\qquad g'(x)=\frac{1}{2\sqrt{x}}.
+\]
+由 delta 方法，
+\[
+\sqrt{X}\approx N\!\left(g(2n),\ [g'(2n)]^2\operatorname{Var}(X)\right).
+\]
+因此
+\[
+[g'(2n)]^2\operatorname{Var}(X)
+=\frac{1}{4\cdot 2n}\cdot 4n=\frac12.
+\]
+故
+\ansmath{\sqrt{X}\approx N\!\left(\sqrt{2n},\frac12\right)}
+\end{solution}
+\end{question}
+
+\begin{question}
+设总体的概率密度为
+\[
+f(x;\theta)=\begin{cases}
+(\theta+1)x^\theta,&0<x<1,\\
+0,&\text{其他},
+\end{cases}
+\qquad \theta>-1.
+\]
+现有样本 $X_1,\cdots,X_n$。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\theta$ 的矩估计量；
+\item 求 $\theta$ 的极大似然估计量；
+\item 求极大似然估计量的渐近方差。
+\end{enumerate}
+\begin{solution}
+先算总体均值：
+\[
+E[X]=\int_0^1 x(\theta+1)x^\theta\,dx
+=\frac{\theta+1}{\theta+2}.
+\]
+令 $\bar X=E[X]$，解得矩估计
+\[
+\hat\theta_{\rm MOM}=\frac{2\bar X-1}{1-\bar X}.
+\]
+即
+\ansmath{\hat\theta_{\rm MOM}=\frac{2\bar X-1}{1-\bar X}}
+似然函数为
+\[
+L(\theta)=\prod_{i=1}^n (\theta+1)x_i^\theta,
+\qquad
+\ell(\theta)=n\ln(\theta+1)+\theta\sum_{i=1}^n\ln x_i.
+\]
+求导并令零，
+\[
+\frac{n}{\theta+1}+\sum_{i=1}^n \ln x_i=0,
+\]
+故
+\ansmath{\hat\theta_{\rm MLE}=-\frac{n}{\sum_{i=1}^n\ln x_i}-1}
+Fisher 信息为
+\[
+I_1(\theta)=-E\!\left[\frac{\partial^2 \ell_1}{\partial \theta^2}\right]
+=\frac{1}{(\theta+1)^2}.
+\]
+所以
+\[
+I_n(\theta)=\frac{n}{(\theta+1)^2}.
+\]
+于是 MLE 的渐近方差为
+\ansmath{\operatorname{Var}(\hat\theta_{\rm MLE})\approx \frac{(\theta+1)^2}{n}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\cdots,X_n$ 独立同分布，且都服从参数为 $\lambda$ 的泊松分布。求 $\lambda$ 的极大似然估计，并说明它是有效估计量。
+\begin{solution}
+似然函数为
+\[
+L(\lambda)=\prod_{i=1}^n e^{-\lambda}\frac{\lambda^{x_i}}{x_i!},
+\qquad
+\ell(\lambda)=-n\lambda+\Bigl(\sum_{i=1}^n x_i\Bigr)\ln\lambda+\text{const}.
+\]
+令导数为零，
+\[
+-n+\frac{\sum x_i}{\lambda}=0,
+\]
+得
+\[
+\hat\lambda=\bar X.
+\]
+所以
+\ansmath{\hat\lambda_{\rm MLE}=\bar X}
+又有
+\[
+E[\bar X]=\lambda,\qquad \operatorname{Var}(\bar X)=\frac{\lambda}{n}.
+\]
+单个样本的 Fisher 信息为
+\[
+I_1(\lambda)=\frac{1}{\lambda},
+\]
+因此
+\[
+I_n(\lambda)=\frac{n}{\lambda},
+\qquad
+\frac{1}{I_n(\lambda)}=\frac{\lambda}{n}.
+\]
+由于
+\[
+\operatorname{Var}(\hat\lambda)=\frac{\lambda}{n}
+\]
+恰好达到 Cram\'er--Rao 下界，因此
+\anstext{$\hat\lambda=\bar X$ 是有效估计量。}
+\end{solution}
+\end{question}
+
+\begin{question}
+从某总体中抽取 $16$ 个样本，得到
+\[
+\bar X=10.4,\qquad S=1.2.
+\]
+假设总体服从正态分布，检验
+\[
+H_0:\mu=10
+\]
+是否能够在 $95\%$ 置信水平下被接受，并给出 $\mu$ 的 $95\%$ 置信区间。已知
+\[
+t_{0.975}(15)=2.131.
+\]
+\begin{solution}
+作双侧 $t$ 检验。统计量为
+\[
+T=\frac{\bar X-\mu_0}{S/\sqrt{n}}
+=\frac{10.4-10}{1.2/4}
+=\frac{0.4}{0.3}
+\approx 1.333.
+\]
+由于
+\[
+|T|=1.333<2.131,
+\]
+故不能拒绝 $H_0$，也就是说在 $95\%$ 置信水平下，可以认为数据与 $\mu=10$ 相容。
+再求置信区间：
+\[
+\bar X\pm t_{0.975}(15)\frac{S}{\sqrt{n}}
+=10.4\pm 2.131\times 0.3
+=10.4\pm 0.6393.
+\]
+因此
+\ansmath{\mu\in (9.761,\ 11.039)\qquad (95\%\ \text{CI})}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\cdots,X_n$ 独立同分布于 $U(0,\theta)$，记
+\[
+Y=\max(X_1,\cdots,X_n).
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\theta$ 的极大似然估计量；
+\item 求一个由 $Y$ 构造的无偏估计量；
+\item 比较二者的均方误差。
+\end{enumerate}
+\begin{solution}
+由似然函数
+\[
+L(\theta)=\theta^{-n}\mathbf 1(\theta\ge Y),
+\]
+可知
+\[
+\hat\theta_{\rm MLE}=Y.
+\]
+即
+\ansmath{\hat\theta_{\rm MLE}=Y}
+又因为
+\[
+E[Y]=\frac{n}{n+1}\theta,
+\]
+所以无偏估计量可取
+\[
+\tilde\theta=\frac{n+1}{n}Y.
+\]
+即
+\ansmath{\tilde\theta=\frac{n+1}{n}Y}
+再算
+\[
+\operatorname{Var}(Y)=\frac{n\theta^2}{(n+1)^2(n+2)},
+\qquad
+\operatorname{Bias}(Y)=-\frac{\theta}{n+1}.
+\]
+因此
+\[
+\operatorname{MSE}(Y)=\operatorname{Var}(Y)+\operatorname{Bias}(Y)^2
+=\frac{2\theta^2}{(n+1)(n+2)}.
+\]
+而
+\[
+\operatorname{MSE}(\tilde\theta)=\operatorname{Var}(\tilde\theta)
+=\left(\frac{n+1}{n}\right)^2\operatorname{Var}(Y)
+=\frac{\theta^2}{n(n+2)}.
+\]
+比较得
+\[
+\frac{1}{n(n+2)}<\frac{2}{(n+1)(n+2)}\qquad (n>1).
+\]
+故
+\anstext{当 $n>1$ 时，无偏估计量 $\tilde\theta$ 的均方误差更小。}
+\end{solution}
+\end{question}
+
+\begin{question}
+测量模型为
+\[
+y_i=ax_i+\varepsilon_i,\qquad i=1,\cdots,n,
+\]
+其中 $x_i$ 已知，$\varepsilon_i$ 相互独立且
+\[
+\varepsilon_i\sim N(0,\sigma_i^2).
+\]
+求参数 $a$ 的最小二乘估计、该估计量的方差，以及 $\chi^2_{\min}$。
+\begin{solution}
+加权最小二乘的目标函数为
+\[
+\chi^2(a)=\sum_{i=1}^n \frac{(y_i-ax_i)^2}{\sigma_i^2}.
+\]
+对 $a$ 求导并令零：
+\[
+\frac{d\chi^2}{da}=-2\sum_{i=1}^n \frac{x_i(y_i-ax_i)}{\sigma_i^2}=0.
+\]
+因此
+\[
+\hat a=\frac{\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}}
+{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
+\]
+即
+\ansmath{\hat a=\frac{\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}}
+{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}}
+又由于 $\hat a$ 是 $y_i$ 的线性组合，故
+\[
+\operatorname{Var}(\hat a)=\frac{1}{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
+\]
+即
+\ansmath{\operatorname{Var}(\hat a)=\frac{1}{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}}
+代回可得
+\[
+\chi^2_{\min}
+=\sum_{i=1}^n \frac{y_i^2}{\sigma_i^2}
+-\frac{\left(\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}\right)^2}
+{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
+\]
+所以
+\ansmath{\chi^2_{\min}
+=\sum_{i=1}^n \frac{y_i^2}{\sigma_i^2}
+-\frac{\left(\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}\right)^2}
+{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一次稀有事例实验中，信号区计数
+\[
+N_s\sim \mathrm{Poisson}(s+b),
+\]
+控制区计数
+\[
+N_c\sim \mathrm{Poisson}(3b),
+\]
+且二者独立。若观测到
+\[
+N_s=6,\qquad N_c=9,
+\]
+求 $s,b$ 的极大似然估计。
+\begin{solution}
+联合对数似然为
+\[
+\ell(s,b)=6\ln(s+b)-(s+b)+9\ln(3b)-3b+\text{const}.
+\]
+对 $s$ 求偏导：
+\[
+\frac{\partial \ell}{\partial s}=\frac{6}{s+b}-1=0
+\quad\Longrightarrow\quad
+s+b=6.
+\]
+对 $b$ 求偏导：
+\[
+\frac{\partial \ell}{\partial b}=\frac{6}{s+b}-1+\frac{9}{b}-3=0.
+\]
+由 $s+b=6$ 可知前两项抵消，于是
+\[
+\frac{9}{b}-3=0\quad\Longrightarrow\quad b=3.
+\]
+从而
+\[
+s=6-b=3.
+\]
+故
+\ansmath{\hat b=3,\qquad \hat s=3}
+\end{solution}
+\end{question}
+

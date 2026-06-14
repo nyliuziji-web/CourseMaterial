@@ -1,0 +1,222 @@
+﻿\heading{热学-18春-期中回忆}
+
+\noteinfo{题目来源于赛艇，答案由AI生成。第 14、16 题缺失。}
+
+\textbf{一、选择题（回忆到的部分）}
+\begin{question}
+节流过程中熵的变化。
+\begin{choiceoptions}
+\item 增大
+\item 减小
+\item 不变
+\item 不确定
+\end{choiceoptions}
+\begin{solution}
+节流是不可逆过程，理想情形下焓守恒，但熵增不减。
+\ansmath{\text{A}}
+\end{solution}
+\end{question}
+
+\begin{question}
+（回忆题）在固定压强下给物质以热量，哪种物质可能不会改变温度？
+\begin{choiceoptions}
+\item 理想气体
+\item 满足麦克斯韦速度分布的气体
+\item 处于相变点的气体
+\item 单原子气体
+\end{choiceoptions}
+\begin{solution}
+与 17 春补录题相同，处于相变点时热量可全部用于相变。
+\ansmath{\text{C}}
+\end{solution}
+\end{question}
+
+\begin{question}
+（回忆题）测温属性与温度之间应满足何种关系？
+\begin{choiceoptions}
+\item 线性函数
+\item 升函数
+\item 降函数
+\item 单调函数
+\end{choiceoptions}
+\begin{solution}
+只要求温度与测温属性一一对应，故应为单调函数。
+\ansmath{\text{D}}
+\end{solution}
+\end{question}
+
+\begin{question}
+关于麦克斯韦速率分布，下列哪种说法正确？
+\begin{choiceoptions}
+\item 是高斯分布的一种形式
+\item 是热平衡条件下的一类特定速率分布
+\item 在存在外势场时一定失效
+\item 在任何条件下都成立
+\end{choiceoptions}
+\begin{solution}
+速率分布本身不是高斯分布，也不是任意条件下都成立；在热平衡下它描述平衡气体的一类确定分布律。
+\ansmath{\text{B}}
+\end{solution}
+\end{question}
+
+\begin{question}
+纯物质气液临界点的表面张力系数。
+\begin{choiceoptions}
+\item 大于 0
+\item 小于 0
+\item 等于 0
+\item 不确定
+\end{choiceoptions}
+\begin{solution}
+临界点附近液、气两相趋于不可区分，因此界面张力消失。
+\ansmath{\text{C}}
+\end{solution}
+\end{question}
+
+\textbf{二、简答题}
+\begin{question}
+请写出五个热力学态函数。
+\begin{solution}
+常见的五个态函数是：内能 $U$、焓 $H$、熵 $S$、Helmholtz 自由能 $F$、Gibbs 自由能 $G$。
+\anstext{$U,\ H,\ S,\ F,\ G$}
+\end{solution}
+\end{question}
+
+\begin{question}
+冰箱的工作物质能不能用理想气体？
+\begin{solution}
+冰箱需要利用工质的液化与汽化过程来进行大规模吸放热，而理想气体模型没有真实相变，因此不能作为实际制冷工质模型。
+\anstext{一般不能。因为制冷循环依赖真实工质的相变潜热。}
+\end{solution}
+\end{question}
+
+\begin{question}
+书 P277 图 6.15 所示：起始时是一个大肥皂泡和一个小肥皂泡，描述之后的现象。
+\begin{solution}
+由于小泡内压更大，气体会从小泡流向大泡，于是小泡继续变小甚至消失，大泡继续变大。
+\anstext{小泡变小，大泡变大。}
+\end{solution}
+\end{question}
+
+\begin{question}
+一级相变的两个特征。
+\begin{solution}
+一级相变沿相变线具有潜热，同时比容（或密度）出现跃变。
+\anstext{具有潜热；体积（或密度）有跃变。}
+\end{solution}
+\end{question}
+
+\begin{question}
+描述什么是过热液体和过冷蒸气，并在图中表示分别是等温线的哪一段。
+\begin{solution}
+过热液体是温度高于该压强下平衡沸点、但仍保持液态的亚稳液体；过冷蒸气是温度低于该压强下饱和温度、但仍保持气态的亚稳蒸气。它们都对应等温线进入两相共存区附近的亚稳延拓段。
+\anstext{分别对应液相支和气相支向两相区延拓的亚稳段。}
+\end{solution}
+\end{question}
+
+\textbf{三、解答题（按回忆稿整理）}
+\begin{question}
+算奥托循环的效率。
+\begin{solution}
+对理想气体 Otto 循环，效率仅与压缩比 $r$ 和绝热指数 $\gamma$ 有关：
+\[
+\eta=1-\frac{1}{r^{\gamma-1}}.
+\]
+\ansmath{\eta_{\mathrm{Otto}}=1-r^{1-\gamma}}
+\end{solution}
+\end{question}
+
+\begin{question}
+燃料电池：已知各个键能及水的标准生成焓，求生成一摩尔水释放的热量和消耗的电能。
+\begin{solution}
+这类题的标准处理是先由键能或生成焓求反应焓变 $\Delta H$，再用电池可逆输出功对应的 Gibbs 自由能变 $\Delta G$。若只问“释放热量”，常取定压反应放热
+\[
+Q_p=-\Delta H.
+\]
+若问消耗的电能（或最多输出的电功），则取
+\[
+W_{\mathrm{elec,max}}=-\Delta G.
+\]
+\anstext{放热量由 $-\Delta H$ 给出；可逆电功由 $-\Delta G$ 给出。}
+\end{solution}
+\end{question}
+
+\begin{question}
+书 P211：混合前后熵变。
+\begin{solution}
+若为两份理想气体等温混合，则总熵增写成
+\[
+\Delta S=-\sum_i n_iR\ln x_i>0.
+\]
+若是同种气体混合，则无额外混合熵。题目在回忆稿中仅保留了课本页码，故此处记下通用结论。
+\ansmath{\Delta S_{\mathrm{mix}}=-\sum_i n_iR\ln x_i\ (\text{异种理想气体})}
+\end{solution}
+\end{question}
+
+\begin{question}
+书 P297 习题 6.32。
+\begin{solution}
+回忆稿仅给出了课本编号，未保留完整题面，故这里只保留引用信息，待补充原题后可继续誊写。
+\anstext{题面缺失，待补。}
+\end{solution}
+\end{question}
+
+\begin{question}
+用范德瓦尔斯气体证明
+\[
+\left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p.
+\]
+\begin{solution}
+从热力学基本关系
+\[
+dU=T\,dS-p\,dV
+\]
+和 Maxwell 关系
+\[
+\left(\frac{\partial S}{\partial V}\right)_T=\left(\frac{\partial p}{\partial T}\right)_V
+\]
+直接得到
+\[
+\left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p.
+\]
+对范德瓦尔斯气体
+\[
+p=\frac{RT}{V_m-b}-\frac{a}{V_m^2}
+\]
+代入可进一步化成
+\[
+\left(\frac{\partial U}{\partial V}\right)_T=\frac{a}{V_m^2}.
+\]
+\ansmath{\left(\frac{\partial U}{\partial V}\right)_T=T\left(\frac{\partial p}{\partial T}\right)_V-p}
+\end{solution}
+\end{question}
+
+\begin{question}
+书 P352 习题 7.10。
+\begin{solution}
+回忆稿仅保留了课本编号，缺少完整题面，因此此处保留空位。
+\anstext{题面缺失，待补。}
+\end{solution}
+\end{question}
+
+\begin{question}
+一永动机如图：上端左端都开口，除 $h_1$ 外其余几何量、液体密度、管径 $d$、表面张力系数 $\sigma$ 已知。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求 $h_1$；
+\item 求侧面那个管口液面形状（弯曲液面角度）；
+\item 说明无论怎么取值，该永动机都不可能工作。
+\end{enumerate}
+\begin{solution}
+该题的核心是毛细压强与静压平衡：若两侧自由液面都与外界相通，则任一闭合回路上的压强增量代数和必须为零。毛细弯月面只能重新分配局部压差，不能在一周内产生净压头。
+
+因此
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item $h_1$ 由 Laplace 压差与静水压差平衡确定，形式上满足 $\rho g h_1=2\sigma/R$（圆管中 $R$ 由接触角决定）。
+\item 侧管液面形状由 Young--Laplace 方程和接触角条件共同确定。
+\item 无论怎样选取参数，沿闭合回路总机械能增益都为零，因此该装置不可能持续输出功。
+\end{enumerate}
+\anstext{永动机不可能工作；毛细现象不能提供闭路净压头。}
+\end{solution}
+\end{question}
+
+

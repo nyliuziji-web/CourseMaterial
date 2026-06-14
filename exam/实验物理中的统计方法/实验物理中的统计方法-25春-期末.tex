@@ -1,0 +1,494 @@
+﻿\heading{实验物理中的统计方法-25春-期末}
+\noteinfo{题目来源于用户提供的课堂照片；题干按照片 OCR 与上下文整理，答案按前面试卷/作业的格式补全。}
+
+\begin{question}
+在假设检验中，零假设为 $H_0$。记
+\[
+P_1=P(\text{拒绝 }H_0\mid H_0\text{ 为真}),
+\qquad
+P_2=P(\text{接受 }H_0\mid H_0\text{ 为假}),
+\]
+则 $P_1$ 被称为弃真错误，$P_2$ 被称为取伪错误。
+\begin{solution}
+$P_1$ 是在 $H_0$ 为真时拒绝 $H_0$ 的概率，即第一类错误，也称弃真错误；
+$P_2$ 是在 $H_0$ 为假时接受 $H_0$ 的概率，即第二类错误，也称取伪错误。故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设总体 $X$ 的均值和方差分别为 $\mu$ 和 $\sigma^2$，$X_1,X_2,\cdots,X_n$ 是来自该总体的一个简单随机样本，则 $\mu$ 的有效估计量为 $\dfrac1n\sum_{i=1}^n X_i$。
+\begin{solution}
+样本均值
+\[
+\bar X=\frac1n\sum_{i=1}^nX_i
+\]
+确实满足
+\[
+E[\bar X]=\mu,
+\qquad
+\operatorname{Var}(\bar X)=\frac{\sigma^2}{n},
+\]
+因此它是 $\mu$ 的无偏估计量和矩估计量。但是“有效估计量”通常指在无偏估计类中方差达到 Cram\'er--Rao 下界或具有最小方差的估计量。题干只给出总体均值和方差，没有给出总体分布或 Fisher 信息，不能推出 $\bar X$ 一定有效。故严格说命题错误。
+\anstext{错误}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设 $X_1,\cdots,X_n$ 相互独立且均服从标准正态分布，则 $\sum_{i=1}^nX_i^2$ 服从自由度为 $n$ 的卡方分布。
+\begin{solution}
+卡方分布的定义即为 $n$ 个相互独立的标准正态随机变量平方和的分布。因此
+\[
+\sum_{i=1}^nX_i^2\sim \chi^2(n).
+\]
+故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X\sim\chi^2(2n)$，则当 $n$ 很大时，$\dfrac{X-2n}{2\sqrt n}$ 近似服从标准正态分布。
+\begin{solution}
+若 $X\sim\chi^2(2n)$，则
+\[
+E[X]=2n,
+\qquad
+\operatorname{Var}(X)=2(2n)=4n.
+\]
+卡方分布在自由度较大时渐近正态，因此
+\[
+\frac{X-2n}{2\sqrt n}\xrightarrow[]{d}N(0,1).
+\]
+故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设 $X_1,X_2,\cdots,X_n$ 是总体 $X$ 的一个简单随机样本，则估计量
+\[
+\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X)^2
+\]
+是方差 $\sigma^2$ 的无偏估计。
+\begin{solution}
+由样本方差的基本性质，
+\[
+E\left[\sum_{i=1}^n(X_i-\bar X)^2\right]=(n-1)\sigma^2.
+\]
+因此
+\[
+E\left[\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X)^2\right]=\sigma^2.
+\]
+故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X\sim N(\mu,\sigma^2)$，其中 $\sigma^2$ 已知。若样本容量 $n$ 和置信水平 $1-\alpha$ 均保持不变，则对于不同的样本观测值，参数 $\mu$ 的等尾双侧置信区间的长度保持不变。
+\begin{solution}
+当 $\sigma^2$ 已知时，$\mu$ 的等尾双侧置信区间为
+\[
+\left[\bar X-z_{1-\alpha/2}\frac{\sigma}{\sqrt n},\
+\bar X+z_{1-\alpha/2}\frac{\sigma}{\sqrt n}\right].
+\]
+其长度为
+\[
+2z_{1-\alpha/2}\frac{\sigma}{\sqrt n},
+\]
+只依赖于 $n,\alpha,\sigma$，不依赖于具体观测到的 $\bar X$。故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设总体 $X$ 服从参数为 $(n,p)$ 的二项分布 $(0<p<1,n\text{ 为正整数})$，$(X_1,X_2,\cdots,X_N)$ 为来自该总体的简单随机样本，$\bar X$ 为样本均值，则
+\[
+E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=n(N-1)p(1-p).
+\]
+\begin{solution}
+对单个观测量，
+\[
+\operatorname{Var}(X_i)=np(1-p).
+\]
+又因为
+\[
+E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=(N-1)\operatorname{Var}(X_i),
+\]
+所以
+\[
+E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]
+=(N-1)np(1-p).
+\]
+故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $(X_1,X_2,\cdots,X_n)$ 是来自正态总体 $N(\mu,\sigma^2)$ 的简单随机样本，则 $\mu$ 的矩估计量为
+\[
+\hat\mu=\frac1n\sum_{i=1}^nX_i.
+\]
+\begin{solution}
+矩估计法用样本一阶矩代替总体一阶矩。由于
+\[
+E[X]=\mu,
+\qquad
+\frac1n\sum_{i=1}^nX_i=\bar X,
+\]
+所以
+\[
+\hat\mu_{\mathrm{MOM}}=\bar X.
+\]
+故命题正确。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设总体 $X$ 的均值为 $\mu$，方差有限。$\theta_1$ 和 $\theta_2$ 是参数 $\mu$ 的两个无偏估计量，其方差分别为 $\sigma_1^2$ 和 $\sigma_2^2$，相关系数为 $\rho$。已知
+\[
+\theta=c_1\theta_1+c_2\theta_2
+\]
+是参数 $\mu$ 的有效估计量，且常数 $c_1>0,c_2>0,c_1+c_2=1$，则
+\[
+c_1=\blank[5cm],\qquad c_2=\blank[5cm].
+\]
+\begin{solution}
+由 $c_1+c_2=1$，令 $c_2=1-c_1$。记
+\[
+\operatorname{Cov}(\theta_1,\theta_2)=\rho\sigma_1\sigma_2.
+\]
+则
+\[
+\operatorname{Var}(\theta)
+=c_1^2\sigma_1^2+(1-c_1)^2\sigma_2^2
++2c_1(1-c_1)\rho\sigma_1\sigma_2.
+\]
+对 $c_1$ 求导并令其为零，得
+\[
+2c_1\sigma_1^2-2(1-c_1)\sigma_2^2
++2(1-2c_1)\rho\sigma_1\sigma_2=0.
+\]
+整理得
+\[
+c_1(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2)
+=\sigma_2^2-\rho\sigma_1\sigma_2.
+\]
+故
+\[
+c_1=\frac{\sigma_2^2-\rho\sigma_1\sigma_2}
+{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2},
+\qquad
+c_2=\frac{\sigma_1^2-\rho\sigma_1\sigma_2}
+{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}.
+\]
+等价地，
+\ansmath{c_1=\frac{\sigma_2(\sigma_2-\rho\sigma_1)}
+{\sigma_1^2-2\rho\sigma_1\sigma_2+\sigma_2^2},
+\qquad
+c_2=\frac{\sigma_1(\sigma_1-\rho\sigma_2)}
+{\sigma_1^2-2\rho\sigma_1\sigma_2+\sigma_2^2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $(X_1,X_2,\cdots,X_n)$ 是来自正态总体 $N(\mu,\sigma^2)$ 的简单随机样本，参数 $\mu,\sigma^2$ 均未知，样本均值 $\bar X=2025$。若已知参数 $\mu$ 的置信水平为 $95\%$ 的等尾双侧置信区间的上侧界限为 $2050$，则 $\mu$ 的置信水平为 $95\%$ 的等尾双侧置信区间是 \blank[4cm]。
+\begin{solution}
+等尾双侧区间关于样本均值 $\bar X$ 对称。已知中心为 $2025$，上侧界限为 $2050$，则半长为
+\[
+2050-2025=25.
+\]
+因此下侧界限为
+\[
+2025-25=2000.
+\]
+故置信区间为
+\ansmath{[2000,2050]}
+\end{solution}
+\end{question}
+
+\begin{question}
+轴子是暗物质的候选者之一。如果存在，在实验观测中原子核端将有的事件。假设某实验的目的是探测某种特定类型的轴子，预期的本底数为 $3$ 个，观测到疑似信号 $5$ 个。试计算该观测结果的显著性水平。已知泊松分布
+\[
+f(n;\nu)=\frac{\nu^n e^{-\nu}}{n!}.
+\]
+\begin{solution}
+零假设取为只有本底，即
+\[
+H_0:\nu=3.
+\]
+观测到 $5$ 个或更多事件越偏离本底假设，因此显著性水平取右尾概率
+\[
+\alpha=P(N\ge 5\mid \nu=3).
+\]
+于是
+\[
+\alpha=1-P(N\le 4\mid \nu=3)
+=1-\sum_{n=0}^4\frac{3^ne^{-3}}{n!}.
+\]
+展开为
+\[
+\alpha=1-e^{-3}\left(1+3+\frac{3^2}{2!}+\frac{3^3}{3!}+\frac{3^4}{4!}\right).
+\]
+数值上
+\[
+\alpha\approx 0.1847.
+\]
+因此该观测结果的显著性水平约为 $0.185$。
+\ansmath{\alpha=1-\sum_{n=0}^4 f(n;3)\approx 0.185}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设实验上观测某稀有事件，在给定的观测时间内未观测到事件数 $n_{\mathrm{obs}}=0$，且预期本底数 $\mu_{\mathrm{bkg}}$ 可以忽略。求预期信号数 $\mu_{\mathrm{sig}}$ 在 $95\%$ 置信水平下的上限。
+\begin{solution}
+本底可忽略时，观测数服从
+\[
+N\sim \operatorname{Pois}(\mu_{\mathrm{sig}}).
+\]
+若 $95\%$ 上限为 $\mu_{\mathrm{up}}$，则
+\[
+P(N=0\mid \mu_{\mathrm{up}})=1-0.95=0.05.
+\]
+由泊松分布
+\[
+P(N=0\mid \mu_{\mathrm{up}})=e^{-\mu_{\mathrm{up}}},
+\]
+故
+\[
+e^{-\mu_{\mathrm{up}}}=0.05.
+\]
+因此
+\[
+\mu_{\mathrm{up}}=-\ln 0.05=2.996\approx 3.
+\]
+\ansmath{\mu_{\mathrm{sig}}^{\mathrm{up}}=-\ln(1-0.95)=2.996\approx 3}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设有一对变量 $(x,y)$，例如 $x$ 可以表示样品的温度，$y$ 可以表示样品的热容。假定变量 $y$ 服从正态分布 $N(\mu,\sigma^2)$，方差 $\sigma^2$ 保持不变，而均值
+\[
+\mu=\alpha+\beta(x-\bar x),
+\]
+其中 $\bar x$ 为样本均值，且 $x$ 不一定是随机变量。即在 $n$ 次相互独立的测量中，在指定的 $x=x_i$ 处观测得到 $y_i$，$i=1,2,\cdots,n$。求参数 $\alpha,\beta$ 的最大似然估计量。
+\begin{solution}
+对给定的 $x_i$，有
+\[
+y_i\sim N\bigl(\alpha+\beta(x_i-\bar x),\sigma^2\bigr),
+\qquad i=1,\cdots,n.
+\]
+似然函数为
+\[
+L(\alpha,\beta)=\prod_{i=1}^n
+\frac{1}{\sqrt{2\pi\sigma^2}}
+\exp\left[-\frac{\{y_i-\alpha-\beta(x_i-\bar x)\}^2}{2\sigma^2}\right].
+\]
+取对数，去掉与 $\alpha,\beta$ 无关的常数，最大化 $\ln L$ 等价于最小化
+\[
+Q(\alpha,\beta)=\sum_{i=1}^n\left[y_i-\alpha-\beta(x_i-\bar x)\right]^2.
+\]
+分别对 $\alpha,\beta$ 求导：
+\[
+\frac{\partial Q}{\partial\alpha}
+=-2\sum_{i=1}^n\left[y_i-\alpha-\beta(x_i-\bar x)\right]=0.
+\]
+由于 $\sum_{i=1}^n(x_i-\bar x)=0$，得到
+\[
+\hat\alpha=\bar y=\frac1n\sum_{i=1}^n y_i.
+\]
+再对 $\beta$ 求导：
+\[
+\frac{\partial Q}{\partial\beta}
+=-2\sum_{i=1}^n(x_i-\bar x)
+\left[y_i-\alpha-\beta(x_i-\bar x)\right]=0.
+\]
+代入 $\hat\alpha=\bar y$，得
+\[
+\hat\beta=\frac{\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)}
+{\sum_{i=1}^n(x_i-\bar x)^2}.
+\]
+若记
+\[
+s_x^2=\frac1n\sum_{i=1}^n(x_i-\bar x)^2,
+\qquad
+r_{xy}=\frac1n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y),
+\]
+则
+\ansmath{\hat\alpha=\bar y,
+\qquad
+\hat\beta=\frac{r_{xy}}{s_x^2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+静止的双粲重子的衰变时间 $t$ 服从指数分布 $t\sim \operatorname{exp}(\tau)$，其中 $\tau$ 为其固有寿命。假定某实验观测到一个双粲重子事件，且在其质心系的衰变时间为 $0.3\,\mathrm{ps}$。求 $\tau$ 的 $90\%$ 置信水平下的中心置信区间。
+\begin{solution}
+只有一个观测量，记
+\[
+t_{\mathrm{obs}}=0.3\,\mathrm{ps}.
+\]
+指数分布的密度为
+\[
+g(t;\tau)=\frac1\tau e^{-t/\tau},\qquad t\ge 0.
+\]
+中心 $90\%$ 置信区间取
+\[
+\alpha=\beta=0.05.
+\]
+下限 $a$ 由右尾概率确定：
+\[
+\alpha=P(T\ge t_{\mathrm{obs}}\mid \tau=a)
+=\int_{t_{\mathrm{obs}}}^{\infty}\frac1a e^{-t/a}\,dt
+=e^{-t_{\mathrm{obs}}/a}.
+\]
+故
+\[
+a=-\frac{t_{\mathrm{obs}}}{\ln\alpha}
+=-\frac{0.3}{\ln 0.05}
+=0.100\,\mathrm{ps}.
+\]
+上限 $b$ 由左尾概率确定：
+\[
+\beta=P(T\le t_{\mathrm{obs}}\mid \tau=b)
+=\int_0^{t_{\mathrm{obs}}}\frac1b e^{-t/b}\,dt
+=1-e^{-t_{\mathrm{obs}}/b}.
+\]
+于是
+\[
+e^{-t_{\mathrm{obs}}/b}=1-\beta,
+\qquad
+b=-\frac{t_{\mathrm{obs}}}{\ln(1-\beta)}.
+\]
+代入 $\beta=0.05$，得
+\[
+b=-\frac{0.3}{\ln0.95}=5.85\,\mathrm{ps}.
+\]
+因此
+\ansmath{\tau\in[0.100,\,5.85]~\mathrm{ps}\quad(90\%\ \mathrm{CL})}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设两个不同的实验对同一个物理量 $x$ 进行了相互独立的测量，得到的测量结果分别为
+\[
+x_1\pm\sigma_1,
+\qquad
+x_2\pm\sigma_2.
+\]
+这两个测量结果完全不相关。用最小二乘法求最佳平均值及其不确定度。
+\begin{solution}
+两次测量不相关，协方差矩阵为
+\[
+V=\begin{pmatrix}
+\sigma_1^2&0\\
+0&\sigma_2^2
+\end{pmatrix}.
+\]
+定义卡方量
+\[
+\chi^2(x)=\frac{(x_1-x)^2}{\sigma_1^2}
++\frac{(x_2-x)^2}{\sigma_2^2}.
+\]
+令 $\partial\chi^2/\partial x=0$，得
+\[
+-2\frac{x_1-x}{\sigma_1^2}
+-2\frac{x_2-x}{\sigma_2^2}=0.
+\]
+因此
+\[
+x\left(\frac1{\sigma_1^2}+\frac1{\sigma_2^2}\right)
+=\frac{x_1}{\sigma_1^2}+\frac{x_2}{\sigma_2^2}.
+\]
+令
+\[
+w_i=\frac1{\sigma_i^2},\qquad w=w_1+w_2,
+\]
+则最佳估计为
+\[
+\hat x=\frac{w_1x_1+w_2x_2}{w}.
+\]
+其方差为
+\[
+\sigma_{\hat x}^2=\frac1w.
+\]
+所以
+\ansmath{\hat x=\frac{x_1/\sigma_1^2+x_2/\sigma_2^2}{1/\sigma_1^2+1/\sigma_2^2},
+\qquad
+\sigma_{\hat x}=\frac1{\sqrt{1/\sigma_1^2+1/\sigma_2^2}}}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设两个不同的实验对同一个物理量 $x$ 进行了相互独立的测量，得到的测量结果分别为
+\[
+x_1\pm\sigma_{s1}\pm\sigma_{c1},
+\qquad
+x_2\pm\sigma_{s2}\pm\sigma_{c2}.
+\]
+其中第一项不确定度为统计不确定度，两个实验完全不相关；第二项不确定度为系统不确定度，是由相同的外部输入单因素引入的，完全正相关。其他来源引入的系统不确定度可以忽略。求这两个测量结果的最佳平均值及其不确定度。
+\begin{solution}
+统计不确定度彼此不相关；共同来源的系统不确定度完全正相关。因此协方差矩阵为
+\[
+V=\begin{pmatrix}
+\sigma_{s1}^2+\sigma_{c1}^2 & \sigma_{c1}\sigma_{c2}\\
+\sigma_{c1}\sigma_{c2} & \sigma_{s2}^2+\sigma_{c2}^2
+\end{pmatrix}.
+\]
+记
+\[
+v_1=\sigma_{s1}^2+\sigma_{c1}^2,
+\qquad
+v_2=\sigma_{s2}^2+\sigma_{c2}^2,
+\qquad
+c=\sigma_{c1}\sigma_{c2}.
+\]
+对同一个真值 $x$ 的广义最小二乘估计为
+\[
+\hat x=\frac{\mathbf 1^{T}V^{-1}\mathbf x}{\mathbf 1^{T}V^{-1}\mathbf 1},
+\qquad
+\mathbf x=(x_1,x_2)^T,
+\qquad
+\mathbf 1=(1,1)^T.
+\]
+对二阶矩阵直接计算可得权重
+\[
+w_1=\frac{v_2-c}{v_1+v_2-2c},
+\qquad
+w_2=\frac{v_1-c}{v_1+v_2-2c},
+\qquad
+w_1+w_2=1.
+\]
+因此
+\[
+\hat x=w_1x_1+w_2x_2.
+\]
+代回 $v_1,v_2,c$，得
+\[
+\hat x=\frac{(\sigma_{s2}^2+\sigma_{c2}^2-\sigma_{c1}\sigma_{c2})x_1
++(\sigma_{s1}^2+\sigma_{c1}^2-\sigma_{c1}\sigma_{c2})x_2}
+{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}.
+\]
+估计量方差为
+\[
+\sigma_{\hat x}^2=\frac{1}{\mathbf 1^{T}V^{-1}\mathbf 1}
+=\frac{v_1v_2-c^2}{v_1+v_2-2c}.
+\]
+即
+\[
+\sigma_{\hat x}^2
+=\frac{\sigma_{s1}^2\sigma_{s2}^2+\sigma_{c1}^2\sigma_{s2}^2+\sigma_{c2}^2\sigma_{s1}^2}
+{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}.
+\]
+故
+\ansmath{\hat x=\frac{(\sigma_{s2}^2+\sigma_{c2}^2-\sigma_{c1}\sigma_{c2})x_1
++(\sigma_{s1}^2+\sigma_{c1}^2-\sigma_{c1}\sigma_{c2})x_2}
+{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}},
+\qquad
+\sigma_{\hat x}=\sqrt{\frac{\sigma_{s1}^2\sigma_{s2}^2+\sigma_{c1}^2\sigma_{s2}^2+\sigma_{c2}^2\sigma_{s1}^2}
+{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}}}
+\end{solution}
+\end{question}
+

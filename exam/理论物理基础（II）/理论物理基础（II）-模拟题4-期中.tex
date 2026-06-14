@@ -1,0 +1,390 @@
+﻿\heading{理论物理基础（II）-模拟题4-期中}
+
+\noteinfo{题目和答案由AI生成。}
+
+\textbf{计算题（共 100 分）}
+
+\begin{question}[16分]
+有 $N$ 个彼此可区分、互不相互作用的粒子，每个粒子只能取三个单粒子能级
+\[
+\varepsilon_0=0,\qquad \varepsilon_1=\varepsilon,\qquad \varepsilon_2=2\varepsilon.
+\]
+设占据数分别为 $n_0,n_1,n_2$，总能量为 $U$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 写出给定 $(n_0,n_1,n_2)$ 时的多重度 $\Omega$ 及约束条件；
+\item 在 $N\gg1$ 时，用最大多重度原理求最概然占据数 $n_r^\ast/N$；
+\item 特别地，若 $U=N\varepsilon$，求最概然的 $(n_0,n_1,n_2)$。
+\end{enumerate}
+\begin{solution}
+
+由于粒子可区分，给定占据数时的多重度为
+\[
+\Omega=\frac{N!}{n_0!\,n_1!\,n_2!}.
+\]
+约束条件为
+\[
+n_0+n_1+n_2=N,\qquad
+n_1+2n_2=\frac{U}{\varepsilon}.
+\]
+
+在大数极限下，令
+\[
+S=k\ln\Omega
+\approx k\left(N\ln N-\sum_{r=0}^2 n_r\ln n_r\right).
+\]
+对
+\[
+\Phi=\ln\Omega-\alpha(n_0+n_1+n_2-N)-\beta(\varepsilon n_1+2\varepsilon n_2-U)
+\]
+分别对 $n_0,n_1,n_2$ 求偏导并令零，可得
+\[
+\ln n_r = \text{常数}-\beta \varepsilon_r.
+\]
+因此
+\[
+n_r^\ast = A e^{-\beta\varepsilon_r},
+\]
+由归一化条件得到
+\[
+\frac{n_r^\ast}{N}=
+\frac{e^{-\beta\varepsilon_r}}{1+e^{-\beta\varepsilon}+e^{-2\beta\varepsilon}}.
+\]
+即
+\ansmath{
+\frac{n_0^\ast}{N}=\frac{1}{1+e^{-\beta\varepsilon}+e^{-2\beta\varepsilon}},\quad
+\frac{n_1^\ast}{N}=\frac{e^{-\beta\varepsilon}}{1+e^{-\beta\varepsilon}+e^{-2\beta\varepsilon}},\quad
+\frac{n_2^\ast}{N}=\frac{e^{-2\beta\varepsilon}}{1+e^{-\beta\varepsilon}+e^{-2\beta\varepsilon}}.
+}
+
+若 $U=N\varepsilon$，则平均每粒子能量为 $\varepsilon$，即
+\[
+\frac{n_1^\ast+2n_2^\ast}{N}=1.
+\]
+设 $x=e^{-\beta\varepsilon}$，则
+\[
+\frac{x+2x^2}{1+x+x^2}=1
+\Longrightarrow x^2=1.
+\]
+取正根 $x=1$，所以 $\beta=0$，即最概然分布为三能级等占据：
+\ansmath{
+n_0^\ast=n_1^\ast=n_2^\ast=\frac{N}{3}.
+}
+\end{solution}
+\end{question}
+
+\begin{question}[16分]
+四个粒子可占据如下单粒子能级：一个能量为 $0$ 的态、两个简并的能量为 $\varepsilon$ 的态、两个简并的能量为 $2\varepsilon$ 的态。求总能量恰为 $2\varepsilon$ 时，多体微观态数在以下三种情形下各是多少：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 四个粒子彼此可区分（Maxwell--Boltzmann 计数）；
+\item 四个无相互作用玻色子；
+\item 四个无自旋费米子。
+\end{enumerate}
+\begin{solution}
+
+总能量为 $2\varepsilon$ 时，可能的能量分配只有两类：
+
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.4em,itemsep=0.2em]
+\item 两个粒子处于能量 $\varepsilon$ 的态，其余两个处于能量 $0$ 的态；
+\item 一个粒子处于能量 $2\varepsilon$ 的态，其余三个处于能量 $0$ 的态。
+\end{enumerate}
+
+对 Maxwell--Boltzmann 计数：
+
+第一类中，先选出哪两个可区分粒子具有能量 $\varepsilon$，有
+\[
+\binom{4}{2}=6
+\]
+种；再给这两个粒子分别指定两个简并 $\varepsilon$ 态中的哪一个，共有 $2^2=4$ 种，所以第一类共有
+\[
+6\times4=24
+\]
+种。
+
+第二类中，先选出哪个粒子在 $2\varepsilon$ 能级，有 $4$ 种；再选其所在的简并态，有 $2$ 种，所以第二类共有
+\[
+4\times2=8
+\]
+种。
+
+故 Maxwell--Boltzmann 总微观态数为
+\ansmath{\Omega_{\mathrm{MB}}=24+8=32.}
+
+对玻色子计数：
+
+第一类中，能量为 $\varepsilon$ 的两个玻色子分配到两个简并 $\varepsilon$ 态的方法数为
+\[
+\binom{2+2-1}{2}=\binom32=3.
+\]
+第二类中，唯一的一个 $2\varepsilon$ 玻色子可以处于两个简并态中的任一个，因此有 $2$ 种。故
+\ansmath{\Omega_{\mathrm{B}}=3+2=5.}
+
+对无自旋费米子计数：
+
+系统共有 $1+2+2=5$ 个单粒子态，而有 $4$ 个费米子。由于泡利不相容原理，每态至多一个粒子。此时四个费米子的最低可能总能量已经是
+\[
+0+\varepsilon+\varepsilon+2\varepsilon=4\varepsilon.
+\]
+因此总能量 $2\varepsilon$ 根本不可能实现，所以
+\ansmath{\Omega_{\mathrm{F}}=0.}
+\end{solution}
+\end{question}
+
+\begin{question}[16分]
+设一个 Einstein 晶体由 $N$ 个相互独立、频率都为 $\omega$ 的量子谐振子组成。忽略零点能。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求单振子配分函数 $z$ 及全系统配分函数 $Z_N$；
+\item 求平均能量 $U$；
+\item 求定体热容 $C_V$，并给出高温与低温极限。
+\end{enumerate}
+\begin{solution}
+
+单振子的能级为
+\[
+0,\ \hbar\omega,\ 2\hbar\omega,\ \cdots
+\]
+故单振子配分函数是几何级数
+\[
+z=\sum_{n=0}^{\infty}e^{-n\beta\hbar\omega}
+=\frac{1}{1-e^{-\beta\hbar\omega}}.
+\]
+由于各振子独立，
+\ansmath{
+Z_N=z^N=\left(1-e^{-\beta\hbar\omega}\right)^{-N}.
+}
+
+平均能量
+\[
+U=-\frac{\partial}{\partial\beta}\ln Z_N
+=-N\frac{\partial}{\partial\beta}\ln\left(1-e^{-\beta\hbar\omega}\right)^{-1}
+= N\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}.
+\]
+因此
+\ansmath{
+U=N\frac{\hbar\omega}{e^{\hbar\omega/(kT)}-1}.
+}
+
+令
+\[
+x=\frac{\hbar\omega}{kT},
+\]
+则
+\[
+C_V=\left(\frac{\partial U}{\partial T}\right)_V
+=Nk\,\frac{x^2e^x}{(e^x-1)^2}.
+\]
+故
+\ansmath{
+C_V=Nk\frac{\left(\hbar\omega/kT\right)^2e^{\hbar\omega/(kT)}}{\left(e^{\hbar\omega/(kT)}-1\right)^2}.
+}
+
+高温极限 $x\ll1$ 时，
+\[
+e^x-1\approx x,
+\]
+故
+\ansmath{C_V\approx Nk.}
+
+低温极限 $x\gg1$ 时，
+\[
+e^x-1\approx e^x,
+\]
+故
+\ansmath{
+C_V\approx Nk\,x^2e^{-x}
+=Nk\left(\frac{\hbar\omega}{kT}\right)^2e^{-\hbar\omega/(kT)}.
+}
+\end{solution}
+\end{question}
+
+\begin{question}[16分]
+体积为 $V=V_1+V_2$ 的容器中有 $N$ 个彼此可区分但物理上完全相同的经典理想气体分子，体系处于平衡态。用组合计数方法求：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 左侧子体积 $V_1$ 中恰有 $n$ 个粒子的概率 $P(n)$；
+\item $\langle n\rangle$ 与 $\mathrm{Var}(n)$；
+\item 当 $V_1=V_2$ 时，最概然值与相对涨落的量级。
+\end{enumerate}
+\begin{solution}
+
+平衡时每个粒子独立地以概率
+\[
+p=\frac{V_1}{V}
+\]
+出现在左侧，以概率 $1-p$ 出现在右侧。因此左侧恰有 $n$ 个粒子的概率服从二项分布
+\[
+P(n)=\binom{N}{n}p^n(1-p)^{N-n}.
+\]
+于是
+\ansmath{
+P(n)=\binom{N}{n}\left(\frac{V_1}{V}\right)^n\left(\frac{V_2}{V}\right)^{N-n}.
+}
+
+由二项分布性质，
+\[
+\langle n\rangle=Np=N\frac{V_1}{V},
+\qquad
+\mathrm{Var}(n)=Np(1-p)=N\frac{V_1V_2}{V^2}.
+\]
+故
+\ansmath{
+\langle n\rangle=N\frac{V_1}{V},
+\qquad
+\mathrm{Var}(n)=N\frac{V_1V_2}{V^2}.
+}
+
+当 $V_1=V_2=V/2$ 时，
+\[
+p=\frac12,
+\qquad
+n_{\mathrm{mp}}\approx \frac{N}{2},
+\qquad
+\mathrm{Var}(n)=\frac{N}{4}.
+\]
+于是标准差
+\[
+\sigma_n=\frac{\sqrt N}{2},
+\]
+相对涨落为
+\[
+\frac{\sigma_n}{\langle n\rangle}=\frac{1}{\sqrt N}.
+\]
+因此
+\ansmath{
+n_{\mathrm{mp}}\approx \frac{N}{2},
+\qquad
+\frac{\sigma_n}{\langle n\rangle}\sim N^{-1/2}.
+}
+\end{solution}
+\end{question}
+
+\begin{question}[16分]
+经典理想气体的巨配分函数可以写成
+\[
+\Xi=\sum_{N=0}^{\infty} z^N Z_N,
+\qquad
+Z_N=\frac{1}{N!}\left(\frac{V}{\lambda^3}\right)^N,
+\]
+其中 $z=e^{\beta\mu}$，$\lambda$ 为热德布罗意波长。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\Xi$；
+\item 求粒子数分布 $P(N)$；
+\item 求 $\langle N\rangle$、$\mathrm{Var}(N)$，并说明这一结果与上一题的二项分布在稀薄极限下如何联系。
+\end{enumerate}
+\begin{solution}
+
+由题给
+\[
+\Xi=\sum_{N=0}^{\infty}\frac{1}{N!}\left(z\frac{V}{\lambda^3}\right)^N
+=\exp\!\left(z\frac{V}{\lambda^3}\right).
+\]
+故
+\ansmath{
+\Xi=\exp\!\left(z\frac{V}{\lambda^3}\right).
+}
+
+粒子数分布为
+\[
+P(N)=\frac{z^N Z_N}{\Xi}
+=\frac{1}{N!}\left(z\frac{V}{\lambda^3}\right)^N
+\exp\!\left(-z\frac{V}{\lambda^3}\right).
+\]
+设
+\[
+\bar N=z\frac{V}{\lambda^3},
+\]
+则
+\ansmath{
+P(N)=e^{-\bar N}\frac{\bar N^N}{N!},
+}
+即泊松分布。
+
+泊松分布满足
+\[
+\langle N\rangle=\bar N,\qquad
+\mathrm{Var}(N)=\bar N.
+\]
+因此
+\ansmath{
+\langle N\rangle=\mathrm{Var}(N)=z\frac{V}{\lambda^3}.
+}
+
+上一题的二项分布在极限
+\[
+N\to\infty,\qquad p\to0,\qquad Np=\text{常数}
+\]
+下趋于泊松分布，因此巨正则系综中“小子系统的粒子数涨落为泊松分布”正可看作固定总粒子数系统在稀薄极限下的局域结果。
+\end{solution}
+\end{question}
+
+\begin{question}[20分]
+考虑二维面积为 $A$ 的理想费米气体，粒子自旋为 $1/2$，质量为 $m$，温度取 $T=0$。
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 求二维态密度 $g(\varepsilon)$；
+\item 求费米能 $\varepsilon_F$；
+\item 求基态总能量 $U$ 与二维“压强” $p$（即单位长度边界上的热力学压力对应的面密度表达）。
+\end{enumerate}
+\begin{solution}
+
+二维动量空间中，每个量子态占据面积
+\[
+(2\pi/L)^2=\frac{(2\pi)^2}{A},
+\]
+自旋简并度为 $2$。半径不超过 $k$ 的圆盘中态数为
+\[
+N(k)=2\cdot \frac{A}{(2\pi)^2}\cdot \pi k^2=\frac{Ak^2}{2\pi}.
+\]
+由
+\[
+\varepsilon=\frac{\hbar^2k^2}{2m}
+\]
+得
+\[
+k^2=\frac{2m\varepsilon}{\hbar^2},
+\]
+故
+\[
+N(\varepsilon)=\frac{Am\varepsilon}{\pi\hbar^2}.
+\]
+因此态密度是常数：
+\ansmath{
+g(\varepsilon)=\frac{dN}{d\varepsilon}=\frac{Am}{\pi\hbar^2}.
+}
+
+令面密度
+\[
+n_s=\frac{N}{A},
+\]
+则在 $T=0$ 时，
+\[
+N=\int_0^{\varepsilon_F}g(\varepsilon)\,d\varepsilon
+=\frac{Am}{\pi\hbar^2}\varepsilon_F.
+\]
+从而
+\ansmath{
+\varepsilon_F=\frac{\pi\hbar^2}{m}n_s.
+}
+
+基态总能量
+\[
+U=\int_0^{\varepsilon_F}\varepsilon\,g(\varepsilon)\,d\varepsilon
+=\frac{Am}{\pi\hbar^2}\cdot \frac{\varepsilon_F^2}{2}.
+\]
+利用上式消去 $\varepsilon_F$，得到
+\ansmath{
+U=\frac12 N\varepsilon_F.
+}
+
+二维自由费米气体满足
+\[
+pA=U,
+\]
+故
+\[
+p=\frac{U}{A}=\frac12 n_s\varepsilon_F.
+\]
+代入 $\varepsilon_F$ 后
+\ansmath{
+p=\frac{\pi\hbar^2}{2m}n_s^2.
+}
+\end{solution}
+\end{question}
+

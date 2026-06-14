@@ -1,0 +1,353 @@
+﻿\heading{热学-免修考-24秋}
+\noteinfo{题目来源于上传 PDF，答案经复核整理。原 PDF 第 4 道简答题仅写“忘了”，此处保留缺失说明。}
+
+\textbf{一、简答题（40 分）}
+
+\begin{question}
+在热物理学中，根据组成系统的粒子的内禀属性和遵守的统计规律，微观粒子可以分为哪几类？写出这些系统中的微观粒子按能量的分布规律的表达式，并根据最概然分布说明为什么说麦克斯韦速度（速率）分布律是处于平衡态的经典理想气体系统中分子的速度（速率）的实际分布律的物理机制。
+\begin{solution}
+微观粒子可分为经典粒子、玻色子和费米子。能级 $\varepsilon_i$、简并度 $g_i$ 上的平均占有数分别为
+\[
+\bar n_i^{\rm MB}=g_i e^{(\mu-\varepsilon_i)/(k_BT)},\qquad
+\bar n_i^{\rm BE}=\frac{g_i}{e^{(\varepsilon_i-\mu)/(k_BT)}-1},\qquad
+\bar n_i^{\rm FD}=\frac{g_i}{e^{(\varepsilon_i-\mu)/(k_BT)}+1}.
+\]
+经典稀薄气体满足 MB 分布，速度分布为
+\[
+f(\mathbf v)=n\left(\frac{m}{2\pi k_BT}\right)^{3/2}e^{-mv^2/(2k_BT)},
+\]
+速率分布为
+\[
+f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}.
+\]
+平衡态下最概然分布占压倒性统计权重；宏观粒子数极大时相对涨落 $\sim N^{-1/2}$，故实际分布与最概然分布一致。
+\ansmath{f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+实验上测得某种气体在压强为 $p$、体积为 $V$、温度为 $T$ 的状态附近的体膨胀系数与状态参量的关系为
+\[
+\alpha=\frac{n\nu a}{T^{n+1}V}+\frac{\nu R}{pV},
+\]
+等温压缩系数与状态参量的关系为
+\[
+\kappa_T=\frac{\nu RT}{p^2V},
+\]
+其中 $n,\nu,a,R$ 为数值大于零的常量，试确定该气体系统的状态方程。
+\begin{solution}
+由
+\[
+\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p,
+\qquad
+\kappa_T=-\frac1V\left(\frac{\partial V}{\partial p}\right)_T,
+\]
+得
+\[
+\left(\frac{\partial V}{\partial T}\right)_p
+=\frac{n\nu a}{T^{n+1}}+\frac{\nu R}{p},
+\qquad
+\left(\frac{\partial V}{\partial p}\right)_T
+=-\frac{\nu RT}{p^2}.
+\]
+积分得
+\[
+V=-\frac{\nu a}{T^n}+\frac{\nu RT}{p}+C.
+\]
+故状态方程为
+\[
+p\left(V-C+\frac{\nu a}{T^n}\right)=\nu RT.
+\]
+\ansmath{p\left(V-C+\frac{\nu a}{T^n}\right)=\nu RT}
+\end{solution}
+\end{question}
+
+\begin{question}
+二维电子气是目前常用的描述电子器件中与电现象相关问题的模型。现有一个器件的表面呈边长为 $L$ 的正方形，其中电子的面密度为 $n$，每个电子的质量为 $m$、带电量为 $-e_0$。如果边缘上有一个线度为 $\Delta L$ 的狭小缝隙，试确定在正对缝隙方向上可能形成的电流的电流强度。
+\begin{solution}
+设二维电子气温度为 $T$。二维 Maxwell 分布中，垂直缝隙方向速度分量的分布为
+\[
+f(v_x)=\sqrt{\frac{m}{2\pi k_BT}}\exp\left(-\frac{mv_x^2}{2k_BT}\right).
+\]
+单位长度边界、单位时间穿过缝隙向外的电子数为
+\[
+\Phi=n\int_0^\infty v_x f(v_x)\,dv_x
+=n\sqrt{\frac{k_BT}{2\pi m}}.
+\]
+缝隙长度为 $\Delta L$，所以粒子数流率为 $\Phi\Delta L$，电流强度大小为
+\[
+I=e_0 n\Delta L\sqrt{\frac{k_BT}{2\pi m}}.
+\]
+电流的常规方向与电子运动方向相反；题目若只问强度，取上式的正值。
+\ansmath{I=e_0 n\Delta L\sqrt{\frac{k_BT}{2\pi m}}}
+\end{solution}
+\end{question}
+
+\begin{question}
+原 PDF 第 4 题仅记为“忘了”。
+\begin{solution}
+上传原稿没有给出题干，无法唯一确定题目和答案；此处按原稿保留缺失信息。
+\anstext{原题缺失，无法作答。}
+\end{solution}
+\end{question}
+
+\begin{question}
+假定组成一质量为 $M$ 的星体的物质可以近似为单原子分子理想气体，试确定其在一个过程方程可以表示为
+\[
+V=\frac{a_0}{p^{5/6}}
+\]
+（其中 $a_0$ 为正的常量）的过程中的比热容。并由此说明为什么宇宙不会陷入热寂之中。
+\begin{solution}
+设物质的量为 $\nu=M/\mu$。由 $pV=\nu RT$ 和 $V=a_0p^{-5/6}$，得 $p\propto T^6$、$V\propto T^{-5}$，所以
+\[
+\frac{dV}{dT}=-5\frac{V}{T}.
+\]
+又 $U=\frac32\nu RT$，故
+\[
+C=\frac{dU+p\,dV}{dT}
+=\frac32\nu R-5\nu R=-\frac72\nu R.
+\]
+即
+\[
+C=-\frac72\frac{M}{\mu}R.
+\]
+自引力系统可出现负热容，放出能量时反而升温，导致引力聚集和结构形成；因此不能把无引力系统趋于均匀热平衡的“热寂”图像直接用于宇宙整体。
+\ansmath{C=-\frac72\nu R=-\frac72\frac{M}{\mu}R}
+\end{solution}
+\end{question}
+
+\begin{question}
+一定量的气体先经过一个等体过程，使其温度升高一倍；再经过一个等温过程，使其体积膨胀为原来的两倍。试问在上列过程达到的状态下，这种气体的黏度 $\eta$、热导率 $\kappa$、扩散系数 $D$ 及组成该气体的分子的平均自由程 $\lambda$ 分别变化为原来的多少倍？
+\begin{solution}
+末态 $T=2T_0$、$n=n_0/2$。稀薄气体的输运系数满足
+\[
+\eta\propto \sqrt T,
+\quad
+\kappa\propto \sqrt T,
+\quad
+\lambda\propto \frac1n,
+\quad
+D\propto \lambda\sqrt T.
+\]
+故
+\[
+\eta/\eta_0=\sqrt2,
+\qquad \kappa/\kappa_0=\sqrt2,
+\qquad D/D_0=2\sqrt2,
+\qquad \lambda/\lambda_0=2.
+\]
+\ansmath{\eta,\kappa,D,\lambda:\ \sqrt2,\sqrt2,2\sqrt2,2}
+\end{solution}
+\end{question}
+
+\begin{question}
+一级相变的主要特征有哪些？二级相变与一级相变的主要差别有哪些？对有序无序相变，通常可由序参量的演化来表示其相变过程，并与对称性的高低相联系，对称性的高低与序参量的大小的对应关系是什么？用对称性的语言来讲，可以呈现超导态的金属由正常导体相到超导相的相变过程是一个对称性破缺的过程还是一个对称性恢复的过程？水的沸腾是一个对称性破缺的过程还是一个对称性恢复的过程？
+\begin{solution}
+一级相变有潜热，一阶导数如熵和体积发生跳变，存在相共存和滞后。二级相变无潜热，一阶导数连续，但热容、压缩系数、膨胀系数等二阶导数不连续或发散。高对称相通常对应序参量为零，低对称相对应序参量非零。超导相中超导序参量出现，属于对称性破缺。水的沸腾是普通液气一级相变，严格说不属于典型对称性破缺相变；若按有序度类比，从液体到气体更接近对称性恢复。
+\anstext{一级相变：潜热；二级相变：无潜热但二阶导数异常；超导：对称性破缺；沸腾：普通液气一级相变。}
+\end{solution}
+\end{question}
+
+\begin{question}
+解释下面的话：
+
+(1) 烟暖房；
+
+(2) 热生风，冷生雨；
+
+(3) 下雪不冷，化雪冷。
+\begin{solution}
+(1) 烟尘、水汽和二氧化碳等会吸收、散射并再辐射红外辐射，减弱房屋或地面对外的辐射冷却，类似温室效应，所以“烟暖房”。
+
+(2) 受热不均会造成密度差和压强梯度，引发对流和风；暖湿空气上升后绝热膨胀冷却，达到饱和时水汽凝结，易形成云雨，故可说“热生风，冷生雨”。
+
+(3) 成雪或凝华过程释放潜热，使周围空气不至于过冷；雪融化时吸收熔化潜热，使环境降温，所以“下雪不冷，化雪冷”。
+\anstext{烟暖房：辐射保温；热生风冷生雨：对流与凝结；下雪不冷化雪冷：凝固/凝华放热、熔化吸热。}
+\end{solution}
+\end{question}
+
+\textbf{二、计算题（60 分）}
+
+\begin{question}
+研究表明，$p$-$V$-$T$ 系统的状态方程既可以由状态参量之间的关系 $p=p(V,T)$ 表述，也可以由系统的压强与能量密度 $\varepsilon$ 之间的函数关系 $p=p(\varepsilon)$ 表示，其中的能量密度即单位体积内的系统的能量。
+
+(1) 试解释后者的合理性与两种关系的自洽性。
+
+(2) 试从分子动理论出发证明，理想气体的状态方程可以一般地表示为 $p_{IG}=K\varepsilon_{IG}$，其中 $K$ 为正的常数，并且，对非相对论性理想气体，$K=2/3$；对极端相对论性理想气体，$K=1/3$。
+
+(3) 在 (2) 的基础上，给出理想气体的绝热压缩系数由常数 $K$ 和压强 $p$ 表示的表达式。
+
+(4) 近年来的宇宙学观测表明，我们所处的宇宙在加速膨胀，这表明，宇宙的组分除包含物质外，还包含着被称为暗能量的成分。假设暗能量的状态方程也可以表示为 $p=K_{DE}\varepsilon$。试在 $E$ 与理想气体的 $E_{IG}$ 有相同特征的假设下，根据相（不）稳定条件，给出系数 $K_{DE}$ 的取值范围。
+\begin{solution}
+$p=p(V,T)$ 和 $p=p(\varepsilon)$ 并不矛盾。若内能密度 $\varepsilon=E/V$ 可由 $V,T$ 确定，则 $p=p(V,T)$ 可改写成 $p=p(\varepsilon)$；反过来，对于给定物态模型，能量方程和状态方程共同决定 $V,T,p$ 之间的关系。
+
+分子动理论给出
+\[
+p=\frac13 n\langle \mathbf p\cdot\mathbf v\rangle.
+\]
+非相对论情形 $\mathbf p=m\mathbf v$，$\varepsilon=n\langle mv^2/2\rangle$，故
+\[
+p=\frac13nm\langle v^2\rangle=\frac23\varepsilon.
+\]
+极端相对论情形单粒子能量为 $pc$，故
+\[
+p=\frac13 n\langle pc\rangle=\frac13\varepsilon.
+\]
+所以 $p=K\varepsilon$，且 $K_{\rm nr}=2/3$、$K_{\rm er}=1/3$。
+
+绝热时 $dE=-p\,dV$，而 $E=pV/K$，于是
+\[
+d\left(\frac{pV}{K}\right)=-p\,dV,
+\qquad
+Vdp=-(K+1)p\,dV.
+\]
+因此
+\[
+\kappa_S=-\frac1V\left(\frac{\partial V}{\partial p}\right)_S
+=\frac1{(K+1)p}.
+\]
+
+宇宙加速膨胀要求
+\[
+\varepsilon+3p<0,
+\]
+即
+\[
+K_{DE}<-\frac13.
+\]
+若暗能量密度仍随膨胀按通常方式降低，则 $d\varepsilon/\varepsilon=-(K_{DE}+1)dV/V$ 要求 $K_{DE}>-1$，于是
+\[
+-1<K_{DE}<-\frac13.
+\]
+该区间内 $p<0$ 且简单流体的机械稳定性会出现问题；若额外要求负压流体本身满足由 $\kappa_S>0$ 给出的机械稳定条件，则需 $K_{DE}<-1$。因此应区分“宇宙加速所需范围”和“简单物态稳定性”两个条件。
+\ansmath{\kappa_S=\frac1{(K+1)p},\qquad K_{DE}<-\frac13\text{；通常能量降低假设下 }-1<K_{DE}<-\frac13}
+\end{solution}
+\end{question}
+
+\begin{question}
+试从 Maxwell 分布出发证明能均分定理。
+\begin{solution}
+对一个平动自由度，Maxwell 分布给出
+\[
+f(p_x)=\frac1{\sqrt{2\pi mk_BT}}\exp\left(-\frac{p_x^2}{2mk_BT}\right).
+\]
+于是
+\[
+\left\langle \frac{p_x^2}{2m}\right\rangle
+=\frac{\int_{-\infty}^{\infty}\frac{p_x^2}{2m}e^{-p_x^2/(2mk_BT)}\,dp_x}{\int_{-\infty}^{\infty}e^{-p_x^2/(2mk_BT)}\,dp_x}
+=\frac12k_BT.
+\]
+一般地，若哈密顿量含有二次项 $a q^2/2$，则
+\[
+\left\langle \frac12a q^2\right\rangle
+=\frac{\int_{-\infty}^{\infty}\frac12a q^2 e^{-aq^2/(2k_BT)}\,dq}{\int_{-\infty}^{\infty}e^{-aq^2/(2k_BT)}\,dq}
+=\frac12k_BT.
+\]
+因此每个独立二次型自由度平均贡献 $k_BT/2$ 的能量。
+\ansmath{\left\langle \frac12 a q^2\right\rangle=\frac12k_BT}
+\end{solution}
+\end{question}
+
+\begin{question}
+设由离子源射出的电子束在数密度为 $n$、分子有效直径为 $d$ 的气体中行进。
+
+(1) 若电子的体积与气体分子的体积相比可以忽略不计，并且电子运动的速度比气体分子运动的速率大得多，试求电子的平均自由程 $\bar\lambda$；
+
+(2) 假设离子源处电子流强度为 $5.00\,\mu\mathrm A$ 的电子束射入压强为 $1.00\,\mathrm{Pa}$ 的气体中时，在与离子源距离为 $0.10\,\mathrm m$ 处的探测器测得的电子流强度为 $1.85\,\mu\mathrm A$。试问：(i) 该情况下，电子的平均自由程 $\bar\lambda'$ 为多大？(ii) 如果气体分子的有效直径为 $0.10\,\mathrm{nm}$，则气体的温度为多高？(iii) 考虑实际工程情况，电子直线加速器的离子源与加速电极之间会有小的“空隙”，记该空隙长度为 $0.20\,\mathrm m$，为使进入加速腔的电子流强不低于离子源处的 $99.999999\%$，则该空隙中真空度至少为多高？
+\begin{solution}
+电子近似为点粒子，气体分子为静止散射中心，碰撞截面为 $\pi d^2$，所以
+\[
+\bar\lambda=\frac1{n\pi d^2}.
+\]
+电子束强度满足
+\[
+I=I_0e^{-x/\bar\lambda'}.
+\]
+故
+\[
+\bar\lambda'=-\frac{x}{\ln(I/I_0)}
+=-\frac{0.10}{\ln(1.85/5.00)}\,\mathrm m
+\simeq0.101\,\mathrm m.
+\]
+由理想气体 $n=p/(k_BT)$ 得
+\[
+T=\frac{p\pi d^2\bar\lambda'}{k_B}
+\simeq2.29\times10^2\,\mathrm K.
+\]
+空隙长度 $L=0.20\,\mathrm m$，要求 $I/I_0\ge0.99999999$，所以
+\[
+\lambda_{\min}=-\frac{L}{\ln(0.99999999)}\simeq2.0\times10^7\,\mathrm m.
+\]
+对应最大压强
+\[
+p_{\max}=\frac{k_BT}{\pi d^2\lambda_{\min}}
+\simeq5.0\times10^{-9}\,\mathrm{Pa}
+\]
+（若按 $300\,\mathrm K$ 估算，则约 $6.6\times10^{-9}\,\mathrm{Pa}$）。
+\ansmath{\bar\lambda=\frac1{n\pi d^2},\quad \bar\lambda'\simeq0.101\,\mathrm m,
+\quad T\simeq229\,\mathrm K,
+\quad p_{\max}\sim10^{-9}\,\mathrm{Pa}}
+\end{solution}
+\end{question}
+
+\begin{question}
+卡诺热机由于要求过程准静态发生，实际功率为零。实际热机的热源与工作物质之间需要传热，存在温差。设高温热源温度为 $T_h$，低温热源温度为 $T_l$。工作物质循环为内可逆循环，其最高温度为 $T_h'$（$T_h'<T_h$），最低温度为 $T_l'$（$T_l'>T_l$），系统的高温热源与工作介质的高温部分之间的介质的热导率为 $k_h$，系统的低温热源与工作介质的低温部分之间的介质的热导率为 $k_l$。
+
+(1) 求出实际热机的最大效率，并证明它小于内可逆热机的最大效率。
+
+(2) 在研究中，我们常常考虑效率的最大化，但实际中我们考虑热机功率的最大化，求出此时热机的最大功率 $P^*$ 和相对应的内循环效率 $\eta^*$（用 $k_h,k_l,T_h,T_l$ 表示）。
+\begin{solution}
+内可逆循环效率为
+\[
+\eta=1-\frac{T_l'}{T_h'}.
+\]
+因 $T_h'<T_h$ 且 $T_l'>T_l$，对任何有限传热温差下的有限功率运行，都有
+\[
+\eta=1-\frac{T_l'}{T_h'}<1-\frac{T_l}{T_h}=\eta_C.
+\]
+当 $T_h'\to T_h$、$T_l'\to T_l$ 时效率趋于 Carnot 效率，但传热温差趋于零，功率也趋于零。因此有限功率实际热机的效率严格小于 Carnot 极限。
+
+令
+\[
+\dot Q_h=k_h(T_h-T_h'),
+\qquad
+\dot Q_l=k_l(T_l'-T_l).
+\]
+内可逆条件给出
+\[
+\frac{\dot Q_l}{\dot Q_h}=\frac{T_l'}{T_h'}\equiv r.
+\]
+由 $T_l'=rT_h'$ 解得
+\[
+T_h'=\frac{k_hT_h+k_lT_l/r}{k_h+k_l}.
+\]
+功率
+\[
+P=\dot Q_h-\dot Q_l=\dot Q_h(1-r)
+=\frac{k_hk_l}{k_h+k_l}(1-r)\left(T_h-\frac{T_l}{r}\right).
+\]
+对 $r$ 求极值：
+\[
+\frac{dP}{dr}=0
+\quad\Rightarrow\quad
+r^*=\sqrt{\frac{T_l}{T_h}}.
+\]
+故最大功率时的效率为 Curzon-Ahlborn 效率
+\[
+\eta^*=1-r^*=1-\sqrt{\frac{T_l}{T_h}},
+\]
+最大功率为
+\[
+P^*=\frac{k_hk_l}{k_h+k_l}\left(\sqrt{T_h}-\sqrt{T_l}\right)^2.
+\]
+对应的工作物质温度为
+\[
+T_h'^*=\frac{k_hT_h+k_l\sqrt{T_hT_l}}{k_h+k_l},
+\qquad
+T_l'^*=\frac{k_h\sqrt{T_hT_l}+k_lT_l}{k_h+k_l}.
+\]
+\ansmath{\eta^*=1-\sqrt{\frac{T_l}{T_h}},\qquad
+P^*=\frac{k_hk_l}{k_h+k_l}(\sqrt{T_h}-\sqrt{T_l})^2}
+\end{solution}
+\end{question}
+

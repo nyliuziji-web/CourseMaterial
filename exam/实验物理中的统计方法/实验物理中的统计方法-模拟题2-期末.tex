@@ -1,0 +1,279 @@
+﻿\heading{实验物理中的统计方法-模拟题2-期末}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较往年期末略高。}
+
+\begin{question}
+假设检验中，若原假设为真却被拒绝，叫做什么错误？若原假设为假却没有被拒绝，叫做什么错误？怎样才能更有希望同时减小这两种错误的概率？
+\begin{solution}
+前者叫第一类错误，后者叫第二类错误。在检验方式不变且样本量固定时，两者通常此消彼长；若希望更有希望同时减小二者，通常需要增加样本量，或引入更强的信息、构造更有力的检验。
+\anstext{原假设为真却被拒绝：第一类错误；原假设为假却没被拒绝：第二类错误；若希望更有希望同时减小两类错误，通常要增加样本量。}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\cdots,X_n$ 独立同分布，且
+\[
+f(x;\lambda)=\lambda e^{-\lambda x},\qquad x>0,\ \lambda>0.
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\lambda$ 的极大似然估计；
+\item 求 $\lambda$ 的 Fisher 信息；
+\item 利用精确分布给出 $\lambda$ 的 $95\%$ 置信区间。若 $n=10$，$\sum X_i=18.5$，并给出
+\[
+\chi^2_{20}(0.025)=8.907,\qquad \chi^2_{20}(0.975)=34.170,
+\]
+求数值结果。
+\end{enumerate}
+\begin{solution}
+对数似然为
+\[
+\ell(\lambda)=n\ln\lambda-\lambda\sum_{i=1}^n X_i.
+\]
+令导数为零，得
+\[
+\hat\lambda=\frac{n}{\sum X_i}.
+\]
+即
+\ansmath{\hat\lambda=\frac{n}{\sum X_i}}
+单个样本的 Fisher 信息为
+\[
+I_1(\lambda)=E\left[\left(\frac{\partial \ell_1}{\partial\lambda}\right)^2\right]=\frac{1}{\lambda^2},
+\]
+故
+\ansmath{I_n(\lambda)=\frac{n}{\lambda^2}}
+又因为
+\[
+2\lambda\sum_{i=1}^n X_i\sim \chi^2(2n),
+\]
+所以 $95\%$ 置信区间为
+\[
+\lambda\in \left[\frac{\chi^2_{2n}(0.025)}{2\sum X_i},\ \frac{\chi^2_{2n}(0.975)}{2\sum X_i}\right].
+\]
+当 $n=10$、$\sum X_i=18.5$ 时，
+\[
+2\sum X_i=37,
+\]
+故
+\[
+\lambda\in \left[\frac{8.907}{37},\ \frac{34.170}{37}\right]
+\approx (0.2407,\ 0.9235).
+\]
+因此
+\ansmath{\lambda\in (0.241,\ 0.924)\qquad (95\%\ \text{CI})}
+\end{solution}
+\end{question}
+
+\begin{question}
+某探测效率记为 $\varepsilon$。先验取为 $(0,1)$ 上的均匀分布。现用 $12$ 个标准事例做刻度，其中有 $9$ 个被探测到。
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\varepsilon$ 的后验分布；
+\item 求后验均值；
+\item 求下一次标准事例被探测到的后验预测概率。
+\end{enumerate}
+\begin{solution}
+均匀先验即
+\[
+\varepsilon\sim \mathrm{Beta}(1,1).
+\]
+观测到 $9$ 次成功、$3$ 次失败后，
+\[
+\varepsilon\mid D\sim \mathrm{Beta}(10,4).
+\]
+即
+\ansmath{\varepsilon\mid D\sim \mathrm{Beta}(10,4)}
+后验均值为
+\[
+E[\varepsilon\mid D]=\frac{10}{14}=\frac57.
+\]
+故
+\ansmath{E[\varepsilon\mid D]=\frac57}
+下一次标准事例被探测到的后验预测概率就是后验均值，因此
+\ansmath{P(\text{next success}\mid D)=\frac57}
+\end{solution}
+\end{question}
+
+\begin{question}
+某物理量有两次测量：
+\[
+A_1=5.02\pm0.10_{\rm stat}\pm0.05_{\rm sys},
+\qquad
+A_2=4.86\pm0.15_{\rm stat}\pm0.05_{\rm sys}.
+\]
+其中统计误差彼此独立，系统误差完全相关。求合并测量结果。
+\begin{solution}
+先只按统计误差做加权平均。权重为
+\[
+w_1=\frac{1/0.10^2}{1/0.10^2+1/0.15^2}
+=\frac{100}{100+44.44\cdots}\approx 0.6923,
+\]
+\[
+w_2=1-w_1\approx 0.3077.
+\]
+因此合并值
+\[
+\bar A=w_1A_1+w_2A_2
+\approx 0.6923\times 5.02+0.3077\times 4.86
+\approx 4.9708.
+\]
+统计不确定度为
+\[
+\sigma_{\rm stat}
+=\left(\frac1{0.10^2}+\frac1{0.15^2}\right)^{-1/2}
+\approx 0.0832.
+\]
+由于系统误差完全相关，合并后系统不确定度仍为
+\[
+\sigma_{\rm sys}=0.05.
+\]
+所以
+\ansmath{\bar A=4.971\pm 0.083_{\rm stat}\pm 0.050_{\rm sys}}
+若合成为单个不确定度，则
+\[
+\sigma_{\rm tot}=\sqrt{0.0832^2+0.05^2}\approx 0.0971.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+对泊松分布作简单假设检验：
+\[
+H_0:\lambda=2,\qquad H_1:\lambda=5.
+\]
+要求显著性水平不超过 $\alpha=0.1$。试用 Neyman--Pearson 原理给出最强检验的拒绝域，并求该检验在 $H_1$ 下的功效。
+\begin{solution}
+泊松分布关于观测值 $n$ 具有单调似然比，因此最强检验应取“大计数拒绝 $H_0$”。找最小整数 $k$ 使
+\[
+P_{\lambda=2}(N\ge k)\le 0.1.
+\]
+计算得
+\[
+P_{2}(N\ge 4)\approx 0.143,\qquad P_{2}(N\ge 5)\approx 0.053.
+\]
+所以拒绝域为
+\ansmath{N\ge 5}
+该检验在 $H_1:\lambda=5$ 下的功效为
+\[
+P_{\lambda=5}(N\ge 5)=1-P_{\lambda=5}(N\le 4).
+\]
+计算得
+\[
+P_{\lambda=5}(N\le 4)\approx 0.440,
+\]
+故
+\ansmath{\text{power}\approx 0.560}
+\end{solution}
+\end{question}
+
+\begin{question}
+一次稀有信号搜索中观测到 $n=0$ 个事例，已知本底均值为 $b=0.2$，信号均值记为 $s$。若采用平坦先验
+\[
+\pi(s)\propto 1,\qquad s\ge 0,
+\]
+求 $s$ 的后验分布，并给出 $90\%$ 的后验上限。
+\begin{solution}
+似然函数为
+\[
+L(s)\propto e^{-(s+b)}\frac{(s+b)^0}{0!}=e^{-(s+b)}.
+\]
+乘以平坦先验后，
+\[
+p(s\mid n=0)\propto e^{-s},\qquad s\ge 0.
+\]
+归一化后得
+\[
+p(s\mid n=0)=e^{-s},\qquad s\ge 0,
+\]
+即
+\ansmath{s\mid n=0\sim \mathrm{Exp}(1)}
+求 $90\%$ 上限 $s_{90}$：
+\[
+P(s\le s_{90}\mid n=0)=1-e^{-s_{90}}=0.9.
+\]
+故
+\[
+e^{-s_{90}}=0.1,\qquad s_{90}=-\ln 0.1=\ln 10.
+\]
+因此
+\ansmath{s_{90}=\ln 10\approx 2.303}
+\end{solution}
+\end{question}
+
+\begin{question}
+某模型预言 4 个箱中的期望计数都为 $25$。现观测到的四个箱计数分别为
+\[
+18,\ 27,\ 25,\ 30.
+\]
+试作 $\chi^2$ 拟合优度检验，并判断是否需要拒绝该模型。可取自由度为 $3$ 时 $5\%$ 显著性水平的临界值为
+\[
+\chi^2_{0.95}(3)=7.815.
+\]
+\begin{solution}
+统计量为
+\[
+\chi^2=\sum_{i=1}^4 \frac{(O_i-E_i)^2}{E_i}
+=\frac{(18-25)^2}{25}+\frac{(27-25)^2}{25}
++\frac{(25-25)^2}{25}+\frac{(30-25)^2}{25}.
+\]
+计算得
+\[
+\chi^2=\frac{49+4+0+25}{25}=3.12.
+\]
+因此
+\[
+\chi^2=3.12<7.815.
+\]
+故
+\anstext{在 $5\%$ 显著性水平下，不拒绝该模型。}
+\end{solution}
+\end{question}
+
+\begin{question}
+做线性刻度实验，模型为
+\[
+y=a+bx,
+\]
+已知四个测量点的 $x$ 值和 $y$ 值分别为
+\[
+(0,1.1),\ (1,2.9),\ (2,5.2),\ (3,7.0),
+\]
+并认为各点的 $y$ 测量标准差都为 $0.2$，彼此独立。用最小二乘法求 $a,b$，并给出 $\chi^2_{\min}$。
+\begin{solution}
+由于各点误差相同，普通最小二乘即可。先算均值：
+\[
+\bar x=\frac{0+1+2+3}{4}=1.5,\qquad
+\bar y=\frac{1.1+2.9+5.2+7.0}{4}=4.05.
+\]
+斜率为
+\[
+\hat b=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sum (x_i-\bar x)^2}=2.
+\]
+截距为
+\[
+\hat a=\bar y-\hat b\,\bar x=4.05-2\times 1.5=1.05.
+\]
+故
+\ansmath{\hat a=1.05,\qquad \hat b=2.00}
+再算残差：
+\[
+1.1-(1.05+2\times 0)=0.05,
+\]
+\[
+2.9-(1.05+2\times 1)=-0.15,
+\]
+\[
+5.2-(1.05+2\times 2)=0.15,
+\]
+\[
+7.0-(1.05+2\times 3)=-0.05.
+\]
+因此
+\[
+\chi^2_{\min}
+=\sum_{i=1}^4\frac{r_i^2}{0.2^2}
+=\frac{0.05^2+0.15^2+0.15^2+0.05^2}{0.04}
+=1.25.
+\]
+所以
+\ansmath{\chi^2_{\min}=1.25}
+\end{solution}
+\end{question}
+

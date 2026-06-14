@@ -1,0 +1,363 @@
+﻿\heading{理论物理基础（II）-模拟题1-期中}
+\noteinfo{题目和答案由AI生成。}
+
+\instructions{默认记 $\beta=1/(k_B T)$，$z=e^{\beta\mu}$ 为逸度，$\lambda=h/\sqrt{2\pi m k_B T}$ 为热波长。若无特别说明，粒子为不可分辨粒子。}
+
+\textbf{一、单项选择题}
+
+\begin{question}
+下列关于经典极限的判断，正确的是
+\begin{choiceoptions}[2]
+  \optionitem{$n\lambda^3 \gg 1$ 时，Maxwell--Boltzmann 统计一定成立}
+  \optionitem{$n\lambda^3 \ll 1$ 时，Bose--Einstein 与 Fermi--Dirac 分布都可近似化为 Maxwell--Boltzmann 分布}
+  \optionitem{只要温度足够低，任何气体都可用经典统计描述}
+  \optionitem{只要体积足够大，量子统计一定失效}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\begin{question}
+正则系综中，系统处于能量为 $E_i$ 的微观状态的概率正比于
+\begin{choiceoptions}[2]
+  \optionitem{$e^{+\beta E_i}$}
+  \optionitem{$e^{-\beta E_i}$}
+  \optionitem{$E_i^{-1}$}
+  \optionitem{$\ln E_i$}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\begin{question}
+若正则配分函数为 $Z(T,V,N)$，则亥姆霍兹自由能满足
+\begin{choiceoptions}[2]
+  \optionitem{$F=k_B T\ln Z$}
+  \optionitem{$F=-k_B T\ln Z$}
+  \optionitem{$F=\partial \ln Z/\partial \beta$}
+  \optionitem{$F=U-TS+pV$}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\begin{question}
+对于三维自旋简并度为 $g=2$ 的理想费米气体在 $T=0$ 时，下列说法正确的是
+\begin{choiceoptions}[2]
+  \optionitem{所有粒子都占据动量为零的单粒子态}
+  \optionitem{所有单粒子态都等概率占据}
+  \optionitem{费米面以内的单粒子态被依次占满，费米面以外为空}
+  \optionitem{粒子数分布服从泊松分布}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{C}
+\end{solution}
+\end{question}
+\begin{question}
+巨正则系综中，粒子数涨落可写为
+\[
+\langle (\Delta N)^2\rangle = k_B T\left(\frac{\partial \langle N\rangle}{\partial \mu}\right)_{T,V}.
+\]
+这表明当系统粒子数对化学势越敏感时，
+\begin{choiceoptions}[2]
+  \optionitem{粒子数涨落越小}
+  \optionitem{粒子数涨落越大}
+  \optionitem{内能一定越小}
+  \optionitem{压强一定为零}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\begin{question}
+对理想经典气体，Gibbs 因子 $1/N!$ 的主要作用是
+\begin{choiceoptions}[2]
+  \optionitem{修正粒子自旋效应}
+  \optionitem{排除由于不可分辨性导致的重复计数}
+  \optionitem{保证能量量子化}
+  \optionitem{强制粒子 obey Fermi--Dirac 统计}
+\end{choiceoptions}
+
+\begin{solution}
+\anstext{B}
+\end{solution}
+\end{question}
+\textbf{二、简答题}
+
+\begin{question}
+简述等概率原理在微正则系综中的表述，并说明它与正则分布建立之间的逻辑关系。
+
+\begin{solution}
+微正则系综假定：对一个孤立系统，在给定的 $E,V,N$ 所允许的一切可及微观状态中，各状态出现的概率相等。将一个大孤立系统分成“系统 + 热库”两部分，并对总系统应用等概率原理，在热库足够大、系统与热库之间仅交换能量时，可推出系统处于状态 $i$ 的概率
+\[
+p_i \propto \Omega_r(E_{\text{tot}}-E_i)\propto e^{-\beta E_i},
+\]
+从而得到正则分布。核心逻辑是：正则系综不是独立公设，而是微正则系综对“子系统”的结果。
+\end{solution}
+\end{question}
+\begin{question}
+写出 Maxwell--Boltzmann、Bose--Einstein 与 Fermi--Dirac 三种平均占据数公式，并指出三者在经典极限下的共同近似形式。
+
+\begin{solution}
+三种平均占据数分别为
+\[
+\bar n_r^{\mathrm{MB}} = e^{-\alpha-\beta\varepsilon_r},
+\qquad
+\bar n_r^{\mathrm{BE}} = \frac{1}{e^{\alpha+\beta\varepsilon_r}-1},
+\qquad
+\bar n_r^{\mathrm{FD}} = \frac{1}{e^{\alpha+\beta\varepsilon_r}+1}.
+\]
+当 $e^{\alpha+\beta\varepsilon_r}\gg 1$，也即稀薄高温、满足 $n\lambda^3\ll 1$ 的经典极限下，
+\[
+\bar n_r^{\mathrm{BE}}\approx \bar n_r^{\mathrm{FD}}
+\approx e^{-\alpha-\beta\varepsilon_r},
+\]
+三者都近似化为 Maxwell--Boltzmann 形式。
+\end{solution}
+\end{question}
+\begin{question}
+说明配分函数在统计物理中的“生成函数”作用，并写出由正则配分函数得到 $U$、$S$ 的常用公式。
+
+\begin{solution}
+配分函数汇集了系统的全部平衡热力学信息；一旦 $Z(T,V,N)$ 已知，各种热力学量可由求导得到，因此它起“生成函数”的作用。常用公式是
+\[
+F=-k_B T\ln Z,
+\qquad
+U=-\frac{\partial}{\partial \beta}\ln Z,
+\]
+以及
+\[
+S=-\left(\frac{\partial F}{\partial T}\right)_{V,N}
+= k_B\ln Z + \beta U.
+\]
+若再对体积求导还可得到压强，对外场求导可得到广义力。
+\end{solution}
+\end{question}
+\textbf{三、计算与证明题}
+
+\begin{question}
+有 $N$ 个不可分辨的经典粒子，质量均为 $m$，处于底面积为 $A$、高为 $H$ 的竖直圆柱容器中，外势为 $U(z)=mgz$（$0\le z\le H$）。系统与温度为 $T$ 的热库接触。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单粒子配分函数 $Z_1$；
+  \item 写出 $N$ 粒子系统的正则配分函数 $Z_N$；
+  \item 求平衡时的数密度分布 $n(z)$。
+\end{enumerate}
+
+\begin{solution}
+单粒子哈密顿量为
+\[
+\varepsilon=\frac{p^2}{2m}+mgz.
+\]
+因此
+\[
+Z_1=\frac{1}{h^3}\int d^3p\,e^{-\beta p^2/2m}\int_A dx\,dy\int_0^H dz\,e^{-\beta mgz}.
+\]
+动量积分给出
+\[
+\int d^3p\,e^{-\beta p^2/2m}=(2\pi m k_B T)^{3/2},
+\]
+位置积分给出
+\[
+\int_0^H e^{-\beta mgz}\,dz=\frac{1-e^{-\beta mgH}}{\beta mg}.
+\]
+故
+\ansmath{Z_1=
+\frac{A(2\pi m k_B T)^{3/2}}{h^3}\,
+\frac{1-e^{-\beta mgH}}{\beta mg}
+=
+\frac{A}{\lambda^3}\frac{1-e^{-\beta mgH}}{\beta mg}.}
+
+对不可分辨经典粒子，
+\ansmath{Z_N=\frac{Z_1^N}{N!}.}
+
+数密度分布由玻尔兹曼因子决定，
+\[
+n(z)=C e^{-\beta mgz}.
+\]
+由归一化条件
+\[
+A\int_0^H n(z)\,dz=N
+\]
+得
+\[
+C=\frac{N\beta mg}{A(1-e^{-\beta mgH})}.
+\]
+因此
+\ansmath{n(z)=\frac{N\beta mg}{A(1-e^{-\beta mgH})}e^{-\beta mgz}.}
+这就是重力场中的气压公式对应的粒子数密度分布。
+\end{solution}
+\end{question}
+\begin{question}
+$N$ 个可分辨、互不相互作用的粒子各自只有两个能级：$\varepsilon_{\pm}=\mp \mu B$，与温度为 $T$ 的热库接触。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单粒子配分函数与系统总配分函数；
+  \item 求系统内能 $U$；
+  \item 求热容 $C_V$。
+\end{enumerate}
+
+\begin{solution}
+单粒子配分函数为
+\[
+z_1=e^{\beta \mu B}+e^{-\beta \mu B}=2\cosh(\beta\mu B).
+\]
+由于粒子可分辨且相互独立，
+\ansmath{Z=(z_1)^N=[2\cosh(\beta\mu B)]^N.}
+
+内能由
+\[
+U=-\frac{\partial}{\partial\beta}\ln Z
+\]
+求得：
+\[
+\ln Z=N\ln[2\cosh(\beta\mu B)],
+\]
+故
+\[
+U=-N\mu B\tanh(\beta\mu B).
+\]
+因此
+\ansmath{U=-N\mu B\tanh(\beta\mu B).}
+
+热容为
+\[
+C_V=\left(\frac{\partial U}{\partial T}\right)_{V,N}
+=
+\frac{\partial U}{\partial \beta}\frac{\partial \beta}{\partial T}.
+\]
+先算
+\[
+\frac{\partial U}{\partial\beta}
+=-N(\mu B)^2\operatorname{sech}^2(\beta\mu B),
+\qquad
+\frac{\partial\beta}{\partial T}=-\frac{1}{k_B T^2}.
+\]
+故
+\ansmath{C_V
+=
+N k_B (\beta\mu B)^2 \operatorname{sech}^2(\beta\mu B).}
+这就是典型的双能级 Schottky 热容。
+\end{solution}
+\end{question}
+\begin{question}
+考虑体积为 $V$ 的三维自旋 $1/2$ 理想费米气体，在 $T=0$ 时总粒子数为 $N$。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 写出费米波矢 $k_F$ 与粒子数密度 $n=N/V$ 的关系；
+  \item 进而写出费米能 $\varepsilon_F$；
+  \item 证明零温压强满足 $p=\frac{2}{5}n\varepsilon_F$。
+\end{enumerate}
+
+\begin{solution}
+在 $T=0$ 时，所有满足 $k\le k_F$ 的单粒子态都被占满。由于自旋简并度 $g=2$，
+\[
+N=2\cdot \frac{V}{(2\pi)^3}\frac{4\pi}{3}k_F^3
+=\frac{V}{3\pi^2}k_F^3.
+\]
+故
+\ansmath{k_F=(3\pi^2 n)^{1/3}.}
+
+费米能为
+\[
+\varepsilon_F=\frac{\hbar^2 k_F^2}{2m},
+\]
+因此
+\ansmath{\varepsilon_F=\frac{\hbar^2}{2m}(3\pi^2 n)^{2/3}.}
+
+零温内能为
+\[
+U=2\cdot \frac{V}{(2\pi)^3}\int_{k\le k_F}\frac{\hbar^2 k^2}{2m}\,d^3k
+=\frac{3}{5}N\varepsilon_F.
+\]
+于是能量密度
+\[
+u=\frac{U}{V}=\frac{3}{5}n\varepsilon_F.
+\]
+对非相对论理想费米气体，亦可由动理论或由 $p=\frac{2}{3}u$ 得
+\[
+p=\frac{2}{3}\cdot \frac{3}{5}n\varepsilon_F.
+\]
+因此
+\ansmath{p=\frac{2}{5}n\varepsilon_F.}
+\end{solution}
+\end{question}
+\begin{question}
+有 $M$ 个彼此独立的吸附格点，每个格点至多容纳一个粒子。空格点能量取为 $0$，被占据格点能量为 $\varepsilon$。系统与粒子库、热库接触，采用巨正则系综。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单个格点的巨配分函数 $\Xi_1$ 与系统总巨配分函数 $\Xi$；
+  \item 求平均占据粒子数 $\langle N\rangle$；
+  \item 求粒子数涨落 $\langle(\Delta N)^2\rangle$。
+\end{enumerate}
+
+\begin{solution}
+对单个格点，只有两个可能状态：
+
+空态：$N=0,E=0$；\qquad 占据态：$N=1,E=\varepsilon$。
+
+故单格点巨配分函数为
+\[
+\Xi_1=\sum_{N=0,1} e^{\beta\mu N}e^{-\beta E}
+=1+e^{\beta(\mu-\varepsilon)}.
+\]
+$M$ 个格点独立，因此
+\ansmath{\Xi=(\Xi_1)^M=\left(1+e^{\beta(\mu-\varepsilon)}\right)^M.}
+
+平均粒子数由
+\[
+\langle N\rangle
+=z\frac{\partial}{\partial z}\ln \Xi
+=\frac{1}{\beta}\frac{\partial \ln\Xi}{\partial\mu}
+\]
+得到。令
+\[
+x=e^{\beta(\mu-\varepsilon)},
+\]
+则
+\[
+\ln\Xi=M\ln(1+x),
+\qquad
+\frac{\partial x}{\partial\mu}=\beta x.
+\]
+因此
+\[
+\langle N\rangle
+=M\frac{x}{1+x}
+=
+\frac{M}{e^{-\beta(\mu-\varepsilon)}+1}.
+\]
+即
+\ansmath{\langle N\rangle
+=
+M f,
+\qquad
+f=\frac{1}{e^{-\beta(\mu-\varepsilon)}+1}.}
+
+涨落可由
+\[
+\langle(\Delta N)^2\rangle
+=\frac{1}{\beta^2}\frac{\partial^2 \ln\Xi}{\partial\mu^2}
+\]
+求得：
+\[
+\frac{\partial \langle N\rangle}{\partial\mu}
+=\beta M\frac{x}{(1+x)^2}.
+\]
+故
+\[
+\langle(\Delta N)^2\rangle
+=\frac{1}{\beta}\frac{\partial \langle N\rangle}{\partial\mu}
+=M\frac{x}{(1+x)^2}
+=Mf(1-f).
+\]
+因此
+\ansmath{\langle(\Delta N)^2\rangle=Mf(1-f).}
+这与独立二项分布的结果一致。
+\end{solution}
+\end{question}

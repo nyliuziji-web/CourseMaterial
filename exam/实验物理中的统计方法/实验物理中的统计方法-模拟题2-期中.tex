@@ -1,0 +1,325 @@
+﻿\heading{实验物理中的统计方法-模拟题2-期中}
+\noteinfo{题目和答案由AI生成。知识点范围按现有往年题整理，叙述风格尽量向往年题靠拢；本套难度较往年期中略高。}
+
+\begin{question}
+$X\sim N(0,1)$，$Y\sim N(0,1)$，并且
+\[
+\operatorname{Var}(2X-Y)=1.
+\]
+求 $(X,Y)$ 的协方差矩阵。
+\begin{solution}
+由
+\[
+\operatorname{Var}(2X-Y)=4\operatorname{Var}(X)+\operatorname{Var}(Y)-4\operatorname{Cov}(X,Y),
+\]
+代入 $\operatorname{Var}(X)=\operatorname{Var}(Y)=1$ 得
+\[
+1=4+1-4\operatorname{Cov}(X,Y).
+\]
+故
+\[
+\operatorname{Cov}(X,Y)=1.
+\]
+因此
+\ansmath{\Sigma=
+\begin{pmatrix}
+1&1\\
+1&1
+\end{pmatrix}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个显示屏每次等概率显示 $1$ 到 $N$ 中的一个整数。某人连续看了 $n$ 次，记录下看到的最大值 $K$。求 $K$ 的概率分布，并写出 $E[K]$ 的求法。
+\begin{solution}
+先有
+\[
+P(K\le k)=\left(\frac{k}{N}\right)^n,\qquad k=1,2,\cdots,N.
+\]
+因此
+\[
+P(K=k)=P(K\le k)-P(K\le k-1)
+=\frac{k^n-(k-1)^n}{N^n},\qquad k=1,2,\cdots,N.
+\]
+即
+\ansmath{P(K=k)=\frac{k^n-(k-1)^n}{N^n},\qquad k=1,2,\cdots,N}
+期望可由尾和公式写成
+\[
+E[K]=\sum_{k=1}^{N}P(K\ge k)
+=\sum_{k=1}^{N}\left[1-\left(\frac{k-1}{N}\right)^n\right].
+\]
+也可写作
+\ansmath{E[K]=N-\frac{1}{N^n}\sum_{j=0}^{N-1}j^n}
+\end{solution}
+\end{question}
+
+\begin{question}
+一种原子的半衰期为 $8$ 年。现有 $5$ 个原子，经过 $24$ 年后恰好有 $2$ 个尚未衰变的概率是多少？
+\begin{solution}
+单个原子经过 $24$ 年仍未衰变的概率为
+\[
+p=\left(\frac12\right)^3=\frac18.
+\]
+故尚未衰变的原子数服从参数为 $(5,\frac18)$ 的二项分布。于是
+\[
+P=\binom52\left(\frac18\right)^2\left(\frac78\right)^3.
+\]
+即
+\ansmath{P=\binom52\left(\frac18\right)^2\left(\frac78\right)^3=\frac{1715}{16384}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $U\sim U(0,1)$，定义
+\[
+Y=\tan\!\left(\pi\left(U-\frac12\right)\right).
+\]
+求 $Y$ 的概率密度函数，并说明 $E[Y]$ 是否存在。
+\begin{solution}
+令
+\[
+V=\pi\left(U-\frac12\right),
+\]
+则
+\[
+V\sim U\!\left(-\frac{\pi}{2},\frac{\pi}{2}\right),\qquad Y=\tan V.
+\]
+由变量变换，
+\[
+f_Y(y)=\frac{1}{\pi}\cdot \frac{1}{1+y^2},\qquad y\in \mathbb R.
+\]
+故
+\ansmath{f_Y(y)=\frac{1}{\pi(1+y^2)},\qquad y\in \mathbb R}
+这就是标准 Cauchy 分布。由于
+\[
+\int_{-\infty}^{\infty}|y|f_Y(y)\,dy
+\]
+发散，因此
+\anstext{$E[Y]$ 不存在。}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个矩形的边长分别为 $a$ 和 $b$。在矩形边界上独立、均匀地任取两点，求这两点距离平方的期望值。
+\begin{solution}
+设边界上随机点坐标为 $(X,Y)$，则两点距离平方为
+\[
+D^2=(X_1-X_2)^2+(Y_1-Y_2)^2.
+\]
+故
+\[
+E[D^2]=2\operatorname{Var}(X)+2\operatorname{Var}(Y).
+\]
+对边界均匀分布，直接计算可得
+\[
+E[X]=\frac a2,\qquad E[Y]=\frac b2,
+\]
+\[
+E[X^2]=\frac{a(2a+b)}{6(a+b)},\qquad
+E[Y^2]=\frac{b(a+2b)}{6(a+b)}.
+\]
+代回化简得
+\[
+E[D^2]=\frac{(a+b)^2}{6}.
+\]
+因此
+\ansmath{E[D^2]=\frac{(a+b)^2}{6}}
+\end{solution}
+\end{question}
+
+\begin{question}
+某仪器在时间窗口 $[0,T]$ 内会随机出现噪声。已知在该时间窗口内恰好出现两个噪声；若这两个噪声的时间间隔小于 $t$（其中 $0<t<T$），就会被误判成一个信号。求误判概率。
+\begin{solution}
+条件于“恰好两个噪声”后，两个到达时刻可视为两个独立均匀点
+\[
+U,V\sim U(0,T).
+\]
+所求即
+\[
+P(|U-V|<t).
+\]
+在边长为 $T$ 的正方形区域中，满足 $|u-v|<t$ 的面积占比为
+\[
+1-\frac{(T-t)^2}{T^2}.
+\]
+所以
+\[
+P(|U-V|<t)=1-\frac{(T-t)^2}{T^2}
+=\frac{2t}{T}-\left(\frac{t}{T}\right)^2.
+\]
+故
+\ansmath{P=\frac{2t}{T}-\left(\frac{t}{T}\right)^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+随机变量 $(X,Y)$ 的联合密度为
+\[
+f(x,y)=\begin{cases}
+cx,&0<y<x<1,\\
+0,&\text{其他}.
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求常数 $c$；
+\item 求 $P\!\left(Y<\dfrac{X}{2}\right)$。
+\end{enumerate}
+\begin{solution}
+由归一化条件，
+\[
+1=c\int_0^1\int_0^x x\,dy\,dx
+=c\int_0^1 x^2\,dx
+=\frac{c}{3}.
+\]
+故
+\ansmath{c=3}
+再算
+\[
+P\!\left(Y<\frac X2\right)=\int_0^1\int_0^{x/2}3x\,dy\,dx
+=\int_0^1 \frac{3x^2}{2}\,dx
+=\frac12.
+\]
+因此
+\ansmath{P\!\left(Y<\frac X2\right)=\frac12}
+\end{solution}
+\end{question}
+
+\begin{question}
+某粒子束中电子所占比例为 $10^{-5}$，其余全为光子。粒子通过一个双层探测器时，给出 0、1、2 个信号的条件概率如下：
+\[
+P(0\mid e)=0.005,\qquad P(1\mid e)=0.015,\qquad P(2\mid e)=0.98,
+\]
+\[
+P(0\mid \gamma)=0.99898,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=2\times10^{-5}.
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 若只看到 1 个信号，该粒子为电子的概率是多少？
+\item 若看到 2 个信号，该粒子为电子的概率是多少？
+\end{enumerate}
+\begin{solution}
+记先验
+\[
+P(e)=10^{-5},\qquad P(\gamma)=1-10^{-5}.
+\]
+由 Bayes 公式，
+\[
+P(e\mid 1)=\frac{P(1\mid e)P(e)}{P(1\mid e)P(e)+P(1\mid \gamma)P(\gamma)},
+\]
+\[
+P(e\mid 2)=\frac{P(2\mid e)P(e)}{P(2\mid e)P(e)+P(2\mid \gamma)P(\gamma)}.
+\]
+代入数据得
+\ansmath{P(e\mid 1)\approx 1.50\times 10^{-4},\qquad P(e\mid 2)\approx 0.3289}
+\end{solution}
+\end{question}
+
+\begin{question}
+蒲丰投针实验中，若针长为 $l$，平行线间距为 $a$（且 $l<a$），则
+\[
+\hat\pi=\frac{2lN}{an},
+\]
+其中 $N$ 为总投掷次数，$n$ 为针与线相交次数。某次实验中
+\[
+l=2.5\text{ cm},\qquad a=3\text{ cm},\qquad N=4000,\qquad n=2122.
+\]
+忽略 $l,a$ 的误差，求 $\pi$ 的估计值及其不确定度。
+\begin{solution}
+先有
+\[
+\hat\pi=\frac{2lN}{an}
+=\frac{2\times 2.5\times 4000}{3\times 2122}
+\approx 3.14169.
+\]
+把 $n$ 视为二项分布，取
+\[
+p\approx \frac{n}{N},
+\qquad
+\sigma_n\approx \sqrt{Np(1-p)}
+=\sqrt{n\left(1-\frac{n}{N}\right)}.
+\]
+由误差传播，
+\[
+\sigma_{\pi}\approx \left|\frac{\partial \hat\pi}{\partial n}\right|\sigma_n
+=\hat\pi\frac{\sigma_n}{n}.
+\]
+代入可得
+\[
+\sigma_\pi\approx 0.0467.
+\]
+故
+\ansmath{\hat\pi\approx 3.1417,\qquad \sigma_\pi\approx 0.0467}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X\sim \mathrm{Poisson}(\nu_1)$，$Y\sim \mathrm{Poisson}(\nu_2)$，且 $X,Y$ 相互独立。求条件分布
+\[
+X\mid (X+Y=n).
+\]
+\begin{solution}
+对 $k=0,1,\cdots,n$，
+\[
+P(X=k\mid X+Y=n)
+=\frac{P(X=k,Y=n-k)}{P(X+Y=n)}.
+\]
+代入泊松分布并化简：
+\[
+P(X=k\mid X+Y=n)
+=\frac{\binom{n}{k}\nu_1^k\nu_2^{\,n-k}}{(\nu_1+\nu_2)^n}
+=\binom{n}{k}\left(\frac{\nu_1}{\nu_1+\nu_2}\right)^k
+\left(\frac{\nu_2}{\nu_1+\nu_2}\right)^{n-k}.
+\]
+因此
+\ansmath{X\mid (X+Y=n)\sim \mathrm{Bin}\!\left(n,\frac{\nu_1}{\nu_1+\nu_2}\right)}
+\end{solution}
+\end{question}
+
+\begin{question}
+设单个元件的寿命分布函数为 $F(t)$。现有两个相互独立的元件并联，只要有一个元件仍正常，系统就正常工作。求系统寿命 $T$ 的分布函数。
+\begin{solution}
+并联系统失效，等价于两个元件都已失效，因此
+\[
+P(T\le t)=P(T_1\le t,T_2\le t)=F(t)^2.
+\]
+故
+\ansmath{F_T(t)=F(t)^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\cdots,X_n$ 独立同分布于 $U(0,\theta)$，记
+\[
+Y=\max(X_1,\cdots,X_n).
+\]
+求 $Y$ 的概率密度函数、期望和方差。
+\begin{solution}
+对 $0<y<\theta$，
+\[
+P(Y\le y)=\prod_{i=1}^n P(X_i\le y)=\left(\frac{y}{\theta}\right)^n.
+\]
+故
+\[
+f_Y(y)=\frac{d}{dy}\left(\frac{y}{\theta}\right)^n
+=\frac{n y^{n-1}}{\theta^n},\qquad 0<y<\theta.
+\]
+因此
+\ansmath{f_Y(y)=\frac{n y^{n-1}}{\theta^n},\qquad 0<y<\theta}
+进一步有
+\[
+E[Y]=\int_0^\theta y\frac{n y^{n-1}}{\theta^n}\,dy
+=\frac{n}{n+1}\theta,
+\]
+\[
+E[Y^2]=\int_0^\theta y^2\frac{n y^{n-1}}{\theta^n}\,dy
+=\frac{n}{n+2}\theta^2.
+\]
+所以
+\[
+\operatorname{Var}(Y)=E[Y^2]-E[Y]^2
+=\frac{n\theta^2}{(n+1)^2(n+2)}.
+\]
+即
+\ansmath{E[Y]=\frac{n}{n+1}\theta,\qquad \operatorname{Var}(Y)=\frac{n\theta^2}{(n+1)^2(n+2)}}
+\end{solution}
+\end{question}
+

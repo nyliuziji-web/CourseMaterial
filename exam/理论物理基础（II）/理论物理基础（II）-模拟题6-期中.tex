@@ -1,0 +1,197 @@
+﻿\heading{理论物理基础（II）-模拟题6-期中}
+\noteinfo{题目和答案由AI生成。}
+
+\begin{question}
+考虑一个非理想单元气体，满足状态方程
+\[
+p=\frac{Nk_B T}{V}-\frac{aN^2}{V^2},
+\]
+其中 $a>0$ 为常数。设定容比热 $c_V\equiv C_V/N$ 为常数。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求内能 $U(T,V,N)$；
+  \item 若体系在绝热、刚性容器中发生自由膨胀，从初态 $(T_i,V_i)$ 变到末态 $(T_f,V_f)$，求 $T_f$；
+  \item 求 Joule 系数
+  \[
+  \left(\frac{\partial T}{\partial V}\right)_{U,N}.
+  \]
+\end{enumerate}
+
+\begin{solution}
+由热力学恒等式
+\[
+\left(\frac{\partial U}{\partial V}\right)_{T,N}=T\left(\frac{\partial p}{\partial T}\right)_{V,N}-p
+\]
+可得
+\[
+\left(\frac{\partial U}{\partial V}\right)_{T,N}=T\cdot \frac{Nk_B}{V}-\left(\frac{Nk_B T}{V}-\frac{aN^2}{V^2}\right)=\frac{aN^2}{V^2}.
+\]
+又因为
+\[
+\left(\frac{\partial U}{\partial T}\right)_{V,N}=Nc_V,
+\]
+故积分后得到
+\ansmath{U(T,V,N)=Nc_V T-\frac{aN^2}{V}+U_0,}
+其中 $U_0$ 为与 $T,V$ 无关的常数。
+
+自由膨胀过程中体系绝热且对外不做功，因此总内能守恒：
+\[
+Nc_V T_i-\frac{aN^2}{V_i}=Nc_V T_f-\frac{aN^2}{V_f}.
+\]
+故
+\ansmath{T_f=T_i+\frac{aN}{c_V}\left(\frac{1}{V_f}-\frac{1}{V_i}\right).}
+由于 $V_f>V_i$，所以 $T_f<T_i$，体系在自由膨胀中降温。
+
+在 $U$ 固定时对上式微分，得
+\[
+0=Nc_V\,dT+\frac{aN^2}{V^2}dV.
+\]
+因此
+\ansmath{\left(\frac{\partial T}{\partial V}\right)_{U,N}=-\frac{aN}{c_V V^2}.}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一个高度为 $h$、半径为 $R$ 的圆柱容器，内含 $N$ 个质量为 $m$ 的经典理想气体分子。容器绕其对称轴以角速度 $\Omega$ 匀速转动，系统与温度为 $T$ 的热库接触。于共转参考系中，单粒子的有效势能为
+\[
+U(r)=-\frac12 m\Omega^2 r^2,
+\qquad 0\le r\le R.
+\]
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求单粒子配分函数 $Z_1$；
+  \item 求平衡时的数密度分布 $n(r)$；
+  \item 求边缘与中心处压强之比 $p(R)/p(0)$。
+\end{enumerate}
+
+\begin{solution}
+单粒子配分函数为
+\[
+Z_1=\frac{1}{h^3}\int d^3p\,e^{-\beta p^2/(2m)}\int_0^h dz\int_0^{2\pi}d\phi\int_0^R r\,dr\,e^{\beta m\Omega^2 r^2/2}.
+\]
+动量积分给出 $(2\pi m k_B T)^{3/2}$，再做空间积分得
+\[
+\int_0^R r e^{\beta m\Omega^2 r^2/2}dr
+=\frac{1}{\beta m\Omega^2}\left(e^{\beta m\Omega^2 R^2/2}-1\right).
+\]
+故
+\ansmath{Z_1=\frac{h\,2\pi}{\lambda^3}\cdot \frac{1}{\beta m\Omega^2}\left(e^{\beta m\Omega^2 R^2/2}-1\right).}
+
+平衡数密度满足玻尔兹曼分布
+\[
+n(r)=C\exp\left(\frac{m\Omega^2 r^2}{2k_B T}\right).
+\]
+由归一化条件
+\[
+\int_0^h dz\int_0^{2\pi}d\phi\int_0^R r\,dr\,n(r)=N
+\]
+可得
+\ansmath{n(r)=\frac{N\alpha}{\pi h\left(e^{\alpha R^2}-1\right)}e^{\alpha r^2},
+\qquad
+\alpha\equiv \frac{m\Omega^2}{2k_B T}.}
+
+局域上仍满足理想气体状态方程 $p(r)=n(r)k_B T$，因此
+\[
+\frac{p(R)}{p(0)}=\frac{n(R)}{n(0)}=e^{\alpha R^2}.
+\]
+即
+\ansmath{\frac{p(R)}{p(0)}=\exp\left(\frac{m\Omega^2 R^2}{2k_B T}\right).}
+这表明离转轴越远，气体越容易聚集，压强也越大。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑体积为 $V$ 的三维自由电子气。电子视为自旋为 $1/2$ 的非相对论性费米子，在外磁场 $B$ 下的单粒子能量为
+\[
+\varepsilon_{\uparrow,\mathbf p}=\frac{p^2}{2m}-\gamma B,
+\qquad
+\varepsilon_{\downarrow,\mathbf p}=\frac{p^2}{2m}+\gamma B,
+\]
+其中 $\gamma>0$。设系统处于零温，且自旋翻转过程足够快，从而总粒子数 $N$ 固定但 $N_\uparrow,N_\downarrow$ 可自动调节。假设弱场条件 $\gamma B\ll \varepsilon_F$ 成立，其中 $\varepsilon_F$ 为 $B=0$ 时的费米能。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求到 $B$ 的一阶为止的 $N_\uparrow-N_\downarrow$；
+  \item 求磁矩
+  \[
+  M=\gamma(N_\uparrow-N_\downarrow)
+  \]
+  与磁化率
+  \[
+  \chi=\left(\frac{\partial M}{\partial B}\right)_{T=0,V,N}.
+  \]
+\end{enumerate}
+
+\begin{solution}
+零温下两种自旋分别填满各自的费米球。设单自旋的态密度为 $g_1(\varepsilon)$，则在弱场下
+\[
+N_\uparrow=\int_0^{\mu+\gamma B} g_1(\varepsilon)\,d\varepsilon,
+\qquad
+N_\downarrow=\int_0^{\mu-\gamma B} g_1(\varepsilon)\,d\varepsilon.
+\]
+在一阶近似中，可取 $\mu=\varepsilon_F$，于是
+\[
+N_\uparrow-N_\downarrow=2g_1(\varepsilon_F)\gamma B.
+\]
+若记总态密度为 $g(\varepsilon)=2g_1(\varepsilon)$，则
+\[
+N_\uparrow-N_\downarrow=g(\varepsilon_F)\gamma B.
+\]
+三维自由电子气在费米面处的总态密度满足
+\[
+g(\varepsilon_F)=\frac{3N}{2\varepsilon_F}.
+\]
+因此
+\ansmath{N_\uparrow-N_\downarrow=\frac{3N}{2\varepsilon_F}\gamma B.}
+
+于是磁矩为
+\ansmath{M=\gamma(N_\uparrow-N_\downarrow)=\frac{3N\gamma^2}{2\varepsilon_F}B.}
+故 Pauli 顺磁磁化率为
+\ansmath{\chi=\frac{3N\gamma^2}{2\varepsilon_F}.}
+这说明三维简并自由电子气在零温下表现出与磁场成正比的弱顺磁响应。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一个由 $N$ 个彼此独立的量子简谐振子组成的固体，其中一半振子的频率为 $\omega$，另一半振子的频率为 $2\omega$。每个振子的能级都取为
+\[
+\varepsilon_n^{(\nu)}=\left(n+\frac12\right)\hbar\nu,
+\qquad n=0,1,2,\dots.
+\]
+系统与温度为 $T$ 的热库接触。
+
+\begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
+  \item 求系统总配分函数 $Z$；
+  \item 求内能 $U$；
+  \item 求定容热容 $C_V$，并讨论高温极限。
+\end{enumerate}
+
+\begin{solution}
+频率为 $\nu$ 的单振子配分函数为
+\[
+z(\nu)=\sum_{n=0}^{\infty}e^{-\beta(n+1/2)\hbar\nu}
+=\frac{e^{-\beta\hbar\nu/2}}{1-e^{-\beta\hbar\nu}}.
+\]
+因此整个系统的配分函数为
+\ansmath{Z=[z(\omega)]^{N/2}[z(2\omega)]^{N/2}.}
+
+内能为
+\[
+U=-\frac{\partial}{\partial\beta}\ln Z
+=\frac{N}{2}\left[\hbar\omega\left(\frac12+\frac{1}{e^{\beta\hbar\omega}-1}\right)+2\hbar\omega\left(\frac12+\frac{1}{e^{2\beta\hbar\omega}-1}\right)\right].
+\]
+即
+\ansmath{U=\frac{N\hbar\omega}{2}\left[\frac12+\frac{1}{e^{\beta\hbar\omega}-1}+1+\frac{2}{e^{2\beta\hbar\omega}-1}\right].}
+写得更紧凑一些就是
+\ansmath{U=\frac{N}{2}\hbar\omega\left(\frac32+\frac{1}{e^{\beta\hbar\omega}-1}+\frac{2}{e^{2\beta\hbar\omega}-1}\right).}
+
+令 $x=\beta\hbar\omega=\hbar\omega/(k_B T)$，则热容为
+\ansmath{C_V=\frac{N}{2}k_B\left[\frac{x^2e^x}{(e^x-1)^2}+\frac{(2x)^2e^{2x}}{(e^{2x}-1)^2}\right].}
+
+当 $T\to\infty$ 时，两个种类的振子都进入经典极限，每个振子贡献 $k_B$，故
+\[
+C_V\to Nk_B.
+\]
+这与广义 Dulong--Petit 定律一致。
+\end{solution}
+\end{question}
+

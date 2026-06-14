@@ -1,0 +1,144 @@
+\usepackage[a4paper,top=1.7cm,bottom=1.65cm,left=1.55cm,right=1.55cm,headsep=0.4cm,footskip=0.65cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,esint}
+\usepackage{enumitem}
+\usepackage{xparse}
+\usepackage{etoolbox}
+\usepackage{xstring}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array}
+\usepackage{caption}
+\newcommand{\pandocbounded}[1]{#1}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\usepackage{import}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{totcount}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+% 用 \pyfig 插入 Python 生成的图片：\pyfig[width]{filename}{caption}
+\NewDocumentCommand{\pyfig}{O{0.72\linewidth} m m}{%
+  \par\smallskip
+  \begin{center}
+    \includegraphics[width=#1]{#2}%
+    \par\vspace{0.25em}{\small #3\par}%
+  \end{center}
+  \smallskip
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.22em}
+\linespread{1.08}
+\setlength{\headheight}{14pt}
+\setlength{\abovedisplayskip}{5pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{5pt plus 2pt minus 2pt}
+\setlength{\abovedisplayshortskip}{3pt plus 1pt minus 1pt}
+\setlength{\belowdisplayshortskip}{3pt plus 1pt minus 1pt}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\bfseries\nouppercase{\leftmark}}
+\fancyhead[R]{\small\nouppercase{\rightmark}}
+\fancyfoot[C]{\small\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyhead[L]{\small\bfseries\nouppercase{\leftmark}}
+  \fancyhead[R]{\small\nouppercase{\rightmark}}
+  \fancyfoot[C]{\small\thepage/\pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newif\ifShowSolutions
+\ShowSolutionsfalse
+
+\titleformat{\section}[block]{\centering\Large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{0.35em}{0.2em}
+
+\newcommand{\coursesection}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}%
+  \markboth{#1}{}
+}
+
+\newcommand{\examtitle}[3][]{%
+  \begin{center}
+    {\LARGE\bfseries #2\par}
+    \vspace{0.4em}  
+    {\Large\bfseries #3\par}
+    \if\relax\detokenize{#1}\relax\else\vspace{0.3em}{\small #1\par}\fi
+  \end{center}
+  \vspace{0.4em}
+}
+\newcommand{\noteinfo}[1]{{\small\kaishu #1\par}}
+\newcommand{\instructions}[1]{\noteinfo{#1}}
+
+\newcounter{question}
+\regtotcounter{question}
+\renewcommand{\theHquestion}{\arabic{subsection}.\arabic{question}}
+
+\newcommand{\heading}[1]{%
+  \setcounter{question}{0}%
+  \def\HeadingCourse{#1}%
+  \def\HeadingName{#1}%
+  \IfSubStr{#1}{-}{%
+    \StrBefore{#1}{-}[\HeadingCourse]%
+    \StrBehind{#1}{-}[\HeadingName]%
+  }{}%
+  \refstepcounter{subsection}%
+  \phantomsection
+  \addcontentsline{toc}{subsection}{#1}%
+  \markboth{\HeadingCourse}{\HeadingName}%
+  \examtitle{\HeadingCourse}{\HeadingName}%
+}
+
+\NewDocumentEnvironment{question}{ O{} +b }{%
+  \refstepcounter{question}%
+  \par\smallskip
+  \noindent\hangindent=2.2em\hangafter=1\textbf{\arabic{question}. }\ignorespaces
+  \ifstrempty{#1}{}{\textbf{(#1)}\ }%
+  #2\par\smallskip
+}{}
+
+\NewDocumentEnvironment{choiceoptions}{ O{2} }{%
+  \par\smallskip
+  \ifnum#1>1\relax\begin{multicols}{#1}\fi
+  \begin{enumerate}[label=(\Alph*),leftmargin=2.5em,itemsep=0.15em,topsep=0.15em,parsep=0pt]
+}{%
+  \end{enumerate}
+  \ifnum#1>1\relax\end{multicols}\fi
+  \par\smallskip
+}
+\newcommand{\optionitem}[1]{\item #1}
+\NewDocumentCommand{\blank}{O{4cm}}{\underline{\makebox[#1][c]{\strut}}}
+
+
+\NewDocumentEnvironment{solution}{ +b }{%
+  \ifShowSolutions
+          \begin{tcolorbox}[colback=black!3,colframe=black!8,sharp corners,boxrule=0.4pt,breakable,left=1.2em,right=1.2em,top=0.5em,bottom=0.5em,before skip=10pt,after skip=6pt]
+      \noindent{\heiti 解答：}\par
+      #1
+    \end{tcolorbox}%
+  \fi
+}{}
+
+\NewDocumentCommand{\ansmath}{m}{%
+  \[
+  \boxed{\displaystyle #1}
+  \]
+}
+
+\NewDocumentCommand{\anstext}{m}{%
+  \par\smallskip
+  \noindent\fbox{\strut\,#1\,}%
+  \par\smallskip
+}

@@ -1,0 +1,300 @@
+﻿\heading{实验物理中的统计方法-24春-期中}
+\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对。}
+
+\begin{question}
+$X\sim N(0,2^2)$，$Y\sim N(0,2^2)$，且 $V[X-Y]=0$，求 $X$ 和 $Y$ 的协方差矩阵。
+\begin{solution}
+由
+\[
+0=\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)-2\operatorname{Cov}(X,Y)
+=4+4-2\operatorname{Cov}(X,Y),
+\]
+得 $\operatorname{Cov}(X,Y)=4$。因此
+\ansmath{\Sigma=
+\begin{pmatrix}
+4&4\\ 4&4
+\end{pmatrix}}
+\end{solution}
+\end{question}
+
+\begin{question}
+有 $n$ 个编号为 1 到 $n$ 的小球，$n$ 个编号为 1 到 $n$ 的盒子，将小球放入盒子之中，每个盒子放且仅放一个小球。小球编号与盒子编号相等称之为配对。求配对数 $X$ 的方差。
+\begin{solution}
+记 $I_i=\mathbf 1\{\pi(i)=i\}$，则 $X=\sum_{i=1}^n I_i$。有
+\[
+E[I_i]=\frac1n,
+\qquad E[I_iI_j]=\frac{(n-2)!}{n!}=\frac{1}{n(n-1)}\ (i\ne j).
+\]
+故
+\[
+E[X]=n\cdot\frac1n=1,
+\]
+\[
+E[X^2]=\sum_iE[I_i]+2\sum_{i<j}E[I_iI_j]
+=1+2\binom n2\frac{1}{n(n-1)}=2.
+\]
+于是
+\[
+\operatorname{Var}(X)=E[X^2]-E[X]^2=2-1=1.
+\]
+\ansmath{\operatorname{Var}(X)=E[X^2]-E[X]^2=2-1=1}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个仪器在任意 $t$ 时间内发生故障的次数 $N_t$ 服从参数为 $\lambda t$ 的泊松分布，求第一次发生故障的时间 $T$ 的概率密度函数。
+\begin{solution}
+\[
+P(T>t)=P(N_t=0)=e^{-\lambda t},\qquad t\ge 0.
+\]
+故
+\[
+F_T(t)=1-e^{-\lambda t},\qquad
+f_T(t)=\lambda e^{-\lambda t}\ (t\ge 0).
+\]
+\ansmath{F_T(t)=1-e^{-\lambda t},\qquad
+f_T(t)=\lambda e^{-\lambda t}\ (t\ge 0)}
+\end{solution}
+\end{question}
+
+\begin{question}
+平面上有方格子，边长为 $a>1$。将直径为 1 的圆形硬币扔在平面上，求硬币不与方格线相交的概率。
+\begin{solution}
+硬币半径为 $1/2$。在每个边长为 $a$ 的小方格中，圆心必须离四条边都至少 $1/2$，可落区域面积为 $(a-1)^2$。故概率
+\ansmath{P=\frac{(a-1)^2}{a^2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一种原子的半衰期为 10 年。现有 5 个原子，经过了 20 年，恰好衰变 2 个的概率是多少？
+\begin{solution}
+单个原子在 $20$ 年内衰变概率
+\[
+p=1-\left(\frac12\right)^2=\frac34.
+\]
+故所求为二项分布概率
+\ansmath{P=\binom52\left(\frac34\right)^2\left(\frac14\right)^3=\frac{45}
+{512}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个显示屏随机显示从 1 到 $N$ 的数字，显示每个数字的概率相等。一个人观测此显示屏，看到显示屏前后共显示了 $n$ 个，此人记录下观测到的最大数字 $k$。求 $k$ 的概率分布。
+\begin{solution}
+\[
+P(K\le k)=\left(\frac{k}{N}\right)^n,\qquad k=1,2,\dots,N.
+\]
+故
+\ansmath{P(K=k)=P(K\le k)-P(K\le k-1)=\frac{k^n-(k-1)^n}
+{N^n}}
+\end{solution}
+\end{question}
+
+\begin{question}
+元件发生故障的时刻 $\tau$ 的累积分布函数为 $F(\tau)$。现有两个相互独立的元件，只有它们都正常工作时仪器才能正常工作，求仪器正常工作的时间 $T$ 的累积分布函数。
+\begin{solution}
+\[
+T=\min(T_1,T_2),\qquad
+P(T>t)=[1-F(t)]^2,
+\]
+故
+\ansmath{F_T(t)=1-[1-F(t)]^2}
+
+\end{solution}
+\end{question}
+
+\begin{question}
+$X$ 和 $Y$ 都服从标准正态分布，$Z=X-Y$，求 $E[Z]$，$E[|Z|]$，$V[|Z|]$。
+\begin{solution}
+有 $Z\sim N(0,2)$，所以
+\[
+E[Z]=0,
+\qquad E[|Z|]=\sqrt2\sqrt{\frac{2}{\pi}}=\frac{2}{\sqrt\pi}.
+\]
+又
+\[
+E[|Z|^2]=E[Z^2]=2,
+\]
+故
+\[
+\operatorname{Var}(|Z|)=2-\left(\frac{2}{\sqrt\pi}\right)^2=2-\frac{4}{\pi}.
+\]
+\ansmath{\operatorname{Var}(|Z|)=2-\left(\frac{2}{\sqrt\pi}\right)^2=2-\frac{4}{\pi}}
+\end{solution}
+\end{question}
+
+\begin{question}
+雷达显示屏是一个半径为 $R$ 的圆形区域，圆内随机出现一个光点且其位置服从均匀分布。求光点与圆心距离的期望和方差。（10 分）
+\begin{solution}
+距离 $r$ 的密度为
+\[
+f(r)=\frac{2r}{R^2},\qquad 0<r<R.
+\]
+因此
+\[
+E[r]=\int_0^R r\frac{2r}{R^2}dr=\frac{2R}{3},
+\qquad
+E[r^2]=\int_0^R r^2\frac{2r}{R^2}dr=\frac{R^2}{2}.
+\]
+故
+\[
+\operatorname{Var}(r)=\frac{R^2}{2}-\left(\frac{2R}{3}\right)^2=\frac{R^2}{18}.
+\]
+\ansmath{\operatorname{Var}(r)=\frac{R^2}{2}-\left(\frac{2R}{3}\right)^2=\frac{R^2}{18}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个矩形，边长分别为 $a$ 和 $b$，且 $a>b$。在矩形的任意边上任取两个点，求这两个点的距离的平方的期望值。（10 分）
+\begin{solution}
+设边界上一点坐标为 $(X,Y)$，则两点距离平方
+\[
+D^2=(X_1-X_2)^2+(Y_1-Y_2)^2,
+\]
+故
+\[
+E[D^2]=2\operatorname{Var}(X)+2\operatorname{Var}(Y).
+\]
+对边界均匀分布，可算得
+\[
+E[X]=\frac a2,
+\qquad
+E[X^2]=\frac{2\int_0^a x^2dx+ba^2}{2(a+b)},
+\]
+\[
+E[Y]=\frac b2,
+\qquad
+E[Y^2]=\frac{2\int_0^b y^2dy+ab^2}{2(a+b)}.
+\]
+化简后
+\ansmath{E[D^2]=\frac{a^2+2ab+b^2}{6}=\frac{(a+b)^2}{6}}
+\end{solution}
+\end{question}
+
+\begin{question}
+作业原题，见图 1。其题面如下：（10 分）
+
+习题 1.3.
+粒子束流包含 $10^{-4}$ 的电子，其余为光子。粒子通过某双层探测器，可能在 2 层都给出信号，也可能只有一层给出信号或者没有任何信号。电子 $(e)$ 和光子 $(\gamma)$ 在穿过该双层探测器给出 0、1 或 2 个信号的概率如下
+\[
+P(0\mid e)=0.001,\qquad P(1\mid e)=0.01,\qquad P(2\mid e)=0.989,
+\]
+\[
+P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{-5}.
+\]
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 如果只有一层给出了信号，该粒子为光子的概率是多少？
+\item 如果两层都给出了信号，该粒子为电子的概率是多少？
+\end{enumerate}
+\begin{solution}
+由 Bayes 公式：
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item
+\ansmath{P(\gamma|1)=\frac{P(1|\gamma)P(\gamma)}{P(1|\gamma)P(\gamma)+P(1|e)P(e)}
+\approx 0.9990009}
+\item
+\ansmath{P(e|2)=\frac{P(2|e)P(e)}{P(2|e)P(e)+P(2|\gamma)P(\gamma)}
+\approx 0.908181}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+某一个衰变事件（具体是什么我不记得了）的发生是极为稀有的事情。本底数为 3，现在观察到 6 个疑似信号，求显著性水平。（10 分）
+\begin{solution}
+\ansmath{p=P(N\ge 6\mid \lambda=3)
+=1-\sum_{k=0}^{5}e^{-3}\frac{3^k}{k!}
+\approx 0.08392}
+\end{solution}
+\end{question}
+
+\begin{question}
+制造了一批工件，每个工件的横截面积（单位为平方毫米）服从 $N(\mu,0.02^2)$。现在抽取 15 个样本，测得样本方差为 $S^2=0.025^2$。已知
+\[
+\frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1),
+\]
+问方差有没有明显差异？参考数据：卡方分布的两个上 $\alpha$ 分位数为 $\chi^2_{0.025}(14)=26.119$，$\chi^2_{0.975}(14)=5.629$。（10 分）
+\begin{solution}
+设原假设 $H_0:\sigma^2=0.02^2$。统计量
+\[
+\chi^2=\frac{(n-1)S^2}{\sigma_0^2}=14\times\frac{0.025^2}{0.02^2}=21.875.
+\]
+给定双侧临界区间
+\[
+\chi^2_{0.975}(14)=5.629,\qquad \chi^2_{0.025}(14)=26.119.
+\]
+由于
+\ansmath{5.629<21.875<26.119,}
+故不拒绝 $H_0$，即方差与 $0.02^2$ \textbf{无显著差异}。
+
+\end{solution}
+\end{question}
+
+\begin{question}
+蒲丰投针实验计算 $\pi$ 的公式为 $\pi\approx\dfrac{2lN}{an}$，其中 $N$ 为总投掷次数，$n$ 为针与线相交次数。某次实验中，$l=2.5\mathrm{cm}$，$a=3\mathrm{cm}$，$N=3408$，$n=1808$，于是算出 $\pi=3.1415929$。忽略 $l$ 和 $a$ 的误差，计算 $\pi$ 的不确定度。（7 分）
+\begin{solution}
+把 $n$ 视为二项分布 $\mathrm{Bin}(N,p)$，其中 $p\approx n/N$。于是
+\[
+\sigma_n\approx \sqrt{Np(1-p)}=\sqrt{n\left(1-\frac{n}{N}\right)}\approx 29.13.
+\]
+由误差传播
+\[
+\sigma_{\pi}\approx \left|\frac{\partial \hat\pi}{\partial n}\right|\sigma_n
+=\frac{2lN}{a n^2}\sigma_n=\hat\pi\frac{\sigma_n}{n}.
+\]
+代入
+\ansmath{\hat\pi\approx 3.1415929,
+\qquad \sigma_{\pi}\approx 0.0506}
+故可写为 $\pi\approx 3.14\pm 0.05$。
+\end{solution}
+\end{question}
+
+\begin{question}
+仪器在任意时间内观察到噪声的概率相等。在 $[0,T]$ 的时间窗口内观察到两个噪声，如果两个噪声间距小于 $t$，就被误鉴别为信号。在时间窗口内已经观察到两个噪声的前提下，求误鉴别为信号的概率。（6 分）
+\begin{solution}
+条件于“恰有两个噪声”后，两到达时刻等价于两个独立均匀点 $U,V\sim U(0,T)$。所求为
+\[
+P(|U-V|<t)=1-\frac{2\cdot \frac12(T-t)^2}{T^2}
+=1-\frac{(T-t)^2}{T^2}
+=\frac{2t}{T}-\left(\frac{t}{T}\right)^2,
+\]
+其中 $0\le t\le T$。
+\ansmath{P(|U-V|<t)=1-\frac{2\cdot \frac12(T-t)^2}{T^2}
+=1-\frac{(T-t)^2}{T^2}
+=\frac{2t}{T}-\left(\frac{t}{T}\right)^2,}
+\end{solution}
+\end{question}
+
+\begin{question}
+已知 $X_i\sim U(0,1)$。定义随机变量
+\[
+N_a=\min\left\{k:\prod_{i=1}^{k}X_i<a\right\},\qquad 0<a<1.
+\]
+求此随机变量的概率分布。
+\begin{solution}
+令 $Y_i=-\ln X_i$，则 $Y_i\sim \mathrm{Exp}(1)$，且
+\[
+\prod_{i=1}^k X_i<a
+\iff \sum_{i=1}^k Y_i>-\ln a.
+\]
+记 $\lambda=-\ln a$。则 $N_a=k$ 当且仅当
+\[
+S_{k-1}\le \lambda<S_k,
+\]
+其中 $S_k=\sum_{i=1}^k Y_i$ 是单位速率 Poisson 过程的到达时刻。故
+\[
+N_a-1\sim \mathrm{Poisson}(\lambda),
+\]
+即
+\[
+P(N_a=k)=e^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}
+=a\frac{(-\ln a)^{k-1}}{(k-1)!},
+\qquad k=1,2,\dots.
+\]
+\ansmath{P(N_a=k)=e^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}
+=a\frac{(-\ln a)^{k-1}}{(k-1)!},
+\qquad k=1,2,\dots}
+\end{solution}
+\end{question}
+
+

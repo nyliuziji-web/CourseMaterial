@@ -1,0 +1,257 @@
+﻿\heading{实验物理中的统计方法-23春-期末}
+\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对；其中第 3 题在 PDF 中仅记为“忘了，但是既然忘了那应该是水题”。}
+
+\begin{question}
+两个物理量 $X$ 和 $Y$，不确定度分别为 $\sigma_X,\sigma_Y$，给出 $X-Y$ 的不确定度。
+\begin{solution}
+若 $X,Y$ 独立，则
+\[
+\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2}.
+\]
+更一般地，
+\[
+\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2-2\operatorname{Cov}(X,Y)}.
+\]
+\ansmath{\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2-2\operatorname{Cov}(X,Y)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X$ 满足自由度为 $2n$ 的卡方分布，则 $n$ 很大时，$\dfrac{X-2n}{2\sqrt n}$ 满足什么分布？
+\begin{solution}
+因为 $E[X]=2n,\ \operatorname{Var}(X)=4n$，标准化后按中心极限定理（或卡方分布渐近正态）有
+\[
+\frac{X-2n}{2\sqrt n}\xrightarrow[]{d}N(0,1).
+\]
+\ansmath{\frac{X-2n}{2\sqrt n}\xrightarrow[]{d}N(0,1)}
+\end{solution}
+\end{question}
+
+\begin{question}
+忘了，但是既然忘了那应该是水题。
+\begin{solution}
+上传稿未保留题面。
+\anstext{上传稿未保留题面。}
+\end{solution}
+\end{question}
+
+\begin{question}
+$X$ 满足概率密度
+\[
+f(x)=\begin{cases}
+(\theta+1)x^{\theta},&0<x<1,\\
+0,&\text{其他},
+\end{cases}
+\qquad (\theta>-1)
+\]
+样本容量 $n$，求矩估计量与极大似然估计量。
+\begin{solution}
+有
+\[
+E[X]=\int_0^1 x(\theta+1)x^{\theta}dx=\frac{\theta+1}{\theta+2}.
+\]
+令 $\bar X=E[X]$，得矩估计
+\[
+\hat\theta_{\mathrm{MOM}}=\frac{2\bar X-1}{1-\bar X}.
+\]
+似然函数
+\[
+L(\theta)=\prod_{i=1}^n (\theta+1)x_i^{\theta},
+\qquad
+\ell(\theta)=n\ln(\theta+1)+\theta\sum_{i=1}^n\ln x_i.
+\]
+求导并令零：
+\[
+\frac{n}{\theta+1}+\sum_{i=1}^n\ln x_i=0,
+\]
+故极大似然估计
+\[
+\hat\theta_{\mathrm{MLE}}=-\frac{n}{\sum_{i=1}^n\ln x_i}-1.
+\]
+\ansmath{\hat\theta_{\mathrm{MLE}}=-\frac{n}{\sum_{i=1}^n\ln x_i}-1}
+\end{solution}
+\end{question}
+
+\begin{question}
+假设检验的时候，若原假设为真又被拒绝了，叫做\underline{\hspace{2em}}。若原假设为假又被接受了叫做\underline{\hspace{2em}}。怎么同时减少犯这两个错误的概率？
+\begin{solution}
+前者为第一类错误（弃真），后者为第二类错误（存伪）。在样本量固定时两者常此消彼长；若希望二者同时减小，通常要增加样本量，或利用更强的先验信息/更优检验。
+\anstext{前者为第一类错误（弃真），后者为第二类错误（存伪）。在样本量固定时两者常此消彼长；若希望二者同时减小，通常要增加样本量，或利用更强的先验信息/更优检验。}
+\end{solution}
+\end{question}
+
+\begin{question}
+泊松分布的随机变量测到了 $n$，求均值的极大似然估计。证明它是有效估计量。（给了 RCF 不等式）
+\begin{solution}
+单次观测 $X=n$，似然为
+\[
+L(\lambda)=e^{-\lambda}\frac{\lambda^n}{n!},
+\qquad
+\ell(\lambda)=-\lambda+n\ln\lambda-\ln n!.
+\]
+令 $\ell'(\lambda)=0$ 得
+\[
+\hat\lambda=n.
+\]
+又因 $E[X]=\lambda,\ \operatorname{Var}(X)=\lambda$，所以 $\hat\lambda=X$ 无偏，且 Fisher 信息
+\[
+I(\lambda)=\frac{1}{\lambda}
+\]
+（单个样本），故 Cram\'er--Rao 下界为
+\[
+\frac{1}{I(\lambda)}=\lambda.
+\]
+而
+\[
+\operatorname{Var}(\hat\lambda)=\operatorname{Var}(X)=\lambda,
+\]
+恰好达到下界，所以是有效估计量。
+\ansmath{\operatorname{Var}(\hat\lambda)=\operatorname{Var}(X)=\lambda,}
+\end{solution}
+\end{question}
+
+\begin{question}
+从一个班抽出 25 名学生的数学成绩，样本均值为 84 分，标准差为 8 分，已知年段的数学成绩满足均值为 87 分的标准正态分布，问能否在以 90\% 的置信水平下确定该班级的数学成绩均值为 87 分？（给了 $t$ 分布的分位数）
+\begin{solution}
+作双侧 $t$ 检验：
+\[
+H_0:\mu=87,\qquad
+T=\frac{\bar X-\mu_0}{S/\sqrt n}
+=\frac{84-87}{8/5}=-1.875.
+\]
+自由度 $24$，双侧显著性水平 $0.1$ 的临界值约为 $t_{0.95}(24)\approx 1.711$。由于
+\ansmath{|T|=1.875>1.711,}
+故拒绝 $H_0$。也即：在 $90\%$ 置信水平下，\textbf{不能}认为该班均值为 $87$。
+
+\end{solution}
+\end{question}
+
+\begin{question}
+（茆诗松概统例题）随机变量 $X$ 满足 $[0,\theta]$ 上的均匀分布。现抽了 $n$ 个样本 $X_1,\cdots,X_n$：
+\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\item 求 $\theta$ 的极大似然估计 $\hat\theta$，求 $Y=\hat\theta/\theta$ 的概率密度函数 $g(y)$。
+\item 考虑 $\hat\theta$ 乘一个常数，构成新的估计量，使得它无偏。应该乘多少？新的估计量和 (a) 中的哪个更有效？
+\item 利用 $Y$ 给出 $\theta$ 的置信水平 $1-\alpha$ 的置信区间。又提供了 10 个测量结果，给出此时的 95\% 置信区间。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\item 似然在 $\theta\ge Y$ 时为 $L(\theta)=\theta^{-n}$，故
+\ansmath{\hat\theta_{\mathrm{MLE}}=Y}
+又
+\[
+P(Y\le y)=\left(\frac{y}{\theta}\right)^n,\qquad 0<y<\theta,
+\]
+故
+\ansmath{g(y)=\frac{n y^{n-1}}{\theta^n},\qquad 0<y<\theta}
+\item
+\[
+E[Y]=\frac{n}{n+1}\theta,
+\qquad c=\frac{n+1}{n}.
+\]
+故无偏估计量为
+\ansmath{\tilde\theta=\frac{n+1}{n}Y}
+且
+\[
+\operatorname{Var}(\tilde\theta)=\frac{\theta^2}{n(n+2)},
+\qquad
+\operatorname{MSE}(Y)=\frac{2\theta^2}{(n+1)(n+2)}.
+\]
+当 $n>1$ 时，
+\[
+\frac{1}{n(n+2)}<\frac{2}{(n+1)(n+2)},
+\]
+故
+\anstext{$\tilde\theta$ 比 $Y$ 更有效（按 MSE 比较）。}
+\item 由 $Y/\theta$ 的分布与 $\theta$ 无关，取等尾区间：
+\[
+P\left((\alpha/2)^{1/n}\le \frac{Y}{\theta}\le (1-\alpha/2)^{1/n}\right)=1-\alpha.
+\]
+故可得
+\ansmath{\theta\in \left[\frac{Y}{(1-\alpha/2)^{1/n}},\ \frac{Y}{(\alpha/2)^{1/n}}\right]}
+上传稿未给出那 10 个样本值，因此无法继续代入得到数值区间。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+做小车匀速直线运动的实验，已知小车在 $t=0$ 时通过 $d=0$（但这不视为实验数据），测了 6 组 $(d,t)$ 值。估计 $t$ 测量的不确定度为 $0.1\,\mathrm s$，用最小二乘法估计小车的速度，并给出 $\chi^2_{\min}$ 值。
+\begin{solution}
+因误差在 $t$ 上，宜写成模型
+\[
+t_i=\frac{d_i}{v}+\varepsilon_i,
+\qquad \varepsilon_i\sim N(0,\sigma_t^2).
+\]
+令 $k=1/v$，则
+\[
+\chi^2(k)=\sum_{i=1}^6\frac{(t_i-kd_i)^2}{\sigma_t^2}.
+\]
+最小二乘解为
+\[
+\hat k=\frac{\sum d_i t_i}{\sum d_i^2},
+\qquad
+\hat v=\frac{\sum d_i^2}{\sum d_i t_i}.
+\]
+代回得
+\ansmath{\chi^2_{\min}=\frac{1}{\sigma_t^2}\left(\sum t_i^2-\frac{(\sum d_i t_i)^2}{\sum d_i^2}\right)}
+上传稿未附 6 组数据，因此不能化为数值。
+\end{solution}
+\end{question}
+
+\begin{question}
+探测器探测质子衰变（极其稀有的事件，可认为事例数满足泊松分布）。探测器探测 1 吨水，其中有大约 $6\times 10^{23}$ 个质子。等了一年观察到 7 个事例。不考虑本底，给出质子寿命的 90\% 置信区间。（给了泊松分布和卡方分布累积分布函数的关系和卡方分布的分位数）
+\begin{solution}
+若衰变事例数 $N\sim \mathrm{Poisson}(\mu)$，则
+\[
+\mu=\frac{N_pT}{\tau}.
+\]
+Poisson 均值的双侧 $90\%$ 区间可写为
+\[
+\mu\in\left[\frac12\chi^2_{2n,\,0.05},\ \frac12\chi^2_{2n+2,\,0.95}\right].
+\]
+取 $n=7$，得
+\[
+\mu\in[3.285,\ 13.148].
+\]
+于是
+\[
+\tau\in\left[\frac{N_pT}{13.148},\ \frac{N_pT}{3.285}\right].
+\]
+若按常见近似 $N_p\approx 6\times 10^{29}$、$T=1\,$年，则
+\ansmath{\tau\in [4.56\times 10^{28},\ 1.83\times 10^{29}]\ \text{年}}
+\end{solution}
+\end{question}
+
+\begin{question}
+（作业题）两个物理量 $X$ 和 $Y$，用同一台仪器测量得到结果
+\[
+x_1\pm\sigma_{s1}\pm\sigma_{c1}
+\]
+\[
+x_2\pm\sigma_{s2}\pm\sigma_{c2}
+\]
+两个不确定度第一个是统计不确定度，第二个是系统不确定度。给出两个量的最佳平均以及其不确定度。
+\begin{solution}
+统计误差独立，系统误差由同一仪器引入，可视作完全相关。令统计权重
+\[
+w_i=\frac{1}{\sigma_{si}^2}.
+\]
+则最佳平均取加权平均
+\[
+\bar x=\frac{w_1x_1+w_2x_2}{w_1+w_2}.
+\]
+统计不确定度为
+\[
+\sigma_s(\bar x)=\frac{1}{\sqrt{w_1+w_2}}.
+\]
+若系统误差完全相关，则平均值的系统不确定度应线性传播：
+\[
+\sigma_c(\bar x)=\frac{w_1\sigma_{c1}+w_2\sigma_{c2}}{w_1+w_2}.
+\]
+故最终结果可写为
+\ansmath{\bar x\pm \sigma_s(\bar x)\pm \sigma_c(\bar x)}
+特别地，若 $\sigma_{c1}=\sigma_{c2}=\sigma_c$，则系统不确定度仍为 $\sigma_c$。
+
+\end{solution}
+\end{question}
+
+
