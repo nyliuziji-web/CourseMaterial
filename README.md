@@ -6,8 +6,9 @@ PKUPHY 往年题、模拟题与作业的 LaTeX 整理。
 
 ```
 CourseMaterial/
-├── compile.ps1          # 编译脚本（PowerShell）
-├── main.tex             # 编译脚本（latex），会被 compile.ps1 更新
+├── compile.ps1          # 编译脚本（Windows PowerShell）
+├── compile.sh           # 编译脚本（macOS / Linux）
+├── main.tex             # 编译入口，会被 compile.ps1 / compile.sh 自动更新
 ├── preamble.tex         # 公共宏包与格式
 ├── exam/                # 试卷（每门课一个子目录）
 ├── homework/            # 作业（每门课一个子目录）
@@ -17,7 +18,10 @@ CourseMaterial/
 
 ## 编译
 
-运行 `compile.ps1`（PowerShell），按菜单选择内容即可。等价地，也可以在 `main.tex` 里面手动导入所需内容进行编译。
+- **Windows**：运行 `compile.ps1`（PowerShell）
+- **macOS / Linux**：运行 `./compile.sh`（需先 `chmod +x compile.sh`）
+
+按菜单选择内容即可。等价地，也可以在 `main.tex` 里面手动导入所需内容进行编译。
 
 ## 规范
 
