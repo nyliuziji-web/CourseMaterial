@@ -1,4 +1,4 @@
-$ROOT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Path
+﻿$ROOT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $ROOT_DIR
 
 $texCmd = Get-Command "xelatex" -ErrorAction SilentlyContinue
