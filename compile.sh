@@ -13,8 +13,8 @@ else
     done
 fi
 if [ -z "$TEX_CMD" ]; then
-    echo "错误：未找到 xelatex。" >&2
-    read -p "按 Enter 退出" _
+    echo "Error: xelatex not found." >&2
+    read -p "Press Enter to exit" _
     exit 1
 fi
 
@@ -26,12 +26,12 @@ read_default() {
 }
 
 # ---- Mode ----
-mode=$(read_default "编译类型 [E/H, Enter=E]: " "E")
+mode=$(read_default "Mode [E/H, Enter=E]: " "E")
 is_exam=0
 [ "$mode" = "E" ] || [ "$mode" = "e" ] && is_exam=1
 src_dir=$([ "$is_exam" -eq 1 ] && echo "exam" || echo "homework")
 
-s=$(read_default "答案模式 [a/b/c, Enter=c]: " "c")
+s=$(read_default "Answer mode [a/b/c, Enter=c]: " "c")
 both=0; show_sol=0
 [ "$s" = "c" ] && { both=1; show_sol=1; }
 [ "$s" = "b" ] && show_sol=1
@@ -39,11 +39,10 @@ both=0; show_sol=0
 # ---- Scan courses ----
 courses=()
 if [ ! -d "$src_dir" ]; then
-    echo "错误：目录 $src_dir 不存在。" >&2
-    read -p "按 Enter 退出" _; exit 1
+    echo "$src_dir not found." >&2
+    read -p "Press Enter to exit" _; exit 1
 fi
 
-sort_pattern='^第([0-9]+)次作业$'
 for d in "$src_dir"/*/; do
     [ -d "$d" ] || continue
     cname=$(basename "$d")
@@ -56,12 +55,8 @@ for d in "$src_dir"/*/; do
             [ -f "$f" ] || continue
             b=$(basename "$f" .tex)
             [[ $b == _* || $b == .* ]] && continue
-            if [[ $b =~ $sort_pattern ]]; then
-                printf "%05d_%s\n" "${BASH_REMATCH[1]}" "$b"
-            else
-                echo "$b"
-            fi
-        done | sort | sed 's/^[0-9]*_//'
+            echo "$b"
+        done | sort
     )
     [ ${#items[@]} -eq 0 ] && continue
     entry="$cname"
@@ -70,8 +65,8 @@ for d in "$src_dir"/*/; do
 done
 
 if [ ${#courses[@]} -eq 0 ]; then
-    echo "错误：未找到课程内容。" >&2
-    read -p "按 Enter 退出" _; exit 1
+    echo "Error: no course content found." >&2
+    read -p "Press Enter to exit" _; exit 1
 fi
 
 # ---- Menu ----
@@ -87,8 +82,8 @@ done
 out_dir="build"; mkdir -p "$out_dir"
 selected_items=()
 while true; do
-    read -p "内容编号 (如 5 或 4,5.2): " selection
-    [ -z "$selection" ] && { printf "输入有误，请重新输入。\n"; continue; }
+    read -p "Selection (e.g. 5 or 4,5.2): " selection
+    [ -z "$selection" ] && { printf "Invalid input, try again.\n"; continue; }
     IFS=',' read -ra parts <<< "$selection"
     selected_items=(); valid=1
     for part in "${parts[@]}"; do
@@ -107,11 +102,11 @@ while true; do
         else valid=0; break; fi
     done
     [ "$valid" -eq 1 ] && [ ${#selected_items[@]} -gt 0 ] && break
-    printf "输入有误，请重新输入。\n"
+    printf "Invalid input, try again.\n"
 done
 
-gen_toc=$(read_default "生成目录 [y/n, Enter=n]: " "n")
-out_name=$(read_default "输出文件名 [Enter=compiled]: " "compiled")
+gen_toc=$(read_default "Table of contents [y/n, Enter=n]: " "n")
+out_name=$(read_default "Output filename [Enter=compiled]: " "compiled")
 
 # ---- Generate TeX ----
 # Note: use "\\foo" (double-quoted with shell-escaped backslash)
@@ -173,27 +168,27 @@ outputs=(); main_saved=0
 
 if [ "$both" -eq 1 ]; then
     for sol in 0 1; do
-        [ "$sol" -eq 0 ] && lbl="题目版" || lbl="解析版"
-        [ "$sol" -eq 0 ] && sfx="-题目" || sfx="-解析"
-        printf "编译%s... " "$lbl"
+        [ "$sol" -eq 0 ] && lbl="questions" || lbl="solutions"
+        [ "$sol" -eq 0 ] && sfx="-questions" || sfx="-solutions"
+        printf "Compiling %s... " "$lbl"
         generate_tex "$sol" "$ROOT_DIR/__compile_current.tex"
         pdf="$out_dir/$out_name$sfx.pdf"
         if run_compile "$ROOT_DIR/__compile_current.tex" "$pdf"; then
             printf "OK\n"; outputs+=("$pdf")
         else
-            printf "失败\n"
+            printf "FAILED\n"
         fi
         [ "$main_saved" -eq 0 ] && cp "$ROOT_DIR/__compile_current.tex" "$ROOT_DIR/main.tex" && main_saved=1
     done
 else
-    [ "$show_sol" -eq 1 ] && lbl="解析版" || lbl="题目版"
-    printf "编译%s... " "$lbl"
+    [ "$show_sol" -eq 1 ] && lbl="solutions" || lbl="questions"
+    printf "Compiling %s... " "$lbl"
     generate_tex "$show_sol" "$ROOT_DIR/__compile_current.tex"
     pdf="$out_dir/$out_name.pdf"
     if run_compile "$ROOT_DIR/__compile_current.tex" "$pdf"; then
         printf "OK\n"; outputs+=("$pdf")
     else
-        printf "失败\n"
+        printf "FAILED\n"
     fi
     cp "$ROOT_DIR/__compile_current.tex" "$ROOT_DIR/main.tex"
 fi
@@ -201,14 +196,14 @@ fi
 rm -f "$ROOT_DIR/__compile_temp.tex" "$ROOT_DIR/__compile_current.tex" 2>/dev/null
 
 if [ ${#outputs[@]} -gt 0 ]; then
-    printf "\n编译成功！\n"
+    printf "\nCompilation successful!\n"
     for f in "${outputs[@]}"; do
         echo "  $f"
         open "$f" 2>/dev/null || true
     done
 else
-    printf "编译出错。\n" >&2
+    printf "Compilation failed.\n" >&2
     [ -f "$out_dir/__compile_temp.log" ] && grep "^!" "$out_dir/__compile_temp.log" 2>/dev/null | head -20
 fi
 
-read -t 5 -p "按 Enter 退出..." _ 2>/dev/null || true
+read -t 5 -p "Press Enter to exit..." _ 2>/dev/null || true

@@ -6,7 +6,7 @@ if (-not $texCmd) {
     foreach ($p in @("D:\texlive\2024\bin\windows\xelatex.exe","C:\texlive\2024\bin\windows\xelatex.exe")) {
         if (Test-Path $p) { $texCmd = $p; $env:Path += ";$(Split-Path $p)"; break }
     }
-    if (-not $texCmd) { Write-Host "错误：未找到 xelatex。" -ForegroundColor Red; Read-Host; exit 1 }
+    if (-not $texCmd) { Write-Host "Error: xelatex not found." -ForegroundColor Red; Read-Host; exit 1 }
 }
 
 function Read-Default($Prompt, $Default) {
@@ -15,23 +15,21 @@ function Read-Default($Prompt, $Default) {
     return $v.Trim()
 }
 
-$mode = Read-Default "编译类型 [E/H, Enter=E]" "E"
+$mode = Read-Default "Mode [E/H, Enter=E]" "E"
 $isExam = $mode -eq "E" -or $mode -eq "e"
 $srcDir = if ($isExam) { "exam" } else { "homework" }
 
-$s = Read-Default "答案模式 [a/b/c, Enter=c]" "c"
+$s = Read-Default "Answer mode [a/b/c, Enter=c]" "c"
 $both = $s -eq "c"
 $showSol = $s -eq "b" -or $both
 
 $courses = @()
 $dirs = Get-ChildItem -Directory "$srcDir\*" | Sort-Object Name
-if ($dirs.Count -eq 0) { Write-Host "未找到课程目录。" -ForegroundColor Red; Read-Host; exit 1 }
-
-$sortExpr = @{Expression = { if ($_.BaseName -match '^第(\d+)次作业$') { "{0:D5}" -f [int]$matches[1] } else { $_.BaseName } } }
+if ($dirs.Count -eq 0) { Write-Host "No course directories found." -ForegroundColor Red; Read-Host; exit 1 }
 
 foreach ($d in $dirs) {
     $items = @(); $displays = @()
-    foreach ($f in Get-ChildItem -Path $d.FullName -Filter "*.tex" -File | Sort-Object $sortExpr) {
+    foreach ($f in Get-ChildItem -Path $d.FullName -Filter "*.tex" -File | Sort-Object { $_.BaseName }) {
         $fname = $f.BaseName
         if ($fname.StartsWith("_") -or $fname.StartsWith(".")) { continue }
         $items += $fname; $displays += $fname
@@ -49,8 +47,8 @@ for ($i = 0; $i -lt $courses.Count; $i++) {
 $outDir = "build"; New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 $selection = ""
 while ($true) {
-    $selection = Read-Host "内容编号 (如 5 或 4,5.2)"
-    if ([string]::IsNullOrWhiteSpace($selection)) { Write-Host "输入有误，请重新输入。"; continue }
+    $selection = Read-Host "Selection (e.g. 5 or 4,5.2)"
+    if ([string]::IsNullOrWhiteSpace($selection)) { Write-Host "Invalid input, try again."; continue }
     $selected = @()
     foreach ($part in $selection.Split(',')) { $part = $part.Trim()
         if ($part -match '^(\d+)\.(\d+)$') { $c=[int]$matches[1]; $i=[int]$matches[2]
@@ -59,11 +57,11 @@ while ($true) {
             if ($c-ge1 -and $c-le$courses.Count) { $selected+="$c.*" } }
     }
     if ($selected.Count -gt 0) { break }
-    Write-Host "输入有误，请重新输入。"
+    Write-Host "Invalid input, try again."
 }
 
-$genToc = Read-Default "生成目录 [y/n, Enter=n]" "n"
-$outName = Read-Host "输出文件名 [Enter=compiled]"
+$genToc = Read-Default "Table of contents [y/n, Enter=n]" "n"
+$outName = Read-Host "Output filename [Enter=compiled]"
 if ([string]::IsNullOrWhiteSpace($outName)) { $outName = "compiled" }
 
 function Build-TexContent($ShowSolutions) {
@@ -105,23 +103,23 @@ function Run-Compile($TexContent, $OutputPdf) {
 }
 
 $outputs = @(); $mainTex = $null
-$jobs = if ($both) { @(@{Sol=$false;Label="题目版";Sfx="-题目"},@{Sol=$true;Label="解析版";Sfx="-解析"}) }
-         else { @(@{Sol=$showSol;Label=if($showSol){"解析版"}else{"题目版"};Sfx=""}) }
+$jobs = if ($both) { @(@{Sol=$false;Label="questions";Sfx="-questions"},@{Sol=$true;Label="solutions";Sfx="-solutions"}) }
+         else { @(@{Sol=$showSol;Label=if($showSol){"solutions"}else{"questions"};Sfx=""}) }
 
 foreach ($job in $jobs) {
-    Write-Host "编译$($job.Label)..." -NoNewline
+    Write-Host "Compiling $($job.Label)..." -NoNewline
     $tex = Build-TexContent $job.Sol
     $pdf = Join-Path $outDir "$outName$($job.Sfx).pdf"
     if (Run-Compile $tex $pdf) { Write-Host " OK" -ForegroundColor Green; $outputs += $pdf }
-    else { Write-Host " 失败" -ForegroundColor Red }
+    else { Write-Host " FAILED" -ForegroundColor Red }
     if (-not $mainTex) { $mainTex = $tex }
 }
 Set-Content -Path (Join-Path $ROOT_DIR "main.tex") -Value $mainTex -Encoding UTF8
 
 Remove-Item (Join-Path $ROOT_DIR "__compile_temp.tex") -Force -ErrorAction SilentlyContinue
 
-if ($outputs.Count -gt 0) { Write-Host "编译成功！" -ForegroundColor Green; $outputs | ForEach-Object { Write-Host "  $_"; Start-Process $_ } }
-else { Write-Host "编译出错。" -ForegroundColor Red }
+if ($outputs.Count -gt 0) { Write-Host "Compilation successful!" -ForegroundColor Green; $outputs | ForEach-Object { Write-Host "  $_"; Start-Process $_ } }
+else { Write-Host "Compilation failed." -ForegroundColor Red }
 
-Write-Host "按 Enter 退出..." -NoNewline
+Write-Host "Press Enter to exit..." -NoNewline
 try { $cnt=5; while ($cnt -gt 0 -and -not [Console]::KeyAvailable) { Start-Sleep -Seconds 1; $cnt-- }; if ([Console]::KeyAvailable) { [Console]::ReadKey($true) | Out-Null } } catch { Start-Sleep -Seconds 5 }
