@@ -21,7 +21,6 @@ Z=\frac{X}{Y},
 \frac{\partial Z}{\partial Y}=-\frac{X}{Y^2}.
 \]
 故
-\ansmath{\sigma_Z^2\approx \frac{\sigma_X^2}{Y^2}+\frac{X^2\sigma_Y^2}{Y^4}-\frac{2Xc}{Y^3}}
 \end{solution}
 \end{question}
 
@@ -47,7 +46,6 @@ g(x)=\sqrt{x},
 =\frac{1}{4\cdot 2n}\cdot 4n=\frac12.
 \]
 故
-\ansmath{\sqrt{X}\approx N\!\left(\sqrt{2n},\frac12\right)}
 \end{solution}
 \end{question}
 
@@ -76,8 +74,6 @@ E[X]=\int_0^1 x(\theta+1)x^\theta\,dx
 \[
 \hat\theta_{\rm MOM}=\frac{2\bar X-1}{1-\bar X}.
 \]
-即
-\ansmath{\hat\theta_{\rm MOM}=\frac{2\bar X-1}{1-\bar X}}
 似然函数为
 \[
 L(\theta)=\prod_{i=1}^n (\theta+1)x_i^\theta,
@@ -121,8 +117,6 @@ L(\lambda)=\prod_{i=1}^n e^{-\lambda}\frac{\lambda^{x_i}}{x_i!},
 \[
 \hat\lambda=\bar X.
 \]
-所以
-\ansmath{\hat\lambda_{\rm MLE}=\bar X}
 又有
 \[
 E[\bar X]=\lambda,\qquad \operatorname{Var}(\bar X)=\frac{\lambda}{n}.
@@ -202,8 +196,6 @@ L(\theta)=\theta^{-n}\mathbf 1(\theta\ge Y),
 \[
 \hat\theta_{\rm MLE}=Y.
 \]
-即
-\ansmath{\hat\theta_{\rm MLE}=Y}
 又因为
 \[
 E[Y]=\frac{n}{n+1}\theta,
@@ -212,8 +204,6 @@ E[Y]=\frac{n}{n+1}\theta,
 \[
 \tilde\theta=\frac{n+1}{n}Y.
 \]
-即
-\ansmath{\tilde\theta=\frac{n+1}{n}Y}
 再算
 \[
 \operatorname{Var}(Y)=\frac{n\theta^2}{(n+1)^2(n+2)},
@@ -264,15 +254,10 @@ y_i=ax_i+\varepsilon_i,\qquad i=1,\cdots,n,
 \hat a=\frac{\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}}
 {\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
 \]
-即
-\ansmath{\hat a=\frac{\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}}
-{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}}
 又由于 $\hat a$ 是 $y_i$ 的线性组合，故
 \[
 \operatorname{Var}(\hat a)=\frac{1}{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
 \]
-即
-\ansmath{\operatorname{Var}(\hat a)=\frac{1}{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}}
 代回可得
 \[
 \chi^2_{\min}
@@ -280,11 +265,6 @@ y_i=ax_i+\varepsilon_i,\qquad i=1,\cdots,n,
 -\frac{\left(\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}\right)^2}
 {\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
 \]
-所以
-\ansmath{\chi^2_{\min}
-=\sum_{i=1}^n \frac{y_i^2}{\sigma_i^2}
--\frac{\left(\sum_{i=1}^n \dfrac{x_i y_i}{\sigma_i^2}\right)^2}
-{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}}
 \end{solution}
 \end{question}
 

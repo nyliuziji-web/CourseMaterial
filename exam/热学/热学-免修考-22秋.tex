@@ -21,7 +21,6 @@ f(\mathbf v)=n\left(\frac{m}{2\pi k_BT}\right)^{3/2}e^{-mv^2/(2k_BT)},
 f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}.
 \]
 由于宏观系统 $N$ 极大，最概然分布附近相对涨落为 $O(N^{-1/2})$，故实际观测分布与最概然分布一致。
-\ansmath{f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}}
 \end{solution}
 \end{question}
 
@@ -45,7 +44,6 @@ f(v)=4\pi n\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2e^{-mv^2/(2k_BT)}.
 \qquad
 \frac{\bar\lambda}{\bar\lambda_0}=2.
 \]
-\ansmath{\eta,\kappa,D,\bar\lambda:\ \sqrt2,\sqrt2,2\sqrt2,2}
 \end{solution}
 \end{question}
 
@@ -86,7 +84,6 @@ V=C-\frac{\nu a}{T^n}+\frac{\nu RT}{p},
 \[
 p\left(V-C+\frac{\nu a}{T^n}\right)=\nu RT.
 \]
-\ansmath{p\left(V-C+\frac{\nu a}{T^n}\right)=\nu RT}
 \end{solution}
 \end{question}
 
@@ -103,7 +100,7 @@ C=\frac{\delta Q}{dT}=\frac{dU+p\,dV}{dT}
 =\frac32\nu R-5\nu R=-\frac72\nu R.
 \]
 该过程热容为负，体现了自引力系统的典型负热容：放出能量时反而升温，吸收能量时可能降温。因此引力体系不趋向简单的均匀热平衡，这也是“热寂”图像在有引力系统中不能直接套用的原因之一。
-\ansmath{C=-\frac72\nu R=-\frac72\frac{M}{\mu}R}
+该过程热容为负，体现了自引力系统的典型负热容：放出能量时反而升温，吸收能量时可能降温。因此引力体系不趋向简单的均匀热平衡，这也是"热寂"图像在有引力系统中不能直接套用的原因之一。
 \end{solution}
 \end{question}
 
@@ -111,7 +108,6 @@ C=\frac{\delta Q}{dT}=\frac{dU+p\,dV}{dT}
 一级相变的主要特征有哪些？二级相变与一级相变的主要差别有哪些？对有序无序相变，序参量大小和对称性高低有什么关系？超导相变和水的沸腾分别如何用对称性语言描述？
 \begin{solution}
 一级相变有潜热，熵、体积等热力学势的一阶导数发生跳变，并有相共存和滞后。二级相变无潜热，一阶导数连续，但热容、压缩系数、膨胀系数等二阶导数不连续或发散。高对称相通常序参量为零，低对称相序参量非零。正常金属到超导相是超导序参量出现的对称性破缺过程。水的沸腾是液气一级相变，严格说不属于典型的对称性破缺相变；若按有序度类比，从液体到气体可视作更接近对称性恢复。
-\anstext{一级：潜热和一阶导数跳变；二级：无潜热、二阶导数异常；超导：对称性破缺；沸腾：普通液气一级相变。}
 \end{solution}
 \end{question}
 
@@ -139,7 +135,6 @@ U_S=A_S\left[\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}\right]
 \[
 u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}.
 \]
-\ansmath{u_S=\sigma-T\left(\frac{\partial\sigma}{\partial T}\right)_{A_S}}
 \end{solution}
 \end{question}
 
@@ -215,32 +210,127 @@ p_{\rm in}'-p_0+p_e=\frac{4\sigma}{R'}.
 =\frac{4\sigma}{R'}.
 \]
 带电产生额外向外压力。若仍取 $R'=R$，原来的气体压强差已与表面张力平衡，再加上电压力后向外力过大，故泡会膨胀，平衡半径满足 $R'>R$。
-\ansmath{p=p_0+\frac{4\sigma}{R},\quad
-\left(p_0+\frac{4\sigma}{R}\right)\frac{R^3}{R'^3}-p_0+\frac{q^2}{32\pi^2\varepsilon_0R'^4}=\frac{4\sigma}{R'}}
 \end{solution}
 \end{question}
 
 \begin{question}
-雪线高度问题。设近地面温度为 $T_0$，雪线处温度为熔点 $T_m$，大气温度随高度按 lapse rate $\Gamma=-dT/dz$ 下降。求雪线高度。
+地球上有很多雪山，常年积雪不化的最低海拔高度称为雪线高度。
+假设常温下水蒸气的凝结热近似为常量
+$\lambda_{\mathrm{vp}}=2.4\times10^6\ \mathrm{J/kg}$，
+大气中水蒸气的摩尔浓度随温度的变化率近似为常量
+$\dfrac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}
+=3.1\times10^{-4}\ \mathrm{K^{-1}}$，
+海平面上大气的温度为 $27^\circ\mathrm{C}$，试确定雪线高度。
 \begin{solution}
-若温度随高度近似线性
+设近地面大气可看作理想气体。考虑一湿空气微团绝热上升，
+微团与外界无热交换，但内部水蒸气可凝结释放潜热。
+由热力学第一定律，
 \[
-T(z)=T_0-\Gamma z,
+\delta Q = C_{p,m}\,\mathrm{d}T - V\,\mathrm{d}p
++ \lambda_{\mathrm{vp}}\,\mathrm{d}m_{\mathrm{vp}} = 0,
 \]
-雪线满足 $T(h)=T_m$，因此
+其中 $C_{p,m}$ 为空气的定压摩尔热容，$\mathrm{d}m_{\mathrm{vp}}$ 为温度降低
+$\mathrm{d}T$ 时微团内凝结的水蒸气质量。
+
+水蒸气的质量可写为 $m_{\mathrm{vp}} = \mu_{\mathrm{vp}} N c_{\mathrm{vp}}$，
+其中 $\mu_{\mathrm{vp}}$ 是水蒸气摩尔质量，$N$ 是微团的总物质的量（不变），
+$c_{\mathrm{vp}}$ 是水蒸气摩尔浓度。因此
 \[
-h=\frac{T_0-T_m}{\Gamma}.
+\mathrm{d}m_{\mathrm{vp}} = \mu_{\mathrm{vp}} N\,\mathrm{d}c_{\mathrm{vp}}.
 \]
-若采用干绝热递减率，单位质量定压热容为 $c_p$，则
+
+代入第一定律并利用理想气体状态方程 $V = NRT/p$，得
 \[
-\Gamma_d=\frac{g}{c_p},
-\qquad
-h=\frac{c_p(T_0-T_m)}{g}.
+C_{p,m}\,\mathrm{d}T - \frac{NRT}{p}\,\mathrm{d}p
++ \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}} N\,\mathrm{d}c_{\mathrm{vp}} = 0.
 \]
-若空气接近饱和，应将 $\Gamma$ 替换为湿绝热递减率，此时因凝结潜热释放，$\Gamma$ 较小，雪线高度相应更高。
-\ansmath{h=\frac{T_0-T_m}{\Gamma}\quad(\text{干绝热时 }h=\frac{c_p(T_0-T_m)}{g})}
+
+除以 $N$（每摩尔形式）：
+\[
+C_{p,m}\,\mathrm{d}T - \frac{RT}{p}\,\mathrm{d}p
++ \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}\,\mathrm{d}c_{\mathrm{vp}} = 0.
+\]
+
+由静力平衡条件 $\mathrm{d}p = -\rho g\,\mathrm{d}z$ 及理想气体
+$\rho = p\bar\mu/(RT)$（$\bar\mu$ 为空气平均摩尔质量），得
+\[
+\frac{\mathrm{d}p}{\mathrm{d}z} = -\frac{p\bar\mu g}{RT}.
+\]
+
+将 $\mathrm{d}p$ 代入，并利用题给 $\mathrm{d}c_{\mathrm{vp}}/\mathrm{d}T$ 为常量，
+将 $\mathrm{d}c_{\mathrm{vp}} = \dfrac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}\,\mathrm{d}T$ 代入：
+\[
+C_{p,m}\,\mathrm{d}T
+- \frac{RT}{p}\!\left(-\frac{p\bar\mu g}{RT}\,\mathrm{d}z\right)
++ \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}\frac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}\,\mathrm{d}T = 0.
+\]
+
+整理得
+\[
+\left(C_{p,m} + \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}
+\frac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}\right)
+\frac{\mathrm{d}T}{\mathrm{d}z} = -\bar\mu g,
+\]
+
+于是湿绝热直减率为
+\[
+\frac{\mathrm{d}T}{\mathrm{d}z}
+= -\frac{\bar\mu g}
+{C_{p,m} + \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}
+\dfrac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}}.
+\]
+
+从海平面 $z=0$（温度 $T_0$）到雪线高度 $z_{\text{雪线}}$（温度 $T_{\text{雪线}}$），
+上式右端各项均为常量，可直接积分：
+\[
+\int_{T_0}^{T_{\text{雪线}}} \mathrm{d}T
+= -\frac{\bar\mu g}
+{C_{p,m} + \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}
+\dfrac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}}
+\int_0^{z_{\text{雪线}}} \mathrm{d}z,
+\]
+
+即
+\[
+T_{\text{雪线}} - T_0
+= -\frac{\bar\mu g}
+{C_{p,m} + \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}
+\dfrac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}}
+\,z_{\text{雪线}}.
+\]
+
+因此
+\[
+z_{\text{雪线}}
+= \frac{(T_0 - T_{\text{雪线}})
+\bigl(
+C_{p,m} + \lambda_{\mathrm{vp}}\mu_{\mathrm{vp}}
+\dfrac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}
+\bigr)}
+{\bar\mu g}.
+\]
+
+海平面温度 $T_0 = 27^\circ\mathrm{C} = 300.15\ \mathrm{K}$，
+雪线温度即冰点 $T_{\text{雪线}} = 0^\circ\mathrm{C} = 273.15\ \mathrm{K}$。
+代入数据
+\[
+\begin{aligned}
+C_{p,m} &= \frac{7}{2}R = 29.085\ \mathrm{J/(mol\cdot K)},\\[2pt]
+\bar\mu &= 29\times10^{-3}\ \mathrm{kg/mol},\\[2pt]
+\mu_{\mathrm{vp}} &= 18\times10^{-3}\ \mathrm{kg/mol},\\[2pt]
+\frac{\mathrm{d}c_{\mathrm{vp}}}{\mathrm{d}T}
+        &= 3.1\times10^{-4}\ \mathrm{K^{-1}},\\[2pt]
+g &= 9.8\ \mathrm{m/s^2},
+\end{aligned}
+\]
+
+得
+\[
+z_{\text{雪线}} \approx 4.0\times10^3\ \mathrm{m}.
+\]
 \end{solution}
 \end{question}
+
 
 \begin{question}
 二级相变中，证明 Ehrenfest 关系
@@ -271,7 +361,6 @@ V\alpha_1dT-V\kappa_{T1}dp
 =\frac{\alpha_2-\alpha_1}{\kappa_{T2}-\kappa_{T1}}
 =\frac{\Delta\alpha}{\Delta\kappa_T}.
 \]
-\ansmath{\left(\frac{dp}{dT}\right)_{\rm tr}=\frac{\Delta\alpha}{\Delta\kappa_T}}
 \end{solution}
 \end{question}
 

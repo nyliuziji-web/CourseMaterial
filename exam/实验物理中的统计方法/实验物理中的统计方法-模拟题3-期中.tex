@@ -13,7 +13,7 @@
 P(Y=m)=\sum_{x=m}^{n}P(X=x)P(Y=m\mid X=x)
 =\frac1n\sum_{x=m}^{n}\frac1x.
 \]
-故
+因此
 \ansmath{P(Y=m)=\frac1n\sum_{x=m}^{n}\frac1x=\frac{H_n-H_{m-1}}{n}}
 其中 $H_k=\sum_{j=1}^k\frac1j$ 为调和数。
 又由条件期望公式，
@@ -26,8 +26,6 @@ E[Y]=E\bigl(E[Y\mid X]\bigr)=\frac{E[X]+1}{2}.
 \[
 E[X]=\frac{n+1}{2}.
 \]
-因此
-\ansmath{E[Y]=\frac{\frac{n+1}{2}+1}{2}=\frac{n+3}{4}}
 \end{solution}
 \end{question}
 
@@ -56,9 +54,6 @@ P(V-U<t)=P(|X-Y|<t).
 \[
 P(|X-Y|<t)=1-(1-t)^2=2t-t^2.
 \]
-所以
-\ansmath{P(V-U<t)=2t-t^2,
-\qquad 0<t<1}
 \end{solution}
 \end{question}
 
@@ -84,8 +79,6 @@ P(B>t\ \text{或}\ C>t)=1-P(B\le t,C\le t)=1-F(t)^2.
 \[
 P(T>t)=[1-F(t)][1-F(t)^2].
 \]
-于是
-\ansmath{F_T(t)=1-[1-F(t)][1-F(t)^2]}
 \end{solution}
 \end{question}
 
@@ -119,8 +112,6 @@ f_X(x)=\int_0^x \frac32(x+2y)\,dy
 \qquad 0<x<1.
 \]
 所以
-\ansmath{f_X(x)=3x^2,
-\qquad 0<x<1}
 再算概率：
 \[
 P\!\left(Y>\frac X2\right)=\int_0^1\int_{x/2}^{x}\frac32(x+2y)\,dy\,dx.
@@ -133,8 +124,6 @@ P\!\left(Y>\frac X2\right)=\int_0^1\int_{x/2}^{x}\frac32(x+2y)\,dy\,dx.
 \[
 P\!\left(Y>\frac X2\right)=\int_0^1 \frac32\cdot \frac{5x^2}{4}\,dx=\frac58.
 \]
-因此
-\ansmath{P\!\left(Y>\frac X2\right)=\frac58}
 条件密度为
 \[
 f_{Y\mid X}(y\mid x)=\frac{\frac32(x+2y)}{3x^2}=\frac{x+2y}{2x^2},
@@ -144,8 +133,6 @@ f_{Y\mid X}(y\mid x)=\frac{\frac32(x+2y)}{3x^2}=\frac{x+2y}{2x^2},
 \[
 E[Y\mid X=x]=\int_0^x y\,\frac{x+2y}{2x^2}\,dy=\frac{7x}{12}.
 \]
-故
-\ansmath{E[Y\mid X=x]=\frac{7x}{12}}
 \end{solution}
 \end{question}
 
@@ -167,9 +154,6 @@ f_{T_2\mid T_3=t}(u)=2\frac{u}{t}\cdot \frac1t
 =\frac{2u}{t^2},
 \qquad 0<u<t.
 \]
-所以
-\ansmath{f_{T_2\mid T_3=t}(u)=\frac{2u}{t^2},
-\qquad 0<u<t}
 \end{solution}
 \end{question}
 
@@ -189,8 +173,6 @@ f_{T_2\mid T_3=t}(u)=2\frac{u}{t}\cdot \frac1t
 \[
 \hat\varepsilon=\sqrt{\hat p}=\sqrt{0.841}\approx 0.9171.
 \]
-所以
-\ansmath{\hat\varepsilon\approx 0.917}
 按二项分布近似，
 \[
 \sigma_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{N}}
@@ -214,8 +196,6 @@ f_{T_2\mid T_3=t}(u)=2\frac{u}{t}\cdot \frac1t
 \[
 \hat\varepsilon_{\rm sys}=1-(1-0.9171)^2\approx 0.9931.
 \]
-故
-\ansmath{\hat\varepsilon_{\rm sys}\approx 0.993}
 \end{solution}
 \end{question}
 
@@ -240,22 +220,16 @@ f_{T_2\mid T_3=t}(u)=2\frac{u}{t}\cdot \frac1t
 \[
 \varepsilon\mid D\sim \mathrm{Beta}(10,5).
 \]
-即
-\ansmath{\varepsilon\mid D\sim \mathrm{Beta}(10,5)}
 后验均值为
 \[
 E[\varepsilon\mid D]=\frac{10}{15}=\frac23.
 \]
-故
-\ansmath{E[\varepsilon\mid D]=\frac23}
 后面两次都成功的后验预测概率为
 \[
 E[\varepsilon^2\mid D]
 =\frac{10\cdot 11}{15\cdot 16}
 =\frac{11}{24}.
 \]
-因此
-\ansmath{P(\text{后两次都成功}\mid D)=\frac{11}{24}}
 \end{solution}
 \end{question}
 
@@ -274,8 +248,6 @@ p=1-e^{-3}\sum_{k=0}^{6}\frac{3^k}{k!}.
 \[
 p\approx 0.0335.
 \]
-故
-\ansmath{p=P(N\ge 7\mid \lambda=3)=1-e^{-3}\sum_{k=0}^{6}\frac{3^k}{k!}\approx 0.0335}
 \end{solution}
 \end{question}
 
