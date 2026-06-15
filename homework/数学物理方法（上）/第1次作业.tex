@@ -1,6 +1,4 @@
 % 贡献者：汤立祥
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第1次作业}
 
 
@@ -14,9 +12,11 @@
 \begin{solution}
 记上述集合为 \(S\)，我们首先证明上述集合构成域。
 
-加、乘\textbf{封闭性}是容易证明的，\(\forall\,
-\begin{pmatrix} x_1 & y_1 \\ -y_1 & x_1 \end{pmatrix},
-\begin{pmatrix} x_2 & y_2 \\ -y_2 & x_2 \end{pmatrix}\in S\)：
+加、乘\textbf{封闭性}是容易证明的。任取
+\[
+A_j=\begin{pmatrix}x_j&y_j\\-y_j&x_j\end{pmatrix}\in S,
+\qquad j=1,2.
+\]
 \[
 \begin{pmatrix} x_1 & y_1 \\ -y_1 & x_1 \end{pmatrix}
 +\begin{pmatrix} x_2 & y_2 \\ -y_2 & x_2 \end{pmatrix}
@@ -29,11 +29,12 @@
 \]
 
 对于\textbf{加法}而言：
-\begin{itemize}
+\begin{enumerate}
   \item 有加法单位元 \(\mathbf{0}:=\begin{pmatrix}0&0\\0&0\end{pmatrix}\in S\)，
-  注意到 \(\begin{pmatrix}x&y\\-y&x\end{pmatrix}+\begin{pmatrix}0&0\\0&0\end{pmatrix}
-  =\begin{pmatrix}0&0\\0&0\end{pmatrix}+\begin{pmatrix}x&y\\-y&x\end{pmatrix}
-  =\begin{pmatrix}x&y\\-y&x\end{pmatrix}\) 不变；
+  对任意 \(A=\begin{pmatrix}x&y\\-y&x\end{pmatrix}\in S\)，有
+  \[
+  A+\mathbf0=\mathbf0+A=A.
+  \]
   \item 对于任意 \(\begin{pmatrix}x&y\\-y&x\end{pmatrix}\in S\)，
   都有逆元 \(\begin{pmatrix}-x&-y\\y&-x\end{pmatrix}\in S\)，此时
   \[
@@ -42,10 +43,10 @@
   =\mathbf{0};
   \]
   \item 显然具有结合律和交换律。
-\end{itemize}
+\end{enumerate}
 
 对于\textbf{乘法}而言：
-\begin{itemize}
+\begin{enumerate}
   \item 有乘法单位元 \(\mathbf{1}:=\begin{pmatrix}1&0\\0&1\end{pmatrix}\in S\)，
   注意到
   \[
@@ -80,7 +81,7 @@
   =\begin{pmatrix}ac-bd&bc+ad\\-bc-ad&ac-bd\end{pmatrix};
   \]
   \item 显然具有结合律。
-\end{itemize}
+\end{enumerate}
 
 由矩阵的性质，其自身显然满足分配律。由此我们证明了 \(S\) 在矩阵加法与矩阵乘法下构成域。
 
@@ -90,8 +91,11 @@
 \[
 f\!\left(\begin{pmatrix}x&y\\-y&x\end{pmatrix}\right)=x+\ii y,
 \]
-此时 \(\forall\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix},
-\begin{pmatrix}x_2&y_2\\-y_2&x_2\end{pmatrix}\in S\)，
+对任意
+\[
+A_j=\begin{pmatrix}x_j&y_j\\-y_j&x_j\end{pmatrix}\in S,
+\qquad j=1,2,
+\]
 \[
 \begin{aligned}
 f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
@@ -201,7 +205,7 @@ f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
   可以看到是两个圆。
 
   \begin{center}
-    \includegraphics[width=0.35\linewidth]{figures/1-4.png}
+    \includegraphics[width=0.35\linewidth]{figures/第1次作业-fig01.png}
   \end{center}
 
   \item 有 \(\displaystyle\arg\frac{z+\ii}{z-\ii}=\arg(z+\ii)-\arg(z-\ii)\)，
@@ -212,7 +216,7 @@ f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
   因此最后结果是虚轴的一部分与一圆心角为 \(3\pi/2\) 圆弧围成的区域。
 
   \begin{center}
-    \includegraphics[width=0.35\linewidth]{figures/1-5.png}
+    \includegraphics[width=0.35\linewidth]{figures/第1次作业-fig02.png}
   \end{center}
 \end{enumerate}
 \end{solution}
@@ -224,13 +228,13 @@ f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
 并指出它们之间的几何关系。
 \begin{solution}
 设 \(z=r\ee^{\ii\theta}\)，则：
-\begin{itemize}
+\begin{enumerate}
   \item \(\ii z=\ee^{\ii\pi/2}z\)，即将 \(z\) 绕原点逆时针旋转 \(\pi/2\)；
   \item \(-z=\ee^{\ii\pi}z\)，即将 \(z\) 绕原点旋转 \(\pi\)；
   \item \(z^*=r\ee^{-\ii\theta}\)，即 \(z\) 关于实轴的对称点；
   \item \(\displaystyle\frac{1}{z}=\frac{1}{r}\ee^{-\ii\theta}\)，即 \(z\) 关于实轴对称后关于原点缩放 \(1/r^2\)；
   \item \(\displaystyle\frac{1}{z^*}=\frac{1}{r}\ee^{\ii\theta}\)，即 \(z\) 关于原点缩放 \(1/r^2\)。
-\end{itemize}
+\end{enumerate}
 
 各点的位置关系如图所示：
 
@@ -247,9 +251,11 @@ f\!\left(\begin{pmatrix}x_1&y_1\\-y_1&x_1\end{pmatrix}
   \draw[thin] (0,0) -- (-1.5,-1);
   \filldraw (1.5,-1) circle (1.5pt) node[above right] {\(z^*\)};
   \draw[thin] (0,0) -- (1.5,-1);
-  \filldraw (0.4615,-0.3077) circle (1.5pt) node[below right] {\(1/z\)};
+  \filldraw (0.4615,-0.3077) circle (1.5pt)
+    node[below right=3pt] {\(1/z\)};
   \draw[thin] (0,0) -- (0.4615,-0.3077);
-  \filldraw (0.4615,0.3077) circle (1.5pt) node[below right] {\(1/z^*\)};
+  \filldraw (0.4615,0.3077) circle (1.5pt)
+    node[above right=3pt] {\(1/z^*\)};
   \draw[thin] (0,0) -- (0.4615,0.3077);
   \node at (1,0) [below right] {\(1\)};
   \node at (0,1) [below right] {\(i\)};
@@ -330,12 +336,14 @@ f(z)=\frac{(r^2\cos2\theta)^2}{r^2\ee^{2\ii\theta}}
 
 \begin{question}
 判断下列函数在何处可导（并求出其导数），在何处解析：
-\[
-\begin{array}{lll}
-\text{(1)}\ |z|, & \text{(2)}\ z^*, & \text{(3)}\ z\cdot\operatorname{Re}z,\\[2pt]
-\text{(4)}\ (x^2+2y)+\ii(x^2+y^2), & \text{(5)}\ 3x^2+2\ii y^3, & \text{(6)}\ (x-y)^2+2\ii(x+y).
-\end{array}
-\]
+\begin{enumerate}
+  \item \(|z|,\)
+  \item \(z^*,\)
+  \item \(z\cdot\operatorname{Re}z,\)
+  \item \((x^2+2y)+\ii(x^2+y^2),\)
+  \item \(3x^2+2\ii y^3,\)
+  \item \((x-y)^2+2\ii(x+y).\)
+\end{enumerate}
 \begin{solution}
 \begin{enumerate}
   \item 由题，\(u(x,y)=\sqrt{x^2+y^2},\;v(x,y)=0\)。
@@ -410,7 +418,8 @@ f(z)=\frac{(r^2\cos2\theta)^2}{r^2\ee^{2\ii\theta}}
   \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}.
   \]
   因此 \(f(z)\) 只在 \(x=y^2\) 上满足柯西—黎曼条件，
-  容易验证其在 \(x=y^2\) 处可导，导数为 \(6x+6y^2\ii\)，处处不解析。
+  容易验证其在 \(x=y^2\) 处可导。由
+  \(f'(z)=u_x+\ii v_x\)，导数为 \(6x=6y^2\)，处处不解析。
 
   \item 由题，\(u(x,y)=(x-y)^2,\;v(x,y)=2(x+y)\)。
   在全空间上 \(u,v\) 关于 \(x,y\) 的偏导数都存在，但
@@ -447,6 +456,26 @@ f(z)=\frac{(r^2\cos2\theta)^2}{r^2\ee^{2\ii\theta}}
 \frac{u(\rho+\Delta\rho,\phi)-u(\rho,\phi)
 +\ii\bigl(v(\rho+\Delta\rho,\phi)-v(\rho,\phi)\bigr)}
 {\Delta\rho\,\ee^{\ii\phi}}
-=\ee^{-\ii\phi}\Bigl(\frac{\partia
-\end{question}
+=\ee^{-\ii\phi}\Bigl(\frac{\partial u}{\partial\rho}+\ii\frac{\partial v}{\partial\rho}\Bigr).
+\]
+而 \(f(z)\) 沿 \(\phi\) 方向的导数为
+\[
+\lim_{\Delta\phi\to0}
+\frac{u(\rho,\phi+\Delta\phi)-u(\rho,\phi)
++\ii\bigl(v(\rho,\phi+\Delta\phi)-v(\rho,\phi)\bigr)}
+{\ii\rho\Delta\phi\,\ee^{\ii\phi}}
+=\ee^{-\ii\phi}\Bigl(\frac{1}{\ii\rho}\frac{\partial u}{\partial\phi}
++\frac{1}{\rho}\frac{\partial v}{\partial\phi}\Bigr).
+\]
+由解析函数的条件，两个方向导数必须相等，故
+\[
+\frac{\partial u}{\partial\rho}+\ii\frac{\partial v}{\partial\rho}
+=\frac{1}{\ii\rho}\frac{\partial u}{\partial\phi}+\frac{1}{\rho}\frac{\partial v}{\partial\phi}.
+\]
+比较实部与虚部即得
+\[
+\frac{\partial u}{\partial\rho}=\frac{1}{\rho}\frac{\partial v}{\partial\phi},\qquad
+\frac{\partial v}{\partial\rho}=-\frac{1}{\rho}\frac{\partial u}{\partial\phi}.
+\]
 \end{solution}
+\end{question}

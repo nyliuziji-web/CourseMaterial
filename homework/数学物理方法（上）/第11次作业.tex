@@ -1,57 +1,202 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第11次作业}
 
 \begin{question}
 将下列连乘积用 \(\Gamma\) 函数表示出来：
-1. \((2n)!!;\)
-2. \((1+\nu)(2+\nu)\dots (n+\nu);\)
-3. \([n(n+1)-\nu(\nu+1)][(n-1)n-\nu(\nu+1)]\dots[0-\nu(\nu+1)]\)
+\begin{enumerate}
+  \item \((2n)!!\)；
+  \item \((1+\nu)(2+\nu)\dotsm(n+\nu)\)；
+  \item
+  \[
+  \prod_{q=0}^{n}\bigl[q(q+1)-\nu(\nu+1)\bigr].
+  \]
+\end{enumerate}
 \begin{solution}
-1. \((2n)!! = (2n)(2n-2)(2n-4)\dots 2 = 2^n n(n-1)\dots 1=2^n \Gamma(n+1).\)
-2. \((1+\nu)(2+\nu)\dots(n+\nu) = \frac{\Gamma(1+\nu)}{\Gamma(1+\nu)} (1+\nu)(2+\nu)\dots(n+\nu) = \frac{\Gamma(n+1+\nu)}{\Gamma(1+\nu)}.\)
-3. 注意到 \(q(q+1)-\nu(\nu+1)=q^2+q-\nu^2-\nu=(q-\nu)(q+\nu+1)\)，因此有 \([n(n+1)-\nu(\nu+1)][(n-1)n-\nu(\nu+1)]\dots[0-\nu(\nu+1)]=(n-\nu)((n-1)-\nu)\dots (0-\nu)\dots (n+\nu+1)(n+\nu)\dots (1+\nu)=\frac{\Gamma(n+1-\nu)}{\Gamma(-\nu)} \frac{\Gamma(n+\nu+2)}{\Gamma(1+\nu)}=-\frac{1}{\pi}\sin (\pi \nu) \Gamma(n+1-\nu) \Gamma(n+2-\nu)\).
+\begin{enumerate}
+  \item
+  \[
+  (2n)!!=2^n n!=2^n\Gamma(n+1).
+  \]
+
+  \item
+  \[
+  (1+\nu)(2+\nu)\dotsm(n+\nu)
+  =\frac{\Gamma(n+1+\nu)}{\Gamma(1+\nu)}.
+  \]
+
+  \item 由
+  \[
+  q(q+1)-\nu(\nu+1)=(q-\nu)(q+\nu+1)
+  \]
+  以及 Gamma 函数的递推关系，得到
+  \[
+  \begin{aligned}
+  \prod_{q=0}^{n}\bigl[q(q+1)-\nu(\nu+1)\bigr]
+  &=
+  \frac{\Gamma(n+1-\nu)}{\Gamma(-\nu)}
+  \frac{\Gamma(n+\nu+2)}{\Gamma(1+\nu)}\\
+  &=-\frac{\sin(\pi\nu)}{\pi}
+  \Gamma(n+1-\nu)\Gamma(n+\nu+2).
+  \end{aligned}
+  \]
+\end{enumerate}
 \end{solution}
 \end{question}
 
 \begin{question}
 计算下列积分：
-1. \(\displaystyle\int_0^\infty x^{-\alpha}\sin x\dd{x},\quad 0<\alpha<2;\ \displaystyle\int_0^\infty x^{-\alpha}\cos x\dd{x},\quad 0<\alpha<1.\)
-2. \(\displaystyle\int_0^\infty x^{\alpha-1}\ee^{-x\cos\theta}\cos (x\sin\theta)\dd{x},\quad\alpha>0,\quad -\frac{\pi}{2}<\theta<\frac{\pi}{2};\ \displaystyle\int_0^\infty x^{\alpha-1}\ee^{-x\cos\theta}\sin (x\sin\theta)\dd{x},\quad\alpha>0,\quad -\frac{\pi}{2}<\theta<\frac{\pi}{2}.\)
-3. \(\displaystyle\int_{-1}^{1}(1-x)^p (1+x)^q\dd{x},\quad \Re p>-1,\quad \Re q>-1.\)
-4. \(\displaystyle\int_0^{\pi/2}\tan^{\alpha}\theta\dd{}\theta,\quad \displaystyle\int_0^{\pi/2}\cot^{\alpha}\theta\dd{}\theta,\quad -1<\alpha<1.\)
+\begin{enumerate}
+  \item
+  \begin{enumerate}
+    \item \(\displaystyle\int_0^\infty x^{-\alpha}\sin x\dd{x}\)，
+    \(0<\alpha<2\)；
+    \item \(\displaystyle\int_0^\infty x^{-\alpha}\cos x\dd{x}\)，
+    \(0<\alpha<1\)。
+  \end{enumerate}
+
+  \item 设 \(\alpha>0\)、\(-\frac{\pi}{2}<\theta<\frac{\pi}{2}\)，计算
+  \begin{enumerate}
+    \item
+    \(\displaystyle\int_0^\infty
+    x^{\alpha-1}\ee^{-x\cos\theta}\cos(x\sin\theta)\dd{x}\)；
+    \item
+    \(\displaystyle\int_0^\infty
+    x^{\alpha-1}\ee^{-x\cos\theta}\sin(x\sin\theta)\dd{x}\)。
+  \end{enumerate}
+
+  \item
+  \[
+  \int_{-1}^{1}(1-x)^p(1+x)^q\dd{x},
+  \qquad \Re p>-1,\quad \Re q>-1.
+  \]
+
+  \item 设 \(-1<\alpha<1\)，计算
+  \begin{enumerate}
+    \item \(\displaystyle\int_0^{\pi/2}\tan^\alpha\theta\dd{\theta}\)；
+    \item \(\displaystyle\int_0^{\pi/2}\cot^\alpha\theta\dd{\theta}\)。
+  \end{enumerate}
+\end{enumerate}
 \begin{solution}
-1. 由 \(\int_0^\infty z^{-\alpha}\ee^{\ii z}\dd{z}=\operatorname{v.p.}\int_0^\infty (\ii u)^{-\alpha}\ee^{-u}\ii\dd{u} =\operatorname{v.p.}\{\ii^{-\alpha+1}\Gamma(1-\alpha)\}=\ee^{\frac{\pi}{2}\ii(1-\alpha)}\Gamma(1-\alpha)\)，因此有 \(I_1=\Im\bigl\{\int_0^\infty z^{-\alpha}\ee^{\ii z}\dd{z}\bigr\} = \cos\bigl(\frac{\pi}{2}\alpha\bigr)\Gamma(1-\alpha)\)，\(I_2=\Re\bigl\{\int_0^\infty z^{-\alpha}\ee^{\ii z}\dd{z}\bigr\} = \sin\bigl(\frac{\pi}{2}\alpha\bigr)\Gamma(1-\alpha)\). 值得注意的是，\(\int_0^\infty z^{-\alpha}\ee^{\ii z}\dd{z}\) 在 \(0<\alpha<1\) 上有定义，但对于 \(x^{-\alpha}\sin x\) 的积分，其在 \(0<\alpha<2\) 上有定义，故可以延拓到 \(0<\alpha<2\) 上，其表达式仍为 \(\cos\bigl(\frac{\pi}{2}\alpha\bigr)\Gamma(1-\alpha)\).
+\begin{enumerate}
+  \item 由
+  \[
+  \int_0^\infty x^{-\alpha}\ee^{\ii x}\dd{x}
+  =\ee^{\frac{\pi\ii}{2}(1-\alpha)}\Gamma(1-\alpha)
+  \]
+  取虚部和实部，得到
+  \begin{enumerate}
+    \item
+    \[
+    \int_0^\infty x^{-\alpha}\sin x\dd{x}
+    =\Gamma(1-\alpha)\cos\frac{\pi\alpha}{2}.
+    \]
+    右端在 \(\alpha=1\) 处取连续极限 \(\pi/2\)，并可延拓到
+    \(0<\alpha<2\)。
+    \item
+    \[
+    \int_0^\infty x^{-\alpha}\cos x\dd{x}
+    =\Gamma(1-\alpha)\sin\frac{\pi\alpha}{2},
+    \qquad 0<\alpha<1.
+    \]
+  \end{enumerate}
 
-2. 由 \(\int_0^\infty z^{\alpha-1}\ee^{-z\cos\theta - z\ii\sin\theta}\dd{z} = \int_0^\infty z^{\alpha-1}\ee^{-z\ee^{\ii\theta}}\dd{z} = \int_0^\infty (u\ee^{-\ii\theta})^{\alpha-1}\ee^{-u}\ee^{-\ii\theta}\dd{u} = \ee^{-\ii\theta\alpha}\Gamma(\alpha)\)，因此有 \(I_1=\Re\bigl\{\int_0^\infty z^{\alpha-1}\ee^{-z\ee^{\ii\theta}}\dd{z}\bigr\}=\cos(\alpha\theta)\Gamma(\alpha)\)，\(I_2 = -\Im\bigl\{\int_0^\infty z^{\alpha-1}\ee^{-z\ee^{\ii\theta}}\dd{z}\bigr\} = \sin(\alpha\theta)\Gamma(\alpha)\).
+  \item 由
+  \[
+  \int_0^\infty x^{\alpha-1}\ee^{-x\ee^{-\ii\theta}}\dd{x}
+  =\Gamma(\alpha)\ee^{\ii\alpha\theta},
+  \]
+  分别取实部和虚部，得到
+  \begin{enumerate}
+    \item
+    \[
+    \int_0^\infty x^{\alpha-1}\ee^{-x\cos\theta}
+    \cos(x\sin\theta)\dd{x}
+    =\Gamma(\alpha)\cos(\alpha\theta).
+    \]
+    \item
+    \[
+    \int_0^\infty x^{\alpha-1}\ee^{-x\cos\theta}
+    \sin(x\sin\theta)\dd{x}
+    =\Gamma(\alpha)\sin(\alpha\theta).
+    \]
+  \end{enumerate}
 
-3. 作代换 \(t = \dfrac{1+x}{2}\)，则有 \(\int_0^1 (2t)^q (2-2t)^p 2\dd{t}=2^{p+q+1}\Beta(p+1,q+1)\).
+  \item 作代换 \(t=(1+x)/2\)，得到
+  \[
+  \int_{-1}^{1}(1-x)^p(1+x)^q\dd{x}
+  =2^{p+q+1}\Beta(q+1,p+1).
+  \]
 
-4. \(\displaystyle\int_0^{\pi/2} \tan^{\alpha}\theta\dd{}\theta = \int_0^{\pi/2} \cot^{\alpha}\bigl(\frac{\pi}{2}-\theta\bigr)\dd{}\theta = \int_0^{\pi/2} \cot^{\alpha}\theta\dd{}\theta\). 因此我们只需要计算两个积分中的其中一个即可。\(\displaystyle\int_0^{\pi/2} \tan^{\alpha}\theta\dd{}\theta = \int_0^{\pi/2} \sin^{\alpha}\theta\cos^{-\alpha}\theta\dd{}\theta=\frac12 \Beta\bigl(\frac{\alpha+1}{2},\frac{-\alpha+1}{2}\bigr) = \frac12 \dfrac{\pi}{\cos\bigl(\frac{\pi}{2}\alpha\bigr)}\).
+  \item 两个积分通过代换 \(\theta\mapsto\pi/2-\theta\) 相等。并且
+  \[
+  \int_0^{\pi/2}\tan^\alpha\theta\dd{\theta}
+  =\frac12\Beta\left(\frac{\alpha+1}{2},\frac{1-\alpha}{2}\right)
+  =\frac{\pi}{2\cos(\pi\alpha/2)}.
+  \]
+  因此
+  \begin{enumerate}
+    \item
+    \(\displaystyle\int_0^{\pi/2}\tan^\alpha\theta\dd{\theta}
+    =\frac{\pi}{2\cos(\pi\alpha/2)}\)；
+    \item
+    \(\displaystyle\int_0^{\pi/2}\cot^\alpha\theta\dd{\theta}
+    =\frac{\pi}{2\cos(\pi\alpha/2)}\)。
+  \end{enumerate}
+\end{enumerate}
 \end{solution}
 \end{question}
 
 \begin{question}
 设 \(\psi(z)= \dv{}{z}\ln\Gamma(z)\)，计算下列表达式的值；
-1. \(\psi(1-z)-\psi(z);\)
-2. \(2\psi(2z)-\psi(z)-\psi(z+\frac12).\)
+\begin{enumerate}
+  \item \(\psi(1-z)-\psi(z);\)
+  \item \(2\psi(2z)-\psi(z)-\psi(z+\frac12).\)
+\end{enumerate}
 \begin{solution}
-1. \(\psi(1-z)-\psi(z) = -\dv{}{z}\ln\Gamma(1-z)-\dv{}{z}\ln\Gamma(z)=-\dv{}{z}\ln\Gamma(z)\Gamma(1-z)=-\dv{}{z}\ln\dfrac{\pi}{\sin\pi z}=\dv{}{z}\ln(\sin(\pi z))=\pi\cot\pi z\).
+\begin{enumerate}
+  \item 由反射公式得到
+  \[
+  \begin{aligned}
+  \psi(1-z)-\psi(z)
+  &=-\dv{}{z}\ln\bigl[\Gamma(z)\Gamma(1-z)\bigr]\\
+  &=-\dv{}{z}\ln\frac{\pi}{\sin(\pi z)}
+  =\pi\cot(\pi z).
+  \end{aligned}
+  \]
 
-2. \(2\psi(2z)=\dv{}{z}\ln\Gamma(2z)=\dv{}{z}\ln\bigl(2^{2z-1}\pi^{-1/2}\Gamma(z)\Gamma(z+\tfrac12)\bigr)=2\ln2+\psi(z)+\psi(z+\tfrac12)\)，因此有 \(2\psi(2z)-\psi(z)-\psi(z+\tfrac12)=2\ln2\).
+  \item 由倍增公式得到
+  \[
+  2\psi(2z)
+  =2\ln2+\psi(z)+\psi\left(z+\frac12\right),
+  \]
+  因而
+  \[
+  2\psi(2z)-\psi(z)-\psi\left(z+\frac12\right)=2\ln2.
+  \]
+\end{enumerate}
 \end{solution}
 \end{question}
 
 \begin{question}
 求下列函数在扩充的复平面 \(\overline{\mathbb{C}}\) 中所有可能的孤立奇点处的留数。
 
-(1) \(\displaystyle\frac{\ee^z}{1-\cos z}\) \quad (2) \(\displaystyle\frac{1-\cos z}{\ee^z}\) \quad (3) \(\displaystyle\frac{\sin z}{1+z}\) \quad (4) \(\displaystyle\frac{\sqrt{z}}{\sin(\sqrt{z})}\) \quad (5) \([(1-\ee^{\ii z})\sin z]^{-1}\)
+\begin{enumerate}
+  \item \(\displaystyle\frac{\ee^z}{1-\cos z}\)
+  \item \(\displaystyle\frac{1-\cos z}{\ee^z}\)
+  \item \(\displaystyle\frac{\sin z}{1+z}\)
+  \item \(\displaystyle\frac{\sqrt{z}}{\sin(\sqrt{z})}\)
+  \item \([(1-\ee^{\ii z})\sin z]^{-1}\)
 
-(6) \(\displaystyle\exp\!\Bigl[\frac12\Bigl(z-\frac1z\Bigr)\Bigr]\) \quad (7) \(\displaystyle\frac{z^{\ii}}{z^2-1}\) \quad (8) \(\displaystyle\frac{\ln z}{z-1}\) \quad (9) \(\displaystyle\frac{1}{\cos\sqrt{z}}\)
+  \item \(\displaystyle\exp\!\Bigl[\frac12\Bigl(z-\frac1z\Bigr)\Bigr]\)
+  \item \(\displaystyle\frac{z^{\ii}}{z^2-1}\)
+  \item \(\displaystyle\frac{\ln z}{z-1}\)
+  \item \(\displaystyle\frac{1}{\cos\sqrt{z}}\)
 
-(10) \(\displaystyle\sqrt{(z+a)(b-z)}\)，其中 \(a\) 和 \(b\) 是复常数 \quad (11) \(\displaystyle\Beta(z,z).\)
+  \item \(\displaystyle\sqrt{(z+a)(b-z)}\)，其中 \(a\) 和 \(b\) 是复常数
+  \item \(\displaystyle\Beta(z,z).\)
+\end{enumerate}
 \begin{solution}
-(1) 函数的孤立奇点为 \(z=2k\pi,\ k\in\mathbb{Z}\)，这些孤立奇点都是二阶奇点，因此有
+\begin{enumerate}
+  \item 函数的孤立奇点为 \(z=2k\pi,\ k\in\mathbb{Z}\)，这些孤立奇点都是二阶奇点，因此有
 \[
 \begin{aligned}
 \operatorname{res}(f(2k\pi))&=\Bigl.\dv{}{z}\Bigl[(z-2k\pi)^2\frac{\ee^z}{1-\cos z}\Bigr]\Bigr|_{z=2k\pi}\\
@@ -61,52 +206,65 @@
 \end{aligned}
 \]
 
-(2) 函数在 \(\mathbb{C}\) 上无奇点，而在 \(\infty\) 处为本性奇点。有 \(\operatorname{res}f(\infty)=\displaystyle\lim_{R\to\infty}\frac1{2\pi\ii}\oint_{C_R}f(z)\dd{z}\). 由于 \(f\) 在 \(\mathbb{C}\) 上解析，因此积分值为 0，故 \(\operatorname{res}f(\infty)=0\).
+  \item 函数在 \(\mathbb{C}\) 上无奇点，而在 \(\infty\) 处为本性奇点。有 \(\operatorname{res}f(\infty)=\displaystyle\lim_{R\to\infty}\frac1{2\pi\ii}\oint_{C_R}f(z)\dd{z}\). 由于 \(f\) 在 \(\mathbb{C}\) 上解析，因此积分值为 0，故 \(\operatorname{res}f(\infty)=0\).
 
-(3) 函数的孤立奇点为 \(z=-1,\infty\)，奇点 \(z=-1\) 为本性奇点，有
-\[
-\frac{\sin z}{z+1}=\sin\!\Bigl(1-\frac1{z+1}\Bigr)=\sin1\cos\!\Bigl(\frac1{z+1}\Bigr)-\cos1\sin\!\Bigl(\frac1{z+1}\Bigr)=\sin1-\cos1\cdot\frac1{z+1}-\frac{\sin1}{2}\Bigl(\frac1{z+1}\Bigr)^2+\dots
-\]
-因此 \(\operatorname{res}f(-1)=-\cos1\). 奇点 \(z=\infty\) 为可去奇点，有 \(\operatorname{res}f(\infty)=\displaystyle\lim_{R\to\infty}\frac1{2\pi\ii}\oint f(z)\dd{z}=-\operatorname{res}f(-1)=\cos1\).
+  \item \(z=-1\) 是一阶极点，而 \(z=\infty\) 是本性奇点。有限极点处
+  \[
+  \operatorname{res}(f,-1)
+  =\lim_{z\to-1}(z+1)\frac{\sin z}{z+1}
+  =-\sin1.
+  \]
+  因而
+  \[
+  \operatorname{res}(f,\infty)
+  =-\operatorname{res}(f,-1)=\sin1.
+  \]
 
-(4) 函数的孤立奇点为 \(z=k^2\pi^2,\ k\in\mathbb{N}\). \(z=0\) 为函数的可去奇点，因此 \(\operatorname{res}f(0)=0\). \(z=k^2\pi^2\ (k\neq0)\) 为函数的一阶极点。因此可以得到
+  \item 函数的孤立奇点为 \(z=k^2\pi^2,\ k\in\mathbb{N}\). \(z=0\) 为函数的可去奇点，因此 \(\operatorname{res}f(0)=0\). \(z=k^2\pi^2\ (k\neq0)\) 为函数的一阶极点。因此可以得到
 \[
 \operatorname{res}f(k^2\pi^2)=\lim_{z\to k^2\pi^2}\frac{z-k^2\pi^2}{\sin\sqrt{z}}\sqrt{z}=(-1)^k2k^2\pi^2
 \]
 因此综上有 \(\operatorname{res}f(k^2\pi^2)=(-1)^k2k^2\pi^2\).
 
-(5) 函数的孤立奇点为 \(z=k\pi,\ k\in\mathbb{Z}\)，其中 \(z=2k\pi,\ k\in\mathbb{Z}\) 为二阶极点，\(z=(2k+1)\pi,\ k\in\mathbb{Z}\) 为一阶极点。不过由于函数具有周期性，因此只需要对 \(z=0,\pi\) 进行计算即可。不妨进行分类讨论
+  \item 函数的孤立奇点为 \(z=k\pi\)，其中偶数倍处为二阶极点，
+  奇数倍处为一阶极点。分类计算如下：
+  \begin{enumerate}
+    \item 当 \(z=2k\pi\) 时，利用周期性只需在 \(z=0\) 展开：
+    \[
+    f(z)=\frac1{(1-\ee^{\ii z})\sin z}
+    =\frac{\ii}{z^2}\left(1-\frac{\ii z}{2}+O(z^2)\right).
+    \]
+    因而 \(\operatorname{res}(f,2k\pi)=1/2\)。
 
-- \(z=2k\pi\)，将 \(f(z)\) 在 \(z=0\) 处展开为洛朗级数
-\[
-f(z)=\frac1{(1-\ee^{\ii z})\sin z}=\frac1{(-\ii z-(\ii z)^2/2+\dots)(z+\dots)}=\frac{\ii}{z^2}\cdot\frac1{1+\ii z/2+\dots}=\frac{\ii}{z^2}\Bigl(1-\frac{\ii z}{2}+\dots\Bigr)
-\]
-因此有 \(\operatorname{res}f(0)=\dfrac12\). 由函数的周期性，可知 \(\operatorname{res}f(2k\pi)=\dfrac12\).
-
-- \(z=(2k+1)\pi\)，有
-\[
-\lim_{z\to\pi}(z-\pi)f(z)=\lim_{z\to\pi}\frac{z-\pi}{\sin z}\cdot\frac1{1-\ee^{\ii z}}=-\frac12
-\]
-因此有 \(\operatorname{res}f(\pi)=-\dfrac12\). 由函数的周期性，可知 \(\operatorname{res}f((2k+1)\pi)=-\dfrac12\).
+    \item 当 \(z=(2k+1)\pi\) 时，
+    \[
+    \operatorname{res}(f,(2k+1)\pi)
+    =\lim_{z\to\pi}\frac{z-\pi}{\sin z}\frac1{1-\ee^{\ii z}}
+    =-\frac12.
+    \]
+  \end{enumerate}
 
 综上所述，可以得到 \(\operatorname{res}f(k\pi)=\dfrac{(-1)^k}{2}\).
 
-(6) 函数的孤立奇点为 \(z=0,\ \infty\)，有 \(f(z)\) 在 \(z=0\) 处的洛朗展开为
+  \item 函数的孤立奇点为 \(z=0,\ \infty\)，有 \(f(z)\) 在 \(z=0\) 处的洛朗展开为
 \[
 f(z)=\sum_{n=0}^\infty\frac1{n!}\Bigl(\frac12\Bigl(z-\frac1z\Bigr)\Bigr)^n=\sum_{n=0}^\infty\frac1{2^n n!}\sum_{m=0}^n\binom{n}{m}z^m\Bigl(-\frac1z\Bigr)^{n-m}=\sum_{n=0}^\infty\sum_{m=0}^n\frac{1}{2^n n!}\binom{n}{m}(-1)^{n-m}z^{2m-n}
 \]
-因此 \(z^{-1}\) 项的系数要求 \(m=(n+1)/2\)，故 \(n\) 为奇数。设 \(n=2k+1,\ m=k+1\)，有
+因此 \(z^{-1}\) 项的系数要求 \(2m-n=-1\)，即 \(m=(n-1)/2\)，故 \(n\) 为奇数。设 \(n=2k+1,\ m=k\)，有
 \[
-\operatorname{res}f(0)=\sum_{k=0}^\infty\frac{1}{2^{2k+1}(2k+1)!}\binom{2k+1}{k+1}(-1)^k=\sum_{k=0}^\infty\frac{(-)^k}{2^{2k+1}k!(k+1)!}
+\operatorname{res}f(0)
+=\sum_{k=0}^\infty
+\frac{(-1)^{k+1}}{2^{2k+1}k!(k+1)!}
+=-\J_1(1).
 \]
-因此有 \(\operatorname{res}f(\infty)=-\operatorname{res}f(0)=-\displaystyle\sum_{k=0}^\infty\frac{(-)^k}{2^{2k+1}k!(k+1)!}\).
+因此
+\[
+\operatorname{res}(f,\infty)
+=-\operatorname{res}(f,0)
+=\J_1(1).
+\]
 
-\vspace{0.5em}
-\textcolor{gray}{
-  当然，这个求和可以表示为贝塞尔函数，有 \(\operatorname{res}f(0)=\J_1(1),\ \operatorname{res}f(\infty)=-\J_1(1)\)。
-}
-
-(7) 函数的孤立奇点为 \(z=\pm1\)，有 \(z=\pm1\) 为函数的一阶极点。因此可以得到
+  \item 函数的孤立奇点为 \(z=\pm1\)，有 \(z=\pm1\) 为函数的一阶极点。因此可以得到
 \[
 \begin{aligned}
 \operatorname{res}f(1)&=\lim_{z\to1}\frac{(z-1)z^{\ii}}{z^2-1}=\lim_{z\to1}\frac{z^{\ii}}{z+1}=\frac{1^{\ii}}{2}=\frac12\ee^{-2k\pi}\\
@@ -115,30 +273,69 @@ f(z)=\sum_{n=0}^\infty\frac1{n!}\Bigl(\frac12\Bigl(z-\frac1z\Bigr)\Bigr)^n=\sum_
 \]
 其中 \(k\in\mathbb{Z}\) 取决于分支的选取。
 
-(8) 函数的孤立奇点为 \(z=1\)，有 \(z=1\) 为函数的一阶极点，因此可以得到
-\[
-\operatorname{res}f(1)=\lim_{z\to1}(z-1)\frac{\ln z}{z-1}=\ln1=\ii\cdot2k\pi
-\]
-其中 \(k\in\mathbb{Z}\) 取决于分支的选取。
+  \item \(z=0\) 和 \(z=\infty\) 是对数函数的分支点，不是孤立奇点。
+  在 \(z=1\) 的邻域选取解析分支
+  \(\log z=\ln z+2k\pi\ii\)，其中 \(\ln1=0\)：
+  \begin{enumerate}
+    \item 若 \(k=0\)，则 \(z=1\) 是可去奇点，补定义后的函数值为 \(1\)，
+    留数为 \(0\)；
+    \item 若 \(k\ne0\)，则 \(z=1\) 是一阶极点，且
+    \[
+    \operatorname{res}(f,1)=2k\pi\ii.
+    \]
+  \end{enumerate}
 
-(9) 函数的孤立奇点为 \(z=(k+\frac12)^2\pi^2,\ k\in\mathbb{N}\)，其为函数的一阶极点，因此可以得到
+  \item 函数的孤立奇点为 \(z=(k+\frac12)^2\pi^2,\ k\in\mathbb{N}\)，其为函数的一阶极点，因此可以得到
 \[
-\lim_{z\to(k+1/2)^2\pi^2}\frac{z-(k+1/2)^2\pi^2}{\cos\sqrt{z}}=\Bigl[\Bigl.\frac{d(\cos\sqrt{z})}{dz}\Bigr|_{z=(k+1/2)^2\pi^2}\Bigr]^{-1}
+\lim_{z\to(k+1/2)^2\pi^2}
+\frac{z-(k+1/2)^2\pi^2}{\cos\sqrt{z}}
+=
+\left[
+\left.\dv{}{z}\cos\sqrt z\right|_{z=(k+1/2)^2\pi^2}
+\right]^{-1}.
 \]
 有 \(\dfrac{d(\cos\sqrt{z})}{dz}=-\sin\sqrt{z}\cdot\dfrac1{2\sqrt{z}}\)，因此有
 \[
-\operatorname{res}f\bigl((k+\tfrac12)^2\pi^2\bigr)=-\frac{2(k+\frac12)\pi}{\sin((k+\frac12)\pi)}=(-1)^{k+1}\cdot(2k+1)\pi
+\begin{aligned}
+\operatorname{res}\left(f,(k+\tfrac12)^2\pi^2\right)
+&=-\frac{2(k+\frac12)\pi}{\sin((k+\frac12)\pi)}\\
+&=(-1)^{k+1}(2k+1)\pi.
+\end{aligned}
 \]
 
-(10) 函数的孤立奇点为 \(z=\infty\)，其为函数的一阶极点，有令 \(t=1/z\)，有
+  \item 函数的孤立奇点为 \(z=\infty\)，其为函数的一阶极点，有令 \(t=1/z\)，有
 \[
-f(1/t)=\sqrt{\Bigl(\frac1t+a\Bigr)\Bigl(b-\frac1t\Bigr)}=\frac1t\sqrt{(1+at)(bt-1)}= \frac1t\sqrt{-1+(b-a)t+abt^2}=\frac{\sqrt{-1}}{t}\Bigl(1+\frac{a-b}{2}t-\frac{ab}{2}t^2-\frac18(a-b)^2t^2\Bigr)
+\begin{aligned}
+f(1/t)
+&=\sqrt{\left(\frac1t+a\right)\left(b-\frac1t\right)}\\
+&=\frac1t\sqrt{-1+(b-a)t+abt^2}\\
+&=\frac{\sqrt{-1}}{t}
+\left[1+\frac{a-b}{2}t
+-\left(\frac{ab}{2}+\frac{(a-b)^2}{8}\right)t^2+O(t^3)\right].
+\end{aligned}
 \]
-因此有 \(\operatorname{res}f(\infty)=\sqrt{-1}\Bigl[-\dfrac{ab}{2}-\dfrac18(a-b)^2\Bigr]=\pm\dfrac{\ii}{8}(a+b)^2\)，其正负取决于分支的选取。
-
-(11) \(\Beta(z,z)=\dfrac{\Gamma(z)^2}{\Gamma(2z)}\)，因此函数的孤立奇点为 \(z=-n,\ n\in\mathbb{N}\)，且其为函数的一阶极点。有
+记 \(c=\sqrt{-1}=\pm\ii\)。由上式可读出
 \[
-\Beta(z,z)=\frac{\Gamma(z)^2}{2^{2z-1}\pi^{-1/2}\Gamma(z)\Gamma(z+1/2)}=\Gamma(z)\cdot\frac{\pi^{1/2}}{2^{2z-1}\Gamma(z+1/2)}
+f(z)=cz+\frac{c(a-b)}2-\frac{c(a+b)^2}{8z}
++O(z^{-2}).
+\]
+无穷远点留数是 \(z^{-1}\) 项系数的相反数，故
+\[
+\operatorname{res}(f,\infty)
+=\frac{c(a+b)^2}{8}
+=\pm\frac{\ii}{8}(a+b)^2,
+\]
+正负取决于所选分支。
+
+  \item \(\Beta(z,z)=\dfrac{\Gamma(z)^2}{\Gamma(2z)}\)，因此函数的孤立奇点为 \(z=-n,\ n\in\mathbb{N}\)，且其为函数的一阶极点。有
+\[
+\begin{aligned}
+\Beta(z,z)
+&=\frac{\Gamma(z)^2}
+{2^{2z-1}\pi^{-1/2}\Gamma(z)\Gamma(z+1/2)}\\
+&=\Gamma(z)\frac{\sqrt{\pi}}
+{2^{2z-1}\Gamma(z+1/2)}.
+\end{aligned}
 \]
 利用余元公式可以得到，
 \[
@@ -148,63 +345,110 @@ f(1/t)=\sqrt{\Bigl(\frac1t+a\Bigr)\Bigl(b-\frac1t\Bigr)}=\frac1t\sqrt{(1+at)(bt-
 \[
 \operatorname{res}f(-n)=\frac{\pi^{1/2}(-1)^n}{2^{-2n-1}\Gamma(1/2-n)\,n!}
 \]
+\end{enumerate}
 \end{solution}
 \end{question}
 
 \begin{question}
 计算下列积分：（其中 \(n\in\mathbb{N}\)）
 
-(1) \(\displaystyle\oint_{|z|=1}\exp\!\Bigl(\frac{z+1}{z}\Bigr)\dd{z};\)
+\begin{enumerate}
+  \item \(\displaystyle\oint_{|z|=1}\exp\!\Bigl(\frac{z+1}{z}\Bigr)\dd{z};\)
 
-(2) \(\displaystyle\oint_{|z|=n+1/2}\frac{\Gamma(z)\Gamma(1-z)}{z^2}\dd{z};\)
+  \item \(\displaystyle\oint_{|z|=n+1/2}\frac{\Gamma(z)\Gamma(1-z)}{z^2}\dd{z};\)
 
-(3) \(\displaystyle\int_0^{\pi/2}\frac{1}{(1+\cos^2\theta)^2}\dd{}\theta;\)
+  \item \(\displaystyle\int_0^{\pi/2}\frac{1}{(1+\cos^2\theta)^2}\dd{}\theta;\)
 
-(4) \(\displaystyle\int_0^\infty\frac{x^6}{(x^4+a^4)^2}\dd{x},\quad (a>0);\)
+  \item \(\displaystyle\int_0^\infty\frac{x^6}{(x^4+a^4)^2}\dd{x},\quad (a>0);\)
 
-(5) \(\displaystyle\int_0^\infty\frac{1}{(1+x^2)\cosh(\pi x)/2}\dd{x};\)
+  \item \(\displaystyle\int_0^\infty\frac{1}{(1+x^2)\cosh(\pi x)/2}\dd{x};\)
 
-(6) \(\displaystyle\int_{-\infty}^\infty\frac{x^3\dd{x}}{(1+x^2)(x^2-2x\cos\theta+1)},\quad (\sin\theta\neq0).\)
+  \item
+  \[
+  \int_{-\infty}^\infty
+  \frac{x^3\dd{x}}{(1+x^2)(x^2-2x\cos\theta+1)},
+  \qquad \sin\theta\ne0.
+  \]
 
+\end{enumerate}
 \begin{solution}
-(1) 设 \(f(z)=\exp\!\bigl(\frac{z+1}{z}\bigr)\)，有 \(f(z)\) 在 \(z=0\) 处为本性奇点。有
+\begin{enumerate}
+  \item 设 \(f(z)=\exp\!\bigl(\frac{z+1}{z}\bigr)\)，有 \(f(z)\) 在 \(z=0\) 处为本性奇点。有
 \[
 f(z)=\exp\!\Bigl(1+\frac1z\Bigr)=\ee\cdot\exp\!\Bigl(\frac1z\Bigr)=\ee\sum_{n=0}^\infty\frac{z^{-n}}{n!}
 \]
 因此 \(\operatorname{res}f(0)=\ee\)，故 \(\displaystyle\oint_{|z|=1}f(z)\dd{z}=2\pi\ii\cdot\ee\).
 
-(2) 设 \(f(z)=\Gamma(z)\Gamma(1-z)/z^2=\pi/(z^2\sin\pi z)\). 因此函数在 \(z=k,\ k\in\mathbb{Z}\) 处为极点。
-
-- \(z=0\) 为 \(f(z)\) 的三阶极点，有
-\[
-\operatorname{res}f(0)=\frac1{2!}\Bigl.\dv{^2}{z^2}\bigl(z^3f(z)\bigr)\Bigr|_{z=0}=\frac1{2!}\Bigl.\dv{^2}{z^2}\Bigl(\frac{\pi z}{\sin\pi z}\Bigr)\Bigr|_{z=0}=\frac{\pi^2}{6}
-\]
-- \(z=n\neq0\) 为 \(f(z)\) 的一阶极点，有
-\[
-\operatorname{res}f(n)=\lim_{z\to n}\frac{(z-n)\pi}{z^2\sin\pi z}=\frac{(-)^n}{n^2}
-\]
+  \item 设
+  \[
+  f(z)=\frac{\Gamma(z)\Gamma(1-z)}{z^2}
+  =\frac{\pi}{z^2\sin(\pi z)}.
+  \]
+  函数在整数点处有极点。
+  \begin{enumerate}
+    \item \(z=0\) 是三阶极点，且
+    \[
+    \operatorname{res}(f,0)
+    =\frac1{2!}\left.\dv[2]{}{z}
+    \left(\frac{\pi z}{\sin(\pi z)}\right)\right|_{z=0}
+    =\frac{\pi^2}{6}.
+    \]
+    \item 非零整数 \(m\) 是一阶极点，且
+    \[
+    \operatorname{res}(f,m)
+    =\lim_{z\to m}\frac{(z-m)\pi}{z^2\sin(\pi z)}
+    =\frac{(-1)^m}{m^2}.
+    \]
+  \end{enumerate}
 因此有
 \[
-\oint_{|z|=n+1/2}f(z)\dd{z}=2\pi\ii\sum_{k=-n}^{n}\operatorname{res}f(k)=2\pi\ii\Bigl(\frac{\pi^2}{6}+2\sum_{k=1}^{n}\frac{(-)^k}{k^2}\Bigr)
+\begin{aligned}
+\oint_{|z|=n+1/2}f(z)\dd{z}
+&=2\pi\ii\sum_{k=-n}^{n}\operatorname{res}(f,k)\\
+&=2\pi\ii\left(\frac{\pi^2}{6}
++2\sum_{k=1}^{n}\frac{(-1)^k}{k^2}\right).
+\end{aligned}
 \]
 
-(3) \(1+\cos^2\theta=\dfrac{3+\cos2\theta}{2}\)，因此不妨令 \(u=2\theta\)，有
+  \item \(1+\cos^2\theta=\dfrac{3+\cos2\theta}{2}\)，因此不妨令 \(u=2\theta\)，有
 \[
 I=\int_0^{\pi}\frac{2\dd{u}}{(3+\cos u)^2}=\int_{-\pi}^{\pi}\frac{du}{(3+\cos u)^2}
 \]
 令 \(\cos u=\dfrac{z^2+1}{2z}\)，有
 \[
-I=\oint_{|z|=1}\frac{dz/(\ii z)}{(3+(z^2+1)/(2z))^2}=\oint_{|z|=1}\frac{-4\ii z\dd{z}}{(z^2+6z+1)^2}=\oint_{|z|=1}\frac{-4\ii z\dd{z}}{(z+3-2\sqrt2)^2(z+3+2\sqrt2)^2}
+\begin{aligned}
+I
+&=\oint_{|z|=1}\frac{\dd{z}/(\ii z)}
+{\left(3+(z^2+1)/(2z)\right)^2}\\
+&=\oint_{|z|=1}\frac{-4\ii z\dd{z}}{(z^2+6z+1)^2}\\
+&=\oint_{|z|=1}
+\frac{-4\ii z\dd{z}}
+{(z+3-2\sqrt2)^2(z+3+2\sqrt2)^2}.
+\end{aligned}
 \]
 设 \(f(z)=\dfrac{-4\ii z}{(z^2+6z+1)^2}\)，有 \(z=-3+2\sqrt2\) 为函数的二阶极点，因此有
 \[
-\operatorname{res}f(-3+2\sqrt2)=\Bigl.\dv{}{z}\Bigl[\frac{-4\ii z}{(z+3+2\sqrt2)^2}\Bigr]\Bigr|_{z=-3+2\sqrt2}=-\frac{4\ii}{(4\sqrt2)^2}+\frac{8\ii(-3+2\sqrt2)}{(4\sqrt2)^3}=-\frac{3}{16\sqrt2}\ii
+\begin{aligned}
+\operatorname{res}(f,-3+2\sqrt2)
+&=\left.\dv{}{z}\left[\frac{-4\ii z}{(z+3+2\sqrt2)^2}\right]
+\right|_{z=-3+2\sqrt2}\\
+&=-\frac{4\ii}{(4\sqrt2)^2}
++\frac{8\ii(-3+2\sqrt2)}{(4\sqrt2)^3}
+=-\frac{3\ii}{16\sqrt2}.
+\end{aligned}
 \]
 因此 \(I=2\pi\ii\operatorname{res}f(-3+2\sqrt2)=\dfrac{3}{8\sqrt2}\pi\).
 
-(4) 考察如下图所示的 1/4 圆围道 \(C\)，有
+  \item 考察如下图所示的 1/4 圆围道 \(C\)，有
 \[
-\oint_{C}\frac{z^6}{(z^4+a^4)^2}\dd{z}=\int_0^R\frac{x^6}{(x^4+a^4)^2}\dd{x}+\int_R^0\frac{(\ii x)^6}{(x^4+a^4)^2}\ii\dd{x}+\int_{C_R}\frac{z^6}{(z^4+a^4)^2}\dd{z}=(1+\ii)\int_0^R\frac{x^6}{(x^4+a^4)^2}\dd{x}+\int_{C_R}\frac{z^6}{(z^4+a^4)^2}\dd{z}
+\begin{aligned}
+\oint_C\frac{z^6}{(z^4+a^4)^2}\dd{z}
+&=\int_0^R\frac{x^6}{(x^4+a^4)^2}\dd{x}
++\int_R^0\frac{(\ii x)^6}{(x^4+a^4)^2}\ii\dd{x}\\
+&\quad+\int_{C_R}\frac{z^6}{(z^4+a^4)^2}\dd{z}\\
+&=(1+\ii)\int_0^R\frac{x^6}{(x^4+a^4)^2}\dd{x}
++\int_{C_R}\frac{z^6}{(z^4+a^4)^2}\dd{z}.
+\end{aligned}
 \]
 
 \begin{center}
@@ -221,7 +465,13 @@ I=\oint_{|z|=1}\frac{dz/(\ii z)}{(3+(z^2+1)/(2z))^2}=\oint_{|z|=1}\frac{-4\ii z\
 
 函数在 \(z=\dfrac{1+\ii}{\sqrt2}a\) 为二阶极点，有设 \(z=\dfrac{1+\ii}{\sqrt2}a+h\)，有
 \[
-\frac{z^6}{(z^4+a^4)^2}=\frac{-\ii a^6-6\cdot\frac{1+\ii}{\sqrt2}a^5h+\dots}{(4\cdot\frac{-1+\ii}{\sqrt2}a^3h+6\cdot\ii a^2h^2+\dots)^2}=\frac{-\ii a^6(1+6\cdot\frac{1-\ii}{\sqrt2}h/a+\dots)}{-16\ii a^6h^2(1+\frac32\cdot\frac{1-\ii}{\sqrt2}h/a+\dots)^2}=\frac{1}{16h^2}\Bigl(1+3\cdot\frac{1-\ii}{\sqrt2}\frac{h}{a}\Bigr)
+\begin{aligned}
+\frac{z^6}{(z^4+a^4)^2}
+&=\frac{-\ii a^6-6(1+\ii)a^5h/\sqrt2+O(h^2)}
+{\left(4(-1+\ii)a^3h/\sqrt2+6\ii a^2h^2+O(h^3)\right)^2}\\
+&=\frac1{16h^2}
+\left(1+\frac{3(1-\ii)}{\sqrt2}\frac{h}{a}+O(h^2)\right).
+\end{aligned}
 \]
 因此有 \(\operatorname{res}f\!\Bigl(\dfrac{1+\ii}{\sqrt2}a\Bigr)=\dfrac{3(1-\ii)}{16\sqrt2}\dfrac1a\).
 
@@ -230,38 +480,60 @@ I=\oint_{|z|=1}\frac{dz/(\ii z)}{(3+(z^2+1)/(2z))^2}=\oint_{|z|=1}\frac{-4\ii z\
 \int_0^\infty\frac{x^6}{(x^4+a^4)^2}\dd{x}=\frac1{1+\ii}\cdot\frac{2\pi\ii}{a}\cdot\frac{3(1-\ii)}{16\sqrt2}=\frac{3\pi}{8\sqrt2\,a}
 \]
 
-(5) 设 \(f(z)=\dfrac{1}{(1+z^2)\cosh(\pi z/2)}\)，函数的奇点为 \(z=(2k+1)\ii,\ k\in\mathbb{Z}\)，有 \(z=\ii\) 为 \(f(z)\) 的二阶极点，\(z=3\ii,5\ii,\dots\) 为 \(f(z)\) 的一阶极点。
-
-- \(z=\ii\)，令 \(z=\ii+h\)，有
-\[
-f(z)=\frac1{h(2\ii+h)\ii\sinh(\pi h/2)}=-\frac1{\pi h^2(1-\ii h/2)(1+(\pi h)^2/6+\dots)}=-\frac1{\pi h^2}\Bigl(1+\frac{\ii h}{2}+\dots\Bigr)
-\]
-因此 \(\operatorname{res}f(\ii)=-\dfrac{\ii}{2\pi}\).
-
-- \(z=(2k+1)\ii,\ k\ge1\)，有
-\[
-\operatorname{res}f((2k+1)\ii)=\lim_{z\to(2k+1)\ii}\frac{z-(2k+1)\ii}{\cosh(\pi z/2)(1+z^2)}=\frac1{-2k(2k+2)}\cdot\frac1{\frac{\pi}{2}\ii(-1)^k}=\frac{\ii}{2\pi k(k+1)(-1)^k}
-\]
+  \item 设
+  \[
+  f(z)=\frac{1}{(1+z^2)\cosh(\pi z/2)}.
+  \]
+  上半平面的极点为 \(z=(2k+1)\ii\)。
+  \begin{enumerate}
+    \item 在 \(z=\ii\) 处令 \(z=\ii+h\)，则
+    \[
+    f(z)=-\frac1{\pi h^2}\left(1+\frac{\ii h}{2}+O(h^2)\right),
+    \]
+    因而 \(\operatorname{res}(f,\ii)=-\ii/(2\pi)\)。
+    \item 当 \(k\ge1\) 时，
+    \[
+    \operatorname{res}\bigl(f,(2k+1)\ii\bigr)
+    =\frac{\ii}{2\pi k(k+1)(-1)^k}.
+    \]
+  \end{enumerate}
 
 因此有考察上半圆围道
 \[
-\oint_C f(z)\dd{z}=\lim_{R\to+\infty}\Bigl[\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}\Bigr]=1+\sum_{k=1}^{\infty}\frac{(-)^{k+1}}{k(k+1)}
+\oint_C f(z)\dd{z}=\lim_{R\to+\infty}\Bigl[\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}\Bigr]=1+\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k(k+1)}
 \]
 又有 \(\displaystyle\lim_{z\to\infty}zf(z)=0\)，因此 \(\displaystyle\lim_{R\to+\infty}\int_{C_R}f(z)\dd{z}=0\)，因此
 \[
-I=\frac12\int_{-\infty}^{\infty}f(x)\dd{x}=\frac12+\frac12\sum_{k=1}^{\infty}\frac{(-)^{k+1}}{k(k+1)}
+I=\frac12\int_{-\infty}^{\infty}f(x)\dd{x}=\frac12+\frac12\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k(k+1)}
 \]
 显然，这个级数绝对收敛，因此
 \[
-\sum_{k=1}^{\infty}(-)^{k+1}\Bigl(\frac1{k+1}-\frac1k\Bigr)=\sum_{k=1}^{\infty}\frac{(-)^{k+1}}{k+1}+\sum_{k=1}^{\infty}\frac{(-1)^k}{k}=2\ln2-1
+\sum_{k=1}^{\infty}(-1)^{k+1}\Bigl(\frac1k-\frac1{k+1}\Bigr)=2\ln2-1
 \]
 故 \(I=\ln2\).
 
-(6) 令 \(f(z)=\dfrac{x^3}{(1+x^2)(x^2-2x\cos\theta+1)}\)，函数的奇点为 \(z=\pm\ii,\ \ee^{\pm\ii\theta}\)，即有 \(f(z)=\dfrac{x^3}{(x+\ii)(x-\ii)(x-\ee^{\ii\theta})(x-\ee^{-\ii\theta})}\). 考察上半圆围道，有
-\[
-\begin{aligned}
-\oint_C f(z)\dd{z}&=\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}=2\pi\ii\bigl[\operatorname{res}f(\ii)+\operatorname{res}f(\ee^{\ii|\theta|})\bigr]\\
-&=2\pi\ii\Bigl(\frac{-\ii}{2\ii(-2\ii\cos\theta)}+\frac{\ee^{3\ii|\theta|}}{(1+\ee^{2\ii|\theta|})(\ee^{\ii|\theta|}-\ee^{-\ii|\theta|})}\Bigr)\\
-&=2\pi\ii\Bigl(-\frac{\ii}{4\cos\theta}-\frac{\ii\ee^{2\ii|\theta|}}{4\sin|\th
-\end{question}
-\end{solution}
+  \item 被积函数在无穷远处满足
+  \[
+  \frac{x^3}{(1+x^2)(x^2-2x\cos\theta+1)}
+  =\frac1x+O\left(\frac1{x^2}\right).
+  \]
+  因此两端分别取极限的通常广义积分发散。若题意是求柯西主值，则令
+  \(c=\cos\theta\)。当 \(c\ne0\) 时作部分分式分解：
+  \[
+  \frac{x^3}{(1+x^2)(x^2-2cx+1)}
+  =\frac{1}{2c(x^2+1)}
+  +\frac{x-\frac1{2c}}{x^2-2cx+1}.
+  \]
+  对称取极限后得到
+  \[
+  \operatorname{v.p.}\int_{-\infty}^{\infty}
+  \frac{x^3\dd{x}}{(1+x^2)(x^2-2x\cos\theta+1)}
+  =
+  \frac{\pi}{2\cos\theta}
+  +\frac{\pi(2\cos^2\theta-1)}
+  {2\cos\theta\,|\sin\theta|}.
+  \]
+  当 \(\cos\theta=0\) 时，被积函数为奇函数，主值为 \(0\)，也等于上式的连续极限。
+\end{enumerate}
+	\end{solution}
+	\end{question}

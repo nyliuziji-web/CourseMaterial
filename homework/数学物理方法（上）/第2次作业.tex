@@ -1,5 +1,3 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第2次作业}
 
 \begin{question}
@@ -115,28 +113,59 @@ f(z)&=\frac12 k (x^2 - y^2) + C_1 x - C_2 y + C_4 + \ii (k x y +C_1 y + C_2 x + 
 
 \begin{question}
 判断哪些是多值函数，哪些是函数：
-\begin{center}
-\begin{tabular}{lll}
-(1) \(\sqrt{z^2 - 1}\)； &
-(2) \(z + \sqrt{z - 1}\)； &
-(3) \(\sin \sqrt{z}\)； \\
-(4) \(\cos \sqrt{z}\)； &
-(5) \(\displaystyle \frac{\sin \sqrt{z}}{\sqrt{z}}\)； &
-(6) \(\displaystyle \frac{\cos \sqrt{z}}{\sqrt{z}}\)。
-\end{tabular}
-\end{center}
+\begin{enumerate}
+  \item \(\sqrt{z^2 - 1}\)；
+  \item \(z + \sqrt{z - 1}\)；
+  \item \(\sin \sqrt{z}\)；
+  \item \(\cos \sqrt{z}\)；
+  \item \(\displaystyle \frac{\sin \sqrt{z}}{\sqrt{z}}\)；
+  \item \(\displaystyle \frac{\cos \sqrt{z}}{\sqrt{z}}\)。
+\end{enumerate}
 \begin{solution}
-上述表达式中 (1)(2)(3)(6) 为多值函数，(4)(5) 为函数。
+\begin{enumerate}
+  \item \(\sqrt{z^2-1}\) 有两个值，是多值函数。
+  \item \(z+\sqrt{z-1}\) 随根式取值而改变，是多值函数。
+  \item \(\sin\sqrt z\) 在 \(\sqrt z\mapsto-\sqrt z\) 时变号，是多值函数。
+  \item \(\cos\sqrt z\) 关于 \(\sqrt z\) 为偶函数，可展开为
+  \[
+  \cos\sqrt z=\sum_{n=0}^{\infty}\frac{(-1)^n z^n}{(2n)!},
+  \]
+  因而是单值函数。
+  \item \(\sin\sqrt z/\sqrt z\) 关于 \(\sqrt z\) 为偶函数，可展开为
+  \[
+  \frac{\sin\sqrt z}{\sqrt z}
+  =\sum_{n=0}^{\infty}\frac{(-1)^n z^n}{(2n+1)!},
+  \]
+  因而是单值函数。
+  \item \(\cos\sqrt z/\sqrt z\) 在 \(\sqrt z\mapsto-\sqrt z\) 时变号，
+  是多值函数。
+\end{enumerate}
 \end{solution}
 \end{question}
 
 \begin{question}
-\(n\) 为任意给定的整数，由 \( \ee^{1+2n \pi \ii} = \ee \) 等量替换，有 \( (\ee^{1+2n \pi \ii})^{1+2n \pi \ii} = \ee \)
-又 \( \ee^{(1+2n \pi \ii)(1+2n \pi \ii)} = \ee^{(1+2n \pi \ii)^2}=\ee^{1+4n \pi \ii - 4n^2 \pi^2}=\ee \cdot \ee^{4n \pi \ii} \cdot \ee^{-4n^2 \pi^2}=\ee \cdot \ee^{-4n^2 \pi^2} \)
-比较(2)式和(3)式，得 \( \ee^{-4n^2 \pi^2}=1, \quad n=0, \pm 1, \pm 2, \dots \)
+\(n\) 为任意整数。由 \(\ee^{1+2n\pi\ii}=\ee\)，有人作如下推导：
+\[
+\bigl(\ee^{1+2n\pi\ii}\bigr)^{1+2n\pi\ii}=\ee,
+\]
+另一方面又写成
+\[
+\begin{aligned}
+\ee^{(1+2n\pi\ii)(1+2n\pi\ii)}
+&=\ee^{(1+2n\pi\ii)^2}\\
+&=\ee^{1+4n\pi\ii-4n^2\pi^2}
+=\ee\,\ee^{-4n^2\pi^2}.
+\end{aligned}
+\]
+比较两式似乎得到 \(\ee^{-4n^2\pi^2}=1\)。
 以上推导，哪里出问题了？请分析如何修正才能得到一致的结果。
 \begin{solution}
-在上述的推导过程中，一般而言有 \( (\ee^{1+2n \pi \ii})^{1+2n \pi \ii} \neq \ee^{(1+2n \pi \ii)(1+2n \pi \ii)} \)
+问题在于复幂一般不满足 \((\ee^u)^v=\ee^{uv}\)。具体地，
+\[
+\bigl(\ee^{1+2n\pi\ii}\bigr)^{1+2n\pi\ii}
+\ne \ee^{(1+2n\pi\ii)^2}
+\]
+（除非事先固定的对数分支恰好使两边一致）。
 为了处理更加普遍的情形，在复数域下，指数定义为 \(z^\alpha := \ee^{\alpha \ln z}\)，因此有 \[
 (z^{\alpha})^\beta = \ee^{\beta \ln z^\alpha} = \ee^{\beta \ln (\ee^{\alpha \ln z})}
 \]
@@ -145,8 +174,12 @@ f(z)&=\frac12 k (x^2 - y^2) + C_1 x - C_2 y + C_4 + \ii (k x y +C_1 y + C_2 x + 
 现在，我们选定 \(\ln z\) 中 \(0 \le \arg z < 2\pi\) 的一支，代入 \(z=\ee\)，\(\alpha = 1+2n \pi \ii\)，可以得到 \[
 \ln(\ee^{\alpha \ln z}) =\ln (\ee^{(1+2n \pi \ii)(1)})=\ln (\ee^{1+0 \ii})=1
 \]
-所以有 \[
-(z^{\alpha})^{\beta}= \ee^{(1+2\pi n \ii)(1)} =1
+所以有
+\[
+(z^{\alpha})^{\beta}
+=\ee^{(1+2\pi n\ii)\cdot1}
+=\ee,
 \]
+这与直接利用 \(z^\alpha=\ee\) 后再取同一分支的复幂一致。
 \end{solution}
 \end{question}

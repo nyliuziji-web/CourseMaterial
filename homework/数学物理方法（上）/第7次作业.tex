@@ -1,5 +1,3 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第7次作业}
 
 \begin{question}
@@ -8,20 +6,22 @@
 \begin{solution}
 令 \(a_n = n z^n\)。
 
-1.  \textbf{收敛性}：考察序列的极限 \(\displaystyle\lim_{n\to\infty} a_n = \lim_{n\to\infty} n z^n\)。
-    \begin{itemize}
+\begin{enumerate}
+  \item \textbf{收敛性}：考察序列的极限 \(\displaystyle\lim_{n\to\infty} a_n = \lim_{n\to\infty} n z^n\)。
+    \begin{enumerate}
       \item 如果 \(|z| < 1\)，\(\displaystyle\lim_{n\to\infty} n|z|^n = 0\)。因此 \(\displaystyle\lim_{n\to\infty} n z^n = 0\)。序列收敛到 0。
       \item 如果 \(|z| \ge 1\)，\(\displaystyle\lim_{n\to\infty} |a_n| = \lim_{n\to\infty} n|z|^n = \infty\)。因此序列发散。
-    \end{itemize}
+    \end{enumerate}
     故序列收敛当且仅当 \(|z| < 1\)。
 
-2.  \textbf{绝对收敛性}：\lq\lq 绝对收敛\rq\rq\ 对序列而言，指其绝对值构成的序列 \(\{|a_n|\}\) 收敛。
+  \item \textbf{绝对收敛性}：\text{``}绝对收敛\text{''} 对序列而言，指其绝对值构成的序列 \(\{|a_n|\}\) 收敛。
     考察 \(\displaystyle\lim_{n\to\infty} |a_n| = \lim_{n\to\infty} n|z|^n\)。
-    \begin{itemize}
+    \begin{enumerate}
       \item 如果 \(|z| < 1\)，\(\displaystyle\lim_{n\to\infty} n|z|^n = 0\)。序列 \(\{|a_n|\}\) 收敛到 0。
       \item 如果 \(|z| \ge 1\)，\(\displaystyle\lim_{n\to\infty} n|z|^n = \infty\)。序列 \(\{|a_n|\}\) 发散。
-    \end{itemize}
+    \end{enumerate}
     故序列 \(\{|a_n|\}\) 收敛当且仅当 \(|z| < 1\)。
+\end{enumerate}
 \end{solution}
 \end{question}
 
@@ -83,12 +83,13 @@ S_N = \frac1{z(1-z)} \Bigl[ \frac1{1-z} - \frac1{1-z^{N+1}} \Bigr]
 
 现在我们求 \(N\to\infty\) 的极限：
 
-1.  当 \(|z| < 1\) 时，\(\displaystyle\lim_{N\to\infty} z^{N+1} = 0\)。
+\begin{enumerate}
+  \item 当 \(|z| < 1\) 时，\(\displaystyle\lim_{N\to\infty} z^{N+1} = 0\)。
     \[
     S = \lim_{N\to\infty} S_N = \frac1{z(1-z)} \Bigl[ \frac1{1-z} - \frac1{1-0} \Bigr] = \frac1{z(1-z)} \frac{1-(1-z)}{1-z} = \frac1{z(1-z)}\cdot\frac{z}{1-z} = \frac1{(1-z)^2}
     \]
 
-2.  当 \(|z| > 1\) 时，\(\displaystyle\lim_{N\to\infty} z^{N+1} = \infty\)，因此 \(\displaystyle\lim_{N\to\infty} \frac1{1-z^{N+1}} = 0\)。
+  \item 当 \(|z| > 1\) 时，\(\displaystyle\lim_{N\to\infty} z^{N+1} = \infty\)，因此 \(\displaystyle\lim_{N\to\infty} \frac1{1-z^{N+1}} = 0\)。
     \[
     S = \lim_{N\to\infty} S_N = \frac1{z(1-z)} \Bigl[ \frac1{1-z} - 0 \Bigr] = \frac1{z(1-z)^2}
     \]
@@ -101,6 +102,7 @@ S(z) = \begin{cases}
 \dfrac1{z(1-z)^2}, & |z| > 1
 \end{cases}
 \]
+\end{enumerate}
 \end{solution}
 \end{question}
 
@@ -159,10 +161,9 @@ S(z) = \begin{cases}
 
     图像如下图所示。
 
-    \begin{figure}
-    \centering
-    \includegraphics[width=0.4\linewidth]{figures/7-4.png}
-    \end{figure}
+    \begin{center}
+    \includegraphics[width=0.4\linewidth]{figures/第7次作业-fig01.png}
+    \end{center}
   \item
     令 \(a_n(z) = 2^n \sin(z/3^n)\)。
 
@@ -184,7 +185,7 @@ S(z) = \begin{cases}
   \item
     令 \(a_n(z) = \dfrac{z^n}{1+z^{2n}}\)。
 
-    \begin{itemize}
+    \begin{enumerate}
       \item 当 \(|z| < 1\) 时：
         \[
         |a_n(z)| = \frac{|z|^n}{|1+z^{2n}|}
@@ -208,7 +209,7 @@ S(z) = \begin{cases}
         a_n(z) = \frac{z^n}{1+z^{2n}},\quad |a_n(z)| = \frac1{|1+z^{2n}|} \ge \frac1{1+|z|^{2n}} = \frac12
         \]
         故级数在 \(|z|=1\) 上发散。
-    \end{itemize}
+    \end{enumerate}
 
     收敛域为：\(|z| < 1\) 或 \(|z| > 1\)，即 \(\mathbb{C}\setminus\{z: |z|=1\}\)。
 \end{enumerate}
@@ -282,14 +283,14 @@ S(z) = \begin{cases}
     R = \lim_{n\to\infty} 1\cdot (n+1) = \infty
     \]
     \(R = \infty\)。
-  \item\(c_n = \Bigl(1-\dfrac1n\Bigr)^{n^2}\)。
+  \item 令 \(c_n=\Bigl(1-\dfrac1n\Bigr)^n\)。由 Cauchy--Hadamard 公式，
     \[
-    \frac1R = \varlimsup_{n\to\infty} |c_n|^{1/n} = \varlimsup_{n\to\infty} \Bigl[\Bigl(1-\frac1n\Bigr)^{n^2}\Bigr]^{1/n} = \varlimsup_{n\to\infty} \Bigl(1-\frac1n\Bigr)^{n}
+    \frac1R
+    =\varlimsup_{n\to\infty}|c_n|^{1/n}
+    =\lim_{n\to\infty}\left(1-\frac1n\right)
+    =1.
     \]
-    \[
-    \frac1R = \varlimsup_{n\to\infty} \Bigl(1-\frac1n\Bigr) = 1
-    \]
-    \(\displaystyle 1/R = 1 \Rightarrow R = 1\)。
+    因而 \(R=1\)。
 \end{enumerate}
 \end{solution}
 \end{question}

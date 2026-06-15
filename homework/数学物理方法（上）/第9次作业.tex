@@ -1,31 +1,32 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第9次作业}
 
 \begin{question}
 求下列函数的Laurent展开：
 
-1. \(\displaystyle\frac{1}{z^2(z-1)}\)，在 \(z=1\) 附近展开；
+\begin{enumerate}
+  \item \(\displaystyle\frac{1}{z^2(z-1)}\)，在 \(z=1\) 附近展开；
 
-2. \(\displaystyle\frac{1}{z^2(z-1)}\)，展开区域 \(1<|z|<\infty\)；
+  \item \(\displaystyle\frac{1}{z^2(z-1)}\)，展开区域 \(1<|z|<\infty\)；
 
-3. \(\displaystyle\frac{1}{1-\cos z}\)，在 \(z=2n\pi\) 附近展开（可只求出不为0的前四项系数）。
+  \item \(\displaystyle\frac{1}{1-\cos z}\)，在 \(z=2n\pi\) 附近展开（可只求出不为0的前四项系数）。
 
+\end{enumerate}
 \begin{solution}
-1. 令 \(u = z-1\)，有原式即为
+\begin{enumerate}
+  \item 令 \(u = z-1\)，有原式即为
 \[
 \frac{1}{u(u+1)^2} = \frac{1}{u} \sum_{n=0}^\infty \binom{-2}{n} u^n
 = \sum_{n=-1}^\infty \binom{-2}{n+1} (z-1)^n.
 \]
 
-2. 有原式即为
+  \item 有原式即为
 \[
 \frac{1}{z^2(z-1)} = \frac{1}{z^3} \frac{1}{1-1/z}
 = \frac{1}{z^3} \sum_{n=0}^\infty z^{-n}
 = \sum_{n=0}^\infty z^{-n-3}.
 \]
 
-3. 在 \(z=2n\pi\) 附近，有
+  \item 在 \(z=2n\pi\) 附近，有
 \[
 \cos z = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} (z-2n\pi)^{2n},
 \]
@@ -77,34 +78,38 @@ a_3 = 2\left(\dfrac{1}{5!\cdot 4!} - \dfrac{1}{6\cdot 6!} + \dfrac{2}{8!}\right)
 \frac{1}{1-\cos z}
 = 2(z-2n\pi)^{-2} + \frac{1}{6} + \frac{1}{5!}(z-2n\pi)^2 + \frac{40}{3\cdot 8!}(z-2n\pi)^4 + \cdots
 \]
+\end{enumerate}
 \end{solution}
 \end{question}
 
 \begin{question}
 判断下列函数孤立奇点的性质，如果是极点，确定其阶数：
 
-1. \(\displaystyle\frac{1}{z^2+a^2},\,a\neq 0,\,n\in\mathbb{Z}\)；
+\begin{enumerate}
+  \item \(\displaystyle\frac{1}{z^2+a^2},\,a\neq 0\)；
 
-2. \(\displaystyle\frac{\cos a z}{z^2}\)；
+  \item \(\displaystyle\frac{\cos a z}{z^2}\)；
 
-3. \(\displaystyle\frac{\cos a z - \cos b z}{z^2},\,a^2\neq b^2\)；
+  \item \(\displaystyle\frac{\cos a z - \cos b z}{z^2},\,a^2\neq b^2\)；
 
-4. \(\displaystyle\frac{\sin z}{z^2} - \frac{1}{z}\)；
+  \item \(\displaystyle\frac{\sin z}{z^2} - \frac{1}{z}\)；
 
-5. \(\displaystyle\cosh\frac{1}{\sqrt{z}}\)；
+  \item \(\displaystyle\cosh\frac{1}{\sqrt{z}}\)；
 
-6. \(\displaystyle\frac{\sqrt{z}}{\sinh\sqrt{z}}\)；
+  \item \(\displaystyle\frac{\sqrt{z}}{\sinh\sqrt{z}}\)；
 
-7. \(\displaystyle\frac{\ln z}{z^2-1}\)；
+  \item \(\displaystyle\frac{\ln z}{z^2-1}\)；
 
-8. \(\displaystyle\int_0^z \frac{\sin\sqrt{\zeta}}{\sqrt{\zeta}}\dd{}\zeta\)；
+  \item \(\displaystyle\int_0^z \frac{\sin\sqrt{\zeta}}{\sqrt{\zeta}}\dd{}\zeta\)；
 
-9. \(\displaystyle z^n + a^n,\,a\neq 0,\,n\in\mathbb{Z}\)；
+  \item \(\displaystyle z^n + a^n,\,a\neq 0,\,n\in\mathbb{Z}\)；
 
-10. \(\displaystyle\frac{z^2}{\sin a z},\,a\neq 0\)。
+  \item \(\displaystyle\frac{z^2}{\sin a z},\,a\neq 0\)。
 
+\end{enumerate}
 \begin{solution}
-1. 函数的孤立奇点为 \(z=\pm \ii a\)，有
+\begin{enumerate}
+  \item 函数的孤立奇点为 \(z=\pm \ii a\)，有
 \[
 \lim_{z\to\ii a} \frac{1}{z^2+a^2} = \infty,\quad
 \lim_{z\to-\ii a} \frac{1}{z^2+a^2} = \infty,
@@ -118,9 +123,10 @@ a_3 = 2\left(\dfrac{1}{5!\cdot 4!} - \dfrac{1}{6\cdot 6!} + \dfrac{2}{8!}\right)
 \lim_{z\to-\ii a} (z+\ii a) \cdot \frac{1}{z^2+a^2}
 = \lim_{z\to-\ii a} \frac{1}{z-\ii a} = \frac{1}{-2\ii a} \neq 0
 \]
-因此 \(\pm \ii a\) 为一阶极点。
+因此 \(\pm \ii a\) 为一阶极点；在 \(\infty\) 处函数可解析延拓，
+延拓值为 \(0\)。
 
-2. 函数的孤立奇点为 \(z=0,\infty\)，有
+  \item 函数的孤立奇点为 \(z=0,\infty\)，有
 \[
 \lim_{z\to 0} \frac{\cos a z}{z^2} = \infty,
 \]
@@ -130,29 +136,37 @@ a_3 = 2\left(\dfrac{1}{5!\cdot 4!} - \dfrac{1}{6\cdot 6!} + \dfrac{2}{8!}\right)
 \]
 因此 \(0\) 为二阶极点。
 
-   (1) 若 \(a=0\)，则 \(\displaystyle\lim_{z\to\infty} \frac{\cos a z}{z^2} = 0\)，故 \(\infty\) 为函数的可去奇点。
-   (2) 若 \(a\neq 0\)，则 \(\displaystyle\lim_{z\to\infty} \frac{\cos a z}{z^2}\) 不存在，因此 \(\infty\) 为函数的本性奇点。
+   \begin{enumerate}
+     \item 若 \(a=0\)，则 \(\displaystyle\lim_{z\to\infty} \frac{\cos a z}{z^2} = 0\)，故 \(\infty\) 为函数的可去奇点。
+     \item 若 \(a\neq 0\)，则 \(\displaystyle\lim_{z\to\infty} \frac{\cos a z}{z^2}\) 不存在，因此 \(\infty\) 为函数的本性奇点。
 
-3. 函数的孤立奇点为 \(z=0,\infty\)，有
+   \end{enumerate}
+  \item 函数的孤立奇点为 \(z=0,\infty\)，有
 \[
 \lim_{z\to 0} \frac{\cos (a z) - \cos (b z)}{z^2}
-= \lim_{z\to 0} \frac{\frac12 b z^2 - \frac12 a z^2}{z^2}
-= \frac12(b-a),
+=\frac{b^2-a^2}{2},
 \]
 故 \(0\) 为函数的可去奇点。而 \(\displaystyle\lim_{z\to\infty} \frac{\cos a z - \cos b z}{z^2}\) 不存在，因此 \(\infty\) 为函数的本性奇点。
 
-4. 函数的孤立奇点为 \(z=0,\infty\)，有
+  \item 函数的孤立奇点为 \(z=0,\infty\)，有
 \[
 \lim_{z\to 0} \frac{\sin z}{z^2} - \frac{1}{z} = 0,
 \]
 故其为函数的可去奇点。\(\displaystyle\lim_{z\to\infty} \frac{\sin z}{z^2} - \frac{1}{z}\) 不存在，因此其为函数的本性奇点。
 
-5. 函数的孤立奇点为 \(z=0\)，但 \(\displaystyle\lim_{z\to 0} \cosh\frac{1}{\sqrt{z}}\) 不存在，因此其为函数的本性奇点。
+  \item 由于
+  \[
+  \cosh\frac1{\sqrt z}
+  =\sum_{n=0}^{\infty}\frac{z^{-n}}{(2n)!},
+  \]
+  该函数在穿孔邻域内是单值的，\(z=0\) 为本性奇点；在
+  \(z=\infty\) 处可去，延拓值为 \(1\)。
 
-6. 函数的孤立奇点为 \(z = -n^2\pi^2,\,n\in\mathbb{N}\)，(因为 \(\sinh\sqrt{z} = \sinh(\pm \ii n\pi) = 0\))。
+  \item 函数的孤立奇点为 \(z = -n^2\pi^2,\,n\in\mathbb{N}\)，(因为 \(\sinh\sqrt{z} = \sinh(\pm \ii n\pi) = 0\))。
 
-   (1) 若 \(n=0\)，有 \(z=0\)，则 \(\displaystyle\lim_{z\to 0} \frac{\sqrt{z}}{\sinh\sqrt{z}} = 1\)，因此其为可去奇点。
-   (2) 若 \(n\neq 0\)，有 \(z=-n^2\pi^2\)，则 \(\displaystyle\lim_{z\to -n^2\pi^2} \frac{\sqrt{z}}{\sinh\sqrt{z}} = \infty\)，因此其为极点，有
+   \begin{enumerate}
+     \item 若 \(n=0\)，有 \(z=0\)，则 \(\displaystyle\lim_{z\to 0} \frac{\sqrt{z}}{\sinh\sqrt{z}} = 1\)，因此其为可去奇点。
+     \item 若 \(n\neq 0\)，有 \(z=-n^2\pi^2\)，则 \(\displaystyle\lim_{z\to -n^2\pi^2} \frac{\sqrt{z}}{\sinh\sqrt{z}} = \infty\)，因此其为极点，有
    \[
    \lim_{z\to -n^2\pi^2} (z+n^2\pi^2) \frac{\sqrt{z}}{\sinh\sqrt{z}}
    = \lim_{\varepsilon\to 0} \varepsilon \cdot \frac{\sqrt{\varepsilon - n^2\pi^2}}{\sinh\sqrt{\varepsilon - n^2\pi^2}}
@@ -166,42 +180,24 @@ a_3 = 2\left(\dfrac{1}{5!\cdot 4!} - \dfrac{1}{6\cdot 6!} + \dfrac{2}{8!}\right)
    \]
    因此其为一阶极点。
 
-   *(无穷远点 \(\infty\) 为非孤立奇点。)*
+   无穷远点 \(\infty\) 为非孤立奇点。
 
-7. 函数的孤立奇点为 \(z=0,\pm 1,\infty\)，有 \(\displaystyle\lim_{z\to 0} \frac{\ln z}{z^2-1}\) 不存在，因此 \(z=0\) 为本性奇点，而 \(z\to\pm 1\)，
-
-   (1) 若 \(\bigl.\ln(z)\bigr|_{z=1}=0\)，则
-   \[
-   \lim_{z\to 1} \frac{\ln z}{z^2-1}
-   = \lim_{z\to 1} \frac{\ln z}{2(z-1)}
-   = \lim_{z\to 0} \frac{\ln(1+z)}{2z}
-   = \frac12,
-   \]
-   因此 \(z=1\) 为可去奇点。
-   (2) 若 \(\bigl.\ln(z)\bigr|_{z=1}=2\pi n\ii,\,n\in\mathbb{Z}\setminus\{0\}\)，则
-   \[
-   \lim_{z\to 1} \frac{\ln z}{z^2-1} = \infty,
-   \]
-   因此 \(z=1\) 为极点。而
-   \[
-   \lim_{z\to 1} (z-1) \frac{\ln z}{z^2-1}
-   = \lim_{z\to 1} \frac{\ln z}{z+1} = \pi n\ii \neq 0,
-   \]
-   因此 \(z=1\) 为一阶极点。
-
-   有 \(\bigl.\ln(z)\bigr|_{z=-1}=(2\pi n + \pi)\ii,\,n\in\mathbb{Z}\)，则
-   \[
-   \lim_{z\to -1} \frac{\ln z}{z^2-1} = \infty,
-   \]
-   因此 \(z=-1\) 为极点。而
-   \[
-   \lim_{z\to -1} (z+1) \frac{\ln z}{z^2-1}
-   = \lim_{z\to -1} \frac{\ln z}{z-1}
-   = \frac{(2\pi n + \pi)}{2}\ii \neq 0,
-   \]
-   因此 \(z=-1\) 为一阶极点。有 \(\displaystyle\lim_{z\to\infty} \frac{\ln z}{z^2-1}=0\)，因此其为可去奇点。
-
-8. \[
+   \end{enumerate}
+  \item \(z=0\) 与 \(z=\infty\) 是 \(\ln z\) 的分支点，不是孤立奇点，
+  因而不能把它们分类为可去奇点、极点或本性奇点。固定一个在
+  \(z=1\) 邻域解析的对数分支，若 \(\ln1=0\)，则
+  \[
+  \lim_{z\to1}\frac{\ln z}{z^2-1}=\frac12,
+  \]
+  所以 \(z=1\) 可去；若 \(\ln1=2\pi n\ii\ne0\)，则 \(z=1\)
+  为一阶极点，留数为 \(\pi n\ii\)。在 \(z=-1\) 邻域的任一解析
+  分支上，\(\ln(-1)=(2n+1)\pi\ii\ne0\)，故 \(z=-1\) 为一阶
+  极点，其留数为
+  \[
+  \operatorname{res}(f,-1)
+  =-\frac{(2n+1)\pi\ii}{2}.
+  \]
+  \item \[
 \int_0^z \frac{\sin\sqrt{\zeta}}{\sqrt{\zeta}}\dd{}\zeta
 = \int_0^z 2\sin\sqrt{\zeta}\dd{}(\sqrt{\zeta})
 = \bigl.-2\cos\sqrt{\zeta}\bigr|_0^z
@@ -209,40 +205,31 @@ a_3 = 2\left(\dfrac{1}{5!\cdot 4!} - \dfrac{1}{6\cdot 6!} + \dfrac{2}{8!}\right)
 \]
 其孤立奇点位于 \(z=\infty\)。而 \(\displaystyle\lim_{z\to\infty} 2 - 2\cos\sqrt{z}\) 不存在，因此 \(z=\infty\) 为本性奇点。
 
-9. (1) 当 \(n>0\) 时，函数在 \(z=\infty\) 为孤立奇点。有 \(\displaystyle\lim_{z\to\infty} z^n + a^n = \infty\)，因此其为极点。作代换 \(t=1/z\) 后有
+  \item 
+  \begin{enumerate}
+    \item 当 \(n>0\) 时，函数在 \(z=\infty\) 为孤立奇点。有 \(\displaystyle\lim_{z\to\infty} z^n + a^n = \infty\)，因此其为极点。作代换 \(t=1/z\) 后有
    \[
    \lim_{t\to 0} t^n \left(\frac{1}{t^n} + a^n\right) = 1 \neq 0,
    \]
    因此其为 \(n\) 阶极点。
-   (2) 当 \(n=0\) 时，函数在 \(z=0\) 为孤立奇点。有 \(\displaystyle\lim_{z\to 0} z^0 + a^0 = 1\)。因此 \(z=0\) 为可去奇点。
-   (3) 当 \(n<0\) 时，函数在 \(z=0\) 为孤立奇点。有 \(\displaystyle\lim_{z\to 0} z^n + a^n = \infty\)，因此 \(z=0\) 为极点。同时有
+    \item 当 \(n=0\) 时，函数恒为 \(2\)，在扩充复平面上没有奇点。
+     \item 当 \(n<0\) 时，函数在 \(z=0\) 为孤立奇点。有 \(\displaystyle\lim_{z\to 0} z^n + a^n = \infty\)，因此 \(z=0\) 为极点。同时有
    \[
    \lim_{z\to 0} z^{-n} (z^n + a^n) = \lim_{z\to 0} (1 + z^{-n}a^n) = 1 \neq 0,
    \]
    因此 \(z=0\) 为 \(-n\) 阶极点。
 
-10. 函数的孤立奇点为 \(z=n\pi/a,\,n\in\mathbb{Z}\)。
-   (1) \(n = 0\)，有 \(\displaystyle\lim_{z\to 0} \frac{z^2}{\sin a z} = 0\)，因此 \(z=0\) 为可去奇点。
-   (2) \(n \neq 0\)，有 \(\displaystyle\lim_{z\to n\pi/a} \frac{z^2}{\sin a z} = \infty\)，因此 \(z=n\pi/a\) 为极点。同时有
+  \end{enumerate}
+  \item 函数的孤立奇点为 \(z=n\pi/a,\,n\in\mathbb{Z}\)。
+   \begin{enumerate}
+     \item \(n = 0\)，有 \(\displaystyle\lim_{z\to 0} \frac{z^2}{\sin a z} = 0\)，因此 \(z=0\) 为可去奇点。
+     \item \(n \neq 0\)，有 \(\displaystyle\lim_{z\to n\pi/a} \frac{z^2}{\sin a z} = \infty\)，因此 \(z=n\pi/a\) 为极点。同时有
    \[
    \lim_{z\to n\pi/a} \left(z - \frac{n\pi}{a}\right) \frac{z^2}{\sin a z}
-   = \frac{1}{a} \left(\frac{n\pi}{a}\right)^2 \neq 0,
+   =(-1)^n\frac{n^2\pi^2}{a^3}\neq0,
    \]
-   因此其为一阶极点。*(\(z=\infty\) 为非孤立奇点)*
-
-\hrule
-\textbf{综上：}
-\begin{enumerate}
-\item \(z = \pm \ii a\) 为一阶极点。
-\item \(z=0\) 为二阶极点；\(z=\infty\)：若 \(a=0\) 为可去奇点，若 \(a\neq 0\) 为本性奇点。
-\item \(z=0\) 为可去奇点；\(z=\infty\) 为本性奇点。
-\item \(z=0\) 为可去奇点；\(z=\infty\) 为本性奇点。
-\item \(z=0\) 为本性奇点。
-\item \(z=0\) 为可去奇点；\(z=-n^2\pi^2\,(n\neq 0)\) 为一阶极点；\(z=\infty\) 为非孤立奇点。
-\item \(z=0\) 为本性奇点；\(z=1\)：若取主值分支为可去奇点，否则为一阶极点；\(z=-1\) 为一阶极点；\(z=\infty\) 为可去奇点。
-\item \(z=\infty\) 为本性奇点。
-\item \(n>0\)：\(z=\infty\) 为 \(n\) 阶极点；\(n=0\)：\(z=0\) 为可去奇点；\(n<0\)：\(z=0\) 为 \(-n\) 阶极点。
-\item \(z=0\) 为可去奇点；\(z=n\pi/a\,(n\neq 0)\) 为一阶极点；\(z=\infty\) 为非孤立奇点。
+   因此其为一阶极点。无穷远点 \(\infty\) 为非孤立奇点。
+   \end{enumerate}
 \end{enumerate}
 \end{solution}
 \end{question}

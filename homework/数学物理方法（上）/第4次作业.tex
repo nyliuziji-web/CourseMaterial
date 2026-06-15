@@ -1,5 +1,3 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第4次作业}
 
 \begin{question}
@@ -7,11 +5,19 @@
 I=\oint_{C} (z-a)^n \dd{z},
 \] 其中 \(C\) 为任意可求长简单闭合曲线，\(n \in \mathbb{Z}\).
 \begin{solution}
-对于 \(n \ge 0\) 的情况，\((z-a)^n\) 在 \(\mathbb{C}\) 上解析，因此由柯西定理可知 \( I=0. \)
+设 \(C\) 取正向，且 \(a\notin C\)。分情况讨论：
+\begin{enumerate}
+  \item 若 \(n\neq-1\)，则
+  \[
+  (z-a)^n=\dv{}{z}\left(\frac{(z-a)^{n+1}}{n+1}\right)
+  \]
+  在曲线 \(C\) 上及其邻域内有单值原函数，故 \(I=0\)。
 
-对于 \(n < 0\) 的情况，\((z-a)^n\) 在 \(\mathbb{C} \setminus \{a\}\) 上解析，因此若 \(C\) 不包含 \(a\)，则同样由柯西定理 \( I=0. \)
+  \item 若 \(n=-1\) 且 \(a\) 在 \(C\) 外部，则被积函数在 \(C\)
+  所围区域内解析，故 \(I=0\)。
 
-若 \(C\) 包含 \(a\)，可以考察如下回路：
+  \item 若 \(n=-1\) 且 \(a\) 在 \(C\) 内部，可在 \(a\) 周围取正向
+  小圆 \(C'\)：
 
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
@@ -30,7 +36,7 @@ I=\oint_{C} (z-a)^n \dd{z},
   };
 
   % Arrow indicator on the outer loop
-  \draw[->,thick] (2.5,0.15) -- (2.6,0.08);
+  \draw[->,thick] (2.65,-0.05) -- (2.5,0.18);
 
   % Draw the inner circle
   \draw[thick] (0,0) circle (0.5);
@@ -44,24 +50,26 @@ I=\oint_{C} (z-a)^n \dd{z},
 \end{tikzpicture}
 \end{center}
 
-其中 \(C'\) 为以 \(a\) 为圆心，\(r\) 为半径的小圆。函数在灰色区域内是解析的，因此有 \[
-I=-\oint_{C'} (z-a)^n \dd{z}=-\int_{0}^{2\pi} [r \ee^{\ii \theta}]^n \dd{}(r \ee^{\ii \theta})=-r^{n+1} \int_{0}^{2\pi} \ii \ee^{\ii(n+1) \theta} \dd{}\theta,
-\] 故当 \(n=-1\) 时，有 \[
-I=\int_{0}^{2\pi} -\ii \dd{}\theta = -2\pi \ii,
-\] 当 \(n \neq -1\) 时，有 \(I=0.\)
+  灰色环域的正向边界为 \(C-C'\)，故
+  \[
+  \oint_C\frac{\dd z}{z-a}
+  =\oint_{C'}\frac{\dd z}{z-a}
+  =\int_0^{2\pi}\ii\,\dd\theta
+  =2\pi\ii.
+  \]
+\end{enumerate}
 
-综上有：
-\begin{center}
-\fbox{\begin{minipage}{0.8\linewidth}
-\begin{itemize}
-    \item 若 \(n\neq -1\)，则 \(\displaystyle \oint_{C} (z-a)^n \dd{z}=0\)
-    \item 若 \(n=-1\)，则 \(\displaystyle \oint_{C} (z-a)^n \dd{z}=
-    \begin{cases}
-    0, & C\text{不包含} a,\\
-    -2\pi \ii, & C\text{包含} a
-    \end{cases}\)
-\end{itemize}
-\end{minipage}}
-\end{center}
+综上，
+\[
+\oint_C(z-a)^n\dd z=
+\begin{cases}
+2\pi\ii, & n=-1\text{ 且 }a\text{ 在 }C\text{ 内部},\\
+0, & \text{其他情形}.
+\end{cases}
+\]
+若 \(C\) 不一定是正向，更一般的结果为
+\[
+\oint_C\frac{\dd z}{z-a}=2\pi\ii\,\operatorname{Ind}(C,a).
+\]
 \end{solution}
 \end{question}

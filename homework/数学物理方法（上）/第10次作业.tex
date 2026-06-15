@@ -1,5 +1,3 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第10次作业}
 
 \begin{question}
@@ -17,33 +15,54 @@
 \end{enumerate}
 
 \begin{solution}
-1. 做代换 \(t=1/z\)，有 \(z^n=t^{-n}\)，显然函数在 \(\infty\) 处为 \(n\) 阶极点。
+\begin{enumerate}
+  \item 令 \(t=1/z\)，则 \(z^n=t^{-n}\)。当 \(n>0\) 时，
+  \(\infty\) 是 \(n\) 阶极点；当 \(n=0\) 时函数恒为 \(1\)；当
+  \(n<0\) 时函数在 \(\infty\) 处解析且取值 \(0\)。
 
-2. 当 \(z\to\infty\) 时，\(z^n\to\infty\)，而函数 \(\sin z^n\) 极限不存在，故函数在 \(\infty\) 处为本性奇点。
+  \item 当 \(n>0\) 时，\(\sin(z^n)\) 在 \(\infty\) 处为本性奇点；
+  当 \(n=0\) 时函数恒为 \(\sin1\)；当 \(n<0\) 时在 \(\infty\)
+  处可解析延拓，延拓值为 \(0\)。
 
-3. 当 \(z\to\infty\) 时，\(z^n\to\infty\)，而函数 \(\exp(z^n)\) 极限不存在，故函数在 \(\infty\) 处为本性奇点。
+  \item 当 \(n>0\) 时，\(\ee^{z^n}\) 在 \(\infty\) 处为本性奇点；
+  当 \(n=0\) 时函数恒为 \(\ee\)；当 \(n<0\) 时在 \(\infty\)
+  处可解析延拓，延拓值为 \(1\)。
 
-4. 当 \(z\to\infty\) 时，\(\sqrt{z^n}\to\infty\)，而函数 \(\cos(\sqrt{z^n})\) 极限不存在，故函数在 \(\infty\) 处为本性奇点。
+  \item 余弦为偶函数，故
+  \[
+  \cos\sqrt{z^n}
+  =\sum_{k=0}^{\infty}\frac{(-1)^kz^{nk}}{(2k)!},
+  \]
+  不依赖平方根分支。当 \(n>0\) 时，\(\infty\) 为本性奇点；
+  当 \(n=0\) 时函数恒为 \(\cos1\)；当 \(n<0\) 时可解析延拓到
+  \(\infty\)，延拓值为 \(1\)。
 
-5. 当 \(z\to\infty\) 时，\(\sqrt{z^n}\to\infty\)，而函数 \(\sin(\sqrt{z^n})\) 极限不存在，故函数在 \(\infty\) 处为本性奇点。
+  \item 若 \(n\) 为非零奇数，则绕 \(\infty\) 一周会使平方根变号，
+  从而使正弦值变号，所以 \(\infty\) 是分支点，不是孤立奇点。
+  若 \(n\) 为偶数，则可在 \(\infty\) 邻域固定分支并写成
+  \(\sin(\pm z^{n/2})\)：\(n>0\) 时为本性奇点，\(n<0\) 时可去，
+  延拓值为 \(0\)。当 \(n=0\) 时函数为常数 \(\pm\sin1\)。
 
-6. 当 \(z\to\infty\) 时，\(\displaystyle\frac{z-1}{z-2}\to 1\)，因此有
+  \item 当 \(z\to\infty\) 时，\(\displaystyle\frac{z-1}{z-2}\to 1\)，因此有
    \[
    \lim_{z\to\infty} \sqrt{\frac{z-1}{z-2}} = \pm 1
    \]
    （取决于分支），故函数在 \(\infty\) 处为可去奇点。
 
-7. 当 \(z\to\infty\) 时，\(\sqrt{z-1}\to\infty\)，故函数在 \(\infty\) 处为极点。做代换 \(t=1/z\)，
+  \item 做代换 \(t=1/z\)，
    \[
    \sqrt{\frac{1}{t}-1} = t^{-1/2}\sqrt{1-t},
    \]
-   因此有 \(t=0\) 为 \(1/2\) 阶奇点，即 \(\infty\) 为 \(1/2\) 阶奇点。
+   绕 \(t=0\) 一周后函数变号，故 \(\infty\) 是分支点，不是所谓
+   “\(1/2\) 阶极点”。
 
-8. 做代换 \(t=1/z\)，有
+  \item 做代换 \(t=1/z\)，有
    \[
    \sqrt{(z-1)(z-2)} = \frac{1}{t}\sqrt{(1-t)(1-2t)},
    \]
-   故函数在 \(t=0\) 处为 \(1\) 阶奇点，即 \(\infty\) 为 \(1\) 阶奇点。
+   选定分支后，括号内的平方根在 \(t=0\) 解析且非零，故
+   \(\infty\) 为一阶极点。
+\end{enumerate}
 \end{solution}
 \end{question}
 
@@ -52,15 +71,17 @@
 \[
 f(z)=\sum_{n=0}^\infty z^{n!}=z+z+z^2+z^6+z^{24}+\cdots,\qquad |z|<1.
 \]
-
-1. 证明：\(z=1\) 是 \(f(z)\) 的奇点。
-2. 证明：\(z^{k!}=1\) 的 \(k!\) 个根都是 \(f(z)\) 的奇点，其中 \(k\) 为任意正整数。
-3. 由此证明：不可能将 \(f(z)\) 延拓到单位圆外。单位圆周称为函数 \(f(z)\) 的自然边界。
+\begin{enumerate}
+  \item 证明：\(z=1\) 是 \(f(z)\) 的奇点。
+  \item 证明：\(z^{k!}=1\) 的 \(k!\) 个根都是 \(f(z)\) 的奇点，其中 \(k\) 为任意正整数。
+  \item 由此证明：不可能将 \(f(z)\) 延拓到单位圆外。单位圆周称为函数 \(f(z)\) 的自然边界。
+\end{enumerate}
 
 \begin{solution}
-1. 当 \(z=1\) 时，有 \(f(1)=\displaystyle\sum_{n=0}^\infty 1\) 发散，因此 \(1\) 为 \(f(z)\) 的奇点。
+\begin{enumerate}
+  \item 当 \(z=1\) 时，有 \(f(1)=\displaystyle\sum_{n=0}^\infty 1\) 发散，因此 \(1\) 为 \(f(z)\) 的奇点。
 
-2. 当 \(z_0\) 为 \(z^{k!}=1\) 的根时，那么对于 \(n>k\)，有
+  \item 当 \(z_0\) 为 \(z^{k!}=1\) 的根时，那么对于 \(n>k\)，有
    \[
    z_0^{n!} = z^{k!\cdot (k+1)\cdot (k+2)\cdots n} = 1^{(k+1)(k+2)\cdots n} = 1,
    \]
@@ -70,7 +91,8 @@ f(z)=\sum_{n=0}^\infty z^{n!}=z+z+z^2+z^6+z^{24}+\cdots,\qquad |z|<1.
    \]
    级数发散，故 \(z_0\) 为 \(f(z)\) 的奇点。
 
-3. 在单位圆上的奇点为 \(\ee^{2\pi \ii \cdot k/n!}\)，其中 \(n\in\mathbb{N},\,0\le k<n!\)，因此对于任意单位圆上的点，其邻域内一定存在奇点，因此不可能将 \(f(z)\) 延拓到单位圆外。
+  \item 在单位圆上的奇点为 \(\ee^{2\pi \ii \cdot k/n!}\)，其中 \(n\in\mathbb{N},\,0\le k<n!\)，因此对于任意单位圆上的点，其邻域内一定存在奇点，因此不可能将 \(f(z)\) 延拓到单位圆外。
+\end{enumerate}
 \end{solution}
 \end{question}
 
@@ -97,6 +119,18 @@ f(z)=\sum_{n=0}^\infty z^{n!}=z+z+z^2+z^6+z^{24}+\cdots,\qquad |z|<1.
 考察积分路径，由于 \(\ee^t t^{z-1}\) 在右半平面解析，因此由柯西积分定理
 \[
 \int_L \ee^{-t} t^{z-1}\dd{t}
-= \int_{L'} \ee^{-t} t^{z-1}\dd{t} + \int_{C_R} \ee^{-t} t^{
-\end{question}
+= \int_{L'} \ee^{-t} t^{z-1}\dd{t} + \int_{C_R} \ee^{-t} t^{z-1}\dd{t}.
+\]
+在 \(C_R\) 上，令 \(t=R\ee^{\ii\phi}\)，有
+\[
+\Bigl|\int_{C_R} \ee^{-t} t^{z-1}\dd{t}\Bigr|
+\le \int_{0}^{\theta_0} \ee^{-R\cos\phi} R^{\operatorname{Re}z-1} \ee^{|\operatorname{Im}z|\phi} R\dd{\phi}
+\le C R^{\operatorname{Re}z} \ee^{-R\cos\theta_0} \to 0 \quad (R\to\infty).
+\]
+因此 \(\displaystyle\lim_{R\to\infty}\int_{C_R} \ee^{-t} t^{z-1}\dd{t}=0\)，从而
+\[
+\int_L \ee^{-t} t^{z-1}\dd{t} = \int_{L'} \ee^{-t} t^{z-1}\dd{t}
+= \int_0^\infty \ee^{-t} t^{z-1}\dd{t} = \Gamma(z),\quad \operatorname{Re}z>0.
+\]
 \end{solution}
+\end{question}

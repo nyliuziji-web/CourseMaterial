@@ -1,24 +1,35 @@
-\newcommand{\ee}{\mathrm{e}}
-\newcommand{\ii}{\mathrm{i}}
 \heading{数学物理方法（上）-第12次作业}
 
 \begin{question}
-1. 计算下列积分值：
+计算下列积分值：
+\begin{enumerate}
+  \item \(\displaystyle\int_0^\infty \frac{x\sin x}{1+x^4}\dd{x}\)
 
-(1) \(\displaystyle\int_0^\infty \frac{x\sin x}{1+x^4}\dd{x}\)
+  \item \(\displaystyle\int_{-\infty}^\infty \frac{\cos x}{x^2-2x+2}\dd{x}\)
 
-(2) \(\displaystyle\int_{-\infty}^\infty \frac{\cos x}{x^2-2x+2}\dd{x}\)
-
-(3) \(\displaystyle\int_0^\infty \frac{\cos(a+2n)x-\cos a x}{x(1+x^2)\sin x}\dd{x},\quad a>-1,\ n\text{为正整数}\)
+  \item
+  \[
+  \int_0^\infty
+  \frac{\cos((a+2n)x)-\cos(ax)}{x(1+x^2)\sin x}\dd{x},
+  \qquad a>-1,\quad n\in\mathbb{N}_+.
+  \]
+\end{enumerate}
 
 \begin{solution}
-(1) 考察上半圆围道 \(C\)，令 \(f(z)=\dfrac{z\ee^{\ii z}}{1+z^4}\)，有
+\begin{enumerate}
+  \item 考察上半圆围道 \(C\)，令 \(f(z)=\dfrac{z\ee^{\ii z}}{1+z^4}\)，有
 \[
 \oint_C f(z)\dd{z}=\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}=2\pi\ii\Bigl(\operatorname{res}\Bigl\{f(z),\frac{1+\ii}{\sqrt2}\Bigr\}+\operatorname{res}\Bigl\{f(z),\frac{-1+\ii}{\sqrt2}\Bigr\}\Bigr)
 \]
 由约当引理，因为 \(\displaystyle\lim_{z\to\infty}\frac{z}{1+z^4}=0\)，因此 \(\displaystyle\lim_{R\to+\infty}\int_{C_R}f(z)\dd{z}=0\).
 
-有 \(f(z)=\dfrac{z\ee^{\ii z}}{(z-\ee^{\ii\pi/4})(z-\ee^{\ii3\pi/4})(z-\ee^{-\ii\pi/4})(z-\ee^{-\ii3\pi/4})}\)，因此
+有
+\[
+f(z)=\frac{z\ee^{\ii z}}
+{(z-\ee^{\ii\pi/4})(z-\ee^{3\ii\pi/4})
+ (z-\ee^{-\ii\pi/4})(z-\ee^{-3\ii\pi/4})},
+\]
+因此
 \[
 \begin{aligned}
 \operatorname{res}\{f(z),\ee^{\ii\pi/4}\}&=\lim_{z\to\ee^{\ii\pi/4}}(z-\ee^{\ii\pi/4})f(z)=\frac1{4\ii}\ee^{(-1+\ii)/\sqrt2}\\
@@ -34,7 +45,7 @@
 \int_0^{\infty}\frac{x\sin x}{1+x^4}\dd{x}=\frac12\Im\Bigl\{\int_{-\infty}^{\infty}f(x)\dd{x}\Bigr\}=\frac{\pi\ee^{-1/\sqrt2}}{2}\sin\frac1{\sqrt2}
 \]
 
-(2) 考察上半圆围道 \(C\)，令 \(f(z)=\dfrac{\ee^{\ii z}}{z^2-2z+2}=\dfrac{\ee^{\ii z}}{(z-1+\ii)(z-1-\ii)}\)，有
+  \item 考察上半圆围道 \(C\)，令 \(f(z)=\dfrac{\ee^{\ii z}}{z^2-2z+2}=\dfrac{\ee^{\ii z}}{(z-1+\ii)(z-1-\ii)}\)，有
 \[
 \oint_C f(z)\dd{z}=\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}
 \]
@@ -44,9 +55,14 @@
 \]
 因此有 \(\displaystyle\int_{-\infty}^{\infty}f(x)\dd{x}=\pi\ee^{\ii-1}\).
 
-故可以得到 \(\displaystyle\int_{-\infty}^{\infty}\frac{\cos x}{x^2-2x+2}\dd{x}=\Re\int_{-\infty}^{\infty}f(x)\dd{x}=\frac{\pi}{\ee}\cos1\).
+故
+\[
+\int_{-\infty}^{\infty}\frac{\cos x}{x^2-2x+2}\dd{x}
+=\Re\int_{-\infty}^{\infty}f(x)\dd{x}
+=\frac{\pi}{\ee}\cos1.
+\]
 
-(3) 设
+  \item 设
 \[
 \begin{aligned}
 f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac{\sin(a+n)z\sin nz}{\sin z}\\
@@ -77,23 +93,34 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
 \]
 又根据补充引理，有
 \[
-\lim_{R\to+\infty}\int_{C_R}\frac{\ii}{z(1+z^2)}\bigl[\ee^{-\ii(2n-1+a)z}+\ee^{-\ii(2n-3+a)z}+\dots+\ee^{-\ii(1+a)z}\bigr]=2\pi\ii\times\begin{pmatrix}
-\operatorname{res}\Bigl(\dfrac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},\ii\Bigr)\\{}+\operatorname{res}\Bigl(\dfrac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},-\ii\Bigr)\\{}+\operatorname{res}\Bigl(\dfrac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},0\Bigr)
-\end{pmatrix}
+g(z)=\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},
+\]
+\[
+\lim_{R\to+\infty}\int_{C_R}g(z)\dd{z}
+=2\pi\ii\left[
+\operatorname{res}(g,\ii)+\operatorname{res}(g,-\ii)+\operatorname{res}(g,0)
+\right].
 \]
 
 其中
 \[
 \begin{aligned}
-\operatorname{res}\Bigl(\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},\ii\Bigr)&=\frac1{2\ii}\sum_{k=1}^{n}\ee^{2k-1+a}=\frac1{2\ii}\ee^{n+a}\cdot\frac{\ee^{n}-\ee^{-n}}{\ee-\ee^{-1}}\\
-\operatorname{res}\Bigl(\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},-\ii\Bigr)&=\frac1{2\ii}\sum_{k=1}^{n}\ee^{-(2k-1+a)}=\frac1{2\ii}\ee^{-n-a}\cdot\frac{\ee^{n}-\ee^{-n}}{\ee-\ee^{-1}}\\
-\operatorname{res}\Bigl(\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},0\Bigr)&=n\ii
+\operatorname{res}(g,\ii)
+&=\frac{\ee^{n+a}}{2\ii}\frac{\sinh n}{\sinh1},\\
+\operatorname{res}(g,-\ii)
+&=\frac{\ee^{-n-a}}{2\ii}\frac{\sinh n}{\sinh1},\\
+\operatorname{res}(g,0)&=n\ii,
 \end{aligned}
 \]
 
 因此有
 \[
-\lim_{R\to+\infty}\int_{C_R}\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)}\dd{z}=\pi(\ee^{n+a}+\ee^{-n-a})\frac{\ee^{n}-\ee^{-n}}{\ee-\ee^{-1}}-2\pi n=\pi\frac{\sinh(2n+a)-\sinh a}{\sinh1}-2\pi n
+\begin{aligned}
+\lim_{R\to+\infty}\int_{C_R}
+\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)}\dd{z}
+&=\pi\frac{\sinh(2n+a)-\sinh a}{\sinh1}\\
+&\quad-2\pi n.
+\end{aligned}
 \]
 
 综上可以得到，
@@ -104,6 +131,7 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
 \[
 \int_{0}^{\infty}f(x)\dd{x}=\frac{\pi\ee^{-a}}{2\sinh1}\bigl(1-\ee^{-2n}\bigr)-\pi n
 \]
+\end{enumerate}
 \end{solution}
 \end{question}
 
@@ -182,20 +210,27 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
 \end{question}
 
 \begin{question}
-3. 计算下列积分：
+计算下列积分：
+\begin{enumerate}
+  \item \(\displaystyle\operatorname{v.p.}\int_{0}^{\infty}\frac{dx}{1-x^3}\)
 
-(1) \(\displaystyle\operatorname{v.p.}\int_{0}^{\infty}\frac{dx}{1-x^3}\)
+  \item
+  \[
+  \operatorname{v.p.}\int_{-\infty}^{\infty}
+  \frac{\cos(x+a)\sin(x-a)}{x^2-a^2}\dd{x},
+  \qquad a>0.
+  \]
 
-(2) \(\displaystyle\operatorname{v.p.}\int_{-\infty}^{\infty}\frac{\cos(x+a)\sin(x-a)}{x^2-a^2}\dd{x},\quad a>0\)
+  \item \(\displaystyle\int_0^{\infty}\frac{1-\cos x}{x^2(1+x^2)}\dd{x}\)
 
-(3) \(\displaystyle\int_0^{\infty}\frac{1-\cos x}{x^2(1+x^2)}\dd{x}\)
+  \item \(\displaystyle\int_{-\infty}^{\infty}\frac{\ee^{px}-\ee^{qx}}{1-\ee^{x}}\dd{x},\quad 0<p<1,\ 0<q<1\)
 
-(4) \(\displaystyle\int_{-\infty}^{\infty}\frac{\ee^{px}-\ee^{qx}}{1-\ee^{x}}\dd{x},\quad 0<p<1,\ 0<q<1\)
-
-(5) \(\displaystyle\operatorname{v.p.}\int_0^{\infty}\frac{x^{s}}{1-x^2}\dd{x},\quad -1<s<1\)
+  \item \(\displaystyle\operatorname{v.p.}\int_0^{\infty}\frac{x^{s}}{1-x^2}\dd{x},\quad -1<s<1\)
+\end{enumerate}
 
 \begin{solution}
-(1) 设 \(f(z)=\dfrac{1}{1-z^3}\)，其有三个奇点 \(z=1,\ \ee^{\ii2\pi/3},\ \ee^{-\ii2\pi/3}\)，因此我们不妨考察如下围道：
+\begin{enumerate}
+  \item 设 \(f(z)=\dfrac{1}{1-z^3}\)，其有三个奇点 \(z=1,\ \ee^{\ii2\pi/3},\ \ee^{-\ii2\pi/3}\)，因此我们不妨考察如下围道：
 
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
@@ -235,7 +270,18 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
 \operatorname{v.p.}\int_{0}^{\infty}f(x)\dd{x}=\frac{\dfrac{\pi}{3}\ii-\dfrac{\sqrt3+\ii}{6}\pi}{\dfrac32-\dfrac{\sqrt3}{2}\ii}=\frac{\pi}{3\sqrt3}
 \]
 
-(2) 有 \(\displaystyle\frac{\cos(x+a)\sin(x-a)}{x^2-a^2}=\frac{\sin(2x)-\sin(2a)}{2(x^2-a^2)}=\Im\Bigl\{\frac{\ee^{2\ii x}-\ee^{2\ii a}}{2(x^2-a^2)}\Bigr\}\)，不妨设 \(f(z)=\dfrac{\ee^{2\ii z}-\ee^{2\ii a}}{2(z^2-a^2)}\)，考察如下围道：
+  \item 由
+  \[
+  \frac{\cos(x+a)\sin(x-a)}{x^2-a^2}
+  =\frac{\sin(2x)-\sin(2a)}{2(x^2-a^2)}
+  =\Im\left\{\frac{\ee^{2\ii x}-\ee^{2\ii a}}
+  {2(x^2-a^2)}\right\},
+  \]
+  令
+  \[
+  f(z)=\frac{\ee^{2\ii z}-\ee^{2\ii a}}{2(z^2-a^2)},
+  \]
+  并考察如下围道：
 
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
@@ -280,7 +326,7 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
 \int_{-\infty}^{\infty}\frac{\cos(x+a)\sin(x-a)}{x^2-a^2}\dd{x}=\Im\Bigl\{\int_{-\infty}^{\infty}f(x)\dd{x}\Bigr\}=0
 \]
 
-(3) 设 \(f(z)=\dfrac{1-\cos z}{z^2(1+z^2)}\)，因此不妨考察上半圆围道
+  \item 设 \(f(z)=\dfrac{1-\cos z}{z^2(1+z^2)}\)，因此不妨考察上半圆围道
 \[
 \oint_C f(z)\dd{z}=\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}=2\pi\ii\operatorname{res}\{f(z),\ii\}=\pi(\cosh1-1)
 \]
@@ -305,7 +351,7 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
 \int_{0}^{\infty}f(x)\dd{x}=\frac12\int_{-\infty}^{\infty}f(x)\dd{x}=\frac{\pi}{2\ee}
 \]
 
-(4) 考察下图所示围道，
+  \item 考察下图所示围道，
 
 \begin{center}
 \begin{tikzpicture}[scale=0.7]
@@ -317,15 +363,15 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
   % Points
   \filldraw (0,0) circle (2pt);
   \filldraw (0,2) circle (2pt);
-  \node at (0,2) [above right] {$2\pi\ii$};
-  \node at (3,0) [above] {$R$};
-  \node at (-3,0) [below] {$-R$};
+  \node at (0,2) [above right=3pt] {$2\pi\ii$};
+  \node at (3,0) [above=3pt] {$R$};
+  \node at (-3,0) [below=3pt] {$-R$};
 \end{tikzpicture}
 \end{center}
 
 不妨先计算 \(\displaystyle\operatorname{v.p.}\int_{-\infty}^{\infty}\frac{\ee^{px}}{1-\ee^{x}}\dd{x}\).
 
-(5) 设 \(f(z)=\dfrac{z^{s}}{1-z^{2}}\)，考察玦形围道 \(C\)，有
+  \item 设 \(f(z)=\dfrac{z^{s}}{1-z^{2}}\)，考察玦形围道 \(C\)，有
 
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
@@ -397,5 +443,6 @@ f(z)&=\frac{\cos(a+2n)z-\cos a z}{z(1+z^2)\sin z}=-2\frac{1}{z(1+z^2)}\cdot\frac
    =\frac{\pi}{2}\cdot\frac{\cos(\pi s)-1}{\sin(\pi s)}
    =-\frac{\pi}{2}\tan\frac{\pi s}{2}.
 \]
+\end{enumerate}
 \end{solution}
 \end{question}
