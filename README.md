@@ -12,21 +12,25 @@ CourseMaterial/
 ├── compile.sh           # 编译脚本（macOS / Linux）
 ├── main.tex             # 编译入口，会被 compile.ps1 / compile.sh 自动更新
 ├── preamble.tex         # 公共宏包与格式
-├── exam/                # 试卷（每门课一个子目录）
-├── homework/            # 作业（每门课一个子目录）
-├── lecture/             # 课程讲义与学习资料
+├── exam/                # 试卷
+├── homework/            # 作业
+├── supplement/          # 补充资料
 ├── example/             # 编译好的现成内容
-└── build/               # 编译输出 PDF
+└── build/               # 编译输出的 pdf 存放地
 ```
 
 ## 编译方式
 
+你可以直接进入 `example/` 查看其他用户已经编译好的 pdf。也可以：
+
 - **Windows**：运行 `compile.ps1`（PowerShell）
 - **macOS / Linux**：运行 `./compile.sh`（需先 `chmod +x compile.sh`）
 
-按菜单选择内容即可。等价地，也可以在 `main.tex` 里面手动导入所需内容进行编译。
+按菜单选择内容，可以进行定制化编译。
 
-你可以直接进入 `example/` 查看其他用户已经编译好的 pdf。
+等价地，也可以在 `main.tex` 里面手动导入所需内容进行编译。
+
+补充资料应直接进入 `supplement/<课程名>/` 查看。
 
 ## 提交规范
 
