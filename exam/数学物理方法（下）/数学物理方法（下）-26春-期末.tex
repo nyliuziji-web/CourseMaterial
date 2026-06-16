@@ -1,0 +1,292 @@
+\heading{数学物理方法（下）-26春-期末}
+\noteinfo{题目来源于考后回忆，答案由AI生成。}
+\newcommand{\ee}{\mathrm{e}}
+\begin{question}[圆形膜的振动]
+
+考察一个半径为 $R$、边缘固定的圆形膜的振动问题。
+膜在初始时刻静止，且初始位移为
+\[
+u\big|_{t=0} = A\,(x + y),
+\]
+其中 $A$ 为已知常数，膜振动的波速为 $a$。
+试求解膜的位移 $u(x,y,t)$。
+
+\begin{solution}
+
+膜的振动满足二维波动方程：
+\[
+\frac{\partial^{2} u}{\partial t^{2}} = a^{2} \nabla^{2} u.
+\]
+
+引入极坐标 $(r,\varphi)$，其中 $x = r\cos\varphi$，$y = r\sin\varphi$。定解条件为：
+\[
+u(R,\varphi,t) = 0,\qquad
+\frac{\partial u}{\partial t}\Big|_{t=0} = 0,\qquad
+u(r,\varphi,0) = A\,r\,(\cos\varphi + \sin\varphi).
+\]
+
+设 $u(r,\varphi,t) = R(r)\,\Phi(\varphi)\,T(t)$，分离变量得：
+\begin{itemize}
+  \item 时间：$T'' + a^{2}\omega^{2} T = 0$，由 $T'(0)=0$ 得 $T(t)=\cos(a\omega t)$；
+  \item 角向：$\Phi''+m^{2}\Phi=0$，$\Phi_m(\varphi)=\cos(m\varphi),\sin(m\varphi)$；
+  \item 径向：$m$ 阶 Bessel 方程，$r=0$ 有界的解为 $J_{m}(\omega r)$。
+\end{itemize}
+
+边界条件 $J_{m}(\omega R)=0$ 给出 $\omega = \omega_{mn} = \mu_{mn}/R$，其中 $\mu_{mn}$ 是 $J_{m}(x)$ 的第 $n$ 个正零点。通解为
+\[
+u(r,\varphi,t) = \sum_{m=0}^{\infty}\sum_{n=1}^{\infty}
+\bigl[A_{mn}\cos(m\varphi) + B_{mn}\sin(m\varphi)\bigr]\,
+J_{m}\!\left(\mu_{mn}\frac{r}{R}\right)
+\cos\!\left(a\,\mu_{mn}\frac{t}{R}\right).
+\]
+
+初始条件 $A\,r(\cos\varphi+\sin\varphi)$ 仅激发 $m=1$ 模式且 $A_{1n}=B_{1n}\equiv c_n$。将 $Ar$ 按 $\{J_{1}(\mu_{1n}r/R)\}$ 展开，利用 Bessel 正交关系
+\[
+\int_{0}^{R} r\,J_{1}\!\left(\mu_{1n}\frac{r}{R}\right)
+J_{1}\!\left(\mu_{1m}\frac{r}{R}\right)\dd r
+= \frac{R^{2}}{2}\bigl[J_{0}(\mu_{1n})\bigr]^{2}\,\delta_{nm},
+\]
+积分可得 $\int r^{2}J_{1}\,dr = R^{3}J_{2}(\mu_{1n})/\mu_{1n}$，得系数
+\[
+c_{n} = \frac{2AR}{\mu_{1n}\,J_{2}(\mu_{1n})}.
+\]
+
+\ansmath{
+u(r,\varphi,t) = 2AR\sum_{n=1}^{\infty}
+\frac{J_{1}\!\left(\mu_{1n}\dfrac{r}{R}\right)}
+{\mu_{1n}\,J_{2}(\mu_{1n})}\,
+(\cos\varphi + \sin\varphi)\,
+\cos\!\left(a\,\mu_{1n}\frac{t}{R}\right).
+}
+
+直角坐标下即
+\[
+u(x,y,t) = 2A\sum_{n=1}^{\infty}
+\frac{J_{1}\!\left(\mu_{1n}\dfrac{\sqrt{x^{2}+y^{2}}}{R}\right)}
+{\mu_{1n}\,J_{2}(\mu_{1n})}\,
+(x + y)\,
+\cos\!\left(a\,\mu_{1n}\frac{t}{R}\right),
+\]
+其中 $\mu_{1n}$ 是 $J_{1}(x)$ 的正零点。
+
+\end{solution}
+\end{question}
+
+\begin{question}[Laguerre方程的本征值问题]
+
+含参数 $\lambda$ 的常微分方程
+\[
+y'' + \frac{1-x}{x}\,y' + \frac{\lambda}{x}\,y = 0, \qquad 0 < x < 1
+\]
+可以看成一个本征值问题。
+选取合适的权函数与边界条件，使得该问题化为一个
+厄密算符的本征值问题。写出对应的算符 $L$，
+以及完整表述的本征问题（包括内积定义与函数空间）。
+
+\begin{solution}
+
+原方程两边同乘 $x$ 后变为
+\[
+x\,y'' + (1-x)\,y' + \lambda\,y = 0.
+\]
+再同乘 $\ee^{-x}$，利用
+\[
+\frac{\dd}{\dd x}\Bigl[x\,\ee^{-x}\,y'\Bigr]
+= \ee^{-x}\bigl[x\,y'' + (1-x)\,y'\bigr],
+\]
+可将方程写为 Sturm--Liouville 标准形式
+\[
+\frac{\dd}{\dd x}\Bigl[x\,\ee^{-x}\,y'\Bigr] + \lambda\,\ee^{-x}\,y = 0
+\quad\Longleftrightarrow\quad
+-\frac{\dd}{\dd x}\Bigl[p(x)\,\frac{\dd y}{\dd x}\Bigr] + q(x)\,y = \lambda\,w(x)\,y,
+\]
+其中
+\[
+p(x) = x\,\ee^{-x},\qquad q(x) = 0,\qquad w(x) = \ee^{-x}.
+\]
+
+引入权函数 $\rho(x) = w(x) = \ee^{-x}$，定义内积
+\[
+\langle f,g\rangle = \int_{0}^{1} f(x)\,\overline{g(x)}\,\ee^{-x}\,\dd x,
+\]
+及函数空间 $\mathcal{H} = L^{2}([0,1],\,\ee^{-x}\dd x)$。在此空间中定义算符
+\[
+L = -\frac{1}{\ee^{-x}}\,\frac{\dd}{\dd x}\Bigl[x\,\ee^{-x}\,\frac{\dd}{\dd x}\Bigr]
+= -\ee^{x}\,\frac{\dd}{\dd x}\Bigl[x\,\ee^{-x}\,\frac{\dd}{\dd x}\Bigr]
+= -x\,\frac{\dd^{2}}{\dd x^{2}} - (1-x)\,\frac{\dd}{\dd x},
+\]
+则原方程等价于本征方程 $L y = \lambda y$。
+
+验证厄密性：由分部积分，
+\[
+\langle Lf, g\rangle - \langle f, Lg\rangle
+= \Bigl[-p\,f'\,\overline{g} + p\,f\,\overline{g}'\Bigr]_{0}^{1}.
+\]
+边界项的消除要求：
+\begin{itemize}
+  \item 在 $x=1$ 处：取 $y(1)=0$（Dirichlet 条件）；
+  \item 在 $x=0$ 处：$p(0)=0$，只需求解在 $x\to0^{+}$ 有界，边界项自动为零。
+\end{itemize}
+
+因此完整表述的本征问题为
+
+\ansmath{
+\begin{aligned}
+& L y = \lambda\,y, \qquad
+L = -\ee^{x}\,\frac{\dd}{\dd x}\Bigl[x\,\ee^{-x}\,\frac{\dd}{\dd x}\Bigr]
+= -x\,\frac{\dd^{2}}{\dd x^{2}} - (1-x)\,\frac{\dd}{\dd x}, \\[4pt]
+& \text{定义域： } 0 < x < 1, \\[4pt]
+& \text{内积空间： } \mathcal{H} = L^{2}\bigl([0,1],\,\ee^{-x}\dd x\bigr),
+\quad \langle f,g\rangle = \int_{0}^{1} f\,\overline{g}\;\ee^{-x}\,\dd x, \\[4pt]
+& \text{边界条件： } y(x)\text{ 在 }x\to0^{+}\text{ 有界},\quad y(1)=0.
+\end{aligned}}
+
+乘 $x$ 后的方程 $x y'' + (1-x) y' + \lambda y = 0$ 正是标准 Laguerre 方程。
+若在全半轴 $[0,\infty)$ 上取自然边界条件，本征值为 $\lambda_{n}=n\in\mathbb{N}_{0}$，
+本征函数为 Laguerre 多项式 $L_{n}(x)$。本题截断到 $[0,1]$ 并附加 $y(1)=0$，
+本征值取另一组离散非负值。
+
+\end{solution}
+\end{question}
+
+\begin{question}[弹簧恢复力随机游走]
+
+带有弹簧恢复力的随机游走分布满足方程
+\[
+\frac{\partial u}{\partial t}
+- \kappa\,\frac{\partial^{2} u}{\partial x^{2}}
++ \alpha\,x\,\frac{\partial u}{\partial x} = 0,
+\qquad u\big|_{t=0} = \psi(x),
+\]
+其中 $\kappa > 0$ 为扩散系数，$\alpha > 0$ 为恢复力系数，
+$\psi(x)$ 为已知初始分布。
+求解该微分方程。
+
+\begin{solution}
+
+该方程为 Ornstein--Uhlenbeck 过程的 Fokker--Planck 前向方程。
+作自变量变换
+\[
+\xi = x\,\ee^{-\alpha t},\qquad u(x,t) = v(\xi, t).
+\]
+
+计算偏导数：
+\[
+\frac{\partial u}{\partial t} = v_{t} - \alpha\,\xi\,v_{\xi},\qquad
+\frac{\partial^{2} u}{\partial x^{2}} = v_{\xi\xi}\,\ee^{-2\alpha t},
+\qquad
+\frac{\partial u}{\partial x} = v_{\xi}\,\ee^{-\alpha t}.
+\]
+
+代入原方程，$\alpha\xi v_{\xi}$ 项互相抵消，得
+\[
+v_{t} = \kappa\,\ee^{-2\alpha t}\,v_{\xi\xi}.
+\]
+
+定义新的时间变量
+\[
+\tau = \int_{0}^{t} \ee^{-2\alpha s}\,\dd s
+= \frac{1 - \ee^{-2\alpha t}}{2\alpha},
+\qquad \frac{\dd\tau}{\dd t} = \ee^{-2\alpha t},
+\]
+方程化为标准热传导方程
+\[
+v_{\tau} = \kappa\,v_{\xi\xi},
+\qquad v(\xi,0) = \psi(\xi).
+\]
+
+由 Poisson 公式得解：
+\[
+v(\xi,\tau) = \frac{1}{\sqrt{4\pi\kappa\tau}}
+\int_{-\infty}^{\infty} \psi(\eta)\,
+\exp\!\left(-\frac{(\xi-\eta)^{2}}{4\kappa\tau}\right)\dd\eta.
+\]
+
+代回原变量 $\xi = x\,\ee^{-\alpha t}$，$\tau = \frac{1-\ee^{-2\alpha t}}{2\alpha}$：
+
+\ansmath{
+u(x,t) = \sqrt{\frac{\alpha}{2\pi\kappa\,(1-\ee^{-2\alpha t})}}
+\int_{-\infty}^{\infty} \psi(\eta)\,
+\exp\!\left(
+-\frac{\alpha\,\bigl(x\,\ee^{-\alpha t} - \eta\bigr)^{2}}
+{2\kappa\,(1-\ee^{-2\alpha t})}
+\right)\dd\eta.
+}
+
+物理意义：当 $t\ll 1/\alpha$ 时退化为自由扩散；当 $t\to\infty$ 时，
+$\tau\to 1/(2\alpha)$，分布趋于 Boltzmann 分布 $u_{\infty}(x)\propto\exp(-\alpha x^{2}/(2\kappa))$。
+
+用 Green 函数表示即为
+\[
+u(x,t) = \int_{-\infty}^{\infty} G(x,t;\,\eta,0)\,\psi(\eta)\,\dd\eta,
+\qquad
+G(x,t;\,\eta,0) =
+\sqrt{\frac{\alpha}{2\pi\kappa\,(1-\ee^{-2\alpha t})}}\,
+\exp\!\left(
+-\frac{\alpha\,\bigl(x - \eta\,\ee^{\alpha t}\bigr)^{2}}
+{2\kappa\,(\ee^{2\alpha t} - 1)}
+\right).
+\]
+
+\end{solution}
+\end{question}
+
+\begin{question}[修正Helmholtz方程的Green函数]
+
+考察三维空间中的方程
+\[
+\nabla^{2} u - k^{2} u = f(\bm{r}),
+\]
+其中 $k > 0$ 为常数，$f$ 为已知源项，且 $u$ 在无穷远处有界。
+试计算该问题的 Green 函数 $G(\bm{r};\bm{r}')$。
+
+\begin{solution}
+
+Green 函数 $G(\bm{r};\bm{r}')$ 满足
+\[
+\nabla^{2} G - k^{2} G = \delta^{(3)}(\bm{r} - \bm{r}'),
+\qquad G \to 0\;\;(|\bm{r}|\to\infty).
+\]
+
+\textbf{方法一（Fourier 变换法）：}
+取 Fourier 变换：
+\[
+(-q^{2} - k^{2})\,\tilde{G}(\bm{q};\,\bm{r}')
+= \frac{1}{(2\pi)^{3/2}}\,\ee^{-\ii\bm{q}\cdot\bm{r}'},
+\]
+故
+\[
+G(\bm{r};\bm{r}') = -\frac{1}{(2\pi)^{3}}
+\int_{\mathbb{R}^{3}} \frac{\ee^{\ii\bm{q}\cdot(\bm{r}-\bm{r}')}}{q^{2} + k^{2}}\,\dd^{3}q.
+\]
+
+令 $\bm{R} = \bm{r} - \bm{r}'$，$R = |\bm{R}|$，取 $\bm{q}$ 空间球坐标作角向积分：
+\[
+G(\bm{r};\bm{r}')
+= -\frac{1}{2\pi^{2}R}
+\int_{0}^{\infty} \frac{q\,\sin(qR)}{q^{2}+k^{2}}\,\dd q.
+\]
+
+将被积函数延拓到全实轴，在上半复平面补圆弧（Jordan 引理），单极点在 $q=\ii k$，留数为 $\ee^{-kR}/2$，故
+\[
+\int_{0}^{\infty} \frac{q\,\sin(qR)}{q^{2}+k^{2}}\,\dd q
+= \frac{1}{2}\,\operatorname{Im}\!\bigl(2\pi\ii\cdot \tfrac{\ee^{-kR}}{2}\bigr)
+= \frac{\pi}{2}\,\ee^{-kR}.
+\]
+
+\textbf{方法二（球对称直接求解）：}
+令 $R = |\bm{r} - \bm{r}'|$，$G(R)=H(R)/R$，方程化为 $H'' - k^{2}H = 0$。
+无穷远有界 $\Rightarrow H(R) = C\ee^{-kR}$，即 $G(R) = C\,\ee^{-kR}/R$。
+在 $R\to0$ 处积分 $\nabla^{2}G = \delta^{(3)}$，由 Gauss 定理得 $-4\pi C = 1$，故 $C = -1/(4\pi)$。
+
+\ansmath{
+G(\bm{r};\bm{r}') = -\frac{\ee^{-k|\bm{r}-\bm{r}'|}}{4\pi\,|\bm{r}-\bm{r}'|}.
+}
+
+该 Green 函数即 Yukawa 势（或屏蔽 Coulomb 势）。在 $k\to0^{+}$ 时退化为
+Laplace 算符的 Green 函数 $G = -1/(4\pi R)$。
+
+\end{solution}
+\end{question}
+
+\clearpage
