@@ -1,0 +1,474 @@
+\heading{数学物理方法（下）-26春-期中}
+\noteinfo{题目来源于考后回忆，答案由AI生成。}
+
+\begin{question}[一维杆热传导方程]
+
+一根一维杆上存在温度分布 $u(x,t)$，设单位体积杆内发热的功率为 $\alpha u(\beta-u)$，
+单位表面积散热为 $q(x,t)$，写出该杆的热传导方程。
+
+\begin{solution}
+
+设杆的横截面积为 $S$，截面周长为 $l$，热导率为 $\kappa$，密度为 $\rho$，比热为 $c$。
+对杆上 $[x,\,x+\dd x]$ 微段作能量平衡：
+
+\begin{itemize}
+  \item 单位时间内通过热传导净流入：$\displaystyle \kappa\,\frac{\partial^{2} u}{\partial x^{2}}\,S\,\dd x$；
+  \item 单位时间内内部发热：$\alpha\,u(\beta-u)\,S\,\dd x$；
+  \item 单位时间内表面散热：$-q(x,t)\,l\,\dd x$（散热指向外，故取负号）；
+  \item 内能增加率：$\displaystyle \rho c\,\frac{\partial u}{\partial t}\,S\,\dd x$。
+\end{itemize}
+
+由能量守恒得
+\[
+\rho c\,\frac{\partial u}{\partial t}\,S\,\dd x
+= \kappa\,\frac{\partial^{2} u}{\partial x^{2}}\,S\,\dd x
++ \alpha\,u(\beta-u)\,S\,\dd x
+- q(x,t)\,l\,\dd x.
+\]
+
+消去 $S\,\dd x$，得到
+
+\ansmath{
+\frac{\partial u}{\partial t}
+= a^{2}\,\frac{\partial^{2} u}{\partial x^{2}}
++ \frac{\alpha}{\rho c}\,u(\beta-u)
+- \frac{l}{\rho c\,S}\,q(x,t),
+\qquad a^{2} = \frac{\kappa}{\rho c}.
+}
+
+通常可引入散热系数 $\gamma = l/(\rho c S)$，将方程简写为
+\[
+u_{t} = a^{2} u_{xx} + \tilde\alpha\,u(\beta-u) - \gamma\,q(x,t).
+\]
+
+\end{solution}
+\end{question}
+
+\begin{question}[双电子 Hooke 势分离变量]
+
+两个电子在 Hooke 势连接下的哈密顿量可以写成
+\[
+\hat H = -\frac{\hbar^{2}}{2m}\Bigl(
+\frac{\partial^{2}}{\partial x_{1}^{2}} + \frac{\partial^{2}}{\partial x_{2}^{2}}
++ \frac{\partial^{2}}{\partial y_{1}^{2}} + \frac{\partial^{2}}{\partial y_{2}^{2}}
++ \frac{\partial^{2}}{\partial z_{1}^{2}} + \frac{\partial^{2}}{\partial z_{2}^{2}}
+\Bigr)
++ \frac{1}{2}m\omega^{2}(x_{1}^{2}+x_{2}^{2}+y_{1}^{2}+y_{2}^{2}+z_{1}^{2}+z_{2}^{2})
+- \frac{g}{4}m\omega^{2}\bigl[(x_{1}-x_{2})^{2} + (y_{1}-y_{2})^{2} + (z_{1}-z_{2})^{2}\bigr].
+\]
+双电子的波函数满足方程 $\ii\hbar\,\partial\psi/\partial t = \hat H\psi$。
+选取合适的坐标变换，对微分方程进行分离变量。
+
+\begin{solution}
+
+引入质心坐标 $\bm R$ 与相对坐标 $\bm r$：
+\[
+\bm R = \frac{\bm r_{1} + \bm r_{2}}{2},\qquad
+\bm r = \bm r_{1} - \bm r_{2},
+\]
+即 $x_{1}=X+x/2$，$x_{2}=X-x/2$（$y,z$ 分量同理）。
+
+\textbf{动能部分：}
+\[
+\frac{\partial^{2}}{\partial x_{1}^{2}} + \frac{\partial^{2}}{\partial x_{2}^{2}}
+= \frac{1}{2}\frac{\partial^{2}}{\partial X^{2}} + 2\frac{\partial^{2}}{\partial x^{2}}.
+\]
+对三个分量求和，得
+\[
+\nabla_{1}^{2} + \nabla_{2}^{2}
+= \frac{1}{2}\nabla_{\!R}^{2} + 2\nabla_{r}^{2}.
+\]
+
+\textbf{势能部分：} 对 $x$ 分量，
+\[
+x_{1}^{2}+x_{2}^{2} = 2X^{2} + \frac{x^{2}}{2},\qquad
+(x_{1}-x_{2})^{2} = x^{2},
+\]
+三个分量求和后总势能为
+\[
+V = \frac{1}{2}m\omega^{2}\Bigl(2R^{2} + \frac{r^{2}}{2}\Bigr)
+- \frac{g}{4}m\omega^{2}\,r^{2}
+= m\omega^{2}R^{2} + \frac{1}{4}m\omega^{2}(1-g)\,r^{2}.
+\]
+
+\textbf{分离后的哈密顿量：}
+\[
+\hat H = \underbrace{\Bigl[-\frac{\hbar^{2}}{4m}\nabla_{\!R}^{2} + m\omega^{2}R^{2}\Bigr]}_{\hat H_{\mathrm{cm}}}
++ \underbrace{\Bigl[-\frac{\hbar^{2}}{m}\nabla_{\!r}^{2} + \frac{1}{4}m\omega^{2}(1-g)\,r^{2}\Bigr]}_{\hat H_{\mathrm{rel}}}.
+\]
+
+其中 $\hat H_{\mathrm{cm}}$ 描述总质量为 $M=2m$、频率仍为 $\omega$ 的质心三维谐振子；
+$\hat H_{\mathrm{rel}}$ 描述约化质量为 $\mu=m/2$、频率为
+$\omega_{\mathrm{rel}} = \omega\sqrt{1-g}$ 的相对运动三维谐振子。
+
+\ansmath{
+\begin{aligned}
+\hat H_{\mathrm{cm}} &= -\frac{\hbar^{2}}{2M}\nabla_{\!R}^{2} + \frac{1}{2}M\omega^{2}R^{2},\\[2pt]
+\hat H_{\mathrm{rel}} &= -\frac{\hbar^{2}}{2\mu}\nabla_{\!r}^{2} + \frac{1}{2}\mu\,\omega^{2}(1-g)\,r^{2}.
+\end{aligned}}
+
+设 $\psi(\bm r_{1},\bm r_{2},t) = \Psi(\bm R,t)\,\phi(\bm r,t)$，则时间相关 Schr\"odinger 方程分离为
+\[
+\ii\hbar\,\frac{\partial\Psi}{\partial t} = \hat H_{\mathrm{cm}}\Psi,\qquad
+\ii\hbar\,\frac{\partial\phi}{\partial t} = \hat H_{\mathrm{rel}}\,\phi.
+\]
+
+二者可在各自坐标系下进一步分离为三个独立的一维谐振子问题。
+
+\end{solution}
+\end{question}
+
+\begin{question}[矩形域本征值问题]
+
+计算如下本征值问题：
+\[
+\begin{cases}
+\nabla^{2} u + \lambda u = 0, & -a \le x \le a,\; -b \le y \le b,\\[4pt]
+u|_{x=-a} = u|_{x=a} = 0,\\[4pt]
+\displaystyle\frac{\partial u}{\partial n}\Big|_{y=-b}
+= \frac{\partial u}{\partial n}\Big|_{y=b} = 0.
+\end{cases}
+\]
+
+\begin{solution}
+
+设 $u(x,y) = X(x)\,Y(y)$，代入方程得
+\[
+\frac{X''}{X} + \frac{Y''}{Y} = -\lambda
+\quad\Longrightarrow\quad
+X'' + \lambda_{x}X = 0,\quad
+Y'' + \lambda_{y}Y = 0,\quad
+\lambda = \lambda_{x} + \lambda_{y}.
+\]
+
+\textbf{$x$ 方向（Dirichlet 边界）：}
+$X'' + \lambda_{x}X = 0$，$X(-a)=X(a)=0$。
+通解 $X = A\cos(\sqrt{\lambda_{x}}x) + B\sin(\sqrt{\lambda_{x}}x)$。由边界条件：
+\begin{align*}
+X(-a) &= A\cos(\sqrt{\lambda_{x}}a) - B\sin(\sqrt{\lambda_{x}}a) = 0,\\
+X(a)  &= A\cos(\sqrt{\lambda_{x}}a) + B\sin(\sqrt{\lambda_{x}}a) = 0.
+\end{align*}
+相加得 $2A\cos(\sqrt{\lambda_{x}}a)=0$，相减得 $2B\sin(\sqrt{\lambda_{x}}a)=0$。非平凡解：
+\begin{itemize}
+  \item 余弦族：$\cos(\sqrt{\lambda_{x}}a)=0$，即 $\sqrt{\lambda_{x}}\,a = \dfrac{2n-1}{2}\pi$；
+  \item 正弦族：$\sin(\sqrt{\lambda_{x}}a)=0$，即 $\sqrt{\lambda_{x}}\,a = n\pi$。
+\end{itemize}
+合并为 $\sqrt{\lambda_{x}}\,a = n\pi/2$，$n=1,2,3,\dots$，对应
+\begin{align*}
+\lambda_{x}^{(n)} &= \Bigl(\frac{n\pi}{2a}\Bigr)^{\!2},\\[2pt]
+X_{n}(x) &=
+\begin{cases}
+\cos\!\Bigl(\dfrac{n\pi x}{2a}\Bigr), & n\text{ 为奇数},\\[6pt]
+\sin\!\Bigl(\dfrac{n\pi x}{2a}\Bigr), & n\text{ 为偶数}.
+\end{cases}
+\end{align*}
+
+\textbf{$y$ 方向（Neumann 边界）：}
+$Y'' + \lambda_{y}Y = 0$，$Y'(-b)=Y'(b)=0$。
+由 $Y'(-b)=Y'(b)=0$ 同理可得
+\[
+\lambda_{y}^{(m)} = \Bigl(\frac{m\pi}{2b}\Bigr)^{\!2},\qquad m=0,1,2,\dots,
+\]
+对应
+\[
+Y_{m}(y) =
+\begin{cases}
+\cos\!\Bigl(\dfrac{m\pi y}{2b}\Bigr), & m\text{ 为偶数},\\[6pt]
+\sin\!\Bigl(\dfrac{m\pi y}{2b}\Bigr), & m\text{ 为奇数}.
+\end{cases}
+\]
+（$m=0$ 时 $Y_{0}(y)=1$ 为常数解。）
+
+\textbf{完整本征解：}
+\ansmath{
+\lambda_{n,m} = \Bigl(\frac{n\pi}{2a}\Bigr)^{\!2} + \Bigl(\frac{m\pi}{2b}\Bigr)^{\!2},
+\qquad n=1,2,3,\dots,\; m=0,1,2,\dots,
+}
+\[
+u_{n,m}(x,y) = X_{n}(x)\,Y_{m}(y).
+\]
+
+\end{solution}
+\end{question}
+
+\begin{question}[三维球对称波动方程]
+
+求解如下偏微分方程：
+\[
+\begin{cases}
+\displaystyle\frac{\partial^{2} u}{\partial t^{2}} - a^{2}\nabla^{2} u = 0,\\[8pt]
+u|_{t=0} = \psi\!\bigl(\sqrt{x^{2}+y^{2}+z^{2}}\bigr),\\[4pt]
+\displaystyle\frac{\partial u}{\partial t}\Big|_{t=0}
+= \phi\!\bigl(\sqrt{x^{2}+y^{2}+z^{2}}\bigr).
+\end{cases}
+\]
+
+\begin{solution}
+
+问题具有球对称性，在球坐标 $(r,\theta,\varphi)$ 下 $u=u(r,t)$。三维 Laplace 算符的径向部分：
+\[
+\nabla^{2} u = \frac{1}{r^{2}}\frac{\partial}{\partial r}\!\Bigl(r^{2}\frac{\partial u}{\partial r}\Bigr)
+= \frac{1}{r}\frac{\partial^{2}}{\partial r^{2}}(r u).
+\]
+
+令 $v(r,t) = r\,u(r,t)$，则波动方程化为
+\[
+\frac{\partial^{2} v}{\partial t^{2}} - a^{2}\frac{\partial^{2} v}{\partial r^{2}} = 0,
+\qquad r>0,\; t>0.
+\]
+
+定解条件：
+\begin{itemize}
+  \item 在 $r=0$ 处，$u$ 有界 $\Longrightarrow$ $v(0,t)=0$；
+  \item $v(r,0) = r\,\psi(r)$；
+  \item $v_{t}(r,0) = r\,\phi(r)$。
+\end{itemize}
+
+这是半无界弦上的波动方程。将初始条件延拓到 $r<0$ 为奇函数：
+\[
+\tilde\psi(r) = \begin{cases} r\psi(r), & r\ge 0,\\ -(-r)\psi(-r), & r<0, \end{cases}\qquad
+\tilde\phi(r) = \begin{cases} r\phi(r), & r\ge 0,\\ -(-r)\phi(-r), & r<0. \end{cases}
+\]
+
+由 d'Alembert 公式：
+\[
+v(r,t) = \frac{1}{2}\bigl[\tilde\psi(r+at) + \tilde\psi(r-at)\bigr]
++ \frac{1}{2a}\int_{r-at}^{r+at} \tilde\phi(s)\,\dd s.
+\]
+
+回到 $u = v/r$：
+
+\ansmath{
+u(r,t) = \frac{1}{2r}\bigl[(r+at)\,\psi(r+at) + (r-at)\,\psi(r-at)\bigr]
++ \frac{1}{2ar}\int_{r-at}^{r+at} s\,\phi(s)\,\dd s,
+\qquad r > at,
+}
+\[
+u(r,t) = \frac{1}{2r}\bigl[(r+at)\,\psi(r+at) - (at-r)\,\psi(at-r)\bigr]
++ \frac{1}{2ar}\int_{at-r}^{r+at} s\,\phi(s)\,\dd s,
+\qquad r < at,
+\]
+其中利用了 $\tilde\psi(r-at) = -(at-r)\,\psi(at-r)$（当 $r<at$）的奇延拓性质。
+
+该解即三维波动方程球对称情形的 Poisson 公式。
+
+\end{solution}
+\end{question}
+
+\begin{question}[阻尼弦的受迫振动]
+
+考察一根浸在阻尼液体中的长度为 $l$ 的弦线，弦线在阻尼液体中受到的阻力
+正比于速度，阻尼系数为 $\beta$。现在将弦线左端固定，
+右端因外力周期性振动。弦线一开始处于平衡位置，并且静止。
+求解弦线的振动方程。
+
+\begin{solution}
+
+设弦的位移为 $u(x,t)$，张力 $T$，线密度 $\rho$，波速 $c^{2}=T/\rho$。
+弦的运动方程为
+\[
+u_{tt} + 2\beta\,u_{t} = c^{2}\,u_{xx},\qquad 0 < x < l,\; t>0.
+\]
+
+定解条件：
+\[
+u(0,t)=0,\quad u(l,t)=h(t)\;\;(\text{右端周期性驱动}),\qquad
+u(x,0)=0,\quad u_{t}(x,0)=0.
+\]
+
+\textbf{步骤 1：边界齐次化。}
+令 $u(x,t) = v(x,t) + w(x,t)$，其中 $w(x,t) = \dfrac{x}{l}\,h(t)$ 吸收非齐次边界。
+
+代入方程，$w_{xx}=0$，得 $v$ 满足
+\[
+v_{tt} + 2\beta\,v_{t} = c^{2}\,v_{xx} - \frac{x}{l}\bigl(h''(t)+2\beta\,h'(t)\bigr),
+\]
+\[
+v(0,t)=v(l,t)=0,\qquad
+v(x,0)=-\frac{x}{l}h(0),\quad
+v_{t}(x,0)=-\frac{x}{l}h'(0).
+\]
+
+\textbf{步骤 2：本征函数展开。}
+将 $v$ 按满足齐次边界条件的本征函数 $\sin(n\pi x/l)$ 展开：
+\[
+v(x,t) = \sum_{n=1}^{\infty} v_{n}(t)\,\sin\frac{n\pi x}{l}.
+\]
+
+右端源项的 Fourier 正弦系数（利用 $\int_{0}^{l}\frac{x}{l}\sin\frac{n\pi x}{l}\dd x
+= \frac{(-1)^{n+1}l}{n\pi}$）：
+\[
+g_{n}(t) = -\frac{(-1)^{n+1}}{n\pi}\,2l\,\bigl(h''(t)+2\beta\,h'(t)\bigr).
+\]
+
+初值展开系数：$v_{n}(0)=-\dfrac{(-1)^{n+1}}{n\pi}\,2l\,h(0)$，
+$v_{n}'(0)=-\dfrac{(-1)^{n+1}}{n\pi}\,2l\,h'(0)$。
+
+\textbf{步骤 3：求解各模态方程。}
+令 $\omega_{n}=n\pi c/l$，每个 $v_{n}(t)$ 满足
+\[
+v_{n}'' + 2\beta\,v_{n}' + \omega_{n}^{2}\,v_{n} = g_{n}(t).
+\]
+
+这是受迫阻尼谐振子方程。齐次解为（设 $\beta<\omega_{n}$，即欠阻尼情形）：
+\[
+v_{n}^{(h)}(t) = \ee^{-\beta t}\bigl(A_{n}\cos\tilde\omega_{n}t + B_{n}\sin\tilde\omega_{n}t\bigr),
+\qquad \tilde\omega_{n} = \sqrt{\omega_{n}^{2}-\beta^{2}}.
+\]
+
+特解可由 Duhamel 积分或直接求解得到。最终 $u(x,t) = \dfrac{x}{l}h(t) + \sum_{n} v_{n}(t)\sin\frac{n\pi x}{l}$。
+
+\textbf{步骤 4：周期性驱动特例。}
+若 $h(t)=A\sin\Omega t$，则 $g_{n}(t)$ 为 $\sin\Omega t$ 和 $\cos\Omega t$ 的线性组合。
+此时 $v_{n}(t)$ 的稳态解为同频率的正弦振动，振幅由
+\[
+|Z_{n}| = \frac{1}{\sqrt{(\omega_{n}^{2}-\Omega^{2})^{2}+(2\beta\Omega)^{2}}}
+\]
+决定。经过瞬态衰减后，弦的运动趋于以驱动频率 $\Omega$ 的稳态振动。
+
+\ansmath{
+u(x,t) = \frac{x}{l}\,h(t) + \sum_{n=1}^{\infty} v_{n}(t)\,\sin\frac{n\pi x}{l},
+}
+其中各 $v_{n}(t)$ 由上述受迫阻尼谐振子方程确定。
+
+\end{solution}
+\end{question}
+
+\begin{question}[圆域 Poisson 方程]
+
+求解如下圆形区域内的偏微分方程：
+\[
+\begin{cases}
+\nabla^{2} u = x,\\[4pt]
+u|_{x^{2}+y^{2}=a^{2}} = y^{2}.
+\end{cases}
+\]
+
+\begin{solution}
+
+引入极坐标 $(r,\theta)$，$x=r\cos\theta$，$y=r\sin\theta$。
+\[
+\nabla^{2} u = \frac{1}{r}\frac{\partial}{\partial r}\!\Bigl(r\frac{\partial u}{\partial r}\Bigr)
++ \frac{1}{r^{2}}\frac{\partial^{2} u}{\partial\theta^{2}} = r\cos\theta.
+\]
+边界条件：$u(a,\theta) = a^{2}\sin^{2}\theta = \dfrac{a^{2}}{2}(1-\cos 2\theta)$。
+
+由于右端仅含 $\cos\theta$ 和常数/$\cos2\theta$ 分量，尝试解的形式
+\[
+u(r,\theta) = u_{0}(r) + u_{1}(r)\cos\theta + u_{2}(r)\cos 2\theta.
+\]
+
+代入 Laplace 算符得各分量的 ODE：
+\begin{align*}
+&\text{$m=0$:}\quad \frac{1}{r}(r u_{0}')' = 0
+\;\Longrightarrow\; u_{0}(r) = C_{0}\quad(\text{原点有界，舍去 }\ln r\text{ 项}),\\[4pt]
+&\text{$m=1$:}\quad u_{1}'' + \frac{1}{r}u_{1}' - \frac{1}{r^{2}}u_{1} = r
+\;\Longrightarrow\; u_{1}(r) = C_{1}r + \frac{r^{3}}{8},\\[4pt]
+&\text{$m=2$:}\quad u_{2}'' + \frac{1}{r}u_{2}' - \frac{4}{r^{2}}u_{2} = 0
+\;\Longrightarrow\; u_{2}(r) = C_{2}r^{2}\quad(\text{舍去 }r^{-2}\text{ 项}).
+\end{align*}
+
+其中特解 $r^{3}/8$ 的验证：对 $r^{3}$，$(r^{3})''+(r^{3})'/r-r^{3}/r^{2}=6r+3r-r=8r$，故乘以 $1/8$ 即得 $r$。
+
+代入边界条件 $r=a$：
+\[
+C_{0} + \Bigl(C_{1}a + \frac{a^{3}}{8}\Bigr)\cos\theta + C_{2}a^{2}\cos 2\theta
+= \frac{a^{2}}{2} - \frac{a^{2}}{2}\cos 2\theta.
+\]
+
+比较各角向分量的系数：
+\[
+C_{0} = \frac{a^{2}}{2},\qquad
+C_{1}a + \frac{a^{3}}{8} = 0\;\Longrightarrow\; C_{1} = -\frac{a^{2}}{8},\qquad
+C_{2}a^{2} = -\frac{a^{2}}{2}\;\Longrightarrow\; C_{2} = -\frac{1}{2}.
+\]
+
+因此
+\[
+u(r,\theta) = \frac{a^{2}}{2}
++ \Bigl(-\frac{a^{2}}{8}r + \frac{r^{3}}{8}\Bigr)\cos\theta
+- \frac{r^{2}}{2}\cos 2\theta.
+\]
+
+回到直角坐标（$r\cos\theta=x$，$r^{2}\cos2\theta=x^{2}-y^{2}$）：
+
+\ansmath{
+u(x,y) = \frac{a^{2}}{2}
+- \frac{x}{8}\,(a^{2} - x^{2} - y^{2})
+- \frac{x^{2} - y^{2}}{2}.
+}
+
+验证：$\nabla^{2}u = \nabla^{2}\bigl[-\frac{x}{8}(a^{2}-x^{2}-y^{2})\bigr] = x$（因 $\nabla^{2}(x^{3})=6x$，$\nabla^{2}(xy^{2})=2x$），
+且在边界 $x^{2}+y^{2}=a^{2}$ 上，第一项 $a^{2}/2$，第二项为零，第三项 $-(x^{2}-y^{2})/2$，
+合起来 $u=a^{2}/2-(x^{2}-y^{2})/2=x^{2}+y^{2}/2-(x^{2}-y^{2})/2=y^{2}$。完全满足。
+
+\end{solution}
+\end{question}
+
+\begin{question}[导热半球的温度分布]
+
+考察一个半径为 $a$ 的导热半球。其上表面受到竖直的、单位面积功率为 $M$ 的
+热辐射加热。同时半球满足牛顿冷却定律对外散热。周围的环境始终保持在 $0$
+的温度，同时导热半球的底面也保持在 $0$ 度。求解半球内的温度分布。
+
+\begin{solution}
+
+建立球坐标系 $(r,\theta,\varphi)$，取底面为 $z=0$（即 $\theta=\pi/2$）。
+半球区域：$0<r<a$，$0\le\theta<\pi/2$（$0\le\varphi<2\pi$）。
+
+稳态温度满足 Laplace 方程 $\nabla^{2}u=0$。问题具有绕 $z$ 轴的旋转对称性，
+$u=u(r,\theta)$。
+
+\textbf{边界条件：}
+\begin{itemize}
+  \item 底面 $\theta=\pi/2$：$u(r,\pi/2)=0$；
+  \item 球面 $r=a$，$0\le\theta<\pi/2$：
+  竖直辐射功率在球面上的投影为 $M\cos\theta$（单位：功率/面积），
+  牛顿冷却散热为 $h u$（$h$ 为散热系数，环境温度 $0$）。
+  设热导率为 $\kappa$，则由热流平衡 $-k\,\partial u/\partial r = M\cos\theta - h u$，
+  即
+  \[
+  -k\,\frac{\partial u}{\partial r}\Big|_{r=a} + h\,u(a,\theta) = M\cos\theta,\qquad 0\le\theta<\frac{\pi}{2}.
+  \]
+  \item $r=0$ 处：解有界。
+\end{itemize}
+
+\textbf{分离变量：} 设 $u(r,\theta)=R(r)\,\Theta(\theta)$，Laplace 方程给出
+\[
+r^{2}R'' + 2rR' - l(l+1)R = 0,\qquad
+\frac{1}{\sin\theta}\frac{\dd}{\dd\theta}\!\Bigl(\sin\theta\frac{\dd\Theta}{\dd\theta}\Bigr) + l(l+1)\Theta = 0.
+\]
+
+径向解：$R_{l}(r)=A_{l}r^{l}$（$r=0$ 有界舍去 $r^{-l-1}$ 项）。
+角向解：$\Theta_{l}(\theta)=P_{l}(\cos\theta)$（Legendre 多项式）。
+
+底面条件 $u(r,\pi/2)=0$ 要求 $P_{l}(0)=0$，仅奇次 $l=1,3,5,\dots$ 符合。
+
+\textbf{非零模式的确定：} 球面边界条件中的源项 $M\cos\theta = M\,P_{1}(\cos\theta)$
+仅激发 $l=1$。对所有 $l\ge 3$ 的齐次 Robin 条件，只有零解。
+
+取 $l=1$：$u(r,\theta) = A\,r\cos\theta = A\,z$。
+
+代入球面 Robin 条件（$r=a$，$\theta$ 任意）：
+\[
+u = A\,a\cos\theta,\qquad \frac{\partial u}{\partial r} = A\cos\theta,
+\]
+\[
+-kA\cos\theta + hA\,a\cos\theta = M\cos\theta
+\;\Longrightarrow\; A\,(h a - k) = M.
+\]
+
+\ansmath{
+u(r,\theta) = \frac{M}{h a - k}\,r\cos\theta
+= \frac{M}{h a - k}\,z,
+\qquad 0\le z\le\sqrt{a^{2}-x^{2}-y^{2}}.
+}
+
+即温度沿竖直方向线性分布，在顶点 $z=a$ 处达最大值 $Ma/(h a - k)$。
+\textbf{适用条件：} $h a \neq k$。若 $h a = k$，Robin 条件退化为仅齐次部分，
+此时无非平凡稳态解（需考虑非稳态情形）。
+
+\end{solution}
+\end{question}
+
+\clearpage
