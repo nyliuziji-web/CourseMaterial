@@ -1,0 +1,394 @@
+\heading{高等数学A（II）-24春-期末}
+\noteinfo{题目来源于赛艇，答案由AI生成。}
+
+\begin{question}[数项级数敛散性的判断]
+
+说明下列级数的敛散性：
+\begin{enumerate}
+\item 设 $\{a_n\}_{n=1}^{+\infty}$ 是一给定数列，$\lim\limits_{n\to+\infty} n a_n=0$，问级数 $\sum\limits_{n=1}^{+\infty}a_n$ 的敛散性如何。
+
+\item 设 $\{a_n\}_{n=1}^{+\infty}$ 是一给定数列，$\lim\limits_{n\to+\infty} n a_n$ 不存在，问级数 $\sum\limits_{n=1}^{+\infty}a_n$ 的敛散性如何。
+
+\item 设 $\{a_n\}_{n=1}^{+\infty}$ 是一给定数列，$\lim\limits_{n\to+\infty}\abs{n a_n}=+\infty$，问级数 $\sum\limits_{n=1}^{+\infty}a_n$ 的敛散性如何。
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item 选 (c)。例如取 $a_n=1/n^2$，则 $n a_n=1/n\to0$，且 $\sum a_n$ 收敛；而取 $a_n=1/(n\ln n)$（$n\ge2$，并任意定义 $a_1$），则 $n a_n=1/\ln n\to0$，但 $\sum_{n=2}^{\infty}1/(n\ln n)$ 发散。因此敛散性不确定。
+
+\item 选 (c)。例如取 $a_n=(-1)^{n-1}/n$，则 $n a_n=(-1)^{n-1}$ 不存在极限，但交错调和级数 $\sum a_n$ 收敛；而取 $a_n=(1+(-1)^n)/n$，则 $n a_n=1+(-1)^n$ 不存在极限，但 $\sum a_n=\sum_{k=1}^{\infty}1/k$ 发散。因此敛散性不确定。
+
+\item 选 (c)。例如取 $a_n=(-1)^{n-1}/\sqrt n$，则 $\abs{n a_n}=\sqrt n\to+\infty$，而 $\sum a_n$ 由 Leibniz 判别法收敛；取 $a_n=1/\sqrt n$，则 $\abs{n a_n}=\sqrt n\to+\infty$，而 $\sum a_n$ 发散。因此敛散性不确定。
+\end{enumerate}
+
+\end{solution}
+\end{question}
+
+\begin{question}[幂级数的收敛半径]
+
+试求幂级数的收敛半径：
+\begin{enumerate}
+\item $\displaystyle \sum_{n=1}^{+\infty}\frac{(n!)^2}{(2n)!}x^n$；
+\item $\displaystyle \sum_{n=1}^{+\infty}\frac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}x^n$。
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item 记 $c_n=(n!)^2/(2n)!$。则
+\[
+\frac{c_{n+1}}{c_n}
+=\frac{((n+1)!)^2}{(2n+2)!}\frac{(2n)!}{(n!)^2}
+=\frac{(n+1)^2}{(2n+2)(2n+1)}
+=\frac{n+1}{2(2n+1)}\to \frac14.
+\]
+故收敛半径
+\[
+R=\lim_{n\to\infty}\abs{\frac{c_n}{c_{n+1}}}=4.
+\]
+即 \ansmath{R=4.}
+
+\item 记
+\[
+c_n=\frac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}.
+\]
+由于
+\[
+(-1)^n+(-2)^n+3^n=3^n\Bigl(1+\Bigl(-\frac23\Bigr)^n+\Bigl(-\frac13\Bigr)^n\Bigr),
+\]
+括号内趋于 $1$，且 $\sqrt[n]{n(n+1)(n+2)}\to1$，所以
+\[
+\lim_{n\to\infty}\sqrt[n]{\abs{c_n}}=3.
+\]
+故收敛半径为
+\[
+R=\frac{1}{3}.
+\]
+即 \ansmath{R=\frac13.}
+\end{enumerate}
+
+\end{solution}
+\end{question}
+
+\begin{question}[微分方程通解]
+
+求微分方程
+\[
+y''+y'=x^2+x
+\]
+的通解。
+
+\begin{solution}
+
+齐次方程的特征方程为
+\[
+r^2+r=0,
+\]
+故齐次通解为
+\[
+y_h=C_1+C_2\ee^{-x}.
+\]
+设特解满足 $y_p'=Ax^2+Bx+C$。代入 $y_p''+y_p'=x^2+x$ 得
+\[
+2Ax+B+Ax^2+Bx+C=x^2+x.
+\]
+比较系数得
+\[
+A=1,\qquad 2A+B=1,\qquad B+C=0,
+\]
+即 $A=1,B=-1,C=1$。于是
+\[
+y_p'=x^2-x+1,\qquad
+y_p=\frac{x^3}{3}-\frac{x^2}{2}+x.
+\]
+所以通解为
+\ansmath{y=C_1+C_2\ee^{-x}+\frac{x^3}{3}-\frac{x^2}{2}+x.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[级数敛散性判断]
+
+判断下列级数的敛散性：
+\begin{enumerate}
+\item $\displaystyle \sum_{n=2}^{+\infty}\frac{1}{(\ln n)^{\ln n}}$；
+\item $\displaystyle \sum_{n=2}^{+\infty}\frac{(-1)^n}{\sqrt n+(-1)^n}$。
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item 注意到
+\[
+\frac{1}{(\ln n)^{\ln n}}
+=\ee^{-(\ln n)(\ln\ln n)}
+=n^{-\ln\ln n}.
+\]
+当 $n$ 充分大时，$\ln\ln n\ge2$，于是
+\[
+0\le \frac{1}{(\ln n)^{\ln n}}\le \frac1{n^2}.
+\]
+由比较判别法知原级数收敛，即
+\ansmath{\sum_{n=2}^{+\infty}\frac{1}{(\ln n)^{\ln n}}\text{ 收敛。}}
+
+\item 有
+\[
+\frac{(-1)^n}{\sqrt n+(-1)^n}
+=\frac{(-1)^n(\sqrt n-(-1)^n)}{n-1}
+=\frac{(-1)^n\sqrt n}{n-1}-\frac1{n-1}.
+\]
+其中 $\sqrt n/(n-1)\to0$，且 $\sum (-1)^n$ 的部分和有界，所以
+\[
+\sum_{n=2}^{\infty}\frac{(-1)^n\sqrt n}{n-1}
+\]
+由 Dirichlet 判别法收敛；而
+\[
+\sum_{n=2}^{\infty}\frac1{n-1}
+\]
+发散。因此原级数发散，且部分和趋于 $-\infty$。即
+\ansmath{\sum_{n=2}^{+\infty}\frac{(-1)^n}{\sqrt n+(-1)^n}\text{ 发散。}}
+\end{enumerate}
+
+\end{solution}
+\end{question}
+
+\begin{question}[函数项级数的连续性]
+
+证明函数
+\[
+f(x)=\sum_{n=2}^{+\infty}\Bigl(\frac{x\sin x}{\ln n}\Bigr)^n
+\]
+是 $(-\infty,+\infty)$ 上的连续函数。
+
+\begin{solution}
+
+任取有限闭区间 $[-M,M]$。令
+\[
+A=\max_{x\in[-M,M]}\abs{x\sin x}.
+\]
+则对一切 $x\in[-M,M]$，有
+\[
+\abs{\Bigl(\frac{x\sin x}{\ln n}\Bigr)^n}
+\le \Bigl(\frac{A}{\ln n}\Bigr)^n.
+\]
+而
+\[
+\lim_{n\to\infty}\sqrt[n]{\Bigl(\frac{A}{\ln n}\Bigr)^n}
+=\lim_{n\to\infty}\frac{A}{\ln n}=0<1,
+\]
+所以 $\sum_{n=2}^{\infty}(A/\ln n)^n$ 收敛。由 Weierstrass 判别法，原函数项级数在 $[-M,M]$ 上一致收敛。
+
+每一项
+\[
+\Bigl(\frac{x\sin x}{\ln n}\Bigr)^n
+\]
+都是连续函数，因此其和函数在 $[-M,M]$ 上连续。由于 $M$ 任意，故 $f(x)$ 在 $(-\infty,+\infty)$ 上连续。
+
+\end{solution}
+\end{question}
+
+\begin{question}[含参积分]
+
+已知
+\[
+\int_0^{+\infty}\ee^{-y^2}\dd{y}=\frac{\sqrt\pi}{2},
+\]
+试计算
+\[
+I(t)=\int_0^{+\infty}\ee^{-x^2}\cos(tx)\dd{x}\qquad (-\infty<t<+\infty).
+\]
+
+\begin{solution}
+
+对任意有限区间 $\abs{t}\le T$，函数 $x\ee^{-x^2}$ 在 $[0,+\infty)$ 上可积，故可在积分号下求导。于是
+\[
+I'(t)=-\int_0^{+\infty}x\ee^{-x^2}\sin(tx)\dd{x}.
+\]
+对右端积分作分部积分，得
+\[
+\int_0^{+\infty}x\ee^{-x^2}\sin(tx)\dd{x}
+=\frac{t}{2}\int_0^{+\infty}\ee^{-x^2}\cos(tx)\dd{x}
+=\frac{t}{2}I(t).
+\]
+因此
+\[
+I'(t)=-\frac{t}{2}I(t).
+\]
+解这个一阶微分方程，得
+\[
+I(t)=C\ee^{-t^2/4}.
+\]
+又由已知条件
+\[
+I(0)=\int_0^{+\infty}\ee^{-x^2}\dd{x}=\frac{\sqrt\pi}{2},
+\]
+故
+\ansmath{I(t)=\frac{\sqrt\pi}{2}\ee^{-t^2/4}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[$\Gamma$ 函数]
+
+\begin{enumerate}
+\item 写出 $\Gamma(s)$ 函数的表达式。
+\item 证明 $\Gamma(s)$ 函数在 $s\in(0,+\infty)$ 上连续。
+\item 用 $\Gamma$ 函数表示积分 $\displaystyle \int_0^{+\infty}\ee^{-x^n}\dd{x}$ 并求极限
+\[
+\lim_{n\to+\infty}\int_0^{+\infty}\ee^{-x^n}\dd{x}.
+\]
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item 对 $s>0$，
+\[
+\Gamma(s)=\int_0^{+\infty}x^{s-1}\ee^{-x}\dd{x}.
+\]
+
+\item 任取闭区间 $[a,b]\subset(0,+\infty)$。当 $0<x\le1$ 且 $s\in[a,b]$ 时，
+\[
+x^{s-1}\ee^{-x}\le x^{a-1},
+\]
+而 $x^{a-1}$ 在 $(0,1]$ 上可积；当 $x\ge1$ 且 $s\in[a,b]$ 时，
+\[
+x^{s-1}\ee^{-x}\le x^{b-1}\ee^{-x},
+\]
+而 $x^{b-1}\ee^{-x}$ 在 $[1,+\infty)$ 上可积。故由控制收敛定理可知 $\Gamma(s)$ 在 $[a,b]$ 上连续。由于 $[a,b]$ 任意，$\Gamma(s)$ 在 $(0,+\infty)$ 上连续。
+
+\item 令 $u=x^n$，则
+\[
+\int_0^{+\infty}\ee^{-x^n}\dd{x}
+=\frac1n\int_0^{+\infty}u^{\frac1n-1}\ee^{-u}\dd{u}
+=\frac1n\Gamma\!\left(\frac1n\right)
+=\Gamma\!\left(1+\frac1n\right).
+\]
+由第 (2) 问连续性，
+\[
+\lim_{n\to+\infty}\int_0^{+\infty}\ee^{-x^n}\dd{x}
+=\lim_{n\to+\infty}\Gamma\!\left(1+\frac1n\right)
+=\Gamma(1)=1.
+\]
+即
+\ansmath{\int_0^{+\infty}\ee^{-x^n}\dd{x}=\Gamma\!\left(1+\frac1n\right),\qquad \lim_{n\to+\infty}\int_0^{+\infty}\ee^{-x^n}\dd{x}=1.}
+\end{enumerate}
+
+\end{solution}
+\end{question}
+
+\begin{question}[Fourier 展开式]
+
+设
+\[
+f(x)=
+\begin{cases}
+x, & 0\le x\le 1,\\[2pt]
+0, & 1<x\le 2.
+\end{cases}
+\]
+计算 $f(x)$ 在 $[0,2]$ 区间上的 Fourier 展开式，并利用展开式证明：
+\[
+\sum_{n=0}^{+\infty}\frac{1}{(2n+1)^2}=\frac{\pi^2}{8},
+\qquad
+\sum_{n=1}^{+\infty}\frac{1}{n^2}=\frac{\pi^2}{6}.
+\]
+
+\begin{solution}
+
+把 $f$ 作周期为 $2$ 的周期延拓。其 Fourier 级数形如
+\[
+f(x)\sim \frac{a_0}{2}+\sum_{n=1}^{\infty}\bigl(a_n\cos n\pi x+b_n\sin n\pi x\bigr),
+\]
+其中
+\[
+a_0=\int_0^2 f(x)\dd{x}=\int_0^1 x\dd{x}=\frac12.
+\]
+对 $n\ge1$，有
+\[
+a_n=\int_0^2 f(x)\cos n\pi x\dd{x}
+=\int_0^1 x\cos n\pi x\dd{x}
+=\frac{(-1)^n-1}{n^2\pi^2},
+\]
+并且
+\[
+b_n=\int_0^2 f(x)\sin n\pi x\dd{x}
+=\int_0^1 x\sin n\pi x\dd{x}
+=\frac{(-1)^{n+1}}{n\pi}.
+\]
+所以 Fourier 展开式为
+\[
+f(x)\sim \frac14+\sum_{n=1}^{\infty}\left(\frac{(-1)^n-1}{n^2\pi^2}\cos n\pi x+\frac{(-1)^{n+1}}{n\pi}\sin n\pi x\right).
+\]
+在 $f$ 的连续点处，上式收敛于 $f(x)$；在间断点处，收敛于左右极限的平均值。
+
+取 $x=0$，由于周期延拓在 $x=0$ 处连续且 $f(0)=0$，得
+\[
+0=\frac14+\sum_{n=1}^{\infty}\frac{(-1)^n-1}{n^2\pi^2}.
+\]
+偶数项为 $0$，奇数项为 $-2/(n^2\pi^2)$，故
+\[
+0=\frac14-\frac2{\pi^2}\sum_{k=0}^{\infty}\frac{1}{(2k+1)^2}.
+\]
+于是
+\[
+\sum_{k=0}^{\infty}\frac{1}{(2k+1)^2}=\frac{\pi^2}{8}.
+\]
+设
+\[
+S=\sum_{n=1}^{\infty}\frac1{n^2}.
+\]
+则
+\[
+\sum_{k=0}^{\infty}\frac1{(2k+1)^2}=S-\sum_{k=1}^{\infty}\frac1{(2k)^2}=S-\frac14S=\frac34S.
+\]
+因此
+\[
+\frac34S=\frac{\pi^2}{8},
+\]
+从而
+\[
+\sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6}.
+\]
+即
+\ansmath{\sum_{n=0}^{\infty}\frac1{(2n+1)^2}=\frac{\pi^2}{8},\qquad \sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6}.}
+
+\end{solution}
+\end{question}
+
+\begin{question}[积分恒等式]
+
+证明：
+\[
+\int_0^1\frac{1}{x^x}\dd{x}=\sum_{n=1}^{\infty}\frac{1}{n^n}.
+\]
+
+\begin{solution}
+
+当 $0<x\le1$ 时，$-x\ln x\ge0$，且
+\[
+\frac1{x^x}=\ee^{-x\ln x}=\sum_{n=0}^{\infty}\frac{(-x\ln x)^n}{n!}.
+\]
+由于各项非负，可由单调收敛定理逐项积分，得
+\[
+\int_0^1\frac1{x^x}\dd{x}
+=\sum_{n=0}^{\infty}\frac1{n!}\int_0^1 x^n(-\ln x)^n\dd{x}.
+\]
+令 $t=-\ln x$，则 $x=\ee^{-t}$，$\dd{x}=-\ee^{-t}\dd{t}$，于是
+\[
+\int_0^1 x^n(-\ln x)^n\dd{x}
+=\int_0^{+\infty}t^n\ee^{-(n+1)t}\dd{t}
+=\frac{\Gamma(n+1)}{(n+1)^{n+1}}
+=\frac{n!}{(n+1)^{n+1}}.
+\]
+因此
+\[
+\int_0^1\frac1{x^x}\dd{x}
+=\sum_{n=0}^{\infty}\frac1{(n+1)^{n+1}}
+=\sum_{n=1}^{\infty}\frac1{n^n}.
+\]
+证毕。
+
+\end{solution}
+\end{question}
