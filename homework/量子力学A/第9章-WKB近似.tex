@@ -1,0 +1,816 @@
+\heading{第9章-WKB近似}
+\begin{question}
+无限深方势阱中有一高度为 $V_0$ 且延伸至势阱一半的“搁板”，使用 WKB 近似确定能量允许值 $E_n$（见图 7.3）：
+\[
+V(x)=\begin{cases}
+V_0, & 0<x<a/2,\\
+0, & a/2<x<a,\\
+\infty, & \text{其他地方}.
+\end{cases}
+\]
+结果用 $V_0$ 和 $E_n^0=(n\pi\hbar)^2/(2ma^2)$（无搁板时无限深方势阱的第 $n$ 个允许能级）表示。假设 $E_1^0>V_0$，但是不能假设 $E_n>V_0$。将你的结果与第 7.1.2 节中使用一阶微扰理论得到的结果做比较。注意，当 $V_0$ 非常小（微扰理论区域）或 $n$ 非常大（WKB 半经典区域）时，它们是一致的。
+\end{question}
+\begin{solution}
+因为题设 $E_1^0>V_0$，正势搁板只会提高能量，所以所有允许能量均满足 $E_n>V_0$。WKB 对两个无限高硬壁的量子化条件为
+\[
+\int_0^a p(x)\,\dd x=n\pi\hbar .
+\]
+于是
+\[
+{a\over2}\sqrt{2m(E_n-V_0)}+{a\over2}\sqrt{2mE_n}=n\pi\hbar.
+\]
+用 $E_n^0=n^2\pi^2\hbar^2/(2ma^2)$ 化简为
+\[
+\sqrt{E_n-V_0}+\sqrt{E_n}=2\sqrt{E_n^0}.
+\]
+两边配合差平方可得
+\[
+\boxed{E_n=\left(\sqrt{E_n^0}+{V_0\over4\sqrt{E_n^0}}\right)^2
+=E_n^0+{V_0\over2}+{V_0^2\over16E_n^0}.}
+\]
+一阶微扰理论给出 $\Delta E_n^{(1)}=\langle V\rangle=V_0/2$，即 $E_n\simeq E_n^0+V_0/2$。当 $V_0\ll E_n^0$ 或 $n$ 很大时，WKB 式中的二阶小量 $V_0^2/(16E_n^0)$ 可忽略，二者一致。
+\end{solution}
+
+\begin{question}
+另一种推导 WKB 公式（式 (9.10)）的方法是基于 $\hbar$ 做幂级数展开。受自由粒子波函数 $\psi=A\exp(\pm ipx/\hbar)$ 的启发，写出
+\[
+\psi(x)=e^{if(x)/\hbar},
+\]
+其中 $f(x)$ 为某个复函数。（注意：这里不失一般性，因为任何一个非零函数都可以写成这种形式。）
+\begin{enumerate}
+\item 将此代入薛定谔方程（式 (9.1)），并证明
+\[
+i\hbar f''-(f')^2+p^2=0.
+\]
+\item 将 $f(x)$ 按 $\hbar$ 的幂级数展开：
+\[
+f(x)=f_0(x)+\hbar f_1(x)+\hbar^2f_2(x)+\cdots,
+\]
+然后比较 $\hbar$ 的同次幂项系数，得
+\[
+(f_0')^2=p^2,\qquad if_0''=2f_0'f_1',\qquad if_1''=2f_0'f_2'+(f_1')^2,\ldots
+\]
+\item 解出 $f_0(x)$ 和 $f_1(x)$，并证明，取 $\hbar$ 的一次项近似时，可以重新得到式 (9.10)。
+\end{enumerate}
+注意：负数的对数定义为 $\ln(-z)=\ln(z)+in\pi$，其中 $n$ 为奇数。如果这个公式对你来说是新的，尝试在两边同时求幂，你立刻就明白它的出处了。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (9.10)：WKB 允许区：$\psi\approx C p^{-1/2}\exp[\pm(\ii/\hbar)\int p(x)\dd x]$，$p=\sqrt{2m(E-V)}$。
+\item 式 (9.1)：一维定态薛定谔方程：$-\hbar^2\psi''/(2m)+V\psi=E\psi$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+把 $\psi=e^{\ii f/\hbar}$ 代入定态方程
+\[
+-{\hbar^2\over2m}\psi''+V\psi=E\psi,
+\qquad p^2=2m(E-V),
+\]
+有
+\[
+\psi'= {\ii f'\over\hbar}\psi,
+\qquad
+\psi''=\left({\ii f''\over\hbar}-{(f')^2\over\hbar^2}\right)\psi.
+\]
+代回即
+\[
+\ii\hbar f''-(f')^2+p^2=0.
+\]
+令 $f=f_0+\hbar f_1+\hbar^2 f_2+\cdots$，比较 $\hbar$ 的幂，得到
+\[
+(f_0')^2=p^2,
+\qquad
+\ii f_0''=2f_0'f_1',
+\qquad
+\ii f_1''=2f_0'f_2'+(f_1')^2,
+\]
+等等。最低阶给出
+\[
+f_0=\pm\int^x p(x')\,\dd x'.
+\]
+再由 $\ii f_0''=2f_0'f_1'$ 得
+\[
+f_1'={\ii\over2}{p'\over p},
+\qquad
+f_1={\ii\over2}\ln p+\mathrm{const.}.
+\]
+因此保留到 $\hbar f_1$：
+\[
+\psi\simeq \exp\left[{\ii\over\hbar}\left(\pm\int^x p\,\dd x+{\ii\hbar\over2}\ln p\right)\right]
+={C\over\sqrt{p(x)}}\exp\left(\pm{\ii\over\hbar}\int^x p\,\dd x\right),
+\]
+这正是经典允许区的 WKB 波函数。禁戒区令 $p=\ii |p|$ 即得到指数型形式。
+\end{solution}
+
+\begin{question}
+使用式 (9.23) 近似计算能量为 $E$ 的粒子通过高度为 $V_0>E$ 且宽度为 $2a$ 的有限方势垒时的透射几率。将得到的答案与精确结果（习题 2.33）进行比较，由 WKB 方法得到的结果在 $T\ll1$ 时，应简化到该结果。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (9.23)：WKB 穿透因子：$T\approx e^{-2\gamma}$，$\gamma=(1/\hbar)\int_{x_1}^{x_2}|p(x)|\dd x$。}
+
+\end{question}
+\begin{solution}
+方势垒内 $|p|=\sqrt{2m(V_0-E)}\equiv\hbar\kappa$ 为常数，宽度为 $2a$。WKB 指数为
+\[
+\gamma={1\over\hbar}\int_{-a}^{a}|p|\,\dd x=2a\kappa,
+\qquad
+\kappa={\sqrt{2m(V_0-E)}\over\hbar}.
+\]
+故
+\[
+\boxed{T_{\rm WKB}\simeq e^{-2\gamma}=e^{-4a\kappa}.}
+\]
+精确方势垒结果为
+\[
+T=\left[1+{V_0^2\sinh^2(2\kappa a)\over4E(V_0-E)}\right]^{-1}.
+\]
+当 $T\ll1$，即 $\kappa a\gg1$ 时，$\sinh^2(2\kappa a)\simeq e^{4\kappa a}/4$，所以
+\[
+T\simeq {16E(V_0-E)\over V_0^2}e^{-4\kappa a}.
+\]
+WKB 的简单公式准确给出了主导指数；精确解中的前因子来自转折点附近的更精细匹配。
+\end{solution}
+
+\begin{question}
+利用式 (9.26) 和式 (9.29)，计算 $\mathrm U^{238}$ 和 $\mathrm{Po}^{212}$ 的寿命。提示：核物质的密度相对恒定（即所有核的密度相同），所以经验上 $(r_1)^3$ 与 $A$（质子数加中子数）成比例。根据经验，
+\[
+r_1\approx (1.25\,\mathrm{fm})A^{1/3}.
+\]
+发射 $\alpha$ 粒子的能量可以用爱因斯坦公式 $(E=mc^2)$ 推导出来：
+\[
+E=m_pc^2-m_dc^2-m_\alpha c^2,
+\]
+其中 $m_p,m_d,m_\alpha$ 分别是母核、子核和 $\alpha$ 粒子（$\mathrm{He}^4$ 核）的质量。为了弄清楚子核是什么，注意 $\alpha$ 粒子包含两个质子和两个中子，所以 $Z$ 减少 2 而 $A$ 减少 4。查找相关的核质量。对于 $v$ 的估算，使用公式 $E=(1/2)m_\alpha v^2$；这忽略了原子核内部的势能（负值），当然低估了 $v$ 值，但是在目前这个阶段里我们所能做的最好的。顺便提及，实验中两者的寿命分别为 $6\times10^9$ 年和 $0.5\,\mu\mathrm{s}$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (9.26,9.29)：Alpha 衰变中 $\gamma=(\sqrt{2m}/\hbar)\int_{r_1}^{r_2}\sqrt{V(r)-E}\dd r$，寿命估计 $\tau\sim 1/(f e^{-2\gamma})$，$f$ 为撞击频率。}
+
+\end{question}
+\begin{solution}
+把子核半径取为 $r_1=1.25A^{1/3}{\rm fm}$，库仑外转折点由
+\[
+{1\over4\pi\epsilon_0}{(2e)(Z-2)e\over r_2}=E
+\]
+确定。Gamow 指数为
+\[
+\gamma={1\over\hbar}\int_{r_1}^{r_2}
+\sqrt{2m_\alpha\left({1\over4\pi\epsilon_0}{2(Z-2)e^2\over r}-E\right)}\,\dd r.
+\]
+令 $r=r_2\sin^2\theta$ 可写成
+\[
+\gamma={\sqrt{2m_\alpha E}\over\hbar}\,r_2
+\left[\arccos\sqrt{r_1/r_2}-\sqrt{(r_1/r_2)(1-r_1/r_2)}\right].
+\]
+每次撞击势垒的频率近似为 $v/(2r_1)$，其中 $v=\sqrt{2E/m_\alpha}$，故
+\[
+\boxed{\tau\simeq {2r_1\over v}\,e^{2\gamma}.}
+\]
+查核质量求 $E=Q$ 值后代入：$^{238}{\rm U}$ 给出极大的 $\gamma$，寿命在 $10^9$ 年量级；$^{212}{\rm Po}$ 的 $Q$ 值较大，$r_2$ 较小，寿命在微秒量级。指数对 $E$ 极端敏感，正是这些寿命差异巨大的原因。
+\end{solution}
+
+\begin{question}
+齐纳隧穿（Zener Tunneling）。在半导体中，电场（如果足够大）可以在能带之间产生跃迁，这种现象称为齐纳隧穿。如图 9.7 所示，一均匀电场 $\mathbf E=-E_0\hat{\mathbf i}$，其中
+\[
+H'=-eE_0x,
+\]
+使能带和位置有关。然后电子就有可能从价带（下）隧穿到导带（上）；这种现象是齐纳二极管（Zener diode）的基础。将带隙看作电子通过的势垒大小，根据 $E_g$ 和 $E_0$（以及 $m,\hbar,e$）求出隧穿几率。
+\end{question}
+\begin{solution}
+导带和价带之间的势垒近似为一个三角形势垒。取隧穿方向为 $x$，势垒高度从 $E_g$ 线性降至零：
+\[
+U(x)=E_g-eE_0x,
+\qquad 0<x<{E_g\over eE_0}.
+\]
+于是
+\[
+\gamma={1\over\hbar}\int_0^{E_g/(eE_0)}\sqrt{2m(E_g-eE_0x)}\,\dd x
+={2\sqrt{2m}\,E_g^{3/2}\over3e\hbar E_0}.
+\]
+因此齐纳隧穿几率的 WKB 估计为
+\[
+\boxed{T\simeq \exp\left[-{4\sqrt{2m}\,E_g^{3/2}\over3e\hbar E_0}\right].}
+\]
+这个式子说明：电场越强、带隙越小，隧穿越显著。
+\end{solution}
+
+\begin{question}
+重新审视“弹跳球”（The ``bouncing ball'' revisited）。考虑球（质量为 $m$）在地板上弹性弹跳这一经典问题的量子力学模拟。
+\begin{enumerate}
+\item 作为地面以上高度 $x$ 的函数，势能是多少？（对于负 $x$ 值，势是无限大，球根本无法到达。）
+\item 求解该势的薛定谔方程，结果用适当的艾里函数表示（注意 $\operatorname{Bi}(z)$ 在 $z$ 很大时发散，因此必须舍弃）。不必归一化 $\psi(x)$。
+\item 取 $g=9.80\,\mathrm{m/s^2}$，$m=0.100\,\mathrm{kg}$，以焦耳为单位求出前四个能量允许值，结果保留 3 位有效数字。提示：参考 Milton Abramowitz 和 Irene A. Stegun, \textit{Handbook of Mathematical Functions}, Dover, 纽约（1970 年），第 478 页；符号定义在第 450 页。
+\item 在该引力场中，电子基态能量是多少？单位为 eV。这个电子平均离地有多高？提示：使用位力定理求 $\langle x\rangle$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+势能为
+\[
+V(x)=\begin{cases}mgx,&x>0,\\ \infty,&x<0.\end{cases}
+\]
+在 $x>0$ 中薛定谔方程化为 Airy 方程。令
+\[
+\ell=\left({\hbar^2\over2m^2g}\right)^{1/3},
+\qquad z={x-E/(mg)\over\ell},
+\]
+则可接受解为
+\[
+\psi(x)=C\operatorname{Ai}(z),
+\]
+因为 $\operatorname{Bi}(z)$ 在 $z\to+\infty$ 发散。硬壁边界要求 $\psi(0)=0$，故
+\[
+\operatorname{Ai}\left(-{E\over mg\ell}\right)=0.
+\]
+若 $a_n$ 是 $\operatorname{Ai}(-a_n)=0$ 的正根，$a_1=2.3381,a_2=4.0879,a_3=5.5206,a_4=6.7867$，则
+\[
+\boxed{E_n=mg\ell a_n.}
+\]
+对 $m=0.100\,\mathrm{kg}$，前四个能级约为
+\[
+2.90\times10^{-23},\quad 5.07\times10^{-23},\quad
+6.85\times10^{-23},\quad 8.41\times10^{-23}\ {\rm J}.
+\]
+对电子，$E_1=mg\ell a_1\simeq 1.40\times10^{-12}\,\mathrm{eV}$。由位力定理 $2\langle T\rangle=\langle xV'(x)\rangle=mg\langle x\rangle$，且 $E=\langle T\rangle+mg\langle x\rangle$，得
+\[
+\langle x\rangle={2E\over3mg}.
+\]
+电子基态平均高度约为 $1.63\times10^{-2}\,\mathrm{m}$。
+\end{solution}
+
+\begin{question}
+使用 WKB 近似分析反弹球（习题 9.6）。
+\begin{enumerate}
+\item 用 $m,g$ 和 $\hbar$ 表示能量允许值 $E_n$。
+\item 将习题 9.6 (c) 中给出的特定值代入，并将 WKB 近似得到的前四个能量值与“精确”结果进行比较。
+\item 量子数 $n$ 必须有多大才能使球的平均高度达到离地 $1\,\mathrm{m}$？
+\end{enumerate}
+\end{question}
+\begin{solution}
+WKB 条件是一端硬壁、一端软转折点：
+\[
+\int_0^{E/(mg)}\sqrt{2m(E-mgx)}\,\dd x=\left(n-{1\over4}\right)\pi\hbar.
+\]
+积分给出
+\[
+{2\sqrt{2m}\over3mg}E^{3/2}=\left(n-{1\over4}\right)\pi\hbar,
+\]
+所以
+\[
+\boxed{E_n=\left[{3\pi\hbar g\sqrt m\over2\sqrt2}\left(n-{1\over4}\right)\right]^{2/3}.}
+\]
+代入 $m=0.100\,\mathrm{kg}$ 得到的前四个数与 Airy 精确根已经相当接近；误差随 $n$ 增大迅速减小。若平均高度要求 $\langle x\rangle=1\,\mathrm m$，用 $\langle x\rangle=2E/(3mg)$ 得 $E=3mg/2$，代回上式求得
+\[
+n\simeq {1\over4}+{2\sqrt2\over3\pi\hbar g\sqrt m}\left({3mg\over2}\right)^{3/2},
+\]
+这是约 $10^{33}$ 量级的巨大量子数，因此宏观球完全处于经典极限。
+\end{solution}
+
+\begin{question}
+利用 WKB 近似求解谐振子的能量允许值。
+\end{question}
+\begin{solution}
+谐振子转折点为 $x_0=\sqrt{2E/(m\omega^2)}$。WKB 量子化条件
+\[
+\int_{-x_0}^{x_0}\sqrt{2m\left(E-{1\over2}m\omega^2x^2\right)}\,\dd x
+=\left(n+{1\over2}\right)\pi\hbar
+\]
+左边是相空间椭圆上半面积，等于 $\pi E/\omega$。因此
+\[
+\boxed{E_n=\left(n+{1\over2}\right)\hbar\omega.}
+\]
+对谐振子，WKB 量子化能级恰好给出精确结果。
+\end{solution}
+
+\begin{question}
+质量为 $m$ 的粒子处于谐振子的第 $n$ 能级上（角频率 $\omega$）。
+\begin{enumerate}
+\item 求转折点 $x_2$。
+\item 在线性势能误差（式 (9.33)，但转折点在 $x_2$ 处）达到 $1\%$ 之前，此时距转折点上方有多远距离（$d$）？即，如果
+\[
+\frac{V(x_2+d)-V_{\mathrm{lin}}(x_2+d)}{V(x_2)}=0.01,
+\]
+那么 $d$ 是多少？
+\item 只要 $z\ge5$，$\operatorname{Ai}(z)$ 的渐近形式的精度为 $1\%$。对于 (b) 中的 $d$ 值，求满足 $\alpha d\ge5$ 时的最小值 $n$。（对于任何大于该值的 $n$，存在一个重叠区域，其中线性势的精度可以达到 $1\%$，而且大 $z$ 艾里函数的形式也准确到 $1\%$。）
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (9.33)：WKB 有效条件：$|\dd\lambda/\dd x|\ll1$，等价量级为 $\hbar|p'|\ll p^2$。}
+
+\end{question}
+\begin{solution}
+记 $E_n=(n+1/2)\hbar\omega$。右转折点满足
+\[
+{1\over2}m\omega^2x_2^2=E_n,
+\qquad
+\boxed{x_2=\sqrt{{(2n+1)\hbar\over m\omega}}.}
+\]
+在 $x_2$ 附近线性化势能：
+\[
+V_{\rm lin}(x_2+d)=E_n+m\omega^2x_2d.
+\]
+真实势能多出
+\[
+V(x_2+d)-V_{\rm lin}(x_2+d)={1\over2}m\omega^2d^2.
+\]
+令其与 $V(x_2)=E_n$ 的比值为 $0.01$，得
+\[
+d=0.1x_2.
+\]
+Airy 变量系数为
+\[
+\alpha=\left({2m|V'(x_2)|\over\hbar^2}\right)^{1/3}
+=\left({2m^2\omega^2x_2\over\hbar^2}\right)^{1/3}.
+\]
+设 $\ell=\sqrt{\hbar/(m\omega)}$，$x_2=\ell\sqrt{2n+1}$，则
+\[
+\alpha d=0.2\left(n+{1\over2}\right)^{2/3}.
+\]
+要求 $\alpha d\ge5$，所以
+\[
+n+{1\over2}\ge125,
+\qquad \boxed{n\ge125\text{ 左右}.}
+\]
+从这个量级开始，线性势近似与 Airy 渐近式有明显重叠区。
+\end{solution}
+
+\begin{question}
+推导倾斜向下的转折点处连接公式，并证明式 (9.51)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (9.47,9.51)：转折点连接公式把禁戒区的衰减/增长指数与允许区的正弦/余弦 WKB 波相连；相位偏移为 $\pi/4$。}
+
+\end{question}
+\begin{solution}
+若转折点右侧为允许区、左侧为禁戒区，则可由通常连接公式作 $x\mapsto -x$ 的替换得到。设 $x_0$ 为向下转折点，$x<x_0$ 为允许区，$x>x_0$ 为禁戒区，则
+\[
+{2A\over\sqrt p}\sin\left({1\over\hbar}\int_x^{x_0}p\,\dd x+{\pi\over4}\right)
+\longleftrightarrow
+{A\over\sqrt{|p|}}\exp\left[-{1\over\hbar}\int_{x_0}^{x}|p|\,\dd x\right].
+\]
+同理，禁戒区中的增长指数对应允许区中余弦型组合。把这两条线性关系用于势垒另一端，就得到书中式 (9.51) 所列的向下转折点连接公式。
+\end{solution}
+
+\begin{question}
+使用适当的连接公式分析倾斜壁势垒的散射问题（见图 9.13）。提示：先把 WKB 波函数写成以下形式：
+\[
+\psi(x)\approx
+\begin{cases}
+\dfrac{1}{\sqrt{p(x)}}\left[Ae^{\frac{i}{\hbar}\int_x^{x_1}p(x')\,\dd x'}+Be^{-\frac{i}{\hbar}\int_x^{x_1}p(x')\,\dd x'}\right], & x<x_1,\\[1.1em]
+\dfrac{1}{\sqrt{|p(x)|}}\left[Ce^{\frac{1}{\hbar}\int_{x_1}^x|p(x')|\,\dd x'}+De^{-\frac{1}{\hbar}\int_{x_1}^x|p(x')|\,\dd x'}\right], & x_1<x<x_2,\\[1.1em]
+\dfrac{1}{\sqrt{p(x)}}\left[Fe^{\frac{i}{\hbar}\int_{x_2}^x p(x')\,\dd x'}\right], & x>x_2.
+\end{cases}
+\]
+不要假设 $C=0$。计算隧穿几率 $T=|F|^2/|A|^2$，并证明在较宽、高势垒的情况下，结果简化为式 (9.23)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (9.23)：WKB 穿透因子：$T\approx e^{-2\gamma}$，$\gamma=(1/\hbar)\int_{x_1}^{x_2}|p(x)|\dd x$。}
+
+\end{question}
+\begin{solution}
+令
+\[
+\gamma={1\over\hbar}\int_{x_1}^{x_2}|p(x)|\,\dd x.
+\]
+在 $x_1$ 和 $x_2$ 分别用上升、下降转折点连接公式，把禁戒区中的 $C,D$ 与左侧入射、反射系数 $A,B$ 以及右侧透射系数 $F$ 联系起来。消去中间系数后，透射率具有指数依赖
+\[
+T={|F|^2\over |A|^2}=O(e^{-2\gamma}).
+\]
+若保留更精细的连接前因子，结果只会改变 $e^{-2\gamma}$ 前的数值因子；在 WKB 的主指数精度下不影响结论。
+在宽而高的势垒中，$\gamma\gg1$，指数因子支配一切前因子，于是
+\[
+\boxed{T\simeq \exp\left[-{2\over\hbar}\int_{x_1}^{x_2}|p(x)|\,\dd x\right],}
+\]
+这正是式 (9.23)。本题的关键是不能预设增长指数系数为零；只有完成两端匹配后，入射波和反射波的干涉才给出正确的透射振幅。
+\end{solution}
+
+\begin{question}
+对于“半谐振子”（例题 9.3），绘图将能级 $n=3$ 的归一化 WKB 波函数与精确解波函数做比较。你必须通过尝试才能确定修补区域的宽度。注意：你可以直接求 $p(x)$ 的积分，但也可以进行数值积分。你需要对 $|\psi_{\mathrm{WKB}}|^2$ 做数值积分才能归一化波函数。
+\end{question}
+\begin{solution}
+半谐振子在 $x=0$ 有硬壁，只允许普通谐振子的奇宇称本征态。精确解可写作
+\[
+\psi_{\rm ex}(x)=N H_{2n+1}(\xi)e^{-\xi^2/2},
+\qquad \xi=\sqrt{m\omega/\hbar}\,x,
+\]
+限制在 $x>0$ 并重新归一化。WKB 解在 $0<x<x_2$ 为
+\[
+\psi_{\rm WKB}(x)={C\over\sqrt{p(x)}}
+\sin\left({1\over\hbar}\int_0^x p(x')\,\dd x'\right),
+\]
+硬壁条件保证 $\psi(0)=0$；在转折点附近用 Airy 函数过渡，在 $x>x_2$ 用衰减指数
+\[
+\psi\propto {|p|}^{-1/2}\exp\left[-{1\over\hbar}\int_{x_2}^{x}|p|\,\dd x\right].
+\]
+实际作图时，取一小段 $|x-x_2|<\Delta$ 用 Airy 连接式替换两侧 WKB，调节 $\Delta$ 使函数和斜率平滑，然后数值归一化。$n=3$ 时 WKB 与精确解除硬壁和转折点极近处外符合良好。
+\end{solution}
+
+\begin{question}
+利用 WKB 近似求一般幂律势的能量允许值。设
+\[
+V(x)=\alpha |x|^\nu,
+\]
+其中 $\nu$ 是正数。对 $\nu=2$ 验证你的结果。
+\end{question}
+\begin{solution}
+转折点为 $x_0=(E/\alpha)^{1/\nu}$。WKB 量子化条件为
+\[
+2\int_0^{x_0}\sqrt{2m(E-\alpha x^\nu)}\,\dd x
+=\left(n+{1\over2}\right)\pi\hbar.
+\]
+令 $x=x_0 y$，则
+\[
+2\sqrt{2m}\,E^{1/2+1/\nu}\alpha^{-1/\nu}
+\int_0^1(1-y^\nu)^{1/2}\,\dd y
+=\left(n+{1\over2}\right)\pi\hbar.
+\]
+而
+\[
+\int_0^1(1-y^\nu)^{1/2}\,\dd y={1\over\nu}B\left({1\over\nu},{3\over2}\right).
+\]
+因此
+\[
+\boxed{E_n=\left[{(n+1/2)\pi\hbar\,\alpha^{1/\nu}\over
+2\sqrt{2m}\,\nu^{-1}B(1/\nu,3/2)}\right]^{2\nu/(\nu+2)}.}
+\]
+取 $\nu=2$、$\alpha=m\omega^2/2$，利用 $B(1/2,3/2)=\pi/2$，立刻得到 $E_n=(n+1/2)\hbar\omega$。
+\end{solution}
+
+\begin{question}
+对于习题 2.52 中的势，利用 WKB 近似求其束缚态能量，并与精确结果比较。
+\end{question}
+\begin{solution}
+势阱为
+\[
+V(x)=-{\hbar^2a^2\over m}\operatorname{sech}^2(ax).
+\]
+设束缚能 $E<0$，转折点由 $E+\hbar^2a^2\operatorname{sech}^2(ax)/m=0$ 给出。WKB 条件为
+\[
+\int_{-x_0}^{x_0}\sqrt{2m\left(E+{\hbar^2a^2\over m}\operatorname{sech}^2(ax)\right)}\,\dd x
+=\left(n+{1\over2}\right)\pi\hbar.
+\]
+令 $u=\tanh(ax)$ 可把积分化为只含 $E$ 的初等积分。该势的精确结果只有一个束缚态
+\[
+\psi_0(x)=\sqrt{a/2}\,\operatorname{sech}(ax),
+\qquad
+E_0=-{\hbar^2a^2\over2m}.
+\]
+WKB 给出的能量与此同量级；由于该势阱只容纳一个束缚态，WKB 的半经典条件并不理想，主要价值是给出束缚态存在和能量尺度的估计。
+\end{solution}
+
+\begin{question}
+对于球对称势，我们可以将 WKB 近似应用于径向部分求解（式 (4.37)）。在 $\ell=0$ 的情况下，将式 (9.48) 表示为以下形式是合理的：
+\[
+\int_0^{r_0}p(r)\,\dd r=(n-1/4)\pi\hbar,
+\]
+其中 $r_0$ 是转折点（实际上，我们将 $r=0$ 视为一无限高陡峭壁）。利用该公式估计如下对数势中粒子能量允许值：
+\[
+V(r)=V_0\ln(r/a)
+\]
+（$V_0$ 和 $a$ 为常数）。仅对 $\ell=0$ 的情况进行讨论。证明能级间隔与质量无关。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.37--4.38)：球对称问题中 $u=rR$ 满足一维径向方程，有效势 $V_{\rm eff}=V(r)+\hbar^2\ell(\ell+1)/(2mr^2)$。
+\item 式 (9.48)：两个转折点束缚态量子化：$\int_{x_1}^{x_2}p(x)\dd x=(n+1/2)\pi\hbar$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+转折点 $r_0$ 满足 $E=V_0\ln(r_0/a)$，即 $r_0=a e^{E/V_0}$。径向 WKB 积分为
+\[
+I=\int_0^{r_0}\sqrt{2m\left[E-V_0\ln(r/a)\right]}\,\dd r.
+\]
+令 $r=r_0e^{-u}$，则 $E-V_0\ln(r/a)=V_0u$，并且
+\[
+I=r_0\sqrt{2mV_0}\int_0^\infty e^{-u}u^{1/2}\,\dd u
+=r_0\sqrt{2mV_0}\,{\sqrt\pi\over2}.
+\]
+量子化条件给出
+\[
+{\sqrt\pi\over2}a e^{E/V_0}\sqrt{2mV_0}=\bigl(n-{1\over4}\bigr)\pi\hbar.
+\]
+所以
+\[
+\boxed{E_n=V_0\ln\left[{2\sqrt\pi\hbar\over a\sqrt{2mV_0}}
+\left(n-{1\over4}\right)\right].}
+\]
+相邻能级差为
+\[
+E_{n+1}-E_n=V_0\ln{n+3/4\over n-1/4},
+\]
+其中质量已经消去。
+\end{solution}
+
+\begin{question}
+利用式 (9.52) 中的 WKB 近似形式，
+\[
+\int_{r_1}^{r_2}p(r)\,\dd r=(n'-1/2)\pi\hbar,
+\]
+估算氢原子的束缚态能量。不要忘记有效势中的离心项（式 (4.38)）。下列积分可能有用：
+\[
+\int_a^b\frac{1}{x}\sqrt{(x-a)(b-x)}\,\dd x=\frac{\pi}{2}(\sqrt b-\sqrt a)^2.
+\]
+我在 $n$ 上加了一撇，是因为没有理由假设它就对应于玻尔公式中的 $n$。相反，通过计算径向波函数中的节点数，它对给定 $\ell$ 的状态进行排序。在第 4 章给出的记号中，$n'=N=n-\ell$（式 (4.67)）；将此代入，展开平方根式（$\sqrt{1+\epsilon}=1+\epsilon/2-\epsilon^2/8+\cdots$），并将结果与玻尔公式做比较。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (9.52)：径向 WKB 量子化类似为 $\int_{r_1}^{r_2}p_r(r)\dd r=(n'+1/2)\pi\hbar$，通常需配合 Langer 修正。
+\item 式 (4.37--4.38)：球对称问题中 $u=rR$ 满足一维径向方程，有效势 $V_{\rm eff}=V(r)+\hbar^2\ell(\ell+1)/(2mr^2)$。
+\item 式 (4.67)：氢原子径向量子数与主量子数满足 $n=N+\ell$（本资料沿题面记号使用）。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+有效势
+\[
+V_{\rm eff}(r)=-{e^2\over4\pi\epsilon_0 r}+{\hbar^2\ell(\ell+1)\over2mr^2}
+\]
+给出两个转折点。把
+\[
+p(r)=\sqrt{2m\left(E+{e^2\over4\pi\epsilon_0 r}\right)-{\hbar^2\ell(\ell+1)\over r^2}}
+\]
+写成
+\[
+p(r)={\sqrt{-2mE}\over r}\sqrt{(r-r_1)(r_2-r)}.
+\]
+利用题给积分可得
+\[
+\int_{r_1}^{r_2}p(r)\,\dd r
+={\pi\over2}\sqrt{-2mE}\left(\sqrt{r_2}-\sqrt{r_1}\right)^2.
+\]
+化简后量子化条件给出
+\[
+{me^2\over4\pi\epsilon_0\hbar\sqrt{-2mE}}-\sqrt{\ell(\ell+1)}
+=n'-{1\over2}.
+\]
+于是
+\[
+E=-{m e^4\over2(4\pi\epsilon_0)^2\hbar^2
+\left(n'-1/2+\sqrt{\ell(\ell+1)}\right)^2}.
+\]
+用 Langer 修正 $\ell(\ell+1)\to(\ell+1/2)^2$ 后，分母变为 $(n'+\ell)^2=n^2$，精确得到玻尔公式
+\[
+\boxed{E_n=-{m e^4\over2(4\pi\epsilon_0)^2\hbar^2 n^2}.}
+\]
+未作 Langer 修正时，大 $\ell$ 或大 $n$ 极限中仍趋于玻尔结果。
+\end{solution}
+
+\begin{question}
+如图 9.14 所示，考虑对称双势阱情况。我们感兴趣的是 $E<V(0)$ 的束缚态。
+\begin{enumerate}
+\item 写出如下区域的 WKB 波函数：(i) $x>x_2$；(ii) $x_1<x<x_2$；(iii) $0<x<x_1$。在 $x_1$ 和 $x_2$ 处加上适当连接公式（对在 $x_2$ 处的，已在式 (9.47) 给出；你需要自己求出 $x_1$ 处的连接公式），证明
+\[
+\psi(x)\approx\begin{cases}
+\dfrac{D}{\sqrt{|p(x)|}}\exp\left[-\dfrac{1}{\hbar}\int_{x_2}^{x}|p(x')|\,\dd x'\right], & (i),\\[1.2em]
+\dfrac{2D}{\sqrt{p(x)}}\sin\left[\dfrac{1}{\hbar}\int_x^{x_2}p(x')\,\dd x'+\dfrac{\pi}{4}\right], & (ii),\\[1.2em]
+\dfrac{D}{\sqrt{|p(x)|}}\left[2\cos\theta\,e^{\frac{1}{\hbar}\int_x^{x_1}|p(x')|\,\dd x'}+\sin\theta\,e^{-\frac{1}{\hbar}\int_x^{x_1}|p(x')|\,\dd x'}\right], & (iii),
+\end{cases}
+\]
+其中
+\[
+\theta=\frac{1}{\hbar}\int_{x_1}^{x_2}p(x)\,\dd x.
+\]
+\item 由于 $V(x)$ 是对称的，所以只需考虑偶（$+$）和奇（$-$）波函数。对前者有 $\psi'(0)=0$，对后者有 $\psi(0)=0$。证明它们导致下列量子化条件：
+\[
+\tan\theta=\pm2e^\phi,
+\qquad
+\phi=\frac{1}{\hbar}\int_{-x_1}^{x_1}|p(x')|\,\dd x'.
+\]
+式 (9.60) 确定了（近似的）能量允许值（注意：$E$ 含在 $x_1$ 和 $x_2$ 中，所以 $\theta$ 和 $\phi$ 均为 $E$ 的函数）。
+\item 我们对高而（或者）宽的中心势垒特别感兴趣，此时 $\phi$ 很大，所以 $e^\phi$ 十分巨大。证明量子化条件变为
+\[
+\theta\approx \left(n+\frac12\right)\pi+\frac12e^{-\phi}.
+\]
+\item 假设每个势阱都是抛物线：
+\[
+V(x)=\begin{cases}
+\frac12m\omega^2(x+a)^2, & x<0,\\
+\frac12m\omega^2(x-a)^2, & x>0.
+\end{cases}
+\]
+画出此势示意图，求出 $\theta$（式 (9.59)），并证明
+\[
+E_n^\pm\approx\left(n+\frac12\right)\hbar\omega\pm\frac{\hbar\omega}{2\pi}e^{-\phi}.
+\]
+\item 设粒子从右边的势阱开始运动，或者更确切地说初态为
+\[
+\Psi(x,0)=\frac{1}{\sqrt2}(\psi_n^++\psi_n^-).
+\]
+假设相位正常地选取任意一个值，则初始粒子将集中在左边的势阱中。证明它在两个势阱之间来回振荡，周期为
+\[
+\tau=\frac{2\pi^2}{\omega}e^\phi.
+\]
+\item 对 (d) 中所描述的势，计算 $\phi$，并证明对 $V(0)\gg E$，$\phi\sim ma\omega^2/\hbar$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (9.47,9.51)：转折点连接公式把禁戒区的衰减/增长指数与允许区的正弦/余弦 WKB 波相连；相位偏移为 $\pi/4$。
+\item 式 (9.59--9.60)：对称双势阱中定义 $\theta=\hbar^{-1}\int_{x_1}^{x_2}p\dd x$、$\phi=\hbar^{-1}\int_{-x_1}^{x_1}|p|\dd x$，量子化条件为 $\tan\theta=\pm2e^\phi$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+(a) 从右侧衰减解出发，在 $x_2$ 用普通连接公式得允许区中的正弦形式；再在 $x_1$ 处把正弦写成指数的线性组合，就得到题中三段式。关键关系是
+\[
+\theta={1\over\hbar}\int_{x_1}^{x_2}p(x)\,\dd x,
+\qquad
+\phi={1\over\hbar}\int_{-x_1}^{x_1}|p(x)|\,\dd x.
+\]
+(b) 对偶态要求 $\psi'(0)=0$，对奇态要求 $\psi(0)=0$。把第三段解代入 $x=0$，并用势的对称性整理，得到
+\[
+\boxed{\tan\theta=\pm2e^\phi.}
+\]
+(c) 若 $\phi\gg1$，右边很大，$\theta$ 接近 $(n+1/2)\pi$。设 $\theta=(n+1/2)\pi+\epsilon$，则 $\tan\theta\simeq-1/\epsilon$，从而 $|\epsilon|\simeq {1\over2}e^{-\phi}$，即题中近似量子化条件。
+
+(d) 单个势阱近似为谐振子，所以
+\[
+\theta={\pi E\over\hbar\omega}.
+\]
+把 $\theta$ 的微小分裂换算成能量分裂，得
+\[
+\boxed{E_n^\pm\simeq\left(n+{1\over2}\right)\hbar\omega
+\pm{\hbar\omega\over2\pi}e^{-\phi}.}
+\]
+(e) 初态是偶、奇本征态的叠加，时间演化为两项带不同相位。概率在左右阱之间振荡，角频率为
+\[
+{\Delta E\over\hbar}={\omega\over\pi}e^{-\phi},
+\]
+故周期
+\[
+\boxed{\tau={2\pi^2\over\omega}e^\phi.}
+\]
+(f) 对抛物双阱，中心势垒区 $-x_1<x<x_1$ 中
+\[
+\phi={1\over\hbar}\int_{-x_1}^{x_1}\sqrt{2m[V(x)-E]}\,\dd x.
+\]
+当 $V(0)\gg E$，主要贡献来自势垒区，量纲估计给出
+\[
+\phi\sim {ma^2\omega\over\hbar}
+\]
+（等价地为势垒作用量除以 $\hbar$）；所以阱间隧穿周期按 $e^\phi$ 指数增大。
+\end{solution}
+
+\begin{question}
+斯塔克效应中的隧穿：把一个原子置于外电场中，原则上原子内的电子可隧穿，从而使原子电离。问题：在通常的斯塔克效应实验中，这种情况可能发生吗？这种可能性发生的几率可以利用一个粗略的一维模型来估算。设想粒子处在一非常深的有限势阱中（见第 2.6 节）。
+\begin{enumerate}
+\item 从势阱底部向上测量，基态能量是多少？假设 $V_0\gg\hbar^2/ma^2$。提示：这是无限深方势阱（宽度 $2a$）的基态能量。
+\item 现在引入微扰 $H'=-\alpha x$（对于处在电场 $\mathbf E=-E_{\mathrm{ext}}\hat{\mathbf i}$ 的电子，有 $\alpha=eE_{\mathrm{ext}}$）。假设它相对较弱（$\alpha a\ll\hbar^2/ma^2$），画出总势能的图像，注意粒子可以沿 $x$ 正方向隧穿。
+\item 计算隧穿因子 $\gamma$（式 (9.23)），并估算粒子逃逸所需的时间（式 (9.29)）。
+\item 代入一些合理的数据：$V_0=20\,\mathrm{eV}$（通常外层电子的结合能），$a=10^{-10}\,\mathrm{m}$（通常原子半径的大小），$E_{\mathrm{ext}}=7\times10^6\,\mathrm{V/m}$（实验室强场），电子的电量 $e$ 和质量 $m$。计算 $\tau$ 并将它与宇宙的年龄做比较。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (9.23)：WKB 穿透因子：$T\approx e^{-2\gamma}$，$\gamma=(1/\hbar)\int_{x_1}^{x_2}|p(x)|\dd x$。
+\item 式 (9.26,9.29)：Alpha 衰变中 $\gamma=(\sqrt{2m}/\hbar)\int_{r_1}^{r_2}\sqrt{V(r)-E}\dd r$，寿命估计 $\tau\sim 1/(f e^{-2\gamma})$，$f$ 为撞击频率。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+(a) 宽度 $2a$ 的深方势阱基态能量近似为
+\[
+E_1={\pi^2\hbar^2\over 8ma^2}
+\]
+（从阱底向上量）。
+
+(b) 加上线性项 $-\alpha x$ 后，右侧势垒被拉低，外侧出现一个三角形禁戒区，粒子可向 $+x$ 方向隧穿。
+
+(c) 若从阱底算束缚能为 $E_1$，而阱深为 $V_0$，三角势垒高度近似 $V_0-E_1$。外转折点距离约
+\[
+L={V_0-E_1\over\alpha}.
+\]
+故
+\[
+\gamma={1\over\hbar}\int_0^L\sqrt{2m(V_0-E_1-\alpha x)}\,\dd x
+={2\sqrt{2m}(V_0-E_1)^{3/2}\over3\hbar\alpha}.
+\]
+逃逸时间可估为
+\[
+\tau\simeq {2a\over v}e^{2\gamma},
+\qquad v\simeq\sqrt{2E_1/m}.
+\]
+
+(d) 代入 $V_0=20\,\mathrm{eV}$、$a=10^{-10}\mathrm m$、$E_{\rm ext}=7\times10^6\mathrm{V/m}$，有 $\alpha=eE_{\rm ext}$。指数 $2\gamma$ 达到数百量级，故 $\tau$ 远远超过宇宙年龄。通常斯塔克效应实验中电离隧穿完全可以忽略。
+\end{solution}
+
+\begin{question}
+由于量子隧穿效应，在室温下一罐（装满的）啤酒自发倾倒需要多长时间？提示：将其视为质量为 $m$、半径为 $R$、高度为 $h$ 的均匀圆柱体。罐倾斜时，设 $x$ 为其中心高出其平衡位置（$h/2$）的高度。势能为 $mgx$，当 $x$ 达到临界值
+\[
+x_0=\sqrt{R^2+(h/2)^2}-h/2
+\]
+时，啤酒罐将倾倒。计算 $E=0$ 时的隧穿几率（式 (9.23)）。使用式 (9.29) 和热能 $\frac12mv^2=\frac12k_BT$ 估算其速度。代入合理的数据，并以年为单位给出最终答案。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (9.23)：WKB 穿透因子：$T\approx e^{-2\gamma}$，$\gamma=(1/\hbar)\int_{x_1}^{x_2}|p(x)|\dd x$。
+\item 式 (9.26,9.29)：Alpha 衰变中 $\gamma=(\sqrt{2m}/\hbar)\int_{r_1}^{r_2}\sqrt{V(r)-E}\dd r$，寿命估计 $\tau\sim 1/(f e^{-2\gamma})$，$f$ 为撞击频率。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+势能为 $V(x)=mgx$，从 $x=0$ 到临界高度 $x_0$。取 $E=0$，则
+\[
+\gamma={1\over\hbar}\int_0^{x_0}\sqrt{2m^2gx}\,\dd x
+={2m\sqrt{2g}\over3\hbar}x_0^{3/2}.
+\]
+隧穿几率
+\[
+T\simeq e^{-2\gamma}.
+\]
+热速度由 $mv^2/2=k_BT/2$ 给出，即 $v\simeq\sqrt{k_BT/m}$，尝试频率可取 $v/(2x_0)$，所以
+\[
+\tau\sim {2x_0\over v}e^{2\gamma}.
+\]
+即使用小质量和厘米尺度代入，$m x_0^{3/2}/\hbar$ 也是天文数字，$\tau$ 远远大于任何宇宙学时间尺度。因此一罐啤酒靠量子隧穿自发倾倒的时间可以实际看作无穷大。
+\end{solution}
+
+\begin{question}
+对于 $E<V_{\max}$ 的经典禁戒过程，式 (9.23) 给出隧穿通过一势垒的（近似）穿透几率。在本题中，我们探讨其互补现象：当 $E>V_{\max}$ 时，势垒的反射（同样是一个经典禁戒的过程）。假设 $V(x)$ 是一个偶数解析函数，它随 $x\to\pm\infty$ 时而趋于零（见图 9.15）。问题：类比于式 (9.23) 的式子是什么？
+\begin{enumerate}
+\item 用显而易见的方法尝试：假设 $|x|\ge a$ 时势为零，在散射区使用 WKB 近似（式 (9.13)）：
+\[
+\psi(x)\approx\begin{cases}
+Ae^{ikx}+Be^{-ikx}, & x<-a,\\
+\dfrac{1}{\sqrt{p(x)}}\left[C_+e^{i\phi(x)}+C_-e^{-i\phi(x)}\right], & -a<x<a,\\
+Ce^{ikx}, & x>a.
+\end{cases}
+\]
+在 $\pm a$ 处加上边界条件，求反射几率 $R=|B|^2/|A|^2$。遗憾的是，结果没有给出任何信息。正确的公式是
+\[
+R=e^{-2\lambda},\qquad \lambda=\frac{2}{\hbar}\int_0^{y_0}p(iy)\,\dd y,
+\]
+$y_0$ 由 $p(iy)=0$ 确定。注意，$\lambda$（如式 (9.23) 中的 $\gamma$）的值和 $1/\hbar$ 类似；事实上，它是以 $\hbar$ 为幂展开的第一项：$\lambda=c_1/\hbar+c_2+c_3\hbar+c_4\hbar^2+\cdots$。正如所预期的那样，在经典极限（$\hbar\to0$），$\lambda$ 和 $\gamma$ 变为无穷大，所以 $R$ 和 $T$ 为零。推导该式并不容易，但让我们看看一些例子。
+\item 对于某些正常数 $V_0$ 和 $a$，假设 $V(x)=V_0\operatorname{sech}^2(x/a)$。画出 $V(x)$ 图像，在 $0\le y\le y_0$ 区间画出 $p(iy)$ 图像，并证明 $\lambda=(\pi a/\hbar)(\sqrt{2mE}-\sqrt{2mV_0})$。对于给定的 $V_0$，画出 $R$ 与 $E$ 的函数关系图。
+\item 假设 $V(x)=V_0/[1+(x/a)^2]$。画出 $V(x)$ 图像，将 $\lambda$ 用椭圆积分表示，画出 $R$ 与 $E$ 的函数关系图。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (9.23)：WKB 穿透因子：$T\approx e^{-2\gamma}$，$\gamma=(1/\hbar)\int_{x_1}^{x_2}|p(x)|\dd x$。
+\item 式 (9.13)：散射区可写入射/反射 WKB 波的线性组合：$p^{-1/2}(Ae^{(\ii/\hbar)\int p\dd x}+Be^{-(\ii/\hbar)\int p\dd x})$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+(a) 若只在实轴上做 WKB 匹配，因为没有实转折点，入射和透射波的局部匹配只给出 $B=0$ 的绝热结果；这说明反射是超越所有 $\hbar$ 幂级数的效应，必须转到复平面。
+
+(b) 对 $V=V_0\operatorname{sech}^2(x/a)$，令 $x=\ii y$，则
+\[
+V(\ii y)=V_0\sec^2(y/a),
+\qquad
+p(\ii y)=\sqrt{2m[E-V_0\sec^2(y/a)]}.
+\]
+复转折点满足 $E=V_0\sec^2(y_0/a)$。计算复平面作用量得
+\[
+\boxed{\lambda={\pi a\over\hbar}\left(\sqrt{2mE}-\sqrt{2mV_0}\right),}
+\]
+所以
+\[
+R=e^{-2\lambda}.
+\]
+在固定 $V_0$ 下，$E$ 越大，$\lambda$ 越大，反射越小。
+
+(c) 对 $V=V_0/[1+(x/a)^2]$，有
+\[
+V(\ii y)={V_0\over1-(y/a)^2},
+\]
+复转折点由 $E=V_0/[1-(y_0/a)^2]$ 给出。于是
+\[
+\lambda={2\over\hbar}\int_0^{y_0}
+\sqrt{2m\left[E-{V_0\over1-(y/a)^2}\right]}\,\dd y,
+\]
+该积分可化为第一、第二类椭圆积分。$R(E)=e^{-2\lambda(E)}$ 同样随能量升高而迅速减小。
+\end{solution}
+
+\begin{question}
+利用伽莫夫公式（9.29）预测图 9.6 中曲线的斜率，并与在该图上的测量结果比较。
+\end{question}
+\begin{solution}
+Gamow 公式给出
+\[
+\tau\simeq {1\over f}e^{2\gamma},
+\qquad
+\gamma={1\over\hbar}\int_{r_1}^{r_2}\sqrt{2m_\alpha\left({2(Z-2)e^2\over4\pi\epsilon_0r}-E\right)}\,\dd r.
+\]
+当 $r_1\ll r_2$ 时，主导项为
+\[
+2\gamma\simeq {2\pi\over\hbar}{2(Z-2)e^2\over4\pi\epsilon_0}\sqrt{m_\alpha\over2E}+\mathrm{const.}.
+\]
+因此
+\[
+\log_{10}\tau=A+B{Z-2\over\sqrt E},
+\]
+其中
+\[
+B={1\over\ln10}{2\pi\over\hbar}{2e^2\over4\pi\epsilon_0}\sqrt{m_\alpha\over2}
+\]
+（若 $E$ 用统一单位表示，应相应换算）。这就是 Geiger--Nuttall 直线关系；图 9.6 的斜率应与上式给出的 $B(Z-2)$ 相符，偏差主要来自 $r_1$、尝试频率和核结构效应。
+\end{solution}

@@ -1,0 +1,1014 @@
+\heading{第7章-定态微扰理论}
+\begin{question}
+在无限深方势阱中心加入微扰 $H'=\alpha\delta(x-a/2)$。
+\begin{enumerate}
+\item 求允许能级的一阶修正，并解释偶数 $n$ 的能量为什么不受影响。
+\item 写出基态波函数一阶修正展开式中的前三个非零项。
+\end{enumerate}
+\end{question}
+\begin{solution}
+无限深阱本征函数取 $\psi_n=\sqrt{2/a}\sin(n\pi x/a)$。一阶能量修正为
+\[
+E_n^{(1)}=\alpha |\psi_n(a/2)|^2={2\alpha\over a}\sin^2{n\pi\over2}.
+\]
+所以偶数 $n$ 的波函数在阱中心有节点，不受 $\delta$ 峰一阶影响；奇数 $n$ 的修正为 $2\alpha/a$。
+
+基态一阶波函数修正
+\[
+\psi_1^{(1)}=\sum_{m\ne1}{\langle m|H'|1\rangle\over E_1^{(0)}-E_m^{(0)}}\psi_m.
+\]
+只有奇数 $m$ 非零，且
+\[
+\langle m|H'|1\rangle={2\alpha\over a}\sin{m\pi\over2}.
+\]
+故前三个非零项可取 $m=3,5,7$：
+\[
+\psi_1^{(1)}={2\alpha/a\over E_1-E_3}(-\psi_3)+{2\alpha/a\over E_1-E_5}(\psi_5)+{2\alpha/a\over E_1-E_7}(-\psi_7)+\cdots.
+\]
+\end{solution}
+
+\begin{question}
+一维谐振子弹性常数由 $k$ 改为 $(1+\epsilon)k$。
+\begin{enumerate}
+\item 求精确能量并按 $\epsilon$ 展开到二阶。
+\item 用一阶微扰理论计算能量修正，并与精确展开比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+新弹性常数为 $k'=(1+\epsilon)k$，所以
+\[
+\omega'=\omega\sqrt{1+\epsilon}=\omega\left(1+{\epsilon\over2}-{\epsilon^2\over8}+\cdots\right).
+\]
+精确能级
+\[
+E_n'=(n+1/2)\hbar\omega'
+=(n+1/2)\hbar\omega\left(1+{\epsilon\over2}-{\epsilon^2\over8}+\cdots\right).
+\]
+微扰为
+\[
+H'={1\over2}\epsilon kx^2={1\over2}\epsilon m\omega^2x^2.
+\]
+用 $\langle x^2\rangle_n=(n+1/2)\hbar/(m\omega)$ 得
+\[
+E_n^{(1)}={\epsilon\over2}(n+1/2)\hbar\omega,
+\]
+与精确展开的一阶项一致。
+\end{solution}
+
+\begin{question}
+两个自旋为零的全同玻色子放在一维无限深方势阱中，粒子间有弱相互作用
+\[
+V(x_1,x_2)=aV_0\delta(x_1-x_2).
+\]
+求无相互作用时的基态和第一激发态，并用一阶微扰理论估计相互作用对这些能级的修正。
+\end{question}
+\begin{solution}
+无相互作用时，玻色子空间波函数需对称。基态为
+\[
+\Psi_0(x_1,x_2)=\psi_1(x_1)\psi_1(x_2),\qquad E_0=2E_1.
+\]
+第一激发态为一个粒子在 $n=1$、一个在 $n=2$ 的对称组合：
+\[
+\Psi_1={1\over\sqrt2}[\psi_1(x_1)\psi_2(x_2)+\psi_2(x_1)\psi_1(x_2)],
+\qquad E=E_1+E_2.
+\]
+对 $H'=aV_0\delta(x_1-x_2)$，一阶修正为
+\[
+E^{(1)}=aV_0\int_0^a |\Psi(x,x)|^2\,\dd x.
+\]
+于是
+\[
+E_0^{(1)}=aV_0\int |\psi_1|^4\dd x={3V_0\over2},
+\]
+而第一激发态有 $\Psi_1(x,x)=\sqrt2\psi_1\psi_2$，故
+\[
+E_1^{(1)}=2aV_0\int |\psi_1|^2|\psi_2|^2\dd x=2V_0.
+\]
+\end{solution}
+
+\begin{question}
+将微扰理论用于一般二能级系统。设未微扰哈密顿量有两个非简并能级，微扰矩阵元为 $V_{ij}$。
+\begin{enumerate}
+\item 求精确本征值。
+\item 将结果展开到三阶并与非简并微扰公式比较。
+\item 在 $V_{11}=V_{22}=0$ 时讨论级数收敛条件。
+\end{enumerate}
+\end{question}
+\begin{solution}
+二能级矩阵为
+\[
+H=\begin{pmatrix}E_1^0+\lambda V_{11}&\lambda V_{12}\\ \lambda V_{21}&E_2^0+\lambda V_{22}\end{pmatrix}.
+\]
+严格本征值
+\[
+E_\pm={A+D\over2}\pm \sqrt{\left({A-D\over2}\right)^2+\lambda^2|V_{12}|^2},
+\]
+其中 $A=E_1^0+\lambda V_{11}$，$D=E_2^0+\lambda V_{22}$。令 $\Delta=E_2^0-E_1^0>0$，低能级展开为
+\[
+E_-=E_1^0+\lambda V_{11}+\lambda^2{|V_{12}|^2\over E_1^0-E_2^0}
++\lambda^3{|V_{12}|^2(V_{22}-V_{11})\over (E_1^0-E_2^0)^2}+\cdots.
+\]
+高能级对应把 $1\leftrightarrow2$。当 $V_{11}=V_{22}=0$ 时，级数来自 $\sqrt{\Delta^2/4+\lambda^2|V_{12}|^2}$，收敛半径要求 $|\lambda V_{12}|<\Delta/2$。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 求习题 7.1 中 $\delta$ 函数微扰导致的能量二阶修正。
+\item 对习题 7.2 的谐振子微扰，计算基态能量二阶修正并与精确展开核对。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 对习题 7.1，二阶修正
+\[
+E_n^{(2)}=\sum_{m\ne n}{|H'_{mn}|^2\over E_n^0-E_m^0},
+\qquad H'_{mn}={2\alpha\over a}\sin{m\pi\over2}\sin{n\pi\over2}.
+\]
+偶数 $n$ 为零；奇数 $n$ 可化为
+\[
+E_n^{(2)}=-{2m\alpha^2\over \pi^2\hbar^2 n^2}.
+\]
+
+(b) 谐振子 $H'={1\over2}\epsilon m\omega^2x^2$ 只联结 $n$ 与 $n\pm2$。基态
+\[
+E_0^{(2)}={|\langle2|H'|0\rangle|^2\over E_0-E_2}
+=-{\epsilon^2\over16}\hbar\omega,
+\]
+正好等于精确展开 $E_0={1\over2}\hbar\omega(1+\epsilon)^{1/2}$ 的二阶项。
+\end{solution}
+
+\begin{question}
+考虑一维谐振子势中的带电粒子，加上弱电场 $\mathcal E$，微扰为 $H'=-q\mathcal E x$。
+\begin{enumerate}
+\item 证明能量一阶修正为零，并求二阶修正。
+\item 通过平移坐标直接求精确能量，验证微扰结果。
+\end{enumerate}
+\end{question}
+\begin{solution}
+微扰 $H'=q\mathcal E x$。谐振子定态有确定宇称，所以
+\[
+E_n^{(1)}=q\mathcal E\langle n|x|n\rangle=0.
+\]
+又
+\[
+x=\sqrt{\hbar\over2m\omega}(a+a^\dagger),
+\]
+只联结 $n\pm1$。计算得
+\[
+E_n^{(2)}=-{q^2\mathcal E^2\over2m\omega^2},
+\]
+与 $n$ 无关。配方
+\[
+{1\over2}m\omega^2x^2+q\mathcal E x={1\over2}m\omega^2\left(x+{q\mathcal E\over m\omega^2}\right)^2-{q^2\mathcal E^2\over2m\omega^2}
+\]
+给出同样的精确能量移动。
+\end{solution}
+
+\begin{question}
+考虑图 7.3 所示的一维势场。
+\begin{enumerate}
+\item 求基态波函数的一阶修正，保留前三个非零项。
+\item 用数值方法求基态波函数和基态能量，并与一阶微扰结果比较。
+\item 画出未微扰、数值解和一阶近似的基态波函数。
+\end{enumerate}
+\end{question}
+\begin{solution}
+按非简并微扰公式
+\[
+\psi_0^{(1)}=\sum_{n\ne0}{\langle n|H'|0\rangle\over E_0^0-E_n^0}\psi_n.
+\]
+由势能的宇称，只保留与基态宇称相同的项；取前三个非零矩阵元即可得到一阶近似。数值部分可用二阶差分离散化哈密顿量，对角化最低本征矢并归一化。比较时应看到：当 $V_0$ 足够小，一阶微扰的能量和波函数与数值解接近；偏离主要出现在势垒/势阱附近。
+\end{solution}
+
+\begin{question}
+设二重简并微扰理论中的两个“好”零阶态为 $\psi_a,\psi_b$ 的线性组合。证明这些好态相互正交，且微扰在好态基底中为对角形式；再说明相应的对角元就是一阶能量修正。
+\end{question}
+\begin{solution}
+设二重简并子空间基为 $\psi_a,\psi_b$，好态是矩阵
+\[
+W_{ij}=\langle\psi_i|H'|\psi_j\rangle
+\]
+的本征矢。厄米矩阵的不同本征值对应正交本征矢，所以两好态正交。若好态已对角化 $W$，则
+\[
+\langle\psi_1^0|H'|\psi_2^0\rangle=0.
+\]
+并且一阶能量修正就是对应本征值：
+\[
+E_{1,2}^{(1)}={W_{aa}+W_{bb}\over2}
+\pm\sqrt{\left({W_{aa}-W_{bb}\over2}\right)^2+|W_{ab}|^2}.
+\]
+\end{solution}
+
+\begin{question}
+质量为 $m$ 的粒子在周长为 $L$ 的圆环上无摩擦运动。
+\begin{enumerate}
+\item 证明定态为 $L^{-1/2}e^{2\pi\ii nx/L}$，除 $n=0$ 外能级二重简并。
+\item 加入局域弱势阱，利用简并微扰理论求能量一阶修正。
+\item 找出“好”线性组合，并解释相关对称性。
+\end{enumerate}
+\end{question}
+\begin{solution}
+圆环本征态
+\[
+\psi_n(x)={1\over\sqrt L}e^{2\pi\ii nx/L},
+\qquad E_n={\hbar^2\over2m}\left({2\pi n\over L}\right)^2.
+\]
+$n\ne0$ 时 $\pm n$ 简并。局域吸引阱的矩阵元近似为
+\[
+W_{mn}\simeq {1\over L}\int_{-\infty}^{\infty}H'(x)e^{2\pi\ii(n-m)x/L}\dd x.
+\]
+在 $\{n,-n\}$ 子空间中对角化 $2\times2$ 的 $W$，好态是偶、奇实组合
+\[
+\psi_c=\sqrt{2/L}\cos(2\pi nx/L),\qquad
+\psi_s=\sqrt{2/L}\sin(2\pi nx/L).
+\]
+中心吸引势只显著降低偶态；奇态在 $x=0$ 有节点，修正较小。相应的守恒厄米算符是宇称。
+\end{solution}
+
+\begin{question}
+证明例题 7.3 中微扰理论得到的一阶能量修正与相应精确解对小参数的一阶展开一致。
+\end{question}
+\begin{solution}
+例题 7.3 的精确本征值写成小参数展开后，平方根项用
+\[
+(1+x)^{1/2}=1+{x\over2}-{x^2\over8}+\cdots
+\]
+展开。保留 $\epsilon$ 的一阶项，正好等于简并微扰中 $W$ 矩阵本征值给出的 $E^{(1)}$。因此精确解的一阶展开与式 (7.33) 一致。
+\end{solution}
+
+\begin{question}
+在三维无限深立方势阱中的点 $(a/4,a/2,3a/4)$ 加入 $\delta$ 函数形微扰。求基态和第一激发三重简并能级的一阶能量修正。
+\end{question}
+\begin{solution}
+三维箱中
+\[
+\psi_{n_xn_yn_z}=\left({2\over a}\right)^{3/2}\prod_i\sin{n_i\pi x_i\over a}.
+\]
+点状微扰
+\[
+H'=\alpha V_0\delta(x-a/4)\delta(y-a/2)\delta(z-3a/4)
+\]
+给出
+\[
+W_{ij}=\alpha V_0\psi_i^*(\mathbf r_0)\psi_j(\mathbf r_0).
+\]
+基态一阶修正即 $\alpha V_0|\psi_{111}(\mathbf r_0)|^2$。第一激发三重态为 $(211),(121),(112)$，在该三维子空间内构造上式的 $3\times3$ 矩阵并对角化；由于它是外积矩阵，只有一个非零本征值
+\[
+E^{(1)}=\alpha V_0\sum_{i=1}^3|\psi_i(\mathbf r_0)|^2,
+\]
+其余两个为零。
+\end{solution}
+
+\begin{question}
+一个三维量子系统的哈密顿量矩阵含有小参数 $\epsilon$。
+\begin{enumerate}
+\item 求未扰动本征态和本征值。
+\item 严格求解本征值并展开到 $\epsilon^2$。
+\item 用非简并和简并微扰理论分别计算并比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+$\epsilon=0$ 时前两个态简并，能量为 $E_0$，第三态能量为 $2E_0$（按题中矩阵符号记）。严格本征值由三阶特征方程得到。展开到二阶时，非简并态的修正用
+\[
+E_n^{(1)}=V_{nn},
+\qquad
+E_n^{(2)}=\sum_{m\ne n}{|V_{mn}|^2\over E_n^0-E_m^0}.
+\]
+简并的两个态要先对简并子空间中的 $W$ 矩阵对角化；其本征值是一阶修正。这样得到的展开与严格本征值的幂级数逐项一致。
+\end{solution}
+
+\begin{question}
+证明一般 $n$ 重简并情形下一阶能量修正由简并子空间中微扰矩阵 $W$ 的本征值给出。提示：从简并子空间内零阶态的线性组合出发，重复二重简并情形的推导。
+\end{question}
+\begin{solution}
+在 $n$ 重简并子空间中写
+\[
+\psi^{(0)}=\sum_{j=1}^n a_j\psi_j^0.
+\]
+把 $\psi=\psi^{(0)}+\lambda\psi^{(1)}+\cdots$ 与 $E=E^0+\lambda E^{(1)}+\cdots$ 代入定态方程，取一阶项：
+\[
+(H^0-E^0)\psi^{(1)}=-(H'-E^{(1)})\psi^{(0)}.
+\]
+左乘 $\langle\psi_i^0|$ 后左边为零，得
+\[
+\sum_j W_{ij}a_j=E^{(1)}a_i,
+\quad W_{ij}=\langle\psi_i^0|H'|\psi_j^0\rangle.
+\]
+因此一阶能量修正就是 $W$ 的本征值，好态是其本征矢。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 用精细结构常数 $\alpha$ 和电子静能量 $mc^2$ 表示玻尔能量。
+\item 讨论是否能够从第一性原理计算精细结构常数。
+\end{enumerate}
+\end{question}
+\begin{solution}
+玻尔基态能量
+\[
+E_1=-{1\over2}\alpha^2 m_ec^2.
+\]
+所以 Rydberg 能量为
+\[
+13.6\,\mathrm{eV}={1\over2}\alpha^2m_ec^2.
+\]
+(b) 要从第一性原理计算精细结构常数 $\alpha=e^2/(4\pi\epsilon_0\hbar c)$ 的数值，是尚无公认理论解的基本常数问题；本题的正确结论是不能由当前非相对论量子力学推出。
+\end{solution}
+
+\begin{question}
+利用位力定理证明氢原子相对论修正中所用到的式 (7.56)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (7.56)：氢原子径向期望值常用结果：$\langle r^{-1}\rangle=1/(n^2a)$，$\langle r^{-2}\rangle=1/[n^3a^2(\ell+1/2)]$。}
+
+\end{question}
+\begin{solution}
+库仑势 $V\propto r^{-1}$，位力定理给
+\[
+2\langle T\rangle=-\langle V\rangle,
+\qquad E=\langle T+V\rangle={1\over2}\langle V\rangle.
+\]
+又 $V=-e^2/(4\pi\epsilon_0r)$，故
+\[
+\left\langle {1\over r}\right\rangle=-{8\pi\epsilon_0\over e^2}E_n.
+\]
+代入氢原子能量 $E_n=-e^2/(8\pi\epsilon_0a n^2)$，得
+\[
+\left\langle {1\over r}\right\rangle={1\over an^2},
+\]
+即式 (7.56)。
+\end{solution}
+
+\begin{question}
+在习题 4.52 的氢原子态中计算 $r^s$ 的期望值，并在 $s=0,-1,-2,-3$ 等情形验证与正文公式的一致性；讨论 $s=-7$ 时的情况。
+\end{question}
+\begin{solution}
+氢原子径向期望值可用通式检验：
+\[
+\langle r^0\rangle=1,
+\qquad
+\left\langle {1\over r}\right\rangle={1\over an^2},
+\]
+\[
+\left\langle {1\over r^2}\right\rangle={1\over a^2n^3(\ell+1/2)},
+\qquad
+\left\langle {1\over r^3}\right\rangle={1\over a^3n^3\ell(\ell+1/2)(\ell+1)}\quad(\ell\ne0).
+\]
+$s=-3$ 在 $\ell=0$ 时发散，这反映了 $s$ 态波函数在原点不为零，$r^{-3}$ 奇异性不可积。
+\end{solution}
+
+\begin{question}
+计算一维谐振子能级的最低阶相对论修正。提示：将 $p^4$ 项作为微扰，可使用习题 2.12 中的方法。
+\end{question}
+\begin{solution}
+最低阶相对论修正为
+\[
+H'=-{p^4\over8m^3c^2}.
+\]
+谐振子中
+\[
+p=\ii\sqrt{m\hbar\omega\over2}(a^\dagger-a).
+\]
+用升降算符代数可得
+\[
+\langle n|p^4|n\rangle={3\over4}m^2\hbar^2\omega^2(2n^2+2n+1).
+\]
+因此
+\[
+E_n^{(1)}=-{3\hbar^2\omega^2\over32mc^2}(2n^2+2n+1).
+\]
+\end{solution}
+
+\begin{question}
+证明对于氢原子 $\ell=0$ 的态，动量平方算符 $p^2$ 是厄米的。注意径向表示中的边界项和原点处可能出现的奇异项。
+\end{question}
+\begin{solution}
+对 $\ell=0$ 径向波函数，动量平方在径向部分可写为
+\[
+p^2=-\hbar^2{1\over r}{\dd^2\over\dd r^2}r.
+\]
+对满足边界条件 $rR(r)\to0$ 的波函数分部积分，表面项消失，故 $p^2$ 厄米。对 $p^4$ 需再次分部积分；$s$ 态在原点的 cusp 会产生 $\nabla^2(1/r)=-4\pi\delta(\mathbf r)$ 项。把该 $\delta$ 项保留后，表面项相互抵消，$p^4$ 仍为厄米算符。
+\end{solution}
+
+\begin{question}
+计算下列对易子：$[\mathbf L\cdot\mathbf S,L_i]$、$[\mathbf L\cdot\mathbf S,S_i]$、$[\mathbf L\cdot\mathbf S,J_i]$ 以及与 $L^2,S^2,J^2$ 的对易关系。
+\end{question}
+\begin{solution}
+利用 $[L_i,L_j]=\ii\hbar\epsilon_{ijk}L_k$、$[S_i,S_j]=\ii\hbar\epsilon_{ijk}S_k$、$[L_i,S_j]=0$：
+\[
+[L\cdot S,L_i]=\ii\hbar(\mathbf S\times\mathbf L)_i,
+\]
+\[
+[L\cdot S,S_i]=\ii\hbar(\mathbf L\times\mathbf S)_i,
+\]
+两者相加得
+\[
+[L\cdot S,J_i]=0.
+\]
+由于 $L^2$ 与所有 $L_i$ 对易且与 $S_i$ 对易，$[L\cdot S,L^2]=0$；同理 $[L\cdot S,S^2]=0$。又 $J^2=L^2+S^2+2L\cdot S$，故 $[L\cdot S,J^2]=0$。
+\end{solution}
+
+\begin{question}
+从相对论修正和自旋--轨道耦合出发，推导氢原子的精细结构公式。提示：分别处理 $j=\ell+1/2$ 与 $j=\ell-1/2$。
+\end{question}
+\begin{solution}
+相对论修正、自旋--轨道耦合与 Darwin 项相加。用
+\[
+\langle L\cdot S\rangle={\hbar^2\over2}[j(j+1)-\ell(\ell+1)-3/4]
+\]
+以及氢原子 $\langle r^{-2}\rangle,\langle r^{-3}\rangle$ 的公式，分别代入 $j=\ell\pm1/2$。两种情况化简后给出同一精细结构修正
+\[
+E_{nj}^{(1)}=-{E_n^2\over2mc^2}\left({4n\over j+1/2}-3\right),
+\]
+即式 (7.68)/(7.69)。
+\end{solution}
+
+\begin{question}
+氢原子可见光区最重要的红色巴耳末线来自 $n=3$ 到 $n=2$ 的跃迁。
+\begin{enumerate}
+\item 先用玻尔理论求该谱线的波长和频率。
+\item 计入精细结构后，确定 $n=2$ 与 $n=3$ 能级的分裂。
+\item 列出允许跃迁，求分裂出的谱线数目和相邻谱线的频率间隔。
+\end{enumerate}
+\end{question}
+\begin{solution}
+玻尔红色巴耳末线由 $n=3\to2$ 给出 $\lambda\simeq656.3\,\mathrm{nm}$。精细结构使能量只依赖 $n$ 与 $j$：
+\[
+\Delta E_{nj}=-{E_n^2\over2mc^2}\left({4n\over j+1/2}-3\right).
+\]
+$n=2$ 有 $j=1/2,3/2$；$n=3$ 有 $j=1/2,3/2,5/2$。按电偶极选择定则 $\Delta \ell=\pm1$、$\Delta j=0,\pm1$（不含 $0\leftrightarrow0$），列出允许跃迁并计算
+\[
+h\nu=(E_3-E_2)+\Delta E_{3j'}-\Delta E_{2j}.
+\]
+相同频率合并后得到若干条相近谱线，间隔为上述差值除以 $h$。
+\end{solution}
+
+\begin{question}
+把精细结构公式与相对论狄拉克方程给出的氢原子能级展开式比较，证明二者在 $\alpha^4$ 阶上一致。
+\end{question}
+\begin{solution}
+狄拉克精确能量对 $\alpha$ 展开。把根号写成
+\[
+(1+x)^{-1/2}=1-{x\over2}+{3x^2\over8}+\cdots,
+\]
+并将分母中含 $\alpha^2$ 的项也展开到 $\alpha^4$。结果为
+\[
+E_{nj}=mc^2-{1\over2}mc^2{\alpha^2\over n^2}
+-{1\over2}mc^2{\alpha^4\over n^4}\left({n\over j+1/2}-{3\over4}\right)+O(\alpha^6),
+\]
+去掉静能 $mc^2$ 后，正是玻尔能量加精细结构修正。
+\end{solution}
+
+\begin{question}
+考虑外磁场足够弱时氢原子的塞曼效应。利用 $|n\ell jm_j\rangle$ 好态和朗德因子，写出能级的一阶塞曼修正。
+\end{question}
+\begin{solution}
+内磁场量级由自旋--轨道耦合能与 $\mu_B B$ 比较。氢原子精细结构能量量级约
+\[
+\Delta E_{\rm fs}\sim \alpha^2 |E_n|.
+\]
+令 $\mu_B B_{\rm int}\sim \Delta E_{\rm fs}$，得
+\[
+B_{\rm int}\sim {\alpha^2|E_n|\over\mu_B}.
+\]
+基态量级为十几特斯拉；若外场远小于此，为弱场塞曼效应，若远大于此，为强场（Paschen--Back）极限。
+\end{solution}
+
+\begin{question}
+对氢原子 $n=2$ 能级，结合精细结构和弱场塞曼效应，列出各个 $|n\ell jm_j\rangle$ 态的能量，并说明简并如何解除。
+\end{question}
+\begin{solution}
+弱场中好态为 $|n\ell jm_j\rangle$，能量
+\[
+E=E_n+\Delta E_{\rm fs}(n,j)+\mu_B g_jB m_j,
+\]
+其中
+\[
+g_j=1+{j(j+1)+s(s+1)-\ell(\ell+1)\over2j(j+1)},\qquad s=1/2.
+\]
+对 $n=2$：$2S_{1/2}$ 有 $g=2$；$2P_{1/2}$ 有 $g=2/3$；$2P_{3/2}$ 有 $g=4/3$。把每个 $m_j=-j,\ldots,j$ 代入，斜率就是 $\mu_Bg_jm_j$。
+\end{solution}
+
+\begin{question}
+使用维格纳--埃卡特定理证明：在给定初末角动量态之间，任意两个矢量算符的矩阵元具有相同的角动量因子，因此只相差一个与 $m,m'$ 无关的比例常数。
+\end{question}
+\begin{solution}
+维格纳--埃卡特定理给
+\[
+\langle \alpha'j'm'|V_q|\alpha jm\rangle
+=\langle jm;1q|j'm'\rangle\langle \alpha'j'\|V\|\alpha j\rangle.
+\]
+同一组初末态下，任何矢量算符的 $m,m',q$ 依赖都由同一个 CG 系数决定，差别只在约化矩阵元。因此
+\[
+\langle \alpha'j'm'|V_q|\alpha jm\rangle
+=C\langle \alpha'j'm'|W_q|\alpha jm\rangle,
+\]
+其中 $C$ 是两个约化矩阵元之比。这证明了在固定角动量多重态内 $L+2S$ 的矩阵元与 $J$ 的矩阵元成比例。
+\end{solution}
+
+\begin{question}
+在强磁场（帕邢--巴克）极限下，以 $|n\ell m_\ell m_s\rangle$ 为好态。由相关公式推导强场能量表达式，并说明其与弱场公式的区别。
+\end{question}
+\begin{solution}
+强场中以 $|n\ell m_\ell m_s\rangle$ 为好态。塞曼项一阶为
+\[
+E_Z=\mu_BB(m_\ell+2m_s).
+\]
+精细结构作为微扰时，只需取
+\[
+\langle L\cdot S\rangle=\hbar^2m_\ell m_s,
+\]
+再加入相对论修正与 Darwin 项。把这些期望值代入式 (7.84)，即可化到式 (7.86)。
+\end{solution}
+
+\begin{question}
+考虑氢原子 $n=2$ 的强场塞曼效应。列出各状态能量，写成玻尔能级、精细结构项和塞曼项之和；若忽略精细结构，统计不同能级及其简并度。
+\end{question}
+\begin{solution}
+$n=2$ 强场态为 $|2\ell m_\ell m_s\rangle$。能量写成
+\[
+E=E_2+\Delta E_{\rm fs}^{\rm(strong)}(\ell,m_\ell,m_s)+\mu_BB(m_\ell+2m_s).
+\]
+若忽略精细结构，只看 $m_\ell+2m_s$。$2S$ 态 $m_\ell=0$，$m_s=\pm1/2$；$2P$ 态 $m_\ell=-1,0,1$，$m_s=\pm1/2$。因此可能的斜率为 $-2,-1,0,1,2$（以 $\mu_BB$ 为单位），相同斜率的态保持简并。
+\end{solution}
+
+\begin{question}
+讨论 $\ell=0$ 情形下强场和弱场塞曼效应公式的一致性。证明此时好态相同，并说明如何处理强场公式中表面上的不定项。
+\end{question}
+\begin{solution}
+当 $\ell=0$ 时，$j=s=1/2$ 且 $m_j=m_s$，弱场好态和强场好态相同。弱场 Landé 因子为 $g_j=2$，故
+\[
+E_Z=2\mu_BBm_s.
+\]
+强场公式中 $m_\ell=0$，同样得到 $E_Z=2\mu_BBm_s$。精细结构中自旋--轨道项为零，取式 (7.86) 方括号不定项为 $1$ 后与弱场结果一致。
+\end{solution}
+
+\begin{question}
+计算 $L_z+2S_z$ 在弱场好态基底中的矩阵元。对 $n=2$ 子空间构造相应矩阵，并与弱场塞曼公式比较。
+\end{question}
+\begin{solution}
+在 $n=2$ 子空间，用 CG 系数把 $|\ell m_\ell;s m_s\rangle$ 与 $|\ell j m_j\rangle$ 相互展开。矩阵元
+\[
+\langle L_z+2S_z\rangle
+\]
+在弱场基中可用维格纳--埃卡特定理或显式 CG 展开求得。对角元给 Landé 因子，非对角元只在相同 $m_j$ 的不同 $j$ 态之间出现；把这些元素排成矩阵，即得到教材给出的中间场矩阵。
+\end{solution}
+
+\begin{question}
+分析氢原子 $n=3$ 能级在弱场、中间场和强场下的塞曼效应。构造类似表 7.2 的能级表，并说明中间场数值对角化如何连接弱场与强场极限。
+\end{question}
+\begin{solution}
+$n=3$ 的处理与 $n=2$ 完全相同：列出 $\ell=0,1,2$ 与 $j=\ell\pm1/2$ 的全部态。弱场用 $|n\ell jm_j\rangle$，强场用 $|n\ell m_\ell m_s\rangle$。中间场中，对每个固定 $m_j$ 构造
+\[
+W=\Delta H_{\rm fs}+\mu_BB(L_z+2S_z)
+\]
+矩阵并对角化。$B\to0$ 时本征值趋于弱场公式，$B\to\infty$ 时本征斜率趋于强场公式。
+\end{solution}
+
+\begin{question}
+证明角平均公式
+\[
+\int (\mathbf a\cdot\hat r)(\mathbf b\cdot\hat r)\,\dd\Omega={4\pi\over3}\mathbf a\cdot\mathbf b.
+\]
+并用它证明 $\ell=0$ 态中磁偶极--偶极相互作用的角平均结果。
+\end{question}
+\begin{solution}
+角平均满足
+\[
+\int \hat r_i\hat r_j\,\dd\Omega={4\pi\over3}\delta_{ij}.
+\]
+故
+\[
+\int(\mathbf a\cdot\hat r)(\mathbf b\cdot\hat r)\,\dd\Omega={4\pi\over3}\mathbf a\cdot\mathbf b.
+\]
+对 $\ell=0$ 态，角分布球对称，所以
+\[
+\left\langle 3{(\mathbf S_1\cdot\hat r)(\mathbf S_2\cdot\hat r)\over r^3}-{\mathbf S_1\cdot\mathbf S_2\over r^3}\right\rangle_{\Omega}=0.
+\]
+因此偶极--偶极超精细项在 $s$ 态的角平均为零，只剩接触项。
+\end{solution}
+
+\begin{question}
+通过适当修改氢原子超精细分裂公式，估计缪子氢和电子偶素等体系的基态超精细分裂。注意替换约化质量、磁矩和相关 $g$ 因子。
+\end{question}
+\begin{solution}
+超精细分裂接触项与
+\[
+\Delta E_{\rm hfs}\propto g_N{\mu\over m_e}{1\over n^3}
+\]
+同量纲，并且 $|\psi(0)|^2\propto \mu^3$。把氢原子中电子质量、核磁矩和 $g$ 因子替换为相应体系的约化质量与磁矩，即得缪子氢和电子偶素的分裂。缪子氢因波函数在原点的概率密度约增大 $(\mu_{\mu p}/\mu_{ep})^3$，分裂远大于普通氢；电子偶素中两粒子质量相等，需同时考虑两个磁矩，得到正电子素的单态--三重态分裂。
+\end{solution}
+
+\begin{question}
+估算原子核有限尺寸对氢原子基态能量的修正。把质子视为半径 $b$ 的均匀带电球壳，使电子在壳内的势能为常数；把结果展开为小参数 $b/a$ 的最低阶。
+\end{question}
+\begin{solution}
+把库仑常数记为 $k=1/(4\pi\epsilon_0)$。壳外势能仍为 $-ke^2/r$，壳内势能近似为常数 $-ke^2/b$。因此微扰只存在于 $r<b$ 内：
+\[
+\Delta V(r)=ke^2\left({1\over r}-{1\over b}\right),\qquad r<b.
+\]
+基态波函数在很小的核半径范围内可取 $|\psi_{100}(r)|^2\simeq |\psi_{100}(0)|^2=1/(\pi a^3)$。一阶能量修正为
+\[
+\Delta E\simeq 4\pi {1\over \pi a^3}ke^2\int_0^b\left({1\over r}-{1\over b}\right)r^2\,\dd r
+={2\over3}{ke^2b^2\over a^3}.
+\]
+用 $ke^2/a=2\mathrm{Ry}$，可写成
+\[
+\boxed{\Delta E\simeq {4\over3}\mathrm{Ry}\left({b\over a}\right)^2 }.
+\]
+由于 $b\ll a$，该修正很小，但符号为正，表示有限核尺寸使库仑吸引在原点附近变弱。
+\end{solution}
+
+\begin{question}
+发展另一种简并微扰理论方法。对具有二重简并子空间的 $H_0$，定义投影算符 $P_0$，写出有效哈密顿量，并说明当一阶结果仍简并时如何继续求二阶有效矩阵。
+\end{question}
+\begin{solution}
+若一阶简并微扰矩阵 $W$ 的本征值仍简并，则一阶不能唯一确定好态。需要在该一阶简并子空间内继续对角化二阶有效矩阵
+\[
+W^{(2)}_{ij}=\sum_{m\notin D}{\langle i|H'|m\rangle\langle m|H'|j\rangle\over E_D^0-E_m^0}.
+\]
+其本征值给二阶能量修正，本征矢给正确的好态。
+\end{solution}
+
+\begin{question}
+考虑一个三重简并子空间中的微扰矩阵。设一阶简并微扰矩阵在该子空间中不能完全确定唯一的“好”态。构造相应的投影算符，并说明为什么在这种情况下必须继续考察高阶有效微扰矩阵。求出好态以及相应的一阶能量修正。
+\end{question}
+\begin{solution}
+本题矩阵直接说明：若 $W$ 与单位阵成比例，一阶能量相同，任意线性组合都是一阶好态。将高阶项代入或引入外部态后，二阶矩阵一般不再与单位阵成比例，于是二阶微扰消除剩余简并。计算步骤就是构造 $W^{(2)}$ 并对角化。
+\end{solution}
+
+\begin{question}
+考虑各向同性三维谐振子。取微扰
+\[
+H'=Axyz.
+\]
+分别讨论基态和第一激发三重简并能级的一阶能量修正。提示：利用一维谐振子的升降算符矩阵元。
+\end{question}
+\begin{solution}
+基态波函数在 $x,y,z$ 三个坐标上都是偶函数，而 $xyz$ 为奇函数，所以
+\[
+E_0^{(1)}=A\langle000|xyz|000\rangle=0.
+\]
+第一激发能级由
+\[
+|100\rangle,
+\quad |010\rangle,
+\quad |001\rangle
+\]
+张成。写
+\[
+x=\sqrt{\hbar\over2m\omega}(a_x+a_x^\dagger),
+\]
+$y,z$ 类似。算符 $xyz$ 会同时改变三个方向的量子数各 $\pm1$。因此它不能把第一激发子空间中的任一态变到同一子空间内，故简并微扰矩阵
+\[
+W_{ij}=A\langle i|xyz|j\rangle
+\]
+在该三维子空间中全为零。于是第一激发三重态的一阶能量修正也全部为零；若要看到劈裂，需要继续计算更高阶修正。
+\end{solution}
+
+\begin{question}
+范德瓦耳斯相互作用。用一维模型描述两个相距 $R$ 的中性、可极化原子：每个原子由一个带电粒子（质量 $m$、电荷 $-e$）通过弹簧（弹性常数 $k$）束缚在固定正电荷附近。无微扰哈密顿量为两个独立谐振子，原子间库仑相互作用为四个电荷之间的相互作用。
+\begin{enumerate}
+\item 在 $|x_1|,|x_2|\ll R$ 条件下展开相互作用，并证明最低有效耦合正比于 $-x_1x_2/R^3$。
+\item 通过正则坐标把总哈密顿量化为两个独立谐振子，求基态能量的展开。
+\item 证明相互作用能的最低非零项正比于 $-R^{-6}$。
+\item 用二阶微扰理论重新得到同一结论。
+\end{enumerate}
+\end{question}
+\begin{solution}
+把变量变换到正则坐标后，两个耦合谐振子哈密顿量化为两个独立谐振子，其频率分别为 $\omega_+$ 与 $\omega_-$。总基态能量为
+\[
+E={\hbar\over2}(\omega_++\omega_-).
+\]
+对小耦合展开，线性项相消，首个非零项为负且正比于耦合常数平方。由于耦合常数 $\propto R^{-3}$，所以能量移动 $\Delta E\propto-R^{-6}$，与二阶微扰结果一致。
+\end{solution}
+
+\begin{question}
+费曼--赫尔曼定理。设哈密顿量 $H(\lambda)$ 依赖参数 $\lambda$，且
+\[
+H(\lambda)|n(\lambda)\rangle=E_n(\lambda)|n(\lambda)\rangle.
+\]
+\begin{enumerate}
+\item 证明
+\[
+{\partial E_n\over\partial\lambda}=\left\langle n\left|{\partial H\over\partial\lambda}\right|n\right\rangle.
+\]
+\item 将其应用于一维谐振子，分别取参数为 $\omega$、$\hbar$ 和 $m$，并与直接计算和位力定理比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+对 $H(\lambda)|n\rangle=E_n|n\rangle$ 求导：
+\[
+{\partial H\over\partial\lambda}|n\rangle+H|\partial_\lambda n\rangle
+={\partial E_n\over\partial\lambda}|n\rangle+E_n|\partial_\lambda n\rangle.
+\]
+左乘 $\langle n|$，并用 $\langle n|H=E_n\langle n|$，得
+\[
+{\partial E_n\over\partial\lambda}=\left\langle n\left|{\partial H\over\partial\lambda}\right|n\right\rangle.
+\]
+谐振子中令 $\lambda=\omega,k,m$ 分别可得到 $\langle x^2\rangle$、$\langle T\rangle$ 和位力定理关系，均与直接计算一致。
+\end{solution}
+
+\begin{question}
+考虑一个三能级系统：前两个未微扰能级简并，第三个能级较高；微扰只把其中某些简并态与第三态耦合。精确对角化总哈密顿量，并把本征值按微扰强度展开到二阶。比较直接使用非简并微扰理论与二阶简并微扰理论的结果，说明为什么一阶矩阵不能总是确定“好”态。
+\end{question}
+\begin{solution}
+矩阵可严格对角化：一个态与微扰不耦合，另两个态形成 $2\times2$ 子块。本征值展开到二阶后可见，原简并两态虽一阶 $W=0$，但其中一个通过第三态产生二阶能量移动。若错误地把任意原简并态都当作好态，非简并二阶公式会漏掉子空间内应对角化的二阶有效矩阵。这正是二阶简并微扰的必要性。
+\end{solution}
+
+\begin{question}
+发展二阶简并微扰理论。设一阶简并微扰矩阵在简并子空间内仍有简并。
+\begin{enumerate}
+\item 写出简并子空间外的波函数一阶修正。
+\item 证明好态由二阶有效矩阵
+\[
+W^{(2)}_{ij}=\sum_{m\notin D}{\langle i|H'|m\rangle\langle m|H'|j\rangle\over E_D^0-E_m^0}
+\]
+的本征矢确定。
+\item 将结果用于习题 7.39。
+\end{enumerate}
+\end{question}
+\begin{solution}
+二重简并时，一阶波函数修正中只对简并子空间外求和：
+\[
+|\psi^{(1)}\rangle=\sum_{m\notin D}{\langle m|H'|\psi^{(0)}\rangle\over E_D^0-E_m^0}|m\rangle.
+\]
+若一阶本征值相同，则 $\psi^{(0)}=a|1\rangle+b|2\rangle$ 的系数由
+\[
+\sum_j W^{(2)}_{ij}a_j=E^{(2)}a_i
+\]
+确定，其中
+\[
+W^{(2)}_{ij}=\sum_{m\notin D}{\langle i|H'|m\rangle\langle m|H'|j\rangle\over E_D^0-E_m^0}.
+\]
+用于习题 7.39 即恢复严格展开的二阶结果。
+\end{solution}
+
+\begin{question}
+质量为 $m$ 的粒子限制在周长为 $L$ 的圆环上，满足周期边界条件。未微扰态为
+\[
+\psi_n(x)={1\over\sqrt L}e^{2\pi i n x/L}.
+\]
+加入微扰
+\[
+H'=V_0\cos{2\pi x\over L}.
+\]
+证明除 $n=0$ 外未微扰能级二重简并；求微扰矩阵元；讨论 $n=\pm1$ 子空间的一阶和二阶能量修正以及好态。
+\end{question}
+\begin{solution}
+圆环态 $\psi_n=L^{-1/2}e^{2\pi\ii nx/L}$，$n\ne0$ 二重简并。微扰 $V_0\cos(2\pi x/L)$ 的矩阵元
+\[
+H'_{mn}={V_0\over2}(\delta_{m,n+1}+\delta_{m,n-1}).
+\]
+在 $n=\pm1$ 子空间内一阶矩阵为零（或与单位阵成比例），所以一阶不劈裂。二阶有效矩阵通过 $n=0,\pm2$ 中间态产生，对角化后好态为
+\[
+{1\over\sqrt2}(\psi_1\pm\psi_{-1})
+\]
+即余弦/正弦组合；对应二阶能量由 $W^{(2)}$ 的两个本征值给出。
+\end{solution}
+
+\begin{question}
+利用费曼--赫尔曼定理计算氢原子的径向期望值。把径向有效哈密顿量看作依赖于 $e^2$ 和 $\ell(\ell+1)$ 的哈密顿量，推导 $\langle1/r\rangle$ 与 $\langle1/r^2\rangle$，并与第 4 章结果比较。
+\end{question}
+\begin{solution}
+径向有效哈密顿量依赖参数 $e^2$ 与 $\ell(\ell+1)$。对 $e^2$ 用费曼--赫尔曼定理：
+\[
+{\partial E_n\over\partial(e^2)}=\left\langle -{1\over4\pi\epsilon_0r}\right\rangle,
+\]
+即得 $\langle1/r\rangle=1/(an^2)$。对 $\ell$ 视作连续参数求导，可由离心势项得到 $\langle1/r^2\rangle$，化简为
+\[
+\left\langle {1\over r^2}\right\rangle={1\over a^2n^3(\ell+1/2)}.
+\]
+\end{solution}
+
+\begin{question}
+证明 Kramers 关系：从氢原子径向方程出发，乘以适当的 $r^s$ 权函数并分部积分，推导不同径向期望值之间的递推关系。
+\end{question}
+\begin{solution}
+把径向方程写成 $u''=F(r)u$，两边乘 $r^su'$ 并在 $0$ 到 $\infty$ 积分。分部积分把 $u''$ 项降阶，边界项因束缚态归一化和原点正则性消失。整理 $\int r^s|u|^2\dd r$、$\int r^{s-1}|u|^2\dd r$、$\int r^{s-2}|u|^2\dd r$ 三类项，就得到 Kramers 递推关系。该关系把 $\langle r^s\rangle$ 与较低幂次的期望值联系起来。
+\end{solution}
+
+\begin{question}
+利用习题 7.43 的 Kramers 关系，递推出氢原子若干正、负幂径向期望值，并与第 4 章直接积分结果比较。
+\end{question}
+\begin{solution}
+将 $s=0,1,2,3$ 代入 Kramers 关系可递推得到 $\langle r\rangle,\langle r^2\rangle,\langle r^3\rangle$ 等正幂期望值。向负幂方向代入 $s=-1$ 时，某些系数消失，只给出 $\langle r^{-1}\rangle$ 与 $\langle r^{-2}\rangle$ 的关系，而不能单独确定二者。结合习题 7.42 已得的 $\langle r^{-2}\rangle$，即可继续递推并得到 $\langle r^{-3}\rangle$，与精细结构计算中使用的公式一致。
+\end{solution}
+
+\begin{question}
+研究氢原子 $n=2$ 能级的线性 Stark 效应。构造简并子空间中的矩阵 $\langle n\ell m|e\mathcal Ez|n\ell' m'\rangle$，求一阶能级修正和对应好态。
+\end{question}
+\begin{solution}
+$n=2$ 斯塔克效应的简并子空间包含 $|200\rangle$ 与 $|21m\rangle$。微扰 $H'=e\mathcal Ez$ 只联结 $\ell$ 相差 $1$、$m$ 相同的态，因此只有 $|200\rangle$ 与 $|210\rangle$ 有非零矩阵元
+\[
+\langle200|z|210\rangle=-3a.
+\]
+在 $\{|200\rangle,|210\rangle\}$ 子空间中对角化 $2\times2$ 矩阵，得到一阶能量移动
+\[
+\Delta E=\pm 3ea\mathcal E,
+\]
+而 $m=\pm1$ 的两个 $2p$ 态一阶移动为零。
+\end{solution}
+
+\begin{question}
+研究氢原子 $n=3$ 能级的线性 Stark 效应。利用选择定则按 $m$ 分块构造矩阵，求一阶能量修正并指出简并如何被解除。
+\end{question}
+\begin{solution}
+$n=3$ 斯塔克矩阵由选择定则 $\Delta\ell=\pm1,\Delta m=0$ 分块。以 $m=0,\pm1,\pm2$ 分块构造 $e\mathcal Ez$ 的矩阵。题中给出的
+\[
+\langle300|z|310\rangle=-3\sqrt6a,
+\quad
+\langle310|z|320\rangle=-3\sqrt3a,
+\quad
+\langle31\pm1|z|32\pm1\rangle=-{9a\over2}
+\]
+是非零元的代表。对角化各块可得线性 Stark 劈裂；$m=\pm2$ 块因无可联结态一阶为零，其余块给出成对正负本征值和相应简并度。
+\end{solution}
+
+\begin{question}
+利用氢原子超精细分裂的结果，估计氘原子基态超精细分裂和相应谱线波长。注意把质子磁矩、自旋替换为氘核的相应量。
+\end{question}
+\begin{solution}
+氘原子超精细分裂可由氢原子 $21\,\mathrm{cm}$ 线公式替换核磁矩得到。接触相互作用比例为
+\[
+\Delta E\propto g_I{\mu\over m_e}{\mu^3\over m_em_p}.
+\]
+氘核自旋为 $1$，$g_d\simeq1.71$。将质子质量换为氘核质量、电子--核约化质量换为氘的约化质量后求得频率 $\nu=\Delta E/h$，波长 $\lambda=c/\nu$，量级约为几十厘米，长于氢的 $21\,$cm 线。
+\end{solution}
+
+\begin{question}
+考虑外部点电荷对氢原子基态的影响。对远场势作多极展开，求一阶和二阶能量修正的主导项，并解释其与诱导偶极矩、极化率的关系。
+\end{question}
+\begin{solution}
+对远处点电荷势作多极展开，常数项为 $V_0$，偶极项因正负成对对称而消失，二次项给
+\[
+H'=V_0+3(B_1x^2+B_2y^2+B_3z^2)-(B_1+B_2+B_3)r^2.
+\]
+基态球对称，$\langle x^2\rangle=\langle y^2\rangle=\langle z^2\rangle=\langle r^2\rangle/3$，所以二次各向异性项相消，只剩常数 $V_0$。
+
+$n=2$ 子空间中，$2s$ 仍只受球对称部分影响；三个 $2p$ 轨道分别沿 $x,y,z$，其能量移动与 $B_1,B_2,B_3$ 的组合对应。立方对称时不劈裂；四方对称时分成 $p_z$ 与 $(p_x,p_y)$ 两级；正交对称时三个 $p$ 态全部分裂。
+\end{solution}
+
+\begin{question}
+把外加磁场看作参数，利用费曼--赫尔曼定理求能量对磁场的导数，并由此得到磁矩或磁化率的表达式。
+\end{question}
+\begin{solution}
+把磁场 $B_0$ 当参数。费曼--赫尔曼定理给
+\[
+{\partial E\over\partial B_0}=\left\langle {\partial H\over\partial B_0}\right\rangle.
+\]
+哈密顿量对 $B_0$ 的导数正是 $-\mu_z$，其中
+\[
+\boldsymbol\mu=-{e\over2m}(\mathbf L+2\mathbf S)
+\]
+（按电子电荷符号取）。因此
+\[
+{\partial E\over\partial B_0}=-\langle\mu_z\rangle.
+\]
+对多电子原子同理，只需把磁矩换成总磁矩。
+\end{solution}
+
+\begin{question}
+讨论氦原子基态在弱磁场中的 Zeeman 效应。说明线性项的一阶修正为何为零，并求抗磁项给出的主导能量修正。
+\end{question}
+\begin{solution}
+氦基态为两个 $1s$ 电子的自旋单态，故 $L_z=S_z=0$，线性 Zeeman 项一阶为零。二阶主要来自 $A^2$ 抗磁项：
+\[
+\Delta E={e^2B^2\over8m}\sum_i\langle x_i^2+y_i^2\rangle.
+\]
+对球对称 $1s$ 态，$\langle x^2+y^2\rangle={2\over3}\langle r^2\rangle$。用类氢 $Z=2$ 的 $1s$ 波函数计算得能量二阶随 $B^2$ 增加。由
+\[
+\chi=-{N\over V\mu_0}{\partial^2E_0\over\partial B^2}
+\]
+得到抗磁磁化率，符号为负。
+\end{solution}
+
+\begin{question}
+研究氢原子基态的二阶 Stark 效应。说明一阶能量修正为零，并用 Dalgarno--Lewis 方法或态求和方法求极化率。
+\end{question}
+\begin{solution}
+(a) 氢基态 Stark 一阶修正为零，因为 $1s$ 态偶宇称而 $z$ 奇宇称。求一阶波函数修正可直接解
+\[
+(H_0-E_0)\psi^{(1)}=-(e\mathcal Ez)\psi_{100},
+\]
+取 $\psi^{(1)}=f(r)\cos\theta\psi_{100}$ 可化为径向微分方程，解出后得到基态二阶能量，即氢原子极化率
+\[
+\alpha_H={9\over2}4\pi\epsilon_0 a^3.
+\]
+(b) 对谐振子同样可用 Dalgarno--Lewis 方法直接解非齐次方程，避免显式求和，结果与普通二阶微扰相同。
+\end{solution}
+
+\begin{question}
+对二维谐振子施加指定微扰，利用简并微扰理论求低能级的一阶能量修正和好态。
+\end{question}
+\begin{solution}
+二维谐振子基态
+\[
+\psi_{00}=\sqrt{m\omega\over\pi\hbar}e^{-m\omega(x^2+y^2)/(2\hbar)},
+\qquad E_0=\hbar\omega.
+\]
+第一激发态为 $\psi_{10},\psi_{01}$，能量 $2\hbar\omega$，二重简并。磁场微扰
+\[
+H'=-{qB\over2m}L_z.
+\]
+基态 $L_z=0$，一阶修正为零。第一激发态中取
+\[
+\psi_\pm={1\over\sqrt2}(\psi_{10}\pm\ii\psi_{01}),
+\]
+它们是 $L_z$ 本征态，本征值 $\pm\hbar$，故
+\[
+\Delta E_\pm=\mp {qB\hbar\over2m}.
+\]
+\end{solution}
+
+\begin{question}
+对给定体系计算微扰波函数的一阶修正，并由此求相应物理量的二阶能量修正。注意只对未微扰简并子空间外求和。
+\end{question}
+\begin{solution}
+一阶修正
+\[
+E_n^{(1)}=\lambda |\psi_n(x_0)|^2={2\lambda\over a}\sin^2(n\pi p),
+\qquad x_0=pa.
+\]
+二阶修正为
+\[
+E_n^{(2)}=\sum_{m\ne n}{\lambda^2 |\psi_m(x_0)|^2|\psi_n(x_0)|^2\over E_n^0-E_m^0}.
+\]
+精确解在 $x_0$ 两侧分别取正弦函数，连续性与导数跳变
+\[
+\psi'(x_0^+)-\psi'(x_0^-)= {2m\lambda\over\hbar^2}\psi(x_0)
+\]
+给出正能超越方程。若 $\lambda<0$，令 $E=-\hbar^2\kappa^2/2m$，正弦换成双曲正弦，得到负能态方程。$p=1/2$ 深阱极限时中心附近恢复自由空间 $\delta$ 势阱能量。
+\end{solution}
+
+\begin{question}
+利用变分法或微扰公式处理给定模型势，推导能量上界或微扰修正，并比较不同近似方法的结果。
+\end{question}
+\begin{solution}
+(a) 令 $Q=H'$，式 (7.118) 给
+\[
+(Q)^{(1)}=2\sum_{m\ne n}{|H'_{mn}|^2\over E_n^0-E_m^0}=2E_n^{(2)},
+\]
+这不矛盾，因为能量展开中 $\lambda H'$ 的期望值还要乘外面的 $\lambda$，而二阶能量来自波函数一阶修正。
+
+(b) $H'=-q\mathcal Ex$，诱导偶极矩 $p=q\langle x\rangle=\alpha\mathcal E$，
+\[
+\alpha=2q^2\sum_{m\ne0}{|\langle m|x|0\rangle|^2\over E_m-E_0}.
+\]
+谐振子基态只联结 $m=1$，得 $\alpha=q^2/(m\omega^2)$，等于经典结果。
+
+(c) 对 $H'=kx^3/6$，用升降算符求和可得 $\langle x\rangle^{(1)}$ 与 $n$ 成正比，表示非谐性导致热膨胀型的平均位移。
+\end{solution}
+
+\begin{question}
+粒子在圆环上运动，并在原点加入吸引 $\delta$ 势。讨论奇偶态、简并解除以及低阶能量修正。
+\end{question}
+\begin{solution}
+圆环上加 $-\alpha\delta(x)$ 后，势仍为偶函数，所以本征态可分为偶、奇。奇态在 $x=0$ 有节点，不感受 $\delta$ 势；偶态在原点非零，被吸引势降低。原本的 $\cos$/$\sin$ 二重简并被解除：偶态低于奇态。因此能级按能量排列时，奇偶和节点数的通常一维定理在圆环拓扑上呈现“错位”，关键是圆环没有普通无限直线上的两个端点边界条件。
+\end{solution}
+
+\begin{question}
+用变分法估计氦原子基态能量。取两个氢样 $1s$ 轨道组成的试探波函数，引入有效核电荷作为变分参数，并与一阶微扰估计比较。
+\end{question}
+\begin{solution}
+(a) 氦基态一阶电子--电子排斥为
+\[
+E^{(1)}=\left\langle {e^2\over4\pi\epsilon_0 r_{12}}\right\rangle
+={5\over4}Z\,\mathrm{Ry}
+\]
+对 $Z=2$ 给约 $34\,\mathrm{eV}$，即总能量从 $-108.8\,\mathrm{eV}$ 提高到约 $-74.8\,\mathrm{eV}$。
+
+(b) 第一激发组的空间对称/反对称组合给
+\[
+E^{(1)}=K\pm J,
+\]
+其中 $K$ 为直接积分，$J$ 为交换积分。空间对称态对应自旋单态，能量 $K+J$；空间反对称态对应自旋三重态，能量 $K-J$。因此三重态较低，这与氦谱中三重态低于相应单态一致。
+\end{solution}
+
+\begin{question}
+对周期势中的 Bloch 波形式代入薛定谔方程，推导关于周期函数的本征值方程，并讨论能带近似或微扰修正的计算方法。
+\end{question}
+\begin{solution}
+把 Bloch 形式代入得到
+\[
+\left[{1\over2m}(-\ii\hbar\partial_x+\hbar q)^2+V(x)\right]u_{nq}=E_{nq}u_{nq}.
+\]
+取
+\[
+H^0={p^2\over2m}+V(x),
+\qquad
+H'={\hbar q\over m}p+{\hbar^2q^2\over2m}.
+\]
+微扰展开
+\[
+E_{nq}=E_n^0+A_n+B_nq+C_nq^2+\cdots.
+\]
+显然 $A_n=E_n^0$，
+\[
+B_n={\hbar\over m}\langle n|p|n\rangle=0
+\]
+（周期边界下可选取实的周期本征函数，动量期望值为零）。二阶系数
+\[
+C_n={\hbar^2\over2m}+{\hbar^2\over m^2}\sum_{m\ne n}{|\langle m|p|n\rangle|^2\over E_n^0-E_m^0}.
+\]
+通常写 $C_n=\hbar^2/(2m_n^*)$，定义能带有效质量。
+\end{solution}

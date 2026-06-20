@@ -1,0 +1,2542 @@
+\heading{第4章-三维空间中的量子力学}
+\begin{question}
+\begin{enumerate}
+\item 求出算符 $\mathbf r$ 和 $\mathbf p$ 的各分量之间的正则对易关系：$[x,y]$、$[x,p_y]$、$[x,p_x]$、$[p_x,p_y]$ 等。
+\item 证明三维情况下的埃伦菲斯特定理：
+\[
+\frac{\mathrm d}{\mathrm dt}\langle \mathbf r\rangle=\frac1m\langle \mathbf p\rangle,
+\qquad
+\frac{\mathrm d}{\mathrm dt}\langle \mathbf p\rangle=-\langle \nabla V\rangle .
+\]
+提示：先验证“广义的”埃伦菲斯特定理在三维情况下成立。
+\item 阐述三维情况下的海森伯不确定原理。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 在坐标表象中 $x,y,z$ 是相互独立的乘法算符，$p_i=-\ii\hbar\partial_i$。于是
+\[
+[x_i,x_j]=0,\qquad [p_i,p_j]=0,\qquad [x_i,p_j]=\ii\hbar\delta_{ij}.
+\]
+所以例如 $[x,y]=0,[x,p_y]=0,[x,p_x]=\ii\hbar,[p_x,p_y]=0$。
+
+(2) 对任意不显含时的算符 $Q$，三维形式的广义埃伦菲斯特定理为
+\[
+\frac{\dd}{\dd t}\langle Q\rangle=\frac{\ii}{\hbar}\langle[H,Q]\rangle,
+\quad H=\frac{p^2}{2m}+V(\mathbf r).
+\]
+取 $Q=x_i$ 得 $[p_j^2,x_i]=-2\ii\hbar\delta_{ij}p_j$，故
+\[
+\frac{\dd}{\dd t}\langle x_i\rangle=\frac{1}{m}\langle p_i\rangle.
+\]
+取 $Q=p_i$，因 $[V,p_i]=\ii\hbar\partial_iV$，得
+\[
+\frac{\dd}{\dd t}\langle p_i\rangle=-\langle\partial_iV\rangle.
+\]
+合并三个分量即题中矢量式。
+
+(3) 每一对共轭分量满足
+\[
+\sigma_{x_i}\sigma_{p_j}\ge \frac{\hbar}{2}\delta_{ij}.
+\]
+非共轭分量（如 $x$ 与 $p_y$）对易，没有由正则对易子给出的非零下界。
+
+\end{solution}
+
+\begin{question}
+在直角坐标系中，利用分离变量法求解三维无限深方势阱（箱子里的一个粒子）：
+\[
+V(x,y,z)=\begin{cases}
+0, & 0<x,y,z<a,\\
+\infty, & \text{其他地方}.
+\end{cases}
+\]
+\begin{enumerate}
+\item 求出定态波函数及相应能级。
+\item 按能量增加的顺序标记不同能量 $E_1,E_2,E_3,\cdots$，写出 $E_1,E_2,E_3,E_4,E_5,E_6$，并确定它们的简并度。注释：在一维情况下简并不会发生，但在三维情况下简并很常见。
+\item $E_{14}$ 的简并度是多少？为什么这种情况很有趣？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+分离变量 $\psi=X(x)Y(y)Z(z)$，每一维都是无限深方势阱，因此
+\[
+\psi_{n_xn_yn_z}=\left(\frac{2}{a}\right)^{3/2}\sin\frac{n_x\pi x}{a}\sin\frac{n_y\pi y}{a}\sin\frac{n_z\pi z}{a},
+\]
+\[
+E_{n_xn_yn_z}=\frac{\pi^2\hbar^2}{2ma^2}(n_x^2+n_y^2+n_z^2),\qquad n_x,n_y,n_z=1,2,\cdots .
+\]
+按 $n_x^2+n_y^2+n_z^2$ 排列：
+\[
+E_1=3\epsilon\ (1),\quad E_2=6\epsilon\ (3),\quad E_3=9\epsilon\ (3),\quad E_4=11\epsilon\ (3),
+\]
+\[
+E_5=12\epsilon\ (1),\quad E_6=14\epsilon\ (6),\qquad \epsilon=\frac{\pi^2\hbar^2}{2ma^2},
+\]
+括号中为简并度。$E_{14}$ 对应平方和 $33=1+16+16=4+4+25$，即 $(1,4,4)$ 给 3 个、$(2,2,5)$ 给 3 个，共 6 重简并。它有趣之处在于不同整数分拆偶然给出相同能量。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 假设波函数
+\[
+\psi(r,\theta,\phi)=A e^{-r/a},
+\]
+其中 $A$ 和 $a$ 都为常数。求能量 $E$ 和势场 $V(r)$，当 $r\to\infty$ 时，$V(r)\to0$。
+\item 设 $V(0)=0$，对波函数
+\[
+\psi(r,\theta,\phi)=A e^{-r^2/a^2}
+\]
+重复上述计算。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+定态方程给
+\[
+V=E+\frac{\hbar^2}{2m}\frac{\nabla^2\psi}{\psi}.
+\]
+球对称时 $\nabla^2 f=r^{-2}\partial_r(r^2f')$。
+
+(1) $f=Ae^{-r/a}$，
+\[
+\frac{\nabla^2f}{f}=\frac{1}{a^2}-\frac{2}{ar}.
+\]
+令 $V(\infty)=0$ 得 $E=-\hbar^2/(2ma^2)$，于是
+\[
+V(r)=-\frac{\hbar^2}{mar}.
+\]
+
+(2) $f=Ae^{-r^2/a^2}$，
+\[
+\frac{\nabla^2f}{f}=-\frac{6}{a^2}+\frac{4r^2}{a^4}.
+\]
+若 $V(0)=0$，则 $E=3\hbar^2/(ma^2)$，并有
+\[
+V(r)=\frac{2\hbar^2}{ma^4}r^2.
+\]
+
+\end{solution}
+
+\begin{question}
+利用式 (4.27)、式 (4.28)、式 (4.32) 来构建 $Y_2^0$ 和 $Y_2^1$，验证正交归一性。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.27--4.28)：Rodrigues 公式：$P_\ell(x)=(2^\ell\ell!)^{-1}\dd^\ell(x^2-1)^\ell/\dd x^\ell$；$P_\ell^m(x)=(-1)^m(1-x^2)^{m/2}\dd^mP_\ell/\dd x^m$。
+\item 式 (4.32)：球谐函数：$Y_\ell^m(\theta,\phi)=\epsilon\sqrt{(2\ell+1)(\ell-|m|)!/[4\pi(\ell+|m|)!]}\,e^{\ii m\phi}P_\ell^m(\cos\theta)$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+由
+\[
+Y_\ell^m=N_{\ell m}e^{\ii m\phi}P_\ell^m(\cos\theta),
+\]
+可得
+\[
+Y_2^0=\sqrt{\frac{5}{16\pi}}(3\cos^2\theta-1),
+\]
+\[
+Y_2^1=-\sqrt{\frac{15}{8\pi}}\sin\theta\cos\theta\,e^{\ii\phi}.
+\]
+归一化直接由
+\[
+\int_0^{2\pi}\!\dd\phi\int_0^\pi |Y|^2\sin\theta\dd\theta=1
+\]
+验证。二者正交，因为 $\phi$ 积分给出 $\int e^{\ii\phi}\dd\phi=0$；同 $m$ 不同 $\ell$ 的正交性则来自缔合勒让德函数的正交性。
+
+\end{solution}
+
+\begin{question}
+证明：对 $\ell=m=0$，
+\[
+\Theta(\theta)=A\ln[\tan(\theta/2)]
+\]
+满足 $\theta$ 的方程（式 (4.25)）。这是不可接受的“第 2 个解”，请问错误出在哪里？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.25)：缔合勒让德方程：$(1-x^2)P''-2xP'+[\ell(\ell+1)-m^2/(1-x^2)]P=0$，$x=\cos\theta$。}
+
+\end{question}
+\begin{solution}
+
+对 $\ell=m=0$，角方程化为
+\[
+\frac{1}{\sin\theta}\frac{\dd}{\dd\theta}\left(\sin\theta\frac{\dd\Theta}{\dd\theta}\right)=0.
+\]
+积分两次得
+\[
+\Theta=A\ln\tan\frac{\theta}{2}+B.
+\]
+这个解确实满足微分方程，但在 $\theta=0,\pi$ 对数发散，既不有限也不可平方归一化。因此错误不在代入微分方程，而在忽略了边界条件和可接受波函数必须单值、有限、可归一化的要求。
+
+\end{solution}
+
+\begin{question}
+利用式 (4.32) 和脚注中的约定证明：
+\[
+Y_\ell^{-m}=(-1)^m\bigl(Y_\ell^m\bigr)^* .
+\]
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.32)：球谐函数：$Y_\ell^m(\theta,\phi)=\epsilon\sqrt{(2\ell+1)(\ell-|m|)!/[4\pi(\ell+|m|)!]}\,e^{\ii m\phi}P_\ell^m(\cos\theta)$。}
+
+\end{question}
+\begin{solution}
+
+按定义
+\[
+Y_\ell^m=N_{\ell m}P_\ell^m(\cos\theta)e^{\ii m\phi},
+\quad
+Y_\ell^{-m}=N_{\ell,-m}P_\ell^{-m}(\cos\theta)e^{-\ii m\phi}.
+\]
+采用 Condon-Shortley 约定
+\[
+P_\ell^{-m}=(-1)^m\frac{(\ell-m)!}{(\ell+m)!}P_\ell^m,
+\quad
+N_{\ell,-m}=\sqrt{\frac{2\ell+1}{4\pi}\frac{(\ell+m)!}{(\ell-m)!}}.
+\]
+代入并与 $(Y_\ell^m)^*$ 比较，即得
+\[
+Y_\ell^{-m}=(-1)^m(Y_\ell^m)^*.
+\]
+
+\end{solution}
+
+\begin{question}
+利用式 (4.32)，求 $Y_3^2(\theta,\phi)$ 和 $Y_3^3(\theta,\phi)$。可以从表 4.2 中得到 $P_3^2$，但是你必须从式 (4.27) 和式 (4.28) 中算出 $P_3^3$。对于适当的 $\ell$ 和 $m$ 值，验证它们满足角方程（式 (4.18)）。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.32)：球谐函数：$Y_\ell^m(\theta,\phi)=\epsilon\sqrt{(2\ell+1)(\ell-|m|)!/[4\pi(\ell+|m|)!]}\,e^{\ii m\phi}P_\ell^m(\cos\theta)$。
+\item 式 (4.27--4.28)：Rodrigues 公式：$P_\ell(x)=(2^\ell\ell!)^{-1}\dd^\ell(x^2-1)^\ell/\dd x^\ell$；$P_\ell^m(x)=(-1)^m(1-x^2)^{m/2}\dd^mP_\ell/\dd x^m$。
+\item 式 (4.18)：球谐函数角方程：$\bigl[\sin^{-1}\theta\,\partial_\theta(\sin\theta\,\partial_\theta)+\sin^{-2}\theta\,\partial_\phi^2\bigr]Y=-\ell(\ell+1)Y$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+由 $P_3(x)=\tfrac12(5x^3-3x)$，
+\[
+P_3^2(x)=15x(1-x^2),\qquad P_3^3(x)=-15(1-x^2)^{3/2}.
+\]
+因此
+\[
+Y_3^2=\sqrt{\frac{105}{32\pi}}\sin^2\theta\cos\theta\,e^{2\ii\phi},
+\]
+\[
+Y_3^3=-\sqrt{\frac{35}{64\pi}}\sin^3\theta\,e^{3\ii\phi}.
+\]
+把它们代入角方程，利用 $L^2Y_\ell^m=\hbar^2\ell(\ell+1)Y_\ell^m$、$L_zY_\ell^m=m\hbar Y_\ell^m$，即可验证二者对应 $\ell=3$、$m=2,3$。
+
+\end{solution}
+
+\begin{question}
+从罗德里格斯公式出发，推导勒让德多项式的正交归一化条件：
+\[
+\int_{-1}^{1}P_\ell(x)P_{\ell'}(x)\,\mathrm dx=\frac{2}{2\ell+1}\delta_{\ell\ell'}.
+\]
+提示：利用分部积分。
+\end{question}
+\begin{solution}
+
+罗德里格斯公式为
+\[
+P_\ell(x)=\frac{1}{2^\ell\ell!}\frac{\dd^\ell}{\dd x^\ell}(x^2-1)^\ell.
+\]
+若 $\ell'>\ell$，把 $P_{\ell'}$ 的导数形式代入，分部积分 $\ell'$ 次，边界项均因 $(x^2-1)^{\ell'}$ 在 $x=\pm1$ 的零点而消失，最终得到 $P_\ell$ 的 $\ell'$ 阶导数，因 $P_\ell$ 次数小于 $\ell'$ 而为零，故正交。
+
+归一化时取 $\ell'=
+\ell$。分部积分 $\ell$ 次后，只剩最高次项。由 $P_\ell$ 的首项系数
+\[
+\frac{(2\ell)!}{2^\ell(\ell!)^2}x^\ell
+\]
+可得
+\[
+\int_{-1}^1P_\ell^2(x)\dd x=\frac{2}{2\ell+1}.
+\]
+合并即题中公式。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 根据定义（式 (4.46)）求 $n_1(x)$ 和 $n_2(x)$。
+\item 当 $x\ll1$ 时，通过正弦和余弦的展开给出 $n_1(x)$ 和 $n_2(x)$ 的近似公式。验证它们在原点处趋于发散。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.46)：球 Neumann 函数：$n_\ell(x)=-x^\ell(\frac1x\frac{\dd}{\dd x})^\ell(\cos x/x)$。}
+
+\end{question}
+\begin{solution}
+
+球诺依曼函数定义可写为
+\[
+n_\ell(x)=-x^\ell\left(\frac{1}{x}\frac{\dd}{\dd x}\right)^\ell\frac{\cos x}{x}.
+\]
+于是
+\[
+n_1(x)=-\frac{\cos x}{x^2}-\frac{\sin x}{x},
+\]
+\[
+n_2(x)=\left(\frac{1}{x^3}-\frac{1}{x}\right)\cos x+\frac{3\sin x}{x^2}.
+\]
+小 $x$ 展开得
+\[
+n_1(x)=-\frac1{x^2}-\frac12+O(x^2),
+\qquad
+n_2(x)=\frac{1}{x^3}+\frac{1}{2x}+O(x).
+\]
+二者在原点发散，因此不能作为原点有限的径向解。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 验证在 $V(r)=0$ 和 $\ell=1$ 的情况下，$j_1(kr)$ 满足径向方程。
+\item 当 $\ell=1$ 时，用图解法确定无限深球势阱所允许的能级。证明，对于较大的 $N$，
+\[
+E_{N,1}\simeq \frac{\hbar^2\pi^2}{2ma^2}\left(N+\frac12\right)^2.
+\]
+提示：首先证明 $j_1(x)=0 \Leftrightarrow x=\tan x$。在同一张图中画出 $x$ 和 $\tan x$，找出交点位置。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 当 $V=0$ 时径向方程为
+\[
+\frac{1}{r^2}\frac{\dd}{\dd r}\left(r^2\frac{\dd R}{\dd r}\right)+\left[k^2-\frac{\ell(\ell+1)}{r^2}\right]R=0.
+\]
+$j_1(x)=\sin x/x^2-\cos x/x$ 满足球贝塞尔方程，令 $x=kr$ 即得 $R=j_1(kr)$。
+
+(2) 边界条件 $R(a)=0$，故 $j_1(ka)=0$。由上式
+\[
+j_1(x)=0\iff \sin x-x\cos x=0\iff x=\tan x.
+\]
+设第 $N$ 个正根为 $x_{N1}$，则
+\[
+E_{N,1}=\frac{\hbar^2x_{N1}^2}{2ma^2}.
+\]
+大根位于 $x\simeq (N+1/2)\pi$ 附近，所以
+\[
+E_{N,1}\simeq\frac{\hbar^2\pi^2}{2ma^2}\left(N+\frac12\right)^2.
+\]
+
+\end{solution}
+
+\begin{question}
+质量为 $m$ 的粒子处在有限深球势阱中
+\[
+V(r)=\begin{cases}
+-V_0, & r<a,\\
+0, & r>a.
+\end{cases}
+\]
+通过求解 $\ell=0$ 条件下的径向方程给出基态能量。证明：当 $V_0<\pi^2\hbar^2/(8ma^2)$ 时不存在束缚态。
+\end{question}
+\begin{solution}
+
+束缚态 $E<0$，令
+\[
+k=\sqrt{\frac{2m(E+V_0)}{\hbar^2}},\qquad \kappa=\sqrt{\frac{-2mE}{\hbar^2}}.
+\]
+对 $\ell=0$，$u=rR$ 满足一维方程。原点有限要求
+\[
+u(r)=A\sin kr\quad (r<a),
+\qquad u(r)=Be^{-\kappa r}\quad (r>a).
+\]
+在 $r=a$ 连续且导数连续给
+\[
+k\cot ka=-\kappa,
+\qquad k^2+\kappa^2=\frac{2mV_0}{\hbar^2}.
+\]
+图像上第一束缚态出现要求 $ka>\pi/2$ 可达到；临界时 $\kappa\to0$，故
+\[
+a\sqrt{\frac{2mV_0}{\hbar^2}}>\frac{\pi}{2}.
+\]
+即
+\[
+V_0>\frac{\pi^2\hbar^2}{8ma^2}.
+\]
+低于此值无束缚态。
+
+\end{solution}
+
+\begin{question}
+利用递推公式（式 (4.76)），求出径向波函数 $R_{30}$、$R_{31}$ 和 $R_{32}$，并对其进行归一化。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.76)：氢径向级数递推：设 $u(\rho)=\rho^{\ell+1}e^{-\rho/2}\sum_j c_j\rho^j$，则 $c_{j+1}$ 由 $c_j$ 递推，终止条件给出主量子数。}
+
+\end{question}
+\begin{solution}
+
+氢原子径向函数标准结果为
+\[
+R_{30}=\frac{2}{81\sqrt3a^{3/2}}\left(27-18\frac{r}{a}+2\frac{r^2}{a^2}\right)e^{-r/(3a)},
+\]
+\[
+R_{31}=\frac{8}{27\sqrt6a^{3/2}}\left(1-\frac{r}{6a}\right)\frac{r}{a}e^{-r/(3a)},
+\]
+\[
+R_{32}=\frac{4}{81\sqrt{30}a^{3/2}}\left(\frac{r}{a}\right)^2e^{-r/(3a)}.
+\]
+它们由递推多项式得到，归一化条件为
+\[
+\int_0^\infty |R_{n\ell}|^2r^2\dd r=1.
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 把 $R_{20}$ 归一化（式 (4.82)），并构造波函数 $\psi_{200}$。
+\item 把 $R_{21}$ 归一化（式 (4.83)），并构造波函数 $\psi_{211}$、$\psi_{210}$、$\psi_{21,-1}$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.82--4.83)：$R_{20}=(2\sqrt{2a^3})^{-1}(2-r/a)e^{-r/(2a)}$，$R_{21}=(2\sqrt{6a^3})^{-1}(r/a)e^{-r/(2a)}$。}
+
+\end{question}
+\begin{solution}
+
+归一化后
+\[
+R_{20}=\frac{1}{2\sqrt2a^{3/2}}\left(2-\frac{r}{a}\right)e^{-r/(2a)},
+\]
+故
+\[
+\psi_{200}=\frac{1}{4\sqrt{2\pi}a^{3/2}}\left(2-\frac{r}{a}\right)e^{-r/(2a)}.
+\]
+又
+\[
+R_{21}=\frac{1}{2\sqrt6a^{3/2}}\frac{r}{a}e^{-r/(2a)}.
+\]
+配合球谐函数得
+\[
+\psi_{210}=\frac{1}{4\sqrt{2\pi}a^{3/2}}\frac{r}{a}e^{-r/(2a)}\cos\theta,
+\]
+\[
+\psi_{211}=-\frac{1}{8\sqrt\pi a^{3/2}}\frac{r}{a}e^{-r/(2a)}\sin\theta e^{\ii\phi},
+\quad
+\psi_{21,-1}=\frac{1}{8\sqrt\pi a^{3/2}}\frac{r}{a}e^{-r/(2a)}\sin\theta e^{-\ii\phi}.
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 利用公式 (4.88)，求出前四个拉盖尔多项式。
+\item 对 $n=5,\ell=2$ 的情况，利用式 (4.86)、式 (4.87) 和式 (4.88)，求出 $v(\rho)$。
+\item 对 $n=5,\ell=2$ 的情况，利用递推公式（式 (4.76)）重新求 $v(\rho)$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.86--4.88)：氢径向函数：$R_{n\ell}=N_{n\ell}\rho^\ell e^{-\rho/2}L_{n-\ell-1}^{2\ell+1}(\rho)$，$\rho=2r/(na)$；$L$ 为缔合 Laguerre 多项式。
+\item 式 (4.76)：氢径向级数递推：设 $u(\rho)=\rho^{\ell+1}e^{-\rho/2}\sum_j c_j\rho^j$，则 $c_{j+1}$ 由 $c_j$ 递推，终止条件给出主量子数。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+(1) 按公式
+\[
+L_q(x)=e^x\frac{\dd^q}{\dd x^q}(e^{-x}x^q)
+\]
+得
+\[
+L_0=1,
+\quad L_1=1-x,
+\quad L_2=x^2-4x+2,
+\quad L_3=-x^3+9x^2-18x+6.
+\]
+本书若采用未除以阶乘的约定，上式正是相应多项式。
+
+(2) $n=5,\ell=2$ 时 $q=n-\ell-1=2$，需要 $L_2^{5}(\rho)$；由伴随拉盖尔定义可得 $v(\rho)$ 与
+\[
+L_2^5(\rho)=\rho^2-14\rho+42
+\]
+成正比。因此径向多项式部分为 $v(\rho)=C(\rho^2-14\rho+42)$。
+
+(3) 将 $v=c_0+c_1\rho+c_2\rho^2$ 代入递推式，同样得到系数比
+\[
+c_0:c_1:c_2=42:-14:1.
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 求基态氢原子中电子的 $\langle r\rangle$ 和 $\langle r^2\rangle$，将所得结果用玻尔半径表示。
+\item 求氢原子基态中电子的 $\langle x\rangle$ 和 $\langle x^2\rangle$。提示：不需要重新做积分，注意 $r^2=x^2+y^2+z^2$，并利用基态的对称性。
+\item 对 $n=2,\ell=1,m=1$ 的状态，求 $\langle x\rangle$ 和 $\langle x^2\rangle$。提示：这个状态对 $x,y,z$ 轴不是对称的。用 $x=r\sin\theta\cos\phi$ 计算。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+基态
+\[
+\psi_{100}=\frac{1}{\sqrt{\pi a^3}}e^{-r/a}.
+\]
+径向概率密度为 $4r^2a^{-3}e^{-2r/a}$。因此
+\[
+\langle r\rangle=\frac{3a}{2},\qquad \langle r^2\rangle=3a^2.
+\]
+球对称给
+\[
+\langle x\rangle=0,
+\qquad \langle x^2\rangle=\frac13\langle r^2\rangle=a^2.
+\]
+对 $\psi_{211}$，奇偶性仍给 $\langle x\rangle=0$。又 $|Y_1^1|^2=(3/8\pi)\sin^2\theta$，可分离为
+\[
+\langle x^2\rangle=\langle r^2\rangle\langle \sin^2\theta\cos^2\phi\rangle.
+\]
+对该态 $\langle r^2\rangle=30a^2$，角平均为 $1/5$，故
+\[
+\langle x^2\rangle=6a^2.
+\]
+
+\end{solution}
+
+\begin{question}
+氢原子基态中 $r$ 的最概然值是多少？（答案不是零！）提示：首先你需要求出电子位于 $r$ 到 $r+\mathrm dr$ 范围内的几率大小。
+\end{question}
+\begin{solution}
+
+基态中位于 $r$ 到 $r+\dd r$ 的概率为
+\[
+P(r)\dd r=4\pi r^2|\psi_{100}|^2\dd r=\frac{4r^2}{a^3}e^{-2r/a}\dd r.
+\]
+最大值由
+\[
+\frac{\dd}{\dd r}\left(r^2e^{-2r/a}\right)=0
+\]
+给出，故
+\[
+r=a.
+\]
+最概然半径就是玻尔半径，而不是原点。
+
+\end{solution}
+
+\begin{question}
+对氢原子基态计算 $\langle xpx\rangle$。提示：这可能需要两页纸和计算六个积分，或者只写四行且不用积分，这取决于你对计算细节的安排。快速求解可从 $[x,[H,x]]$ 开始。
+\end{question}
+\begin{solution}
+
+用对易子最快。对氢原子哈密顿量 $H=p^2/2m+V(r)$，有
+\[
+[x,[H,x]]=\frac{\hbar^2}{m}.
+\]
+另一方面，对定态取期望值并展开
+\[
+\langle[x,[H,x]]\rangle=2\langle xHx\rangle-2E\langle x^2\rangle.
+\]
+由此可把含 $xpx$ 的积分化为已知径向平均；若题中记号指 $\langle xp_x\rangle$，则由 $[x,p_x]=\ii\hbar$ 和基态实波函数得
+\[
+\langle xp_x\rangle=\frac{\ii\hbar}{2},
+\qquad
+\langle p_xx\rangle=-\frac{\ii\hbar}{2}.
+\]
+若按教材原意为 $\langle x p^2 x\rangle$，用上式得到
+\[
+\langle x(H-V)x\rangle=E\langle x^2\rangle-\langle xVx\rangle+\frac{\hbar^2}{2m}.
+\]
+代入基态平均即可得到同一结果；关键是双重对易子避免六重积分。
+
+\end{solution}
+
+\begin{question}
+氢原子初态为 $n=2,\ell=1,m=1$ 与 $n=2,\ell=1,m=-1$ 两个定态的线性组合：
+\[
+\Psi(r,\theta,\phi,0)=\frac{1}{\sqrt2}\left(\psi_{211}+\psi_{21,-1}\right).
+\]
+\begin{enumerate}
+\item 构造 $\Psi(r,\theta,\phi,t)$，并尽可能简化表示式。
+\item 求势能的期望值 $\langle V\rangle$。它是否依赖时间？给出表达式和具体数值结果，单位用电子伏特表示。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+两态同属 $n=2$，能量相同，因此时间演化只差同一个相位：
+\[
+\Psi(t)=e^{-\ii E_2t/\hbar}\frac{\psi_{211}+\psi_{21,-1}}{\sqrt2}.
+\]
+利用球谐函数组合可写为实的 $p_x$ 型轨道
+\[
+\Psi(t)=-\frac{1}{4\sqrt{\pi}a^{3/2}}\frac{r}{a}e^{-r/(2a)}\sin\theta\cos\phi\ e^{-\ii E_2t/\hbar}
+\]
+（整体相位或符号无物理意义）。
+
+库仑势只依赖 $r$，两个简并态以及任意线性组合的径向分布相同，故
+\[
+\langle V\rangle=-\frac{e^2}{4\pi\epsilon_0}\left\langle\frac1r\right\rangle
+=-\frac{e^2}{4\pi\epsilon_0}\frac{1}{n^2a}.
+\]
+对 $n=2$，$\langle V\rangle=2E_2=-6.80\,\mathrm{eV}$，不依赖时间。
+
+\end{solution}
+
+\begin{question}
+类氢原子（hydrogenic atom）是一个电子围绕有 $Z$ 个质子的原子核运动，$Z=1$ 是氢原子本身，$Z=2$ 是氦离子，$Z=3$ 是二价锂离子，等等。求出类氢原子的玻尔能量 $E_n(Z)$、玻尔半径 $a(Z)$、结合能 $E_1(Z)$ 和里德伯常数 $R(Z)$（结果用氢原子值的相应倍数表示）。对 $Z=2$ 和 $Z=3$ 的情况，莱曼系分别处在哪个光谱区？提示：在势能中做代换 $e^2\to Ze^2$，并在最终结果中进行相同替换。
+\end{question}
+\begin{solution}
+
+做代换 $e^2\to Ze^2$，可得
+\[
+a(Z)=\frac{a}{Z},\qquad E_n(Z)=Z^2E_n(1)=-\frac{13.6Z^2\,\mathrm{eV}}{n^2}.
+\]
+结合能为
+\[
+|E_1(Z)|=13.6Z^2\,\mathrm{eV}.
+\]
+里德伯常数满足
+\[
+R(Z)=Z^2R.
+\]
+莱曼系满足 $1/\lambda=RZ^2(1-1/n^2)$。$Z=2$ 的波长约为氢的 $1/4$，在远紫外；$Z=3$ 约为氢的 $1/9$，进入更短波长的极紫外/软 X 射线边缘。
+
+\end{solution}
+
+\begin{question}
+将地球--太阳引力系统类比为氢原子。
+\begin{enumerate}
+\item 势函数是什么？设地球质量为 $m_E$，太阳质量为 $M_S$。
+\item 该体系的“玻尔半径” $a_g$ 是什么？给出具体数值。
+\item 设地球的“轨道半径” $r$ 等同于行星在半径 $r$ 处的最概然半径，证明 $n=\sqrt{r/a_g}$，并依此估算地球的量子数 $n$。
+\item 假设地球向下一个 $(n-1)$ 态跃迁，将会释放多少能量（单位为焦耳）？辐射的光子波长（或者更可能是引力子）为多少？结果用光年表示。这个惊人的答案是巧合吗？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 引力势为
+\[
+V(r)=-\frac{GM_Sm_E}{r}.
+\]
+
+(2) 与氢原子比较，$e^2/(4\pi\epsilon_0)$ 由 $GM_Sm_E$ 代替，约化质量近似为 $m_E$，故
+\[
+a_g=\frac{\hbar^2}{G M_S m_E^2}.
+\]
+代入数值极小，约 $a_g\sim 10^{-138}\,\mathrm m$。
+
+(3) 圆形大 $\ell$ 态最概然半径约 $r=n^2a_g$，故
+\[
+n\simeq\sqrt{\frac{r}{a_g}},
+\]
+地球轨道对应 $n\sim 10^{74}$。
+
+(4) 能级 $E_n=-G^2M_S^2m_E^3/(2\hbar^2n^2)$。相邻跃迁能量近似
+\[
+\Delta E\simeq \frac{G^2M_S^2m_E^3}{\hbar^2n^3}.
+\]
+由 $\lambda=hc/\Delta E$ 得到极其巨大的波长，远超天文尺度。惊人的结果不是巧合，而是宏观系统量子数极大、能级间隔极小的表现。
+
+\end{solution}
+
+\begin{question}
+升算符和降算符将 $m$ 的值改变一个单位：
+\[
+L_+f_\ell^m=A_\ell^m f_\ell^{m+1},\qquad
+L_-f_\ell^m=B_\ell^m f_\ell^{m-1}.
+\]
+如果本征函数要归一化，常数 $A_\ell^m$ 和 $B_\ell^m$ 是多少？提示：利用 $L_+^\dagger=L_-$、式 (4.112)，并注意梯子顶部和底部的情况。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.112)：角动量梯子：$L_\pm Y_\ell^m=\hbar\sqrt{\ell(\ell+1)-m(m\pm1)}\,Y_\ell^{m\pm1}$。}
+
+\end{question}
+\begin{solution}
+
+利用
+\[
+L^2f_\ell^m=\hbar^2\ell(\ell+1)f_\ell^m,
+\qquad L_zf_\ell^m=m\hbar f_\ell^m.
+\]
+又
+\[
+L_-L_+=L^2-L_z^2-\hbar L_z,
+\qquad
+L_+L_-=L^2-L_z^2+\hbar L_z.
+\]
+若态已归一化，则
+\[
+|A_\ell^m|^2=\langle L_-L_+\rangle
+=\hbar^2[\ell(\ell+1)-m(m+1)],
+\]
+\[
+|B_\ell^m|^2=\langle L_+L_-\rangle
+=\hbar^2[\ell(\ell+1)-m(m-1)].
+\]
+取标准相位约定：
+\[
+A_\ell^m=\hbar\sqrt{(\ell-m)(\ell+m+1)},
+\quad
+B_\ell^m=\hbar\sqrt{(\ell+m)(\ell-m+1)}.
+\]
+顶部或底部时根号为零。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 由位置和动量的正则对易关系（式 (4.10)），求下列对易关系：
+\[
+[L_z,x],\ [L_z,y],\ [L_z,z],\qquad
+[L_z,p_x],\ [L_z,p_y],\ [L_z,p_z].
+\]
+\item 利用这些结果直接从式 (4.96) 证明 $[L_x,L_y]=i\hbar L_z$。
+\item 计算对易子 $[L_z,r^2]$ 和 $[L_z,p^2]$，其中 $r^2=x^2+y^2+z^2$、$p^2=p_x^2+p_y^2+p_z^2$。
+\item 证明：若 $V$ 仅依赖 $r$，则哈密顿量 $H=(p^2/2m)+V$ 与 $\mathbf L$ 的三个分量都对易。因此 $H$、$L^2$、$L_z$ 是相互相容的可观测量。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.10)：正则对易关系：$[x_i,p_j]=\ii\hbar\delta_{ij}$，$[x_i,x_j]=[p_i,p_j]=0$。
+\item 式 (4.96)：轨道角动量：$\mathbf L=\mathbf r\times\mathbf p$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+(1) $L_z=xp_y-yp_x$，故
+\[
+[L_z,x]=\ii\hbar y,
+\quad [L_z,y]=-\ii\hbar x,
+\quad [L_z,z]=0,
+\]
+\[
+[L_z,p_x]=\ii\hbar p_y,
+\quad [L_z,p_y]=-\ii\hbar p_x,
+\quad [L_z,p_z]=0.
+\]
+
+(2) 把 $L_x=yp_z-zp_y$、$L_y=zp_x-xp_z$ 代入，反复使用上列关系，得
+\[
+[L_x,L_y]=\ii\hbar L_z.
+\]
+
+(3) 由 $r^2$、$p^2$ 在绕 $z$ 轴旋转下不变，或直接计算，
+\[
+[L_z,r^2]=0,
+\qquad [L_z,p^2]=0.
+\]
+
+(4) 若 $V=V(r)$，则 $[L_i,V]=0$，又 $[L_i,p^2]=0$，故 $[L_i,H]=0$。于是 $H,L^2,L_z$ 可以取共同本征态。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明：对于位势 $V(\mathbf r)$ 中的粒子，其轨道角动量期望值的变化率等于力矩的期望值：
+\[
+\frac{\mathrm d\langle\mathbf L\rangle}{\mathrm dt}=\langle\mathbf N\rangle,
+\qquad \mathbf N=\mathbf r\times(-\nabla V).
+\]
+\item 证明对任意球对称势都有 $\mathrm d\langle\mathbf L\rangle/\mathrm dt=0$。这是角动量守恒的一种量子表述形式。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+用广义埃伦菲斯特定理：
+\[
+\frac{\dd}{\dd t}\langle\mathbf L\rangle=\frac{\ii}{\hbar}\langle[H,\mathbf L]\rangle.
+\]
+动能 $p^2/2m$ 与 $\mathbf L$ 对易，故只需算势能项。对任意分量，
+\[
+\frac{\ii}{\hbar}[V,\mathbf r\times\mathbf p]
+=\mathbf r\times(-\nabla V)=\mathbf N.
+\]
+所以
+\[
+\frac{\dd}{\dd t}\langle\mathbf L\rangle=\langle\mathbf N\rangle.
+\]
+若 $V=V(r)$，则 $\nabla V=(\dd V/\dd r)\hat{\mathbf r}$，于是 $\mathbf r\times\nabla V=0$，故 $\langle\mathbf L\rangle$ 守恒。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 由式 (4.130) 导出式 (4.131)。提示：利用试探函数，否则你可能会丢掉某些项。
+\item 由式 (4.129) 和式 (4.131) 导出式 (4.132)。提示：利用式 (4.112)。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.129--4.132)：微分形式：$L_z=-\ii\hbar\partial_\phi$，$L_\pm=\hbar e^{\pm\ii\phi}(\pm\partial_\theta+\ii\cot\theta\partial_\phi)$。
+\item 式 (4.112)：角动量梯子：$L_\pm Y_\ell^m=\hbar\sqrt{\ell(\ell+1)-m(m\pm1)}\,Y_\ell^{m\pm1}$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+设 $L_\pm=L_x\pm\ii L_y$。用球坐标中 $L_x,L_y$ 的微分形式，直接相加相减得
+\[
+L_\pm=\hbar e^{\pm\ii\phi}\left(\pm\frac{\partial}{\partial\theta}+\ii\cot\theta\frac{\partial}{\partial\phi}\right).
+\]
+这就是式 (4.131)。
+
+再把 $L_\pm$ 作用到 $Y_\ell^m=\Theta(\theta)e^{\ii m\phi}$ 上，利用角方程把结果化成与 $Y_\ell^{m\pm1}$ 成正比的函数，并由习题 4.21 的归一化系数得到
+\[
+L_\pm Y_\ell^m=\hbar\sqrt{\ell(\ell+1)-m(m\pm1)}Y_\ell^{m\pm1}.
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item $L_-Y_1^1$ 是什么？
+\item 利用 (a) 的结果，连同式 (4.130) 和 $L_-Y_1^1=\hbar\sqrt2\,Y_1^0$，求出 $Y_1^1(\theta,\phi)$ 和归一化常数。
+\item 通过直接积分确定归一化常数，将最终答案与习题 4.7 中的答案进行比较。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.129--4.132)：微分形式：$L_z=-\ii\hbar\partial_\phi$，$L_\pm=\hbar e^{\pm\ii\phi}(\pm\partial_\theta+\ii\cot\theta\partial_\phi)$。}
+
+\end{question}
+\begin{solution}
+
+(1) 由下降公式
+\[
+L_-Y_1^1=\hbar\sqrt{2}Y_1^0.
+\]
+
+(2) 设 $Y_1^1=f(\theta)e^{\ii\phi}$。代入
+\[
+L_-Y_1^1=\hbar e^{-\ii\phi}\left(-\partial_\theta+\ii\cot\theta\partial_\phi\right)f e^{\ii\phi}
+=-\hbar(f'+f\cot\theta).
+\]
+令其等于 $\hbar\sqrt2Y_1^0=\hbar\sqrt{3/(2\pi)}\cos\theta$，解得 $f=-C\sin\theta$。归一化给
+\[
+Y_1^1=-\sqrt{\frac{3}{8\pi}}\sin\theta e^{\ii\phi}.
+\]
+
+(3) 直接积分 $\int|Y_1^1|^2\dd\Omega=1$ 给同一常数，与表中结果一致。
+
+\end{solution}
+
+\begin{question}
+在习题 4.4 中，你证明了
+\[
+Y_2^1(\theta,\phi)=-\sqrt{\frac{15}{8\pi}}\sin\theta\cos\theta\,e^{i\phi}.
+\]
+应用升算符求出 $Y_2^2(\theta,\phi)$，利用式 (4.121) 对其归一化。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.120--4.121)：最高权球谐函数形如 $Y_\ell^\ell=K_\ell^\ell e^{\ii\ell\phi}\sin^\ell\theta$；归一化由 $\int|Y|^2\dd\Omega=1$ 决定。}
+
+\end{question}
+\begin{solution}
+
+由
+\[
+L_+Y_2^1=\hbar\sqrt{(2-1)(2+1+1)}Y_2^2=2\hbar Y_2^2.
+\]
+把
+\[
+Y_2^1=-\sqrt{\frac{15}{8\pi}}\sin\theta\cos\theta e^{\ii\phi}
+\]
+代入 $L_+$ 微分表达式，得
+\[
+Y_2^2=\sqrt{\frac{15}{32\pi}}\sin^2\theta e^{2\ii\phi}.
+\]
+用式 (4.121) 或直接积分均给出相同归一化。
+
+\end{solution}
+
+\begin{question}
+质量分别为 $m_1,m_2$ 的两个粒子固定在质量忽略不计、长度为 $a$ 的刚性杆两端。体系绕杆的质心在三维空间自由转动（转动中心固定）。
+\begin{enumerate}
+\item 证明该刚性转子的能量允许值为
+\[
+E_n=\frac{\hbar^2}{2I}\ell(\ell+1),\qquad \ell=0,1,2,\cdots,
+\]
+其中 $I=\mu a^2$ 是转动惯量，$\mu=m_1m_2/(m_1+m_2)$。提示：把能量用总角动量表示出来。
+\item 该体系的归一化波函数是什么？用 $\theta$ 和 $\phi$ 定义转轴方向。第 $\ell$ 个能级的简并度是多少？
+\item 你预期这个系统有什么样的频谱？给出谱线频率的公式。
+\item 图 4.13 给出一氧化碳的一部分转动谱。相邻谱线的频率间隔是多少？查阅 ${}^{12}\mathrm C$ 和 ${}^{16}\mathrm O$ 的质量，利用 $m_1,m_2$ 和间隔求出原子之间的距离。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 转子的动能为 $T=L^2/(2I)$，其中 $I=\mu a^2$。量子化后
+\[
+H=\frac{L^2}{2I},
+\quad
+E_\ell=\frac{\hbar^2}{2I}\ell(\ell+1).
+\]
+
+(2) 波函数为球谐函数
+\[
+\psi_{\ell m}(\theta,\phi)=Y_\ell^m(\theta,
+\phi),\qquad m=-\ell,\ldots,\ell,
+\]
+简并度为 $2\ell+1$。
+
+(3) 电偶极选择定则 $\Delta\ell=\pm1$，所以谱线角频率
+\[
+\omega_{\ell+1\to\ell}=\frac{E_{\ell+1}-E_\ell}{\hbar}=\frac{\hbar}{I}(\ell+1).
+\]
+频率间隔为 $\Delta \nu=\hbar/(2\pi I)$。
+
+(4) 若实验相邻线间隔为 $\Delta\nu$，则
+\[
+I=\frac{\hbar}{2\pi\Delta\nu},
+\qquad
+ a=\sqrt{\frac{I}{\mu}}.
+\]
+代入 ${}^{12}{\rm C}$ 和 ${}^{16}{\rm O}$ 质量即可得到 CO 键长，约为 $1.13\,\text{\AA}$。
+
+\end{solution}
+
+\begin{question}
+如果电子是一个经典的固体球，半径为
+\[
+r_e=\frac{1}{4\pi\epsilon_0}\frac{e^2}{mc^2},
+\]
+即所谓的经典电子半径，假设电子的质量可归因于其电场中储存的能量，并由爱因斯坦公式 $E=mc^2$ 给出；若角动量为 $(1/2)\hbar$，则赤道上一点运动速度有多快？这个模型有意义吗？
+\end{question}
+\begin{solution}
+
+若把电子看作均匀实心球，转动惯量 $I=(2/5)mr_e^2$。令
+\[
+L=I\omega=\frac{\hbar}{2},
+\qquad v=\omega r_e,
+\]
+得
+\[
+v=\frac{5\hbar}{4mr_e}.
+\]
+用 $r_e=e^2/(4\pi\epsilon_0mc^2)$，
+\[
+\frac{v}{c}=\frac{5}{4}\frac{\hbar c}{e^2/(4\pi\epsilon_0)}=\frac{5}{4\alpha}\approx171.
+\]
+赤道速度远大于光速，因此经典固体球模型没有物理意义。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 验证自旋矩阵（式 (4.145) 和式 (4.147)）满足式 (4.134) 的角动量基本对易关系。
+\item 证明泡利自旋矩阵（式 (4.148)）满足乘积定则
+\[
+\sigma_i\sigma_j=\delta_{ij}I+i\sum_k\epsilon_{ijk}\sigma_k.
+\]
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.145--4.148)：$S_i=(\hbar/2)\sigma_i$，其中 $\sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\sigma_y=\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}$、$\sigma_z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$，且 $\sigma_i\sigma_j=\delta_{ij}I+\ii\epsilon_{ijk}\sigma_k$。
+\item 式 (4.134)：角动量对易关系：$[J_x,J_y]=\ii\hbar J_z$ 及循环置换。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+(1) 对自旋 $1/2$，$S_i=(\hbar/2)\sigma_i$。直接矩阵乘法给
+\[
+[S_x,S_y]=\ii\hbar S_z
+\]
+以及循环置换，满足角动量代数。
+
+(2) 泡利矩阵满足
+\[
+\sigma_x^2=\sigma_y^2=\sigma_z^2=I,
+\quad \sigma_x\sigma_y=\ii\sigma_z
+\]
+及循环置换，反循环时变号。合并即
+\[
+\sigma_i\sigma_j=\delta_{ij}I+\ii\sum_k\epsilon_{ijk}\sigma_k.
+\]
+
+\end{solution}
+
+\begin{question}
+粒子处在自旋态
+\[
+\chi=A\begin{pmatrix}3i\\4\end{pmatrix}.
+\]
+\begin{enumerate}
+\item 求归一化常数 $A$。
+\item 求 $S_x,S_y,S_z$ 的期望值。
+\item 求 $\sigma_{S_x},\sigma_{S_y},\sigma_{S_z}$ 的“不确定度”。这里 $\sigma$ 是标准方差，不是泡利矩阵。
+\item 确认结果符合所有三个不确定原理。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+归一化给 $|A|^2(9+16)=1$，取 $A=1/5$。
+
+设 $\chi=(3\ii/5,4/5)^T$。于是
+\[
+\langle S_x\rangle=\frac\hbar2\chi^\dagger\sigma_x\chi=0,
+\]
+\[
+\langle S_y\rangle=\frac\hbar2\chi^\dagger\sigma_y\chi=-\frac{12}{25}\hbar,
+\qquad
+\langle S_z\rangle=\frac\hbar2\frac{9-16}{25}=-\frac{7}{50}\hbar.
+\]
+因 $S_i^2=\hbar^2I/4$，
+\[
+\sigma_{S_x}=\frac\hbar2,
+\quad
+\sigma_{S_y}=\frac\hbar2\sqrt{1-\left(\frac{24}{25}\right)^2}=\frac{7\hbar}{50},
+\quad
+\sigma_{S_z}=\frac\hbar2\sqrt{1-\left(\frac{7}{25}\right)^2}=\frac{12\hbar}{25}.
+\]
+三对不确定关系均可由这些数直接验证。
+
+\end{solution}
+
+\begin{question}
+对普通的归一化旋量 $\chi=\binom{a}{b}$（式 (4.139)），计算 $\langle S_x\rangle,\langle S_y\rangle,\langle S_z\rangle,\langle S_x^2\rangle,\langle S_y^2\rangle,\langle S_z^2\rangle$，并验证
+\[
+\langle S_x^2\rangle+\langle S_y^2\rangle+\langle S_z^2\rangle=\langle S^2\rangle.
+\]
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.139)：一般自旋 $1/2$ 旋量：$\chi=\binom{a}{b}$，$|a|^2+|b|^2=1$。}
+
+\end{question}
+\begin{solution}
+
+令 $|a|^2+|b|^2=1$。则
+\[
+\langle S_x\rangle=\frac\hbar2(a^*b+b^*a)=\hbar\Re(a^*b),
+\]
+\[
+\langle S_y\rangle=\frac\hbar2[-\ii a^*b+\ii b^*a]=\hbar\Im(a^*b),
+\]
+\[
+\langle S_z\rangle=\frac\hbar2(|a|^2-|b|^2).
+\]
+又 $S_i^2=(\hbar^2/4)I$，故
+\[
+\langle S_x^2\rangle=\langle S_y^2\rangle=\langle S_z^2\rangle=\frac{\hbar^2}{4}.
+\]
+相加得 $3\hbar^2/4=s(s+1)\hbar^2$，即 $s=1/2$ 的 $\langle S^2\rangle$。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 求出 $S_y$ 的本征值和本征旋量。
+\item 对处在一般状态 $\chi=\binom{a}{b}$ 上的粒子测量 $S_y$，得到的可能值有哪些，各自几率是多少？验证几率之和为 1，注意 $a$ 和 $b$ 不一定是实数。
+\item 对 $S^2$ 进行测量，得到的可能值有哪些，各自几率是多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 
+\[
+S_y=\frac\hbar2\begin{pmatrix}0&-\ii\\ \ii&0\end{pmatrix}.
+\]
+本征值为 $\pm\hbar/2$，归一化本征旋量可取
+\[
+\chi_+^{(y)}=\frac1{\sqrt2}\binom{1}{\ii},
+\qquad
+\chi_-^{(y)}=\frac1{\sqrt2}\binom{1}{-\ii}.
+\]
+
+(2) 对 $\chi=(a,b)^T$，几率为投影模平方：
+\[
+P_+=\frac12|a-\ii b|^2,
+\qquad
+P_-=\frac12|a+\ii b|^2.
+\]
+二者之和为 $|a|^2+|b|^2=1$。
+
+(3) 对自旋 $1/2$，任意态都是 $S^2$ 本征态，结果只有
+\[
+S^2=\frac34\hbar^2
+\]
+且几率为 1。
+
+\end{solution}
+
+\begin{question}
+构造表示沿任意方向 $\hat{\mathbf n}$ 的自旋角动量矩阵分量 $S_n$，其中
+\[
+\hat{\mathbf n}=\sin\theta\cos\phi\,\hat{\mathbf i}+\sin\theta\sin\phi\,\hat{\mathbf j}+\cos\theta\,\hat{\mathbf k}.
+\]
+求出 $S_n$ 的本征值和归一化本征旋量。提示：你总可以在结果上乘以任意相位因子。
+\end{question}
+\begin{solution}
+
+\[
+S_n=\frac\hbar2\hat{\mathbf n}\cdot\boldsymbol\sigma
+=\frac\hbar2\begin{pmatrix}
+\cos\theta&\sin\theta e^{-\ii\phi}\\
+\sin\theta e^{\ii\phi}&-\cos\theta
+\end{pmatrix}.
+\]
+本征值为 $\pm\hbar/2$。可取归一化本征旋量
+\[
+\chi_+^{(n)}=\binom{\cos(\theta/2)}{e^{\ii\phi}\sin(\theta/2)},
+\]
+\[
+\chi_-^{(n)}=\binom{-e^{-\ii\phi}\sin(\theta/2)}{\cos(\theta/2)}.
+\]
+整体相位任意。
+
+\end{solution}
+
+\begin{question}
+对自旋为 1 的粒子，构造其自旋矩阵 $S_x,S_y,S_z$。提示：在这种情况下，$S_z$ 有几个本征态？写出 $S_z$ 和 $S_\pm$ 作用在每个本征态上的结果，仿照书中对自旋 $1/2$ 体系的求解步骤。
+\end{question}
+\begin{solution}
+
+在 $S_z$ 本征基 $|1,1\rangle,|1,0\rangle,|1,-1\rangle$ 中，
+\[
+S_z=\hbar\begin{pmatrix}1&0&0\\0&0&0\\0&0&-1\end{pmatrix}.
+\]
+升降算符满足
+\[
+S_\pm|1,m\rangle=\hbar\sqrt{2-m(m\pm1)}|1,m\pm1\rangle.
+\]
+因此
+\[
+S_x=\frac\hbar{\sqrt2}\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},
+\quad
+S_y=\frac\hbar{\sqrt2}\begin{pmatrix}0&-\ii&0\\\ii&0&-\ii\\0&\ii&0\end{pmatrix}.
+\]
+
+\end{solution}
+
+\begin{question}
+在例题 4.3 中：
+\begin{enumerate}
+\item 在 $t$ 时刻，对自旋角动量的 $x$ 分量进行测量，求得到结果为 $+\hbar/2$ 的几率。
+\item 同样的问题，如果是 $y$ 方向结果是什么？
+\item 同样的问题，改为 $z$ 方向。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+例题 4.3 的自旋在 $z$ 向磁场中演化为
+\[
+\chi(t)=\binom{a e^{-\ii\omega t/2}}{b e^{\ii\omega t/2}}
+\]
+（相位约定不影响几率）。若初态取例题中的 $x$ 向上态，则
+\[
+P(S_x=+\hbar/2)=\cos^2\frac{\omega t}{2},
+\]
+\[
+P(S_y=+\hbar/2)=\frac12[1+\sin(\omega t)],
+\]
+\[
+P(S_z=+\hbar/2)=\frac12.
+\]
+若例题初态相位不同，只需相应平移进动相位。
+
+\end{solution}
+
+\begin{question}
+电子静止在振荡磁场
+\[
+\mathbf B=B_0\cos(\omega t)\,\hat{\mathbf k}
+\]
+中，其中 $B_0$ 和 $\omega$ 为常数。
+\begin{enumerate}
+\item 构造该体系哈密顿量矩阵。
+\item 相对于 $x$ 轴，开始时（$t=0$）电子自旋向上，即 $\chi(0)=\chi_+^{(x)}$。求以后任意时刻的 $\chi(t)$。注意：这是一个含时哈密顿量，无法使用通常的从定态求解得到 $\chi(t)$ 的方法；本题可直接求解含时薛定谔方程。
+\item 如果对 $S_z$ 进行测量，求得到 $-\hbar/2$ 的几率。
+\item 使 $S_z$ 完全翻转所需要的最小磁场 $B_0$ 是多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 磁偶极哈密顿量为
+\[
+H=-\gamma \mathbf B\cdot\mathbf S=-\gamma B_0\cos\omega t\,S_z
+=-\frac{\gamma\hbar B_0}{2}\cos\omega t
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+
+(2) 方程解为
+\[
+\chi(t)=\frac1{\sqrt2}\binom{e^{\ii\alpha\sin\omega t}}{e^{-\ii\alpha\sin\omega t}},
+\qquad
+\alpha=\frac{\gamma B_0}{2\omega},
+\]
+其中初态为 $x$ 向上。
+
+(3) 在 $z$ 基中两个分量模平方恒为 $1/2$，故
+\[
+P(S_z=-\hbar/2)=\frac12.
+\]
+
+(4) 因 $S_z$ 几率不随时间变为 1，不能通过这种纯 $z$ 向振荡场完成 $S_z$ 的完全翻转；所需有限 $B_0$ 不存在。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 将 $S_-$ 作用到 $|1\,0\rangle$ 上（式 (4.175)），并确认你得到 $\sqrt2\hbar |1\,-1\rangle$。
+\item 将 $S_+$ 作用到 $|0\,0\rangle$ 上（式 (4.176)），并确认你得到零。
+\item 证明 $|1\,1\rangle$ 和 $|1\,-1\rangle$ 是 $S^2$ 具有适当本征值的本征态。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.175--4.176)：两自旋 $1/2$ 耦合：$|1,1\rangle=|\uparrow\uparrow\rangle$，$|1,0\rangle=(|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle)/\sqrt2$，$|1,-1\rangle=|\downarrow\downarrow\rangle$，$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$。}
+
+\end{question}
+\begin{solution}
+
+(1) $|1,0\rangle=(|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle)/\sqrt2$。总降算符 $S_-=S_-^{(1)}+S_-^{(2)}$，作用后
+\[
+S_-|1,0\rangle=\sqrt2\hbar|\downarrow\downarrow\rangle=\sqrt2\hbar|1,-1\rangle.
+\]
+
+(2) $|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$，升算符两项相消，故 $S_+|0,0\rangle=0$。
+
+(3) $|1,1\rangle$ 是最高权态，$S^2|1,1\rangle=2\hbar^2|1,1\rangle$；由 $S^2$ 与 $S_-$ 对易，$|1,-1\rangle$ 也有同一本征值。
+
+\end{solution}
+
+\begin{question}
+夸克的自旋为 $1/2$，三个夸克结合在一起形成重子（如质子或中子），两个夸克（或更确切说一个夸克和一个反夸克）结合在一起形成介子（如 $\pi$ 介子或 $K$ 介子）。假设夸克都处于基态，即轨道角动量为零。
+\begin{enumerate}
+\item 重子可能的自旋为多少？
+\item 介子可能的自旋为多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+三个自旋 $1/2$ 相加：先两个相加得 $s=1$ 或 $0$，再与第三个 $1/2$ 相加，可能的总自旋为
+\[
+s=\frac32,\quad \frac12.
+\]
+所以重子可能为自旋 $3/2$ 或 $1/2$。
+
+夸克-反夸克两个自旋 $1/2$ 相加，可能为
+\[
+s=1\quad \text{或}\quad s=0.
+\]
+所以介子可能为自旋 1 或 0。
+
+\end{solution}
+
+\begin{question}
+利用 CG 系数表验证式 (4.175) 和式 (4.176)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.175--4.176)：两自旋 $1/2$ 耦合：$|1,1\rangle=|\uparrow\uparrow\rangle$，$|1,0\rangle=(|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle)/\sqrt2$，$|1,-1\rangle=|\downarrow\downarrow\rangle$，$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$。}
+
+\end{question}
+\begin{solution}
+
+由 CG 表对 $1/2\otimes1/2$：
+\[
+|1,1\rangle=|\uparrow\uparrow\rangle,
+\quad
+|1,0\rangle=\frac{|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle}{\sqrt2},
+\]
+\[
+|1,-1\rangle=|\downarrow\downarrow\rangle,
+\quad
+|0,0\rangle=\frac{|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle}{\sqrt2}.
+\]
+这正是式 (4.175) 和式 (4.176)。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 处在静止状态的自旋分别为 1 和 2 的粒子，其总自旋为 3，$z$ 分量为 $\hbar$。若对自旋为 2 的粒子角动量 $z$ 分量进行测量，将会得到哪些值？每个值的几率各为多少？提示：使用 CG 表。
+\item 自旋向下的电子处于氢原子的 $\psi_{510}$ 态。如果能单独测量电子总角动量的平方（不包括质子自旋），将会得到哪些值？几率各为多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) $s_1=1,s_2=2,S=3,M=1$。展开
+\[
+|3,1\rangle=\sum_{m_1+m_2=1}C_{1m_1,2m_2}^{31}|1m_1\rangle|2m_2\rangle.
+\]
+由 CG 表得可测的 $m_2$ 为 $0,1,2$，几率分别为对应系数平方。等价地从最高态 $|3,3\rangle=|1,1\rangle|2,2\rangle$ 连续降两次可得这些系数。
+
+(2) 电子自旋向下，轨道为 $\ell=1,m_\ell=0$，所以 $j=3/2$ 或 $1/2$。CG 展开
+\[
+|1,0\rangle|1/2,-1/2\rangle
+=\sqrt{\frac23}|3/2,-1/2\rangle-\sqrt{\frac13}|1/2,-1/2\rangle.
+\]
+故测得
+\[
+J^2=\frac{15}{4}\hbar^2\quad \text{几率 }\frac23,
+\qquad
+J^2=\frac34\hbar^2\quad \text{几率 }\frac13.
+\]
+
+\end{solution}
+
+\begin{question}
+求 $S^2$ 与 $S_z^{(1)}$ 的对易式，其中 $\mathbf S=\mathbf S^{(1)}+\mathbf S^{(2)}$。推广你的结果来证明
+\[
+[S^2,\mathbf S^{(1)}]=2i\hbar\bigl(\mathbf S^{(1)}\times\mathbf S^{(2)}\bigr).
+\]
+评注：这说明 $S^2$ 与单个粒子的自旋平方一般不对易；需要对单粒子本征态做线性组合来构造总自旋本征态。
+\end{question}
+\begin{solution}
+
+\[
+S^2=(S^{(1)})^2+(S^{(2)})^2+2\mathbf S^{(1)}\cdot\mathbf S^{(2)}.
+\]
+只有交叉项与 $S_z^{(1)}$ 不对易：
+\[
+[S^2,S_z^{(1)}]=2\sum_i[S_i^{(1)}S_i^{(2)},S_z^{(1)}]
+=2\sum_i[S_i^{(1)},S_z^{(1)}]S_i^{(2)}.
+\]
+用 $[S_x,S_z]=-\ii\hbar S_y$、$[S_y,S_z]=\ii\hbar S_x$，得
+\[
+[S^2,S_z^{(1)}]=2\ii\hbar(S_y^{(1)}S_x^{(2)}-S_x^{(1)}S_y^{(2)}).
+\]
+三个分量合并为
+\[
+[S^2,\mathbf S^{(1)}]=2\ii\hbar(\mathbf S^{(1)}\times\mathbf S^{(2)}).
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 利用式 (4.190) 和广义埃伦菲斯特定理（式 (3.73)），证明
+\[
+\langle\mathbf v\rangle=\frac1m\langle \mathbf p-q\mathbf A\rangle.
+\]
+\item 若通常定义 $\langle\mathbf v\rangle=\mathrm d\langle\mathbf r\rangle/\mathrm dt$，证明相应的加速度方程可写成包含电场、磁场和速度的形式。
+\item 由此得到洛伦兹力定律的期望值形式
+\[
+m\frac{\mathrm d\langle\mathbf v\rangle}{\mathrm dt}=q\langle\mathbf E+\mathbf v\times\mathbf B\rangle,
+\]
+并注意速度算符需按最小耦合规则理解。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.190--4.199)：电磁场中最小耦合 Hamiltonian：$H=(\mathbf p-q\mathbf A)^2/(2m)+q\varphi$；在库仑规范下可展开为 $p^2/(2m)-(q/2m)(\mathbf p\cdot\mathbf A+\mathbf A\cdot\mathbf p)+q^2A^2/(2m)+q\varphi$。
+\item 式 (3.73)：广义 Ehrenfest 定理：$\dd\langle Q\rangle/\dd t=(\ii/\hbar)\langle[H,Q]\rangle+\langle\partial Q/\partial t\rangle$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+(1) 最小耦合哈密顿量
+\[
+H=\frac{1}{2m}(\mathbf p-q\mathbf A)^2+q\varphi.
+\]
+由 $\dot{\mathbf r}=(\ii/\hbar)[H,\mathbf r]$ 得
+\[
+\langle\mathbf v\rangle=\frac{1}{m}\langle\mathbf p-q\mathbf A\rangle.
+\]
+
+(2) 继续对 $m\mathbf v=\mathbf p-q\mathbf A$ 求导，注意 $\mathbf A$ 可显含时，整理得到算符形式的
+\[
+m\dot{\mathbf v}=q(\mathbf E+\mathbf v\times\mathbf B)
+\]
+（乘积需按厄米方式对称化）。
+
+(3) 取期望值即
+\[
+m\frac{\dd\langle\mathbf v\rangle}{\dd t}=q\langle\mathbf E+\mathbf v\times\mathbf B\rangle.
+\]
+
+\end{solution}
+
+\begin{question}
+假设
+\[
+\mathbf A=B y\,\hat{\mathbf i},\qquad \varphi=Kz^2,
+\]
+其中 $B$ 和 $K$ 为常数。
+\begin{enumerate}
+\item 求电场 $\mathbf E$ 和磁场 $\mathbf B$。
+\item 写出质量为 $m$、电荷量为 $q$ 的粒子的哈密顿量，并求能级结构。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 
+\[
+\mathbf E=-\nabla\varphi=-2Kz\hat{\mathbf k},
+\qquad
+\mathbf B=\nabla\times\mathbf A=-B\hat{\mathbf k}.
+\]
+
+(2) 哈密顿量
+\[
+H=\frac{1}{2m}(p_x-qBy)^2+\frac{p_y^2+p_z^2}{2m}+qKz^2.
+\]
+$x$ 方向可取平面波，$p_x=\hbar k$，则 $y$ 部分是以 $y_0=\hbar k/(qB)$ 为中心的谐振子，频率 $|qB|/m$；$z$ 部分若 $qK>0$ 是谐振子，频率 $\sqrt{2qK/m}$。能级为
+\[
+E=\hbar\frac{|qB|}{m}\left(n_y+\frac12\right)+\hbar\sqrt{\frac{2qK}{m}}\left(n_z+\frac12\right),
+\]
+并具有 Landau 简并；若 $qK<0$，$z$ 方向不束缚。
+
+\end{solution}
+
+\begin{question}
+证明
+\[
+\psi'=e^{iq\Lambda/\hbar}\psi
+\]
+在规范变换
+\[
+\mathbf A'=\mathbf A+\nabla\Lambda,
+\qquad \varphi'=\varphi-\frac{\partial\Lambda}{\partial t}
+\]
+下满足薛定谔方程（式 (4.191)）。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.190--4.199)：电磁场中最小耦合 Hamiltonian：$H=(\mathbf p-q\mathbf A)^2/(2m)+q\varphi$；在库仑规范下可展开为 $p^2/(2m)-(q/2m)(\mathbf p\cdot\mathbf A+\mathbf A\cdot\mathbf p)+q^2A^2/(2m)+q\varphi$。}
+
+\end{question}
+\begin{solution}
+
+令
+\[
+\psi'=e^{\ii q\Lambda/\hbar}\psi,
+\quad
+\mathbf A'=\mathbf A+\nabla\Lambda,
+\quad
+\varphi'=\varphi-\partial_t\Lambda.
+\]
+则
+\[
+(-\ii\hbar\nabla-q\mathbf A')\psi'
+=e^{\ii q\Lambda/\hbar}(-\ii\hbar\nabla-q\mathbf A)\psi.
+\]
+时间导数给
+\[
+\ii\hbar\partial_t\psi'=e^{\ii q\Lambda/\hbar}(\ii\hbar\partial_t\psi-q\partial_t\Lambda\psi).
+\]
+标势项 $q\varphi'=q\varphi-q\partial_t\Lambda$ 正好抵消附加项，因此 $\psi'$ 满足变换后的薛定谔方程。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 从式 (4.190) 导出式 (4.199)。
+\item 从式 (4.210) 出发，导出式 (4.211)。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.190--4.199)：电磁场中最小耦合 Hamiltonian：$H=(\mathbf p-q\mathbf A)^2/(2m)+q\varphi$；在库仑规范下可展开为 $p^2/(2m)-(q/2m)(\mathbf p\cdot\mathbf A+\mathbf A\cdot\mathbf p)+q^2A^2/(2m)+q\varphi$。
+\item 式 (4.210--4.211)：电磁场：$\mathbf E=-\nabla\varphi-\partial_t\mathbf A$，$\mathbf B=\nabla\times\mathbf A$；Lorentz 力为 $q(\mathbf E+\mathbf v\times\mathbf B)$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+(1) 从最小耦合哈密顿量
+\[
+H=\frac{1}{2m}(\mathbf p-q\mathbf A)^2+q\varphi
+\]
+展开，注意 $\mathbf p$ 与 $\mathbf A(\mathbf r)$ 不对易：
+\[
+(\mathbf p-q\mathbf A)^2=p^2-q(\mathbf p\cdot\mathbf A+
+\mathbf A\cdot\mathbf p)+q^2A^2.
+\]
+在库仑规范 $\nabla\cdot\mathbf A=0$ 下可化为教材式 (4.199)。
+
+(2) 对环上粒子，$p_\phi=-\ii\hbar a^{-1}\partial_\phi$，而 $qA_\phi$ 来自磁通量 $\Phi$。代入哈密顿量并写成平方形式即得
+\[
+E_n=\frac{\hbar^2}{2ma^2}\left(n-\frac{q\Phi}{2\pi\hbar}\right)^2,
+\]
+即式 (4.211) 的形式。
+
+\end{solution}
+
+\begin{center}\Large\bfseries 本章补充习题\end{center}
+
+\begin{question}
+考虑三维谐振子（three-dimensional harmonic oscillator），其势能为
+\[
+V(r)=\frac12m\omega^2r^2.
+\]
+\begin{enumerate}
+\item 证明：通过在笛卡儿坐标系中分离变量可以得到三个一维谐振子，并利用所学知识给出能量允许值。
+\item 确定第 $n$ 个能级的简并度 $d(n)$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 势能可写成三个一维谐振子的和：
+\[
+H=\sum_{i=x,y,z}\left(\frac{p_i^2}{2m}+\frac12m\omega^2x_i^2\right).
+\]
+所以
+\[
+E=\hbar\omega\left(n_x+n_y+n_z+\frac32\right),
+\quad n_i=0,1,2,\cdots.
+\]
+
+(2) 令 $N=n_x+n_y+n_z$，第 $N$ 层简并度为非负整数解个数：
+\[
+d_N=\binom{N+2}{2}=\frac{(N+1)(N+2)}{2}.
+\]
+
+\end{solution}
+
+\begin{question}
+由于三维谐振子势是球对称的，薛定谔方程可以在球坐标系中通过分离变量求解。利用幂级数法求解径向方程（如同第 2.3.2 节和第 4.2.1 节），给出允许能级；在这种情况下，径向节点数 $N$ 与主量子数 $n$ 的关系如何？画出类似于图 4.3 和图 4.6 的草图，并确定第 $n$ 个能级的简并度。
+\end{question}
+\begin{solution}
+
+球坐标分离给 $\psi=R(r)Y_\ell^m$。径向方程经无量纲化后与一维振子类似，要求级数截断，得到
+\[
+E_{N\ell}=\hbar\omega\left(2N+
+\ell+\frac32\right),
+\qquad N=0,1,2,\cdots.
+\]
+其中 $N$ 是径向节点数。若定义总量子数
+\[
+n=2N+\ell,
+\]
+则能量为 $E_n=\hbar\omega(n+3/2)$。给定 $n$，$\ell=n,n-2,n-4,\cdots\ge0$。简并度
+\[
+d_n=\sum_\ell(2\ell+1)=\frac{(n+1)(n+2)}{2},
+\]
+与笛卡儿分离结果一致。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明三维位力定理（对于定态）：
+\[
+2\langle T\rangle=\langle \mathbf r\cdot\nabla V\rangle.
+\]
+提示：参考习题 3.37。
+\item 将位力定理应用到氢原子情况，并证明 $\langle T\rangle=-E_n$、$\langle V\rangle=2E_n$。
+\item 将位力定理应用到三维谐振子情况（习题 4.46），并证明 $\langle T\rangle=\langle V\rangle=E_n/2$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 对定态，取算符 $G=\mathbf r\cdot\mathbf p$。因 $\dd\langle G\rangle/\dd t=0$，
+\[
+0=\frac{\ii}{\hbar}\langle[H,G]\rangle.
+\]
+计算得
+\[
+[T,G]=-2\ii\hbar T,
+\qquad [V,G]=\ii\hbar\mathbf r\cdot\nabla V.
+\]
+故
+\[
+2\langle T\rangle=\langle\mathbf r\cdot\nabla V\rangle.
+\]
+
+(2) 氢原子 $V\propto r^{-1}$，故 $\mathbf r\cdot\nabla V=-V$，于是 $2T=-V$。总能量 $E=T+V$，得
+\[
+\langle T\rangle=-E_n,
+\qquad \langle V\rangle=2E_n.
+\]
+
+(3) 三维谐振子 $V\propto r^2$，所以 $\mathbf r\cdot\nabla V=2V$，得 $T=V=E/2$。
+
+\end{solution}
+
+\begin{question}
+注意：只有在熟悉矢量运算的情况下才尝试此题。通过推广习题 1.14 来定义三维几率流
+\[
+\mathbf J=\frac{i\hbar}{2m}(\psi\nabla\psi^*-\psi^*\nabla\psi).
+\]
+\begin{enumerate}
+\item 证明 $\mathbf J$ 满足连续性方程
+\[
+\frac{\partial |\psi|^2}{\partial t}=-\nabla\cdot\mathbf J,
+\]
+它表明局域几率守恒。由此得出
+\[
+\oint_S \mathbf J\cdot\mathrm d\mathbf a=-\frac{\mathrm d}{\mathrm dt}\int_V |\psi|^2\,\mathrm d^3r.
+\]
+\item 求氢原子 $n=2,\ell=1,m=1$ 态时的几率流 $\mathbf J$。
+\item 如果把 $m\mathbf J$ 解释为质量流，角动量为
+\[
+\mathbf L=m\int (\mathbf r\times\mathbf J)\,\mathrm d^3r.
+\]
+利用该式计算位于 $\psi_{211}$ 态的 $L_z$，并对结果进行讨论。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 由薛定谔方程及其共轭相乘相减，得到
+\[
+\partial_t|\psi|^2=-\nabla\cdot\left[\frac{\ii\hbar}{2m}(\psi\nabla\psi^*-\psi^*\nabla\psi)\right].
+\]
+对体积积分并用高斯定理即得通量式。
+
+(2) 对定态 $\psi_{211}=R_{21}Y_1^1$，相位为 $e^{\ii\phi}$，只有方位角流：
+\[
+\mathbf J=\frac{\hbar}{m}\frac{m_\ell}{r\sin\theta}|\psi_{211}|^2\hat{\boldsymbol\phi}
+=\frac{\hbar}{mr\sin\theta}|\psi_{211}|^2\hat{\boldsymbol\phi}.
+\]
+
+(3) 代入
+\[
+L_z=m\int (\mathbf r\times\mathbf J)_z\dd^3r
+=m\int r\sin\theta J_\phi\dd^3r
+=\hbar\int|\psi|^2\dd^3r=\hbar.
+\]
+这与 $m_\ell=1$ 的角动量本征值一致。
+
+\end{solution}
+
+\begin{question}
+三维不含时动量空间波函数（momentum-space wave function）由式 (3.54) 的自然推广定义：
+\[
+\phi(\mathbf p)=\frac{1}{(2\pi\hbar)^{3/2}}\int e^{-i\mathbf p\cdot\mathbf r/\hbar}\psi(\mathbf r)\,\mathrm d^3r.
+\]
+\begin{enumerate}
+\item 求基态氢原子（式 (4.80)）的动量空间波函数。提示：使用球坐标，极轴沿动量 $\mathbf p$ 的方向，先对 $\theta$ 积分。
+\item 验证 $\phi(\mathbf p)$ 是归一化的。
+\item 对氢原子基态，利用 $\phi(\mathbf p)$ 计算 $\langle p^2\rangle$。
+\item 在此状态中，动能的期望值是什么？用 $E_1$ 的倍数表示，验证它和位力定理得到的结果一致。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (3.54)：三维动量空间波函数：$\Phi(\mathbf p)=(2\pi\hbar)^{-3/2}\int e^{-\ii\mathbf p\cdot\mathbf r/\hbar}\Psi(\mathbf r)\dd^3r$。
+\item 式 (4.80)：氢基态：$\psi_{100}(r)=\pi^{-1/2}a^{-3/2}e^{-r/a}$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+基态
+\[
+\psi_{100}=\frac{1}{\sqrt{\pi a^3}}e^{-r/a}.
+\]
+取极轴沿 $\mathbf p$，角积分给 $4\pi\sin(pr/\hbar)/(pr/\hbar)$。利用
+\[
+\int_0^\infty r e^{-r/a}\sin(pr/\hbar)\dd r=\frac{2(p/\hbar)(1/a)}{[(1/a)^2+(p/\hbar)^2]^2}
+\]
+得
+\[
+\phi(\mathbf p)=\frac{2\sqrt2}{\pi}\frac{a^{3/2}}{\hbar^{3/2}}\frac{1}{\left[1+(ap/\hbar)^2\right]^2}
+\]
+（傅里叶约定不同只改变等价常数写法）。直接用球坐标 $4\pi p^2\dd p$ 可验证归一化。由位力定理或直接积分
+\[
+\langle p^2\rangle=\frac{\hbar^2}{a^2},
+\qquad
+\langle T\rangle=\frac{\hbar^2}{2ma^2}=-E_1.
+\]
+
+\end{solution}
+
+\begin{question}
+在第 2.6 节中，我们注意到有限深方势阱（一维情况）无论多浅或者多窄，都至少存在一个束缚态。习题 4.11 已经证明了，在三维有限深球势阱中，如果势场足够弱，则没有束缚态。对于二维有限深圆势阱会怎样？证明至少存在一个束缚态。提示：查找所需要的贝塞尔函数的信息，并用计算机画图。
+\end{question}
+\begin{solution}
+
+二维圆阱的 $m=0$ 束缚态可写为
+\[
+R_{
+m in}=AJ_0(kr),\quad r<a;
+\qquad
+R_{
+m out}=BK_0(\kappa r),\quad r>a,
+\]
+其中 $K_0$ 在无穷远衰减。连续性给
+\[
+k\frac{J_1(ka)}{J_0(ka)}=\kappa\frac{K_1(\kappa a)}{K_0(\kappa a)},
+\quad k^2+\kappa^2=\frac{2mV_0}{\hbar^2}.
+\]
+二维的关键是 $K_0(x)\sim-\ln x$，当束缚能趋近 0 时仍能匹配任意小的吸引势。图像上左、右两边总有交点，因此任意浅的二维有限圆势阱至少有一个束缚态。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 构造氢原子处于 $n=3,\ell=2,m=1$ 状态的空间波函数 $\psi$。所得结果仅用 $r,\theta,\phi$ 以及玻尔半径 $a$ 表示；不允许用其他变量（如 $\rho,z$ 等）、函数（如 $Y,v$ 等）或常数（如 $A,c_0$ 等），但 $\pi,e,2$ 等允许使用。
+\item 通过对 $r,\theta,\phi$ 的积分验证波函数是归一化的。
+\item 对于这个状态，求 $r^{-1}$ 的期望值。在哪个范围内（正或负实数）结果是有限的？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+对 $n=3,\ell=2,m=1$，由习题 4.12 的
+\[
+R_{32}=\frac{4}{81\sqrt{30}a^{3/2}}\left(\frac{r}{a}\right)^2e^{-r/(3a)}
+\]
+以及
+\[
+Y_2^1=-\sqrt{\frac{15}{8\pi}}\sin\theta\cos\theta e^{\ii\phi},
+\]
+得
+\[
+\psi_{321}=-\frac{1}{81\sqrt{\pi}a^{3/2}}\left(\frac{r}{a}\right)^2e^{-r/(3a)}\sin\theta\cos\theta e^{\ii\phi}.
+\]
+径向和角向分别归一化，故总体归一化成立。
+
+氢原子通式
+\[
+\left\langle\frac1r\right\rangle=\frac{1}{n^2a}
+\]
+给
+\[
+\left\langle\frac1r\right\rangle=\frac{1}{9a}.
+\]
+对所有正规氢原子束缚态该期望值为正且有限。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 构造氢原子处于 $n=4,\ell=3,m=3$ 状态的空间波函数 $\psi$，结果用球坐标 $r,\theta,\phi$ 表示。
+\item 求此状态下 $r$ 的期望值。如果需要，像通常一样查寻积分手册。
+\item 若你能够在这种状态的原子上对可观测量 $L_x$ 进行测量，可以得到哪些测量值？相应的几率是多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+当 $n=4,\ell=3$ 时径向多项式无节点，
+\[
+R_{43}=N r^3e^{-r/(4a)},
+\]
+而
+\[
+Y_3^3=-\sqrt{\frac{35}{64\pi}}\sin^3\theta e^{3\ii\phi}.
+\]
+归一化给
+\[
+R_{43}=\frac{1}{96\sqrt{35}a^{3/2}}\left(\frac{r}{a}\right)^3e^{-r/(4a)}.
+\]
+因此
+\[
+\psi_{433}=-\frac{1}{768\sqrt\pi a^{3/2}}\left(\frac{r}{a}\right)^3e^{-r/(4a)}\sin^3\theta e^{3\ii\phi}.
+\]
+氢原子平均半径
+\[
+\langle r\rangle=\frac{a}{2}[3n^2-\ell(\ell+1)]
+\]
+给
+\[
+\langle r\rangle=18a.
+\]
+测量 $L_x$ 的可能值与任意方向角动量分量相同，为 $m_x\hbar$，$m_x=-3,-2,\ldots,3$；概率由把 $|\ell=3,m_z=3\rangle$ 绕 $y$ 轴旋转到 $x$ 基的 Wigner $d$ 矩阵平方给出。
+
+\end{solution}
+
+\begin{question}
+基态氢原子中，发现电子出现在原子核内部的几率有多大？
+\begin{enumerate}
+\item 首先计算精确答案，设式 (4.80) 的波函数直到 $r=0$ 处都是正确的，设 $b$ 为原子核半径。
+\item 将结果以小量 $\epsilon=2b/a$ 展开为幂级数，证明最低阶是三次方项。
+\item 或者，假设 $\psi(r)$ 在原子核体积范围内基本是常数，所以 $P\simeq(4/3)\pi b^3|\psi(0)|^2$，验证是否可以用这种方法得到同样答案。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.80)：氢基态：$\psi_{100}(r)=\pi^{-1/2}a^{-3/2}e^{-r/a}$。}
+
+\end{question}
+\begin{solution}
+
+精确概率为
+\[
+P=\int_0^b4\pi r^2\frac{1}{\pi a^3}e^{-2r/a}\dd r
+=1-e^{-\epsilon}\left(1+\epsilon+\frac{\epsilon^2}{2}\right),
+\quad \epsilon=\frac{2b}{a}.
+\]
+小量展开：
+\[
+P=\frac{\epsilon^3}{6}+O(\epsilon^4)=\frac{4b^3}{3a^3}+O(b^4/a^4).
+\]
+若把波函数取为常数 $\psi(0)=1/\sqrt{\pi a^3}$，则
+\[
+P\simeq \frac{4\pi b^3}{3}|\psi(0)|^2=\frac{4b^3}{3a^3},
+\]
+与最低阶一致。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 用递推公式（式 (4.76)）证明当 $\ell=n-1$ 时，径向波函数的形式为
+\[
+R_{n,n-1}=N_n r^{n-1}e^{-r/(na)},
+\]
+并通过直接积分求出归一化常数 $N_n$。
+\item 对于形如 $r^s e^{-r/(na)}$ 的径向概率分布，求 $\langle r\rangle$ 和 $\langle r^2\rangle$。
+\item 证明 $r$ 的“不确定度” $\sigma_r$ 为 $\langle r\rangle/\sqrt{2n+1}$。注意到随着 $n$ 的增加，$r$ 的弥散减小；从这个意义上讲，对大 $n$ 而言，这个系统开始看起来像经典的圆轨道。画出几个值的径向波函数来说明这一点。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.76)：氢径向级数递推：设 $u(\rho)=\rho^{\ell+1}e^{-\rho/2}\sum_j c_j\rho^j$，则 $c_{j+1}$ 由 $c_j$ 递推，终止条件给出主量子数。}
+
+\end{question}
+\begin{solution}
+
+(1) 当 $\ell=n-1$ 时径向级数无节点，故
+\[
+R_{n,n-1}=N_nr^{n-1}e^{-r/(na)}.
+\]
+归一化
+\[
+1=N_n^2\int_0^\infty r^{2n}e^{-2r/(na)}\dd r
+=N_n^2\frac{(2n)!}{(2/na)^{2n+1}},
+\]
+所以
+\[
+N_n=\left[\frac{(2/na)^{2n+1}}{(2n)!}\right]^{1/2}.
+\]
+
+(2) 径向概率正比 $r^{2n}e^{-2r/(na)}$，因此
+\[
+\langle r\rangle=\frac{na}{2}(2n+1),
+\qquad
+\langle r^2\rangle=\left(\frac{na}{2}\right)^2(2n+2)(2n+1).
+\]
+
+(3) 
+\[
+\sigma_r^2=\langle r^2\rangle-\langle r\rangle^2=\left(\frac{na}{2}\right)^2(2n+1),
+\]
+故
+\[
+\sigma_r=\frac{\langle r\rangle}{\sqrt{2n+1}}.
+\]
+
+\end{solution}
+
+\begin{question}
+巧合谱线（Coincident spectral lines）。根据里德伯公式（式 (4.93)），氢光谱中谱线的波长由初态和末态的主量子数决定。找出两对不同主量子数 $\{n_i,n_f\}$，它们给出相同波长的谱线；不允许使用书中已经举出的两对。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.93)：Rydberg 公式：$1/\lambda=R(1/n_f^2-1/n_i^2)$（$n_i>n_f$）。}
+
+\end{question}
+\begin{solution}
+
+
+需要满足
+\[
+\frac1{n_f^2}-\frac1{n_i^2}=\frac1{{n_f'}^2}-\frac1{{n_i'}^2}.
+\]
+一个非平凡例子是
+\[
+(n_i,n_f)=(9,5),\qquad (n_i',n_f')=(90,6).
+\]
+直接验证：
+\[
+\frac1{5^2}-\frac1{9^2}=\frac{81-25}{2025}=\frac{56}{2025},
+\]
+而
+\[
+\frac1{6^2}-\frac1{90^2}=\frac{8100-36}{291600}=\frac{8064}{291600}=\frac{56}{2025}.
+\]
+因此这两条跃迁谱线波长相同。类似例子可以通过按有理数比较
+\[
+D(n_i,n_f)=\frac{n_i^2-n_f^2}{n_i^2n_f^2}
+\]
+系统搜索得到。
+
+
+\end{solution}
+
+\begin{question}
+考虑可观测量 $A=x^2$ 和 $B=L_z$。
+\begin{enumerate}
+\item 构造关于 $\sigma_A,\sigma_B$ 的不确定原理。
+\item 对于氢原子态 $\psi_{n\ell m}$，计算 $\sigma_B$。
+\item 在这种状态下，你能对 $\sigma_A$ 得出什么结论？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 不确定关系为
+\[
+\sigma_{x^2}\sigma_{L_z}\ge\frac12|\langle[x^2,L_z]\rangle|.
+\]
+由 $[L_z,x]=\ii\hbar y$，
+\[
+[x^2,L_z]=-[L_z,x^2]=-2\ii\hbar xy.
+\]
+故
+\[
+\sigma_{x^2}\sigma_{L_z}\ge \hbar|\langle xy\rangle|.
+\]
+
+(2) $\psi_{n\ell m}$ 是 $L_z$ 本征态，故
+\[
+\sigma_{L_z}=0.
+\]
+
+(3) 因此右边必须为零；确实定 $m$ 态中 $\langle xy\rangle=0$。不确定关系不给出 $\sigma_{x^2}$ 的非零下界。
+
+\end{solution}
+
+\begin{question}
+电子处在如下自旋态上：
+\[
+\chi=A\begin{pmatrix}1+i\\2\end{pmatrix}.
+\]
+\begin{enumerate}
+\item 归一化 $\chi$。
+\item 测量 $S_z$ 分量，得到哪些可能值，相应几率是多少？$S_z$ 的期望值是什么？
+\item 测量 $S_x$ 分量，得到哪些可能值，相应几率是多少？$S_x$ 的期望值是什么？
+\item 测量 $S_y$ 分量，得到哪些可能值，相应几率是多少？$S_y$ 的期望值是什么？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+归一化：$|A|^2(|1+
+\ii|^2+4)=6|A|^2=1$，取 $A=1/\sqrt6$。
+
+$S_z$：
+\[
+P_+=\frac{|1+\ii|^2}{6}=\frac13,
+\quad P_-=\frac{4}{6}=\frac23,
+\quad \langle S_z\rangle=-\frac\hbar6.
+\]
+
+$S_x$ 的本征态为 $(1,\pm1)^T/\sqrt2$，故
+\[
+P_x(+)=\frac12|a+b|^2=\frac{5+2}{12}=\frac7{12},
+\quad P_x(-)=\frac5{12},
+\]
+\[
+\langle S_x\rangle=\frac\hbar2(P_x(+)-P_x(-))=\frac\hbar{12}.
+\]
+
+$S_y$ 的本征态为 $(1,\pm\ii)^T/\sqrt2$，
+\[
+P_y(+)=\frac12|a-\ii b|^2=\frac{1}{12},
+\quad P_y(-)=\frac{11}{12},
+\]
+\[
+\langle S_y\rangle=-\frac{5\hbar}{12}.
+\]
+
+\end{solution}
+
+\begin{question}
+假设两个自旋为 $1/2$ 的粒子处在单态（式 (4.176)）。设 $S_a^{(1)}$ 为粒子 1 的自旋角动量在单位矢量 $\hat{\mathbf a}$ 方向上的分量，$S_b^{(2)}$ 为粒子 2 的自旋角动量在单位矢量 $\hat{\mathbf b}$ 方向上的分量。证明
+\[
+\bigl\langle S_a^{(1)}S_b^{(2)}\bigr\rangle=-\frac{\hbar^2}{4}\cos\theta,
+\]
+其中 $\theta$ 为 $\hat{\mathbf a}$ 与 $\hat{\mathbf b}$ 之间的夹角。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.175--4.176)：两自旋 $1/2$ 耦合：$|1,1\rangle=|\uparrow\uparrow\rangle$，$|1,0\rangle=(|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle)/\sqrt2$，$|1,-1\rangle=|\downarrow\downarrow\rangle$，$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$。}
+
+\end{question}
+\begin{solution}
+
+单态具有旋转不变性，且
+\[
+\langle S_i^{(1)}S_j^{(2)}\rangle=-\frac{\hbar^2}{4}\delta_{ij}.
+\]
+因此
+\[
+\langle S_a^{(1)}S_b^{(2)}\rangle
+=\sum_{ij}a_i b_j\langle S_i^{(1)}S_j^{(2)}\rangle
+=-\frac{\hbar^2}{4}\sum_i a_i b_i
+=-\frac{\hbar^2}{4}\hat{\mathbf a}\cdot\hat{\mathbf b}.
+\]
+即为 $-(\hbar^2/4)\cos\theta$。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 当 $s_1=1/2$、$s_2$ 为任意值时，求出 CG 系数。提示：需要求出
+\[
+|sm\rangle=A\left|\frac12,\frac12;s_2,m-\frac12\right\rangle+B\left|\frac12,-\frac12;s_2,m+\frac12\right\rangle
+\]
+中的 $A$ 和 $B$，使 $|sm\rangle$ 是 $S^2$ 的本征态。
+\item 对照表 4.8 中的三个或四个条目验证这一普遍结论。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+设 $j=s_2$。耦合 $1/2\otimes j$ 给 $s=j\pm1/2$。
+标准 CG 系数为
+\[
+|j+\tfrac12,m\rangle=
+\sqrt{\frac{j+m+1/2}{2j+1}}\,|\tfrac12,\tfrac12;j,m-\tfrac12\rangle
++\sqrt{\frac{j-m+1/2}{2j+1}}\,|\tfrac12,-\tfrac12;j,m+\tfrac12\rangle,
+\]
+\[
+|j-\tfrac12,m\rangle=
+-\sqrt{\frac{j-m+1/2}{2j+1}}\,|\tfrac12,\tfrac12;j,m-\tfrac12\rangle
++\sqrt{\frac{j+m+1/2}{2j+1}}\,|\tfrac12,-\tfrac12;j,m+\tfrac12\rangle.
+\]
+代入 $j=1/2,1,3/2$ 即可核对 CG 表。
+
+\end{solution}
+
+\begin{question}
+对自旋为 $3/2$ 的粒子，求 $S_x$ 的矩阵表示（用 $S_z$ 的本征态为基），并通过求解特征值方程来确定 $S_x$ 的本征值。
+\end{question}
+\begin{solution}
+
+在 $m=3/2,1/2,-1/2,-3/2$ 基中，
+\[
+S_x=\frac{\hbar}{2}\begin{pmatrix}
+0&\sqrt3&0&0\\
+\sqrt3&0&2&0\\
+0&2&0&\sqrt3\\
+0&0&\sqrt3&0
+\end{pmatrix}.
+\]
+由于 $S_x$ 与 $S_z$ 只是量子化轴不同，特征值必为
+\[
+\frac{3\hbar}{2},\frac{\hbar}{2},-\frac{\hbar}{2},-\frac{3\hbar}{2}.
+\]
+直接求此矩阵的特征多项式也得到同一结果。
+
+\end{solution}
+
+\begin{question}
+推广自旋 $1/2$、自旋 1 和自旋 $3/2$ 的情况，求任意自旋 $s$ 的自旋矩阵 $S_z,S_x,S_y$。提示：用 $S_z$ 的本征态作为基，并利用升降算符矩阵元。
+\end{question}
+\begin{solution}
+
+取基 $|s,m\rangle$，$m=s,s-1,\ldots,-s$。则
+\[
+(S_z)_{m'm}=\hbar m\delta_{m'm}.
+\]
+升降算符矩阵元为
+\[
+\langle s,m'|S_+|s,m\rangle=
+\hbar\sqrt{s(s+1)-m(m+1)}\delta_{m',m+1},
+\]
+\[
+\langle s,m'|S_-|s,m\rangle=
+\hbar\sqrt{s(s+1)-m(m-1)}\delta_{m',m-1}.
+\]
+最后
+\[
+S_x=\frac12(S_++S_-),
+\qquad
+S_y=\frac{1}{2\ii}(S_+-S_-).
+\]
+这就是任意自旋的矩阵表示。
+
+\end{solution}
+
+\begin{question}
+求球谐函数归一化因子。设
+\[
+Y_\ell^m(\theta,\phi)=K_\ell^m e^{im\phi}P_\ell^m(\cos\theta).
+\]
+利用式 (4.120)、式 (4.121) 和式 (4.130) 得到一个由 $K_\ell^m$ 表示 $K_\ell^{m+1}$ 的递推关系。通过对 $m$ 归纳确定 $K_\ell^m$，剩下一个只依赖 $\ell$ 的常数；最后利用习题 4.25 的结果确定该常数。关于缔合勒让德函数的导数，可使用
+\[
+(1-x^2)^{1/2}\frac{\mathrm dP_\ell^m}{\mathrm dx}=\frac{1}{\sqrt{1-x^2}}\left(\ell xP_\ell^m-(\ell+m)P_{\ell-1}^m\right).
+\]
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.120--4.121)：最高权球谐函数形如 $Y_\ell^\ell=K_\ell^\ell e^{\ii\ell\phi}\sin^\ell\theta$；归一化由 $\int|Y|^2\dd\Omega=1$ 决定。
+\item 式 (4.129--4.132)：微分形式：$L_z=-\ii\hbar\partial_\phi$，$L_\pm=\hbar e^{\pm\ii\phi}(\pm\partial_\theta+\ii\cot\theta\partial_\phi)$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+设
+\[
+Y_\ell^m=K_\ell^m e^{\ii m\phi}P_\ell^m(\cos\theta).
+\]
+由
+\[
+L_+Y_\ell^m=\hbar\sqrt{(\ell-m)(\ell+m+1)}Y_\ell^{m+1}
+\]
+并代入微分式，可得到
+\[
+\frac{K_\ell^{m+1}}{K_\ell^m}=-\sqrt{\frac{\ell-m}{\ell+m+1}}.
+\]
+从 $m=0$ 起递推，且由 $Y_\ell^0$ 归一化
+\[
+K_\ell^0=\sqrt{\frac{2\ell+1}{4\pi}},
+\]
+得
+\[
+K_\ell^m=(-1)^m\sqrt{\frac{2\ell+1}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}}.
+\]
+
+\end{solution}
+
+\begin{question}
+氢原子中的电子占据自旋和位置的组合状态
+\[
+\Psi=R_{21}(r)\left(\sqrt{\frac23}Y_1^1\chi_+ +\sqrt{\frac13}Y_1^0\chi_-\right).
+\]
+\begin{enumerate}
+\item 对轨道角动量的平方 $L^2$ 进行测量，可能得到哪些值，相应几率是多少？
+\item 对轨道角动量的 $z$ 分量 $L_z$，结果又如何？
+\item 对自旋角动量的平方 $S^2$，结果又如何？
+\item 对自旋角动量的 $z$ 分量 $S_z$，结果又如何？
+\item 设总角动量为 $\mathbf J=\mathbf L+\mathbf S$。对总角动量的平方 $J^2$ 进行测量，可能得到哪些值，相应几率是多少？
+\item $J_z$ 的结果是什么？
+\item 对原子的位置进行测量，在 $r,\theta,\phi$ 处找到它的几率密度为多少？
+\item 若同时测量自旋 $z$ 分量和距原点的距离，在半径 $r$ 处且自旋向上的几率密度为多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+该态已是 $\ell=1$ 的空间态与 $s=1/2$ 的自旋态组合。
+
+(1) $L^2$ 只有
+\[
+\ell(\ell+1)
+\hbar^2=2\hbar^2
+\]
+几率 1。
+
+(2) $L_z$：$m=1$ 几率 $2/3$，$m=0$ 几率 $1/3$，故结果为 $\hbar$ 与 $0$。
+
+(3) $S^2$ 只有 $3\hbar^2/4$，几率 1。
+
+(4) $S_z$：$+\hbar/2$ 几率 $2/3$，$-\hbar/2$ 几率 $1/3$。
+
+(5) 该组合正是 $j=3/2,m_j=1/2$ 的 CG 展开，因此 $J^2=\frac{15}{4}\hbar^2$，几率 1。
+
+(6) $J_z=L_z+S_z=\hbar/2$，几率 1。
+
+(7) 位置概率密度为
+\[
+|R_{21}|^2\left[\frac23|Y_1^1|^2+\frac13|Y_1^0|^2\right].
+\]
+(8) 半径 $r$ 且自旋向上的径向密度为
+\[
+\frac23 |R_{21}(r)|^2r^2
+\]
+（若还保留角分布，则乘 $|Y_1^1|^2\dd\Omega$）。
+
+\end{solution}
+
+\begin{question}
+如果将三个自旋 $1/2$ 的粒子进行组合，得到的总自旋可以为 $3/2$ 或 $1/2$（后者可以通过两种不同方式实现）。利用式 (4.175) 和式 (4.176) 所表示的方法，构建四重态和两个双重态。提示：先从 $|3/2,3/2\rangle=|\uparrow\uparrow\uparrow\rangle$ 开始，用降算符得到四重态其他态；对于双重态，可从两个粒子的单态和三重态开始，再添加第三个粒子。注意两个双重态不是唯一确定的，重点是构建两个独立双重态。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.175--4.176)：两自旋 $1/2$ 耦合：$|1,1\rangle=|\uparrow\uparrow\rangle$，$|1,0\rangle=(|\uparrow\downarrow\rangle+|\downarrow\uparrow\rangle)/\sqrt2$，$|1,-1\rangle=|\downarrow\downarrow\rangle$，$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$。}
+
+\end{question}
+\begin{solution}
+
+四重态为
+\[
+\left|\frac32,\frac32\right\rangle=|\uparrow\uparrow\uparrow\rangle,
+\]
+\[
+\left|\frac32,\frac12\right\rangle=\frac{|\uparrow\uparrow\downarrow\rangle+|\uparrow\downarrow\uparrow\rangle+|\downarrow\uparrow\uparrow\rangle}{\sqrt3},
+\]
+\[
+\left|\frac32,-\frac12\right\rangle=\frac{|\downarrow\downarrow\uparrow\rangle+|\downarrow\uparrow\downarrow\rangle+|\uparrow\downarrow\downarrow\rangle}{\sqrt3},
+\]
+\[
+\left|\frac32,-\frac32\right\rangle=|\downarrow\downarrow\downarrow\rangle.
+\]
+两个独立双重态可取
+\[
+\left|\frac12,\frac12\right\rangle_A=\frac{|\uparrow\downarrow\uparrow\rangle-|\downarrow\uparrow\uparrow\rangle}{\sqrt2},
+\]
+\[
+\left|\frac12,-\frac12\right\rangle_A=\frac{|\uparrow\downarrow\downarrow\rangle-|\downarrow\uparrow\downarrow\rangle}{\sqrt2},
+\]
+以及
+\[
+\left|\frac12,\frac12\right\rangle_B=\frac{2|\uparrow\uparrow\downarrow\rangle-|\uparrow\downarrow\uparrow\rangle-|\downarrow\uparrow\uparrow\rangle}{\sqrt6},
+\]
+\[
+\left|\frac12,-\frac12\right\rangle_B=\frac{2|\downarrow\downarrow\uparrow\rangle-|\downarrow\uparrow\downarrow\rangle-|\uparrow\downarrow\downarrow\rangle}{\sqrt6}.
+\]
+
+\end{solution}
+
+\begin{question}
+对一般情况下自旋为 $1/2$ 粒子的状态（式 (4.139)），求满足最小不确定性的条件，即在 $\sigma_{S_x}\sigma_{S_y}\ge(\hbar/2)|\langle S_z\rangle|$ 中取等号的条件。提示：不失一般性，可选择 $a$ 为实数。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.139)：一般自旋 $1/2$ 旋量：$\chi=\binom{a}{b}$，$|a|^2+|b|^2=1$。}
+
+\end{question}
+\begin{solution}
+
+令 $a$ 实，$b=|b|e^{\ii\delta}$。对自旋 $1/2$，
+\[
+\sigma_{S_x}^2=\frac{\hbar^2}{4}-\langle S_x\rangle^2,
+\quad
+\sigma_{S_y}^2=\frac{\hbar^2}{4}-\langle S_y\rangle^2.
+\]
+等号条件等价于 Robertson 不等式中两个向量线性相关：
+\[
+(S_x-\langle S_x\rangle)\chi=\ii\lambda(S_y-\langle S_y\rangle)\chi.
+\]
+化简得 Bloch 矢量必须在 $z$ 轴方向，即
+\[
+\langle S_x\rangle=
+\langle S_y\rangle=0.
+\]
+因此 $a^*b=0$，也就是 $a=0$ 或 $b=0$。这些正是 $S_z$ 的两个本征态；此时
+\[
+\sigma_{S_x}\sigma_{S_y}=\frac{\hbar^2}{4}=\frac\hbar2|\langle S_z\rangle|.
+\]
+
+\end{solution}
+
+\begin{question}
+磁阻挫（Magnetic frustration）。设自旋为 $1/2$ 的三个粒子排列在三角形顶点上，其相互作用由哈密顿量
+\[
+H=J(\mathbf S_1\cdot\mathbf S_2+\mathbf S_2\cdot\mathbf S_3+\mathbf S_3\cdot\mathbf S_1)
+\]
+描述，其中 $J$ 为正常数。相互作用使得近邻自旋趋向反平行，但三角形排列意味着三对自旋不能同时满足这个条件。
+\begin{enumerate}
+\item 证明哈密顿量可以用总自旋平方 $S^2$ 表示，并求本征值。
+\item 求基态能量和简并度。
+\item 考虑自旋为 $1/2$ 的四个粒子排列在正方形顶点上，最近邻相互作用哈密顿量为
+\[
+H=J(\mathbf S_1\cdot\mathbf S_2+\mathbf S_2\cdot\mathbf S_3+\mathbf S_3\cdot\mathbf S_4+\mathbf S_4\cdot\mathbf S_1).
+\]
+这种情况下基态是唯一的。证明哈密顿量可以写为
+\[
+H=\frac{J}{2}\left[S^2-(\mathbf S_1+\mathbf S_3)^2-(\mathbf S_2+\mathbf S_4)^2\right],
+\]
+并求基态能量。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 对三角形，
+\[
+S^2=\sum_iS_i^2+2\sum_{i<j}S_i\cdot S_j.
+\]
+每个 $S_i^2=3\hbar^2/4$，故
+\[
+H=\frac{J}{2}\left(S^2-\frac{9}{4}\hbar^2\right).
+\]
+总自旋可为 $s=3/2$ 或 $1/2$，能量
+\[
+E_s=\frac{J\hbar^2}{2}\left[s(s+1)-\frac94\right].
+\]
+基态为 $s=1/2$，
+\[
+E_0=-\frac34J\hbar^2,
+\]
+两套双重态，共 4 重简并。
+
+(3) 正方形给出的恒等式由展开平方直接验证。取对角对 $(1,3)$ 与 $(2,4)$ 均成三重或单重。为使 $H$ 最小，取 $(1,3)$ 与 $(2,4)$ 均为三重并合成总 $S=0$，得
+\[
+E_0=\frac{J}{2}[0-2\hbar^2-2\hbar^2]=-2J\hbar^2.
+\]
+
+\end{solution}
+
+\begin{question}
+设想氢原子处在半径为 $b$ 的无限深球势阱中心，取 $b$ 远大于玻尔半径 $a$。在 $r=b$ 处有边界条件 $u(b)=0$，可用习题 2.61 的方法数值求解径向方程（式 (4.53)）。
+\begin{enumerate}
+\item 写出可用于差分求解的递推公式。
+\item 取 $a<d$ 以便在势阱范围内选取合理数量的点，并取 $b\gg a$ 使“墙”不会对原子造成太大扭曲；例如 $d=a/50$、$N=1000$。对 $\ell=0,1,2$ 求出三个最低能量本征值，并画出对应本征函数；对比已知玻尔能量（式 (4.70)）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.53)：径向方程：$[-\hbar^2(\dd^2/\dd r^2)/(2m)+V(r)+\hbar^2\ell(\ell+1)/(2mr^2)]u=Eu$，$u=rR$。
+\item 式 (4.68--4.70)：氢原子终止条件给出 $\rho_0=2n$，能级 $E_n=-me^4/[2(4\pi\epsilon_0)^2\hbar^2n^2]$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+取网格 $r_j=jd$，$u_j=u(r_j)$。径向方程可写作
+\[
+u''(r)=\left[\frac{\ell(\ell+1)}{r^2}-\frac{2m}{\hbar^2}\left(E+\frac{e^2}{4\pi\epsilon_0r}\right)\right]u(r).
+\]
+差分递推为
+\[
+u_{j+1}=2u_j-u_{j-1}+d^2\left[\frac{\ell(\ell+1)}{r_j^2}-\frac{2m}{\hbar^2}\left(E+\frac{e^2}{4\pi\epsilon_0r_j}\right)\right]u_j.
+\]
+边界取 $u_0=0$，调节 $E$ 使 $u_N=0$。当 $b$ 远大于 $a$ 时，低能级应趋近玻尔值
+\[
+E_n=-\frac{13.6\,\mathrm{eV}}{n^2},
+\]
+即 $\ell=0$ 的前三个为 $n=1,2,3$；$\ell=1$ 从 $n=2$ 起；$\ell=2$ 从 $n=3$ 起。
+
+\end{solution}
+
+\begin{question}
+从式 (4.53) 开始，或者更好地从式 (4.56) 开始，利用“摆动尾巴”方法计算氢原子的一些玻尔能级。也可利用式 (4.68) 设 $\rho_0=2n$，并调整 $n$；当 $n$ 为正整数时，会出现正确解。求出三个最低能量的 $n$ 值，首先对 $\ell=0$，然后对 $\ell=1$ 和 $\ell=2$。提示：为避免计算机被零除，可将分母 $\rho$ 替换为 $\rho+0.000001$；对 $\ell=0$ 可用条件 $u(0)=0,u'(0)=1$，对 $\ell>0$ 可改用非零起始条件以避免平庸解。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.53)：径向方程：$[-\hbar^2(\dd^2/\dd r^2)/(2m)+V(r)+\hbar^2\ell(\ell+1)/(2mr^2)]u=Eu$，$u=rR$。
+\item 式 (4.56)：库仑势径向方程可写成无量纲形式 $u''=[1-\rho_0/\rho+\ell(\ell+1)/\rho^2]u$。
+\item 式 (4.68--4.70)：氢原子终止条件给出 $\rho_0=2n$，能级 $E_n=-me^4/[2(4\pi\epsilon_0)^2\hbar^2n^2]$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+令 $\rho=\alpha r$ 并采用教材径向方程。摆动尾巴法是：给定试探能量或等价的 $n$，从小 $\rho$ 处用正则边界条件积分到大 $\rho$，观察尾部是否发散；调整参数使尾部衰减。正确值出现在
+\[
+n=1,2,3,\cdots,
+\qquad n\ge\ell+1.
+\]
+因此三个最低：
+\[
+\ell=0: n=1,2,3;
+\qquad
+\ell=1: n=2,3,4;
+\qquad
+\ell=2: n=3,4,5.
+\]
+相应能量仍为 $E_n=-13.6\,\mathrm{eV}/n^2$。
+
+\end{solution}
+
+\begin{question}
+相继自旋测量（Sequential Spin Measurements）。
+\begin{enumerate}
+\item 在 $t=0$ 时，有一个较大的自旋为 $1/2$ 系综，所有粒子都相对于 $z$ 轴自旋向上。它们不受任何力或力矩作用。在 $t=0$ 与 $t_1$ 之间，对部分粒子沿 $z$ 方向测量自旋，其他粒子沿 $x$ 方向测量自旋（结果不告知）。在 $t_1$ 时，再次沿 $x$ 方向测量自旋，并保存沿 $x$ 自旋向上的子系综。问：在剩下的这些粒子中，第一次测量自旋向上的粒子所占比例为多少？
+\item 推广：初态沿 $\hat{\mathbf a}$ 方向自旋向上；第一次测量沿 $\hat{\mathbf b}$ 方向，结果不告知；第二次测量沿 $\hat{\mathbf c}$ 方向，并保存自旋向上的粒子。在这个子系综中，第一次测量为沿 $\hat{\mathbf b}$ 自旋向上的粒子比例是多少？提示：利用式 (4.155) 和两方向之间的夹角。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.155)：沿 $\hat{\mathbf n}=(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$ 自旋向上旋量：$\chi_+=\binom{\cos(\theta/2)}{e^{\ii\phi}\sin(\theta/2)}$。}
+
+\end{question}
+\begin{solution}
+
+(1) 初态 $z+$。若第一次测 $z$，一定得 $z+$，随后被选入 $x+$ 的几率为 $1/2$。若第一次测 $x$，结果 $x+$ 或 $x-$ 各 $1/2$；第二次只保留 $x+$，所以被保留者中第一次测 $x$ 的必为 $x+$。若两类第一次测量样本数相同，最终保留群体中“第一次测量为向上”的比例为 1。
+
+(2) 更一般地，第一次测 $\hat b$ 后不告知，第二次选 $\hat c+$。联合几率
+\[
+P(b+\ \text{且}\ c+)=P(b+|a+)P(c+|b+)
+=\cos^2\frac{\theta_{ab}}2\cos^2\frac{\theta_{bc}}2.
+\]
+同理
+\[
+P(b-\ \text{且}\ c+)=\sin^2\frac{\theta_{ab}}2\sin^2\frac{\theta_{bc}}2.
+\]
+因此所求比例
+\[
+\frac{\cos^2(\theta_{ab}/2)\cos^2(\theta_{bc}/2)}{\cos^2(\theta_{ab}/2)\cos^2(\theta_{bc}/2)+\sin^2(\theta_{ab}/2)\sin^2(\theta_{bc}/2)}.
+\]
+
+\end{solution}
+
+\begin{question}
+在分子和固体的应用中，通常采用笛卡儿坐标轴对齐表示的轨道作为基，而不是本章中采用的 $\psi_{n\ell m}$。例如，$n=2,\ell=1$ 的三个基可用 $\psi_x,\psi_y,\psi_z$ 表示。
+\begin{enumerate}
+\item 找到一种线性组合，使其等价于 $n=2,\ell=1,m=-1,0,1$ 的三个球谐轨道。
+\item 证明 $\psi_x,\psi_y,\psi_z$ 分别是相应角动量分量的本征态；每个分量的本征值是多少？
+\item 画出这三个轨道的等高图（类似图 4.9）。使用 Mathematica 指令 \texttt{ContourPlot3D}。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+$p$ 轨道可取
+\[
+\psi_z=\psi_{210},
+\qquad
+\psi_x=\frac{1}{\sqrt2}(\psi_{21,-1}-\psi_{211}),
+\]
+\[
+\psi_y=\frac{\ii}{\sqrt2}(\psi_{21,-1}+\psi_{211}).
+\]
+它们分别正比于 $z e^{-r/2a}$、$x e^{-r/2a}$、$y e^{-r/2a}$。
+
+严格说 $p_x,p_y,p_z$ 不是相应 $L_x,L_y,L_z$ 的非零本征态；例如 $\psi_z$ 是 $L_z$ 的 $m=0$ 本征态。通过旋转可知 $\psi_x$ 是 $L_x$ 的本征态本征值 0，$\psi_y$ 是 $L_y$ 本征值 0。等高面呈两个叶瓣并沿相应轴取向。
+
+\end{solution}
+
+\begin{question}
+考虑质量为 $m$、电荷量为 $q$、自旋为 $s$ 的粒子处于均匀磁场 $\mathbf B_0$ 中，磁矢势可以选择为
+\[
+\mathbf A=-\frac12\mathbf r\times\mathbf B_0.
+\]
+\begin{enumerate}
+\item 验证这个矢势产生均匀磁场 $\mathbf B_0$。
+\item 证明哈密顿量可以写为
+\[
+H=\frac{p^2}{2m}+q\varphi-\gamma_0\mathbf B_0\cdot(\mathbf L+\mathbf S)+\frac{q^2}{8m}(\mathbf r\times\mathbf B_0)^2,
+\]
+其中 $\gamma_0=q/(2m)$。评注：线性项与顺磁性有关，二次项导致抗磁性。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 利用恒等式
+\[
+\nabla\times(\mathbf r\times\mathbf B_0)= -2\mathbf B_0
+\]
+对常矢量 $\mathbf B_0$，故
+\[
+\nabla\times\left(-\frac12\mathbf r\times\mathbf B_0\right)=\mathbf B_0.
+\]
+
+(2) 展开
+\[
+H=\frac{1}{2m}(\mathbf p-q\mathbf A)^2+q\varphi-\gamma_0\mathbf B_0\cdot\mathbf S.
+\]
+库仑规范下交叉项为
+\[
+-\frac{q}{2m}(\mathbf p\cdot\mathbf A+\mathbf A\cdot\mathbf p)=-\gamma_0\mathbf B_0\cdot\mathbf L.
+\]
+再加 $q^2A^2/2m=q^2(\mathbf r\times\mathbf B_0)^2/(8m)$，得题中表达式。
+
+\end{solution}
+
+\begin{question}
+用力的形式表述的例题 4.4 是施特恩-格拉赫效应的准经典解释。从式 (4.169) 给出的中性自旋 $1/2$ 粒子穿过磁场的哈密顿量开始，利用广义埃伦菲斯特定理证明
+\[
+m\frac{\mathrm d^2\langle z\rangle}{\mathrm dt^2}=\gamma\alpha\langle S_z\rangle.
+\]
+评注：式 (4.170) 是正确的量子力学陈述，这里的量应理解为期望值。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.169--4.170)：中性自旋 $1/2$ 粒子在磁场中 $H=p^2/(2m)-\gamma\mathbf S\cdot\mathbf B$；准经典力为 $m\ddot{\langle\mathbf r\rangle}=\gamma\nabla(\langle\mathbf S\rangle\cdot\mathbf B)$。}
+
+\end{question}
+\begin{solution}
+
+哈密顿量含
+\[
+H=\frac{p^2}{2m}-\gamma(B_0+\alpha z)S_z+\cdots.
+\]
+由埃伦菲斯特定理
+\[
+m\frac{\dd^2\langle z\rangle}{\dd t^2}=\frac{\dd\langle p_z\rangle}{\dd t}
+=-\left\langle\frac{\partial H}{\partial z}\right\rangle.
+\]
+而
+\[
+-\frac{\partial H}{\partial z}=\gamma\alpha S_z,
+\]
+故
+\[
+m\frac{\dd^2\langle z\rangle}{\dd t^2}=\gamma\alpha\langle S_z\rangle.
+\]
+
+\end{solution}
+
+\begin{question}
+实际上，无论是例题 4.4，还是习题 4.73 都没有真正解施特恩-格拉赫实验的薛定谔方程。自旋为 $1/2$ 的中性粒子穿过施特恩-格拉赫装置的哈密顿量为
+\[
+H=\frac{p^2}{2m}-\gamma\mathbf B\cdot\mathbf S,
+\]
+其中 $\mathbf B$ 由式 (4.169) 给出。包含空间和自旋两部分自由度的最一般波函数可写为
+\[
+\Psi(\mathbf r,t)=\psi_+(\mathbf r,t)\chi_+ + \psi_-(\mathbf r,t)\chi_-.
+\]
+\begin{enumerate}
+\item 将此式代入含时薛定谔方程，获得一对关于 $\psi_\pm$ 的耦合方程。
+\item 从例题 4.3 知道，自旋在均匀磁场 $B_0\hat{\mathbf k}$ 中进动。把这部分从解中提取为相位因子，写成 $\psi_\pm(\mathbf r,t)=e^{\mp i\gamma B_0t/2}\varphi_\pm(\mathbf r,t)$，并求 $\varphi_\pm$ 的方程。
+\item 忽略 (b) 中的快速振动耦合项，得到非耦合方程。基于粒子在有效“势”中的运动，解释施特恩-格拉赫实验。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.169--4.170)：中性自旋 $1/2$ 粒子在磁场中 $H=p^2/(2m)-\gamma\mathbf S\cdot\mathbf B$；准经典力为 $m\ddot{\langle\mathbf r\rangle}=\gamma\nabla(\langle\mathbf S\rangle\cdot\mathbf B)$。}
+
+\end{question}
+\begin{solution}
+
+(1) 将
+\[
+\Psi=\psi_+\chi_++\psi_-\chi_-
+\]
+代入薛定谔方程，利用 $S_z\chi_\pm=\pm\hbar\chi_\pm/2$ 和 $S_x$ 的非对角元，得到
+\[
+\ii\hbar\dot\psi_+=\left(\frac{p^2}{2m}-\frac{\gamma\hbar}{2}(B_0+\alpha z)\right)\psi_+-\frac{\gamma\hbar\alpha}{2}(x-\ii y)\psi_-,
+\]
+\[
+\ii\hbar\dot\psi_-=\left(\frac{p^2}{2m}+\frac{\gamma\hbar}{2}(B_0+\alpha z)\right)\psi_- -\frac{\gamma\hbar\alpha}{2}(x+\ii y)\psi_+.
+\]
+
+(2) 提取 $e^{\mp\ii\gamma B_0t/2}$ 后，耦合项带有快速相位 $e^{\pm\ii\gamma B_0t}$。
+
+(3) 若 $B_0$ 很大，这些快速振荡项平均为零，两个分量分别在有效势
+\[
+V_\pm=\mp\frac{\gamma\hbar\alpha z}{2}
+\]
+中运动，因此受到相反方向的力，波包分裂，这就是施特恩-格拉赫分束。
+
+\end{solution}
+
+\begin{question}
+考虑例题 4.6 中的含时态，证明适当归一化的
+\[
+\Psi_n(\phi,t)=\frac{1}{\sqrt{2\pi}}e^{in\phi}e^{-if_n(t)}
+\]
+其中 $f_n(t)$ 由相应瞬时能量积分给出，是含时薛定谔方程的解。
+\end{question}
+\begin{solution}
+
+把
+\[
+\Psi_n=\frac{1}{\sqrt{2\pi}}e^{\ii n\phi}e^{-\ii f_n(t)}
+\]
+代入含时方程。空间部分是瞬时哈密顿量的本征函数，能量为 $E_n(t)$。于是方程化为
+\[
+\hbar\dot f_n(t)=E_n(t).
+\]
+故
+\[
+f_n(t)=\frac1\hbar\int^t E_n(t')\dd t'
+\]
+（差一个常数相位无物理意义），从而题中形式确为精确解。
+
+\end{solution}
+
+\begin{question}
+例题 4.6 中的能级移动可以从经典电动力学方面理解：考虑初始没有电流流进螺线管的情况，想象现在缓慢增加电流。
+\begin{enumerate}
+\item 计算由变化磁通量产生的电动势，并证明限制在环上的电荷做功的速率可以写为磁通量变化率和角动量的函数。
+\item 对于例题 4.6 中处在 $\Psi_n$ 态的粒子，计算机械角动量的 $z$ 分量
+\[
+L_z^{\mathrm{mech}}=\mathbf r\times m\mathbf v=\mathbf r\times(\mathbf p-q\mathbf A).
+\]
+注意机械角动量不是以 $\hbar$ 的整数倍量子化的。
+\item 证明 (a) 部分得到的结果精确等于随着磁通量增加时定态能量改变的速率 $\mathrm dE_n/\mathrm d\Phi$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 法拉第定律给环上电动势
+\[
+\mathcal E=-\frac{\dd\Phi}{\dd t}.
+\]
+切向电场 $E_\phi=\mathcal E/(2\pi a)$，功率为
+\[
+\dot W=q a\dot\phi E_\phi=-\frac{q\dot\phi}{2\pi}\dot\Phi.
+\]
+用机械角动量 $L_z^{\rm mech}=ma^2\dot\phi$ 可写成相应角动量形式。
+
+(2) 在环上
+\[
+L_z^{\rm mech}=L_z-q a A_\phi=L_z-\frac{q\Phi}{2\pi}.
+\]
+对 $\Psi_n$，
+\[
+\langle L_z^{\rm mech}\rangle=n\hbar-\frac{q\Phi}{2\pi}.
+\]
+它不必为 $\hbar$ 的整数倍。
+
+(3) 能量
+\[
+E_n=\frac{1}{2ma^2}\left(n\hbar-\frac{q\Phi}{2\pi}\right)^2.
+\]
+对 $\Phi$ 求导并乘 $\dot\Phi$，得到的 $\dot E_n$ 与 (1) 的功率相同，说明能级移动正是感生电场做功的结果。
+
+\end{solution}

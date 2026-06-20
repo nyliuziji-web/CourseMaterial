@@ -1,0 +1,351 @@
+\heading{数据结构与算法B-22春-期末}
+\noteinfo{题目来源：2022 春季期末扫描版。已重点按原扫描件复核选择、判断、填空、代码空白与图题中的可辨认文字；图示题保留文字化答案。本次整理提供 C 语言版与 Python 语言版；除程序代码语言外，两版题目内容保持一致。}
+
+\textbf{一、选择题（30 分，每小题 2 分）}
+
+\begin{question}
+双向链表中的每个结点有两个引用域 \texttt{prev} 和 \texttt{next}，分别引用当前结点的前驱与后继。设 \texttt{p} 引用链表中的一个结点，\texttt{q} 引用一待插入结点，现要求在 \texttt{p} 前插入 \texttt{q}，正确的插入操作为（\quad）。
+\begin{enumerate}
+  \item \texttt{p.prev=q; q.next=p; p.prev.next=q; q.prev=p.prev;}
+  \item \texttt{q.prev=p.prev; p.prev.next=q; q.next=p; p.prev=q.next;}
+  \item \texttt{q.next=p; p.next=q; p.prev.next=q; q.next=p;}
+  \item \texttt{p.prev.next=q; q.next=p; q.prev=p.prev; p.prev=q;}
+\end{enumerate}
+\begin{solution}
+选 D。该操作先令原前驱指向 \texttt{q}，再令 \texttt{q} 指向 \texttt{p}，最后修正 \texttt{q.prev} 与 \texttt{p.prev}。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一个 $N$ 个相异元素构成的有序数列，设计递归算法实现二分查找。考察递归过程中栈的使用情况，该递归调用栈的最小容量应为（\quad）。
+\begin{enumerate}
+  \item $N$
+  \item $N/2$
+  \item $\lfloor \log_2 N\rfloor$
+  \item $\lceil \log_2 (N+1)\rceil$
+\end{enumerate}
+\begin{solution}
+选 D。递归二分查找的最大递归深度等于判定树的高度，量级为 $\lceil\log_2(N+1)\rceil$。
+\end{solution}
+\end{question}
+
+\begin{question}
+数据结构有三个基本要素：逻辑结构、存储结构以及基于结构定义的行为（运算）。下列概念中，（\quad）属于存储结构。
+\begin{enumerate}
+  \item 线性表
+  \item 链表
+  \item 字符串
+  \item 二叉树
+\end{enumerate}
+\begin{solution}
+选 B。链表是线性表的一种链式存储结构；其余选项通常指逻辑结构。
+\end{solution}
+\end{question}
+
+\begin{question}
+采用数组 $Q[0..m-1]$ 实现循环队列，变量 \texttt{rear} 表示队尾元素的实际位置，添加结点时按 $\texttt{rear}=(\texttt{rear}+1)\%m$ 移动，变量 \texttt{length} 表示当前队列中的元素个数，则队首元素的实际位置是（\quad）。
+\begin{enumerate}
+  \item $\texttt{rear}-\texttt{length}$
+  \item $(1+\texttt{rear}+m-\texttt{length})\%m$
+  \item $(\texttt{rear}-\texttt{length}+m)\%m$
+  \item $m-\texttt{length}$
+\end{enumerate}
+\begin{solution}
+选 B。队尾为最后一个元素，因此队首下标为 $\texttt{rear}-\texttt{length}+1$，取模后即选项 B。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一棵二叉树，若前序遍历序列与中序遍历序列相同，则该二叉树是（\quad）。
+\begin{enumerate}
+  \item 根结点无左子树的二叉树
+  \item 根结点无右子树的二叉树
+  \item 只有根结点的二叉树或非叶子结点只有左子树的二叉树
+  \item 只有根结点的二叉树或非叶子结点只有右子树的二叉树
+\end{enumerate}
+\begin{solution}
+选 D。若每个非叶结点都无左子树，则前序和中序都按“根、右子树”访问；反之若某结点有左子树，则中序会先访问其左子树，与前序不同。
+\end{solution}
+\end{question}
+
+\begin{question}
+用 Huffman 算法构造最优二叉编码树，待编码字符权值为 $\{3,4,5,6,8,9,11,12\}$，该树的带权外部路径长度为（\quad）。
+\begin{enumerate}
+  \item $58$
+  \item $169$
+  \item $72$
+  \item $182$
+\end{enumerate}
+\begin{solution}
+选 B。依次合并 $3,4$；$5,6$；$7,8$；$9,11$；$11,12$；$15,20$；$23,35$，合并权值和为 $7+11+15+20+23+35+58=169$。
+\end{solution}
+\end{question}
+
+\begin{question}
+若需要对存储开销约 $1\mathrm{GB}$ 的数据排序，而当前可用 RAM 只有 $100\mathrm{MB}$，最适合的排序算法是（\quad）。
+\begin{enumerate}
+  \item 堆排序
+  \item 归并排序
+  \item 快速排序
+  \item 插入排序
+\end{enumerate}
+\begin{solution}
+选 B。外部排序常采用多路归并思想，适合数据量显著大于内存容量的情形。
+\end{solution}
+\end{question}
+
+\begin{question}
+一个无向图 $G$ 含有 $18$ 条边，其中度数为 $4$ 的顶点有 $3$ 个，度数为 $3$ 的顶点有 $4$ 个，其他顶点的度数均小于 $3$，则 $G$ 的顶点数至少为（\quad）。
+\begin{enumerate}
+  \item $10$
+  \item $11$
+  \item $13$
+  \item $15$
+\end{enumerate}
+\begin{solution}
+选 C。总度数为 $2|E|=36$。已知顶点贡献度数 $3\cdot4+4\cdot3=24$，还差 $12$；其余顶点度数均至多为 $2$，至少还需 $6$ 个顶点，所以总顶点数至少为 $3+4+6=13$。
+\end{solution}
+\end{question}
+
+\begin{question}
+无向图 $G$ 从 $V_0$ 出发作深度优先遍历，访问的树边集合为
+\[
+\{(V_0,V_1),(V_0,V_4),(V_1,V_2),(V_1,V_3),(V_4,V_5),(V_5,V_6)\}.
+\]
+则下列哪条边不可能出现在 $G$ 中？（\quad）
+\begin{enumerate}
+  \item $(V_0,V_2)$
+  \item $(V_4,V_6)$
+  \item $(V_4,V_3)$
+  \item $(V_0,V_6)$
+\end{enumerate}
+\begin{solution}
+选 C。无向图 DFS 中非树边只能连接祖先与后代。$(V_4,V_3)$ 位于 DFS 树的两个不同分支之间，不可能作为非树边出现。
+\end{solution}
+\end{question}
+
+\begin{question}
+已知有向图 $G$ 的邻接边表如下图所示，
+\pyfig[0.32\linewidth]{figures/数据结构与算法B-22春-期末-fig01.png}{}
+从 $V_0$ 出发进行深度优先周游，得到的 DFS 结点序列为（\quad）。
+\begin{enumerate}
+  \item $V_0,V_1,V_4,V_3,V_2$
+  \item $V_0,V_1,V_2,V_3,V_4$
+  \item $V_0,V_1,V_3,V_2,V_4$
+  \item $V_0,V_2,V_1,V_3,V_4$
+\end{enumerate}
+\begin{solution}
+选 B。按邻接表顺序访问：$V_0\to V_1\to V_2$，回溯后由 $V_0\to V_3\to V_4$，故序列为 $V_0,V_1,V_2,V_3,V_4$。
+\end{solution}
+\end{question}
+
+\begin{question}
+若按排序的稳定性对排序算法分类，下列算法中不稳定的是（\quad）。
+\begin{enumerate}
+  \item 冒泡排序
+  \item 归并排序
+  \item 直接插入排序
+  \item 希尔排序
+\end{enumerate}
+\begin{solution}
+选 D。希尔排序可能使相同关键码的元素跨间隔交换，通常不稳定。
+\end{solution}
+\end{question}
+
+\begin{question}
+下列哪组排序算法的最好情况下时间复杂度的大 $O$ 表示相同？（\quad）
+\begin{enumerate}
+  \item 快速排序和堆排序
+  \item 归并排序和插入排序
+  \item 快速排序和选择排序
+  \item 堆排序和冒泡排序
+\end{enumerate}
+\begin{solution}
+选 A。快速排序最好为 $O(n\log n)$，堆排序各情形均为 $O(n\log n)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设结点 $X$ 和 $Y$ 是二叉树中任意两个结点。若在该树的先根周游序列中 $X$ 出现在 $Y$ 之前，而在其后根周游序列中 $X$ 出现在 $Y$ 之后，则 $X$ 与 $Y$ 的关系是（\quad）。
+\begin{enumerate}
+  \item $X$ 是 $Y$ 的左兄弟
+  \item $X$ 是 $Y$ 的右兄弟
+  \item $X$ 是 $Y$ 的祖先
+  \item $X$ 是 $Y$ 的后裔
+\end{enumerate}
+\begin{solution}
+选 C。祖先结点在前序中先于后代访问，在后序中后于后代访问。
+\end{solution}
+\end{question}
+
+\begin{question}
+森林 $F$ 中每个结点的子结点数均不超过 $2$。若森林 $F$ 中叶子结点总数为 $L$，度数为 $2$ 的结点总数为 $N$，则森林 $F$ 中树的个数为（\quad）。
+\begin{enumerate}
+  \item $L-N-1$
+  \item 无法确定
+  \item $L-N$
+  \item $N-L$
+\end{enumerate}
+\begin{solution}
+选 C。设度为 $1$ 的结点数为 $N_1$，树的棵数为 $t$。边数为 $L+N_1+N-t$，也等于 $N_1+2N$，所以 $t=L-N$。
+\end{solution}
+\end{question}
+
+\begin{question}
+回溯法是一类广泛使用的算法，下列叙述中不正确的是（\quad）。
+\begin{enumerate}
+  \item 回溯法可以系统地搜索一个问题的所有解或者任意解
+  \item 回溯法是一种既具系统性又具跳跃性的搜索算法
+  \item 回溯算法需要借助队列数据结构来保存从根结点到当前扩展结点的路径
+  \item 回溯法在生成解空间的任一结点时，先判断当前结点是否可能包含问题的有效解；若肯定不包含，则跳过对该结点为根的子树的搜索，逐层向祖先结点回溯
+\end{enumerate}
+\begin{solution}
+选 C。回溯通常借助递归栈或显式栈保存路径，而不是队列。
+\end{solution}
+\end{question}
+
+\textbf{二、判断题（10 分，每小题 1 分）}
+\begin{question}
+判断下列命题正误，对填 Y，错填 N。
+\begin{enumerate}
+  \item 对任意一个连通的、无环的无向图，从图中移除任何一条边得到的图均不连通。
+  \item 给定二叉树，前序周游序列为 \texttt{HGEDBFCA}、中序周游序列为 \texttt{EGBDHFAC} 时，其后序周游序列必为 \texttt{EBDGACFH}。
+  \item 对结点值在 $1$ 到 $1000$ 之间的二叉搜索树查找 $363$，题面给出的三个序列皆可能为查找路径。
+  \item 构建一个含 $N$ 个结点的（二叉）最小值堆，建堆时间复杂度的大 $O$ 表示为 $O(N\log N)$。
+  \item 队列是动态集合，其定义的出队列操作所移除的元素总是在集合中存在时间最长的元素。
+  \item 任一有向图的拓扑序列既可以通过深度优先搜索求解，也可以通过宽度优先搜索求解。
+  \item 对任一连通无向图 $G$，其中 $E$ 是权值最小的边，那么 $E$ 必然属于任何一个最小生成树。
+  \item 对一个包含负权值边的图，Dijkstra 算法总能够给出最短路径问题的正确答案。
+  \item 分治算法通常将原问题分解为几个规模较小但类似于原问题的子问题，递归求解这些子问题，然后再合并子问题的解来建立原问题的解。
+  \item 考察某个具体问题是否适合应用动态规划算法，必须判定它是否具有最优子结构性质。
+\end{enumerate}
+\begin{solution}
+依次为：Y，Y，N，N，Y，Y，N，N，Y，Y。第 7 小题若额外规定“最小权边唯一”，则该边属于所有最小生成树；扫描题面未注明唯一，按一般情形判 N。
+\end{solution}
+\end{question}
+
+\textbf{三、填空题（20 分，每题 2 分）}
+\begin{question}
+根据题意填空。
+\begin{enumerate}
+  \item 目标串长为 $n$、模式串长为 $m$，朴素模式匹配算法中字符最多比较次数为 $O(nm)$。
+  \item 一棵含 $n$ 个结点的树中，只有度为 $k$ 的分支结点和度为 $0$ 的终端结点，则终端结点数为 $\dfrac{(k-1)n+1}{k}$。
+  \item 对关键码序列 $\{46,70,56,38,40,80\}$ 作快速排序，以第一个记录为基准的一次划分结果可写为 $40,38,46,56,70,80$。
+  \item 长度为 $3$ 的顺序表中，查找第一个、第二个、第三个元素的概率分别为 $1/2,1/4,1/8$。若只按给出的成功查找概率加权，平均比较次数为 $11/8$；若把剩余 $1/8$ 理解为查找失败概率，则平均比较次数为 $7/4$。
+  \item 关键码为 $\{19,14,23,1,68,20,84,27,55,11,10,79\}$，用链地址法和 $H(\mathrm{key})=\mathrm{key}\bmod 13$ 构造散列表，则地址为 $1$ 的链中有 $4$ 个记录。
+  \item 删除长度为 $n$ 的顺序表第 $i$ 个数据元素需要移动表中的 $n-i$ 个数据元素。
+  \item 小根堆为 $[8,15,10,21,34,16,12]$，删除关键字 $8$ 并重新建堆时，关键字比较次数为 $3$。
+  \item 在广度优先遍历、拓扑排序、求最短路径三种算法中，可判断有向图是否有环的是拓扑排序。
+  \item $n\;(n\ge2)$ 个顶点的有向强连通图最少有 $n$ 条边。
+  \item 栈 $S_1$ 中操作数自栈底到栈顶为 $5,8,3,2$，栈 $S_2$ 中运算符自栈底到栈顶为 $*, -, /$，按题给函数调用三次后，若按整数除法计算，$S_1$ 栈顶为 $35$。
+\end{enumerate}
+\begin{solution}
+见各小题填空。
+\end{solution}
+\end{question}
+
+\textbf{四、简答题（3 题，共 20 分）}
+\begin{question}[Dijkstra 算法]
+试用 Dijkstra 算法求题图中顶点 $1$ 到其余各顶点的最短路径，写出算法执行过程中各步状态。
+\pyfig[0.44\linewidth]{figures/数据结构与算法B-22春-期末-fig02.png}{}
+\pyfig[0.92\linewidth]{figures/数据结构与算法B-22春-期末-fig03.png}{}
+
+\begin{solution}
+按题图边权，从顶点 $1$ 出发，选点次序为
+\[
+1,5,6,2,7,4,3,8.
+\]
+最终从 $1$ 到顶点 $2,3,4,5,6,7,8$ 的最短路径长度分别为
+\[
+20,\quad 33,\quad 28,\quad 10,\quad 17,\quad 25,\quad 35.
+\]
+可取的最短路径包括
+\[
+1\to5\to6\to2,
+\quad 1\to5\to6\to3,
+\quad 1\to5\to6\to7\to4,
+\quad 1\to5\to6\to7\to8.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[二叉搜索树]
+给定关键码集合 $\{18,73,5,10,68,99,27\}$。
+\begin{enumerate}
+  \item 画出按记录顺序构造形成的二叉排序（搜索）树；
+  \item 画出删除关键码 $73$ 后的二叉排序树；
+  \item 画出对集合 $C$（未删除 $73$ 前）查询效率最高的最优二叉排序树，其中每个关键码被查询概率相等。
+\end{enumerate}
+\begin{solution}
+顺序插入得到：根为 $18$；左子树为 $5$，且 $5$ 的右孩子为 $10$；右子树根为 $73$，$73$ 的左孩子为 $68$、右孩子为 $99$，$68$ 的左孩子为 $27$。
+
+删除 $73$ 时，可用其左子树最大结点 $68$ 替代，得到右子树根 $68$，其左孩子为 $27$、右孩子为 $99$。
+
+若在原集合 $\{5,10,18,27,68,73,99\}$ 上等概率查找，最优二叉排序树可取中位数 $27$ 为根，左子树根为 $10$、右子树根为 $73$，叶结点为 $5,18,68,99$。这是高度尽量平衡的二叉搜索树，成功查找平均比较次数最小。
+\end{solution}
+\end{question}
+
+\begin{question}[奇偶交换排序]
+奇偶交换排序如下：第一趟对所有奇数 $i$ 比较 $a_i$ 与 $a_{i+1}$，必要时交换；第二趟对所有偶数 $i$ 比较 $a_i$ 与 $a_{i+1}$，必要时交换；如此交替，直到整个序列有序。对序列 $\{18,73,5,10,68,99,27,10\}$ 写出前 $4$ 趟结果，说明算法是否稳定，并给出正序、逆序输入时的比较次数和交换次数。
+\begin{solution}
+前 $4$ 趟结果依次为
+\[
+\begin{aligned}
+&18,73,5,10,68,99,10,27,\\
+&18,5,73,10,68,10,99,27,\\
+&5,18,10,73,10,68,27,99,\\
+&5,10,18,10,73,27,68,99.
+\end{aligned}
+\]
+算法只在相邻元素逆序时交换，相等元素不交换，因此是稳定排序。
+
+若初始序列为正序，比较 $n-1$ 次，交换 $0$ 次。若初始序列为逆序，则每个逆序对最终都要通过一次相邻交换消去，交换次数为
+\[
+\frac{n(n-1)}{2}.
+\]
+按题给停止条件，最后还需一轮无交换检查，比较次数为
+\[
+\frac{n(n-1)}{2}+n-1.
+\]
+\end{solution}
+\end{question}
+
+\textbf{五、算法填空（2 题，共 20 分）}
+\begin{question}[单链表逆置]
+填空完成程序：读入整数序列，用单链表存储，然后将该单链表原地逆置后输出。
+\begin{solution}
+空白处依次填写：
+\begin{center}
+\small
+\begin{tabular}{@{}r l@{}}
+(1)&\texttt{node},\\
+(2)&\texttt{node},\\
+(3)&\texttt{NULL},\\
+(4)&\texttt{p->next},\\
+(5)&\texttt{head},\\
+(6)&\texttt{head = q}.
+\end{tabular}
+\end{center}
+其中构造函数中先令 \texttt{p->next = node}，再令 \texttt{p = node}；逆置时依次摘下原链表结点，并用头插法插入到新链表头部。
+\end{solution}
+\end{question}
+
+\begin{question}[由充二叉树先序序列构造二叉树]
+输入一棵二叉树的充二叉树先根周游序列，其中 \texttt{@} 表示虚拟叶结点。构造该二叉树并输出其中根周游（中序遍历）序列。
+\begin{solution}
+空白处依次填写：
+\begin{center}
+\small
+\begin{tabular}{@{}r l@{}}
+(1)&\texttt{inorderTraversal(root->left)},\\
+(2)&\texttt{inorderTraversal(root->right)},\\
+(3)&\texttt{return NULL},\\
+(4)&\texttt{newNode(s[ptr])},\\
+(5)&\texttt{tree->left = buildTree()},\\
+(6)&\texttt{tree->right = buildTree()},\\
+(7)&\texttt{buildTree()}.
+\end{tabular}
+\end{center}
+构造时按先序读取：遇到 \texttt{@} 返回空指针；否则生成当前根结点，再递归构造左、右子树。
+\end{solution}
+\end{question}

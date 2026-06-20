@@ -146,3 +146,16 @@
   \noindent\fbox{\strut\,#1\,}%
   \par\smallskip
 }
+
+\makeatletter
+\@ifundefined{code}{\newcommand{\code}[1]{\texttt{#1}}}{}
+\@ifundefined{codeans}{\newcommand{\codeans}[1]{\texttt{#1}}}{}
+\@ifundefined{codestr}{\NewDocumentCommand{\codestr}{v}{\texttt{#1}}}{}
+\@ifundefined{ttbox}{%
+  \NewDocumentEnvironment{ttbox}{ O{} +b }{%
+    \begin{tcolorbox}[colback=black!2,colframe=black!10,sharp corners,boxrule=0.35pt,breakable,left=0.8em,right=0.8em,top=0.35em,bottom=0.35em,before skip=6pt,after skip=6pt,#1]%
+    \ttfamily\small #2%
+    \end{tcolorbox}%
+  }{}%
+}{}
+\makeatother

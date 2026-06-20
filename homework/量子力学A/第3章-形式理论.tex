@@ -1,0 +1,2387 @@
+\heading{第3章-形式理论}
+\begin{question}
+\begin{enumerate}
+\item 证明全体平方可积函数集构成一个矢量空间（参考 A.1 节中的定义）。提示：要点是证明两个平方可积函数之和也平方可积；利用式 (3.7)。全体可归一化的函数集构成矢量空间吗？
+\item 证明式 (3.6) 中的积分满足内积条件（A.2 节）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (3.7)：Schwarz 不等式：$|\langle f|g\rangle|^2\le \langle f|f\rangle\langle g|g\rangle$。
+\item 式 (3.6)：函数空间内积：$\langle f|g\rangle=\int f^*(x)g(x)\dd x$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+(1) 设 $f,g
+e L^2$，则
+\[
+|f+g|^2\le (|f|+|g|)^2\le 2|f|^2+2|g|^2 .
+\]
+两边积分得
+\[
+\int |f+g|^2\dd x\le 2\int |f|^2\dd x+2\int |g|^2\dd x<\infty,
+\]
+所以 $f+g\in L^2$。数乘也显然封闭：$\alpha f\in L^2$。因此平方可积函数构成矢量空间。
+
+若“可归一化函数”理解为非零平方可积函数，则它不含零矢量，严格说不构成矢量空间；若理解为所有 $L^2$ 函数包括零函数，则正是上面的空间。若指已经归一化为范数 $1$ 的函数，则更不是矢量空间，因为两个归一化函数之和通常不归一化，数乘也会改变范数。
+
+(2) 定义
+\[
+\left\langle f|g \right\rangle=\int f^*(x)g(x)\dd x .
+\]
+它满足
+\[
+\left\langle f|g \right\rangle=\left\langle g|f \right\rangle^*,\qquad
+\left\langle f|ag+bh \right\rangle=a\left\langle f|g \right\rangle+b\left\langle f|h \right\rangle,
+\]
+并且
+\[
+\left\langle f|f \right\rangle=\int |f(x)|^2\dd x\ge 0,
+\]
+等号仅当 $f=0$（在几乎处处意义下）成立。因此它满足内积公理。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 对 $\nu$ 取什么范围时，在 $(0,1)$ 区间内的函数 $f(x)=x^\nu$ 在希尔伯特空间中？假设 $\nu$ 是实数，但不必为正数。
+\item 对于 $\nu=1/2$ 的特定情况，$f(x)$ 还在希尔伯特空间吗？$x f(x)$ 呢？$(\mathrm d/\mathrm dx)f(x)$ 呢？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 只需检查
+\[
+\int_0^1 |x^\nu|^2\dd x=\int_0^1 x^{2\nu}\dd x
+\]
+是否收敛。该积分在 $x=0$ 处收敛当且仅当
+\[
+2\nu>-1,
+\]
+所以
+\[
+\boxed{\nu>-\frac12.}
+\]
+
+(2) 当 $\nu=1/2$ 时，$f(x)=\sqrt{x}$，显然在 $L^2(0,1)$ 中。又
+\[
+xf(x)=x^{3/2},
+\]
+也在 $L^2(0,1)$ 中。但
+\[
+\frac{\dd f}{\dd x}=\frac1{2\sqrt{x}},
+\qquad
+\left|\frac{\dd f}{\dd x}\right|^2=\frac1{4x},
+\]
+而 $\int_0^1 x^{-1}\dd x$ 发散，所以 $f'(x)$ 不在希尔伯特空间中。
+\end{solution}
+
+\begin{question}
+证明如果对于所有的 $h$（希尔伯特空间中）都有
+\[
+\left\langle h|\hat Q h \right\rangle=\left\langle \hat Q h|h \right\rangle,
+\]
+则对于所有的 $f$ 和 $g$ 也有
+\[
+\left\langle f|\hat Q g \right\rangle=\left\langle \hat Q f|g \right\rangle,
+\]
+也就是，两种“厄米算符”的定义是等价的：式 (3.16) 和式 (3.17)。提示：先令 $h=f+g$，然后再令 $h=f+\ii g$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.16--3.17)：厄米算符定义：$\langle f|Qg\rangle=\langle Qf|g\rangle$；等价地，$\langle f|Qf\rangle$ 对任意 $f$ 为实数。}
+
+\end{question}
+\begin{solution}
+由假设，对任意 $h$ 有
+\[
+\left\langle h|\hat Qh \right\rangle=\left\langle \hat Qh|h \right\rangle.
+\]
+先取 $h=f+g$，展开并消去分别来自 $f$ 和 $g$ 的项，得
+\[
+\left\langle f|\hat Q g \right\rangle+\left\langle g|\hat Q f \right\rangle
+=\left\langle \hat Q f|g \right\rangle+\left\langle \hat Q g|f \right\rangle.\tag{1}
+\]
+再取 $h=f+\ii g$，同理展开得
+\[
+\ii\left\langle f|\hat Q g \right\rangle-\ii\left\langle g|\hat Q f \right\rangle
+=-\ii\left\langle \hat Q f|g \right\rangle+\ii\left\langle \hat Q g|f \right\rangle.\tag{2}
+\]
+将式 (2) 除以 $\ii$ 后与式 (1) 相加，得到
+\[
+2\left\langle f|\hat Qg \right\rangle=2\left\langle \hat Q f|g \right\rangle,
+\]
+即
+\[
+\boxed{\left\langle f|\hat Qg \right\rangle=\left\langle \hat Q f|g \right\rangle}.
+\]
+因此两个定义等价。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明两个厄米算符之和仍是厄米算符。
+\item 假设 $\hat Q$ 是厄米的，且 $\alpha$ 为复数。$\alpha\hat Q$ 在什么条件下也是厄米的？
+\item 在什么条件下两个厄米算符的积也是厄米算符？
+\item 证明位置算符 $(\hat x=x)$ 和哈密顿算符
+\[
+\hat H=-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+V(x)
+\]
+是厄米算符。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 若 $\hat Q$、$\hat R$ 厄米，则
+\[
+(\hat Q+\hat R)^\dagger=\hat Q^\dagger+\hat R^\dagger=\hat Q+\hat R,
+\]
+故和仍厄米。
+
+(2) 若 $\hat Q^\dagger=\hat Q$，则
+\[
+(\alpha\hat Q)^\dagger=\alpha^*\hat Q.
+\]
+它等于 $\alpha\hat Q$ 当且仅当 $\alpha^*=\alpha$，即 $\alpha$ 为实数。
+
+(3) 若 $\hat Q$、$\hat R$ 厄米，则
+\[
+(\hat Q\hat R)^\dagger=\hat R\hat Q.
+\]
+因此积为厄米当且仅当
+\[
+\hat Q\hat R=\hat R\hat Q,
+\]
+即二者对易。
+
+(4) 对位置算符，
+\[
+\left\langle f|xg \right\rangle=\int f^*xg\dd x=\int (xf)^*g\dd x=\left\langle xf|g \right\rangle,
+\]
+所以 $x$ 厄米。对哈密顿量，设 $V(x)$ 为实函数，且波函数满足使边界项消失的条件，则两次分部积分给出
+\[
+\int f^*\left(-\frac{\hbar^2}{2m}g''\right)\dd x
+=\int \left(-\frac{\hbar^2}{2m}f''\right)^*g\dd x.
+\]
+势能项因 $V=V^*$ 也是厄米的，所以 $\hat H$ 厄米。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 求出 $x$、$\ii$ 和 $\mathrm d/\mathrm dx$ 的厄米共轭算符。
+\item 证明
+\[
+(\hat Q\hat R)^\dagger=\hat R^\dagger\hat Q^\dagger,
+\qquad
+(\hat Q+\hat R)^\dagger=\hat R^\dagger+\hat Q^\dagger,
+\qquad
+(c\hat Q)^\dagger=c^*\hat Q^\dagger .
+\]
+\item 构建 $a_+$ 的厄米共轭算符（式 (2.48)）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.48)：谐振子升降算符：$a_\pm=(1/\sqrt{2\hbar m\omega})(\mp\ii p+m\omega x)$，并有 $H=\hbar\omega(a_+a_-+1/2)$。}
+
+\end{question}
+\begin{solution}
+(1) 在通常边界条件下，
+\[
+x^\dagger=x,
+\qquad
+\ii^\dagger=-\ii,
+\qquad
+\left(\frac{\dd}{\dd x}\right)^\dagger=-\frac{\dd}{\dd x}.
+\]
+最后一个等式来自分部积分：
+\[
+\int f^*g'\dd x=\left[f^*g\right]_{\rm bdry}-\int (f')^*g\dd x.
+\]
+边界项为零时即得结论。
+
+(2) 由伴随算符定义，
+\[
+\left\langle f|\hat Q\hat Rg \right\rangle=\left\langle \hat Q^\dagger f|\hat Rg \right\rangle
+=\left\langle \hat R^\dagger\hat Q^\dagger f|g \right\rangle,
+\]
+故 $(\hat Q\hat R)^\dagger=\hat R^\dagger\hat Q^\dagger$。同理可得
+\[
+(\hat Q+\hat R)^\dagger=\hat Q^\dagger+\hat R^\dagger,
+\qquad
+(c\hat Q)^\dagger=c^*\hat Q^\dagger.
+\]
+
+(3) 谐振子的升降算符可写成
+\[
+a_\pm=\frac1{\sqrt{2\hbar m\omega}}\left(\mp\hbar\frac{\dd}{\dd x}+m\omega x\right).
+\]
+利用上面结果，
+\[
+\boxed{a_+^\dagger=a_-},
+\qquad
+\boxed{a_-^\dagger=a_+}.
+\]
+\end{solution}
+
+\begin{question}
+考虑算符
+\[
+\hat Q=\frac{\mathrm d^2}{\mathrm d\phi^2},
+\]
+其中 $\phi$ 是极坐标中的方位角（同例题 3.1），且函数同样遵从式 (3.26)。$\hat Q$ 是厄米算符吗？求出它的本征函数和本征值。$\hat Q$ 的谱是什么？这个谱是简并的吗？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.26)：角变量波函数需单值：$\psi(\phi+2\pi)=\psi(\phi)$。}
+
+\end{question}
+\begin{solution}
+在周期边界条件 $f(\phi+2\pi)=f(\phi)$ 下，
+\[
+\int_0^{2\pi} f^*g''\dd\phi
+=\int_0^{2\pi} (f'')^*g\dd\phi,
+\]
+边界项因周期性相消，所以 $\hat Q=\dd^2/\dd\phi^2$ 是厄米算符。
+
+本征方程为
+\[
+\frac{\dd^2 f}{\dd\phi^2}=qf.
+\]
+周期归一化本征函数为
+\[
+f_n(\phi)=\frac1{\sqrt{2\pi}}e^{\ii n\phi},
+\qquad n=0,\pm1,\pm2,\ldots,
+\]
+本征值为
+\[
+q_n=-n^2.
+\]
+因此谱为
+\[
+\{0,-1,-4,-9,\ldots\}.
+\]
+除 $q_0=0$ 外，每个本征值 $-n^2$ 都由 $n$ 与 $-n$ 两个态给出，所以是二重简并的。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 假设 $f(x)$ 和 $g(x)$ 是 $\hat Q$ 的两个具有相同本征值 $q$ 的本征函数，证明任何 $f$ 和 $g$ 的线性组合也都是 $\hat Q$ 的本征函数，且本征值为 $q$。
+\item 验证 $f(x)=\exp(x)$ 与 $g(x)=\exp(-x)$ 是算符 $\mathrm d^2/\mathrm dx^2$ 具有相同本征值的两个本征函数。由 $f$ 和 $g$ 的线性组合构造两个波函数，使得在 $(-1,1)$ 范围内它们正交。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 若
+\[
+\hat Q f=qf,
+\qquad
+\hat Q g=qg,
+\]
+则对任意常数 $a,b$，
+\[
+\hat Q(af+bg)=a\hat Qf+b\hat Qg=q(af+bg).
+\]
+所以任意线性组合仍是本征值为 $q$ 的本征函数。
+
+(2) 对 $D^2=\dd^2/\dd x^2$，
+\[
+D^2e^x=e^x,
+\qquad
+D^2e^{-x}=e^{-x},
+\]
+所以二者本征值同为 $1$。在 $(-1,1)$ 上可取
+\[
+u(x)=e^x+e^{-x}=2\cosh x,
+\qquad
+v(x)=e^x-e^{-x}=2\sinh x.
+\]
+一个为偶函数，一个为奇函数，因此
+\[
+\int_{-1}^{1}u(x)v(x)\dd x=0,
+\]
+它们正交。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 验证例题 3.1 中厄米算符的本征值是实数。证明具有不同本征值的本征函数正交。
+\item 对习题 3.6 中的算符做同样的验证。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 例题 3.1 中的算符为 $\hat L_z=-\ii\hbar\dd/\dd\phi$，周期本征函数为
+\[
+f_n(\phi)=\frac1{\sqrt{2\pi}}e^{\ii n\phi},
+\]
+本征值
+\[
+\ell_n=n\hbar
+\]
+显然为实数。若 $m\ne n$，则
+\[
+\int_0^{2\pi} f_m^*f_n\dd\phi
+=\frac1{2\pi}\int_0^{2\pi}e^{\ii(n-m)\phi}\dd\phi=0,
+\]
+所以不同本征值的本征函数正交。
+
+(2) 对习题 3.6，
+\[
+\hat Qf_n=-n^2f_n.
+\]
+本征值 $-n^2$ 为实数；当本征值不同，即 $m^2\ne n^2$ 时，仍有
+\[
+\left\langle f_m|f_n \right\rangle=0.
+\]
+同一 $n^2$ 对应的 $\pm n$ 是简并子空间，可在其中取任意正交归一线性组合。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 列举一个第 2 章中的哈密顿量（谐振子除外），它仅有离散谱。
+\item 列举一个第 2 章中的哈密顿量（自由粒子除外），它仅有连续谱。
+\item 列举一个第 2 章中的哈密顿量（有限深方势阱除外），它既有离散谱又有连续谱。
+\end{enumerate}
+\end{question}
+\begin{solution}
+可以举例如下。
+
+(1) 仅有离散谱：无限深方势阱，其能量
+\[
+E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}
+\]
+离散。
+
+(2) 仅有连续谱：排斥的 $\delta$ 函数势垒 $V(x)=\alpha\delta(x)$（$\alpha>0$），没有束缚态，只有散射态的连续谱。
+
+(3) 既有离散谱又有连续谱：吸引的 $\delta$ 函数势阱 $V(x)=-\alpha\delta(x)$（$\alpha>0$）。它有一个束缚态
+\[
+E=-\frac{m\alpha^2}{2\hbar^2},
+\]
+并有 $E>0$ 的连续散射谱。
+\end{solution}
+
+\begin{question}
+无限深方势阱的基态是动量的本征函数吗？如果是的话，它的动量是多少？如果不是，给出理由。（进一步的讨论参见习题 3.34。）
+\end{question}
+\begin{solution}
+无限深方势阱基态为
+\[
+\psi_1(x)=\sqrt{\frac2a}\sin\frac{\pi x}{a},\qquad 0<x<a.
+\]
+若它是动量本征函数，则应有
+\[
+-\ii\hbar\frac{\dd\psi_1}{\dd x}=p\psi_1
+\]
+其中 $p$ 为常数。但左边正比于 $\cos(\pi x/a)$，并不正比于 $\sin(\pi x/a)$。因此基态不是动量本征函数，没有确定动量。
+
+直观上，$\sin(\pi x/a)$ 可看作向右和向左传播平面波的叠加，所以它含有相反方向的动量成分，但在有限势阱中不能简单地把它说成单一动量态。
+\end{solution}
+
+\begin{question}
+对处于谐振子基态的粒子，求出其动量空间波函数 $\Phi(p,t)$。对该粒子的动量进行测量，得到其结果处在经典范围（具有相同能量）以外的几率是多大（精确到两位数）？提示：数值计算部分可查阅数学手册中“正态分布”或“误差函数”，或使用 Mathematica 软件。
+\end{question}
+\begin{solution}
+谐振子基态为
+\[
+\psi_0(x)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+\exp\left(-\frac{m\omega x^2}{2\hbar}\right).
+\]
+傅里叶变换给出
+\[
+\Phi(p,t)=\left(\frac1{\pi m\hbar\omega}\right)^{1/4}
+\exp\left(-\frac{p^2}{2m\hbar\omega}\right)e^{-\ii\omega t/2}.
+\]
+因此
+\[
+|\Phi(p,t)|^2=\frac1{\sqrt{\pi m\hbar\omega}}
+\exp\left(-\frac{p^2}{m\hbar\omega}\right).
+\]
+基态能量为 $E_0=\hbar\omega/2$。对应的经典动量范围满足
+\[
+\frac{p^2}{2m}\le E_0,
+\qquad |p|\le \sqrt{m\hbar\omega}.
+\]
+令 $u=p/\sqrt{m\hbar\omega}$，则处在经典范围之外的几率为
+\[
+P_{\rm out}=\frac1{\sqrt\pi}\int_{|u|>1}e^{-u^2}\dd u
+=1-\operatorname{erf}(1)\approx 0.157.
+\]
+两位有效数字为
+\[
+\boxed{P_{\rm out}\approx 0.16.}
+\]
+\end{solution}
+
+\begin{question}
+由式 (2.101) 引入的函数 $\Psi(x,t)$ 求出自由粒子的 $\Phi(p,t)$。提示：对于自由粒子，$|\Phi(p,t)|^2$ 和时间无关，这是该系统动量守恒的一个表现。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.101)：自由粒子波包的动量展开：$\Psi(x,t)=(2\pi\hbar)^{-1/2}\int \Phi(p,0)e^{\ii(px-p^2t/2m)/\hbar}\dd p$。}
+
+\end{question}
+\begin{solution}
+自由粒子一般波包可写为
+\[
+\Psi(x,t)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}
+\phi(k)\exp\left[\ii kx-\ii\frac{\hbar k^2}{2m}t\right]\dd k.
+\]
+另一方面，动量空间展开为
+\[
+\Psi(x,t)=\frac1{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}
+\Phi(p,t)e^{\ii px/\hbar}\dd p.
+\]
+令 $p=\hbar k$，比较两式可得
+\[
+\boxed{\Phi(p,t)=\frac1{\sqrt\hbar}\,\phi\left(\frac p\hbar\right)
+\exp\left(-\ii\frac{p^2}{2m\hbar}t\right).}
+\]
+因此
+\[
+|\Phi(p,t)|^2=\frac1\hbar\left|\phi\left(\frac p\hbar\right)\right|^2,
+\]
+与时间无关，正体现自由粒子的动量守恒。
+\end{solution}
+
+\begin{question}
+证明
+\[
+\langle x\rangle=\int_{-\infty}^{\infty}\Phi^*(p,t)\left(-\ii\hbar\frac{\partial}{\partial p}\right)\Phi(p,t)\,\mathrm dp .
+\tag{3.57}
+\]
+提示：注意到
+\[
+x\exp(\ii px/\hbar)=-\ii\hbar\frac{\partial}{\partial p}\exp(\ii px/\hbar),
+\]
+并利用式 (2.147)。则在动量空间中，位置算符是 $-\ii\hbar\partial/\partial p$。更为普遍地，原则上可以像在位置空间中一样在动量空间做所有的计算。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.147)：动量空间变换：$\Phi(p,t)=(2\pi\hbar)^{-1/2}\int e^{-\ii px/\hbar}\Psi(x,t)\dd x$。}
+
+\end{question}
+\begin{solution}
+采用傅里叶表示
+\[
+\Psi(x,t)=\frac1{\sqrt{2\pi\hbar}}\int \Phi(p,t)e^{\ii px/\hbar}\dd p.
+\]
+则
+\[
+\langle x\rangle=\int \Psi^*(x,t)x\Psi(x,t)\dd x.
+\]
+利用
+\[
+x e^{\ii px/\hbar}=-\ii\hbar\frac{\partial}{\partial p}e^{\ii px/\hbar},
+\]
+得
+\[
+\langle x\rangle
+=\frac1{2\pi\hbar}\int\dd x\int\dd p'\int\dd p\,
+\Phi^*(p')e^{-\ii p'x/\hbar}\left[-\ii\hbar\frac{\partial}{\partial p}e^{\ii px/\hbar}\right]\Phi(p).
+\]
+对 $p$ 分部积分，并用
+\[
+\int e^{\ii(p-p')x/\hbar}\dd x=2\pi\hbar\delta(p-p'),
+\]
+即得
+\[
+\boxed{\langle x\rangle=\int_{-\infty}^{\infty}\Phi^*(p,t)
+\left(-\ii\hbar\frac{\partial}{\partial p}\right)\Phi(p,t)\dd p.}
+\]
+所以动量表象中的位置算符为 $-\ii\hbar\partial/\partial p$。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明下列对易关系：
+\[
+[A+B,C]=[A,C]+[B,C],\qquad [AB,C]=A[B,C]+[A,C]B.
+\]
+\item 证明
+\[
+[x^n,p]=\ii\hbar n x^{n-1}.
+\]
+\item 对可以进行泰勒级数展开的任意函数 $f(x)$，更普遍地证明
+\[
+[f(x),p]=\ii\hbar\frac{\mathrm df}{\mathrm dx}.
+\tag{3.66}
+\]
+\item 对简谐振子，证明
+\[
+[\hat H,a_\pm]=\pm\hbar\omega a_\pm .
+\tag{3.67}
+\]
+提示：利用式 (2.54)。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.54)：升降算符作用：$a_+\ket n=\sqrt{n+1}\ket{n+1}$，$a_-\ket n=\sqrt n\ket{n-1}$。}
+
+\end{question}
+\begin{solution}
+(1) 由定义 $[A,B]=AB-BA$，
+\[
+[A+B,C]=(A+B)C-C(A+B)=[A,C]+[B,C].
+\]
+又
+\[
+[AB,C]=ABC-CAB=A(BC-CB)+(AC-CA)B=A[B,C]+[A,C]B.
+\]
+
+(2) 用归纳法。$n=1$ 时即 $[x,p]=\ii\hbar$。若
+\[
+[x^n,p]=\ii\hbar n x^{n-1},
+\]
+则
+\[
+[x^{n+1},p]=x[x^n,p]+[x,p]x^n
+=\ii\hbar n x^n+\ii\hbar x^n
+=\ii\hbar(n+1)x^n.
+\]
+
+(3) 若
+\[
+f(x)=\sum_{n=0}^{\infty}a_nx^n,
+\]
+则
+\[
+[f(x),p]=\sum_n a_n[x^n,p]
+=\ii\hbar\sum_n n a_nx^{n-1}
+=\ii\hbar\frac{\dd f}{\dd x}.
+\]
+
+(4) 谐振子哈密顿量可写为
+\[
+\hat H=\hbar\omega\left(a_+a_-+\frac12\right).
+\]
+利用 $[a_-,a_+]=1$，
+\[
+[H,a_+]=\hbar\omega[a_+a_-,a_+]=\hbar\omega a_+,
+\]
+\[
+[H,a_-]=\hbar\omega[a_+a_-,a_-]=-\hbar\omega a_-.
+\]
+故
+\[
+\boxed{[H,a_\pm]=\pm\hbar\omega a_\pm.}
+\]
+\end{solution}
+
+\begin{question}
+对于位置 $(A=x)$ 的不确定性和能量 $(B=p^2/2m+V)$ 的不确定性，证明著名的“你的车速”不确定原理：
+\[
+\sigma_x\sigma_H\geq \frac{\hbar}{2m}|\langle p\rangle|.
+\]
+对于定态，它告诉不了你多少——为什么不能？
+\end{question}
+\begin{solution}
+广义不确定关系给出
+\[
+\sigma_x\sigma_H\ge \frac12\left|\left\langle\frac1\ii[x,H]\right\rangle\right|.
+\]
+由于
+\[
+[x,H]=\left[x,\frac{p^2}{2m}\right]+[x,V(x)]
+=\frac1{2m}\bigl([x,p]p+p[x,p]\bigr)
+=\frac{\ii\hbar}{m}p,
+\]
+所以
+\[
+\boxed{\sigma_x\sigma_H\ge \frac{\hbar}{2m}|\langle p\rangle|.}
+\]
+
+对于定态，概率密度与时间无关，因而 $\langle x\rangle$ 不随时间变。由埃伦菲斯特定理
+\[
+\frac{\dd\langle x\rangle}{\dd t}=\frac{\langle p\rangle}{m},
+\]
+得 $\langle p\rangle=0$。此时右端为零，所以该不等式只给出平庸结论。
+\end{solution}
+
+\begin{question}
+证明两个非对易算符不能拥有完备的共同本征函数集。提示：证明如果 $\hat P$ 和 $\hat Q$ 拥有完备的共同本征函数集，则对于希尔伯特空间的任意函数 $f$ 有 $[\hat P,\hat Q]f=0$。
+\end{question}
+\begin{solution}
+设 $\{\ket{e_n}\}$ 是 $\hat P$ 和 $\hat Q$ 的一组完备共同本征矢，
+\[
+\hat P\ket{e_n}=p_n\ket{e_n},
+\qquad
+\hat Q\ket{e_n}=q_n\ket{e_n}.
+\]
+于是
+\[
+\hat P\hat Q\ket{e_n}=p_nq_n\ket{e_n},
+\qquad
+\hat Q\hat P\ket{e_n}=q_np_n\ket{e_n},
+\]
+故
+\[
+[\hat P,\hat Q]\ket{e_n}=0.
+\]
+任意矢量可展开为 $\ket f=\sum_n c_n\ket{e_n}$，所以
+\[
+[\hat P,\hat Q]\ket f=\sum_n c_n[\hat P,\hat Q]\ket{e_n}=0.
+\]
+因此若有完备共同本征函数集，二者必须对易。反过来说，非对易算符不可能有完备共同本征函数集。
+\end{solution}
+
+\begin{question}
+求式 (3.69) 的解 $\Psi(x)$。注意：$\langle x\rangle$ 和 $\langle p\rangle$ 都是常数（和 $x$ 无关）。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.69)：达到 $x,p$ 不确定关系等号时满足 $\partial_x\Psi=[-(x-\langle x\rangle)/(2\sigma_x^2)+\ii\langle p\rangle/\hbar]\Psi$。}
+
+\end{question}
+\begin{solution}
+等号成立条件给出的微分方程可写成
+\[
+\left(x-\langle x\rangle\right)\Psi
+=-2\sigma_x^2\left(\frac{\partial}{\partial x}-\frac{\ii\langle p\rangle}{\hbar}\right)\Psi,
+\]
+其中 $\langle x\rangle$、$\langle p\rangle$ 为常数。整理为
+\[
+\frac1\Psi\frac{\dd\Psi}{\dd x}
+=-\frac{x-\langle x\rangle}{2\sigma_x^2}+\frac{\ii\langle p\rangle}{\hbar}.
+\]
+积分得
+\[
+\Psi(x)=A\exp\left[-\frac{(x-\langle x\rangle)^2}{4\sigma_x^2}
++\frac{\ii\langle p\rangle x}{\hbar}\right].
+\]
+归一化常数可取
+\[
+A=(2\pi\sigma_x^2)^{-1/4}e^{\ii\alpha},
+\]
+其中整体相位 $\alpha$ 任意。也就是说，满足最小不确定关系的波包是高斯波包。
+\end{solution}
+
+\begin{question}
+在下列特殊情况中应用式 (3.73)：
+\begin{enumerate}
+\item $Q=1$；
+\item $Q=H$；
+\item $Q=x$；
+\item $Q=p$。
+\end{enumerate}
+对每种情况，特别是参考式 (1.27)、式 (1.33)、式 (1.38) 和能量守恒（式 (2.21) 后的注释），对你的结果进行讨论。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (3.73)：广义 Ehrenfest 定理：$\dd\langle Q\rangle/\dd t=(\ii/\hbar)\langle[H,Q]\rangle+\langle\partial Q/\partial t\rangle$。
+\item 式 (1.27)：若势能 $V$ 为实函数，则总概率守恒：$\dd_t\int |\Psi|^2\dd x=0$。等价地，$\partial_t|\Psi|^2+\partial_xJ=0$。
+\item 式 (1.27,1.33,1.38)：常用结果：实势下概率守恒；$\langle p\rangle=m\dd\langle x\rangle/\dd t$；Ehrenfest 定理给出 $\dd\langle p\rangle/\dd t=-\langle \partial V/\partial x\rangle$。
+\item 式 (2.21)：若 $\Psi=\sum_n c_n\psi_n e^{-\ii E_nt/\hbar}$，则 $\langle H\rangle=\sum_n |c_n|^2E_n$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+式 (3.73) 是
+\[
+\frac{\dd\langle Q\rangle}{\dd t}
+=\frac{\ii}{\hbar}\langle[H,Q]\rangle+\left\langle\frac{\partial Q}{\partial t}\right\rangle .
+\]
+
+(1) $Q=1$ 时，$[H,1]=0$ 且 $\partial Q/\partial t=0$，所以
+\[
+\frac{\dd}{\dd t}\langle 1\rangle=0,
+\]
+即归一化守恒。
+
+(2) $Q=H$ 时，$[H,H]=0$，故
+\[
+\frac{\dd\langle H\rangle}{\dd t}=\left\langle\frac{\partial H}{\partial t}\right\rangle.
+\]
+若哈密顿量不显含时间，能量期望值守恒。
+
+(3) $Q=x$ 时，
+\[
+[H,x]=\left[\frac{p^2}{2m},x\right]=-\frac{\ii\hbar}{m}p,
+\]
+所以
+\[
+\frac{\dd\langle x\rangle}{\dd t}=\frac{\langle p\rangle}{m}.
+\]
+
+(4) $Q=p$ 时，
+\[
+[H,p]=[V(x),p]=\ii\hbar\frac{\partial V}{\partial x},
+\]
+故
+\[
+\frac{\dd\langle p\rangle}{\dd t}=-\left\langle\frac{\partial V}{\partial x}\right\rangle.
+\]
+后两式就是埃伦菲斯特定理，对应经典的 $v=p/m$ 和 $F=-\partial V/\partial x$。
+\end{solution}
+
+\begin{question}
+用式 (3.73)（或者习题 3.18(c) 和 (d)）证明：
+\begin{enumerate}
+\item 对于描述自由粒子 $V(x)=0$ 的任意归一化波包，$\langle x\rangle$ 以恒定速度运动（这是牛顿第一定律的量子类似物）。注释：虽然曾用习题 2.42 中的高斯波包来证明，但结论是普适的。
+\item 对于任意粒子处于谐振子 $V(x)=\frac12m\omega^2x^2$ 势场中的波包，$\langle x\rangle$ 以经典频率振动。注释：虽然曾用习题 2.49 中的高斯波包来证明，但结论是普适的。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.73)：广义 Ehrenfest 定理：$\dd\langle Q\rangle/\dd t=(\ii/\hbar)\langle[H,Q]\rangle+\langle\partial Q/\partial t\rangle$。}
+
+\end{question}
+\begin{solution}
+(1) 自由粒子 $V=0$ 时，埃伦菲斯特定理给出
+\[
+\frac{\dd\langle p\rangle}{\dd t}=0.
+\]
+于是 $\langle p\rangle$ 为常数，并且
+\[
+\frac{\dd\langle x\rangle}{\dd t}=\frac{\langle p\rangle}{m}=\mathrm{const.}.
+\]
+因此 $\langle x\rangle$ 匀速运动。
+
+(2) 谐振子势
+\[
+V(x)=\frac12m\omega^2x^2
+\]
+给出
+\[
+\frac{\dd\langle p\rangle}{\dd t}=-m\omega^2\langle x\rangle.
+\]
+结合 $\dd\langle x\rangle/\dd t=\langle p\rangle/m$，得到
+\[
+\frac{\dd^2\langle x\rangle}{\dd t^2}+\omega^2\langle x\rangle=0.
+\]
+故 $\langle x\rangle$ 以经典频率 $\omega$ 作简谐振动。
+\end{solution}
+
+\begin{question}
+对习题 2.5 中的波函数和可观测量 $x$，通过精确计算 $\sigma_H$、$\sigma_x$ 和 $\mathrm d\langle x\rangle/\mathrm dt$ 来验证能量-时间不确定原理。
+\end{question}
+\begin{solution}
+习题 2.5 中
+\[
+\langle x\rangle=\frac a2-\frac{16a}{9\pi^2}\cos(3\omega t),
+\qquad
+\frac{\dd\langle x\rangle}{\dd t}=\frac{16a\omega}{3\pi^2}\sin(3\omega t).
+\]
+两能级等权叠加给出
+\[
+\langle H\rangle=\frac{E_1+E_2}{2},
+\qquad
+\sigma_H=\frac{E_2-E_1}{2}=\frac32\hbar\omega.
+\]
+又
+\[
+\langle x^2\rangle
+=a^2\left(\frac13-\frac{5}{16\pi^2}\right)-\frac{16a^2}{9\pi^2}\cos(3\omega t),
+\]
+所以
+\[
+\sigma_x^2
+=a^2\left(\frac1{12}-\frac{5}{16\pi^2}\right)
+-\left(\frac{16a}{9\pi^2}\right)^2\cos^2(3\omega t).
+\]
+能量-时间不确定关系对 $Q=x$ 为
+\[
+\sigma_H\sigma_x\ge \frac{\hbar}{2}\left|\frac{\dd\langle x\rangle}{\dd t}\right|.
+\]
+代入上式后等价于
+\[
+\sigma_x\ge \frac{16a}{9\pi^2}|\sin(3\omega t)|.
+\]
+由于
+\[
+a^2\left(\frac1{12}-\frac{5}{16\pi^2}\right)
+>\left(\frac{16a}{9\pi^2}\right)^2,
+\]
+该不等式对所有 $t$ 都成立。
+\end{solution}
+
+\begin{question}
+对习题 2.42 中的自由粒子波包和可观测量 $x$，通过精确计算 $\sigma_H$、$\sigma_x$ 和 $\mathrm d\langle x\rangle/\mathrm dt$ 来验证能量-时间不确定原理。
+\end{question}
+\begin{solution}
+对习题 2.42 的运动高斯包，初态
+\[
+\Psi(x,0)=\left(\frac{2a}{\pi}\right)^{1/4}e^{-ax^2}e^{\ii\ell x}
+\]
+具有
+\[
+\langle p\rangle=\hbar\ell,
+\qquad
+\sigma_p^2=\hbar^2a.
+\]
+自由粒子哈密顿量为 $H=p^2/2m$。对高斯动量分布，
+\[
+\sigma_H=\frac1{2m}\sqrt{4\langle p\rangle^2\sigma_p^2+2\sigma_p^4}
+=\frac{\hbar^2}{2m}\sqrt{4a\ell^2+2a^2}.
+\]
+位置不确定度为
+\[
+\sigma_x(t)=\frac1{2\sqrt a}\sqrt{1+\left(\frac{2\hbar at}{m}\right)^2},
+\]
+而
+\[
+\frac{\dd\langle x\rangle}{\dd t}=\frac{\hbar\ell}{m}.
+\]
+因此
+\[
+\sigma_H\sigma_x(t)
+\ge \sigma_H\sigma_x(0)
+=\frac{\hbar^2}{4m}\sqrt{4\ell^2+2a}
+\ge \frac{\hbar^2|\ell|}{2m}
+=\frac\hbar2\left|\frac{\dd\langle x\rangle}{\dd t}\right|.
+\]
+故能量-时间不确定关系成立；随时间扩散只会增大左端。
+\end{solution}
+
+\begin{question}
+证明当所涉及的可观测量为 $x$ 时，能量-时间不确定原理还原为在习题 3.15 中证明的不确定原理。
+\end{question}
+\begin{solution}
+能量-时间不确定关系为
+\[
+\sigma_H\sigma_Q\ge \frac\hbar2\left|\frac{\dd\langle Q\rangle}{\dd t}\right|.
+\]
+取 $Q=x$，由埃伦菲斯特定理
+\[
+\frac{\dd\langle x\rangle}{\dd t}=\frac{\langle p\rangle}{m}.
+\]
+于是
+\[
+\sigma_H\sigma_x\ge \frac\hbar2\frac{|\langle p\rangle|}{m}
+=\frac{\hbar}{2m}|\langle p\rangle|,
+\]
+这正是习题 3.15 的结论。
+\end{solution}
+
+\begin{question}
+证明投影算符等幂（idempotent）：$P^2=P$。求 $P$ 的本征值，并描述其本征矢量。
+\end{question}
+\begin{solution}
+设 $P$ 是投影到某子空间 $S$ 的投影算符。任意矢量可分解为
+\[
+\ket\alpha=\ket\alpha_S+\ket\alpha_\perp,
+\]
+其中 $\ket\alpha_S\in S$，$\ket\alpha_\perp\perp S$。投影一次给出
+\[
+P\ket\alpha=\ket\alpha_S.
+\]
+再次投影仍得到同一个矢量：
+\[
+P^2\ket\alpha=P\ket\alpha_S=\ket\alpha_S=P\ket\alpha.
+\]
+因此
+\[
+\boxed{P^2=P.}
+\]
+若 $P\ket v=\lambda\ket v$，再作用一次得
+\[
+P^2\ket v=\lambda^2\ket v,
+\]
+但 $P^2=P$，所以 $\lambda^2=\lambda$。故本征值只能为
+\[
+\boxed{\lambda=0\quad\text{或}\quad 1.}
+\]
+本征值 $1$ 的本征矢是投影子空间内的矢量；本征值 $0$ 的本征矢是与该子空间正交的矢量。
+\end{solution}
+
+\begin{question}
+证明：若 $\hat Q$ 是厄米算符，则在任意正交归一基内所表示的矩阵元满足
+\[
+Q_{mn}=Q_{nm}^*.
+\]
+换句话说，$\hat Q$ 由厄米矩阵表示。
+\end{question}
+\begin{solution}
+在正交归一基 $\{\ket{e_n}\}$ 中，
+\[
+Q_{mn}=\bra{e_m}\hat Q\ket{e_n}.
+\]
+若 $\hat Q$ 厄米，则
+\[
+Q_{nm}^*=\left(\bra{e_n}\hat Q\ket{e_m}\right)^*
+=\bra{e_m}\hat Q^\dagger\ket{e_n}
+=\bra{e_m}\hat Q\ket{e_n}=Q_{mn}.
+\]
+因此
+\[
+\boxed{Q_{mn}=Q_{nm}^*.}
+\]
+这正是矩阵厄米性的条件。
+\end{solution}
+
+\begin{question}
+考虑算符
+\[
+\hat H=\epsilon\bigl(\ket{1}\bra{1}-\ket{1}\bra{2}-\ket{2}\bra{1}+\ket{2}\bra{2}\bigr),
+\]
+这里 $\ket{1}$、$\ket{2}$ 是正交归一基，$\epsilon$ 为一个具有能量量纲的数值。求出其本征值和本征矢（用 $\ket{1}$ 和 $\ket{2}$ 的线性组合表示）。用这组基来表示 $\hat H$ 的矩阵是什么？
+\end{question}
+\begin{solution}
+在基 $\{\ket1,\ket2\}$ 中，
+\[
+H=\epsilon\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
+\]
+本征方程给出本征值
+\[
+E_-=0,
+\qquad
+E_+=2\epsilon.
+\]
+对应的归一化本征矢为
+\[
+\ket{E_-}=\frac1{\sqrt2}(\ket1+\ket2),
+\qquad
+\ket{E_+}=\frac1{\sqrt2}(\ket1-\ket2).
+\]
+也就是说，$\hat H$ 的矩阵就是
+\[
+\boxed{\epsilon\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.}
+\]
+\end{solution}
+
+\begin{question}
+考虑由正交归一基 $\ket{1}$、$\ket{2}$、$\ket{3}$ 构成的三维矢量空间，右矢 $\ket{\alpha}$ 和 $\ket{\beta}$ 分别为
+\[
+\ket{\alpha}=\ii\ket{1}-2\ket{2}-\ii\ket{3},
+\qquad
+\ket{\beta}=\ii\ket{1}+2\ket{3}.
+\]
+\begin{enumerate}
+\item 构造出 $\bra{\alpha}$ 和 $\bra{\beta}$（以对偶基 $\bra{1}$、$\bra{2}$、$\bra{3}$ 来表示）。
+\item 求出 $\left\langle \alpha|\beta \right\rangle$ 和 $\left\langle \beta|\alpha \right\rangle$，并证实 $\left\langle \beta|\alpha \right\rangle=\left\langle \alpha|\beta \right\rangle^*$。
+\item 在这组基中，求出算符 $A=\ket{\alpha}\bra{\beta}$ 的所有 9 个矩阵元。相应的矩阵是厄米矩阵吗？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 由右矢系数取复共轭得到
+\[
+\bra\alpha=-\ii\bra1-2\bra2+\ii\bra3,
+\qquad
+\bra\beta=-\ii\bra1+2\bra3.
+\]
+
+(2) 计算内积：
+\[
+\left\langle \alpha|\beta \right\rangle=(-\ii)(\ii)+(-2)(0)+(\ii)(2)=1+2\ii,
+\]
+\[
+\left\langle \beta|\alpha \right\rangle=(-\ii)(\ii)+0(-2)+2(-\ii)=1-2\ii.
+\]
+确有
+\[
+\left\langle \beta|\alpha \right\rangle=\left\langle \alpha|\beta \right\rangle^*.
+\]
+
+(3) $A=\ket\alpha\bra\beta$ 的矩阵等于列向量 $\alpha$ 乘行向量 $\beta^\dagger$：
+\[
+A=\begin{pmatrix}\ii\\-2\\-\ii\end{pmatrix}
+\begin{pmatrix}-\ii&0&2\end{pmatrix}
+=\begin{pmatrix}
+1&0&2\ii\\
+2\ii&0&-4\\
+-1&0&-2\ii
+\end{pmatrix}.
+\]
+它不满足 $A_{mn}=A_{nm}^*$，例如 $A_{13}=2\ii$ 而 $A_{31}^*=-1$，所以不是厄米矩阵。
+\end{solution}
+
+\begin{question}
+设 $\hat Q$ 具有一组完备的正交归一本征矢
+\[
+\hat Q\ket{e_n}=q_n\ket{e_n}\qquad(n=1,2,3,\ldots).
+\]
+\begin{enumerate}
+\item 证明 $\hat Q$ 可写成谱分解（spectral decomposition）形式：
+\[
+\hat Q=\sum_n q_n\ket{e_n}\bra{e_n}.\tag{3.103}
+\]
+提示：算符是通过它对所有可能矢量的作用来表征的，因此对任意矢量 $\ket{\alpha}$，你需要证明
+\[
+\hat Q\ket{\alpha}=\left(\sum_n q_n\ket{e_n}\bra{e_n}\right)\ket{\alpha}.
+\]
+\item 定义 $\hat Q$ 函数的另一种方法是通过谱分解：
+\[
+f(\hat Q)=\sum_n f(q_n)\ket{e_n}\bra{e_n}.\tag{3.104}
+\]
+证明：对于 $\exp(\hat Q)$ 的情况，这等同于式 (3.100)。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.100)：算符指数的级数定义：$e^{\hat Q}=\sum_{n=0}^{\infty}\hat Q^n/n!$。}
+
+\end{question}
+\begin{solution}
+(1) 任意矢量可按完备正交归一本征基展开：
+\[
+\ket\alpha=\sum_n \ket{e_n}\left\langle e_n|\alpha \right\rangle.
+\]
+于是
+\[
+\hat Q\ket\alpha=\sum_n q_n\ket{e_n}\left\langle e_n|\alpha \right\rangle.
+\]
+另一方面，
+\[
+\left(\sum_n q_n\ket{e_n}\bra{e_n}\right)\ket\alpha
+=\sum_n q_n\ket{e_n}\left\langle e_n|\alpha \right\rangle.
+\]
+二者对任意 $\ket\alpha$ 作用相同，所以
+\[
+\boxed{\hat Q=\sum_n q_n\ket{e_n}\bra{e_n}.}
+\]
+
+(2) 若用幂级数定义
+\[
+e^{\hat Q}=\sum_{k=0}^{\infty}\frac{\hat Q^k}{k!},
+\]
+则由谱分解得
+\[
+\hat Q^k=\sum_n q_n^k\ket{e_n}\bra{e_n}.
+\]
+因此
+\[
+e^{\hat Q}=\sum_n\left(\sum_{k=0}^{\infty}\frac{q_n^k}{k!}\right)
+\ket{e_n}\bra{e_n}
+=\sum_n e^{q_n}\ket{e_n}\bra{e_n},
+\]
+与式 (3.104) 中 $f(q)=e^q$ 的定义一致。
+\end{solution}
+
+\begin{question}
+令 $D=\mathrm d/\mathrm dx$（导数算符）。求：
+\begin{enumerate}
+\item $(\sin D)x^3$；
+\item $\bigl(1-D/2\bigr)^{-1}x$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 用幂级数定义
+\[
+\sin D=D-\frac{D^3}{3!}+\frac{D^5}{5!}-\cdots.
+\]
+作用在 $x^3$ 上时，$D x^3=3x^2$，$D^3x^3=6$，更高阶导数为零。因此
+\[
+(\sin D)x^3=3x^2-\frac{6}{6}=\boxed{3x^2-1}.
+\]
+
+(2) 几何级数给出
+\[
+(1-D/2)^{-1}=1+\frac D2+\frac{D^2}{2^2}+\cdots.
+\]
+作用在 $x$ 上时，$Dx=1$，$D^2x=0$，故
+\[
+(1-D/2)^{-1}x=x+\frac12.
+\]
+\end{solution}
+
+\begin{question}
+考虑两个相互不对易的算符 $A$ 和 $B$，令 $C=[A,B]$，但它们都与对易式对易：$[A,C]=[B,C]=0$。
+\begin{enumerate}
+\item 证明
+\[
+[A^n,B]=nA^{n-1}C.
+\]
+提示：利用式 (3.65)，对 $n$ 采用归纳法证明。
+\item 证明
+\[
+[\mathrm e^A,B]=\mathrm e^A C,
+\]
+其中 $\mathrm e^A$ 由幂级数定义。
+\item 推导贝克-坎贝尔-豪斯多夫公式（Baker-Campbell-Hausdorff formula）：
+\[
+\mathrm e^{A+B}=\mathrm e^A\mathrm e^B\mathrm e^{-C/2}.
+\]
+提示：定义函数
+\[
+F(\lambda)=\mathrm e^{\lambda(A+B)},\qquad
+G(\lambda)=\mathrm e^{\lambda A}\mathrm e^{\lambda B}\mathrm e^{-\lambda^2C/2}.
+\]
+当 $\lambda=0$ 时这两个函数相等；证明它们满足同样的微分方程 $\mathrm dF/\mathrm d\lambda=(A+B)F$ 和 $\mathrm dG/\mathrm d\lambda=(A+B)G$。因此，对所有 $\lambda$，这两个函数本身相等。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.65)：对易子乘积规则：$[AB,C]=A[B,C]+[A,C]B$，$[A,BC]=[A,B]C+B[A,C]$。}
+
+\end{question}
+\begin{solution}
+(1) 对 $n=1$，结论就是 $[A,B]=C$。若
+\[
+[A^n,B]=nA^{n-1}C,
+\]
+则利用 $[XY,B]=X[Y,B]+[X,B]Y$ 得
+\[
+[A^{n+1},B]=A[A^n,B]+[A,B]A^n
+=nA^nC+CA^n.
+\]
+因 $[A,C]=0$，$CA^n=A^nC$，所以
+\[
+[A^{n+1},B]=(n+1)A^nC.
+\]
+归纳完成。
+
+(2) 由幂级数，
+\[
+[e^A,B]=\sum_{n=0}^{\infty}\frac1{n!}[A^n,B]
+=\sum_{n=1}^{\infty}\frac{nA^{n-1}C}{n!}
+=e^A C.
+\]
+
+(3) 令
+\[
+F(\lambda)=e^{\lambda(A+B)},
+\qquad
+G(\lambda)=e^{\lambda A}e^{\lambda B}e^{-\lambda^2C/2}.
+\]
+显然 $F(0)=G(0)=1$。又因为 $C$ 与 $A,B$ 都对易，且
+\[
+[e^{\lambda A},B]=\lambda e^{\lambda A}C,
+\]
+直接求导可得
+\[
+\frac{\dd G}{\dd\lambda}=(A+B)G.
+\]
+而 $F$ 也满足同一方程
+\[
+\frac{\dd F}{\dd\lambda}=(A+B)F.
+\]
+初值相同，解唯一，故 $F(\lambda)=G(\lambda)$。令 $\lambda=1$，得到
+\[
+\boxed{e^{A+B}=e^Ae^Be^{-C/2}.}
+\]
+\end{solution}
+
+\begin{question}
+利用例题 3.9 中的方法推导出位置空间到能量空间波函数 $c_n(t)$ 的变换。假设能谱是不连续的，势能不显含时间。
+\end{question}
+\begin{solution}
+设定态本征函数满足
+\[
+\hat H\psi_n(x)=E_n\psi_n(x),
+\qquad
+\int\psi_m^*(x)\psi_n(x)\dd x=\delta_{mn}.
+\]
+任意态可展开为
+\[
+\Psi(x,t)=\sum_n c_n(t)\psi_n(x).
+\]
+两边乘以 $\psi_m^*(x)$ 并积分，得
+\[
+\boxed{c_m(t)=\int\psi_m^*(x)\Psi(x,t)\dd x.}
+\]
+将展开式代入含时薛定谔方程，利用 $H\psi_n=E_n\psi_n$，得到
+\[
+\ii\hbar\dot c_n(t)=E_n c_n(t),
+\]
+所以
+\[
+\boxed{c_n(t)=c_n(0)e^{-\ii E_nt/\hbar}.}
+\]
+这就是从位置空间到能量空间波函数的变换及其时间演化。
+\end{solution}
+
+\begin{question}
+勒让德多项式（Legendre polynomials）。用格拉姆-施密特方法（习题 A.4）在区间 $-1\leq x\leq 1$ 内对函数 $1,x,x^2,x^3$ 进行正交归一化。你可能会认出这些结果：除了归一化外，它们是勒让德多项式（习题 2.64 和表 4.1）。
+\end{question}
+\begin{solution}
+在区间 $[-1,1]$ 上，内积为
+\[
+\left\langle f|g \right\rangle=\int_{-1}^{1}f(x)g(x)\dd x.
+\]
+对 $1,x,x^2,x^3$ 做格拉姆-施密特正交归一化，得到
+\[
+u_0(x)=\frac1{\sqrt2},
+\]
+\[
+u_1(x)=\sqrt{\frac32}\,x,
+\]
+\[
+u_2(x)=\sqrt{\frac58}\,(3x^2-1),
+\]
+\[
+u_3(x)=\sqrt{\frac78}\,(5x^3-3x).
+\]
+除归一化因子外，它们正是
+\[
+P_0=1,
+\quad P_1=x,
+\quad P_2=\frac12(3x^2-1),
+\quad P_3=\frac12(5x^3-3x).
+\]
+归一化因子统一写为
+\[
+\sqrt{\frac{2\ell+1}{2}}P_\ell(x),
+\qquad \ell=0,1,2,3.
+\]
+\end{solution}
+
+\begin{question}
+反厄米算符等于其负的厄米共轭：
+\[
+\hat Q^\dagger=-\hat Q.\tag{3.111}
+\]
+\begin{enumerate}
+\item 证明反厄米算符的期望值是虚数。
+\item 证明反厄米算符的本征值是虚数。
+\item 证明属于反厄米算符不同本征值的本征矢是正交的。
+\item 证明两个厄米算符的对易式是反厄米的。那么两个反厄米算符的对易式呢？
+\item 证明任一算符 $\hat Q$ 都可以表示为一个厄米算符 $\hat A$ 和一个反厄米算符 $\hat B$ 之和。用 $\hat Q$ 和它的伴算符 $\hat Q^\dagger$ 表出 $\hat A$ 和 $\hat B$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 若 $Q^\dagger=-Q$，则
+\[
+\langle Q\rangle^*=\left\langle Q\psi|\psi \right\rangle=\left\langle \psi|Q^\dagger\psi \right\rangle=-\left\langle \psi|Q\psi \right\rangle=-\langle Q\rangle.
+\]
+所以 $\langle Q\rangle$ 为纯虚数（也可为零）。
+
+(2) 若 $Q\ket q=q\ket q$，则
+\[
+q=\frac{\bra qQ\ket q}{\left\langle q|q \right\rangle}
+\]
+是 $Q$ 的期望值，故 $q$ 为纯虚数。
+
+(3) 令 $A=\ii Q$，则
+\[
+A^\dagger=(-\ii)Q^\dagger=(-\ii)(-Q)=\ii Q=A,
+\]
+所以 $A$ 厄米。$Q$ 的不同本征值对应 $A$ 的不同实本征值，因此本征矢正交。
+
+(4) 若 $A,B$ 厄米，则
+\[
+[A,B]^\dagger=[B,A]=-[A,B],
+\]
+所以对易式反厄米。若 $A,B$ 反厄米，则
+\[
+[A,B]^\dagger=[B^\dagger,A^\dagger]=[-B,-A]=[B,A]=-[A,B],
+\]
+仍是反厄米。
+
+(5) 任一算符 $Q$ 可分解为
+\[
+Q=\frac{Q+Q^\dagger}{2}+\frac{Q-Q^\dagger}{2}.
+\]
+其中
+\[
+\boxed{A=\frac{Q+Q^\dagger}{2}}
+\]
+厄米，而
+\[
+\boxed{B=\frac{Q-Q^\dagger}{2}}
+\]
+反厄米。
+\end{solution}
+
+\begin{question}
+相继测量（Sequential measurements）。算符 $\hat A$ 表示可观测量 $A$，它的两个归一化本征态是 $\psi_1$ 和 $\psi_2$，相应本征值分别为 $a_1$ 和 $a_2$。算符 $\hat B$ 表示可观测量 $B$，它的两个归一化本征态是 $\phi_1$ 和 $\phi_2$，相应本征值分别为 $b_1$ 和 $b_2$。两组本征态之间有关系：
+\[
+\psi_1=\frac{3\phi_1+4\phi_2}{5},
+\qquad
+\psi_2=\frac{4\phi_1-3\phi_2}{5}.
+\]
+\begin{enumerate}
+\item 对可观测量 $A$ 进行测量，结果为 $a_1$。那么在测量后（瞬时）体系处在什么态？
+\item 现在如果再对 $B$ 进行测量，可能的结果是什么？出现的几率是多少？
+\item 恰好在测量 $B$ 后，再次测量 $A$，那么结果为 $a_1$ 的几率是多少？（请注意，如果我告诉你 $B$ 测量的结果，答案将非常不同。）
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 第一次测量 $A$ 得到 $a_1$ 后，态坍缩为对应本征态
+\[
+\boxed{\psi_1.}
+\]
+
+(2) 用 $B$ 的本征态展开
+\[
+\psi_1=\frac{3}{5}\phi_1+\frac{4}{5}\phi_2.
+\]
+因此第二次测量 $B$ 可能得到
+\[
+b_1\quad\text{或}\quad b_2,
+\]
+其几率分别为
+\[
+P(b_1)=\left|\frac35\right|^2=\frac9{25},
+\qquad
+P(b_2)=\left|\frac45\right|^2=\frac{16}{25}.
+\]
+
+(3) 若不记录 $B$ 的具体结果，则测量 $B$ 后体系成为混合情况：以 $9/25$ 的几率为 $\phi_1$，以 $16/25$ 的几率为 $\phi_2$。再次测量 $A$ 得 $a_1$ 的总几率为
+\[
+P(a_1)=\frac9{25}|\left\langle \psi_1|\phi_1 \right\rangle|^2
++\frac{16}{25}|\left\langle \psi_1|\phi_2 \right\rangle|^2
+=\left(\frac9{25}\right)^2+\left(\frac{16}{25}\right)^2.
+\]
+所以
+\[
+\boxed{P(a_1)=\frac{337}{625}.}
+\]
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 对无限深方势阱中第 $n$ 个定态，求动量空间波函数 $\Phi_n(p,t)$。
+\item 求几率密度 $|\Phi_n(p,t)|^2$。对于 $n=1,2,5,10$，画出几率密度函数。在 $n$ 很大时，$p$ 的最概然值是多少？这是你所预期的吗？将你的结果与习题 3.10 做比较。
+\item 利用 $\Phi_n(p,t)$ 计算 $p^2$ 处在第 $n$ 个状态的期望值；将你的结果与习题 2.4 做比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 对 $0<x<a$ 的无限深方势阱，
+\[
+\psi_n(x)=\sqrt{\frac2a}\sin\frac{n\pi x}{a},
+\qquad E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+\]
+动量空间波函数为
+\[
+\Phi_n(p,t)=\frac{e^{-\ii E_nt/\hbar}}{\sqrt{\pi a\hbar}}
+\frac{(n\pi/a)\left[1-(-1)^ne^{-\ii ap/\hbar}\right]}
+{(n\pi/a)^2-(p/\hbar)^2}.
+\]
+该式在表面奇点处取极限即可。
+
+(2) 几率密度为
+\[
+|\Phi_n(p,t)|^2=\frac1{\pi a\hbar}
+\frac{(n\pi/a)^2\left|1-(-1)^ne^{-\ii ap/\hbar}\right|^2}
+{\left[(n\pi/a)^2-(p/\hbar)^2\right]^2},
+\]
+与时间无关。对于大的 $n$，主峰集中在
+\[
+\boxed{p\approx \pm\frac{n\pi\hbar}{a}.}
+\]
+这正是经典上能量 $E_n$ 对应的动量大小。
+
+(3) 用动量空间计算
+\[
+\langle p^2\rangle=\int p^2|\Phi_n(p,t)|^2\dd p
+\]
+等价于位置空间中的
+\[
+\langle p^2\rangle=\int_0^a\psi_n^*(-\hbar^2\partial_x^2)\psi_n\dd x.
+\]
+由于
+\[
+-\hbar^2\psi_n''=\left(\frac{n\pi\hbar}{a}\right)^2\psi_n,
+\]
+得
+\[
+\boxed{\langle p^2\rangle=\frac{n^2\pi^2\hbar^2}{a^2}.}
+\]
+这与 $E_n=\langle p^2\rangle/(2m)$ 完全一致。
+\end{solution}
+
+\begin{question}
+考虑波函数
+\[
+\psi(x,0)=
+\begin{cases}
+\displaystyle \frac{1}{\sqrt{2n\lambda}}\,\mathrm e^{2\pi \ii x/\lambda},& -n\lambda<x<n\lambda,\\[0.4em]
+0,& \text{其他地方},
+\end{cases}
+\]
+这里 $n$ 是某个正整数。在区间 $-n\lambda<x<n\lambda$ 上，它是纯正弦函数（波长为 $\lambda$），但由于振荡没有伸展到无限远处，它的动量仍然有一个分布范围。求出动量空间的波函数 $\Phi(p,0)$；画出 $|\psi(x,0)|^2$ 和 $|\Phi(p,0)|^2$；求出峰宽 $w_x$ 和 $w_p$（主峰两边零点之间的距离）。注意当 $n\to\infty$ 时，每一个峰宽如何变化。利用 $w_x$ 和 $w_p$ 估算 $\Delta x$ 和 $\Delta p$，验证不确定原理是否满足。提示：如果尝试计算 $\sigma_p$，你将会感到很意外；你能够分析问题的原因所在吗？
+\end{question}
+\begin{solution}
+令
+\[
+p_0=\frac{2\pi\hbar}{\lambda}.
+\]
+傅里叶变换给出
+\[
+\Phi(p,0)=\frac1{\sqrt{2\pi\hbar}}\frac1{\sqrt{2n\lambda}}
+\int_{-n\lambda}^{n\lambda}
+\exp\left[\frac{\ii}{\hbar}(p_0-p)x\right]\dd x.
+\]
+因此
+\[
+\boxed{\Phi(p,0)=\sqrt{\frac{\hbar}{\pi n\lambda}}
+\frac{\sin[(p_0-p)n\lambda/\hbar]}{p_0-p}.}
+\]
+位置空间几率密度是宽度 $2n\lambda$ 的矩形：
+\[
+|\psi(x,0)|^2=\frac1{2n\lambda}
+\quad(-n\lambda<x<n\lambda),
+\]
+动量空间几率密度是以 $p_0$ 为中心的 $\operatorname{sinc}^2$ 型峰。
+
+主峰在
+\[
+(p_0-p)n\lambda/\hbar=\pm\pi
+\]
+处第一次为零，故
+\[
+w_x=2n\lambda,
+\qquad
+w_p=\frac{2\pi\hbar}{n\lambda}.
+\]
+于是
+\[
+w_xw_p=4\pi\hbar=2h,
+\]
+量级上满足不确定原理。随着 $n\to\infty$，$w_x\to\infty$ 而 $w_p\to0$，趋向单一动量态。
+
+若直接计算 $\sigma_p$ 会遇到发散。这是因为波函数在 $x=\pm n\lambda$ 处有突变，导数含有奇异贡献；等价地说，动量分布的尾部衰减不够快，使 $\int p^2|\Phi|^2\dd p$ 发散。
+\end{solution}
+
+\begin{question}
+假设
+\[
+\psi(x,0)=\frac{A}{x^2+a^2}\qquad(-\infty<x<\infty),
+\]
+式中，$A$ 和 $a$ 是常数。
+\begin{enumerate}
+\item 通过对 $\psi(x,0)$ 归一化确定 $A$ 的值。
+\item 求出 $\langle x\rangle$、$\langle x^2\rangle$ 和 $\sigma_x$（在 $t=0$ 时刻）。
+\item 求出动量空间的波函数 $\Phi(p,0)$，并验证它是归一化的。
+\item 用 $\Phi(p,0)$ 来计算 $\langle p\rangle$、$\langle p^2\rangle$ 和 $\sigma_p$（在 $t=0$ 时刻）。
+\item 对该状态验证海森伯不确定原理。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 归一化条件为
+\[
+1=A^2\int_{-\infty}^{\infty}\frac{\dd x}{(x^2+a^2)^2}
+=A^2\frac{\pi}{2a^3}.
+\]
+故可取
+\[
+\boxed{A=\sqrt{\frac{2a^3}{\pi}}.}
+\]
+
+(2) $|\psi|^2$ 为偶函数，所以
+\[
+\langle x\rangle=0.
+\]
+又
+\[
+\int_{-\infty}^{\infty}\frac{x^2\dd x}{(x^2+a^2)^2}=\frac{\pi}{2a},
+\]
+故
+\[
+\langle x^2\rangle=A^2\frac{\pi}{2a}=a^2,
+\qquad
+\boxed{\sigma_x=a.}
+\]
+
+(3) 利用
+\[
+\int_{-\infty}^{\infty}\frac{e^{-\ii px/\hbar}}{x^2+a^2}\dd x
+=\frac\pi a e^{-a|p|/\hbar},
+\]
+得
+\[
+\boxed{\Phi(p,0)=\sqrt{\frac a\hbar}\,e^{-a|p|/\hbar}.}
+\]
+归一化验证：
+\[
+\int_{-\infty}^{\infty}|\Phi|^2\dd p
+=\frac a\hbar\int_{-\infty}^{\infty}e^{-2a|p|/\hbar}\dd p=1.
+\]
+
+(4) $|\Phi|^2$ 为偶函数，所以
+\[
+\langle p\rangle=0.
+\]
+并且
+\[
+\langle p^2\rangle=\frac a\hbar 2\int_0^\infty p^2e^{-2ap/\hbar}\dd p
+=\frac{\hbar^2}{2a^2}.
+\]
+故
+\[
+\boxed{\sigma_p=\frac{\hbar}{\sqrt2a}.}
+\]
+
+(5) 因此
+\[
+\sigma_x\sigma_p=a\frac{\hbar}{\sqrt2a}=\frac\hbar{\sqrt2}>\frac\hbar2,
+\]
+海森伯不确定原理成立。
+\end{solution}
+
+\begin{question}
+位力定理（Virial theorem）。利用式 (3.73) 证明
+\[
+\frac{\mathrm d}{\mathrm dt}\langle xp\rangle=2\langle T\rangle-\left\langle x\frac{\partial V}{\partial x}\right\rangle,
+\tag{3.112}
+\]
+式中，$T$ 是动能（$H=T+V$）。对于定态，式 (3.112) 的左边为 0（为什么？），所以有
+\[
+2\langle T\rangle=\left\langle x\frac{\mathrm dV}{\mathrm dx}\right\rangle .
+\tag{3.113}
+\]
+这称之为位力定理。利用它证明谐振子的定态有 $\langle T\rangle=\langle V\rangle$，并验证这是否与习题 2.11 和习题 2.12 中所得结果一致。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (3.73)：广义 Ehrenfest 定理：$\dd\langle Q\rangle/\dd t=(\ii/\hbar)\langle[H,Q]\rangle+\langle\partial Q/\partial t\rangle$。
+\item 式 (3.112)：一维位力定理形式：$\dd\langle xp\rangle/\dd t=2\langle T\rangle-\langle xV'(x)\rangle$。定态中左端为零。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+取 $Q=xp$。由式 (3.73)，若 $Q$ 不显含时间，
+\[
+\frac{\dd}{\dd t}\langle xp\rangle=\frac{\ii}{\hbar}\langle[H,xp]\rangle.
+\]
+其中
+\[
+H=\frac{p^2}{2m}+V(x)=T+V.
+\]
+先算动能项：
+\[
+\left[\frac{p^2}{2m},xp\right]
+=\frac1{2m}[p^2,x]p
+=\frac1{2m}(-2\ii\hbar p)p
+=-\frac{\ii\hbar}{m}p^2.
+\]
+势能项为
+\[
+[V,xp]=x[V,p]=x\,\ii\hbar\frac{\dd V}{\dd x}.
+\]
+所以
+\[
+\frac{\dd}{\dd t}\langle xp\rangle
+=\frac{\ii}{\hbar}\left\langle-\frac{\ii\hbar}{m}p^2
++\ii\hbar x\frac{\dd V}{\dd x}\right\rangle
+=\frac{\langle p^2\rangle}{m}-\left\langle x\frac{\dd V}{\dd x}\right\rangle.
+\]
+即
+\[
+\boxed{\frac{\dd}{\dd t}\langle xp\rangle=2\langle T\rangle-\left\langle x\frac{\dd V}{\dd x}\right\rangle.}
+\]
+定态中任意不显含时间的可观测量期望值不随时间变，所以左边为零。于是
+\[
+2\langle T\rangle=\left\langle x\frac{\dd V}{\dd x}\right\rangle.
+\]
+对谐振子 $V=\frac12m\omega^2x^2$，有
+\[
+x\frac{\dd V}{\dd x}=m\omega^2x^2=2V,
+\]
+故
+\[
+2\langle T\rangle=2\langle V\rangle,
+\qquad
+\boxed{\langle T\rangle=\langle V\rangle.}
+\]
+这与谐振子定态中总能量平均分配在动能和势能上的结果一致。
+\end{solution}
+
+\begin{question}
+在能量-时间不确定性原理的一个有趣形式中，$\Delta t=\tau/\pi$；这里 $\tau$ 是 $\psi(x,t)$ 演变为与 $\psi(x,0)$ 相正交的状态所需要的时间。利用对某个（任意的）势场中的两个（正交归一的）定态波函数的线性组合
+\[
+\psi(x,0)=\frac{1}{\sqrt2}\bigl[\psi_1(x)+\psi_2(x)\bigr]
+\]
+来验证这个结论。
+\end{question}
+\begin{solution}
+初态为
+\[
+\psi(0)=\frac1{\sqrt2}(\psi_1+\psi_2),
+\]
+随时间演化为
+\[
+\psi(t)=\frac1{\sqrt2}\left(\psi_1e^{-\ii E_1t/\hbar}
++\psi_2e^{-\ii E_2t/\hbar}\right).
+\]
+与初态的重叠为
+\[
+\left\langle \psi(0)|\psi(t) \right\rangle
+=\frac12\left(e^{-\ii E_1t/\hbar}+e^{-\ii E_2t/\hbar}\right)
+=e^{-\ii(E_1+E_2)t/(2\hbar)}
+\cos\frac{(E_2-E_1)t}{2\hbar}.
+\]
+首次正交要求余弦为零，因此
+\[
+\tau=\frac{\pi\hbar}{E_2-E_1}.
+\]
+该态的能量平均和不确定度为
+\[
+\langle H\rangle=\frac{E_1+E_2}{2},
+\qquad
+\sigma_H=\frac{E_2-E_1}{2}.
+\]
+若定义
+\[
+\Delta t=\frac\tau\pi=\frac{\hbar}{E_2-E_1},
+\]
+则
+\[
+\sigma_H\Delta t=\frac{E_2-E_1}{2}\frac{\hbar}{E_2-E_1}=\frac\hbar2.
+\]
+这正好达到能量-时间不确定关系的下限。
+\end{solution}
+
+\begin{question}
+以谐振子（正交归一的）定态为基（式 (2.68)），求出矩阵元 $\bra{n}x\ket{n'}$ 和 $\bra{n}p\ket{n'}$。你已经在习题 2.12 里计算过矩阵对角元（$n=n'$）；用同样方法计算更一般的情况。构造出相应的（无限）矩阵 $X$ 和 $P$。证明：在该基中，$(1/2m)P^2+(m\omega^2/2)X^2=H$ 是对角矩阵；它的对角矩阵元是你所预期的吗？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.67--2.68)：谐振子定态：$E_n=(n+1/2)\hbar\omega$，$\Psi(x,t)=\sum_n c_n\psi_n(x)e^{-\ii E_nt/\hbar}$。}
+
+\end{question}
+\begin{solution}
+由
+\[
+x=\sqrt{\frac{\hbar}{2m\omega}}(a_++a_-),
+\qquad
+p=\ii\sqrt{\frac{m\hbar\omega}{2}}(a_+-a_-),
+\]
+以及
+\[
+a_+\ket n=\sqrt{n+1}\ket{n+1},
+\qquad
+a_-\ket n=\sqrt n\ket{n-1},
+\]
+得
+\[
+\boxed{\bra n x\ket{n'}=\sqrt{\frac{\hbar}{2m\omega}}
+\left(\sqrt{n'+1}\,\delta_{n,n'+1}+\sqrt{n'}\,\delta_{n,n'-1}\right).}
+\]
+同理
+\[
+\boxed{\bra n p\ket{n'}=\ii\sqrt{\frac{m\hbar\omega}{2}}
+\left(\sqrt{n'+1}\,\delta_{n,n'+1}-\sqrt{n'}\,\delta_{n,n'-1}\right).}
+\]
+因此 $X$ 和 $P$ 都只是相邻能级之间有非零矩阵元的三对角无限矩阵。
+
+由升降算符关系，
+\[
+H=\hbar\omega\left(a_+a_-+\frac12\right),
+\]
+所以在能量本征基中
+\[
+\boxed{H_{nn'}=\hbar\omega\left(n+\frac12\right)\delta_{nn'}.}
+\]
+将上面的 $X$、$P$ 代入 $(1/2m)P^2+(m\omega^2/2)X^2$，非对角项相消，正好得到该对角矩阵。
+\end{solution}
+
+\begin{question}
+谐振子势中粒子的波函数一般可写为
+\[
+\Psi(x,t)=\sum_n c_n\psi_n(x)\mathrm e^{-\ii E_nt/\hbar}.
+\]
+证明位置期望值为
+\[
+\langle x\rangle=C\cos(\omega t-\phi),
+\]
+其中实常数 $C$ 和 $\phi$ 由下式给出：
+\[
+Ce^{-\ii\phi}=\left(\frac{2\hbar}{m\omega}\right)^{1/2}
+\sum_{n=0}^{\infty}\sqrt{n+1}\,c_{n+1}^*c_n.
+\]
+所以，谐振子的位置期望值以经典频率 $\omega$ 振动（正如埃伦菲斯特定理预期的那样；见习题 3.19(b)）。提示：利用式 (3.114)。作为一个例子，找出习题 2.40 中波函数的 $C$ 和 $\phi$ 的值。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.114)：谐振子矩阵元：$\bra n x\ket{n'}=\sqrt{\hbar/(2m\omega)}(\sqrt{n'+1}\delta_{n,n'+1}+\sqrt{n'}\delta_{n,n'-1})$。}
+
+\end{question}
+\begin{solution}
+利用习题 3.39 的矩阵元，
+\[
+\langle x\rangle
+=\sum_{n,n'}c_n^*c_{n'}e^{\ii(E_n-E_{n'})t/\hbar}\bra n x\ket{n'}.
+\]
+只有 $n'=n\pm1$ 的项非零，且 $E_{n+1}-E_n=\hbar\omega$，于是
+\[
+\langle x\rangle=\sqrt{\frac{\hbar}{2m\omega}}
+\sum_{n=0}^{\infty}\sqrt{n+1}
+\left(c_{n+1}^*c_ne^{\ii\omega t}+c_n^*c_{n+1}e^{-\ii\omega t}\right).
+\]
+写成实部形式：
+\[
+\langle x\rangle=\operatorname{Re}\left[
+\left(\frac{2\hbar}{m\omega}\right)^{1/2}
+\sum_{n=0}^{\infty}\sqrt{n+1}\,c_{n+1}^*c_n\,e^{\ii\omega t}\right].
+\]
+若定义
+\[
+Ce^{-\ii\phi}=\left(\frac{2\hbar}{m\omega}\right)^{1/2}
+\sum_{n=0}^{\infty}\sqrt{n+1}\,c_{n+1}^*c_n,
+\]
+便有
+\[
+\boxed{\langle x\rangle=C\cos(\omega t-\phi).}
+\]
+
+习题 2.40 中
+\[
+c_0=\frac35,
+\qquad c_1=-\frac{2\sqrt2}{5},
+\qquad c_2=\frac{2\sqrt2}{5}.
+\]
+故
+\[
+\sum_n\sqrt{n+1}c_{n+1}^*c_n
+=c_1c_0+\sqrt2c_2c_1
+=-\frac{14\sqrt2}{25}.
+\]
+因此
+\[
+Ce^{-\ii\phi}=-\frac{28}{25}\sqrt{\frac{\hbar}{m\omega}},
+\]
+可取
+\[
+\boxed{C=\frac{28}{25}\sqrt{\frac{\hbar}{m\omega}},\qquad \phi=\pi.}
+\]
+\end{solution}
+
+\begin{question}
+谐振子处于这样的一种态：当对其能量进行测量时，所得结果是 $(1/2)\hbar\omega$ 或 $(3/2)\hbar\omega$ 的几率相等。在这种状态下，$\langle p\rangle$ 最大的可能值是多少？假设在 $t=0$ 时刻该值为最大，$\Psi(x,t)$ 是什么？
+\end{question}
+\begin{solution}
+能量只可能为 $\frac12\hbar\omega$ 和 $\frac32\hbar\omega$，且几率相等，所以态的一般形式为
+\[
+\ket\psi=\frac1{\sqrt2}\ket0+\frac{e^{\ii\theta}}{\sqrt2}\ket1.
+\]
+动量算符为
+\[
+p=\ii\sqrt{\frac{m\hbar\omega}{2}}(a_+-a_-).
+\]
+只有 $\ket0$ 和 $\ket1$ 的交叉项贡献，计算得
+\[
+\langle p\rangle
+=\sqrt{\frac{m\hbar\omega}{2}}\,\sin\theta
+\]
+（相位约定不同只会改变 $\theta$ 的定义）。因此最大值为
+\[
+\boxed{\langle p\rangle_{\max}=\sqrt{\frac{m\hbar\omega}{2}}.}
+\]
+若在 $t=0$ 取最大，可令 $\theta=\pi/2$（或等价相位约定）。于是
+\[
+\boxed{\Psi(x,t)=\frac1{\sqrt2}\psi_0(x)e^{-\ii\omega t/2}
++\frac{\ii}{\sqrt2}\psi_1(x)e^{-3\ii\omega t/2}.}
+\]
+若采用相反的 $p$ 矩阵元号约定，只需把 $\ii$ 改为 $-\ii$，物理最大值不变。
+\end{solution}
+
+\begin{question}
+谐振子的相干态（Coherent states of the harmonic oscillator）。在谐振子定态中（式 (2.67)），仅当 $n=0$ 时的状态符合不确定原理的极限 $\sigma_x\sigma_p=\hbar/2$；如同你在习题 2.12 得到的那样，在一般情况下有 $\sigma_x\sigma_p=(2n+1)\hbar/2$。但是，某些线性叠加（所谓的相干态）也会取不确定度乘积的最小值。它们是降算符的本征函数：
+\[
+a_-\ket{\alpha}=\alpha\ket{\alpha},
+\]
+这里，本征值 $\alpha$ 可以是任何复数。
+\begin{enumerate}
+\item 对态 $\ket{\alpha}$ 计算 $\langle x\rangle$、$\langle x^2\rangle$、$\langle p\rangle$ 和 $\langle p^2\rangle$。提示：利用例题 2.5 中的方法；注意 $a_+$ 是 $a_-$ 的厄米共轭算符。不要假定 $\alpha$ 是实数。
+\item 求出 $\sigma_x$ 和 $\sigma_p$；证明 $\sigma_x\sigma_p=\hbar/2$。
+\item 像任何其他波函数一样，相干态可以利用能量本征态展开：
+\[
+\ket{\alpha}=\sum_{n=0}^{\infty}c_n\ket n.
+\]
+证明展开系数是
+\[
+c_n=\frac{\alpha^n}{\sqrt{n!}}c_0.
+\]
+\item 通过归一化 $\ket{\alpha}$ 确定 $c_0$。
+\item 现在，引入时间因子 $\ket n\to \mathrm e^{-\ii E_nt/\hbar}\ket n$，证明 $\ket{\alpha(t)}$ 仍然是 $a_-$ 的本征态，但本征值是随时间变化的：
+\[
+\alpha(t)=\mathrm e^{-\ii\omega t}\alpha.
+\]
+因此一个相干态将维持相干，并继续取不确定度乘积的最小值。
+\item 基于 (a)、(b) 和 (e) 中得到的结果，求出作为时间函数的 $\langle x\rangle$ 和 $\sigma_x$。如果把复数 $\alpha$ 写成如下形式将会大有帮助：
+\[
+\alpha=C\sqrt{\frac{m\omega}{2\hbar}}\,\mathrm e^{\ii\phi},
+\]
+其中 $C$ 和 $\phi$ 是实数。注释：在某种意义上，相干态的行为是准经典的。
+\item 基态 $(\ket{n=0})$ 本身是相干态吗？如果是，它的本征值是什么？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.67--2.68)：谐振子定态：$E_n=(n+1/2)\hbar\omega$，$\Psi(x,t)=\sum_n c_n\psi_n(x)e^{-\ii E_nt/\hbar}$。}
+
+\end{question}
+\begin{solution}
+记
+\[
+x=\sqrt{\frac{\hbar}{2m\omega}}(a_-+a_+),
+\qquad
+p=\ii\sqrt{\frac{m\hbar\omega}{2}}(a_+-a_-).
+\]
+由于
+\[
+a_-\ket\alpha=\alpha\ket\alpha,
+\qquad
+\bra\alpha a_+=\alpha^*\bra\alpha,
+\]
+有
+\[
+\langle x\rangle=\sqrt{\frac{\hbar}{2m\omega}}(\alpha+\alpha^*),
+\]
+\[
+\langle p\rangle=\ii\sqrt{\frac{m\hbar\omega}{2}}(\alpha^*-\alpha).
+\]
+又利用 $a_-a_+=a_+a_-+1$，
+\[
+\langle x^2\rangle=\frac{\hbar}{2m\omega}
+\left(\alpha^2+\alpha^{*2}+2|\alpha|^2+1\right),
+\]
+\[
+\langle p^2\rangle=\frac{m\hbar\omega}{2}
+\left(2|\alpha|^2+1-\alpha^2-\alpha^{*2}\right).
+\]
+因此
+\[
+\sigma_x^2=\frac{\hbar}{2m\omega},
+\qquad
+\sigma_p^2=\frac{m\hbar\omega}{2},
+\]
+所以
+\[
+\boxed{\sigma_x\sigma_p=\frac\hbar2.}
+\]
+
+展开
+\[
+\ket\alpha=\sum_{n=0}^{\infty}c_n\ket n.
+\]
+由 $a_-\ket\alpha=\alpha\ket\alpha$ 得
+\[
+\sqrt{n+1}\,c_{n+1}=\alpha c_n,
+\]
+故
+\[
+\boxed{c_n=\frac{\alpha^n}{\sqrt{n!}}c_0.}
+\]
+归一化要求
+\[
+1=|c_0|^2\sum_{n=0}^{\infty}\frac{|\alpha|^{2n}}{n!}
+=|c_0|^2e^{|\alpha|^2},
+\]
+可取
+\[
+\boxed{c_0=e^{-|\alpha|^2/2}.}
+\]
+
+含时演化为
+\[
+\ket{\alpha(t)}=e^{-|\alpha|^2/2}
+\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}e^{-\ii(n+1/2)\omega t}\ket n.
+\]
+略去整体相位 $e^{-\ii\omega t/2}$ 后，系数中 $\alpha$ 被替换为
+\[
+\boxed{\alpha(t)=\alpha e^{-\ii\omega t}.}
+\]
+
+若
+\[
+\alpha=C\sqrt{\frac{m\omega}{2\hbar}}e^{\ii\phi},
+\]
+则
+\[
+\boxed{\langle x\rangle=C\cos(\omega t-\phi)},
+\qquad
+\boxed{\sigma_x=\sqrt{\frac{\hbar}{2m\omega}}}\quad\text{恒定}.
+\]
+基态 $\ket0$ 本身是相干态，对应本征值
+\[
+\boxed{\alpha=0.}
+\]
+\end{solution}
+
+\begin{question}
+扩展的不确定原理。广义不确定原理（式 (3.62)）指出
+\[
+\sigma_A^2\sigma_B^2\geq \frac14\langle C\rangle^2,
+\]
+其中 $\hat C=-\ii[\hat A,\hat B]$。
+\begin{enumerate}
+\item 证明它可以拓展为
+\[
+\sigma_A^2\sigma_B^2\geq \frac14\left(\langle C\rangle^2+\langle D\rangle^2\right),\tag{3.115}
+\]
+其中
+\[
+\hat D=\hat A\hat B+\hat B\hat A-2\langle A\rangle\langle B\rangle.
+\]
+提示：保留式 (3.60) 中的实部项 $\operatorname{Re}(z)$。
+\item 当 $B=A$ 时，验证式 (3.115)（在这种情况下，标准的不确定原理是平庸的，因为 $C=0$；遗憾的是，扩展的不确定原理也没什么帮助）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (3.62)：广义不确定原理：$\sigma_A\sigma_B\ge \frac12|\langle[A,B]\rangle|$。
+\item 式 (3.60)：不确定关系证明中令 $f=(A-\langle A\rangle)\psi$、$g=(B-\langle B\rangle)\psi$，$z=\langle f|g\rangle$，则 $\sigma_A^2\sigma_B^2\ge |z|^2$。
+\item 式 (3.115)：扩展不确定关系：$\sigma_A^2\sigma_B^2\ge\frac14(\langle C\rangle^2+\langle D\rangle^2)$，$C=-\ii[A,B]$，$D=AB+BA-2\langle A\rangle\langle B\rangle$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+令
+\[
+\Delta A=A-\langle A\rangle,
+\qquad
+\Delta B=B-\langle B\rangle.
+\]
+柯西不等式给出
+\[
+\sigma_A^2\sigma_B^2
+=\left\langle \Delta A\psi|\Delta A\psi \right\rangle\left\langle \Delta B\psi|\Delta B\psi \right\rangle
+\ge |\left\langle \Delta A\psi|\Delta B\psi \right\rangle|^2.
+\]
+右端复数的模平方等于实部平方加虚部平方：
+\[
+|z|^2=(\operatorname{Re}z)^2+(\operatorname{Im}z)^2.
+\]
+其中
+\[
+2\operatorname{Im}z=\frac1\ii\langle[A,B]\rangle=\langle C\rangle,
+\]
+而
+\[
+2\operatorname{Re}z
+=\langle\Delta A\Delta B+\Delta B\Delta A\rangle
+=\langle AB+BA-2\langle A\rangle\langle B\rangle\rangle
+=\langle D\rangle.
+\]
+所以
+\[
+\boxed{\sigma_A^2\sigma_B^2\ge
+\frac14\left(\langle C\rangle^2+\langle D\rangle^2\right).}
+\]
+
+当 $B=A$ 时，$C=0$，且
+\[
+D=2(A^2-\langle A\rangle^2).
+\]
+于是
+\[
+\langle D\rangle=2\sigma_A^2,
+\]
+不等式变为
+\[
+\sigma_A^4\ge \frac14(4\sigma_A^4)=\sigma_A^4,
+\]
+只是恒等式。
+\end{solution}
+
+\begin{question}
+某三能级体系哈密顿量的矩阵形式表示为
+\[
+H=\begin{pmatrix}
+a&0&b\\
+0&c&0\\
+b&0&a
+\end{pmatrix},
+\]
+其中 $a,b,c$ 都是实数。
+\begin{enumerate}
+\item 如果体系的初始态是
+\[
+\ket{s(0)}=\begin{pmatrix}0\\1\\0\end{pmatrix},
+\]
+求 $\ket{s(t)}$。
+\item 如果初始态是
+\[
+\ket{s(0)}=\begin{pmatrix}1\\0\\0\end{pmatrix},
+\]
+求 $\ket{s(t)}$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+矩阵的本征矢很容易看出：
+\[
+\ket{+}=\frac1{\sqrt2}\begin{pmatrix}1\\0\\1\end{pmatrix},
+\quad E_+=a+b;
+\qquad
+\ket{-}=\frac1{\sqrt2}\begin{pmatrix}1\\0\\-1\end{pmatrix},
+\quad E_-=a-b;
+\]
+并且
+\[
+\ket{2}=\begin{pmatrix}0\\1\\0\end{pmatrix},
+\quad E_2=c.
+\]
+
+(1) 若
+\[
+\ket{s(0)}=\begin{pmatrix}0\\1\\0\end{pmatrix}=\ket2,
+\]
+则
+\[
+\boxed{\ket{s(t)}=e^{-\ii ct/\hbar}\begin{pmatrix}0\\1\\0\end{pmatrix}.}
+\]
+
+(2) 若
+\[
+\ket{s(0)}=\begin{pmatrix}1\\0\\0\end{pmatrix}
+=\frac1{\sqrt2}(\ket+ +\ket-),
+\]
+则
+\[
+\ket{s(t)}=\frac1{\sqrt2}\left(e^{-\ii(a+b)t/\hbar}\ket+
++e^{-\ii(a-b)t/\hbar}\ket-\right).
+\]
+化回原基，
+\[
+\boxed{\ket{s(t)}=e^{-\ii at/\hbar}
+\begin{pmatrix}
+\cos(bt/\hbar)\\0\\-\ii\sin(bt/\hbar)
+\end{pmatrix}.}
+\]
+\end{solution}
+
+\begin{question}
+求以谐振子能量的本征态作为基矢展开的位置算符。也就是说，按照
+\[
+c_n(t)=\left\langle n|s(t) \right\rangle
+\]
+表示出
+\[
+\bra{n}x\ket{s(t)}.
+\]
+提示：利用式 (3.114)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (3.114)：谐振子矩阵元：$\bra n x\ket{n'}=\sqrt{\hbar/(2m\omega)}(\sqrt{n'+1}\delta_{n,n'+1}+\sqrt{n'}\delta_{n,n'-1})$。}
+
+\end{question}
+\begin{solution}
+设
+\[
+\ket{s(t)}=\sum_{n=0}^{\infty}c_n(t)\ket n.
+\]
+由习题 3.39，
+\[
+\bra n x\ket{n'}=\sqrt{\frac{\hbar}{2m\omega}}
+\left(\sqrt{n'+1}\delta_{n,n'+1}+\sqrt{n'}\delta_{n,n'-1}\right).
+\]
+因此
+\[
+\bra n x\ket{s(t)}=\sum_{n'}c_{n'}(t)\bra n x\ket{n'}.
+\]
+只剩 $n'=n-1$ 和 $n'=n+1$ 两项：
+\[
+\boxed{\bra n x\ket{s(t)}=
+\sqrt{\frac{\hbar}{2m\omega}}
+\left(\sqrt n\,c_{n-1}(t)+\sqrt{n+1}\,c_{n+1}(t)\right),}
+\]
+其中约定 $c_{-1}=0$。
+\end{solution}
+
+\begin{question}
+某个三能级体系哈密顿量的矩阵形式表示为
+\[
+H=\hbar\omega\begin{pmatrix}
+1&0&0\\
+0&2&0\\
+0&0&2
+\end{pmatrix},
+\]
+另外的两个可观测量 $A$ 和 $B$ 的矩阵表示为
+\[
+A=\lambda\begin{pmatrix}
+0&1&0\\
+1&0&0\\
+0&0&2
+\end{pmatrix},
+\qquad
+B=\mu\begin{pmatrix}
+2&0&0\\
+0&0&1\\
+0&1&0
+\end{pmatrix},
+\]
+式中，$\omega$、$\lambda$ 和 $\mu$ 都是正实数。
+\begin{enumerate}
+\item 求出 $H$、$A$ 和 $B$ 的本征值和归一化的本征函数。
+\item 假设体系初始态为一般的状态
+\[
+\ket{s(0)}=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix},
+\qquad |c_1|^2+|c_2|^2+|c_3|^2=1,
+\]
+求（在 $t=0$ 时刻）$H$、$A$ 和 $B$ 的期望值。
+\item $\ket{s(t)}$ 是什么？如果你在 $t$ 时刻测量该态的能量，可能会获得什么样的值，几率分别是多少？对可观测量 $A$ 和 $B$，回答同样的问题。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) $H$ 的本征值为
+\[
+\hbar\omega,
+\quad 2\hbar\omega,
+\quad 2\hbar\omega,
+\]
+对应本征矢可取
+\[
+\begin{pmatrix}1\\0\\0\end{pmatrix},
+\quad
+\begin{pmatrix}0\\1\\0\end{pmatrix},
+\quad
+\begin{pmatrix}0\\0\\1\end{pmatrix}.
+\]
+
+$A$ 的本征值和归一化本征矢为
+\[
+\lambda:\frac1{\sqrt2}\begin{pmatrix}1\\1\\0\end{pmatrix},
+\qquad
+-\lambda:\frac1{\sqrt2}\begin{pmatrix}1\\-1\\0\end{pmatrix},
+\qquad
+2\lambda:\begin{pmatrix}0\\0\\1\end{pmatrix}.
+\]
+
+$B$ 的本征值和归一化本征矢为
+\[
+2\mu:\begin{pmatrix}1\\0\\0\end{pmatrix},
+\qquad
+\mu:\frac1{\sqrt2}\begin{pmatrix}0\\1\\1\end{pmatrix},
+\qquad
+-\mu:\frac1{\sqrt2}\begin{pmatrix}0\\1\\-1\end{pmatrix}.
+\]
+
+(2) 对
+\[
+\ket{s(0)}=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix},
+\]
+有
+\[
+\langle H\rangle=\hbar\omega(|c_1|^2+2|c_2|^2+2|c_3|^2),
+\]
+\[
+\langle A\rangle=\lambda(c_1^*c_2+c_2^*c_1+2|c_3|^2),
+\]
+\[
+\langle B\rangle=\mu(2|c_1|^2+c_2^*c_3+c_3^*c_2).
+\]
+
+(3) 时间演化为
+\[
+\boxed{\ket{s(t)}=\begin{pmatrix}
+c_1e^{-\ii\omega t}\\
+c_2e^{-2\ii\omega t}\\
+c_3e^{-2\ii\omega t}
+\end{pmatrix}.}
+\]
+测量能量得到 $\hbar\omega$ 的几率为 $|c_1|^2$，得到 $2\hbar\omega$ 的几率为 $|c_2|^2+|c_3|^2$。
+
+测量 $A$ 的几率为
+\[
+P_A(\lambda)=\frac12\left|c_1e^{-\ii\omega t}+c_2e^{-2\ii\omega t}\right|^2,
+\]
+\[
+P_A(-\lambda)=\frac12\left|c_1e^{-\ii\omega t}-c_2e^{-2\ii\omega t}\right|^2,
+\qquad
+P_A(2\lambda)=|c_3|^2.
+\]
+测量 $B$ 的几率为
+\[
+P_B(2\mu)=|c_1|^2,
+\qquad
+P_B(\mu)=\frac12|c_2+c_3|^2,
+\qquad
+P_B(-\mu)=\frac12|c_2-c_3|^2.
+\]
+\end{solution}
+
+\begin{question}
+超对称性（supersymmetry）。考虑两个算符
+\[
+\hat A=\ii\frac{\hat p}{\sqrt{2m}}+W(x),
+\qquad
+\hat A^\dagger=-\ii\frac{\hat p}{\sqrt{2m}}+W(x),\tag{3.116}
+\]
+$W(x)$ 为某个函数。通过对两个算符按照不同次序相乘，可以构建两个哈密顿量：
+\[
+\hat H_1=\hat A^\dagger\hat A=\frac{p^2}{2m}+V_1(x),
+\qquad
+\hat H_2=\hat A\hat A^\dagger=\frac{p^2}{2m}+V_2(x).\tag{3.117}
+\]
+$V_1$ 和 $V_2$ 称为超对称伴势（supersymmetric partner potentials）。$\hat H_1$ 和 $\hat H_2$ 的能量和本征态以有趣的方式联系在一起。
+\begin{enumerate}
+\item 用超势 $W(x)$（superpotential）表示出势 $V_1(x)$ 和 $V_2(x)$。
+\item 证明：如果 $\psi_n^{(1)}$ 是 $\hat H_1$ 的本征态，其本征值为 $E_n^{(1)}$，那么 $\hat A\psi_n^{(1)}$ 是 $\hat H_2$ 的本征态，且本征值也为 $E_n^{(1)}$。同样证明，如果 $\psi_n^{(2)}$ 是 $\hat H_2$ 的本征态，其本征值为 $E_n^{(2)}$，那么 $\hat A^\dagger\psi_n^{(2)}$ 是 $\hat H_1$ 的本征态，且本征值也为 $E_n^{(2)}$。因此，这两个哈密顿量有着完全相同的能谱。
+\item 通常情况下，通过选择 $W(x)$ 使 $\hat H_1$ 的基态满足
+\[
+\hat A\psi_0^{(1)}(x)=0,\tag{3.118}
+\]
+同时 $E_0^{(1)}=0$。利用这些条件，用基态波函数 $\psi_0^{(1)}(x)$ 表示出超势 $W(x)$。（实际上，$\hat A\psi_0^{(1)}(x)=0$ 本身就意味着 $\hat H_2$ 的本征态要比 $\hat H_1$ 少一个，缺少的本征值为 $E_0^{(1)}$。）
+\item 考虑狄拉克 $\delta$ 函数势阱：
+\[
+V_1(x)=\frac{m\alpha^2}{2\hbar^2}-\alpha\delta(x),\tag{3.119}
+\]
+常数项 $m\alpha^2/(2\hbar^2)$ 包含在内，因此 $E_0^{(1)}=0$。它只有一个束缚态（式 (2.132)）
+\[
+\psi_0^{(1)}(x)=\frac{\sqrt{m\alpha}}{\hbar}\exp\left(-\frac{m\alpha}{\hbar^2}|x|\right).\tag{3.120}
+\]
+利用 (a) 和 (c) 部分的结果以及习题 2.23(b)，求出超势 $W(x)$ 和伴势 $V_2(x)$。你可能会认识这个伴势；显然它没有束缚态。这两个系统之间的超对称性解释了一个事实，即它们的反射系数和透射系数是相同的（见 2.5.2 节的最后一段）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.132)：$\delta$ 势阱 $V(x)=-\alpha\delta(x)$ 的束缚态：$\psi(x)=\sqrt{m\alpha}/\hbar\,e^{-m\alpha|x|/\hbar^2}$，$E=-m\alpha^2/(2\hbar^2)$。}
+
+\end{question}
+\begin{solution}
+(1) 由于 $p=-\ii\hbar\dd/\dd x$，
+\[
+A=\frac{\hbar}{\sqrt{2m}}\frac{\dd}{\dd x}+W(x),
+\qquad
+A^\dagger=-\frac{\hbar}{\sqrt{2m}}\frac{\dd}{\dd x}+W(x).
+\]
+注意导数不与 $W$ 对易，直接相乘得
+\[
+H_1=A^\dagger A=\frac{p^2}{2m}+W^2-\frac{\hbar}{\sqrt{2m}}W',
+\]
+\[
+H_2=AA^\dagger=\frac{p^2}{2m}+W^2+\frac{\hbar}{\sqrt{2m}}W'.
+\]
+所以
+\[
+\boxed{V_1=W^2-\frac{\hbar}{\sqrt{2m}}W',
+\qquad
+V_2=W^2+\frac{\hbar}{\sqrt{2m}}W'.}
+\]
+
+(2) 若 $H_1\psi_n^{(1)}=E_n^{(1)}\psi_n^{(1)}$，则
+\[
+H_2(A\psi_n^{(1)})=AA^\dagger A\psi_n^{(1)}=A H_1\psi_n^{(1)}
+=E_n^{(1)}A\psi_n^{(1)}.
+\]
+所以 $A\psi_n^{(1)}$ 是 $H_2$ 的同能量本征态，除非它为零。类似地，
+\[
+H_1(A^\dagger\psi_n^{(2)})=A^\dagger H_2\psi_n^{(2)}
+=E_n^{(2)}A^\dagger\psi_n^{(2)}.
+\]
+
+(3) 若 $A\psi_0^{(1)}=0$，则
+\[
+\frac{\hbar}{\sqrt{2m}}\frac{\dd\psi_0^{(1)}}{\dd x}+W\psi_0^{(1)}=0,
+\]
+故
+\[
+\boxed{W(x)=-\frac{\hbar}{\sqrt{2m}}\frac{\dd}{\dd x}\ln\psi_0^{(1)}(x).}
+\]
+
+(4) 对
+\[
+\psi_0^{(1)}\propto e^{-\beta|x|},
+\qquad
+\beta=\frac{m\alpha}{\hbar^2},
+\]
+有
+\[
+\frac{\dd}{\dd x}\ln\psi_0^{(1)}=-\beta\operatorname{sgn}(x).
+\]
+于是
+\[
+\boxed{W(x)=\frac{\alpha\sqrt m}{\sqrt2\hbar}\operatorname{sgn}(x).}
+\]
+因为
+\[
+W^2=\frac{m\alpha^2}{2\hbar^2},
+\qquad
+W'=\frac{\sqrt2\alpha\sqrt m}{\hbar}\delta(x),
+\]
+得到
+\[
+V_1=\frac{m\alpha^2}{2\hbar^2}-\alpha\delta(x),
+\]
+并且伴势为
+\[
+\boxed{V_2=\frac{m\alpha^2}{2\hbar^2}+\alpha\delta(x).}
+\]
+这就是加上常数背景的排斥 $\delta$ 势垒，它没有束缚态。
+\end{solution}
+
+\begin{question}
+算符不仅可以由其作用定义（对它作用的矢量进行操作），也可以由域来定义（算符作用的矢量集合）。在有限维矢量空间中，域就是整个空间；我们不必担心它。但是，对希尔伯特空间中的大多数算符，域是受限制的。特别地，在 $\hat Q$ 的域中，只允许函数 $\hat Q f(x)$ 留在希尔伯特空间中。厄米算符的作用与它自伴算符的作用是一样的（习题 3.5），但实际上要表示可观测量还要求更多东西：$\hat Q$ 和 $\hat Q^\dagger$ 的域必须是相同的。这种算符称为自伴算符（self-adjoint）。
+\begin{enumerate}
+\item 在有限区间 $0\leq x\leq a$ 内，考虑动量算符 $\hat p=-\ii\hbar\mathrm d/\mathrm dx$。考虑到无限深方势阱，域可以定义为函数集 $f(x)$，且 $f(0)=f(a)=0$（不言而喻，$f(x)$ 和 $\hat p f(x)$ 都在 $L^2(0,a)$ 中）。证明 $\hat p$ 是厄米的：$\left\langle g|\hat p f \right\rangle=\left\langle \hat p^\dagger g|f \right\rangle$ 且 $\hat p^\dagger=\hat p$。它是自伴算符吗？提示：只要 $f(0)=f(a)=0$，$g(0)$ 或 $g(a)$ 没有限制——$\hat p^\dagger$ 的域要比 $\hat p$ 的域大很多。
+\item 假设对于某些固定的复数 $\lambda$，我们扩展 $\hat p$ 的域以包含形式 $f(a)=\lambda f(0)$ 的所有函数。必须对 $\hat p^\dagger$ 做什么样的限制条件才能使得 $\hat p$ 是厄米的？$\lambda$ 取什么值时，$\hat p$ 是自伴算符？评注：严格地讲，有限区间内没有动量算符——或者更确切地说，有无穷多种，没有方法去确定哪一个是“正确的”。（在习题 3.34 中，我们是通过处理无限空间来避免这个问题的。）
+\item 对于半无限区域 $0\leq x\leq\infty$，情况又会如何？在这种情况下，动量自伴算符存在吗？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 在 $[0,a]$ 上，
+\[
+\left\langle g|pf \right\rangle=-\ii\hbar\int_0^ag^*f'\dd x
+=-\ii\hbar[g^*f]_0^a-\ii\hbar\int_0^a(-g'^*)f\dd x.
+\]
+若 $f(0)=f(a)=0$，边界项为零，故
+\[
+\left\langle g|pf \right\rangle=\left\langle pg|f \right\rangle.
+\]
+因此 $p^\dagger=p$ 作为微分表达式是成立的。但 $p^\dagger$ 的域中 $g(0)$、$g(a)$ 不必为零，域比 $p$ 的域大，所以它不是自伴算符。
+
+(2) 若把 $p$ 的域取为
+\[
+f(a)=\lambda f(0),
+\]
+则边界项要求
+\[
+g^*(a)f(a)-g^*(0)f(0)=0.
+\]
+对任意满足边界条件的 $f$，这意味着
+\[
+\lambda g^*(a)=g^*(0),
+\]
+即
+\[
+\boxed{g(a)=\frac{1}{\lambda^*}g(0).}
+\]
+要使 $p$ 自伴，$p$ 与 $p^\dagger$ 的域相同，需
+\[
+\lambda=\frac1{\lambda^*},
+\]
+也就是
+\[
+\boxed{|\lambda|=1.}
+\]
+
+(3) 在半无限区间 $[0,\infty)$ 上，为使边界项在 $x=0$ 消失，通常必须对 $f(0)$ 加限制；但伴算符的域会给出不同限制。严格分析显示一阶动量算符在半直线上没有自伴扩张。因此半直线上的真正自伴动量算符不存在。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 在动量空间中，写出自由粒子的含时薛定谔方程，并求解。
+\item 求运动的高斯波包（习题 2.42）$\Phi(p,0)$，并构造 $\Phi(p,t)$。给出 $|\Phi(p,t)|^2$，注意到它是不依赖于时间的。
+\item 通过计算包含 $\Phi$ 的适当积分计算 $\langle p\rangle$ 和 $\langle p^2\rangle$，将答案和习题 2.42 的结果做比较。
+\item 证明 $\langle H\rangle=\langle p\rangle^2/2m+\langle H\rangle_0$（这里，脚标“0”表示高斯定态），并讨论这个结果。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 在动量空间中，自由粒子哈密顿量为
+\[
+H=\frac{p^2}{2m},
+\]
+所以含时薛定谔方程为
+\[
+\ii\hbar\frac{\partial\Phi(p,t)}{\partial t}=\frac{p^2}{2m}\Phi(p,t).
+\]
+其解是
+\[
+\boxed{\Phi(p,t)=\Phi(p,0)\exp\left(-\ii\frac{p^2}{2m\hbar}t\right).}
+\]
+
+(2) 对习题 2.42 的初态
+\[
+\Psi(x,0)=\left(\frac{2a}{\pi}\right)^{1/4}e^{-ax^2}e^{\ii\ell x},
+\]
+傅里叶变换得
+\[
+\boxed{\Phi(p,0)=\left(\frac1{2\pi a\hbar^2}\right)^{1/4}
+\exp\left[-\frac{(p-\hbar\ell)^2}{4a\hbar^2}\right].}
+\]
+因此
+\[
+\Phi(p,t)=\left(\frac1{2\pi a\hbar^2}\right)^{1/4}
+\exp\left[-\frac{(p-\hbar\ell)^2}{4a\hbar^2}
+-\ii\frac{p^2t}{2m\hbar}\right],
+\]
+并且
+\[
+|\Phi(p,t)|^2=\frac1{\sqrt{2\pi a\hbar^2}}
+\exp\left[-\frac{(p-\hbar\ell)^2}{2a\hbar^2}\right],
+\]
+与时间无关。
+
+(3) 由该高斯分布，
+\[
+\boxed{\langle p\rangle=\hbar\ell,}
+\qquad
+\boxed{\langle p^2\rangle=\hbar^2(\ell^2+a).}
+\]
+这与位置空间中运动高斯波包的群速度 $v=\hbar\ell/m$ 和动量宽度 $\sigma_p=\hbar\sqrt a$ 一致。
+
+(4) 平均能量为
+\[
+\langle H\rangle=\frac{\langle p^2\rangle}{2m}
+=\frac{(\hbar\ell)^2}{2m}+\frac{\hbar^2a}{2m}.
+\]
+其中第一项是波包整体平动动能，第二项
+\[
+\boxed{\langle H\rangle_0=\frac{\hbar^2a}{2m}}
+\]
+是静止高斯包由有限动量宽度带来的内部动能。因此
+\[
+\boxed{\langle H\rangle=\frac{\langle p\rangle^2}{2m}+\langle H\rangle_0.}
+\]
+\end{solution}

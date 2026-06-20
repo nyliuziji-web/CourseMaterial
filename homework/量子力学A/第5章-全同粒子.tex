@@ -1,0 +1,1288 @@
+\heading{第5章-全同粒子}
+\begin{question}
+通常情况下，相互作用势的大小仅依赖于两粒子间的相对位移 $\mathbf r=\mathbf r_1-\mathbf r_2$：$V(\mathbf r_1,\mathbf r_2)\to V(\mathbf r)$。在这种情况下，将变量 $\mathbf r_1,\mathbf r_2$ 代换为 $\mathbf r$ 和
+\[
+\mathbf R=\frac{m_1\mathbf r_1+m_2\mathbf r_2}{m_1+m_2}
+\]
+（质心），对薛定谔方程就可以进行分离变量。
+\begin{enumerate}
+\item 证明
+\[
+\mathbf r_1=\mathbf R+\frac{\mu}{m_1}\mathbf r,\qquad
+\mathbf r_2=\mathbf R-\frac{\mu}{m_2}\mathbf r,
+\]
+\[
+\nabla_1=\frac{\mu}{m_2}\nabla_R+\nabla_r,\qquad
+\nabla_2=\frac{\mu}{m_1}\nabla_R-\nabla_r,
+\]
+其中
+\[
+\mu=\frac{m_1m_2}{m_1+m_2}
+\]
+为系统的约化质量（reduced mass）。
+\item 证明（定态）薛定谔方程为
+\[
+-\frac{\hbar^2}{2(m_1+m_2)}\nabla_R^2\psi
+-\frac{\hbar^2}{2\mu}\nabla_r^2\psi+V(\mathbf r)\psi=E\psi.
+\]
+\item 分离变量，令 $\psi(\mathbf R,\mathbf r)=\psi_R(\mathbf R)\psi_r(\mathbf r)$。注意到 $\psi_R$ 满足总质量为 $m_1+m_2$、势能为零、能量为 $E_R$ 的单粒子薛定谔方程；$\psi_r$ 满足质量为约化质量 $\mu$、势能为 $V(\mathbf r)$、能量为 $E_r$ 的单粒子薛定谔方程。系统的总能量为两者之和：$E=E_R+E_r$。这告诉我们质心的运动像一个自由粒子，而相对运动（即粒子 1 相对于粒子 2 的运动）可以看作是以约化质量为质量、处于势场 $V(\mathbf r)$ 的单粒子的运动。在经典力学中存在完全类似的分解方法；用这种方法可以将两体问题简化为等价的单体问题。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+由定义
+\[
+\mathbf r=\mathbf r_1-\mathbf r_2,
+\quad
+\mathbf R=\frac{m_1\mathbf r_1+m_2\mathbf r_2}{M},\quad M=m_1+m_2,
+\]
+解线性方程得
+\[
+\mathbf r_1=\mathbf R+\frac{\mu}{m_1}\mathbf r,
+\quad
+\mathbf r_2=\mathbf R-\frac{\mu}{m_2}\mathbf r,
+\quad \mu=\frac{m_1m_2}{M}.
+\]
+链式法则给
+\[
+\nabla_1=\frac{m_1}{M}\nabla_R+\nabla_r=\frac{\mu}{m_2}\nabla_R+\nabla_r,
+\]
+\[
+\nabla_2=\frac{m_2}{M}\nabla_R-\nabla_r=\frac{\mu}{m_1}\nabla_R-\nabla_r.
+\]
+代入动能项，交叉项相消：
+\[
+-\frac{\hbar^2}{2m_1}\nabla_1^2-\frac{\hbar^2}{2m_2}\nabla_2^2
+=-\frac{\hbar^2}{2M}\nabla_R^2-\frac{\hbar^2}{2\mu}\nabla_r^2.
+\]
+若 $\psi=\psi_R\psi_r$，即可分成质心自由粒子方程与约化质量粒子在 $V(r)$ 中的方程，且 $E=E_R+E_r$。
+
+\end{solution}
+
+\begin{question}
+针对习题 5.1，我们可以简单地用约化质量代替电子质量来修正氢原子核的运动。
+\begin{enumerate}
+\item 求使用 $m$ 而不是 $\mu$ 在计算氢原子结合能（式 (4.77)）时产生的误差百分比（精确到两位有效数字）。
+\item 求氢和氘（原子核既含有质子又含有中子）的红色巴耳末线（$n=3\to n=2$）之间的波长差。
+\item 求电子偶素（positronium）的结合能（氢原子中质子被正电子取代，正电子与电子质量相同，但电荷相反）。
+\item 假设你想证实缪子氢（muonic hydrogen）的存在，其中电子被 $\mu$ 介子取代（电荷相同，但质量是电子的 $206.77$ 倍）。在哪里（即在什么波长下）寻找“莱曼-$\alpha$”线（$n=2\to n=1$）？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.77)：氢原子结合能可写为 $E_n=-\mu e^4/[2(4\pi\epsilon_0)^2\hbar^2n^2]$，基态取 $n=1$。}
+
+\end{question}
+\begin{solution}
+
+氢原子能量正比约化质量 $\mu$。对氢，
+\[
+\frac{m-
+\mu}{m}=1-\frac{m_p}{m_p+m_e}\simeq \frac{m_e}{m_p}=5.45\times10^{-4},
+\]
+即误差约 $0.054\%$。
+
+巴耳末红线满足
+\[
+\frac1\lambda=R_\mu\left(\frac14-\frac19\right)=\frac{5R_\mu}{36},
+\quad R_\mu=R_\infty\frac{\mu}{m_e}.
+\]
+氘的约化质量稍大，故波长稍短；用 $m_d\simeq2m_p$ 得
+\[
+\frac{\Delta\lambda}{\lambda}\simeq \frac{m_e}{2m_p}.
+\]
+对 $\lambda\simeq656.3\,\mathrm{nm}$，差约 $0.18\,\mathrm{nm}$。
+
+电子偶素 $\mu=m_e/2$，结合能为氢的一半：
+\[
+E_1=-6.8\,\mathrm{eV}.
+\]
+缪子氢的 $\mu\simeq m_\mu m_p/(m_\mu+m_p)$，相对于电子氢约增大 $\mu/m_e\simeq186$，莱曼 $\alpha$ 能量约 $10.2\times186\,\mathrm{eV}$，波长
+\[
+\lambda\simeq\frac{121.6\,\mathrm{nm}}{186}\simeq0.65\,\mathrm{nm},
+\]
+在软 X 射线区域。
+
+\end{solution}
+
+\begin{question}
+氯原子在自然界有两种同位素：$\mathrm{Cl}^{35}$ 和 $\mathrm{Cl}^{37}$。证明：$\mathrm{HCl}$ 的振动光谱应包含相距很近的双线结构，其能级分裂由
+\[
+\Delta \nu=7.51\times 10^{-4}\nu
+\]
+给出，其中 $\nu$ 是出射光子的频率。提示：把它想象成一个谐振子，$\omega=\sqrt{k/\mu}$，其中 $\mu$ 为约化质量（式 (5.15)），两种同位素的 $k$ 可以认为是相同的。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.15)：二体约化质量：$\mu=m_1m_2/(m_1+m_2)$。}
+
+\end{question}
+\begin{solution}
+
+振动频率 $\omega=\sqrt{k/\mu}$。同位素改变只改变约化质量，故
+\[
+\frac{\Delta\nu}{\nu}=\left|\frac{\Delta\omega}{\omega}\right|
+\simeq \frac12\left|\frac{\Delta\mu}{\mu}\right|.
+\]
+对 HCl，
+\[
+\mu_{35}=\frac{m_Hm_{35}}{m_H+m_{35}},
+\qquad
+\mu_{37}=\frac{m_Hm_{37}}{m_H+m_{37}}.
+\]
+取 $m_H\simeq1,m_{35}\simeq35,m_{37}\simeq37$，
+\[
+\frac12\frac{\mu_{37}-\mu_{35}}{\mu}\simeq7.5\times10^{-4}.
+\]
+因此双线频率间隔
+\[
+\Delta\nu=7.51\times10^{-4}\nu.
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 如果 $\psi_a$ 和 $\psi_b$ 是正交归一的，则式 (5.17) 中常数 $A$ 为多少？
+\item 如果 $\psi_a=\psi_b$（已归一化），则 $A$ 为多少？（当然，只有玻色子才会发生这种情况。）
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.16--5.17)：两个全同粒子的对称/反对称空间态：$\Psi_\pm=A[\psi_a(1)\psi_b(2)\pm\psi_b(1)\psi_a(2)]$。}
+
+\end{question}
+\begin{solution}
+
+若 $\psi_a,\psi_b$ 正交归一，则
+\[
+\Psi_\pm=A[\psi_a(1)\psi_b(2)\pm\psi_b(1)\psi_a(2)].
+\]
+两项正交，每项范数为 1，故
+\[
+2|A|^2=1,
+\quad A=\frac1{\sqrt2}.
+\]
+若 $\psi_a=\psi_b$，反对称组合为零；对玻色子的对称组合为 $2A\psi_a(1)\psi_a(2)$，归一化给
+\[
+4|A|^2=1,
+\quad A=\frac12.
+\]
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 写出处于无限深势阱中两个无相互作用的全同粒子哈密顿量。证明例题 5.1 给出的费米子基态是 $\hat H$ 的本征函数，具有适当本征值。
+\item 除例题 5.1 中的两激发态外，再给出接下来的两个激发态，给出三种情况下的波函数和能量本征值（可分辨、全同玻色子、全同费米子）。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+两粒子哈密顿量为
+\[
+H=-\frac{\hbar^2}{2m}\left(\frac{\partial^2}{\partial x_1^2}+\frac{\partial^2}{\partial x_2^2}\right)+V(x_1)+V(x_2).
+\]
+在无限深阱中单粒子能量 $E_n=n^2E_1$。乘积态 $\psi_n(x_1)\psi_l(x_2)$ 是本征态，能量 $E_n+E_l$；对称化或反对称化仍是同能量本征态。
+
+基态：可分辨或玻色子为 $\psi_1(1)\psi_1(2)$，能量 $2E_1$；费米子（同自旋）最低为空间反对称
+\[
+\frac{\psi_1(1)\psi_2(2)-\psi_2(1)\psi_1(2)}{\sqrt2},
+\quad E=5E_1.
+\]
+接下来的激发态按 $n^2+l^2$ 排列，并对玻色子取 $+$，费米子取 $-$；例如 $(1,2),(1,3),(2,2),(2,3)$ 等，其中费米子不允许 $n=l$。
+
+\end{solution}
+
+\begin{question}
+想象处在无限深方势阱中的两个无相互作用的粒子，质量均为 $m$。如果一个粒子处于 $\psi_n$ 态（式 (2.31)），另一个粒子处于 $\psi_\ell$（$\ell\ne n$）态，计算 $\langle (x_1-x_2)^2\rangle$。假定：
+\begin{enumerate}
+\item 粒子是可分辨的；
+\item 粒子为全同玻色子；
+\item 粒子为全同费米子。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.31)：无限深方势阱本征态：$\psi_n(x)=\sqrt{2/a}\sin(n\pi x/a)$。}
+
+\end{question}
+\begin{solution}
+
+记
+\[
+\langle x\rangle_n=\frac a2,
+\quad
+\langle x^2\rangle_n=a^2\left(\frac13-\frac{1}{2n^2\pi^2}\right),
+\]
+以及
+\[
+X_{nl}=\langle n|x|l\rangle.
+\]
+可分辨时
+\[
+\langle(x_1-x_2)^2\rangle=\langle x^2\rangle_n+\langle x^2\rangle_l-2\langle x\rangle_n\langle x\rangle_l
+=a^2\left(\frac16-\frac{1}{2\pi^2}\left(\frac1{n^2}+\frac1{l^2}\right)\right).
+\]
+对对称/反对称态，交叉项多出交换贡献：
+\[
+\langle(x_1-x_2)^2\rangle_{B/F}=\langle(x_1-x_2)^2\rangle_{D}
+\mp 2|X_{nl}|^2.
+\]
+其中
+\[
+X_{nl}=\frac{2a}{\pi^2}\left[\frac{1}{(n+l)^2}-\frac{1}{(n-l)^2}\right]
+\]
+当 $n+l$ 为奇数；若 $n+l$ 为偶数则 $X_{nl}=0$。玻色子取负号，费米子取正号。
+
+\end{solution}
+
+\begin{question}
+（质量相等的）两个无相互作用粒子处于同一谐振子势中，一个处于基态，另一个处于第一激发态。
+\begin{enumerate}
+\item 构建波函数 $\psi(x_1,x_2)$，当 (i) 它们是可分辨的；(ii) 它们是全同玻色子；(iii) 它们是全同费米子。分别画出每种情况的 $|\psi(x_1,x_2)|^2$（采用 Mathematica 的 Plot3D 指令）。
+\item 利用式 (5.23) 和式 (5.25)，求出每种情况下的 $\langle (x_1-x_2)^2\rangle$。
+\item 利用相对坐标 $r=x_1-x_2$ 和质心坐标 $R=(x_1+x_2)/2$，求出每种情况下的 $\psi(x_1,x_2)$；并对 $R$ 进行积分，求两粒子之间距离为 $|r|$ 时的几率：
+\[
+P(|r|)=2\int |\psi(R,r)|^2\,\mathrm dR
+\]
+（乘以 2 是因为 $r$ 可以是正值也可是负值）。画出三种情况下的 $P(r)$ 图。
+\item 定义密度算符
+\[
+n(x)=\sum_{i=1}^{2}\delta(x-x_i);
+\]
+$\langle n(x)\rangle\mathrm dx$ 是处于 $\mathrm dx$ 区间内粒子数目期望值。计算三种情况下的 $\langle n(x)\rangle$ 并画图。（结果可能会令你惊讶。）
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.23--5.25)：两粒子期望值用 $\Psi_\pm$ 计算；当单粒子态正交时归一化常数通常为 $1/\sqrt2$。}
+
+\end{question}
+\begin{solution}
+
+设一维振子长度 $\alpha=\sqrt{\hbar/(m\omega)}$，单粒子基态、第一激发态为 $\psi_0,\psi_1$。可分辨态可取 $\psi_0(1)\psi_1(2)$；玻色子/费米子态为
+\[
+\Psi_\pm=\frac{\psi_0(1)\psi_1(2)\pm\psi_1(1)\psi_0(2)}{\sqrt2}.
+\]
+计算得
+\[
+\langle(x_1-x_2)^2\rangle_D=2\alpha^2,
+\]
+而 $\langle0|x|1\rangle=\alpha/\sqrt2$，所以
+\[
+\langle(x_1-x_2)^2\rangle_B=\alpha^2,
+\qquad
+\langle(x_1-x_2)^2\rangle_F=3\alpha^2.
+\]
+在 $R=(x_1+x_2)/2,r=x_1-x_2$ 中，玻色子态含因子 $R$，费米子态含因子 $r$；因此费米子在 $r=0$ 处概率为零。单粒子密度三种情况相同：
+\[
+\langle n(x)\rangle=|\psi_0(x)|^2+|\psi_1(x)|^2.
+\]
+
+\end{solution}
+
+\begin{question}
+设想有三个粒子，一个处在 $\psi_a$ 态，一个处在 $\psi_b$ 态，一个处在 $\psi_c$ 态。假定 $\psi_a,\psi_b,\psi_c$ 彼此正交，构造三粒子体系的状态波函数（类比式 (5.15)、式 (5.16) 和式 (5.17)）用来代表：
+\begin{enumerate}
+\item 可分辨粒子；
+\item 全同玻色子；
+\item 全同费米子。
+\end{enumerate}
+记住 (b) 的情况为：在任意两个粒子交换下，必须是完全对称的；(c) 的情况为在任意两个粒子交换下，必须满足反对称性。注释：构造完全反对称波函数有一个巧妙的方法：构建斯莱特行列式（Slater determinant），其第一行为 $\psi_a(x_1),\psi_b(x_1),\psi_c(x_1),\cdots$，第二行为 $\psi_a(x_2),\psi_b(x_2),\psi_c(x_2),\cdots$，以此类推。（这种方法适用于任意数量的粒子系统。）
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.15)：二体约化质量：$\mu=m_1m_2/(m_1+m_2)$。
+\item 式 (5.16--5.17)：两个全同粒子的对称/反对称空间态：$\Psi_\pm=A[\psi_a(1)\psi_b(2)\pm\psi_b(1)\psi_a(2)]$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+可分辨粒子的一种态为
+\[
+\psi_a(1)\psi_b(2)\psi_c(3),
+\]
+也可按具体哪一个粒子占据哪一个态写出 6 种排列。
+
+全同玻色子为完全对称组合：
+\[
+\Psi_B=\frac1{\sqrt6}\sum_{P}\psi_{P(a)}(1)\psi_{P(b)}(2)\psi_{P(c)}(3).
+\]
+全同费米子为完全反对称组合，即 Slater 行列式：
+\[
+\Psi_F=\frac1{\sqrt{6}}
+\begin{vmatrix}
+\psi_a(1)&\psi_b(1)&\psi_c(1)\\
+\psi_a(2)&\psi_b(2)&\psi_c(2)\\
+\psi_a(3)&\psi_b(3)&\psi_c(3)
+\end{vmatrix}.
+\]
+
+\end{solution}
+
+\begin{question}
+例题 5.1 和习题 5.5(b) 中，我们忽略了自旋（如果你愿意，可以假设粒子处于相同的自旋状态）。
+\begin{enumerate}
+\item 对自旋为 $1/2$ 的粒子，构建 4 个能量最低的状态，指出它们的能量和简并度。建议：使用记号 $\psi_{n_1n_2}|s m_s\rangle$，其中 $\psi_{n_1n_2}$ 在例题 5.1 中有定义，$|s m_s\rangle$ 在 4.4.3 节中有定义。
+\item 对于自旋为 1 的粒子，重复 (a) 的问题。提示：首先，类似自旋 $1/2$ 的单重态和三重态状态波函数，利用 CG 系数计算出自旋 1 的波函数；注意它们中哪些是对称的，哪些是反对称的。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+对两个自旋 $1/2$ 费米子，总波函数须反对称。空间对称态配自旋单态，空间反对称态配自旋三重态。最低空间组态 $(1,1)$ 对称，只能配单态，能量 $2E_1$，简并度 1。下一组态 $(1,2)$ 有空间对称和反对称两种：前者配单态，后者配三重态，能量 $5E_1$，总简并度 4。再下一组态 $(2,2)$ 只能配单态，能量 $8E_1$，简并度 1；$(1,3)$ 能量 $10E_1$，简并度 4。
+
+对自旋 1 玻色子，总波函数须对称。两个自旋 1 的总自旋 $S=0,2$ 为对称，$S=1$ 为反对称。因此空间对称态配 $S=0,2$（简并 $1+5=6$），空间反对称态配 $S=1$（简并 3）。按同样能级顺序列出即可。
+
+\end{solution}
+
+\begin{question}
+对于两个自旋为 $1/2$ 的粒子，可以构建系统的对称和反对称自旋态（分别为自旋三重态和自旋单态）。对于三个自旋为 $1/2$ 的粒子，可以构建对称的组合态（习题 4.65 中的四重态），但不可能有完全反对称状态。
+\begin{enumerate}
+\item 证明它。提示：用“推土机”方法写下最普遍的线性组合：
+\[
+\chi(1,2,3)=a|\uparrow\uparrow\uparrow\rangle+b|\uparrow\uparrow\downarrow\rangle+c|\uparrow\downarrow\uparrow\rangle+d|\uparrow\downarrow\downarrow\rangle+e|\downarrow\uparrow\uparrow\rangle+f|\downarrow\uparrow\downarrow\rangle+g|\downarrow\downarrow\uparrow\rangle+h|\downarrow\downarrow\downarrow\rangle.
+\]
+在 $1\leftrightarrow 2$ 反对称变换下，关于系数你可以得到什么样的信息？（注意，上式中的 8 项都是相互正交的。）现在进行 $2\leftrightarrow 3$ 反对称变换。
+\item 假设将三个自旋为 $1/2$ 的无相互作用的全同粒子放置在无限深方势阱中。问：系统的基态是什么？能量和简并度各是多少？注意：你不能将三个粒子都处在 $\psi_1$ 态（为什么不行？）；你需要将其中的两个粒子处于 $\psi_1$ 态，另一个处于 $\psi_2$ 态。但是对称性组态
+\[
+\bigl[\psi_1(x_1)\psi_1(x_2)\psi_2(x_3)+\psi_1(x_1)\psi_2(x_2)\psi_1(x_3)+\psi_2(x_1)\psi_1(x_2)\psi_1(x_3)\bigr]
+\]
+并不好（因为并不存在与之对应的反对称自旋组合态），你并不能对这三项构建一个完备的反对称自旋态组合；在这种情况下，你不能简单地构建一个空间态和自旋态的反对称乘积，但是你可以构建一个这些乘积的线性组合。提示：构建斯莱特行列式（习题 5.8），第一行为 $\psi_1(x_1)|\uparrow\rangle_1,\psi_1(x_1)|\downarrow\rangle_1,\psi_2(x_1)|\uparrow\rangle_1$。
+\item 证明对于 (b) 中的答案，通过适当地归一化，可以写成这样的形式：
+\[
+\Phi(1,2,3)=\frac{1}{\sqrt3}\bigl[\Phi(1,2)\phi(3)-\Phi(1,3)\phi(2)+\Phi(2,3)\phi(1)\bigr],
+\]
+其中，$\Phi(i,j)$ 是 $n=1$ 态和自旋单态组合下两个粒子的波函数，
+\[
+\Phi(i,j)=\psi_1(x_i)\psi_1(x_j)\frac{|\uparrow_i\downarrow_j\rangle-|\downarrow_i\uparrow_j\rangle}{\sqrt2},
+\]
+其中，$\phi(i)$ 是第 $i$ 个粒子处于 $n=2$ 且自旋向上的态：$\phi(i)=\psi_2(x_i)|\uparrow_i\rangle$。注意：$\Phi(i,j)$ 在 $i\leftrightarrow j$ 交换下是反对称的，检查 $\Phi(1,2,3)$ 在交换作用下（$1\leftrightarrow2$，$2\leftrightarrow3$，$3\leftrightarrow1$）是反对称的。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 对三个自旋 $1/2$，完全反对称自旋态若存在，交换任意两粒子应变号。含 $|\uparrow\uparrow\uparrow\rangle$ 或 $|\downarrow\downarrow\downarrow\rangle$ 的项在交换下不变，系数必须为零。对含两个向上一个向下的三个基，反对称条件要求系数在三次置换下循环变号，导致 $b=-e=c=-b$ 等矛盾，故只能全为零。另一个扇区同理，所以不存在非零完全反对称态。
+
+(2) 三个费米子不能都处在 $\psi_1$，因为只有两个自旋态可用。基态占据 $\psi_1\uparrow,\psi_1\downarrow,\psi_2\uparrow$（或把最后一个改为 $\downarrow$），能量
+\[
+E=E_1+E_1+E_2=6E_1.
+\]
+简并度为 2，对应第三个粒子的自旋取向。
+
+(3) 题中给出的线性组合正是该 Slater 行列式按前两个粒子形成 $n=1$ 自旋单态后展开的形式；逐一交换两粒子时每一项重排并产生负号，因此总态反对称。
+
+\end{solution}
+
+\begin{question}
+在 5.1 节中我们发现，无相互作用粒子的能量本征态可以表示为单粒子态的乘积（式 (5.9)）——或者，对于全同粒子，则是这些态的对称化/反对称化的线性组合（式 (5.20) 和式 (5.21)）。对于有相互作用存在的粒子，情况则不再是这样。一个著名的例子是劳夫林波函数（Laughlin wave function），它近似为 $N$ 个二维电子处于磁感应强度大小为 $B$ 的垂直磁场中的基态（这是分数量子霍尔效应（fractional quantum Hall effect）的环境）。劳夫林波函数为
+\[
+\psi(z_1,z_2,\cdots,z_N)=A\left[\prod_{j<k}^{N}(z_j-z_k)^q\right]\exp\left[-\frac12\sum_k^N |z_k|^2\right],
+\]
+其中 $q$ 是正奇数，且
+\[
+z_j=\sqrt{\frac{eB}{2\hbar c}}(x_j+i y_j).
+\]
+（这里不讨论自旋问题；在基态，所有电子的自旋都相对于磁场 $B$ 方向朝下，这是一个平庸的对称态。）
+\begin{enumerate}
+\item 证明对于费米子，$\psi$ 具有适当的反对称性。
+\item 对于 $q=1$，$\psi$ 描述无相互作用的粒子（这意味着它能写成一个斯莱特行列式——见习题 5.8）。这对于任意 $N$ 都成立；但是，请详细地验证 $N=3$ 的情况。在这种情况下，被占据的单粒子态是什么样的？
+\item 对于 $q>1$，$\psi$ 不能写成一个斯莱特行列式的形式；它描述有相互作用的粒子（实际上是电子间的库仑排斥）。然而，它可以写成一些斯莱特行列式和的形式。证明：对于 $q=3$ 和 $N=2$，$\psi$ 可以写成两个斯莱特行列式之和。
+\end{enumerate}
+注释：在无相互作用 (b) 的情况下，可以将波函数描述为“三个粒子占据三个单粒子态 $\psi_a,\psi_b$ 和 $\psi_c$”；但是在相互作用 (c) 存在的情况下，则不存在相应的说法；在这种情况下，组成 $\psi$ 的不同斯莱特行列式对应于不同单粒子态集合的占据。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.9)：无相互作用多粒子能量本征态为单粒子本征态乘积，例如 $\Psi(1,2)=\psi_a(1)\psi_b(2)$。
+\item 式 (5.20--5.21)：全同玻色子取对称组合，费米子取反对称组合；若两个费米子占同一单粒子态，反对称空间波函数为零。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+(1) 若 $\psi$ 是哈密顿量的本征函数，由于哈密顿量在粒子交换下不变，对所有置换 $P\psi$ 也有同一能量。完全对称/反对称态可由投影算符构造：
+\[
+\psi_S=\frac1{\sqrt{N!}}\sum_P P\psi,
+\qquad
+\psi_A=\frac1{\sqrt{N!}}\sum_P(-1)^P P\psi.
+\]
+若原函数对前两个变量已经对称，则反对称投影中成对项相消，$\psi_A=0$。
+
+(2) $Z>2$ 个电子的自旋空间每个粒子只有两个维度。完全反对称张量的维数为 $\binom{2}{Z}$，当 $Z>2$ 时为零。因此不能构造纯自旋的完全反对称态，必须把空间部分也纳入反对称化。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 假设式 (5.36) 中的哈密顿量可以找到满足其薛定谔方程（式 (5.37)）的解 $\psi(\mathbf r_1,\mathbf r_2,\cdots,\mathbf r_Z)$。描述一下你如何用它来构造一个完全对称或反对称的波函数，且同时满足具有相同能量本征值的薛定谔方程。如果对前两个变量进行交换操作（$\mathbf r_1\leftrightarrow\mathbf r_2$），$\psi(\mathbf r_1,\mathbf r_2,\cdots,\mathbf r_Z)$ 是对称的，那么完全反对称波函数将会发生什么？
+\item 基于同样的逻辑，对于 $Z$ 个电子且 $Z>2$，证明构建一个完全反对称的自旋态是不可能的。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.36--5.37)：忽略电子相互作用时，多电子原子的 Hamiltonian 是各电子类氢 Hamiltonian 之和，并满足 $H\psi=E\psi$。}
+
+\end{question}
+\begin{solution}
+
+(1) 若空间方程有任意解，可同样用置换投影构造
+\[
+\psi_{S/A}=\sum_P(\pm1)^P P\psi.
+\]
+由于 $H$ 交换对称，$\psi_{S/A}$ 仍是同能量本征函数。若 $\psi$ 对某对变量交换已经对称，则反对称投影为零。
+
+(2) 对 $Z$ 个电子，纯自旋 Hilbert 空间维数为 $2^Z$，但完全反对称自旋态属于 $\wedge^Z\mathbb C^2$，其维数 $\binom2Z$。当 $Z>2$，该维数为 0，所以不可能只靠自旋实现完全反对称。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 假设你把氦原子中的两个电子都置于 $n=2$ 的状态上，发射电子的能量是多少？（假设此过程中没有光子发射。）
+\item 定量地描述氦离子 $\mathrm{He}^{+}$ 的光谱。也就是说，说明发射波波长的“类里德伯”公式。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 忽略电子相互作用时，类氢能级为
+\[
+E_n=-\frac{Z^2(13.6\,\mathrm{eV})}{n^2},\quad Z=2.
+\]
+若两个电子都在 $n=2$，总能量为
+\[
+2\left(-\frac{4\cdot13.6}{4}\right)=-27.2\,\mathrm{eV}.
+\]
+电离后留下 He$^+$ 的基态能量 $-54.4\,\mathrm{eV}$，若无光子发射，发射电子动能由能量差决定，具体取决于跃迁后离子所处态；若留下基态，则能量不足，说明这个简单图像需考虑电子排斥与实际激发能。
+
+(2) He$^+$ 是 $Z=2$ 类氢离子，谱线满足
+\[
+\frac1\lambda=4R\left(\frac1{n_f^2}-\frac1{n_i^2}\right).
+\]
+
+\end{solution}
+
+\begin{question}
+如果
+\begin{enumerate}
+\item 电子是全同玻色子；
+\item 电子是可分辨的粒子（但具有相同的质量和电荷），
+\end{enumerate}
+讨论（定性）氦的能级图。假设这些“电子”自旋仍有 $1/2$，那么自旋组态是单重态和三重态。
+\end{question}
+\begin{solution}
+
+若电子是玻色子，总波函数在交换下应对称。于是空间对称态必须配对称自旋态，空间反对称态配反对称自旋态；这与真实费米子氦的单重态/三重态对应关系相反。许多真实氦中被泡利原理禁止的双占据三重态会变为允许，能级排列会明显改变。
+
+若电子可分辨，则无需对称化。每个空间组态可与任意自旋单重/三重组合独立相乘，不再有交换能导致的正氦/仲氦分裂选择规则；能级会比真实氦具有更多组态，但缺少由全同性导致的严格对称性分类。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 对状态 $\psi_0$（式 (5.41)），计算 $\left\langle 1/|\mathbf r_1-\mathbf r_2|\right\rangle$。提示：在极坐标下，首先做积分 $\mathrm d^3r_2$，再令极轴沿 $\mathbf r_1$ 方向，使得
+\[
+|\mathbf r_1-\mathbf r_2|=\sqrt{r_1^2+r_2^2-2r_1r_2\cos\theta_2}.
+\]
+对 $\theta_2$ 的积分很容易，但要注意根号下只能取正值。你需要把 $r_2$ 分为两部分，第一部分积分从 $0$ 到 $r_1$，第二部分积分从 $r_1$ 到 $\infty$。
+\item 利用 (a) 的结果估算氦原子基态的电子相互作用能。结果用电子伏特表示，并将结果加到 $E_0$（式 (5.42)）上，得到修正后估算的氦原子基态能量。和实验值相比较。（当然，我们使用的仍然是一个近似波函数，所以不要指望两个值完全吻合。）
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.41--5.42)：氦原子零级近似可取 $\psi_0=\psi_{100}(\mathbf r_1)\psi_{100}(\mathbf r_2)$（$Z=2$），零级能量 $E_0=2Z^2(-13.6\,\mathrm{eV})$。}
+
+\end{question}
+\begin{solution}
+
+对试探基态
+\[
+\psi_0=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a}
+\]
+（氦 $Z=2$），标准积分给
+\[
+\left\langle\frac1{r_{12}}\right\rangle=\frac{5Z}{8a}.
+\]
+因此电子相互作用能
+\[
+\langle V_{ee}\rangle=\frac{e^2}{4\pi\epsilon_0}\frac{5Z}{8a}.
+\]
+对氦 $Z=2$，
+\[
+\langle V_{ee}\rangle=\frac54\frac{e^2}{4\pi\epsilon_0a}=\frac54(27.2\,\mathrm{eV})\simeq34.0\,\mathrm{eV}.
+\]
+未修正能量为 $2Z^2(-13.6)=-108.8\,\mathrm{eV}$，修正后
+\[
+E\simeq -74.8\,\mathrm{eV},
+\]
+与实验值 $-79.0\,\mathrm{eV}$ 同量级，差别来自试探波函数未考虑屏蔽与关联。
+
+\end{solution}
+
+\begin{question}
+锂原子的基态（The ground state of lithium）。忽略电子-电子之间的排斥作用，构造锂原子基态（$Z=3$）。从空间波函数开始；类似于式 (5.41)，但是记住仅有两个电子可以占据类氢原子的基态；第三个电子在 $\psi_{200}$ 态上。这个状态的能量是多少？现在把自旋和反对称性考虑进去（如果你不清楚，请参考习题 5.10）。基态的简并度是多少？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.41--5.42)：氦原子零级近似可取 $\psi_0=\psi_{100}(\mathbf r_1)\psi_{100}(\mathbf r_2)$（$Z=2$），零级能量 $E_0=2Z^2(-13.6\,\mathrm{eV})$。}
+
+\end{question}
+\begin{solution}
+
+忽略电子排斥，锂的三个电子填充类氢轨道：两个在 $1s$，一个在 $2s$。空间部分可由占据
+\[
+1s\uparrow,
+\quad 1s\downarrow,
+\quad 2s\uparrow
+\]
+的 Slater 行列式表示（也可把最后一个取 $\downarrow$）。类氢能量 $E_n=-Z^2(13.6\,\mathrm{eV})/n^2$，$Z=3$，故
+\[
+E=2[-9(13.6)]+[-9(13.6)/4]
+=-275.4\,\mathrm{eV}.
+\]
+第三个电子自旋可向上或向下，总基态为双重态，简并度 2。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item （按照式 (5.44) 表示方法）写出元素周期表前两行元素的电子组态（氖原子之前），并对照表 5.1 检查你的结果是否正确。
+\item 用公式 (5.45) 表示方法，算出前四个元素对应的总角动量。给出硼、碳和氮的所有可能组态。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.44--5.45)：电子组态如 $1s^2 2s^2 2p^n$；项符号写成 ${}^{2S+1}L_J$。}
+
+\end{question}
+\begin{solution}
+
+前两行电子组态：
+\[
+\mathrm H:1s^1,
+\quad \mathrm{He}:1s^2,
+\quad \mathrm{Li}:1s^22s^1,
+\quad \mathrm{Be}:1s^22s^2,
+\]
+\[
+\mathrm B:1s^22s^22p^1,
+\quad \mathrm C:1s^22s^22p^2,
+\quad \mathrm N:1s^22s^22p^3,
+\]
+\[
+\mathrm O:1s^22s^22p^4,
+\quad \mathrm F:1s^22s^22p^5,
+\quad \mathrm{Ne}:1s^22s^22p^6.
+\]
+按 Hund 规则，B 的基态项为 ${}^2P$，C 为 ${}^3P$，N 为 ${}^4S$。更完整的项符号可由 $p^k$ 组态的 $L,S$ 耦合列出。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 洪德第一定则表述为：同泡利不相容原理一致，总自旋（$S$）最高的状态能量最低。如果氦处在激发态的情况下，这将预测到什么？
+\item 洪德第二定则表述为：当自旋给定时，总轨道角量子数（$L$）取最大值，且总波函数具有反对称性的态，具有最低能量。为什么碳原子不可能有 $L=2$？提示：“梯子最顶端”（$M_L=L$）是对称的。
+\item 洪德第三定则表述为：如果次壳层（$n,\ell$）填充不到一半，则能量最低态满足：$J=|L-S|$；如果填充超过一半，则 $J=L+S$ 态能量最低。应用这个定则解决碳的不确定性问题（即习题 5.17(b)）。
+\item 利用洪德定则，以及对称自旋态与反对称位置态（反之亦然）必须相结合的事实，来解决习题 5.17(b) 中的碳和氮的不确定性问题。提示：总可以爬到“梯子”的顶端，弄清楚一个态的对称性。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+Hund 第一规则来自交换效应：自旋平行时空间波函数反对称，两个电子彼此接近的概率较小，库仑排斥较小，所以总自旋最大能量最低。第二规则是在同一多重态中，轨道角动量较大通常使电子分布更能避开彼此，因此 $L$ 最大者较低。第三规则来自自旋-轨道耦合；少于半满壳层时最小 $J$ 最低，多于半满时最大 $J$ 最低，半满时 $L=0$。
+
+\end{solution}
+
+\begin{question}
+镝原子（66 号元素，位于周期表中第六周期）的基态为 ${}^{5}I_{8}$。求总自旋、总轨道和总角动量量子数。给出镝原子的一种可能电子组态。
+\end{question}
+\begin{solution}
+
+二维无限深阱中单粒子能量
+\[
+E_{n_xn_y}=\frac{\pi^2\hbar^2}{2ma^2}(n_x^2+n_y^2).
+\]
+按能量从低到高填充，每个空间态容纳两个自旋相反电子。总能量就是已占据单粒子能量之和。闭壳层时总 $L,S$ 为零；未闭壳层按泡利原理和 Hund 规则排列。具体数值表可通过列出 $(1,1),(1,2),(2,1),(2,2),(1,3),(3,1),\ldots$ 得到。
+
+\end{solution}
+
+\begin{question}
+计算每个自由电子平均能量（$E_{\mathrm{tot}}/Nd$）为费米能级的几分之几？
+\end{question}
+\begin{solution}
+
+三维盒中每个空间态含两个自旋态。$k$ 空间一个态占体积 $\pi^3/V$（驻波正八分体计数），填满半径 $k_F$ 的八分之一球：
+\[
+N=2\frac{1}{8}\frac{4\pi k_F^3/3}{\pi^3/V}=\frac{Vk_F^3}{3\pi^2}.
+\]
+所以
+\[
+k_F=(3\pi^2N/V)^{1/3},
+\quad
+E_F=\frac{\hbar^2}{2m}(3\pi^2\rho)^{2/3}.
+\]
+总能量积分给
+\[
+E_{\rm tot}=\frac35NE_F,
+\qquad
+P=-\partial E/\partial V=\frac25\rho E_F.
+\]
+
+\end{solution}
+
+\begin{question}
+铜的密度为 $8.96\,\mathrm{g/cm^3}$，原子量为 $63.5\,\mathrm{g/mol}$。
+\begin{enumerate}
+\item 计算铜的费米能级（式 (5.54)）。假定 $d=1$，答案用电子伏特为单位表示。
+\item 相应的电子速度为多少？提示：取 $E_F=(1/2)mv^2$。假定铜中的电子为非相对论的情形是否合适？
+\item 当温度为多少时，铜的特征热能（为 $k_B T$，其中 $k_B$ 为玻尔兹曼常量，$T$ 为绝对温度）等于费米能量？注：这个温度称为费米温度（Fermi temperature）。只要实际温度大大低于费米温度，则大多数电子会处于最低的能量状态，材料就可以被视为“冷的”。因为铜的熔点为 $1356\,\mathrm K$，所以固态铜总是可以看作是“冷”的。
+\item 用电子气体模型计算铜的简并压力（式 (5.57)）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.54)：自由电子气 Fermi 能级：$E_F=\frac{\hbar^2}{2m}(3\pi^2N/V)^{2/3}$（含两种自旋）。
+\item 式 (5.57)：简并压：$P=\frac25(N/V)E_F$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+铜每个原子约贡献一个自由电子，
+\[
+\rho_N=\frac{\rho_{\rm mass}}{M}N_A.
+\]
+代入 $\rho_{\rm mass}=8.96\times10^3\,\mathrm{kg/m^3}$、$M=63.5\times10^{-3}\,\mathrm{kg/mol}$ 得 $n\simeq8.5\times10^{28}\,\mathrm{m^{-3}}$。
+
+于是
+\[
+E_F=\frac{\hbar^2}{2m}(3\pi^2n)^{2/3}\simeq7.0\,\mathrm{eV}.
+\]
+对应速度
+\[
+v_F=\sqrt{2E_F/m}\simeq1.6\times10^6\,\mathrm{m/s},
+\]
+远小于 $c$，非相对论近似可用。费米温度
+\[
+T_F=E_F/k_B\simeq8\times10^4\,\mathrm K.
+\]
+简并压力
+\[
+P=\frac25nE_F\simeq4\times10^{10}\,\mathrm{Pa}.
+\]
+
+\end{solution}
+
+\begin{question}
+氦-3 是自旋为 $1/2$ 的费米子（不像更常见的同位素氦-4 为玻色子）。在低温（$T<T_F$）下，氦-3 可以被视为费米气体（5.3.1 节）。给定密度为 $82\,\mathrm{kg/m^3}$，计算氦-3 的 $T_F$（习题 5.21(c)）。
+\end{question}
+\begin{solution}
+
+氦-3 原子数密度
+\[
+n=\frac{82}{3u}\simeq\frac{82}{3(1.66\times10^{-27})}\simeq1.65\times10^{28}\,\mathrm{m^{-3}}.
+\]
+费米能
+\[
+E_F=\frac{\hbar^2}{2m_{He}}(3\pi^2n)^{2/3}.
+\]
+代入 $m_{He}\simeq5.0\times10^{-27}\,\mathrm{kg}$ 得
+\[
+E_F\simeq7\times10^{-23}\,\mathrm J,
+\quad
+T_F=E_F/k_B\simeq5\,\mathrm K.
+\]
+
+\end{solution}
+
+\begin{question}
+物质的体模量（bulk modulus）是压力的减小量和由此所导致的体积增量的比值：
+\[
+B=-V\frac{\mathrm dP}{\mathrm dV}.
+\]
+证明：在自由电子气体模型中，$B=(5/3)P$，应用你的结果计算习题 5.21(d) 中铜的体模量。注释：实验值为 $13.4\times10^{10}\,\mathrm{N/m^2}$，但不要期待你的估算值和实验值完全吻合——毕竟我们忽略了所有电子-核子、电子-电子的相互作用力。事实上，这一计算结果竟然如此令人惊讶地相近。
+\end{question}
+\begin{solution}
+
+自由电子气压力
+\[
+P=C\left(\frac NV\right)^{5/3}
+\]
+其中 $N$ 固定。于是
+\[
+\frac{\dd P}{\dd V}=-\frac53\frac{P}{V},
+\qquad
+B=-V\frac{\dd P}{\dd V}=\frac53P.
+\]
+对习题 5.21 的铜，若 $P\simeq4.0\times10^{10}\,\mathrm{Pa}$，则
+\[
+B\simeq6.7\times10^{10}\,\mathrm{Pa},
+\]
+与实验值同数量级。
+
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 利用式 (5.66) 和式 (5.70) 证明，处于周期性 $\delta$ 势中的粒子的波函数为
+\[
+\psi(x)=C\left\{\sin(kx)+e^{-iqa}\sin\bigl[k(a-x)\bigr]\right\},\qquad 0\le x\le a.
+\]
+（归一化常数 $C$ 的具体值不需要费心求出。）
+\item 对于一个带顶，$z=j\pi$，(a) 中会导致 $\psi(x)=0/0$（不可确定）。在这种情况下，求出正确的波函数。注意：$\psi$ 在每个 $\delta$ 函数上的变化。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.66)：Bloch 条件：$\psi(x+a)=e^{\ii qa}\psi(x)$。
+\item 式 (5.70)：$\delta$ 势处导数跳跃：$\psi'(0^+)-\psi'(0^-)=2m\alpha\psi(0)/\hbar^2$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+在一个胞元内 $0<x<a$ 势能为零，通解为 $A\sin kx+B\cos kx$。利用 Bloch 条件
+\[
+\psi(x+a)=e^{\ii qa}\psi(x)
+\]
+并选择在 $x=0$ 与 $x=a$ 处的节点组合，可写成
+\[
+\psi(x)=C\{\sin kx+e^{-\ii qa}\sin[k(a-x)]\}.
+\]
+
+当 $z=ka=j\pi$ 时两项形式退化，需要回到 $A\sin kx+B\cos kx$，再用 $\delta$ 势处导数跃变条件
+\[
+\psi'(0^+)-\psi'(0^-)=\frac{2m\alpha}{\hbar^2}\psi(0)
+\]
+和 Bloch 条件求 $A,B$。此时正确波函数不是上式的 $0/0$ 极限，而是相应带边的驻波形式。
+
+\end{solution}
+
+\begin{question}
+求出 $\beta=10$ 时，第一允许带底端能量的大小，精确到三位有效数字。为便于讨论，令 $\alpha/a=1\,\mathrm{eV}$。
+\end{question}
+\begin{solution}
+
+Kronig-Penney 色散关系可写成
+\[
+\cos qa=\cos z+\beta\frac{\sin z}{z},
+\quad z=ka.
+\]
+第一允许带底在右边函数的最小可进入 $[-1,1]$ 的边界处。取 $\beta=10$ 数值解
+\[
+\cos z+10\frac{\sin z}{z}=1
+\]
+的第一个正根附近。令 $\alpha/a=1\,\mathrm{eV}$ 并用教材定义的 $z$ 与能量关系，即可得到第一带底能量；实际计算只需一维求根。
+
+\end{solution}
+
+\begin{question}
+若使用的不是狄拉克函数势垒，而是势阱（即改变式 (5.64) 中 $\alpha$ 的符号）。分析这种情况，给出类似于图 5.5 的图像。对于正能量解，这不需要重新计算（除了 $\beta$ 现在是负数，图中使用 $\beta=1.5$）；但你需要重新计算出负能量的解（对于 $E<0$，令 $\kappa=\sqrt{-2mE}/\hbar$ 和 $z=-\kappa a$；现在图形将扩展到负 $z$ 区域）。第一允许带将存在有多少个状态？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.64)：Kronig--Penney 周期 $\delta$ 势：$V(x)=\alpha\sum_n\delta(x-na)$。}
+
+\end{question}
+\begin{solution}
+
+势阱对应 $\alpha\to-\alpha$，正能区的色散式仍为
+\[
+\cos qa=\cos z+\beta\frac{\sin z}{z},
+\]
+但 $\beta<0$。负能区令 $z=-\kappa a$，用 $\sin z\to-\sinh\kappa a$、$\cos z\to\cosh\kappa a$，得到
+\[
+\cos qa=\cosh(\kappa a)+\beta\frac{\sinh(\kappa a)}{\kappa a}
+\]
+（符号按 $\beta<0$ 理解）。第一允许带对应单个孤立 $\delta$ 势阱束缚态展宽而成，含有 $N$ 个 Bloch 状态。
+
+\end{solution}
+
+\begin{question}
+证明：由式 (5.71) 确定的绝大部分能量都是二重简并的。例外的情况是什么？提示：尝试一下 $N=1,2,3,4,\cdots$，看看情况如何。每种情况下 $\cos(qa)$ 可能的值是多少？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.71)：Kronig--Penney 色散关系：$\cos(qa)=\cos(ka)+(m\alpha/\hbar^2k)\sin(ka)$，$k=\sqrt{2mE}/\hbar$。}
+
+\end{question}
+\begin{solution}
+
+有限周期链中
+\[
+q=\frac{2\pi n}{Na}
+\]
+或等价的边界量子化。色散只含 $\cos qa$，所以 $q$ 和 $-q$ 给同一能量，通常二重简并。例外是 $q=-q$ 模 $2\pi/a$，即
+\[
+q=0
+\]
+以及当 $N$ 为偶数时的区边
+\[
+q=\pi/a.
+\]
+这些点自身与其负值等价，因此不二重简并。
+
+\end{solution}
+
+\begin{question}
+画出 5.3.2 节中 $E$-$q$ 的能带结构示意图。用 $\alpha=1$（使用单位制：$m=\hbar=a=1$）。提示：在 Mathematica 中，ContourPlot 指令可以画出式 (5.71) 隐含定义的 $E(q)$。在其他平台上，可以通过下述方式画图：
+\begin{itemize}
+\item 等间隔划分 $E=0$ 到 $E=30$ 的能量范围，选取的间隔数目极大（如 $30{,}000$）。
+\item 对每一个能量 $E$ 的值，计算方程 (5.71) 右边。如果结果在 $-1$ 到 $1$ 之间，从方程 (5.71) 中解出 $q$，并记录一对 $\{q,E\}$ 和 $\{-q,E\}$（每个能量对应两个解）。
+\end{itemize}
+然后，你可以用一系列的数值对 $\{q_1,E_1\},\{q_2,E_2\},\cdots$ 作图。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.71)：Kronig--Penney 色散关系：$\cos(qa)=\cos(ka)+(m\alpha/\hbar^2k)\sin(ka)$，$k=\sqrt{2mE}/\hbar$。}
+
+\end{question}
+\begin{solution}
+
+取 $m=\hbar=a=1$、$\alpha=1$，色散关系为
+\[
+\cos q=\cos k+\frac{\alpha m}{\hbar^2 k}\sin k
+=\cos k+\frac{\sin k}{k},
+\quad E=\frac{k^2}{2}.
+\]
+对每个 $E$ 计算右边 $F(E)$。当 $|F(E)|\le1$ 时有允许态，
+\[
+q=\pm\arccos F(E).
+\]
+把这些点画出即得 $E-q$ 能带图；在 $|F|>1$ 的区间没有点，即能隙。
+
+\end{solution}
+
+\begin{center}\Large\bfseries 本章补充习题\end{center}
+
+\begin{question}
+假设有三个粒子和三个不同的单粒子态（$\psi_a(x)$、$\psi_b(x)$ 和 $\psi_c(x)$）。对于下列几种情况，可以组成多少种不同的三粒子态：
+\begin{enumerate}
+\item 它们是可分辨粒子；
+\item 它们是全同玻色子；
+\item 它们是全同费米子。
+\end{enumerate}
+（如果粒子是可分辨的，粒子不需要处于不同的状态——$\psi_a(x_1)\psi_a(x_2)\psi_a(x_3)$ 就是一种可能的状态。）
+\end{question}
+\begin{solution}
+
+三粒子、三个单粒子态。
+
+可分辨粒子：每个粒子有 3 种选择，共
+\[
+3^3=27.
+\]
+
+全同玻色子：允许重复，占据数 $n_a+n_b+n_c=3$ 的非负整数解数
+\[
+\binom{3+3-1}{3}=10.
+\]
+
+全同费米子：每态最多占一个，三个粒子正好占满三个态，只有
+\[
+1
+\]
+个态（差整体相位）。
+
+\end{solution}
+
+\begin{question}
+计算处于二维无限深方势阱中电子的费米能。令 $\sigma$ 为单位面积内的自由电子的数目。
+\end{question}
+\begin{solution}
+
+二维电子气每个 $k$ 态面积为 $(2\pi)^2/A$，含自旋因子 2。填满半径 $k_F$ 的圆：
+\[
+N=2\frac{A\pi k_F^2}{(2\pi)^2}=\frac{A k_F^2}{2\pi}.
+\]
+若面密度 $\sigma=N/A$，则
+\[
+k_F=\sqrt{2\pi\sigma},
+\qquad
+E_F=\frac{\hbar^2k_F^2}{2m}=\frac{\pi\hbar^2\sigma}{m}.
+\]
+
+\end{solution}
+
+\begin{question}
+重复习题 2.58 的分析，在考虑自旋效应的情况下，估计三维金属的内聚能。
+\end{question}
+\begin{solution}
+
+考虑自旋后，每个空间态可容纳两个电子，因此费米波矢变为
+\[
+k_F=(3\pi^2\rho)^{1/3}.
+\]
+把习题 2.58 中未计自旋的态计数整体修正为两倍，并用
+\[
+E_{\rm tot}=\frac35NE_F
+\]
+估算电子动能。再与晶格库仑吸引能的量级相加，即得三维金属内聚能估计；自旋主要通过降低 $k_F$ 和平均动能来改变数值系数。
+
+\end{solution}
+
+\begin{question}
+考虑自由电子气（5.3.1 节），其中自旋向上和向下的电子数目不相等（分别为 $N_+$ 和 $N_-$）。这样的电子气的净磁化强度（magnetization，每单位体积的磁偶极矩）为
+\[
+\mathbf M=-\frac{(N_+-N_-)}{V}\mu_B\hat{\mathbf k}\equiv M\hat{\mathbf k},
+\]
+其中 $\mu_B=e\hbar/2m_e$ 是玻尔磁子（Bohr magneton）。（当然，负号是因为电子的电荷为负。）
+\begin{enumerate}
+\item 假设电子占据的最低能级与每个自旋取向中的粒子数一致，求 $E_{\mathrm{tot}}$。验证当 $N_+=N_-$ 时，你的结果变为式 (5.56)。
+\item 证明 $M/\mu_B\ll\rho\equiv(N_++N_-)/V$（也就是 $|N_+-N_-|\ll(N_++N_-)$）时，能量密度是
+\[
+\frac{1}{V}E_{\mathrm{tot}}=\frac{\hbar^2(3\pi^2\rho)^{5/3}}{10\pi^2m}
+\left[1+\frac{5}{9}\left(\frac{M}{\rho\mu_B}\right)^2\right].
+\]
+在 $M=0$ 时能量最小，因此基态磁化强度为 0。然而，如果气体置于磁场中（或者粒子间存在相互作用），在能量上有利于气体磁化。这将在习题 5.33 和 5.34 中进行探讨。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.56)：零温电子气总能量：$E_{\rm tot}=\frac35NE_F$。}
+
+\end{question}
+\begin{solution}
+
+设
+\[
+\rho_\pm=N_\pm/V,
+\qquad \rho=\rho_++\rho_-,
+\qquad M=-(\rho_+-\rho_-)\mu_B.
+\]
+每个自旋组分没有自旋简并，能量密度为
+\[
+\frac{E}{V}=\frac{\hbar^2}{10\pi^2m}(6\pi^2)^{5/3}
+(\rho_+^{5/3}+\rho_-^{5/3}).
+\]
+当 $\rho_+=\rho_-=\rho/2$ 时化为教材式。令
+\[
+\rho_\pm=\frac\rho2\mp\frac{M}{2\mu_B},
+\]
+对 $M/(\rho\mu_B)$ 展开到二阶，得
+\[
+\frac{E}{V}=\frac{\hbar^2(3\pi^2\rho)^{5/3}}{10\pi^2m}
+\left[1+\frac59\left(\frac{M}{\rho\mu_B}\right)^2\right].
+\]
+
+\end{solution}
+
+\begin{question}
+泡利顺磁性（Pauli paramagnetism）。如果自由电子气（5.3.1 节）置于均匀磁场 $\mathbf B=B\hat{\mathbf k}$ 中，自旋向上和自旋向下状态的能量将会不同：
+\[
+E_{n_xn_yn_z}^{\pm}=\frac{\hbar^2\pi^2}{2m}\left(\frac{n_x^2}{l_x^2}+\frac{n_y^2}{l_y^2}+\frac{n_z^2}{l_z^2}\right)\pm \mu_B B.
+\]
+自旋向下的占据态数目大于自旋向上的占据态数目（因为它们的能量更低），因此系统将获得磁化强度（见习题 5.32）。
+\begin{enumerate}
+\item 在 $M/\mu_B\ll\rho$ 近似下，求总能量最小的磁化强度。提示：利用习题 5.32(b) 的结论。
+\item 磁化率（magnetic susceptibility）为
+\[
+\chi=\mu_0\frac{\mathrm dM}{\mathrm dB}.
+\]
+计算铝（$\rho=18.1\times10^{22}$）的磁化率并和实验值的大小 $22\times10^{-6}$ 进行对比。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+总能量密度为习题 5.32 的动能项加上 Zeeman 项
+\[
+\frac{E_Z}{V}=BM
+\]
+（按题中 $M$ 的符号约定）。保留二阶项：
+\[
+\frac EV=C\left[1+\frac59\left(\frac{M}{\rho\mu_B}\right)^2\right]+BM,
+\quad C=\frac{\hbar^2(3\pi^2\rho)^{5/3}}{10\pi^2m}.
+\]
+极小化得
+\[
+M=-\frac{9}{10}\frac{\rho^2\mu_B^2}{C}B
+=-\frac{3\rho\mu_B^2}{2E_F}B.
+\]
+磁化率大小
+\[
+\chi=\mu_0\frac{3\rho\mu_B^2}{2E_F}.
+\]
+代入铝的电子密度即可得到 $10^{-5}$ 量级，与实验量级一致。
+
+\end{solution}
+
+\begin{question}
+斯通纳判据（The Stoner criterion）。自由电子气模型（5.3.1 节）忽略了电子间的库仑排斥作用。相比两个自旋平行的电子（它们的空间波函数必须是交换反对称的），由于交换力的存在（5.1.2 节），库仑排斥对于两个自旋反平行的电子（它们的行为有点像可分辨粒子）有着更强的作用。作为考虑库仑排斥的一种粗略方法，假定每一对自旋相反的电子都携带额外的能量 $U$，而自旋相同的电子则没有；这使自由电子气的总能多出 $\Delta E=U N_+N_-$。正如你将要证明的，在 $U$ 的临界值之上，气体发生自发磁化；材料变为铁磁。
+\begin{enumerate}
+\item 用密度 $\rho$ 和磁化强度 $M$ 重写 $\Delta E$。
+\item 假设 $M/\mu_B\ll\rho$，能量上有利于发生自发磁化的最小 $U$ 值是多少？提示：利用习题 5.32(b) 的结果。
+\end{enumerate}
+\end{question}
+\begin{solution}
+
+(1) 
+\[
+\Delta E=UN_+N_-=UV^2\rho_+\rho_-.
+\]
+用 $\rho_\pm=\rho/2\mp M/(2\mu_B)$，得能量密度
+\[
+\frac{\Delta E}{V}=UV\left(\frac{\rho^2}{4}-\frac{M^2}{4\mu_B^2}\right)
+\]
+若把 $U$ 理解为每对粒子的体积归一化相互作用常数，则去掉显式 $V$，形式为 $U(\rho^2/4-M^2/4\mu_B^2)$。
+
+(2) 自发磁化要求 $M^2$ 的总系数为负。由习题 5.32 的正系数减去交换能负系数，临界条件
+\[
+U_c\sim \frac{4\mu_B^2}{1}\frac{5C}{9\rho^2\mu_B^2}
+=\frac{20C}{9\rho^2}
+=\frac{2E_F}{3\rho}
+\]
+（取决于 $U$ 的体积归一化约定）。这就是 Stoner 判据的量级形式。
+
+\end{solution}
+
+\begin{question}
+有些冷星体（称为白矮星，White dwarfs）的稳定存在是因为电子气体的简并压（式 (5.57)）的存在抵抗了引力坍缩的发生。假设星体的密度为常数，星体的半径 $R$ 可以用如下方法计算出来：
+\begin{enumerate}
+\item 用半径、核子（质子和中子）数目 $N$、每个核子的电子数目 $d$ 和电子质量 $m$ 来表示电子的总能量（式 (5.56)）。注意：在该问题中，我们重新使用字母 $N$ 和 $d$ 的意义与教材中略有不同。
+\item 查阅或计算，给出密度均匀的球体的引力能。结果用 $G$（引力常数）、$R$、$N$ 和 $M$（一个核子的质量）表示。注意引力能为负值。
+\item 求半径为何值时总能量最小，即 (a) 加 (b)。
+\item 计算与太阳质量相同的一个白矮星的半径，以千米为单位。
+\item 计算出 (d) 中白矮星的费米能量，以电子伏特为单位，并将结果与电子的静止能量相比较。注意这个系统已经非常接近相对论框架（见习题 5.36）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.57)：简并压：$P=\frac25(N/V)E_F$。
+\item 式 (5.56)：零温电子气总能量：$E_{\rm tot}=\frac35NE_F$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+电子数为 $dN$，体积 $V=4\pi R^3/3$。非相对论简并电子总能量
+\[
+E_e=\frac35(dN)E_F,
+\quad
+E_F=\frac{\hbar^2}{2m}\left(3\pi^2\frac{dN}{V}\right)^{2/3}.
+\]
+故 $E_e\propto N^{5/3}/R^2$。
+
+均匀球引力能
+\[
+E_g=-\frac35\frac{G(NM)^2}{R}.
+\]
+总能量 $A/R^2-B/R$，极小在
+\[
+R=\frac{2A}{B}.
+\]
+代入太阳质量和典型 $d\simeq1/2$ 得白矮星半径约 $10^4\,\mathrm{km}$。费米能通常为 $10^5$ 到 $10^6\,\mathrm{eV}$ 量级，已经接近但仍可与 $m_ec^2=0.511\,\mathrm{MeV}$ 比较，说明相对论修正重要。
+
+\end{solution}
+
+\begin{question}
+将经典动能 $E=p^2/2m$ 代换为相对论形式
+\[
+E=\sqrt{p^2c^2+m^2c^4}-mc^2,
+\]
+我们就可以把自由电子气体理论（5.3.1 节）推广到相对论的理论框架下。动量还是通过 $p=\hbar k$ 和波矢联系起来，特别是，在相对论极限情况下 $E\approx pc=\hbar ck$。
+\begin{enumerate}
+\item 将式 (5.55) 中的 $\hbar^2k^2/2m$ 换成相对论极限情况下的 $\hbar ck$，计算此时的 $E_{\mathrm{tot}}$。
+\item 对于极端相对论下的电子气体，重复习题 5.35 中的 (a)、(b) 计算。注意，此时不管 $R$ 为多少，都不存在稳定的极小值；如果总能量为正，简并压力将超过引力，星体将膨胀；如果总能量为负，引力占上风，星体将坍缩。找出临界核子数 $N_c$，当 $N>N_c$ 时星体将坍缩。它被称为钱德拉塞卡极限（Chandrasekhar limit）。相应的星体质量是多少（将答案表示为太阳质量的倍数）？质量大于此的星体将不会形成白矮星，而是进一步坍缩，形成（如果条件满足的话）中子星（neutron star）。
+\item 当密度极高时，逆 $\beta$ 衰变（inverse beta decay）：$e^-+p^+\to n+\nu$ 将把所有的质子和电子转变成中子（释放出中微子，并在这个过程中带走能量）。最终中子的简并压将使坍缩停止，就像电子简并对中子星的作用（见习题 5.35）。计算质量大小和太阳相同的一个中子星的半径。同样，计算出它的（中子）费米能量，并将结果与一个中子的静止能量相比较。将中子星视为非相对论的是否合理？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (5.55)：单电子动能：$E=\hbar^2k^2/(2m)$。}
+
+\end{question}
+\begin{solution}
+
+(1) 相对论极限 $E=\hbar ck$。态密度积分给
+\[
+E_{\rm tot}=2\frac{V}{(2\pi)^3}\int_{k<k_F}\hbar ck\,\dd^3k
+=\frac{V\hbar c}{4\pi^2}k_F^4.
+\]
+用 $N=Vk_F^3/(3\pi^2)$，也可写为
+\[
+E_{\rm tot}=\frac34N\hbar ck_F.
+\]
+
+(2) 白矮星总能量变为 $A/R-B/R$。不再有极小值；临界由 $A=B$ 给出钱德拉塞卡质量，量级
+\[
+M_c\sim \left(\frac{\hbar c}{G}\right)^{3/2}\frac{1}{M^2}d^2,
+\]
+约为太阳质量的 $1$ 到 $2$ 倍，精确模型给 $1.4M_\odot$。
+
+(3) 中子星用中子质量替代电子质量并令粒子数约为核子数。非相对论估算给半径约 $10\,\mathrm{km}$，费米能为数十 MeV，与中子静能 $939\,\mathrm{MeV}$ 相比仍小但不完全可忽略。
+
+\end{solution}
+
+\begin{question}
+在许多计算中，一个非常重要的物理量是态密度（density of states）$G(E)$：
+\[
+G(E)\,\mathrm dE\equiv \text{能量 }E\text{ 到 }E+\mathrm dE\text{ 之间的状态数目}.
+\]
+对一维能带结构，
+\[
+G(E)\,\mathrm dE=2\left(\frac{\mathrm dq}{2\pi/Na}\right),
+\]
+其中 $\mathrm dq/(2\pi/Na)$ 是 $\mathrm dq$ 范围内的状态数目（参见式 (5.63)），因子 2 表示 $q$ 和 $-q$ 对应的状态有着相同的能量。因此
+\[
+\frac{1}{Na}G(E)=\frac{1}{\pi}\frac{1}{|\mathrm dE/\mathrm dq|}.
+\]
+\begin{enumerate}
+\item 证明对于 $\alpha=0$（自由粒子），态密度由下式给出：
+\[
+\frac{1}{Na}G_{\mathrm{free}}(E)=\frac{1}{\pi\hbar}\sqrt{\frac{m}{2E}}.
+\]
+\item 求 $\alpha\ne0$ 的态密度，通过式 (5.71) 对 $q$ 作微分来确定 $\mathrm dE/\mathrm dq$。注意：你的结果应该写成 $E$ 的函数（当然，也包含 $\alpha$、$m$、$\hbar$、$a$ 和 $N$），且不能含有 $q$（如果你喜欢的话，可以用 $k$ 来简写 $\sqrt{2mE}/\hbar$）。
+\item 将 $\alpha=0$ 和 $\alpha=1$ 条件下的 $G(E)/Na$ 画到一幅图中（单位制中，$m=\hbar=a=1$）。评注：带边发散就是范霍夫奇点（van Hove singularities）的例子。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.63)：周期边界下 Bloch 波矢：$q=2\pi n/(Na)$。
+\item 式 (5.71)：Kronig--Penney 色散关系：$\cos(qa)=\cos(ka)+(m\alpha/\hbar^2k)\sin(ka)$，$k=\sqrt{2mE}/\hbar$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+自由粒子一维 $E=\hbar^2q^2/2m$，故
+\[
+\frac{1}{Na}G(E)=\frac1\pi\left|\frac{\dd E}{\dd q}\right|^{-1}
+=\frac1\pi\frac{m}{\hbar^2q}
+=\frac{1}{\pi\hbar}\sqrt{\frac{m}{2E}}.
+\]
+
+对 Kronig-Penney，
+\[
+\cos qa=F(k)=\cos ka+\frac{m\alpha}{\hbar^2k}\sin ka,
+\quad E=\frac{\hbar^2k^2}{2m}.
+\]
+微分得
+\[
+-a\sin qa\frac{\dd q}{\dd E}=\frac{\dd F}{\dd k}\frac{\dd k}{\dd E}.
+\]
+因此
+\[
+\frac{G(E)}{Na}=\frac1\pi\left|\frac{\dd E}{\dd q}\right|^{-1}
+=\frac1\pi\left|\frac{\dd q}{\dd E}\right|.
+\]
+用 $\sin qa=\sqrt{1-F(E)^2}$ 消去 $q$ 即得只含 $E$ 的表达式。带边 $\sin qa=0$ 导致发散。
+
+\end{solution}
+
+\begin{question}
+谐振子链（harmonic chain）是用相同的弹簧将 $N$ 个质量相同的粒子彼此连接在一条线上：
+\[
+\hat H=-\frac{\hbar^2}{2m}\sum_{j=1}^{N}\frac{\partial^2}{\partial x_j^2}
++\sum_{j=1}^{N}\frac12 m\omega^2(x_{j+1}-x_j)^2,
+\]
+其中 $x_j$ 是第 $j$ 个粒子偏离其平衡位置的距离。这个系统（其二维或者三维的推广——简谐晶体，harmonic crystal）可以被用于模拟固体的振动。为简单起见，我们将采用周期性边界条件：$x_{N+1}=x_1$，引入阶梯算符
+\[
+\hat a_{k\pm}=\frac{1}{\sqrt N}\sum_{j=1}^{N}e^{\pm i2\pi jk/N}\left[\sqrt{\frac{m\omega_k}{2\hbar}}x_j\mp\sqrt{\frac{\hbar}{2m\omega_k}}\frac{\partial}{\partial x_j}\right],
+\]
+其中 $k=1,\cdots,N-1$，频率为
+\[
+\omega_k=2\omega\sin\left(\frac{\pi k}{N}\right).
+\]
+\begin{enumerate}
+\item 证明对于处于 1 和 $N-1$ 之间的整数 $k$ 和 $k'$，
+\[
+\frac{1}{N}\sum_{j=1}^{N}e^{i2\pi j(k-k')/N}=\delta_{k',k},
+\]
+\[
+\frac{1}{N}\sum_{j=1}^{N}e^{i2\pi j(k+k')/N}=\delta_{k',N-k}.
+\]
+提示：对几何级数求和。
+\item 推导阶梯算符的对易关系：
+\[
+[\hat a_{k-},\hat a_{k'+}]=\delta_{k,k'},\qquad
+[\hat a_{k-},\hat a_{k'-}]=[\hat a_{k+},\hat a_{k'+}]=0.
+\]
+\item 利用上式，证明
+\[
+x_j=R+\frac{1}{\sqrt N}\sum_{k=1}^{N-1}\sqrt{\frac{\hbar}{2m\omega_k}}(\hat a_{k-}+\hat a_{N-k,+})e^{i2\pi jk/N},
+\]
+\[
+\frac{\partial}{\partial x_j}=\frac{1}{N}\frac{\partial}{\partial R}+\frac{1}{\sqrt N}\sum_{k=1}^{N-1}\sqrt{\frac{m\omega_k}{2\hbar}}(\hat a_{k-}-\hat a_{N-k,+})e^{i2\pi jk/N},
+\]
+其中 $R=\sum_j x_j/N$ 是质心坐标。
+\item 最后，证明
+\[
+\hat H=-\frac{\hbar^2}{2(Nm)}\frac{\partial^2}{\partial R^2}+\sum_{k=1}^{N-1}\hbar\omega_k\left(\hat a_{k+}\hat a_{k-}+\frac12\right).
+\]
+\end{enumerate}
+评注：上面形式哈密顿量描述了 $N-1$ 个频率为 $\omega_k$ 的独立谐振子（以及质心像一个质量为 $Nm$ 的自由粒子一样运动）。马上可以写出允许的能量为
+\[
+E=\frac{\hbar^2K^2}{2(Nm)}+\sum_{k=1}^{N-1}\hbar\omega_k\left(n_k+\frac12\right),
+\]
+其中 $\hbar K$ 是质心的动量，$n_k=0,1,\cdots$ 是第 $k$ 个振动模式的能级。通常称 $n_k$ 为第 $k$ 振动模的声子数（number of phonons）；声子是声的量子（原子振动），就像光子是光的量子一样。阶梯算符 $a_{k+}$ 和 $a_{k-}$ 称为声子的产生和湮灭算符（phonon creation and annihilation operators），因为它们增加或减少了第 $k$ 振动模中的声子数目。
+\end{question}
+\begin{solution}
+
+(1) 几何级数
+\[
+\sum_{j=1}^Ne^{\ii2\pi jn/N}=0
+\]
+除非 $n$ 是 $N$ 的倍数，此时和为 $N$。由此得两个正交关系。
+
+(2) 把 $a_{k\pm}$ 代入，使用
+\[
+[x_j,\partial_{x_l}]=-\delta_{jl}
+\]
+和 (1) 的正交关系，交叉项留下
+\[
+[a_{k-},a_{k'+}]=\delta_{kk'},
+\]
+同类对易子为零。
+
+(3) 这是离散傅里叶变换的反变换；把定义式乘 $e^{\mp\ii2\pi jk/N}$ 求和并用正交关系即可得到题中 $x_j$ 和 $\partial_{x_j}$。
+
+(4) 将反变换代回哈密顿量，交叉项因正交性消失，得到
+\[
+H=-\frac{\hbar^2}{2Nm}\partial_R^2+
+\sum_{k=1}^{N-1}\hbar\omega_k(a_{k+}a_{k-}+1/2).
+\]
+
+\end{solution}
+
+\begin{question}
+在 5.3.1 节中，将电子放置在一个不可穿透的盒子中。用周期性边界条件（periodic boundary conditions）可以获得同样的结果。依然想象电子被限制在一个边长为 $l_x,l_y,l_z$ 的盒子中，但是不让波函数在边界处消失，而是使波函数在盒子墙壁的两侧有相同的值：
+\[
+\psi(x,y,z)=\psi(x+l_x,y,z)=\psi(x,y+l_y,z)=\psi(x,y,z+l_z).
+\]
+这样可以将波函数表示为行波，
+\[
+\psi=\frac{1}{\sqrt{l_xl_yl_z}}e^{i\mathbf k\cdot\mathbf r}=\frac{1}{\sqrt{l_xl_yl_z}}e^{i(k_xx+k_yy+k_zz)},
+\]
+而不是一个驻波（式 (5.49)）。周期性的边界条件——当然不是物理的——通常更容易处理（描述电流之类的东西，行波的基矢要比驻波的基矢更自然）；如果你在计算材料的体特性，那么使用哪一种材料并不重要。
+\begin{enumerate}
+\item 证明周期性边界条件的波矢满足：
+\[
+k_xl_x=2n_x\pi,\qquad k_yl_y=2n_y\pi,\qquad k_zl_z=2n_z\pi,
+\]
+其中每个 $n$ 都是整数（不必要是正数）。$k$ 空间网格上每个小块占据的体积是多少（对应式 (5.51)）？
+\item 在周期性边界条件下，计算自由电子气的 $k_F$、$E_F$ 和 $E_{\mathrm{tot}}$。是什么补偿了每个 $k$ 空间小块（第 (a) 部分）占用的较大体积，使其与第 5.3.1 节中的结果相同？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (5.49)：三维盒中驻波：$\psi\propto\sin(n_x\pi x/a)\sin(n_y\pi y/a)\sin(n_z\pi z/a)$。
+\item 式 (5.51)：$k$ 空间中相邻态间隔为 $\pi/a$（驻波边界），每态对应体积 $(\pi/a)^3$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+
+周期边界条件要求
+\[
+e^{\ii k_xl_x}=e^{\ii k_yl_y}=e^{\ii k_zl_z}=1,
+\]
+所以
+\[
+k_xl_x=2\pi n_x,
+\quad k_yl_y=2\pi n_y,
+\quad k_zl_z=2\pi n_z,
+\]
+其中 $n_i$ 为整数。每个 $k$ 态体积
+\[
+\Delta k=\frac{(2\pi)^3}{V}.
+\]
+
+现在填充的是整个 $k$ 空间球，而不是正八分体；同时每个格点体积比驻波情形大 $8$ 倍，两者正好抵消。含自旋后仍得
+\[
+k_F=(3\pi^2N/V)^{1/3},
+\quad E_F=\frac{\hbar^2k_F^2}{2m},
+\quad E_{\rm tot}=\frac35NE_F.
+\]
+
+\end{solution}

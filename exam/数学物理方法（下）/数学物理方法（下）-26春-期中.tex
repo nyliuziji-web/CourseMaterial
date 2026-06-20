@@ -1,4 +1,4 @@
-\heading{数学物理方法（下）-26春-期中}
+﻿\heading{数学物理方法（下）-26春-期中}
 \noteinfo{题目来源于考后回忆，答案由AI生成。}
 
 \begin{question}[一维杆热传导方程]
@@ -8,17 +8,11 @@
 
 \begin{solution}
 
+
 设杆的横截面积为 $S$，截面周长为 $l$，热导率为 $\kappa$，密度为 $\rho$，比热为 $c$。
-对杆上 $[x,\,x+\dd x]$ 微段作能量平衡：
-
-\begin{itemize}
-  \item 单位时间内通过热传导净流入：$\displaystyle \kappa\,\frac{\partial^{2} u}{\partial x^{2}}\,S\,\dd x$；
-  \item 单位时间内内部发热：$\alpha\,u(\beta-u)\,S\,\dd x$；
-  \item 单位时间内表面散热：$-q(x,t)\,l\,\dd x$（散热指向外，故取负号）；
-  \item 内能增加率：$\displaystyle \rho c\,\frac{\partial u}{\partial t}\,S\,\dd x$。
-\end{itemize}
-
-由能量守恒得
+对 $[x,\,x+\dd x]$ 微段作能量平衡：热传导净流入 $\kappa\,u_{xx}\,S\,\dd x$，
+内部发热 $\alpha\,u(\beta-u)\,S\,\dd x$，表面散热 $-q(x,t)\,l\,\dd x$，
+内能增加率 $\rho c\,u_t\,S\,\dd x$。由能量守恒消去 $S\,\dd x$，得
 \[
 \rho c\,\frac{\partial u}{\partial t}\,S\,\dd x
 = \kappa\,\frac{\partial^{2} u}{\partial x^{2}}\,S\,\dd x
@@ -184,9 +178,10 @@ Y_{m}(y) =
 \lambda_{n,m} = \Bigl(\frac{n\pi}{2a}\Bigr)^{\!2} + \Bigl(\frac{m\pi}{2b}\Bigr)^{\!2},
 \qquad n=1,2,3,\dots,\; m=0,1,2,\dots,
 }
-\[
+\ansmath{
+
 u_{n,m}(x,y) = X_{n}(x)\,Y_{m}(y).
-\]
+}
 
 \end{solution}
 \end{question}
@@ -243,11 +238,11 @@ u(r,t) = \frac{1}{2r}\bigl[(r+at)\,\psi(r+at) + (r-at)\,\psi(r-at)\bigr]
 + \frac{1}{2ar}\int_{r-at}^{r+at} s\,\phi(s)\,\dd s,
 \qquad r > at,
 }
-\[
+\ansmath{
 u(r,t) = \frac{1}{2r}\bigl[(r+at)\,\psi(r+at) - (at-r)\,\psi(at-r)\bigr]
 + \frac{1}{2ar}\int_{at-r}^{r+at} s\,\phi(s)\,\dd s,
 \qquad r < at,
-\]
+}
 其中利用了 $\tilde\psi(r-at) = -(at-r)\,\psi(at-r)$（当 $r<at$）的奇延拓性质。
 
 该解即三维波动方程球对称情形的 Poisson 公式。
@@ -264,72 +259,69 @@ u(r,t) = \frac{1}{2r}\bigl[(r+at)\,\psi(r+at) - (at-r)\,\psi(at-r)\bigr]
 
 \begin{solution}
 
-设弦的位移为 $u(x,t)$，张力 $T$，线密度 $\rho$，波速 $c^{2}=T/\rho$。
-弦的运动方程为
+设弦位移 $u(x,t)$，波速 $c^2=T/\rho$，运动方程为
 \[
-u_{tt} + 2\beta\,u_{t} = c^{2}\,u_{xx},\qquad 0 < x < l,\; t>0.
-\]
-
-定解条件：
-\[
-u(0,t)=0,\quad u(l,t)=h(t)\;\;(\text{右端周期性驱动}),\qquad
-u(x,0)=0,\quad u_{t}(x,0)=0.
-\]
-
-\textbf{步骤 1：边界齐次化。}
-令 $u(x,t) = v(x,t) + w(x,t)$，其中 $w(x,t) = \dfrac{x}{l}\,h(t)$ 吸收非齐次边界。
-
-代入方程，$w_{xx}=0$，得 $v$ 满足
-\[
-v_{tt} + 2\beta\,v_{t} = c^{2}\,v_{xx} - \frac{x}{l}\bigl(h''(t)+2\beta\,h'(t)\bigr),
+u_{tt}+2\beta u_t = c^2 u_{xx},\qquad 0<x<l,\;t>0,
 \]
 \[
-v(0,t)=v(l,t)=0,\qquad
-v(x,0)=-\frac{x}{l}h(0),\quad
-v_{t}(x,0)=-\frac{x}{l}h'(0).
+u(0,t)=0,\quad u(l,t)=h(t),\qquad
+u(x,0)=0,\quad u_t(x,0)=0.
 \]
 
-\textbf{步骤 2：本征函数展开。}
-将 $v$ 按满足齐次边界条件的本征函数 $\sin(n\pi x/l)$ 展开：
+令 $u=v+\dfrac{x}{l}h(t)$ 吸收非齐次边界，得
 \[
-v(x,t) = \sum_{n=1}^{\infty} v_{n}(t)\,\sin\frac{n\pi x}{l}.
+v_{tt}+2\beta v_t = c^2 v_{xx}-\dfrac{x}{l}(h''+2\beta h'),\quad
+v(0,t)=v(l,t)=0,
 \]
-
-右端源项的 Fourier 正弦系数（利用 $\int_{0}^{l}\frac{x}{l}\sin\frac{n\pi x}{l}\dd x
-= \frac{(-1)^{n+1}l}{n\pi}$）：
 \[
-g_{n}(t) = -\frac{(-1)^{n+1}}{n\pi}\,2l\,\bigl(h''(t)+2\beta\,h'(t)\bigr).
+v(x,0)=-\dfrac{x}{l}h(0),\quad v_t(x,0)=-\dfrac{x}{l}h'(0).
 \]
 
-初值展开系数：$v_{n}(0)=-\dfrac{(-1)^{n+1}}{n\pi}\,2l\,h(0)$，
-$v_{n}'(0)=-\dfrac{(-1)^{n+1}}{n\pi}\,2l\,h'(0)$。
-
-\textbf{步骤 3：求解各模态方程。}
-令 $\omega_{n}=n\pi c/l$，每个 $v_{n}(t)$ 满足
+将 $v$ 按本征函数 $\sin\dfrac{n\pi x}{l}$ 展开，令 $\omega_n=n\pi c/l$，
+模态方程为
 \[
-v_{n}'' + 2\beta\,v_{n}' + \omega_{n}^{2}\,v_{n} = g_{n}(t).
+v_n''+2\beta v_n'+\omega_n^2 v_n = g_n(t),\qquad
+g_n(t)=-\frac{2l(-1)^{n+1}}{n\pi}\bigl(h''+2\beta h'\bigr).
 \]
-
-这是受迫阻尼谐振子方程。齐次解为（设 $\beta<\omega_{n}$，即欠阻尼情形）：
+齐次解（欠阻尼 $\beta<\omega_n$）：
 \[
-v_{n}^{(h)}(t) = \ee^{-\beta t}\bigl(A_{n}\cos\tilde\omega_{n}t + B_{n}\sin\tilde\omega_{n}t\bigr),
-\qquad \tilde\omega_{n} = \sqrt{\omega_{n}^{2}-\beta^{2}}.
+v_n^{(h)}(t)=\ee^{-\beta t}\bigl(A_n\cos\tilde\omega_n t+B_n\sin\tilde\omega_n t\bigr),\quad
+\tilde\omega_n=\sqrt{\omega_n^2-\beta^2},
 \]
+系数由初值 $v_n(0),v_n'(0)$ 确定。
 
-特解可由 Duhamel 积分或直接求解得到。最终 $u(x,t) = \dfrac{x}{l}h(t) + \sum_{n} v_{n}(t)\sin\frac{n\pi x}{l}$。
-
-\textbf{步骤 4：周期性驱动特例。}
-若 $h(t)=A\sin\Omega t$，则 $g_{n}(t)$ 为 $\sin\Omega t$ 和 $\cos\Omega t$ 的线性组合。
-此时 $v_{n}(t)$ 的稳态解为同频率的正弦振动，振幅由
+\noindent\textbf{周期性驱动：} 若 $h(t)=A\sin\Omega t$，则
+$g_n(t)=D_n(\Omega^2\sin\Omega t-2\beta\Omega\cos\Omega t)$，
+其中 $D_n=2lA(-1)^{n+1}/(n\pi)$。
+设 $v_n^{(p)}=\operatorname{Re}[V_n\ee^{\ii\Omega t}]$，代入得
 \[
-|Z_{n}| = \frac{1}{\sqrt{(\omega_{n}^{2}-\Omega^{2})^{2}+(2\beta\Omega)^{2}}}
+V_n(\omega_n^2-\Omega^2+2\ii\beta\Omega)
+= -D_n\Omega(2\beta+\ii\Omega)
+\;\Longrightarrow\;
+V_n = -\frac{D_n\Omega(2\beta+\ii\Omega)}
+{\omega_n^2-\Omega^2+2\ii\beta\Omega}.
 \]
-决定。经过瞬态衰减后，弦的运动趋于以驱动频率 $\Omega$ 的稳态振动。
+稳态解为
+\ansmath{
+v_n^{(p)}(t)= -D_n\Omega\,
+\operatorname{Re}\!\left[
+\frac{(2\beta+\ii\Omega)\,\ee^{\ii\Omega t}}
+{\omega_n^2-\Omega^2+2\ii\beta\Omega}
+\right],
+}
+其显式形式为
+\[
+v_n^{(p)}(t)=\frac{D_n}{\Delta_n}\Bigl[
+\Omega^2(\omega_n^2-\Omega^2-4\beta^2)\sin\Omega t
+-2\beta\Omega\omega_n^2\cos\Omega t
+\Bigr],
+\]
+其中 $\Delta_n=(\omega_n^2-\Omega^2)^2+(2\beta\Omega)^2$。
 
 \ansmath{
-u(x,t) = \frac{x}{l}\,h(t) + \sum_{n=1}^{\infty} v_{n}(t)\,\sin\frac{n\pi x}{l},
+u(x,t)=\frac{x}{l}h(t)+\sum_{n=1}^\infty
+\bigl[v_n^{(h)}(t)+v_n^{(p)}(t)\bigr]\sin\frac{n\pi x}{l}.
 }
-其中各 $v_{n}(t)$ 由上述受迫阻尼谐振子方程确定。
 
 \end{solution}
 \end{question}
@@ -398,10 +390,7 @@ u(x,y) = \frac{a^{2}}{2}
 - \frac{x^{2} - y^{2}}{2}.
 }
 
-验证：$\nabla^{2}u = \nabla^{2}\bigl[-\frac{x}{8}(a^{2}-x^{2}-y^{2})\bigr] = x$（因 $\nabla^{2}(x^{3})=6x$，$\nabla^{2}(xy^{2})=2x$），
-且在边界 $x^{2}+y^{2}=a^{2}$ 上，第一项 $a^{2}/2$，第二项为零，第三项 $-(x^{2}-y^{2})/2$，
-合起来 $u=a^{2}/2-(x^{2}-y^{2})/2=x^{2}+y^{2}/2-(x^{2}-y^{2})/2=y^{2}$。完全满足。
-
+可以验证解满足方程与边界条件。
 \end{solution}
 \end{question}
 

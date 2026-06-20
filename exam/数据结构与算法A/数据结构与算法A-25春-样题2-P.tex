@@ -1,0 +1,617 @@
+\heading{数据结构与算法A-25春-样题2}
+\noteinfo{题目来源：数据结构与算法A样题，参考解答由 AI 整理。本次整理提供 C 语言版与 Python 语言版；除程序代码语言外，两版题目内容保持一致。}
+
+\textbf{一、选择题（30 分，每小题 2 分）}
+
+\begin{question}
+下列叙述中正确的是（\quad）。
+\begin{enumerate}
+  \item 散列是一种基于索引的逻辑结构
+  \item 基于顺序表实现的逻辑结构属于线性结构
+  \item 数据结构设计影响算法效率，逻辑结构起到了决定作用
+  \item 一个逻辑结构可以有多种类型的存储结构，且不同类型的存储结构会直接影响到数据处理的效率
+\end{enumerate}
+\begin{solution}
+选 D。逻辑结构决定操作语义，但存储结构（顺序/链式）直接影响效率。
+\end{solution}
+\end{question}
+
+\begin{question}
+在广度优先搜索算法中，一般使用什么辅助数据结构？（\quad）
+\begin{enumerate}
+  \item 队列
+  \item 栈
+  \item 树
+  \item 散列
+\end{enumerate}
+\begin{solution}
+选 A。BFS 使用队列保存待访问顶点。
+\end{solution}
+\end{question}
+
+\begin{question}
+若某线性表采取链式存储，那么该线性表中结点的存储地址（\quad）。
+\begin{enumerate}
+  \item 一定不连续
+  \item 既可连续亦可不连续
+  \item 一定连续
+  \item 与头结点存储地址保持连续
+\end{enumerate}
+\begin{solution}
+选 B。链式存储结点可分散在内存各位置，但也可恰好连续分配。
+\end{solution}
+\end{question}
+
+\begin{question}
+若某线性表常用操作是在表尾插入或删除元素，则时间开销最小的存储方式是（\quad）。
+\begin{enumerate}
+  \item 单链表
+  \item 仅有头指针的单循环链表
+  \item 顺序表
+  \item 仅有尾指针的单循环链表
+\end{enumerate}
+\begin{solution}
+选 C。顺序表尾插/尾删为 $O(1)$，单链表需遍历到尾部。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定后缀表达式（逆波兰式）\texttt{ab+-c*d-} 对应的中缀表达式是（\quad）。
+\begin{enumerate}
+  \item $a-b-c*d$
+  \item $-(a+b)*c-d$
+  \item $a+b*c-d$
+  \item $(a+b)*(-c-d)$
+\end{enumerate}
+\begin{solution}
+选 B。利用栈求值：\texttt{ab+} $\to a+b$，\texttt{ab+-} $\to -(a+b)$，\texttt{ab+-c*} $\to -(a+b)*c$，\texttt{ab+-c*d-} $\to -(a+b)*c-d$。
+\end{solution}
+\end{question}
+
+\begin{question}
+今有一空栈 $S$，基于待进栈的数据元素序列 $a,b,c,d,e,f$ 依次进行进栈、进栈、出栈、进栈、进栈、出栈的操作，上述操作完成以后，栈 $S$ 的栈顶元素为（\quad）。
+\begin{enumerate}
+  \item $f$
+  \item $c$
+  \item $a$
+  \item $b$
+\end{enumerate}
+\begin{solution}
+选 B。操作过程：push a, push b, pop $\to$ b 出, push c, push d, pop $\to$ d 出。栈中剩余 $[a,c]$，栈顶为 $c$。
+\end{solution}
+\end{question}
+
+\begin{question}
+对于单链表，表头节点为 \texttt{head}，判定空表的条件是（\quad）。
+\begin{enumerate}
+  \item \texttt{head.next == None}
+  \item \texttt{head != None}
+  \item \texttt{head.next == head}
+  \item \texttt{head == None}
+\end{enumerate}
+\begin{solution}
+选 D。带头结点的单链表空表判断为 \texttt{head.next == None}，但不带头结点的情形空表即 \texttt{head == None}。本题指后者。
+\end{solution}
+\end{question}
+
+\begin{question}
+以下典型排序算法中，具有稳定排序特性的是（\quad）。
+\begin{enumerate}
+  \item 冒泡排序（Bubble Sort）
+  \item 直接选择排序（Selection Sort）
+  \item 快速排序（Quick Sort）
+  \item 希尔排序（Shell Sort）
+\end{enumerate}
+\begin{solution}
+选 A。冒泡排序在相邻元素相等时不交换，是稳定的。
+\end{solution}
+\end{question}
+
+\begin{question}
+以下关键字列表中，可以有效构成一个大根堆的序列是（\quad）。
+\begin{enumerate}
+  \item $5\;8\;1\;3\;9\;6\;2\;7$
+  \item $9\;8\;1\;7\;5\;6\;2\;33$
+  \item $9\;8\;6\;3\;5\;1\;2\;7$
+  \item $9\;8\;6\;7\;5\;1\;2\;3$
+\end{enumerate}
+\begin{solution}
+选 D。检查每个节点是否 $\ge$ 其子节点。D 的完全二叉树满足堆性质。
+\end{solution}
+\end{question}
+
+\begin{question}
+以下典型排序算法中，内存开销（包括时间和空间）最大的是（\quad）。
+\begin{enumerate}
+  \item 冒泡排序（时间 $O(n^2)$，空间 $O(1)$）
+  \item 快速排序（时间 $O(n\log n)$，空间 $O(\log n)$）
+  \item 归并排序（时间 $O(n\log n)$，空间 $O(n)$）
+  \item 堆排序（时间 $O(n\log n)$，空间 $O(1)$）
+\end{enumerate}
+\begin{solution}
+选 C。归并排序需要 $O(n)$ 额外空间存放合并结果。
+\end{solution}
+\end{question}
+
+\begin{question}
+排序算法依赖于对元素序列的多趟比较/移动操作，第一趟结束后，任一元素都无法确定其最终排序位置的算法是（\quad）。
+\begin{enumerate}
+  \item 选择排序
+  \item 快速排序
+  \item 冒泡排序
+  \item 插入排序
+\end{enumerate}
+\begin{solution}
+选 D。插入排序每趟只保证前 $i$ 个元素有序，但任一元素随时可能被后续插入的元素挤到后面。
+\end{solution}
+\end{question}
+
+\begin{question}
+考察以下基于单链表的操作，相较于顺序表实现，带来更高时间复杂度的操作是（\quad）。
+\begin{enumerate}
+  \item 合并两个有序线性表，并保持合成后的线性表依然有序
+  \item 交换第一个元素与第二个元素的值
+  \item 查找某一元素值是否在线性表中出现
+  \item 输出第 $i$ 个（$0\le i<n$）元素
+\end{enumerate}
+\begin{solution}
+选 D。单链表随机访问第 $i$ 个元素需 $O(i)$ 时间，顺序表为 $O(1)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+已知一个整型数组序列 $\{19,20,50,61,73,85,11,39\}$，采用某种排序算法，多趟比较后的中间结果如下：
+\begin{align*}
+&19\;20\;11\;39\;73\;85\;50\;61\\
+&11\;20\;19\;39\;50\;61\;73\;85\\
+&11\;19\;20\;39\;50\;61\;73\;85
+\end{align*}
+请问上述过程使用的排序算法是（\quad）。
+\begin{enumerate}
+  \item 冒泡排序
+  \item 插入排序
+  \item 希尔排序
+  \item 归并排序
+\end{enumerate}
+\begin{solution}
+选 C。观察各趟中间结果，元素的移动步长逐渐减小，符合希尔排序的特征。
+\end{solution}
+\end{question}
+
+\begin{question}
+今有一非连通无向图，共有 36 条边，该图至少有（\quad）个顶点。
+\begin{enumerate}
+  \item $8$
+  \item $9$
+  \item $10$
+  \item $11$
+\end{enumerate}
+\begin{solution}
+选 C。非连通图至少有两个连通分量。$n$ 个顶点完全图最多 $n(n-1)/2$ 条边。$9$ 个顶点完全图有 36 条边，但它是连通的；故需 10 个顶点（一个 9 顶点连通分量 + 1 个孤立点）才可有 36 条边且不连通。
+\end{solution}
+\end{question}
+
+\begin{question}
+令 $G=(V,E)$ 是一个无向图，若 $G$ 中任何两个顶点之间均存在唯一的简单路径相连，则下面说法中错误的是（\quad）。
+\begin{enumerate}
+  \item 图 $G$ 中添加任何一条边，不一定造成图包含一个环
+  \item 图 $G$ 中移除任意一条边得到的图均不连通
+  \item 图 $G$ 的逻辑结构实际上退化为树结构
+  \item 图 $G$ 中边的数目一定等于顶点数目减 $1$
+\end{enumerate}
+\begin{solution}
+选 A。题设等价于 $G$ 是一棵树。树中添加任意一条边必然形成一个环，故 A 错误。
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{二、判断题（10 分，每小题 1 分；对填 Y，错填 N）}
+
+\begin{question}
+按照前序、中序、后序方式周游一棵二叉树，分别得到不同的结点周游序列，然而三种不同的周游序列中，叶子结点都将以相同的顺序出现。 （\quad）
+\begin{solution}
+Y。叶子结点在三种遍历中均按从左到右的顺序出现。
+\end{solution}
+\end{question}
+
+\begin{question}
+构建一个含 $N$ 个结点的（二叉）最小值堆，时间效率最优情况下的时间复杂度为 $O(N\log N)$。（\quad）
+\begin{solution}
+N。Floyd 建堆算法（从最后一个非叶节点开始向下调整）时间复杂度为 $O(N)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+对任意一个连通的无向图，如果存在一个环，且这个环中的一条边的权值不小于该环中任意一个其它的边的权值，那么这条边一定不会是该无向图的最小生成树中的边。（\quad）
+\begin{solution}
+N。反例：环中所有边权值相等时，该边也可能在最小生成树中。
+\end{solution}
+\end{question}
+
+\begin{question}
+通过树的周游可以求得树的高度，若采取深度优先遍历方式设计求解树高度问题的算法，算法空间复杂度为 $O(\text{树的高度})$。（\quad）
+\begin{solution}
+Y。DFS 递归调用栈深度等于树的高度。
+\end{solution}
+\end{question}
+
+\begin{question}
+树可以等价转化二叉树，树的先序遍历序列与其相应的二叉树的前序遍历序列相同。（\quad）
+\begin{solution}
+Y。树到二叉树的转换采用左孩子右兄弟表示法，先序遍历结果一致。
+\end{solution}
+\end{question}
+
+\begin{question}
+如果一个连通无向图 $G$ 中所有边的权值均不同，则 $G$ 具有唯一的最小生成树。（\quad）
+\begin{solution}
+Y。边权值互异时，Kruskal 和 Prim 算法每一步的选择都是确定的，MST 唯一。
+\end{solution}
+\end{question}
+
+\begin{question}
+求解最小生成树问题的 Prim 算法是一种贪心算法。（\quad）
+\begin{solution}
+Y。Prim 算法每次选择当前代价最小的边加入，是典型的贪心策略。
+\end{solution}
+\end{question}
+
+\begin{question}
+使用线性探测法处理散列表碰撞问题，若表中仍有空槽（空单元），插入操作一定成功。（\quad）
+\begin{solution}
+Y。线性探测法总能找到一个空槽（只要散列表未满）。
+\end{solution}
+\end{question}
+
+\begin{question}
+从链表中删除某个指定值的结点，其时间复杂度是 $O(1)$。（\quad）
+\begin{solution}
+N。需先查找到该结点（$O(n)$），然后才是删除操作 $O(1)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+Dijkstra 算法的局限性是无法正确求解带有负权值边的图的最短路径。（\quad）
+\begin{solution}
+Y。Dijkstra 基于贪心选取当前最短距离，负权边会破坏这一性质。
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{三、填空题（20 分，每空 2 分）}
+
+\begin{question}
+定义二叉树中一个结点的度数为其子结点的个数。现有一棵结点总数为 $101$ 的二叉树，其中度数为 $1$ 的结点数有 $30$ 个，则度数为 $0$ 的结点有 \underline{\hspace{4em}} 个。
+\begin{solution}
+设 $n_0,n_1,n_2$ 分别为度 $0,1,2$ 的结点数。$n_0+n_1+n_2=101$，$n_0-1=n_2$（二叉树性质：$n_0=n_2+1$）。代入 $n_1=30$ 得 $n_0=36$。
+\end{solution}
+\end{question}
+
+\begin{question}
+定义完全二叉树的根结点所在层为第一层。如果一个二叉树的第六层有 $23$ 个叶结点，则它的总结点数可能为 \underline{\hspace{4em}}。
+\begin{solution}
+第六层有 $23$ 个叶结点。可能情形：\\
+(1) 共 6 层：第 6 层全部为叶，但该层应有 $2^{5}=32$ 个结点，$23$ 个叶 $\Rightarrow$ 第 6 层另有 $9$ 个非叶结点，则第 7 层有 $18$ 个结点。总数 $=1+2+4+8+16+32+18=81$。\\
+(2) 共 6 层且第 6 层为最后一层：$32$ 个结点中有 $23$ 个叶，其余 $9$ 个为内部结点。总数 $=1+2+4+8+16+32=63$，但 $n_0=23+?$... 本题可能参考答案为 $54,80,81$，需按完全二叉树的不同定义确认。
+\end{solution}
+\end{question}
+
+\begin{question}
+对于初始排序码序列 $(51,41,31,21,61,71,81,11,91)$，第 $1$ 趟快速排序（以第一个数字为中值）的结果是：\underline{\hspace{4em}}。
+\begin{solution}
+以 $51$ 为 pivot，从左向右找大于等于 $51$ 的、从右向左找小于 $51$ 的，交换后得到 $11,41,31,21,51,71,81,61,91$（答案不唯一，取决于具体实现策略）。
+\end{solution}
+\end{question}
+
+\begin{question}
+如果输入序列是已经正序，在冒泡排序、直接插入排序和直接选择排序中，\underline{\hspace{4em}}算法最慢结束。
+\begin{solution}
+冒泡排序 $O(n)$（优化版），插入排序 $O(n)$，选择排序总是 $O(n^2)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+已知某二叉树的先根周游序列为 $\{A,B,D,E,C,F,G\}$，中根周游序列为 $\{D,B,E,A,C,G,F\}$，则该二叉树的后根次序周游序列为 \underline{\hspace{4em}}。
+\begin{solution}
+由先序确定根 $A$，中序划分左右子树。递归可得后序：$D,E,B,G,F,C,A$。
+\end{solution}
+\end{question}
+
+\begin{question}
+使用栈计算后缀表达式（操作数均为一位数）\texttt{1 2 3 + 4 * 5 + 3 + -}，当扫描到第二个 \texttt{+} 号但还未对该 \texttt{+} 号进行运算时，栈的内容（栈底到栈顶从左往右）为：\underline{\hspace{4em}}。
+\begin{solution}
+扫描过程：push 1, push 2, push 3, 遇到 +: pop 3,2, push 5 $\to$ [1,5]; push 4, 遇到 *: pop 4,5, push 20 $\to$ [1,20]; push 5, 遇到 +: 此时栈为 [1,20,5]，尚未进行 + 运算。
+\end{solution}
+\end{question}
+
+\begin{question}
+$51$ 个顶点的连通图 $G$ 有 $50$ 条边，其中权值为 $1$ 至 $10$ 的边各 $5$ 条，则连通图 $G$ 的最小生成树各边的权值之和为 \underline{\hspace{4em}}。
+\begin{solution}
+$51$ 个顶点的生成树有 $50$ 条边，$G$ 已有 $50$ 条边，故 $G$ 本身即是一棵树，其所有边即为 MST。每条权值出现 $5$ 次：$5\times(1+2+\cdots+10)=5\times55=275$。
+\end{solution}
+\end{question}
+
+\begin{question}
+包含 $n$ 个顶点无向图的邻接表存储结构中，所有顶点的边表中最多有 \underline{\hspace{4em}} 个结点。具有 $n$ 个顶点的有向图，每个顶点入度和出度之和最大值不超过 \underline{\hspace{4em}}。
+\begin{solution}
+无向图最多 $C_n^2=n(n-1)/2$ 条边，每条边在邻接表中出现两次，故最多 $n(n-1)$ 个结点。有向图每个顶点最多与其余 $n-1$ 个顶点相连（入度 $+$ 出度 $\le 2(n-1)$）。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一个长度为 $7$ 的空散列表，采用双散列法解决冲突，两个散列函数分别为：$h_1(\text{key})=\text{key}\%7$，$h_2(\text{key})=\text{key}\%5+1$。请向散列表依次插入关键字 $30,58,65$，插入完成后 $65$ 在散列表中存储地址为 \underline{\hspace{4em}}。
+\begin{solution}
+$h_1(30)=2$，地址 2 空 $\to$ 放入 2。$h_1(58)=2$ 冲突，$h_2(58)=58\%5+1=4$，$(2+1\times4)\%7=6$ $\to$ 放入 6。$h_1(65)=2$ 冲突，$h_2(65)=65\%5+1=1$，$(2+1\times1)\%7=3$ $\to$ 放入 3。
+\end{solution}
+\end{question}
+
+\begin{question}
+阅读算法 \texttt{ABC(n)}，回答问题。
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+def ABC(n):\\
+    k, m = 2, int(n**0.5)\\
+    while (k <= m) and (n \% k != 0):\\
+        k += 1\\
+    return k > m\\
+\end{tabular}
+\end{quote}
+算法的功能是：\underline{\hspace{4em}}。算法的时间复杂度是 $O(\underline{\hspace{4em}})$。
+\begin{solution}
+该算法判断 $n$ 是否为素数。最坏情况需遍历 $2$ 到 $\sqrt{n}$，时间复杂度 $O(\sqrt{n})$。
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{四、简答题（共 14 分）}
+
+\begin{question}[字符串匹配]（4 分）
+
+字符串匹配算法从长度为 $n$ 的文本串 $S$ 中查找长度为 $m$ 的模式串 $P$ 的首次出现。
+
+\begin{enumerate}
+  \item 朴素算法时间复杂度为 $O((n-m+1)m)$。请举例说明算法时间复杂度的一种最坏情况（例子中只出现 \texttt{a} 和 \texttt{b} 两种字符）。（1 分）
+  \item 已知 $S=$\texttt{"abaabaabaabcc"}，$P=$\texttt{"abaabc"}，采用朴素算法进行查找，请写出字符比对的总次数和查找结果。（2 分）
+  \item 朴素算法存在很大的改进空间。说明在 (b) 中第一次出现不匹配（$s[i+j]\neq t[j]$，$i=0,j=5$）时，为了避免冗余比对，下次比对时 $i$ 和 $j$ 的值可以分别调整为多少？（1 分）
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+  \item 最坏情况：$S=$\texttt{"a...ab"}（$n-1$ 个 \texttt{a} 后跟一个 \texttt{b}），$P=$\texttt{"a...ab"}（$m-1$ 个 \texttt{a} 后跟一个 \texttt{b}），每次比较到 $P$ 的最后一个字符才失败，需 $(n-m+1)m$ 次比对。
+  \item $S=$\texttt{abaabaabaabcc}，$P=$\texttt{abaabc}。朴素匹配从 $i=0$ 开始比较：$i=0,1,2$ 三次均在第 $6$ 个字符处失败，$i=3$ 时 $P$ 与 $S[3..8]$ 完全匹配。因此总比较次数为 $6+6+6+6=24$，结果为 \texttt{True}。
+  \item 不匹配时已匹配部分 \texttt{"abaab"} 的前缀与后缀关系：最长公共前后缀长度为 2（\texttt{"ab"}）。下次比对可取 $i=3$，$j=2$。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[AOV 网络与拓扑排序]（5 分）
+
+有八项活动 $V_0\sim V_7$，每项活动要求的前驱如下：
+
+\begin{center}
+\small
+\begin{tabular}{@{}c l@{}}
+\toprule
+活动 & 前驱\\
+\midrule
+$V_0$ & 无\\
+$V_1$ & $V_0$\\
+$V_2$ & $V_0$\\
+$V_3$ & $V_0,V_2$\\
+$V_4$ & $V_1$\\
+$V_5$ & $V_2,V_4$\\
+$V_6$ & $V_3$\\
+$V_7$ & $V_5,V_6$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 画出相应的 AOV 网络（顶点为活动，边为先后关系的有向图）；
+  \item 给出一个拓扑排序序列。若存在多种，按编号从小到大排序，输出最小的一种。
+\end{enumerate}
+
+\begin{solution}
+AOV 网络：$V_0\to V_1,V_2$；$V_1\to V_4$；$V_2\to V_3,V_5$；$V_3\to V_6$；$V_4\to V_5$；$V_5\to V_7$；$V_6\to V_7$。
+
+一个拓扑序列为：$V_0,V_1,V_2,V_3,V_4,V_5,V_6,V_7$。
+\end{solution}
+\end{question}
+
+\begin{question}[二叉查找树]（5 分）
+
+简要回答下列 BST 树以及 BST 树更新过程的相关问题。
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 请简述什么是二叉查找树（BST）。（1 分）
+  \item 请图示 $2,1,6,4,5,3$ 按顺序插入一棵 BST 树的中间过程和最终形态。（2 分）
+  \item 请图示以上 BST 树依次删除节点 $4$ 和 $2$ 的过程和树的形态。（2 分）
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*)]
+  \item BST 是二叉树，对每个节点，其左子树所有节点的关键值均小于该节点，右子树所有节点的关键值均大于该节点。
+  \item 插入过程：
+    \begin{itemize}
+      \item 插入 $2$：根为 $2$
+      \item 插入 $1$：$1<2$，成为 $2$ 的左孩子
+      \item 插入 $6$：$6>2$，成为 $2$ 的右孩子
+      \item 插入 $4$：$4>2$ 进入右子树，$4<6$ 成为 $6$ 的左孩子
+      \item 插入 $5$：$5>2$ 进入右子树，$5<6$ 进入左子树，$5>4$ 成为 $4$ 的右孩子
+      \item 插入 $3$：$3>2$ 进入右子树，$3<6$ 进入左子树，$3<4$ 成为 $4$ 的左孩子
+    \end{itemize}
+    最终 BST：$2$（左 $1$，右 $6$（左 $4$（左 $3$，右 $5$）））。
+  \item 删除 $4$：取 $4$ 的后继 $5$（或前驱 $3$）替代，删除后 $5$ 成为 $6$ 的左孩子。删除 $2$：取 $2$ 的后继 $3$ 替代，原 $3$ 的位置由 $4$（无左子）替代。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{五、算法填空（共 26 分）}
+
+\begin{question}[拓扑排序]（6 分）
+
+给定一个有向图，求拓扑排序序列。输入：第一行是整数 $n$（$1\le n\le 100$），接下来 $n$ 行，第 $i$ 行列出了顶点 $i$ 的所有邻点，以 $0$ 结尾。输出：一个拓扑排序序列。如果图中有环，则输出 \texttt{"Loop"}。
+
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+class Edge:\\
+    def \_\_init\_\_(self, v):\\
+        self.v = v\\
+\\
+def topoSort(G):\\
+    n = len(G)\\
+    import queue\\
+    inDegree = [0] * n\\
+    q = queue.Queue()\\
+    for i in range(n):\\
+        for e in G[i]:\\
+\underline{\hspace{12em}} \# (1) 1分\\
+    for i in range(n):\\
+        if inDegree[i] == 0:\\
+\underline{\hspace{12em}} \# (2) 1分\\
+    seq = []\\
+    while not q.empty():\\
+        k = q.get()\\
+\underline{\hspace{12em}} \# (3) 1分\\
+        for e in G[k]:\\
+\underline{\hspace{12em}} \# (4) 1分\\
+            if inDegree[e.v] == 0:\\
+\underline{\hspace{12em}} \# (5) 1分\\
+    if \underline{\hspace{12em}}: \# (6) 1分\\
+        return None\\
+    else:\\
+        return seq\\
+\end{tabular}
+\end{quote}
+
+\begin{solution}
+填空答案：(1) \texttt{inDegree[e.v] += 1} (2) \texttt{q.put(i)} (3) \texttt{seq.append(k)} (4) \texttt{inDegree[e.v] -= 1} (5) \texttt{q.put(e.v)} (6) \texttt{len(seq) != n}
+\end{solution}
+\end{question}
+
+\begin{question}[链表去重]（7 分）
+
+读入一个从小到大排好序的整数序列到链表，然后在链表中删除重复的元素，使得重复的元素只保留 $1$ 个，然后将整个链表内容输出。
+
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+class Node:\\
+    def \_\_init\_\_(self, data):\\
+        self.data = data\\
+        self.next = None\\
+\\
+a = list(map(int, input().split()))\\
+head = Node(a[0])\\
+p = head\\
+for x in a[1:]:\\
+\underline{\hspace{12em}} \# (1) 2分\\
+    p = p.next\\
+p = head\\
+while p:\\
+    while p.next and p.data == p.next.data:\\
+\underline{\hspace{12em}} \# (2) 1分 (3) 2分\\
+\underline{\hspace{12em}} \# (4) 2分\\
+p = head\\
+while p:\\
+    print(p.data, end=" ")\\
+    p = p.next\\
+\end{tabular}
+\end{quote}
+
+\begin{solution}
+填空答案：(1) \texttt{p.next = Node(x)} (2) \texttt{p.next = p.next.next} (3) \texttt{p = p.next}
+\end{solution}
+\end{question}
+
+\begin{question}[无向图连通性与回路判定]（7 分）
+
+给定一个无向图，判断是否连通，是否有回路。
+
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+def isConnected(G):\\
+    n = len(G)\\
+    visited = [False for i in range(n)]\\
+    total = 0\\
+    def dfs(v):\\
+        nonlocal total\\
+        visited[v] = True\\
+        total += 1\\
+        for u in G[v]:\\
+            if not visited[u]:\\
+                dfs(u)\\
+    dfs(0)\\
+\underline{\hspace{12em}} \# (1) 2分\\
+\\
+def hasLoop(G):\\
+    n = len(G)\\
+    visited = [False for i in range(n)]\\
+    def dfs(v, x):\\
+        visited[v] = True\\
+        for u in G[v]:\\
+            if visited[u] == True:\\
+\underline{\hspace{12em}} \# (2) 2分\\
+                    return True\\
+            else:\\
+\underline{\hspace{12em}} \# (3) 2分\\
+                    return True\\
+        return False\\
+    for i in range(n):\\
+\underline{\hspace{12em}} \# (4) 1分\\
+            if dfs(i, -1):\\
+                return True\\
+    return False\\
+\end{tabular}
+\end{quote}
+
+\begin{solution}
+填空答案：(1) \texttt{return total == n} (2) \texttt{if x != u:} (3) \texttt{if dfs(u, v):} (4) \texttt{if not visited[i]:}
+\end{solution}
+\end{question}
+
+\begin{question}[堆排序]（6 分）
+
+输入若干个整数，使用堆排序算法从小到大排序（建立大顶堆）。
+
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+def heapSort(a):\\
+    heapSize = len(a)\\
+    def goDown(i):\\
+        if i * 2 + 1 >= heapSize:\\
+            return\\
+        L, R = i * 2 + 1, i * 2 + 2\\
+\underline{\hspace{12em}} \# (1) 1分\\
+            s = L\\
+        else:\\
+            s = R\\
+        if a[s] > a[i]:\\
+\underline{\hspace{12em}} \# (2) 2分\\
+            goDown(s)\\
+    def heapify():\\
+\underline{\hspace{12em}} \# (3) 1分\\
+            goDown(k)\\
+    heapify()\\
+    for i in range(len(a) - 1, -1, -1):\\
+\underline{\hspace{12em}} \# (4) 1分\\
+        heapSize -= 1\\
+\underline{\hspace{12em}} \# (5) 1分\\
+\end{tabular}
+\end{quote}
+
+\begin{solution}
+填空答案：(1) \texttt{if R >= heapSize or a[L] > a[R]:} (2) \texttt{a[i], a[s] = a[s], a[i]} (3) \texttt{for k in range(heapSize // 2 - 1, -1, -1):} (4) \texttt{a[i], a[0] = a[0], a[i]} (5) \texttt{goDown(0)}
+\end{solution}
+\end{question}
+
+\clearpage

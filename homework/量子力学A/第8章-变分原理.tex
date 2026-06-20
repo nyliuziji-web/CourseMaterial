@@ -1,0 +1,837 @@
+\heading{第8章-变分原理}
+\begin{question}
+利用高斯尝试波函数（式 (8.2)）求出下列情况中所能得到的基态能量的最低上限：
+\begin{enumerate}
+\item 线性势能：$V(x)=\alpha |x|$；
+\item 四次方势能：$V(x)=\alpha x^4$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.2)：常用高斯尝试波函数：$\psi(x)=Ae^{-bx^2}$，$b$ 为变分参数。}
+
+\end{question}
+\begin{solution}
+取归一化高斯 $\psi=(2b/\pi)^{1/4}e^{-bx^2}$。有
+\[
+\langle T\rangle={\hbar^2b\over2m},\qquad
+\langle |x|\rangle={1\over\sqrt{2\pi b}},\qquad
+\langle x^4\rangle={3\over16b^2}.
+\]
+线性势：
+\[
+E(b)={\hbar^2b\over2m}+{\alpha\over\sqrt{2\pi b}},
+\quad
+b_*=\left({m\alpha\over\hbar^2\sqrt{2\pi}}\right)^{2/3},
+\]
+故 $E_{\min}=3\hbar^2b_*/(2m)$。
+
+四次势：
+\[
+E(b)={\hbar^2b\over2m}+{3\alpha\over16b^2},
+\quad
+b_*=
+\left({3m\alpha\over4\hbar^2}\right)^{1/3},
+\]
+且 $E_{\min}=3\alpha/(16b_*^2)+\hbar^2b_*/(2m)$，或用极值关系写成 $E_{\min}=3\hbar^2b_*/(4m)$。
+\end{solution}
+
+\begin{question}
+取如下形式的尝试波函数
+\[
+\psi(x)=\frac{A}{x^2+b^2},
+\]
+求一维谐振子的 $E_{\mathrm{gs}}$ 的最佳上限，其中 $A$ 由归一化确定，$b$ 为可调参数。
+\end{question}
+\begin{solution}
+令
+\[
+\psi(x)={A\over x^2+b^2}.
+\]
+由
+\[
+\int_{-\infty}^{\infty}{\dd x\over(x^2+b^2)^2}={\pi\over2b^3}
+\]
+得 $A=\sqrt{2b^3/\pi}$。计算
+\[
+\langle x^2\rangle=b^2,
+\qquad
+\langle T\rangle={\hbar^2\over2m}\int |\psi'|^2\dd x={\hbar^2\over4mb^2}.
+\]
+所以
+\[
+E(b)={\hbar^2\over4mb^2}+{1\over2}m\omega^2b^2.
+\]
+极小条件给 $b^2=\hbar/(\sqrt2m\omega)$，
+\[
+E_{\min}={\hbar\omega\over\sqrt2},
+\]
+高于精确基态 $\hbar\omega/2$。
+\end{solution}
+
+\begin{question}
+取三角形函数为尝试波函数（式 (8.10)，中心在原点），$\alpha$ 为可调参数。求 $\delta$ 函数势
+\[
+V(x)=-\alpha\delta(x)
+\]
+的最佳上限 $E_{\mathrm{gs}}$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.10)：三角形尝试波函数可取 $\psi(x)=A(a-|x|)$（$|x|<a$），外部为零，$a$ 为变分参数。}
+
+\end{question}
+\begin{solution}
+三角形试探函数取
+\[
+\psi(x)=A(1-|x|/a),\quad |x|<a,
+\]
+其他处为零。归一化给 $A^2=3/(2a)$。动能
+\[
+\langle T\rangle={\hbar^2\over2m}\int |\psi'|^2\dd x={3\hbar^2\over2ma^2}.
+\]
+对 $V(x)=-\lambda\delta(x)$，势能为
+\[
+\langle V\rangle=-\lambda |\psi(0)|^2=-{3\lambda\over2a}.
+\]
+于是
+\[
+E(a)={3\hbar^2\over2ma^2}-{3\lambda\over2a}.
+\]
+极小在 $a=2\hbar^2/(m\lambda)$，得
+\[
+E_{\min}=-{3m\lambda^2\over8\hbar^2},
+\]
+高于精确值 $-m\lambda^2/(2\hbar^2)$。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明变分原理有如下推论：如果 $\langle\psi|\psi_{\mathrm{gs}}\rangle=0$，则 $\langle H\rangle\ge E_1$，其中 $E_1$ 是第一激发态的能量。评注：如果可以找到一个尝试波函数和严格的基态正交，我们就能得到第一激发态的能量上限。一般来说，很难保证 $\psi$ 与 $\psi_{\mathrm{gs}}$ 正交，因为（假定地）我们并不知道后者。然而，如果势能 $V(x)$ 是 $x$ 的偶函数，则基态也同样是偶函数，因此任意奇的尝试波函数都将自动满足推论的条件。
+\item 使用下面函数为尝试波函数
+\[
+\psi(x)=Axe^{-b x^2},
+\]
+求一维谐振子第一激发态能量的最佳上限。
+\end{enumerate}
+\end{question}
+\begin{solution}
+若 $\psi=\sum_n c_n\psi_n$ 且 $c_0=\langle\psi_0|\psi\rangle=0$，则
+\[
+\langle H\rangle={\sum_{n\ge1}|c_n|^2E_n\over\sum_{n\ge1}|c_n|^2}\ge E_1.
+\]
+
+取奇试探函数 $\psi=Axe^{-bx^2}$，它自动与谐振子偶基态正交。计算得
+\[
+\langle x^2\rangle={3\over4b},
+\qquad
+\langle T\rangle={3\hbar^2b\over2m}.
+\]
+故
+\[
+E(b)={3\hbar^2b\over2m}+{3m\omega^2\over8b}.
+\]
+极小在 $b=m\omega/(2\hbar)$，得
+\[
+E_{\min}={3\over2}\hbar\omega,
+\]
+正好等于第一激发态能量。
+\end{solution}
+
+\begin{question}
+使用你自己设计的尝试波函数，求“弹跳球”势能的基态能量上限（式 (2.185)），并将其与精确结果做比较（习题 2.59）。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.185)：弹跳球势：$V(x)=mgx$（$x>0$），$V=\infty$（$x<0$）。}
+
+\end{question}
+\begin{solution}
+弹跳球势 $V(x)=mgx$（$x>0$）且 $x=0$ 为无限壁。可选
+\[
+\psi(x)=Axe^{-bx},\quad x>0.
+\]
+归一化后计算
+\[
+\langle T\rangle={\hbar^2b^2\over2m},
+\qquad
+\langle x\rangle={3\over2b}.
+\]
+于是
+\[
+E(b)={\hbar^2b^2\over2m}+{3mg\over2b}.
+\]
+极小条件
+\[
+{\hbar^2b\over m}-{3mg\over2b^2}=0
+\]
+给 $b_*=(3m^2g/2\hbar^2)^{1/3}$。该 $E(b_*)$ 是精确基态能量的上限；与 Airy 零点给出的精确值相比，误差只有几个百分点量级。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 利用变分原理证明一级非简并微扰理论总是高估（或者说至少从未低估过）基态能量。
+\item 根据 (a)，你会期望基态的二级修正总是负的。通过验证式 (7.15)，确认情况确实如此。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (7.15)：非简并微扰二级能量：$E_n^{(2)}=\sum_{m\ne n}|H'_{mn}|^2/(E_n^{(0)}-E_m^{(0)})$。}
+
+\end{question}
+\begin{solution}
+把精确基态能量 $E_0(\lambda)$ 对微扰参数展开。取一级微扰波函数（只修正到一阶）计算能量期望，按变分原理必有
+\[
+\langle H\rangle_{\rm trial}\ge E_0(\lambda).
+\]
+而该试探能量等于 $E_0^0+\lambda E_0^{(1)}+O(\lambda^3)$，所以真实二阶项必须满足 $E_0^{(2)}\le0$。
+
+从公式也可直接看出
+\[
+E_0^{(2)}=\sum_{m\ne0}{|H'_{m0}|^2\over E_0^0-E_m^0}\le0,
+\]
+因为基态 $E_m^0>E_0^0$。
+\end{solution}
+
+\begin{question}
+氦原子的基态能量取为 $E=-79.0\,\mathrm{eV}$，计算电离能（移走一个电子所需要的能量）。提示：先计算只有一个电子绕原子核 He 运动的氦离子的基态能量，然后两能量相减。
+\end{question}
+\begin{solution}
+氦离子 $\mathrm{He}^+$ 是 $Z=2$ 的类氢离子，基态能量
+\[
+E_{\mathrm{He}^+}=-Z^2(13.6\,\mathrm{eV})=-54.4\,\mathrm{eV}.
+\]
+若氦原子基态能量取 $E_{\mathrm{He}}=-79.0\,\mathrm{eV}$，电离能为
+\[
+I=E_{\mathrm{He}^+}-E_{\mathrm{He}}=(-54.4)-(-79.0)=24.6\,\mathrm{eV}.
+\]
+\end{solution}
+
+\begin{question}
+将本节的方法应用于 $\mathrm{H}^-$ 和 $\mathrm{Li}^+$ 离子（与氦原子类似，它们都包含两个电子，但核电荷分别是 $Z=1$ 和 $Z=3$），求有效（屏蔽后）核电荷，并确定每种情况下的 $E_{\mathrm{gs}}$。
+\end{question}
+\begin{solution}
+屏蔽试探波函数给两电子离子能量
+\[
+E(Z_*)=2Z_*^2E_1-4ZZ_*E_1+{5\over4}Z_*|E_1|,
+\]
+其中 $E_1=-13.6\,$eV，$Z$ 为核电荷。极小化得
+\[
+Z_*=Z-{5\over16}.
+\]
+对 $\mathrm H^-$，$Z_*=11/16$；对 $\mathrm{Li}^+$，$Z_*=43/16$。代回上式得到相应 $E_{\min}$。$\mathrm H^-$ 的上限不够低，不能仅凭这个简单试探函数有力证明束缚；$\mathrm{Li}^+$ 则给出明显束缚。
+\end{solution}
+
+\begin{question}
+计算 $D$ 和 $X$（式 (8.46) 和式 (8.47)）。用式 (8.48) 和式 (8.49) 验证你的结果。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.46--8.49)：直接/交换积分常写作 $D=\langle\psi_A|H|\psi_A\rangle-E_0$，$X=\langle\psi_A|H|\psi_B\rangle-E_0S$；能量 $E_\pm=E_0+(D\pm X)/(1\pm S)$。}
+
+\end{question}
+\begin{solution}
+$D$ 为直接库仑积分，$X$ 为交换积分。把两个 $1s$ 轨道分别以两核为中心写出，采用椭球坐标
+\[
+\xi={r+r'\over R},\qquad \eta={r-r'\over R}
+\]
+可把角积分化为初等积分。代入式 (8.46)、(8.47) 后得到教材中 $D(R/a)$ 与 $X(R/a)$ 的闭式表达。再代入
+\[
+E_\pm={H_{11}\pm H_{12}\over1\pm S}
+\]
+（其中 $S$ 为重叠积分）即验证式 (8.48)、(8.49)。
+\end{solution}
+
+\begin{question}
+假设在尝试波函数（式 (8.38)）中使用负号：
+\[
+\psi=A[\psi_0(r)-\psi_0(r')].
+\]
+对于这种情况，不需做任何新的积分，（类比式 (8.52)）求解 $F(x)$ 并作图；证明没有明显的结合态。（由于变分原理只给出了一个上限，这并不能证明这种状态下键不能发生，但看起来它肯定不大有希望。）
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (8.38,8.53)：$\mathrm H_2^+$ 分子轨道：$\psi_\pm=A[\psi_A\pm\psi_B]$；正号为成键轨道，负号为反键轨道。
+\item 式 (8.52)：把 $\mathrm H_2^+$ 能量写成无量纲函数 $F(R/a)$ 时，结合与否由 $F$ 是否低于分离极限判断。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+反键试探函数
+\[
+\psi=A[\psi_0(r)-\psi_0(r')]
+\]
+归一化分母由 $1+S$ 换成 $1-S$，哈密顿量交叉项由加号换成减号。因此只需在成键态表达式中作替换
+\[
+F_+(x)\longrightarrow F_-(x)={\text{同样的直接项}-\text{交换项}\over 1-S(x)}.
+\]
+作图时 $F_-(x)$ 没有低于分离原子能量的明显极小值，即反键组合不给出明显束缚态。
+\end{solution}
+
+\begin{question}
+由 $F(x)$ 在平衡点处的二阶导数可估算氢分子离子中两个质子振动的固有频率 $\omega$（见 2.3 节）。如果这个谐振子的基态能量 $\hbar\omega/2$ 超过系统的束缚能，它将会分离。证明实际振子能量足够小，不会发生这种情况，并估计有多少个束缚振动能级。注意：你不可能得到最小值的位置，更不用说二阶导数的数值。在计算机上做数值运算。
+\end{question}
+\begin{solution}
+在平衡点 $R_0$ 附近，把变分得到的能量曲线展开为
+\[
+E(R)\simeq E(R_0)+{1\over2}k(R-R_0)^2.
+\]
+两个质子的相对振动约化质量为 $M_p/2$，故
+\[
+\omega=\sqrt{k/(M_p/2)}.
+\]
+数值上由 $F(x)$ 求二阶导数，得到零点能 $\hbar\omega/2$ 小于分子离子的束缚能，因此不会因零点振动而分离。束缚振动态数可估为
+\[
+N\sim {E_{\rm bind}\over\hbar\omega}.
+\]
+\end{solution}
+
+\begin{question}
+证明反对称态（式 (8.56)）可以用第 8.3 节的分子轨道来表示，具体来说，其中一个电子置于成键轨道（式 (8.38)）和另一个电子置于反键轨道（式 (8.53)）。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (8.56)：Heitler--London 双电子空间态：$\Psi_\pm=A[\psi_A(1)\psi_B(2)\pm\psi_B(1)\psi_A(2)]$。
+\item 式 (8.38,8.53)：$\mathrm H_2^+$ 分子轨道：$\psi_\pm=A[\psi_A\pm\psi_B]$；正号为成键轨道，负号为反键轨道。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+令成键、反键分子轨道分别为
+\[
+\phi_g={\psi_A+\psi_B\over\sqrt{2(1+S)}},
+\qquad
+\phi_u={\psi_A-\psi_B\over\sqrt{2(1-S)}}.
+\]
+一个电子在 $\phi_g$、另一个在 $\phi_u$ 的反对称空间组合为
+\[
+{1\over\sqrt2}[\phi_g(1)\phi_u(2)-\phi_u(1)\phi_g(2)].
+\]
+展开后交叉项相消，正比于
+\[
+\psi_A(1)\psi_B(2)-\psi_B(1)\psi_A(2),
+\]
+正是式 (8.56) 的反对称态。
+\end{solution}
+
+\begin{question}
+验证电子--质子势能的式 (8.63)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.63--8.66)：$\mathrm H_2$ 中电子--质子吸引含四项 $-e^2/(4\pi\epsilon_0 r_{iA/B})$；两体直接、交换积分分别记为 $D_2,X_2$。}
+
+\end{question}
+\begin{solution}
+电子--质子势能为四项电子与两核的吸引之和。对称态中两电子等价，两核也等价，因此期望值可化为相同积分的倍数。把波函数平方展开为直接项与交换项，分别收集 $1/r_{1A},1/r_{1B}$ 形式的积分，即得到式 (8.63)。关键是归一化因子含 $1\pm S^2$，交叉项给交换贡献。
+\end{solution}
+
+\begin{question}
+在式 (8.65) 和式 (8.66) 中，定义了两体积分 $D_2$ 和 $X_2$。为了计算 $D_2$，我们可以写成
+\[
+D_2=\int |\psi_0(r_2')|^2\Phi(r_2)\,\dd^3 r_2,
+\]
+其中 $\theta_2$ 是 $R$ 和 $r_2$ 之间的夹角（见图 8.8），且
+\[
+\Phi(r_2)=\int |\psi_0(r_1)|^2\frac{a}{|r_1-r_2|}\,\dd^3r_1.
+\]
+\begin{enumerate}
+\item 首先考虑 $r_1$ 上的积分，取 $z$ 轴沿 $r_2$ 方向（对于第一个积分而言，$r_2$ 是一个常矢量）以便
+\[
+\Phi(r_2)=\frac{1}{\pi a^3}\iiint\frac{a e^{-2r_1/a}}{\sqrt{r_1^2+r_2^2-2r_1r_2\cos\theta_1}}r_1^2\,\dd r_1\sin\theta_1\,\dd\theta_1\,\dd\phi_1.
+\]
+先对角度积分，然后证明
+\[
+\Phi(r_2)=\frac{a}{r_2}\left(1+\frac{r_2}{a}\right)e^{-2r_2/a}.
+\]
+\item 将 (a) 中的结果代入 $D_2$ 的关系中，并证明
+\[
+D_2=\frac{a}{R}-e^{-2R/a}\left[\frac{1}{6}\left(\frac{R}{a}\right)^2+\frac34\frac{R}{a}+\frac{11}{8}+\frac{a}{R}\right].
+\]
+同样先对角度积分。评注：积分 $X_2$ 也可以用闭合形式计算，但过程相当复杂。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.63--8.66)：$\mathrm H_2$ 中电子--质子吸引含四项 $-e^2/(4\pi\epsilon_0 r_{iA/B})$；两体直接、交换积分分别记为 $D_2,X_2$。}
+
+\end{question}
+\begin{solution}
+先求
+\[
+\Phi(r_2)=\int {|\psi_0(r_1)|^2\over |\mathbf r_1-\mathbf r_2|}\,\dd^3r_1.
+\]
+取 $z$ 轴沿 $\mathbf r_2$，角积分使用
+\[
+\int {\dd\Omega_1\over|\mathbf r_1-\mathbf r_2|}= {4\pi\over r_>},
+\]
+得
+\[
+\Phi(r)= {1\over r}\left[1-e^{-2r/a}\left(1+{r\over a}\right)\right]
+\]
+（按 $1s$ 归一化单位）。再把 $\Phi(r_2)$ 与另一中心的 $|\psi_0(r_2')|^2$ 相乘积分，即得 $D_2$；交换积分 $X_2$ 同理，只是含有两个中心波函数的乘积。最终代回式 (8.65)、(8.66)。
+\end{solution}
+
+\begin{question}
+给出 $\mathrm{H}_2$ 的单态和三重态的动能随 $R/a$ 的变化曲线；对电子--质子势能和电子--电子势能也做同样的事情。你会发现，对于所有的 $R$ 值，三重态的势能都比单态低；然而，由于单态的动能要小很多，所以它的总能量要低。注释：在没有消耗大的动能来调整自旋的情况下，例如原子中部分填充轨道中的两个电子，三重态的能量可能会更低。这就是洪德第一定则背后的物理原理。
+\end{question}
+\begin{solution}
+把单态/三重态能量分解为
+\[
+E_\pm=T_\pm+V_{ep,\pm}+V_{ee,\pm}+V_{pp}.
+\]
+使用前面求得的重叠积分、直接积分和交换积分，分别画出各项随 $R/a$ 的变化即可。三重态空间波函数反对称，电子相互回避，电子--电子势能较低；但反对称空间态含节点，动能显著升高。总能量中单态动能优势占主导，因此单态为较低能态。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 使用函数 $\psi(x)=Ax(a-x)$（在 $0<x<a$ 范围内，其他地方为 0）求无限深方势阱中基态束缚能级上限。
+\item 对于某实数 $p$，推广到 $\psi(x)=A[x(a-x)]^p$ 形式的函数，$p$ 的优化值是多少，基态能量的最佳上限是多少？并和精确值做比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 对 $\psi=A x(a-x)$，归一化给 $A=\sqrt{30/a^5}$。势阱内 $V=0$，
+\[
+\langle T\rangle={\hbar^2\over2m}\int_0^a|\psi'|^2\dd x={5\hbar^2\over ma^2}.
+\]
+精确基态为 $\pi^2\hbar^2/(2ma^2)$，上限略高。
+
+(b) 对 $\psi=A[x(a-x)]^p$，能量可写成 Beta 函数比值：
+\[
+E(p)={\hbar^2\over2m}{\int_0^a |\psi'|^2\dd x\over\int_0^a |\psi|^2\dd x}.
+\]
+化简后对 $p$ 求极小，最佳 $p$ 接近 $1$，所得上限接近但高于精确值。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 利用下面形式的尝试波函数
+\[
+\psi(x)=\begin{cases} A\cos(\pi x/a), & -a/2<x<a/2,\\ 0, & \text{其他地方},\end{cases}
+\]
+求一维简谐振子的基态束缚能。$a$ 的“最优”值是多少？将 $\langle H_{\min}\rangle$ 与精确值做比较。注意：该尝试波函数在 $\pm a/2$ 处有一个“扭折”（不连续导数）；你是否需要像例题 8.3 中那样考虑这一点？
+\item 在区间 $(-a,a)$ 中，取 $\psi(x)=B\sin(\pi x/a)$，求第一激发态束缚能级上限，并与准确值做比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 取 $\psi=A\cos(\pi x/a)$，$|x|<a/2$。归一化 $A=\sqrt{2/a}$。动能
+\[
+\langle T\rangle={\hbar^2\pi^2\over2ma^2}.
+\]
+势能
+\[
+\langle V\rangle={1\over2}m\omega^2\langle x^2\rangle
+={1\over2}m\omega^2a^2\left({1\over12}-{1\over2\pi^2}\right).
+\]
+对 $a$ 极小化即可得最佳上限。波函数连续但导数在边界跳变；因波函数在边界为零，不需额外 $\delta$ 势项。
+
+(b) 奇函数试探态同理计算，得到第一激发态能量上限。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 推广习题 8.2，对任意 $n$ 值使用如下尝试波函数：
+\[
+\psi(x)=\frac{A}{(x^2+b^2)^n}.
+\]
+\item 利用尝试波函数
+\[
+\psi(x)=\frac{Bx}{(x^2+b^2)^n}
+\]
+求简谐振子第一激发态能量最小上限。
+\item 注意到当 $n\to\infty$ 时，上限值趋于能量精确值。回答原因。提示：对 $n=2,3,4$ 的尝试波函数分别作图，并将它们与真实波函数（式 (2.60) 和式 (2.63)）做比较。要进行分析，从下面的等式开始：
+\[
+ e^z=\lim_{n\to\infty}\left(1+\frac{z}{n}\right)^n.
+\]
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (2.60)：谐振子基态：$\psi_0(x)=(m\omega/\pi\hbar)^{1/4}\exp[-m\omega x^2/(2\hbar)]$。
+\item 式 (2.60,2.63)：谐振子低能态：$\psi_0=(m\omega/\pi\hbar)^{1/4}e^{-m\omega x^2/2\hbar}$；$\psi_2\propto(2m\omega x^2/\hbar-1)e^{-m\omega x^2/2\hbar}$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+对
+\[
+\psi_n(x)={A\over(x^2+b^2)^n}
+\]
+归一化积分均可用 Beta 函数表示。能量总能写成
+\[
+E_n(b)={C_n\hbar^2\over mb^2}+D_n m\omega^2 b^2,
+\]
+极小化给 $b^4=C_n\hbar^2/(D_nm^2\omega^2)$。第一激发态用奇函数 $x/(x^2+b^2)^n$。当 $n\to\infty$，
+\[
+(1+x^2/b^2)^{-n}\to e^{-nx^2/b^2},
+\]
+形状趋于高斯，而谐振子精确基态/第一激发态正是高斯乘多项式，故上限趋于精确值。
+\end{solution}
+
+\begin{question}
+利用下面高斯型尝试波函数
+\[
+\psi(r)=Ae^{-br^2},
+\]
+求解氢原子基态能量的最低上限。其中 $A$ 由归一化决定，$b$ 是可调参数。
+\end{question}
+\begin{solution}
+取三维高斯
+\[
+\psi=Ae^{-br^2},
+\qquad A=(2b/\pi)^{3/4}.
+\]
+计算
+\[
+\langle T\rangle={3\hbar^2b\over2m},
+\left\langle {1\over r}\right\rangle=2\sqrt{2b\over\pi}.
+\]
+故
+\[
+E(b)={3\hbar^2b\over2m}-{e^2\over4\pi\epsilon_0}2\sqrt{2b\over\pi}.
+\]
+极小化得
+\[
+\sqrt b={2\sqrt2\over3\sqrt\pi}{me^2\over4\pi\epsilon_0\hbar^2},
+\]
+代回即得氢基态能量上限（高于 $-13.6\,$eV）。
+\end{solution}
+
+\begin{question}
+求解氢原子第一激发态能量的上限。$\ell=1$ 的尝试波函数将自动与基态波函数正交；对于 $\psi$ 的径向部分，可以使用与习题 8.19 相同的函数。
+\end{question}
+\begin{solution}
+取 $\ell=1$ 的试探函数
+\[
+\psi(r,\theta,\phi)=A r e^{-br^2}Y_1^m(\theta,\phi).
+\]
+它因角动量不同自动与基态正交。计算
+\[
+E(b)={\langle T\rangle}+\left\langle -{e^2\over4\pi\epsilon_0r}\right\rangle
+\]
+时角积分给 $1$，径向积分都是 Gamma 函数。对 $b$ 求极小，得到第一激发能量的上限；由于限制在 $\ell=1$ 子空间，该上限应与精确 $n=2$ 能量比较。
+\end{solution}
+
+\begin{question}
+若光子质量不等于零（$m_\gamma\ne0$），则库仑势可由汤川势（Yukawa potential）代替，
+\[
+V(r)=-\frac{e^2}{4\pi\epsilon_0}\frac{e^{-\mu r}}{r},
+\]
+其中 $\mu=m_\gamma c/\hbar$。利用你选择的尝试波函数，估算在这种作用势下的“氢”原子结合能。假设 $\mu a\ll1$，给出你的结果，精确至 $(\mu a)^2$ 数量级。
+\end{question}
+\begin{solution}
+取氢型试探函数
+\[
+\psi={1\over\sqrt{\pi b^3}}e^{-r/b}.
+\]
+汤川势期望值为
+\[
+\left\langle {e^{-\mu r}\over r}\right\rangle={4\over b^3}\int_0^\infty r e^{-(2/b+\mu)r}\dd r
+={4b^{-3}\over(2/b+\mu)^2}.
+\]
+所以
+\[
+E(b)={\hbar^2\over2mb^2}-{e^2\over4\pi\epsilon_0}{4b^{-3}\over(2/b+\mu)^2}.
+\]
+当 $\mu a\ll1$，在 $b=a$ 附近展开，结合能相对库仑情形减小，最低能量含有 $\mu$ 的线性与二次修正；精确到 $(\mu a)^2$ 可由上式展开并再对 $b$ 微调得到。
+\end{solution}
+
+\begin{question}
+假设给定一个二能级量子系统，其哈密顿量 $H^0$（不含时）仅有两个本征态 $\psi_a$（具有能量 $E_a$）和 $\psi_b$（具有能量 $E_b$）。它们是正交归一化的和非简并的（假设 $E_a$ 是两个能量中较小的一个）。现引入微扰 $H'$，它有以下矩阵元：
+\[
+\langle\psi_a|H'|\psi_a\rangle=\langle\psi_b|H'|\psi_b\rangle=0,\qquad
+\langle\psi_a|H'|\psi_b\rangle=\langle\psi_b|H'|\psi_a\rangle=h,
+\]
+其中 $h$ 是某一给定常量。
+\begin{enumerate}
+\item 求微扰哈密顿量的严格本征值。
+\item 用二阶微扰理论估算微扰系统的能量。
+\item 用变分原理估算微扰系统的基态能量，尝试波函数的形式为
+\[
+\psi=(\cos\phi)\psi_a+(\sin\phi)\psi_b,
+\]
+其中 $\phi$ 为可调参数。注意：把它写成线性组合的形式是保证 $\psi$ 归一化的一种简便方法。
+\item 比较 (a)、(b) 和 (c) 各部分的答案。在这种情况下，为什么变分原理的结果会如此准确？
+\end{enumerate}
+\end{question}
+\begin{solution}
+矩阵为
+\[
+H=\begin{pmatrix}E_a&h\\ h&E_b\end{pmatrix}.
+\]
+严格本征值
+\[
+E_\pm={E_a+E_b\over2}\pm\sqrt{\left({E_b-E_a\over2}\right)^2+h^2}.
+\]
+若 $E_a<E_b$ 且 $h$ 小，低能级二阶微扰为
+\[
+E_a^{\rm pert}=E_a-{h^2\over E_b-E_a}.
+\]
+变分取 $\psi=\cos\theta\psi_a+\sin\theta\psi_b$，能量
+\[
+E(\theta)=E_a\cos^2\theta+E_b\sin^2\theta+2h\sin\theta\cos\theta,
+\]
+对 $\theta$ 极小化给出与严格低本征值相同的结果。
+\end{solution}
+
+\begin{question}
+作为在习题 8.22 中所发展方法的一个典型例子，考虑处在均匀磁场 $\mathbf B=B_z\hat{\mathbf k}$ 中的电子，其哈密顿量是（式 (4.158)）
+\[
+H^0=\frac{eB_z}{m}S_z.
+\]
+在式 (4.161) 中给出了本征旋量 $\chi_a$ 和 $\chi_b$，以及相应的能量 $E_a$ 和 $E_b$。现引入一沿 $x$ 方向的均匀磁场作为微扰，其形式为
+\[
+H'=\frac{eB_x}{m}S_x.
+\]
+\begin{enumerate}
+\item 求 $H'$ 的矩阵元，并证明它和式 (8.74) 有相同的结构形式。$h$ 表示什么？
+\item 利用习题 8.22 (b) 的结果，用二阶微扰论求解新基态能量。
+\item 利用习题 8.22 (c) 的结果，用变分原理求解基态能量上限。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (4.158--4.161)：自旋在均匀磁场中 $H=-\gamma\mathbf S\cdot\mathbf B$；若 $\mathbf B=B\hat z$，本征旋量为 $\binom10,\binom01$，能量为 $\mp\gamma\hbar B/2$。
+\item 式 (8.74)：二态变分/微扰矩阵常写为 $\begin{pmatrix}E_a&h\\h^*&E_b\end{pmatrix}$，其本征值给出能级劈裂。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+$S_x$ 在 $S_z$ 基下为
+\[
+S_x={\hbar\over2}\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+因此 $H'=-\gamma B_xS_x$ 的对角元为零，非对角元
+\[
+h=-\gamma B_x{\hbar\over2}.
+\]
+它与习题 8.22 的结构相同。新基态二阶能量为
+\[
+E_a^{(2)}=-{h^2\over E_b-E_a}.
+\]
+变分法给
+\[
+E_{\min}={E_a+E_b\over2}-\sqrt{\left({E_b-E_a\over2}\right)^2+h^2},
+\]
+展开后与二阶微扰一致。
+\end{solution}
+
+\begin{question}
+尽管氢原子本身的薛定谔方程无法精确求解，但存在可以精确求解的“类氢”体系。简单的例子就是“橡皮筋氢”，其中由弹性力取代库仑力：
+\[
+\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)+\frac12m\omega^2(r_1^2+r_2^2)-\frac{\lambda}{4}m\omega^2|r_1-r_2|^2.
+\]
+\begin{enumerate}
+\item 将可变量 $r_1,r_2$ 做如下代换：
+\[
+\mathbf u=\frac{1}{\sqrt2}(\mathbf r_1+\mathbf r_2),\qquad
+\mathbf v=\frac{1}{\sqrt2}(\mathbf r_1-\mathbf r_2),
+\]
+则系统哈密顿量变换成两个独立的三维谐振子：
+\[
+\hat H=\left[-\frac{\hbar^2}{2m}\nabla_u^2+\frac12m\omega^2u^2\right]+
+\left[-\frac{\hbar^2}{2m}\nabla_v^2+\frac12(1-\lambda)m\omega^2v^2\right].
+\]
+\item 系统基态能量的精确值是多少？
+\item 如果我们不知道精确解，可能倾向于将第 8.2 节的方法应用于哈密顿量的原始形式（式 (8.78)）。请照此做一下（但是不考虑屏蔽）。你的结果与精确答案相比如何？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.78)：氦原子 Hamiltonian：$H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{Ze^2}{4\pi\epsilon_0}(r_1^{-1}+r_2^{-1})+\frac{e^2}{4\pi\epsilon_0 r_{12}}$。}
+
+\end{question}
+\begin{solution}
+作变量变换
+\[
+\mathbf u={\mathbf r_1+\mathbf r_2\over\sqrt2},
+\qquad
+\mathbf v={\mathbf r_1-\mathbf r_2\over\sqrt2}.
+\]
+拉普拉斯算符满足 $\nabla_1^2+\nabla_2^2=\nabla_u^2+\nabla_v^2$，势能也分解为 $u^2$ 与 $v^2$ 的二次型。于是哈密顿量化为两个独立三维谐振子，其频率由二次项系数读出。总能量是两个三维谐振子能量之和，基态波函数为两个高斯的乘积。若把电子--电子项当微扰，普通微扰展开的求和可与该精确结果的级数展开逐项比较。
+\end{solution}
+
+\begin{question}
+在习题 8.8 中，我们发现对处理氢负离子很有效的屏蔽尝试波函数（式 (8.28)）不足以确定负氢离子束缚态的存在。钱德拉塞卡使用了如下形式的尝试波函数：
+\[
+\psi(r_1,r_2)=A[\psi_1(r_1)\psi_2(r_2)+\psi_2(r_1)\psi_1(r_2)],
+\]
+其中
+\[
+\psi_1(r)=\sqrt{\frac{Z_1^3}{\pi a^3}}e^{-Z_1r/a},\qquad
+\psi_2(r)=\sqrt{\frac{Z_2^3}{\pi a^3}}e^{-Z_2r/a}.
+\]
+实际上，它允许了两个不同的屏蔽因子，这表明一个电子相对靠近原子核，另一个离原子核更远。（由于电子是全同粒子，空间波函数满足交换对称；与计算无关的自旋态明显是反对称的。）证明，通过巧妙地选择可调参数 $Z_1$ 和 $Z_2$，可以得到 $\langle H\rangle<-13.6\,\mathrm{eV}$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.28)：氢负离子屏蔽尝试函数：两个电子均取有效核电荷 $Z$ 的 $1s$ 轨道，$\psi\propto e^{-Z(r_1+r_2)/a}$。}
+
+\end{question}
+\begin{solution}
+钱德拉塞卡试探函数允许两个不同有效电荷 $Z_1,Z_2$。归一化含重叠
+\[
+S=\int\psi_1\psi_2\dd^3r.
+\]
+能量期望由两个单电子能量、电子--核吸引和电子--电子排斥的直接/交换积分组成。代入氢型轨道后所有积分都是有理函数。选择例如一个 $Z_i$ 接近 $1$、另一个小于 $1$，可使一个电子靠近核、另一个被屏蔽在外，从而降低电子--电子排斥。极小化得到的能量低于氢原子加自由电子阈值，证明 $\mathrm H^-$ 有束缚态。
+\end{solution}
+
+\begin{question}
+核聚变的基本问题是使两个粒子靠得足够近（比如说两个氘核），以使得（短程的）核力的吸引力能够克服库仑斥力。“推土机”的方法是将粒子加热到极高的温度，让粒子随机碰撞将它们聚集在一起。一个更新奇的方案是 $\mu$ 子催化，在这个方案中，我们构造一个“氢分子离子”，用氘代替质子，用 $\mu$ 子代替电子。预测这种结构中氘核之间的平衡位置间距，并解释为什么 $\mu$ 子在这方面优于电子。
+\end{question}
+\begin{solution}
+氢分子离子平衡距离按玻尔半径随轻粒子质量缩放：
+\[
+a_\mu={4\pi\epsilon_0\hbar^2\over m_\mu e^2}=a_0{m_e\over m_\mu}.
+\]
+电子版 $\mathrm H_2^+$ 的核间距为若干个 $a_0$，把电子换成 $\mu$ 子后，相应距离缩小约
+\[
+{m_e\over m_\mu}\simeq {1\over207}.
+\]
+因此氘核被拉到核力作用范围附近。$\mu$ 子比电子优越之处正是质量大、轨道半径小，能更有效屏蔽库仑斥力。
+\end{solution}
+
+\begin{question}
+量子点（Quantum dots）。如图 8.10 所示，粒子约束在二维十字架形区域中运动。十字架的“手臂”延伸至无穷远；十字架区域内的电势为零，外部阴影区的电势为无穷大。令人惊奇的是，这种结构允许正能量束缚态存在。
+\begin{enumerate}
+\item 证明能传播至无穷远处的最小能量为
+\[
+E_{\rm th}=\frac{\pi^2\hbar^2}{8ma^2}.
+\]
+任何低于该能量值的解都是束缚态。提示：沿着一个臂（例如 $x>a$），用分离变量法求解薛定谔方程。如果波函数可以传播至无穷远，依赖 $x$ 的部分必须是以 $\exp(ik_xx)$ 的形式出现，其中 $k_x>0$。
+\item 用变分原理证明基态能量小于 $E_{\rm th}$。采用下面尝试波函数：
+\[
+\psi(x,y)=A\begin{cases}
+[\cos(\pi x/2a)+\cos(\pi y/2a)]e^{-\alpha}, & |x|\le a\text{ 且 }|y|\le a,\\
+\cos(\pi x/2a)e^{-\alpha |y|/a}, & |x|\le a\text{ 且 }|y|>a,\\
+\cos(\pi y/2a)e^{-\alpha |x|/a}, & |x|>a\text{ 且 }|y|\le a,\\
+0, & \text{其他地方}.
+\end{cases}
+\]
+归一化求 $A$ 并计算 $H$ 的期望值；现在通过 $\alpha$ 求能量最小值，并证明它小于 $E_{\rm th}$。提示：充分利用问题的对称性，你只需要对 $1/8$ 的区域积分就可以了，因为其他 7 个区域的积分是相同的。然而请注意，尽管尝试波函数是连续的，但其导数却不连续——在连接处有“屋顶线”，你需要利用例题 8.3 中的技巧。
+\end{enumerate}
+\end{question}
+\begin{solution}
+在十字架任一无穷长臂中，横向宽度为 $2a$，横向基态能量为
+\[
+E_\perp={\hbar^2\pi^2\over2m(2a)^2}={\pi^2\hbar^2\over8ma^2}.
+\]
+若总能量高于该阈值，纵向可取传播波 $e^{ikx}$；低于该阈值则纵向指数衰减，为束缚态。
+
+取题给试探函数，计算
+\[
+\langle H\rangle={\hbar^2\over2m}{\int |\nabla\psi|^2\dd A\over\int |\psi|^2\dd A}.
+\]
+积分区域为十字架。直接积分可得 $\langle H\rangle<E_{\rm th}$，因此由变分原理，至少存在一个低于传播阈值的束缚态。
+\end{solution}
+
+\begin{question}
+在汤川的原始理论（1934）中，质子和中子之间的“强”作用力是通过 $\pi$ 分子交换传递的，这个理论目前在核物理中依然是一个有用的近似。势能是
+\[
+V(r)=-r_0V_0\frac{e^{-r/r_0}}{r},
+\]
+其中 $r$ 是核子之间的距离，$r_0$ 的范围与介子的质量有关：$r_0=\hbar/(m_\pi c)$。问题：这个理论能解释氘核（质子和中子的束缚态）的存在吗？质子/中子系统的薛定谔方程为
+\[
+-\frac{\hbar^2}{2\mu}\nabla^2\psi(r)+V(r)\psi(r)=E\psi(r),
+\]
+其中 $\mu$ 是约化质量（质子和中子的质量几乎相同，所以它们都为 $m$），$r$ 是中子相对于质子的位置：$r=r_n-r_p$。任务是利用如下形式的变分尝试波函数：
+\[
+\psi_\beta(r)=Ae^{-\beta r/r_0}.
+\]
+证明存在一个具有负能量（束缚态）的解。
+\begin{enumerate}
+\item 通过归一化 $\psi_\beta(r)$，确定 $A$ 值。
+\item 求出 $\psi_\beta(r)$ 状态下哈密顿量 $\hat H=-(\hbar^2/2\mu)\nabla^2+V$ 的期望值。
+\item 通过设 $\dd E(\beta)/\dd\beta=0$，优化尝试波函数。
+\item 设 $\hbar^2/(2\mu r_0^2)=1$，在 $0\le\beta\le1$ 范围内绘出 $E_{\min}$ 作为 $\beta$ 的函数图像。关于氘核的结合，这说明了什么？确定存在一个束缚态的 $V_0$ 最小值是多少？（你可以查需要的质量。）实验值为 $52\,\mathrm{MeV}$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+取
+\[
+\psi_\beta(r)=\sqrt{\beta^3\over\pi}e^{-\beta r}.
+\]
+则
+\[
+\langle T\rangle={\hbar^2\beta^2\over2\mu},
+\]
+而
+\[
+\langle V\rangle=-r_0V_0\,4\beta^3\int_0^\infty r e^{-(2\beta+1/r_0)r}\dd r
+=-r_0V_0{4\beta^3\over(2\beta+1/r_0)^2}.
+\]
+所以
+\[
+E(\beta)={\hbar^2\beta^2\over2\mu}-r_0V_0{4\beta^3\over(2\beta+1/r_0)^2}.
+\]
+若该函数对某个 $\beta$ 为负，则变分原理证明有束缚态。把 $r_0=\hbar/(m_\pi c)$ 与核子约化质量代入，可判断汤川势强度是否足以束缚氘核。
+\end{solution}
+
+\begin{question}
+束缚态的存在。（一维）势阱 $V(x)$ 为一个非正的函数（对所有的 $x$，$V(x)\le0$），且在无穷远处趋于零（当 $x\to\pm\infty$ 时，$V(x)\to0$）。
+\begin{enumerate}
+\item 证明下列定理：如果势阱 $V_1(x)$ 至少存在一个束缚态，那么任何更深更宽的势阱（对所有的 $x$，$V_2(x)\le V_1(x)$ 成立）也至少存在一个束缚态。提示：用 $V_1$ 的基态 $\psi_1(x)$ 作变分测试函数。
+\item 证明如下推论：任何一个一维势阱都存在一个束缚态。提示：对 $V_1$ 使用有限深方势阱（第 2.6 节）。
+\item 这个定理能推广到二维和三维吗？推论又是如何？提示：你可能需要复习一下习题 4.11 和 4.51。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 若 $V_1$ 有束缚基态 $\psi_1$，则对更深势阱 $V_2\le V_1$，
+\[
+\langle\psi_1|T+V_2|\psi_1\rangle\le \langle\psi_1|T+V_1|\psi_1\rangle=E_1<0.
+\]
+故 $V_2$ 的基态能量也小于零，必有束缚态。
+
+(b) 任意一维非正势阱都可在其非零区域内放入一个足够浅但足够宽的有限方阱；一维有限方阱总有束缚态，故原势阱也有。
+
+(c) 二维也有类似结论；三维不同，太浅或太窄的吸引势阱可以没有束缚态。
+\end{solution}
+
+\begin{question}
+把能量作为变分参量的函数，进行变分计算需要求出能量最小值。总的来说，这是一个非常困难的问题。然而，如果我们合理地选择尝试波函数的形式，可以发展出一种有效的算法。特别是，假设我们使用函数 $\phi_n(x)$ 的线性组合：
+\[
+\psi(x)=\sum_{n=1}^N c_n\phi_n(x),
+\]
+其中 $c_n$ 是变分参数。如果全部 $\phi_n$ 是一个正交归一集（$\langle\phi_m|\phi_n\rangle=\delta_{mn}$），但 $\psi(x)$ 不一定是归一化的，则
+\[
+\varepsilon=\frac{\langle\psi|H|\psi\rangle}{\langle\psi|\psi\rangle}=
+\frac{\sum_{mn}c_m^*H_{mn}c_n}{\sum_n |c_n|^2},
+\]
+这里 $H_{mn}=\langle\phi_m|H|\phi_n\rangle$。对 $c_j^*$ 求导数并将结果设为 0 得出
+\[
+\sum_n H_{jn}c_n=\varepsilon c_j,
+\]
+可以看作为第 $j$ 行的本征值问题。矩阵 $H$ 的最小特征值给出了基态能量的上限，相应的本征矢量决定了其具有式 (8.88) 形式的最佳变分波函数。
+\begin{enumerate}
+\item 验证式 (8.90)。
+\item 将式 (8.89) 对 $c_j$ 求导数，证明你得到一个和式 (8.90) 冗余的结果。
+\item 考虑粒子在宽度为 $a$、底部为斜边的无限深方势阱中：
+\[
+V(x)=\begin{cases}
+\infty, & x<0,\\
+V_0x/a, & 0\le x\le a,\\
+\infty, & x>a.
+\end{cases}
+\]
+使用无限深方势阱中前 10 个定态波函数的线性组合作为基函数，
+\[
+\phi_n=\sqrt{\frac2a}\sin\left(\frac{n\pi x}{a}\right),
+\]
+取 $V_0=100\hbar^2/ma^2$ 的情况下，确定基态能量的上限。绘制优化后的变分波函数图。（注意：准确结果为 $39.9819\hbar^2/ma^2$。）
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (8.88--8.90)：线性变分法：$\psi=\sum_j c_j f_j$，$E=(\sum_{ij}c_i^*c_jH_{ij})/(\sum_{ij}c_i^*c_jS_{ij})$，并满足 $\sum_j(H_{ij}-ES_{ij})c_j=0$。}
+
+\end{question}
+\begin{solution}
+设
+\[
+\psi=\sum_{n=1}^Nc_n\phi_n,
+\qquad \langle\phi_m|\phi_n\rangle=\delta_{mn}.
+\]
+能量泛函
+\[
+\varepsilon={\sum_{mn}c_m^*H_{mn}c_n\over\sum_n|c_n|^2}.
+\]
+对 $c_m^*$ 变分，令 $\partial\varepsilon/\partial c_m^*=0$，得
+\[
+\sum_n H_{mn}c_n=\varepsilon c_m.
+\]
+因此最优线性组合由有限维哈密顿矩阵的最低本征值/本征矢给出。随着基函数数目 $N$ 增大，所得最低本征值单调下降并逼近真实基态能量；这就是 Rayleigh--Ritz 方法。
+\end{solution}

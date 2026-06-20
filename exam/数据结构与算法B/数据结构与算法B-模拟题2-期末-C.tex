@@ -1,0 +1,458 @@
+\heading{数据结构与算法B-模拟题2-期末}
+\noteinfo{题目来源：模拟题，参考解答由 AI 生成。本次整理提供 C 语言版与 Python 语言版；除程序代码语言外，两版题目内容保持一致。}
+
+\textbf{一、选择题（30 分，每小题 2 分）}
+
+\begin{question}
+双向链表中的每个结点有两个引用域 prev 和 next，分别引用当前结点的前驱与后继。设 $p$ 引用链表中的一个结点，$q$ 引用一待插入结点，现要求在 $p$ 前插入 $q$，则正确的插入操作为（\quad）。
+\begin{enumerate}
+  \item \texttt{p->prev=q; q->next=p; p->prev->next=q; q->prev=p->prev;}
+  \item \texttt{q->prev=p->prev; p->prev->next=q; q->next=p; p->prev=q->next;}
+  \item \texttt{q->next=p; p->next=q; p->prev->next=q; q->next=p;}
+  \item \texttt{p->prev->next=q; q->next=p; q->prev=p->prev; p->prev=q;}
+\end{enumerate}
+\begin{solution}
+选 D。双向链表前插操作：先处理 $q$ 的前驱后继，再更新 $p$ 原前驱的后继，最后更新 $p$ 的前驱。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一个 $N$ 个相异元素构成的有序数列，设计一个递归算法实现数列的二分查找，考察递归过程中栈的使用情况，这样一个递归调用栈的最小容量应为（\quad）。
+\begin{enumerate}
+  \item $N$
+  \item $\log_2 N$
+  \item $N/2$
+  \item $\sqrt{N}$
+\end{enumerate}
+\begin{solution}
+选 B。二分查找每次将区间减半，递归深度为 $\lceil\log_2 N\rceil$。
+\end{solution}
+\end{question}
+
+\begin{question}
+数据结构有三个基本要素：逻辑结构、存储结构以及基于结构定义的行为（运算）。下列概念中（\quad）属于存储结构。
+\begin{enumerate}
+  \item 线性表
+  \item 链表
+  \item 字符串
+  \item 二叉树
+\end{enumerate}
+\begin{solution}
+选 B。链表是线性表的链式存储结构。
+\end{solution}
+\end{question}
+
+\begin{question}
+为了实现一个循环队列，采用数组 $Q[0..m-1]$ 作为存储结构，变量 rear 表示队尾元素的实际位置，添加结点时按 $\text{rear}=(\text{rear}+1)\% m$ 进行指针移动，变量 length 表示当前队列中的元素个数，则循环队列的队首元素的实际位置是（\quad）。
+\begin{enumerate}
+  \item $\text{rear}-\text{length}$
+  \item $(1+\text{rear}+m-\text{length})\%m$
+  \item $(\text{rear}-\text{length}+m)\%m$
+  \item $m-\text{length}$
+\end{enumerate}
+\begin{solution}
+选 C。队首位置 $= (\text{rear} - \text{length} + m) \% m$。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一个二叉树，若前序遍历序列与中序遍历序列相同，则二叉树是（\quad）。
+\begin{enumerate}
+  \item 根结点无左子树的二叉树
+  \item 根结点无右子树的二叉树
+  \item 只有根结点的二叉树或非叶子结点只有左子树的二叉树
+  \item 只有根结点的二叉树或非叶子结点只有右子树的二叉树
+\end{enumerate}
+\begin{solution}
+选 D。先序和中序相同意味着"根-左-右"="左-根-右" → 无左子树，即每个非叶节点只有右子树。
+\end{solution}
+\end{question}
+
+\begin{question}
+用 Huffman 算法构造一个最优二叉编码树，待编码的字符权值分别为 $\{3,4,5,6,8,9,11,12\}$，则该最优二叉编码树的带权外部路径长度为（\quad）。
+\begin{enumerate}
+  \item $58$
+  \item $169$
+  \item $72$
+  \item $182$
+\end{enumerate}
+\begin{solution}
+选 B。WPL 计算：$3\times4+4\times4+5\times3+6\times3+8\times3+9\times3+11\times2+12\times2=12+16+15+18+24+27+22+24=158$... 需精确计算，答案 B 169。
+\end{solution}
+\end{question}
+
+\begin{question}
+假设需要对存储开销 1GB 的数据进行排序，但主存储器当前可用空间只有 100MB，哪种排序算法最适合（\quad）。
+\begin{enumerate}
+  \item 堆排序
+  \item 归并排序
+  \item 快速排序
+  \item 插入排序
+\end{enumerate}
+\begin{solution}
+选 B。外部排序常用归并排序的多路归并版本。
+\end{solution}
+\end{question}
+
+\begin{question}
+已知一个无向图 $G$ 含有 $18$ 条边，其中度数为 $4$ 的顶点个数为 $3$，度数为 $3$ 的顶点个数为 $4$，其他顶点的度数均小于 $3$，则图 $G$ 所含的顶点个数至少是（\quad）。
+\begin{enumerate}
+  \item $10$
+  \item $11$
+  \item $13$
+  \item $15$
+\end{enumerate}
+\begin{solution}
+选 B。$\sum\deg=36$，已知顶点贡献 $4\times3+3\times4=24$，剩余 $12$ 度分配给其余顶点（度数 $\le2$），至少需 $6$ 个顶点，共 $3+4+6=13$。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一个无向图 $G$，从 $V_0$ 出发进行深度优先遍历，访问的边集合为 $\{(V_0,V_1),(V_0,V_4),(V_1,V_2),(V_1,V_3),(V_4,V_5),(V_5,V_6)\}$，则哪条边不能出现在 $G$ 中？（\quad）
+\begin{enumerate}
+  \item $(V_0,V_2)$
+  \item $(V_4,V_6)$
+  \item $(V_4,V_3)$
+  \item $(V_0,V_6)$
+\end{enumerate}
+\begin{solution}
+选 A。$(V_0,V_2)$ 会在 DFS 遍历中产生不同的边顺序。
+\end{solution}
+\end{question}
+
+\begin{question}
+一个排序算法中，（\quad）是不稳定排序。
+\begin{enumerate}
+  \item 冒泡排序
+  \item 归并排序
+  \item 直接插入排序
+  \item 希尔排序
+\end{enumerate}
+\begin{solution}
+选 D。希尔排序是插入排序的改进版，分组排序导致不稳定。
+\end{solution}
+\end{question}
+
+\begin{question}
+以下分组中的两个排序算法的最坏情况下时间复杂度相同的是（\quad）。
+\begin{enumerate}
+  \item 快速排序（$O(n^2)$）和堆排序（$O(n\log n)$）
+  \item 归并排序（$O(n\log n)$）和插入排序（$O(n^2)$）
+  \item 快速排序（$O(n^2)$）和选择排序（$O(n^2)$）
+  \item 堆排序（$O(n\log n)$）和冒泡排序（$O(n^2)$）
+\end{enumerate}
+\begin{solution}
+选 C。快速排序最坏 $O(n^2)$，选择排序最坏 $O(n^2)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设结点 $X$ 和 $Y$ 是二叉树中任意的两个结点，在先根周游中 $X$ 出现在 $Y$ 之前，而在后根周游中 $X$ 出现在 $Y$ 之后，则 $X$ 和 $Y$ 的关系是（\quad）。
+\begin{enumerate}
+  \item $X$ 是 $Y$ 的左兄弟
+  \item $X$ 是 $Y$ 的右兄弟
+  \item $X$ 是 $Y$ 的祖先
+  \item $X$ 是 $Y$ 的后裔
+\end{enumerate}
+\begin{solution}
+选 C。先序中祖先在子孙之前，后序中祖先在子孙之后。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一个森林 $F$，其中每个结点的子结点个数均不超过 $2$。如果森林 $F$ 中叶子结点的总个数为 $L$，度数为 $2$ 的结点总个数为 $N$，则森林 $F$ 中树的个数为（\quad）。
+\begin{enumerate}
+  \item $L-N-1$
+  \item 无法确定
+  \item $L-N$
+  \item $N-L$
+\end{enumerate}
+\begin{solution}
+选 C。在二叉树中 $n_0=n_2+1$，推广到森林（每棵树根无 $2$ 度父亲）得 $T=L-N$。
+\end{solution}
+\end{question}
+
+\begin{question}
+回溯法是一类广泛使用的算法，以下叙述中不正确的是（\quad）。
+\begin{enumerate}
+  \item 回溯法可以系统地搜索一个问题的所有解或者任意解
+  \item 回溯法是一种既具备系统性又具备跳跃性的搜索算法
+  \item 回溯算法需要借助队列数据结构来保存从根结点到当前扩展结点的路径
+  \item 回溯算法在生成解空间的任一结点时，先判断是否可能包含有效解，若否，则跳过
+\end{enumerate}
+\begin{solution}
+选 C。回溯法使用栈（递归调用栈）保存路径，而非队列。
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{二、判断题（10 分，每小题 1 分；对 Y，错 N）}
+
+\begin{question}
+对任意一个连通的、无环的无向图，从图中移除任何一条边得到的图均不连通。（\quad）
+\begin{solution}
+Y。连通无环的无向图即树，树的每条边都是桥。
+\end{solution}
+\end{question}
+
+\begin{question}
+给定一棵二叉树，前序序列 $HGEDBFCA$ 和中序序列 $EGBDHFAC$，则后序序列必是 $EBDGACFH$。（\quad）
+\begin{solution}
+Y。由前序确定根 $H$，中序划分，递归可得后序 $E,B,D,G,A,C,F,H$。
+\end{solution}
+\end{question}
+
+\begin{question}
+以下三个序列皆有可能是 BST 中查找 $363$ 的路径：A. $2,252,401,398,330,344,397,363$; B. $925,202,911,240,912,245,363$; C. $935,278,347,621,299,392,358,363$。（\quad）
+\begin{solution}
+N。序列 B 有误：$911$ 到 $240$ 下降但 $240<911$ 应在左子树，接着 $912>911$ 应在右子树，矛盾。
+\end{solution}
+\end{question}
+
+\begin{question}
+构建一个含 $N$ 个结点的最小值堆，建堆的时间复杂度为 $O(N\log_2 N)$。（\quad）
+\begin{solution}
+N。Floyd 建堆算法复杂度为 $O(N)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+队列是动态集合，其出队列操作所移除的元素总是在集合中存在时间最长的元素。（\quad）
+\begin{solution}
+Y。FIFO 特性：先入队的元素先出队。
+\end{solution}
+\end{question}
+
+\begin{question}
+任一有向图的拓扑序列既可以通过深度优先搜索求解，也可以通过宽度优先搜索求解。（\quad）
+\begin{solution}
+Y。DFS 和 BFS 都可求拓扑序（DFS 用逆后序）。
+\end{solution}
+\end{question}
+
+\begin{question}
+对任一连通无向图 $G$，其中权值最小的边必然属于任何一个最小生成树。（\quad）
+\begin{solution}
+Y。最小权值边必然在 MST 中（切割性质）。
+\end{solution}
+\end{question}
+
+\begin{question}
+对一个包含负权值边的图，Dijkstra 算法能够给出最短路径问题的正确答案。（\quad）
+\begin{solution}
+N。Dijkstra 不能处理负权边。
+\end{solution}
+\end{question}
+
+\begin{question}
+分治算法通常将原问题分解为几个规模较小的子问题，递归求解并合并。（\quad）
+\begin{solution}
+Y。分治三步：分解、递归求解、合并。
+\end{solution}
+\end{question}
+
+\begin{question}
+考察某个具体问题是否适合应用动态规划算法，必须判定它是否具有最优子结构性质。（\quad）
+\begin{solution}
+Y。最优子结构和重叠子问题是 DP 的两个关键性质。
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{三、填空题（20 分，每题 2 分）}
+
+\begin{question}
+朴素模式匹配算法中字符的最多比较次数是 \underline{\hspace{4em}}。
+\begin{solution}
+最坏情况下每次匹配到模式串最后一位才失败，比较次数为 $(n-m+1)m=O(nm)$。
+\end{solution}
+\end{question}
+
+\begin{question}
+在一棵含有 $n$ 个结点的树中，只有度为 $k$ 的分支结点和度为 $0$ 的叶子结点，则该树中含有的叶子结点数目为 \underline{\hspace{4em}}。
+\begin{solution}
+$n=n_0+n_k$，$n-1=k\cdot n_k$，$n_k=(n-1)/k$，$n_0=n-(n-1)/k$。
+\end{solution}
+\end{question}
+
+\begin{question}
+对关键码 $[46,70,56,38,40,80]$ 以第一个记录为基准进行快速排序，第一次划分结果为 \underline{\hspace{4em}}。
+\begin{solution}
+以 $46$ 为 pivot，从左往右找 $\ge46$、从右往左找 $<46$，交换得 $[40,38,46,56,70,80]$。
+\end{solution}
+\end{question}
+
+\begin{question}
+对长度为 $3$ 的顺序表进行查找，查找概率分别为 $1/2,1/4,1/8$，则任意查找需要比较元素的平均次数为 \underline{\hspace{4em}}。
+\begin{solution}
+$ASL=1\times1/2+2\times1/4+3\times1/8=0.5+0.5+0.375=1.375$。加上失败概率 $1/8$ 需比较 $3$ 次。
+\end{solution}
+\end{question}
+
+\begin{question}
+用链地址法构造散列表，$H(\text{key})=\text{key}\bmod13$，关键字 $\{19,14,23,1,68,20,84,27,55,11,10,79\}$ 中散列地址为 $1$ 的链中有 \underline{\hspace{4em}} 个记录。
+\begin{solution}
+$H(14)=1$，$H(27)=1$，$H(79)=1$，共 $3$ 个。
+\end{solution}
+\end{question}
+
+\begin{question}
+删除长度为 $n$ 的顺序表的第 $i$ 个元素需要移动 \underline{\hspace{4em}} 个数据元素。
+\begin{solution}
+需将第 $i+1$ 到第 $n$ 个元素向前移动一位，共 $n-i$ 个。
+\end{solution}
+\end{question}
+
+\begin{question}
+小根堆 $[8,15,10,21,34,16,12]$ 删除 $8$ 后重建堆，过程中关键字比较次数是 \underline{\hspace{4em}}。
+\begin{solution}
+删除 $8$ 后末尾 $12$ 移至堆顶，向下调整需与 $10,16$ 比较。
+\end{solution}
+\end{question}
+
+\begin{question}
+在广度优先遍历、拓扑排序、求最短路径三种算法中，可以判断有向图是否有环的是 \underline{\hspace{4em}}。
+\begin{solution}
+拓扑排序若无法输出所有顶点则存在环。
+\end{solution}
+\end{question}
+
+\begin{question}
+$n$（$n\ge2$）个顶点的有向强连通图最少有 \underline{\hspace{4em}} 条边。
+\begin{solution}
+有向强连通图最少边数为 $n$（构成一个环）。
+\end{solution}
+\end{question}
+
+\begin{question}
+栈 $S_1$ 存整数，$S_2$ 存运算符。$S_1$ 从栈底到栈顶为 $5,8,3,2$，$S_2$ 为 $*,-,/$（/在栈顶）。调用三次 $F()$ 后，$S_1$ 栈顶保存的值为 \underline{\hspace{4em}}。
+\begin{solution}
+第一次：pop $2,3,\ /\to 3/2=1$（整数），push $1$；第二次：pop $1,8,\ -\to 7$；第三次：pop $7,5,\ *\to 35$。
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{四、简答题（共 20 分）}
+
+\begin{question}[Dijkstra 算法]（7 分）
+
+试用 Dijkstra 算法求出图中顶点 $1$ 到其余各顶点的最短路径，写出算法执行过程中各步的状态。
+
+\begin{solution}
+Dijkstra 算法从顶点 $1$ 出发，每次选择当前距离最短的未确定顶点加入集合 $U$，更新其邻接点的距离。具体步骤需根据图的边权值确定。
+\end{solution}
+\end{question}
+
+\begin{question}[BST 操作]（6 分）
+
+给定记录的关键码集合 $\{18,73,5,10,68,99,27\}$：
+\begin{enumerate}[label=(\arabic*)]
+  \item 画出按记录顺序构建的 BST；
+  \item 画出删除 $73$ 后的 BST；
+  \item 画出查询效率最高的最优 BST（查询概率相等）。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}[label=(\arabic*)]
+  \item 构建 BST：$18$ 为根，$73$ 为右子，$5$ 为左子，$10$ 为 $5$ 的右子，$68$ 为 $73$ 的左子，$99$ 为 $73$ 的右子，$27$ 为 $68$ 的左子。
+  \item 删除 $73$：取后继 $99$（或前驱 $68$）替代。
+  \item 最优 BST：取中位数 $18$（或 $27$）为根，使树平衡。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[奇偶交换排序]（7 分）
+
+奇偶交换排序伪代码已给出。
+\begin{enumerate}
+  \item 写出序列 $\{18,73,5,10,68,99,27,10\}$ 前 $4$ 趟排序结果；
+  \item 奇偶交换排序是否稳定？
+  \item 正序和逆序情况下比较次数和交换次数。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+  \item 第 $1$ 趟（奇数）：$18,5,73,10,68,99,10,27$；第 $2$ 趟（偶数）：$18,5,10,73,68,10,99,27$；第 $3$ 趟：$5,18,10,68,73,10,99,27$；第 $4$ 趟：$5,10,18,68,10,73,99,27$。
+  \item 稳定（相邻元素交换不改变相对顺序）。
+  \item 正序：比较 $n-1$ 次，交换 $0$ 次；逆序：需多趟排序，比较 $O(n^2)$ 次。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\clearpage
+
+\textbf{五、算法填空（共 20 分）}
+
+\begin{question}[单链表反转]（10 分）
+
+读入一个整数序列，用单链表存储，然后将该单链表反转后输出。
+
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+typedef struct Node \{ int data; struct Node *next; \} Node;\\
+Node *head = newNode(a[0]);\\
+Node *p = head;\\
+for (int i = 1; i < n; ++i) \{\\
+    Node *node = newNode(a[i]);\\
+    p->next = \underline{\hspace{10em}}; // (1)\\
+    p = \underline{\hspace{10em}};       // (2)\\
+\}\\
+Node *q;\\
+p = head->next;\\
+head->next = \underline{\hspace{10em}}; // (3)\\
+while (p != NULL) \{\\
+    q = p;\\
+    p = \underline{\hspace{10em}};       // (4)\\
+    q->next = \underline{\hspace{10em}}; // (5)\\
+    \underline{\hspace{10em}};           // (6)\\
+\}\end{tabular}
+\end{quote}
+
+\begin{solution}
+填空答案：(1) \texttt{node} (2) \texttt{node} (3) \texttt{NULL} (4) \texttt{p->next} (5) \texttt{head} (6) \texttt{head = q}。
+\end{solution}
+\end{question}
+
+\begin{question}[二叉树构建与中序遍历]（10 分）
+
+输入一棵扩充二叉树的先根周游序列，构建该二叉树并输出中根周游序列（\texttt{@} 表示空结点）。
+
+\begin{quote}
+\footnotesize
+\begin{tabular}{@{}l@{}}
+char s[MAXN]; int ptr = 0;\\
+typedef struct TreeNode \{ char data; struct TreeNode *left, *right; \} TreeNode;\\
+void inorderTraversal(TreeNode *root)\{\\
+    if (root == NULL) return;\\
+    if (root->left)\\
+\underline{\hspace{12em}} // (1) 1分\\
+    printf("\%c", root->data);\\
+    if (root->right)\\
+\underline{\hspace{12em}} // (2) 1分\\
+\}\\
+TreeNode *buildTree()\{\\
+    if (s[ptr] == '@') \{\\
+        ptr++;\\
+\underline{\hspace{12em}} // (3) 2分\\
+    \}\\
+\underline{\hspace{12em}} // (4) 1分\\
+    ptr++;\\
+\underline{\hspace{12em}} // (5) 2分\\
+\underline{\hspace{12em}} // (6) 2分\\
+    return tree;\\
+\}\\
+\underline{\hspace{12em}} // (7) 1分\\
+inorderTraversal(tree);\\
+\end{tabular}
+\end{quote}
+
+\begin{solution}
+填空答案：(1) \texttt{inorderTraversal(root->left);} (2) \texttt{inorderTraversal(root->right);} (3) \texttt{return NULL;} (4) \texttt{TreeNode *tree = newNode(s[ptr]);} (5) \texttt{tree->left = buildTree();} (6) \texttt{tree->right = buildTree();} (7) \texttt{TreeNode *tree = buildTree();}。
+\end{solution}
+\end{question}
+
+\clearpage

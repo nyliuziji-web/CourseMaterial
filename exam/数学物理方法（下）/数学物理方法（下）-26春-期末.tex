@@ -1,6 +1,5 @@
 \heading{数学物理方法（下）-26春-期末}
 \noteinfo{题目来源于考后回忆，答案由AI生成。}
-\newcommand{\ee}{\mathrm{e}}
 \begin{question}[圆形膜的振动]
 
 考察一个半径为 $R$、边缘固定的圆形膜的振动问题。
@@ -213,20 +212,6 @@ u(x,t) = \sqrt{\frac{\alpha}{2\pi\kappa\,(1-\ee^{-2\alpha t})}}
 \right)\dd\eta.
 }
 
-物理意义：当 $t\ll 1/\alpha$ 时退化为自由扩散；当 $t\to\infty$ 时，
-$\tau\to 1/(2\alpha)$，分布趋于 Boltzmann 分布 $u_{\infty}(x)\propto\exp(-\alpha x^{2}/(2\kappa))$。
-
-用 Green 函数表示即为
-\[
-u(x,t) = \int_{-\infty}^{\infty} G(x,t;\,\eta,0)\,\psi(\eta)\,\dd\eta,
-\qquad
-G(x,t;\,\eta,0) =
-\sqrt{\frac{\alpha}{2\pi\kappa\,(1-\ee^{-2\alpha t})}}\,
-\exp\!\left(
--\frac{\alpha\,\bigl(x - \eta\,\ee^{\alpha t}\bigr)^{2}}
-{2\kappa\,(\ee^{2\alpha t} - 1)}
-\right).
-\]
 
 \end{solution}
 \end{question}

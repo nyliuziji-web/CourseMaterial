@@ -1,0 +1,530 @@
+\heading{高等数学A（II）-26春-期末}
+\noteinfo{原题为图片回忆版；整理时只对题面作最小润色，使题意更明确。解答尽量使用标准判别法、含参量反常积分定理、Fourier 收敛定理与幂级数逐项积分定理，并补足必要的条件验证。}
+
+\begin{question}[20分]
+判断下列级数是否收敛；若收敛，进一步判断是绝对收敛还是条件收敛，并给出详细理由。
+\begin{enumerate}
+  \item $\displaystyle \sum_{n=1}^{\infty}(-1)^n\left(\sqrt[3]{n+1}-\sqrt[3]{n}\right)$；
+  \item $\displaystyle \sum_{n=2}^{\infty}\ln\left(1+\frac{(-1)^n}{n}\right)$。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 记
+  \[
+    b_n=\sqrt[3]{n+1}-\sqrt[3]{n}.
+  \]
+  因为函数 $x^{1/3}$ 在 $(0,+\infty)$ 上递增且凹，所以
+  \[
+    b_n>0,\qquad b_{n+1}\le b_n.
+  \]
+  又 $b_n\to0$，故由 Leibniz 判别法，
+  \[
+    \sum_{n=1}^{\infty}(-1)^n b_n
+  \]
+  收敛。
+
+  再看绝对收敛性。对任意 $N\ge1$，
+  \[
+    \sum_{n=1}^{N}b_n
+    =\sum_{n=1}^{N}\left(\sqrt[3]{n+1}-\sqrt[3]{n}\right)
+    =\sqrt[3]{N+1}-1\to+\infty .
+  \]
+  因而 $\sum b_n$ 发散。故原级数条件收敛。
+
+  \item 先看普通收敛性。对 $k\ge1$，有
+  \[
+  \begin{aligned}
+    &\ln\left(1+\frac1{2k}\right)
+    +\ln\left(1-\frac1{2k+1}\right)  \\
+    &\qquad
+    =\ln\frac{2k+1}{2k}+\ln\frac{2k}{2k+1}=0 .
+  \end{aligned}
+  \]
+  设
+  \[
+    S_N=\sum_{n=2}^{N}\ln\left(1+\frac{(-1)^n}{n}\right).
+  \]
+  则
+  \[
+    S_{2m+1}=0,\qquad
+    S_{2m}=\ln\left(1+\frac1{2m}\right)\to0 .
+  \]
+  因此原级数收敛，且其和为 $0$。
+
+  再看绝对收敛性。令 $t_n=(-1)^n/n$，则 $t_n\to0$，且
+  \[
+    \lim_{n\to\infty}
+    \frac{\left|\ln\left(1+\frac{(-1)^n}{n}\right)\right|}{1/n}
+    =
+    \lim_{n\to\infty}\left|\frac{\ln(1+t_n)}{t_n}\right|
+    =1 .
+  \]
+  由极限比较判别法，
+  \[
+    \sum_{n=2}^{\infty}
+    \left|\ln\left(1+\frac{(-1)^n}{n}\right)\right|
+  \]
+  与调和级数同敛散，故发散。所以原级数条件收敛。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[15分]
+证明函数项级数
+\[
+  \sum_{n=1}^{\infty}(-1)^{n-1}\frac{(1-x)x^n}{1-x^{2n}}
+\]
+在区间 $(0,1)$ 上一致收敛。
+\begin{solution}
+令
+\[
+  u_n(x)=\frac{(1-x)x^n}{1-x^{2n}}
+  =\frac{x^n}{1+x+\cdots+x^{2n-1}},
+  \qquad 0<x<1.
+\]
+下面验证一致 Leibniz 判别法的条件。
+
+首先，对任意固定的 $x\in(0,1)$，有
+\[
+  \frac{u_{n+1}(x)}{u_n(x)}
+  =
+  \frac{x(1-x^{2n})}{1-x^{2n+2}}.
+\]
+由于
+\[
+  1-x^{2n+2}-x(1-x^{2n})
+  =(1-x)(1+x^{2n+1})>0,
+\]
+故
+\[
+  \frac{u_{n+1}(x)}{u_n(x)}<1.
+\]
+因此 $u_n(x)$ 关于 $n$ 单调递减。
+
+其次，证明 $u_n(x)\to0$ 关于 $x\in(0,1)$ 一致成立。由算术-几何平均不等式，
+\[
+\begin{aligned}
+  1+x+\cdots+x^{2n-1}
+  &\ge
+  2n\left(x^{0+1+\cdots+(2n-1)}\right)^{1/(2n)}  \\
+  &=2n x^{(2n-1)/2}.
+\end{aligned}
+\]
+于是
+\[
+  0\le u_n(x)
+  \le
+  \frac{x^n}{2n x^{(2n-1)/2}}
+  =
+  \frac{\sqrt{x}}{2n}
+  \le \frac1{2n},
+  \qquad 0<x<1.
+\]
+故
+\[
+  \sup_{0<x<1}u_n(x)\le \frac1{2n}\to0.
+\]
+
+综上，$u_n(x)\ge0$，对每个 $x\in(0,1)$ 关于 $n$ 单调递减，且 $u_n(x)\to0$ 在 $(0,1)$ 上一致成立。由一致 Leibniz 判别法，
+\[
+  \sum_{n=1}^{\infty}(-1)^{n-1}u_n(x)
+\]
+在 $(0,1)$ 上一致收敛。
+\end{solution}
+\end{question}
+
+\begin{question}[15分]
+设
+\[
+  \varphi(u)=\int_0^{+\infty}\frac{\arctan x}{x^u(2+x^3)}\,\dd x.
+\]
+\begin{enumerate}
+  \item 求函数 $\varphi(u)$ 的定义域 $I$，即使该反常积分收敛的参数 $u$ 的范围；
+  \item 证明 $\varphi(u)$ 在定义域 $I$ 上处处连续。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 只需分别考察 $0$ 与 $+\infty$ 附近的收敛性。
+
+  当 $x\to0^+$ 时，
+  \[
+    \arctan x\sim x,\qquad 2+x^3\sim2,
+  \]
+  故
+  \[
+    \frac{\arctan x}{x^u(2+x^3)}
+    \sim \frac12 x^{1-u}.
+  \]
+  因此积分在 $0$ 附近收敛当且仅当
+  \[
+    1-u>-1,
+    \qquad\text{即}\qquad u<2.
+  \]
+
+  当 $x\to+\infty$ 时，
+  \[
+    \arctan x\to\frac\pi2,\qquad 2+x^3\sim x^3,
+  \]
+  故
+  \[
+    \frac{\arctan x}{x^u(2+x^3)}
+    \sim \frac\pi2 x^{-u-3}.
+  \]
+  因此积分在 $+\infty$ 附近收敛当且仅当
+  \[
+    -u-3<-1,
+    \qquad\text{即}\qquad u>-2.
+  \]
+
+  综上，
+  \[
+    I=(-2,2).
+  \]
+
+  \item 任取闭区间 $[\alpha,\beta]\subset(-2,2)$。对 $u\in[\alpha,\beta]$ 分段寻找与 $u$ 无关的可积控制函数。
+
+  当 $0<x\le1$ 时，由 $\arctan x\le x$，$2+x^3\ge2$，并且 $x^{-u}\le x^{-\beta}$，得
+  \[
+    0\le
+    \frac{\arctan x}{x^u(2+x^3)}
+    \le
+    \frac12 x^{1-\beta}.
+  \]
+  因为 $\beta<2$，所以 $x^{1-\beta}$ 在 $(0,1]$ 上可积。
+
+  当 $x\ge1$ 时，由 $\arctan x\le\pi/2$，$2+x^3\ge x^3$，并且 $x^{-u}\le x^{-\alpha}$，得
+  \[
+    0\le
+    \frac{\arctan x}{x^u(2+x^3)}
+    \le
+    \frac{\pi}{2}x^{-\alpha-3}.
+  \]
+  因为 $\alpha>-2$，所以 $x^{-\alpha-3}$ 在 $[1,+\infty)$ 上可积。
+
+  被积函数关于参数 $u$ 连续，且在任意闭区间 $[\alpha,\beta]\subset I$ 上有与 $u$ 无关的可积控制函数。由含参量反常积分连续性定理，$\varphi(u)$ 在 $[\alpha,\beta]$ 上连续。由于这样的闭区间可任取，故 $\varphi(u)$ 在 $I=(-2,2)$ 上处处连续。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20分]
+考虑函数
+\[
+  f(x)=\frac{x^2}{4}-\frac{\pi x}{2}+\frac{\pi^2}{6},
+  \qquad x\in[0,\pi].
+\]
+求 $f(x)$ 的 $2\pi$ 周期偶延拓的 Fourier 余弦级数，并利用该 Fourier 级数求
+\[
+  \sum_{n=1}^{+\infty}\frac1{n^2},
+  \qquad
+  \sum_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)^3}
+\]
+的和。
+\begin{solution}
+设 Fourier 余弦级数为
+\[
+  f(x)\sim \frac{a_0}{2}+\sum_{n=1}^{\infty}a_n\cos nx,
+\]
+其中
+\[
+  a_0=\frac2\pi\int_0^\pi f(x)\,\dd x,
+  \qquad
+  a_n=\frac2\pi\int_0^\pi f(x)\cos nx\,\dd x
+  \quad(n\ge1).
+\]
+
+先算常数项：
+\[
+\begin{aligned}
+  a_0
+  &=\frac2\pi\int_0^\pi
+  \left(\frac{x^2}{4}-\frac{\pi x}{2}+\frac{\pi^2}{6}\right)\dd x  \\
+  &=\frac2\pi\left(\frac{\pi^3}{12}-\frac{\pi^3}{4}+\frac{\pi^3}{6}\right)=0.
+\end{aligned}
+\]
+
+当 $n\ge1$ 时，
+\[
+  \int_0^\pi x\cos nx\,\dd x=\frac{(-1)^n-1}{n^2},
+\]
+并且
+\[
+  \int_0^\pi x^2\cos nx\,\dd x=\frac{2\pi(-1)^n}{n^2}.
+\]
+于是
+\[
+\begin{aligned}
+  a_n
+  &=\frac2\pi\int_0^\pi
+  \left(\frac{x^2}{4}-\frac{\pi x}{2}+\frac{\pi^2}{6}\right)\cos nx\,\dd x  \\
+  &=\frac2\pi\left[
+    \frac14\cdot\frac{2\pi(-1)^n}{n^2}
+    -\frac\pi2\cdot\frac{(-1)^n-1}{n^2}
+  \right]  \\
+  &=\frac1{n^2}.
+\end{aligned}
+\]
+因此
+\[
+  f(x)\sim \sum_{n=1}^{\infty}\frac{\cos nx}{n^2}.
+\]
+
+$f$ 的偶延拓是连续的分段光滑 $2\pi$ 周期函数。由 Fourier 收敛定理，其 Fourier 级数在每一点收敛到函数值本身。故
+\[
+  f(x)=\sum_{n=1}^{\infty}\frac{\cos nx}{n^2},
+  \qquad 0\le x\le\pi.
+\]
+
+令 $x=0$，得
+\[
+  \sum_{n=1}^{\infty}\frac1{n^2}
+  =f(0)=\frac{\pi^2}{6}.
+\]
+
+下面求第二个数项级数。由于
+\[
+  \sum_{n=1}^{\infty}\left|\frac{\cos nx}{n^2}\right|
+  \le
+  \sum_{n=1}^{\infty}\frac1{n^2},
+\]
+由 Weierstrass 判别法，级数
+\[
+  \sum_{n=1}^{\infty}\frac{\cos nx}{n^2}
+\]
+在 $\mathbb R$ 上一致收敛，故可在任意有限区间上逐项积分。于是
+\[
+\begin{aligned}
+  \sum_{n=1}^{\infty}\frac{\sin nx}{n^3}
+  &=
+  \int_0^x\sum_{n=1}^{\infty}\frac{\cos nt}{n^2}\,\dd t  \\
+  &=
+  \int_0^x f(t)\,\dd t  \\
+  &=
+  \frac{x^3}{12}-\frac{\pi x^2}{4}+\frac{\pi^2x}{6}.
+\end{aligned}
+\]
+令 $x=\pi/2$，得
+\[
+  \sum_{n=1}^{\infty}\frac{\sin(n\pi/2)}{n^3}
+  =\frac{\pi^3}{32}.
+\]
+而
+\[
+  \sin\frac{n\pi}{2}
+  =
+  \begin{cases}
+    0, & n\ \text{为偶数},\\
+    (-1)^k, & n=2k+1,
+  \end{cases}
+\]
+故
+\[
+  \sum_{k=0}^{\infty}\frac{(-1)^k}{(2k+1)^3}
+  =\frac{\pi^3}{32}.
+\]
+
+综上，
+\[
+  \boxed{\displaystyle \sum_{n=1}^{\infty}\frac1{n^2}=\frac{\pi^2}{6}},
+  \qquad
+  \boxed{\displaystyle \sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)^3}=\frac{\pi^3}{32}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[15分]
+求幂级数
+\[
+  \sum_{n=1}^{+\infty}\frac{2}{4n-1}x^{2n}
+\]
+的和函数，并说明其收敛区间。
+\begin{solution}
+先求收敛区间。记
+\[
+  c_n=\frac{2}{4n-1}.
+\]
+则原级数是关于 $x$ 的幂级数
+\[
+  \sum_{n=1}^{\infty}c_n x^{2n}.
+\]
+由根值判别法，
+\[
+  \lim_{n\to\infty}\sqrt[2n]{c_n}=1,
+\]
+故收敛半径为 $1$。当 $|x|<1$ 时收敛；当 $|x|>1$ 时一般项不趋于 $0$，发散；当 $x=\pm1$ 时，
+\[
+  \sum_{n=1}^{\infty}\frac{2}{4n-1}
+\]
+与调和级数同敛散，故发散。因此收敛区间为
+\[
+  (-1,1).
+\]
+
+下面求 $|x|<1$ 时的和函数。令
+\[
+  r=\sqrt{|x|},
+  \qquad 0\le r<1.
+\]
+则 $x^{2n}=r^{4n}$，从而
+\[
+  S(x)=\sum_{n=1}^{\infty}\frac{2}{4n-1}r^{4n}
+  =2r\sum_{n=1}^{\infty}\frac{r^{4n-1}}{4n-1}.
+\]
+对任意固定的 $0\le r<1$，幂级数
+\[
+  \sum_{n=1}^{\infty}t^{4n-2}
+\]
+在 $[0,r]$ 上一致收敛。由幂级数逐项积分定理，
+\[
+\begin{aligned}
+  \sum_{n=1}^{\infty}\frac{r^{4n-1}}{4n-1}
+  &=
+  \sum_{n=1}^{\infty}\int_0^r t^{4n-2}\,\dd t  \\
+  &=
+  \int_0^r\sum_{n=1}^{\infty}t^{4n-2}\,\dd t  \\
+  &=
+  \int_0^r\frac{t^2}{1-t^4}\,\dd t .
+\end{aligned}
+\]
+又
+\[
+  \frac{t^2}{1-t^4}
+  =
+  \frac12\left(\frac1{1-t^2}-\frac1{1+t^2}\right),
+\]
+所以
+\[
+\begin{aligned}
+  \int_0^r\frac{t^2}{1-t^4}\,\dd t
+  &=
+  \frac12\int_0^r\frac{\dd t}{1-t^2}
+  -\frac12\int_0^r\frac{\dd t}{1+t^2}  \\
+  &=
+  \frac12\operatorname{arctanh}r-\frac12\arctan r.
+\end{aligned}
+\]
+于是
+\[
+  S(x)
+  =
+  r\left(\operatorname{arctanh}r-\arctan r\right),
+  \qquad r=\sqrt{|x|}.
+\]
+即
+\[
+  \boxed{\displaystyle
+  S(x)=
+  \sqrt{|x|}
+  \left(
+    \operatorname{arctanh}\sqrt{|x|}
+    -\arctan\sqrt{|x|}
+  \right),
+  \qquad |x|<1 .}
+\]
+当 $x=0$ 时，右端按极限值理解为 $0$，与原级数一致。
+\end{solution}
+\end{question}
+
+\begin{question}[15分]
+设 $a_n>0$，且级数 $\sum_{n=1}^{+\infty}a_n$ 发散。记
+\[
+  S_n=a_1+a_2+\cdots+a_n.
+\]
+证明：
+\begin{enumerate}
+  \item $\displaystyle \sum_{n=1}^{+\infty}\frac{a_n}{1+n^2a_n}$ 收敛；
+  \item $\displaystyle \sum_{n=1}^{+\infty}\frac{a_n}{1+a_n}$ 发散；
+  \item $\displaystyle \sum_{n=1}^{+\infty}\frac{a_n}{S_n^2}$ 收敛。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 对每个 $n\ge1$，有
+  \[
+    0<
+    \frac{a_n}{1+n^2a_n}
+    \le
+    \frac{a_n}{n^2a_n}
+    =
+    \frac1{n^2}.
+  \]
+  因为 $\sum n^{-2}$ 收敛，所以由比较判别法，
+  \[
+    \sum_{n=1}^{+\infty}\frac{a_n}{1+n^2a_n}
+  \]
+  收敛。
+
+  \item 对任意 $t>0$，有
+  \[
+    \frac{t}{1+t}\ge \frac12\min\{t,1\}.
+  \]
+  事实上，若 $0<t\le1$，则
+  \[
+    \frac{t}{1+t}\ge\frac{t}{2};
+  \]
+  若 $t\ge1$，则
+  \[
+    \frac{t}{1+t}\ge\frac12.
+  \]
+
+  下面证明
+  \[
+    \sum_{n=1}^{\infty}\min\{a_n,1\}
+  \]
+  发散。若 $a_n\ge1$ 对无穷多个 $n$ 成立，则上式含有无穷多个不小于 $1$ 的项，必发散。若 $a_n\ge1$ 只对有限多个 $n$ 成立，则从某一项起 $0<a_n<1$，从而
+  \[
+    \min\{a_n,1\}=a_n
+  \]
+  最终成立。此时由于 $\sum a_n$ 发散，仍有
+  \[
+    \sum_{n=1}^{\infty}\min\{a_n,1\}
+  \]
+  发散。
+
+  因此由比较判别法，
+  \[
+    \sum_{n=1}^{+\infty}\frac{a_n}{1+a_n}
+  \]
+  发散。
+
+  \item 因为 $a_n>0$ 且 $\sum a_n$ 发散，所以
+  \[
+    S_n\nearrow+\infty.
+  \]
+  对 $n\ge2$，有 $S_n>S_{n-1}>0$，并且
+  \[
+\begin{aligned}
+    \frac1{S_{n-1}}-\frac1{S_n}
+    &=
+    \frac{S_n-S_{n-1}}{S_{n-1}S_n}  \\
+    &=
+    \frac{a_n}{S_{n-1}S_n}
+    \ge
+    \frac{a_n}{S_n^2}.
+\end{aligned}
+  \]
+  于是对任意 $N\ge2$，
+  \[
+\begin{aligned}
+    \sum_{n=2}^{N}\frac{a_n}{S_n^2}
+    &\le
+    \sum_{n=2}^{N}
+    \left(
+      \frac1{S_{n-1}}-\frac1{S_n}
+    \right)  \\
+    &=
+    \frac1{S_1}-\frac1{S_N}
+    \le
+    \frac1{S_1}.
+\end{aligned}
+  \]
+  因为 $\sum a_n/S_n^2$ 是正项级数，其从第二项开始的部分和有上界，所以
+  \[
+    \sum_{n=2}^{\infty}\frac{a_n}{S_n^2}
+  \]
+  收敛。再加上首项有限，故
+  \[
+    \sum_{n=1}^{\infty}\frac{a_n}{S_n^2}
+  \]
+  收敛。
+\end{enumerate}
+\end{solution}
+\end{question}

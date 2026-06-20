@@ -1,0 +1,758 @@
+\heading{第11章-量子动力学}
+\begin{question}
+为什么求解依赖于时间 $t$ 的含时薛定谔方程（式 (11.1)）不是小事？
+\begin{enumerate}
+\item 如果 $k$ 是常数，如何求解 $\frac{\dd f}{\dd t}=kf$？
+\item 如果 $k$ 本身是 $t$ 的函数，又该如何？这里 $k(t)$ 和 $f(t)$ 可能还依赖于其他变量。
+\item 为什么不对具有含时哈密顿量的薛定谔方程做同样的事情？考虑分段常数哈密顿量的简单情形，并说明非对易性带来的困难。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (11.1)：含时薛定谔方程：$\ii\hbar\dd|\psi(t)\rangle/\dd t=H(t)|\psi(t)\rangle$。}
+
+\end{question}
+\begin{solution}
+(a) 若 $k$ 为常数，解为
+\[
+f(t)=f(0)e^{kt}.
+\]
+(b) 若 $k=k(t)$ 且与 $f$ 只是数乘关系，则
+\[
+f(t)=f(0)\exp\left(\int_0^t k(t')\,\dd t'\right).
+\]
+(c) 含时薛定谔方程形式上为
+\[
+\ii\hbar{\dd\over\dd t}|\psi\rangle=H(t)|\psi\rangle.
+\]
+若 $H(t)$ 在不同时刻不对易，不能简单写成 $\exp[-(\ii/\hbar)\int H\dd t]$。例如先作用 $H_1$ 一段时间再作用 $H_2$，演化为
+\[
+U=e^{-\ii H_2(t-\tau)/\hbar}e^{-\ii H_1\tau/\hbar},
+\]
+一般不等于 $e^{-\ii[H_1\tau+H_2(t-\tau)]/\hbar}$，除非 $[H_1,H_2]=0$。
+\end{solution}
+
+\begin{question}
+将氢原子置于含时电场 $\mathbf E=E(t)\hat{\mathbf z}$ 中，计算微扰 $\hat H'=eEz$ 在基态 $(n=1)$ 与四重简并第一激发态 $(n=2)$ 的所有矩阵元 $H'_{ij}$，并证明对于这五个态，对角元均为零。
+\end{question}
+\begin{solution}
+微扰为 $H'=eE(t)z=eE(t)r\cos\theta$。宇称给出所有对角元为零，因为 $z$ 是奇宇称算符而定态有确定宇称。基态 $|100\rangle$ 只通过 $z$ 与 $|210\rangle$ 耦合；与 $|200\rangle$ 及 $|21,\pm1\rangle$ 的角积分为零。
+\[
+\langle100|z|210\rangle=\int R_{10}Y_{00}^*r\cos\theta R_{21}Y_{10}r^2\dd r\dd\Omega
+=-{128\sqrt2\over243}a_0
+\]
+（符号取决于球谐函数相位约定）。因此在基 $\{|100\rangle,|200\rangle,|210\rangle,|211\rangle,|21,-1\rangle\}$ 中，唯一非零元是
+\[
+H'_{13}=H'_{31}=eE(t)\langle100|z|210\rangle,
+\]
+其余由选择定则 $\Delta\ell=\pm1,\Delta m=0$ 和宇称为零。
+\end{solution}
+
+\begin{question}
+设 $c_a(0)=1$ 和 $c_b(0)=0$，在不含时微扰情况下求解方程 (11.17)，并验证 $|c_a|^2+|c_b|^2=1$。讨论表面上是否与一般结论相矛盾，并解释为什么不矛盾。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (11.17)：二能级相互作用绘景方程：$\dot c_a=-(\ii/\hbar)H'_{ab}e^{-\ii\omega_0t}c_b$，$\dot c_b=-(\ii/\hbar)H'_{ba}e^{\ii\omega_0t}c_a$，$\omega_0=(E_b-E_a)/\hbar$。}
+
+\end{question}
+\begin{solution}
+不含时二能级耦合设 $H'_{ab}=(H'_{ba})^*=V$，频率差为 $\omega_0=(E_b-E_a)/\hbar$。相互作用绘景方程为
+\[
+\dot c_a=-{\ii\over\hbar}V e^{-\ii\omega_0t}c_b,
+\qquad
+\dot c_b=-{\ii\over\hbar}V^* e^{\ii\omega_0t}c_a.
+\]
+精确解可写成 Rabi 形式
+\[
+P_{a\to b}(t)=|c_b(t)|^2={|V|^2/\hbar^2\over |V|^2/\hbar^2+(\omega_0/2)^2}
+\sin^2\left(t\sqrt{|V|^2/\hbar^2+(\omega_0/2)^2}\right).
+\]
+并且 $|c_a|^2=1-P_{a\to b}$，故归一性保持。它不与一般结论矛盾，因为常微扰并不意味着能量守恒跃迁只能在一阶长期极限发生；有限二能级系统会发生相干振荡。
+\end{solution}
+
+\begin{question}
+设微扰采用含时 $\delta$ 函数形式 $\hat H'=\hat U\delta(t)$。假设 $U_{aa}=U_{bb}=0$，取 $U_{ab}=U_{ba}^*=\alpha$。若 $c_a(-\infty)=1$ 且 $c_b(-\infty)=0$，求 $c_a(t)$ 和 $c_b(t)$，并验证归一性。发生跃迁的净几率是多少？
+\end{question}
+\begin{solution}
+时间演化跨过 $t=0$ 的瞬间为
+\[
+U=\exp(-\ii U/\hbar),
+\]
+其中在 $\{|a\rangle,|b\rangle\}$ 子空间中
+\[
+U=\begin{pmatrix}0&\alpha\\ \alpha^*&0\end{pmatrix}.
+\]
+设 $\Omega=|\alpha|/\hbar$。由于 $U^2=|\alpha|^2 I$，
+\[
+\exp(-\ii U/\hbar)=I\cos\Omega-\ii {U\over|\alpha|}\sin\Omega.
+\]
+初态为 $|a\rangle$ 时
+\[
+c_a(0^+)=\cos\Omega,
+\qquad
+c_b(0^+)=-\ii {\alpha^*\over|\alpha|}\sin\Omega.
+\]
+$t\ne0$ 后仅有自由相位。归一性显然成立，净跃迁概率为
+\[
+\boxed{P_{a\to b}=\sin^2(|\alpha|/\hbar).}
+\]
+\end{solution}
+
+\begin{question}
+若不假设 $H'_{aa}=H'_{bb}=0$：
+\begin{enumerate}
+\item 在 $c_a(0)=1,c_b(0)=0$ 的情况下，利用一阶微扰理论求 $c_a(t)$ 和 $c_b(t)$，取 $H'$ 的一阶近似，并验证归一性。
+\item 引入相位变换 $d_a,d_b$ 以吸收对角矩阵元，证明方程组化为与式 (11.17) 相同的结构。
+\item 在一阶微扰理论中，用 (b) 的方法求 $c_a(t)$ 和 $c_b(t)$，并与 (a) 的结果比较。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (11.17)：二能级相互作用绘景方程：$\dot c_a=-(\ii/\hbar)H'_{ab}e^{-\ii\omega_0t}c_b$，$\dot c_b=-(\ii/\hbar)H'_{ba}e^{\ii\omega_0t}c_a$，$\omega_0=(E_b-E_a)/\hbar$。}
+
+\end{question}
+\begin{solution}
+(a) 保留对角元时，一阶近似为
+\[
+c_a(t)=1-{\ii\over\hbar}H'_{aa}t,
+\qquad
+c_b(t)=-{\ii\over\hbar}H'_{ba}\int_0^t e^{\ii\omega_0t'}\dd t'.
+\]
+于是 $|c_a|^2+|c_b|^2=1+O(H'^2)$，在一阶精度内归一。
+
+(b) 定义
+\[
+d_a=c_a e^{\ii H'_{aa}t/\hbar},
+\qquad d_b=c_b e^{\ii H'_{bb}t/\hbar}.
+\]
+则对角项被吸收到相位中，非对角耦合带有修正频率
+\[
+\omega=\omega_0+(H'_{bb}-H'_{aa})/\hbar.
+\]
+方程化为无对角项的形式。
+
+(c) 用 $d$ 变量做一阶微扰，再变回 $c$，展开到 $H'$ 一阶，与 (a) 完全一致。
+\end{solution}
+
+\begin{question}
+对一般初始条件 $c_a(0)=a$、$c_b(0)=b$，用微扰理论求解方程 (11.17) 至二阶近似。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (11.17)：二能级相互作用绘景方程：$\dot c_a=-(\ii/\hbar)H'_{ab}e^{-\ii\omega_0t}c_b$，$\dot c_b=-(\ii/\hbar)H'_{ba}e^{\ii\omega_0t}c_a$，$\omega_0=(E_b-E_a)/\hbar$。}
+
+\end{question}
+\begin{solution}
+把方程积分迭代。记
+\[
+\Omega(t)={1\over\hbar}H'_{ab}e^{-\ii\omega_0t},
+\qquad
+\Omega^*(t)={1\over\hbar}H'_{ba}e^{\ii\omega_0t}.
+\]
+则
+\[
+c_a(t)=a-\ii\int_0^t\Omega(t_1)c_b(t_1)\dd t_1,
+\qquad
+c_b(t)=b-\ii\int_0^t\Omega^*(t_1)c_a(t_1)\dd t_1.
+\]
+迭代到二阶：
+\[
+c_a(t)=a-\ii b\int_0^t\Omega_1\dd t_1
+-a\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,\Omega_1\Omega_2^*,
+\]
+\[
+c_b(t)=b-\ii a\int_0^t\Omega_1^*\dd t_1
+-b\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,\Omega_1^*\Omega_2.
+\]
+其中下标表示对应时间。这就是二阶微扰解。
+\end{solution}
+
+\begin{question}
+计算习题 11.3 中 $c_a(t)$ 和 $c_b(t)$ 至二阶近似，并将结果同精确解比较。
+\end{question}
+\begin{solution}
+习题 11.3 的精确概率为 Rabi 形式。弱耦合展开时，令
+\[
+\Omega_R=\sqrt{|V|^2/\hbar^2+(\omega_0/2)^2}.
+\]
+到二阶，
+\[
+c_b^{(1)}(t)={V^*\over\hbar\omega_0}(1-e^{\ii\omega_0t}),
+\]
+而
+\[
+c_a^{(2)}(t)=-{\ii |V|^2t\over\hbar^2\omega_0}+{ |V|^2\over\hbar^2\omega_0^2}(e^{-\ii\omega_0t}-1)
+\]
+（整体相位约定可有差异）。展开精确解到 $|V|^2$ 阶可得到同样结果，特别是
+\[
+P_{a\to b}^{(2)}={4|V|^2\over\hbar^2\omega_0^2}\sin^2{\omega_0t\over2}.
+\]
+\end{solution}
+
+\begin{question}
+考虑二能级系统，其微扰矩阵元为
+\[
+H'_{ab}=H'_{ba}=\frac{\alpha}{\sqrt{\pi}\tau}e^{-(t/\tau)^2},\qquad H'_{aa}=H'_{bb}=0.
+\]
+其中 $\tau$ 和 $\alpha$ 是正常数。
+\begin{enumerate}
+\item 按照一阶微扰理论，若系统在 $t=-\infty$ 时处于 $a$ 态，求 $t=\infty$ 时发现状态 $b$ 的几率。
+\item 在 $\tau\to0$ 的极限下，$H'_{ab}=\alpha\delta(t)$。计算 (a) 的极限表达式，并与习题 11.4 比较。
+\item 考虑相反极限 $\omega_0\tau\gg1$，说明结果体现绝热定理。
+\end{enumerate}
+\end{question}
+\begin{solution}
+一阶跃迁振幅
+\[
+c_b(\infty)=-{\ii\over\hbar}\int_{-\infty}^{\infty}{\alpha\over\sqrt\pi\tau}e^{-(t/\tau)^2}e^{\ii\omega_0t}\dd t.
+\]
+高斯积分给出
+\[
+\int_{-\infty}^{\infty}{1\over\sqrt\pi\tau}e^{-(t/\tau)^2}e^{\ii\omega_0t}\dd t=e^{-\omega_0^2\tau^2/4}.
+\]
+所以
+\[
+\boxed{P_{a\to b}^{(1)}={\alpha^2\over\hbar^2}e^{-\omega_0^2\tau^2/2}.}
+\]
+当 $\tau\to0$，得 $P\to\alpha^2/\hbar^2$，这是 $\sin^2(\alpha/\hbar)$ 的弱耦合极限。若 $\omega_0\tau\gg1$，指数抑制很强，说明缓慢扰动不能有效激发非简并系统，符合绝热定理。
+\end{solution}
+
+\begin{question}
+求解正弦微扰情形的二能级系统的精确解，并将跃迁几率与一阶微扰理论结果相比较。讨论旋波近似及其适用条件。
+\end{question}
+\begin{solution}
+正弦微扰可写成 $V\cos\omega t=(V/2)(e^{\ii\omega t}+e^{-\ii\omega t})$。在相互作用绘景中，接近共振的项随 $e^{\ii(\omega_0-\omega)t}$ 缓慢变化，反旋项随 $e^{\ii(\omega_0+
+\omega)t}$ 快速振荡。旋波近似保留前者，得到精确 Rabi 概率
+\[
+P_{a\to b}(t)={\Omega^2\over\Omega^2+\Delta^2}
+\sin^2\left({1\over2}\sqrt{\Omega^2+\Delta^2}\,t\right),
+\]
+其中
+\[
+\Omega={|V_{ba}|\over\hbar},
+\qquad
+\Delta=\omega-
+\omega_0.
+\]
+一阶微扰对应短时或弱耦合极限。旋波近似要求 $|\Delta|,\Omega\ll\omega+
+\omega_0$。
+\end{solution}
+
+\begin{question}
+作为对下述讨论的一种预备，证明对简谐扰动在长时间极限下可用 $\sin^2 x/x^2$ 型函数表示近似 $\delta$ 函数。
+\end{question}
+\begin{solution}
+恒等式
+\[
+\lim_{T\to\infty}{\sin^2(xT/2)\over\pi T x^2/2}=\delta(x)
+\]
+可由检验函数积分证明：令 $u=xT/2$，则
+\[
+\int_{-\infty}^{\infty}{\sin^2(xT/2)\over x^2}F(x)\dd x
+={T\over2}\int_{-\infty}^{\infty}{\sin^2u\over u^2}F(2u/T)\dd u
+\to {\pi T\over2}F(0).
+\]
+因此长时间跃迁概率中的 $\sin^2[(\omega-
+\omega_0)T/2]/(
+\omega-
+\omega_0)^2$ 可替换为与时间成正比的 $\delta(\omega-
+\omega_0)$。
+\end{solution}
+
+\begin{question}
+若系统从一个束缚态跃迁到连续态，证明总跃迁率可由费米黄金规则给出，并说明态密度因子的来源。
+\end{question}
+\begin{solution}
+一阶跃迁概率到连续态 $|f\rangle$ 为
+\[
+P_f={1\over\hbar^2}|V_{fi}|^2
+{4\sin^2[(\omega_{fi}-\omega)t/2]\over(
+\omega_{fi}-\omega)^2}.
+\]
+长时间极限用上一题的 $\delta$ 函数表示，得到单位时间跃迁率
+\[
+\dd W={2\pi\over\hbar}|V_{fi}|^2\delta(E_f-E_i-\hbar\omega)\rho(E_f)\dd E_f.
+\]
+积分后
+\[
+\boxed{W={2\pi\over\hbar}|V_{fi}|^2\rho(E_f).}
+\]
+态密度 $\rho(E)$ 来自把对离散末态的求和改写为对连续能量的积分。
+\end{solution}
+
+\begin{question}
+激发态的有限寿命（lifetime）。在自发辐射近似中，推导指数衰减律与能级宽度之间的关系。
+\end{question}
+\begin{solution}
+若激发态振幅按
+\[
+c(t)=e^{-\ii E_0t/\hbar}e^{-t/(2\tau)}
+\]
+衰减，则能量振幅是其傅里叶变换：
+\[
+\tilde c(E)\propto {1\over E-E_0+\ii\hbar/(2\tau)}.
+\]
+因此能量分布为洛伦兹型
+\[
+|\tilde c(E)|^2\propto{1\over(E-E_0)^2+(
+\hbar/2\tau)^2}.
+\]
+半高半宽为 $\hbar/(2\tau)$，全宽为
+\[
+\boxed{\Gamma={\hbar\over\tau}.}
+\]
+\end{solution}
+
+\begin{question}
+证明原子与辐射场相互作用中电偶极近似的选择定则；特别地，求出 $\Delta \ell$ 与 $\Delta m$ 的限制。
+\end{question}
+\begin{solution}
+电偶极矩阵元为 $\langle n'\ell' m'|\mathbf r|n\ell m\rangle$。$\mathbf r$ 是秩 1 的球张量，角动量耦合给出
+\[
+\Delta\ell=\pm1,
+\qquad
+\Delta m=0,\pm1.
+\]
+同时宇称必须改变，因为 $\mathbf r$ 为奇宇称算符，所以 $\ell'$ 与 $\ell$ 奇偶性相反；这与 $\Delta\ell=\pm1$ 一致。线偏振 $z$ 分量对应 $q=0$，故 $\Delta m=0$；圆偏振对应 $q=\pm1$，故 $\Delta m=\pm1$。
+\end{solution}
+
+\begin{question}
+对氢原子的 $2p\to1s$ 跃迁，计算角向矩阵元，并确定辐射的角分布。
+\end{question}
+\begin{solution}
+$2p\to1s$ 的角向部分取决于 $m$ 和偏振。若 $2p$ 态为 $m=0$，偶极矩沿 $z$ 方向，矩阵元含
+\[
+\int Y_{00}^*\cos\theta\,Y_{10}\,\dd\Omega={1\over\sqrt3}.
+\]
+辐射角分布与经典振荡偶极相同：
+\[
+{\dd P\over\dd\Omega}\propto \sin^2\theta.
+\]
+若 $m=\pm1$，对应圆偏振偶极，角分布按球张量分量重新组合；对未取向的 $2p$ 态平均后分布各向同性。
+\end{solution}
+
+\begin{question}
+对氢原子 $2p$ 态的自发辐射，计算跃迁率和寿命，并与实验值或文中结果比较。
+\end{question}
+\begin{solution}
+电偶极自发发射率为
+\[
+A_{i\to f}={\omega^3\over3\pi\epsilon_0\hbar c^3}|\mathbf d_{fi}|^2,
+\qquad \mathbf d=-e\mathbf r.
+\]
+对氢原子 $2p\to1s$，径向和角向积分给出 $|\mathbf d_{fi}|$ 为 $ea_0$ 量级，精确计算得到
+\[
+A_{2p\to1s}\simeq 6.25\times10^8\ {\rm s}^{-1}.
+\]
+因此寿命
+\[
+\boxed{\tau\simeq1.6\times10^{-9}\ {\rm s}.}
+\]
+这与氢原子 Lyman-$\alpha$ 跃迁的标准结果一致。
+\end{solution}
+
+\begin{question}
+如果原子处在三维无限深势阱中，研究其在外加含时扰动下的跃迁；写出一阶跃迁振幅并讨论选择定则。
+\end{question}
+\begin{solution}
+三维无限深势阱本征态为
+\[
+\psi_{n_xn_yn_z}=\left({2\over a}\right)^{3/2}
+\sin{n_x\pi x\over a}\sin{n_y\pi y\over a}\sin{n_z\pi z\over a}.
+\]
+一阶跃迁振幅
+\[
+c_f^{(1)}(t)=-{\ii\over\hbar}\int_0^t
+\langle f|H'(t')|i\rangle e^{\ii\omega_{fi}t'}\dd t'.
+\]
+若扰动为电偶极型 $H'=-q\mathbf E(t)\cdot\mathbf r$，矩阵元分解为三个一维积分。选择定则来自
+\[
+\int_0^a \sin{n\pi x\over a}\,x\,\sin{m\pi x\over a}\dd x,
+\]
+它仅在 $n,m$ 奇偶性相反时非零；未被坐标算符作用的方向要求量子数相同。
+\end{solution}
+
+\begin{question}
+在受迫二能级系统中，求振荡跃迁几率的最大值和周期；说明共振情形与非共振情形的差别。
+\end{question}
+\begin{solution}
+受迫二能级系统在旋波近似下跃迁概率为
+\[
+P(t)={\Omega^2\over\Omega^2+\Delta^2}
+\sin^2\left({\sqrt{\Omega^2+\Delta^2}\over2}t\right).
+\]
+最大值为
+\[
+P_{\max}={\Omega^2\over\Omega^2+\Delta^2}.
+\]
+共振 $\Delta=0$ 时可达到 $1$，周期为 $2\pi/\Omega$。非共振时振荡更快，但振幅小于 $1$。
+\end{solution}
+
+\begin{question}
+对于寿命为 $\tau$ 的不稳定态，证明其能量分布具有洛伦兹线型，并求半高宽与 $\tau$ 的关系。
+\end{question}
+\begin{solution}
+若不稳定态振幅为 $e^{-t/(2\tau)}e^{-\ii E_0t/\hbar}$，傅里叶变换给出
+\[
+P(E)\propto {1\over(E-E_0)^2+(\hbar/2\tau)^2}.
+\]
+这是洛伦兹线型。半高半宽 $\Delta E_{1/2}=\hbar/(2\tau)$，全宽
+\[
+\boxed{\Gamma={\hbar\over\tau}.}
+\]
+\end{solution}
+
+\begin{question}
+原子辐射线宽。利用不稳定态的指数衰减，推导谱线的自然宽度，并估计典型原子跃迁的数量级。
+\end{question}
+\begin{solution}
+自然线宽来自激发态有限寿命。若上能级寿命为 $\tau$，则能量宽度
+\[
+\Gamma={\hbar\over\tau},
+\]
+角频率宽度
+\[
+\Delta\omega={1\over\tau},
+\]
+普通频率宽度 $\Delta\nu=1/(2\pi\tau)$。典型原子偶极跃迁 $\tau\sim10^{-9}{\rm s}$，所以 $\Delta\nu\sim10^8{\rm Hz}$，远小于光学频率本身。
+\end{solution}
+
+\begin{question}
+对含时微扰理论的高阶展开进行整理，写出传播子形式，并说明为什么各阶项必须按时间排序。
+\end{question}
+\begin{solution}
+相互作用绘景中
+\[
+\ii\hbar {\dd U_I\over\dd t}=H_I'(t)U_I(t).
+\]
+积分迭代得 Dyson 级数
+\[
+U_I(t)=1+\left({-\ii\over\hbar}\right)\int^t H_I'(t_1)\dd t_1
++\left({-\ii\over\hbar}\right)^2\int^t\dd t_1\int^{t_1}\dd t_2 H_I'(t_1)H_I'(t_2)+\cdots.
+\]
+等价写为
+\[
+U_I(t)=\mathcal T\exp\left[-{\ii\over\hbar}\int^t H_I'(t')\dd t'\right].
+\]
+由于不同时间的 $H_I'(t)$ 一般不对易，必须保持时间排序。
+\end{solution}
+
+\begin{question}
+证明若微扰在有限时间内缓慢打开和关闭，则在绝热极限下系统保持在瞬时本征态中；讨论相位因子的物理意义。
+\end{question}
+\begin{solution}
+绝热定理的证明从瞬时本征态展开
+\[
+|\psi(t)\rangle=\sum_n c_n(t)e^{-\frac{\ii}{\hbar}\int^t E_n(t')\dd t'}|n(t)\rangle
+\]
+开始。代入薛定谔方程得非绝热耦合项
+\[
+\dot c_m=-\sum_n c_n\langle m|\dot n\rangle e^{\frac{\ii}{\hbar}\int(E_m-E_n)dt}.
+\]
+若哈密顿量变化时间尺度远大于能级间隔的倒数，这些快速振荡项平均为零，系统保持在同一瞬时本征态。总相位包含动力学相位和几何相位
+\[
+\gamma_n=\ii\int\langle n(t)|\dot n(t)\rangle\dd t.
+\]
+后者只依赖参数空间路径。
+\end{solution}
+
+\begin{question}
+若 $\hat H'=\hat H'(t)$ 的不同时间值彼此对易，证明时间演化算符可写成普通指数形式；若不对易，则必须使用时间排序指数。
+\end{question}
+\begin{solution}
+若 $[H(t),H(t')]=0$ 对任意 $t,t'$ 成立，则
+\[
+U(t)=\exp\left[-{\ii\over\hbar}\int_0^t H(t')\dd t'\right]
+\]
+直接满足 $\ii\hbar\dot U=H(t)U$。若不对易，求导普通指数会产生额外对易子项。正确形式为
+\[
+\boxed{U(t)=\mathcal T\exp\left[-{\ii\over\hbar}\int_0^t H(t')\dd t'\right].}
+\]
+\end{solution}
+
+\begin{question}
+说明式 $e^{-i\hat H_2(t-\tau)/\hbar}e^{-i\hat H_1\tau/\hbar}$ 与 $e^{-i[\hat H_1\tau+\hat H_2(t-\tau)]/\hbar}$ 何时相等，并给出反例。
+\end{question}
+\begin{solution}
+二者相等当且仅当指数中的算符可合并，即
+\[
+[H_1,H_2]=0.
+\]
+若不对易，Baker--Campbell--Hausdorff 公式给出
+\[
+e^Ae^B=\exp\left(A+B+{1\over2}[A,B]+\cdots\right),
+\]
+多出对易子项。反例可取自旋 $1/2$：$H_1\propto\sigma_x$，$H_2\propto\sigma_z$，因为 $[\sigma_x,\sigma_z]=-2\ii\sigma_y\ne0$，两个表达式不相等。
+\end{solution}
+
+\begin{question}
+对图示多次散射或多步跃迁过程，写出相应的二阶振幅；解释虚中间态分母的含义。
+\end{question}
+\begin{solution}
+二阶跃迁振幅一般为
+\[
+c_f^{(2)}(t)=\left(-{\ii\over\hbar}\right)^2
+\sum_n\int_0^t\dd t_1\int_0^{t_1}\dd t_2
+H'_{fn}(t_1)H'_{ni}(t_2)e^{\ii\omega_{fn}t_1}e^{\ii\omega_{ni}t_2}.
+\]
+对简谐扰动并取长时间极限，可化为含中间态分母的形式
+\[
+M_{fi}^{(2)}=\sum_n {V_{fn}V_{ni}\over E_i+\hbar\omega-E_n+\ii0^+}.
+\]
+分母表示中间态不必满足能量守恒，所以称为虚中间态；最终态仍由总能量守恒的 delta 函数约束。
+\end{solution}
+
+\begin{question}
+对正弦微扰 $V(\mathbf r)\cos\omega t$，推导吸收和受激发射的跃迁率，并与费米黄金规则相联系。
+\end{question}
+\begin{solution}
+对 $H'=V(\mathbf r)\cos\omega t$，一阶振幅含两项
+\[
+{1\over2}V_{fi}e^{\ii\omega t},
+\qquad
+{1\over2}V_{fi}e^{-\ii\omega t}.
+\]
+长时间极限给出
+\[
+W_{i\to f}={\pi\over2\hbar}|V_{fi}|^2
+\left[\delta(E_f-E_i-\hbar\omega)+\delta(E_f-E_i+\hbar\omega)\right]\rho(E_f).
+\]
+第一项是吸收，第二项是受激发射。这就是费米黄金规则在周期微扰下的形式。
+\end{solution}
+
+\begin{question}
+对具有偏振方向 $\boldsymbol\epsilon$ 的电磁波，写出电偶极跃迁矩阵元，并推导相应的选择定则。
+\end{question}
+\begin{solution}
+电偶极相互作用为
+\[
+H'=-q\mathbf E_0\cdot\mathbf r=-qE_0\boldsymbol\epsilon\cdot\mathbf r.
+\]
+矩阵元为
+\[
+H'_{fi}=-qE_0\langle f|\boldsymbol\epsilon\cdot\mathbf r|i\rangle.
+\]
+把 $\mathbf r$ 写成球张量分量 $r_q$，偏振 $q=0,\pm1$ 分别对应线偏振和圆偏振。选择定则：
+\[
+\Delta\ell=\pm1,
+\qquad
+\Delta m=q.
+\]
+一般偏振是这些分量的线性组合。
+\end{solution}
+
+\begin{question}
+计算氢原子若干低能级之间允许的电偶极跃迁率，并指出哪些跃迁因选择定则而禁戒。
+\end{question}
+\begin{solution}
+允许跃迁由电偶极选择定则决定：
+\[
+\Delta\ell=\pm1,
+\qquad \Delta m=0,\pm1.
+\]
+跃迁率为
+\[
+A_{i\to f}={\omega_{if}^3\over3\pi\epsilon_0\hbar c^3}|e\langle f|\mathbf r|i\rangle|^2.
+\]
+例如 $2p\to1s$ 允许，$2s\to1s$ 的单光子电偶极跃迁禁戒，$3d\to1s$ 也因 $\Delta\ell=2$ 禁戒。具体数值由径向积分与 Clebsch--Gordan 系数相乘得到。
+\end{solution}
+
+\begin{question}
+考虑自发发射中光子态密度。由单位体积中允许的 $\mathbf k$ 态数推导频率区间 $\dd\omega$ 内的态数。
+\end{question}
+\begin{solution}
+周期边界条件下，单位体积中 $\mathbf k$ 态密度为
+\[
+{\dd^3k\over(2\pi)^3}.
+\]
+光子有两个横向偏振，因此频率在 $\omega$ 到 $\omega+
+\dd\omega$ 的态数密度为
+\[
+2{4\pi k^2\dd k\over(2\pi)^3}
+={\omega^2\over\pi^2c^3}\dd\omega.
+\]
+若在体积 $V$ 中，则乘以 $V$。
+\end{solution}
+
+\begin{question}
+由含时微扰理论导出自发发射的爱因斯坦 $A$ 系数，并说明它与受激发射系数的关系。
+\end{question}
+\begin{solution}
+把辐射场量子化后，电偶极相互作用矩阵元含 $\sqrt{\hbar\omega/(2\epsilon_0V)}$。对末态光子求和并用态密度
+\[
+\rho(\omega)={V\omega^2\over\pi^2c^3}
+\]
+代入费米黄金规则，得到
+\[
+\boxed{A_{i\to f}={\omega^3\over3\pi\epsilon_0\hbar c^3}|\mathbf d_{fi}|^2.}
+\]
+受激发射系数与吸收系数由同一矩阵元决定；热平衡条件给出 Einstein 关系 $A/B\propto\omega^3$。
+\end{solution}
+
+\begin{question}
+对氢原子 $2p\to1s$ 跃迁，求辐射功率、平均寿命和自然线宽。
+\end{question}
+\begin{solution}
+对 $2p\to1s$，使用
+\[
+A={\omega^3\over3\pi\epsilon_0\hbar c^3}|e\langle1s|\mathbf r|2p\rangle|^2.
+\]
+计算径向积分和角向平均后得到
+\[
+A\simeq6.25\times10^8\,\mathrm{s}^{-1},
+\qquad
+\tau=A^{-1}\simeq1.6\,\mathrm{ns}.
+\]
+自然线宽
+\[
+\Gamma=\hbar A,
+\qquad
+\Delta
+\nu={A\over2\pi}.
+\]
+辐射功率等于跃迁能量乘跃迁率：
+\[
+P=\hbar\omega A.
+\]
+\end{solution}
+
+\begin{question}
+在电偶极近似下，分析线偏振和圆偏振光诱导的跃迁，给出 $\Delta m$ 的选择定则。
+\end{question}
+\begin{solution}
+线偏振沿 $z$ 对应球张量分量 $q=0$，所以 $\Delta m=0$。右、左圆偏振对应 $q=+1$ 和 $q=-1$，所以
+\[
+\Delta m=+1\quad\text{或}\quad \Delta m=-1.
+\]
+任意椭圆偏振是三种球分量的线性组合，跃迁振幅为相应选择定则允许项的叠加。
+\end{solution}
+
+\begin{question}
+考虑与时间有关的谐振子扰动，计算从基态到低激发态的一阶跃迁概率。
+\end{question}
+\begin{solution}
+设扰动为 $H'(t)=\lambda(t)x$。谐振子中
+\[
+x=\sqrt{\hbar\over2m\omega}(a+a^\dagger).
+\]
+因此基态只在一阶中耦合到 $|1\rangle$：
+\[
+c_1^{(1)}(\infty)=-{\ii\over\hbar}\sqrt{\hbar\over2m\omega}\int_{-\infty}^{\infty}\lambda(t)e^{\ii\omega t}\dd t.
+\]
+所以
+\[
+P_{0\to1}= {1\over2m\hbar\omega}\left|\int \lambda(t)e^{\ii\omega t}\dd t\right|^2.
+\]
+若扰动为 $x^2$ 型，则选择定则变为 $\Delta n=0,\pm2$。
+\end{solution}
+
+\begin{question}
+研究 sudden approximation（突然近似）：若哈密顿量在极短时间内突变，求跃迁概率，并与绝热近似比较。
+\end{question}
+\begin{solution}
+突然近似中，哈密顿量改变得很快，波函数在突变瞬间来不及改变。若初态是旧哈密顿量本征态 $|n^{(i)}\rangle$，突变后展开为
+\[
+|n^{(i)}\rangle=\sum_m c_m|m^{(f)}\rangle,
+\qquad
+c_m=\langle m^{(f)}|n^{(i)}\rangle.
+\]
+跃迁概率为
+\[
+\boxed{P_{n\to m}=|\langle m^{(f)}|n^{(i)}\rangle|^2.}
+\]
+绝热近似则相反：系统保持在对应的瞬时本征态中，跃迁到其他本征态的概率趋于零。
+\end{solution}
+
+\begin{question}
+若一维无限深势阱的宽度突然改变，求初态在新本征态中的展开系数，并计算能量期望值。
+\end{question}
+\begin{solution}
+若势阱宽度从 $a$ 突然变为 $b$，初态
+\[
+\psi_n^{(a)}(x)=\sqrt{2/a}\sin(n\pi x/a)
+\]
+在新本征态
+\[
+\phi_m^{(b)}(x)=\sqrt{2/b}\sin(m\pi x/b)
+\]
+中展开，系数
+\[
+c_m=\int_0^{\min(a,b)}\phi_m^{(b)}(x)^*\psi_n^{(a)}(x)\dd x.
+\]
+测得新能量 $E_m^{(b)}=m^2\pi^2\hbar^2/(2mb^2)$ 的概率为 $|c_m|^2$，能量期望为
+\[
+\langle E\rangle=\sum_m |c_m|^2E_m^{(b)}
+\]
+（也可直接用新哈密顿量对未变的波函数求期望）。
+\end{solution}
+
+\begin{question}
+对势阱边界缓慢移动的情形，利用绝热近似求系统状态的演化，并与突然近似结果比较。
+\end{question}
+\begin{solution}
+边界缓慢移动时，绝热定理给出
+\[
+\psi_n(x,t)=e^{\ii\gamma_n(t)}e^{-{\ii\over\hbar}\int^t E_n(t')\dd t'}\phi_n(x;L(t)),
+\]
+其中
+\[
+E_n(t)={n^2\pi^2\hbar^2\over2mL(t)^2}.
+\]
+对一维实本征函数可取规范使 Berry 相位为零。与突然近似相比，绝热过程中量子数 $n$ 保持不变，能量随 $L(t)^{-2}$ 连续改变，而不是投影到许多新本征态。
+\end{solution}
+
+\begin{question}
+求 Berry phase（几何相位）的一个简单例子：自旋 $1/2$ 粒子在缓慢旋转的磁场中演化，计算几何相位。
+\end{question}
+\begin{solution}
+自旋 $1/2$ 在缓慢旋转磁场中保持在瞬时自旋本征态。若磁场方向在 Bloch 球上闭合一圈，包围立体角 $\Omega_s$，几何相位为
+\[
+\boxed{\gamma_\pm=\mp{\Omega_s\over2}.}
+\]
+若磁场以固定极角 $\theta$ 绕 $z$ 轴一周，$\Omega_s=2\pi(1-
+\cos\theta)$，故
+\[
+\gamma_\pm=\mp\pi(1-
+\cos\theta).
+\]
+\end{solution}
+
+\begin{question}
+证明 Berry 曲率可由瞬时本征态的参数导数表示，并讨论规范变换下几何相位的不变性。
+\end{question}
+\begin{solution}
+Berry 联络为
+\[
+\mathbf A_n(\mathbf R)=\ii\langle n(\mathbf R)|\nabla_\mathbf R n(\mathbf R)\rangle,
+\]
+曲率
+\[
+\mathbf B_n=\nabla_\mathbf R\times\mathbf A_n.
+\]
+等价写法为
+\[
+(B_n)_i=\ii\epsilon_{ijk}\langle\partial_j n|\partial_k n\rangle.
+\]
+规范变换 $|n\rangle\to e^{\ii\chi(\mathbf R)}|n\rangle$ 使 $\mathbf A\to\mathbf A-\nabla\chi$，但闭合回路相位
+\[
+\gamma=\oint\mathbf A\cdot\dd\mathbf R
+\]
+只改变 $2\pi$ 的整数倍，因此物理上不变；曲率完全不变。
+\end{solution}
+
+\begin{question}
+对文中最后给出的模型哈密顿量，计算绝热演化相位和跃迁概率；说明何时会偏离绝热近似。
+\end{question}
+\begin{solution}
+把模型哈密顿量写成瞬时本征态形式。绝热近似下，第 $n$ 态获得相位
+\[
+\Phi_n(t)=-{1\over\hbar}\int_0^tE_n(t')\dd t'+\ii\int_0^t\langle n(t')|\dot n(t')\rangle\dd t'.
+\]
+非绝热跃迁振幅的一阶估计为
+\[
+c_m(t)\simeq-\int_0^t\langle m|\dot n\rangle
+\exp\left[{\ii\over\hbar}\int_0^{t'}(E_m-E_n)\dd t''\right]\dd t'.
+\]
+当
+\[
+\left|{\hbar\langle m|\dot n\rangle\over E_m-E_n}\right|\ll1
+\]
+时绝热近似好；能隙变小或参数变化太快时，跃迁概率增大并偏离绝热结果。
+\end{solution}

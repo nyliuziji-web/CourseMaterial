@@ -1,0 +1,186 @@
+\heading{量子力学A-20秋-期末}
+\noteinfo{原卷说明：朱世琳 2020 秋量子力学(A)期末；题中取 $\hbar=1$，部分小题另取 $m=1$。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+氢原子处于归一化态
+\[
+  \braket{\vb r}{\psi}={1\over2}R_{21}(r)Y_{11}(\theta,\phi)\ket{\uparrow}
+  -{\sqrt3\over2}R_{32}(r)Y_{21}(\theta,\phi)\ket{\downarrow}.
+\]
+设氢原子基态能量为 $E_0$，并取 $\hbar=1$。直接写出 $\hat H$、$\hat L^2$、$\hat L_z$、$\hat s_z$ 的平均值。
+\begin{solution}
+两项概率分别为 $1/4$ 与 $3/4$。氢原子 $E_n=E_0/n^2$，所以
+\[
+  \expval{H}={1\over4}{E_0\over4}+{3\over4}{E_0\over9}={7E_0\over48}.
+\]
+角动量部分分别为 $(\ell,m)=(1,1)$ 与 $(2,1)$，故
+\[
+  \expval{L^2}={1\over4}\cdot 2+{3\over4}\cdot 6=5,
+  \qquad \expval{L_z}=1.
+\]
+自旋平均值为
+\[
+  \expval{s_z}={1\over4}{1\over2}+{3\over4}\left(-{1\over2}\right)=-{1\over4}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+取 $m=1,\hbar=1$。一维谐振子的未扰动哈密顿量为 $\hat H=(\hat p^2+\hat x^2)/2$。$t=0^-$ 时体系处于基态，随后受到瞬时微扰 $\hat H'=c\hat x\delta(t)$。求微扰后跃迁到各激发态的概率。
+\begin{solution}
+瞬时微扰给出波函数突变
+\[
+  \ket{\psi(0^+)}=\exp(-\ii c\hat x)\ket0.
+\]
+因 $x=(a+a^\dagger)/\sqrt2$，这是位移相干态，参数 $\alpha=-\ii c/\sqrt2$。故跃迁到第 $n$ 能级的概率为
+\[
+  P_n=\ee^{-c^2/2}{(c^2/2)^n\over n!}.
+\]
+跃迁到任意激发态的总概率为
+\[
+  P_{\rm exc}=1-P_0=1-\ee^{-c^2/2}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+二能级体系的含时哈密顿量为
+\[
+  H(t)=a\sigma_z+b\left(\ee^{-\ii\omega t}\sigma_+ + \ee^{\ii\omega t}\sigma_-\right),
+  \qquad |b|\ll |a|,
+  \qquad \hbar\omega\ll |a|.
+\]
+\begin{enumerate}
+  \item 求瞬时本征态和本征能量；
+  \item 求绝热相位，精确至 $b^2$。
+\end{enumerate}
+\begin{solution}
+矩阵形式为
+\[
+  H(t)=\begin{pmatrix}a&b\ee^{-\ii\omega t}\\ b\ee^{\ii\omega t}&-a\end{pmatrix}.
+\]
+能量为
+\[
+  E_\pm=\pm R,
+  \qquad R=\sqrt{a^2+b^2}.
+\]
+当 $a>0$ 且 $|b|\ll a$ 时，
+\[
+  E_+=a+{b^2\over 2a}+O(b^4),
+  \qquad E_-=-a-{b^2\over 2a}+O(b^4).
+\]
+令 $\cos\vartheta=a/R$、$\sin\vartheta=b/R$、$\varphi=\omega t$，可取
+\[
+  \ket{+}=\cos{\vartheta\over2}\ket{\uparrow}+\ee^{\ii\varphi}\sin{\vartheta\over2}\ket{\downarrow},
+\]
+\[
+  \ket{-}=-\ee^{-\ii\varphi}\sin{\vartheta\over2}\ket{\uparrow}+\cos{\vartheta\over2}\ket{\downarrow}.
+\]
+若缓慢转动一周，Berry 相位为
+\[
+  \gamma_\pm=\mp{\Omega\over2},
+  \qquad \Omega=2\pi\left(1-{a\over\sqrt{a^2+b^2}}\right)
+  \simeq \pi {b^2\over a^2}\quad (a>0).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+量子刚性转子的哈密顿量为
+\[
+  H={L_z^2\over2I_z}+{L_x^2\over2I_x}+{L_y^2\over2I_y},
+  \qquad I_z\ne I_x,
+  \qquad I_x=I_y,
+  \qquad \hbar=1.
+\]
+\begin{enumerate}
+  \item 求 $H$ 本征值、本征态和简并度。
+  \item 非对称陀螺取 $I_x=I+a/2,I_y=I-a/2,a\ll I$，对 $Y_{20}$ 做能量修正至 $a^2$。
+  \item 对简并态 $Y_{1,1}$ 和 $Y_{1,-1}$ 做一阶简并微扰，求能量和波函数修正至 $a$。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 量子刚性转子的哈密顿量为可写成
+  \[
+    H={L^2\over2I_x}+\left({1\over2I_z}-{1\over2I_x}\right)L_z^2.
+  \]
+  因此本征态为 $Y_{\ell m}$，
+  \[
+    E_{\ell m}={\ell(\ell+1)\over2I_x}+\left({1\over2I_z}-{1\over2I_x}\right)m^2.
+  \]
+  $m=0$ 非简并，$m\ne0$ 时 $\pm m$ 二重简并。
+  \item 将 $I_x=I+a/2,I_y=I-a/2$ 展开到二阶：
+  \[
+    H={L^2\over2I}+\left({1\over2I_z}-{1\over2I}\right)L_z^2
+    +{a\over4I^2}(L_y^2-L_x^2)+{a^2\over8I^3}(L_x^2+L_y^2)+O(a^3).
+  \]
+  对 $Y_{20}$，一阶修正为零，且
+  \[
+    \mel{20}{L_x^2+L_y^2}{20}=\ell(\ell+1)-m^2=6.
+  \]
+  线性微扰只把 $m=0$ 耦合到 $m=\pm2$，矩阵元为
+  \[
+    \mel{2,\pm2}{ {a\over4I^2}(L_y^2-L_x^2)}{2,0}=-{a\sqrt6\over4I^2}.
+  \]
+  因
+  \[
+    E_{20}^{(0)}-E_{2,\pm2}^{(0)}=2\left({1\over I}-{1\over I_z}\right),
+  \]
+  故
+  \[
+    \Delta E_{20}={3a^2\over4I^3}
+    +{3a^2\over 8I^4\left(1/I-1/I_z\right)}+O(a^3).
+  \]
+  若 $I_z=I$，原来整个 $\ell=2$ 子空间简并，需改用简并微扰。
+  \item $Y_{1,1},Y_{1,-1}$ 由 $L_\pm^2$ 一阶耦合。因
+  \[
+    L_y^2-L_x^2=-{1\over2}(L_+^2+L_-^2),
+  \]
+  在 $\{Y_{1,1},Y_{1,-1}\}$ 子空间中
+  \[
+    V^{(1)}=-{a\over4I^2}
+    \begin{pmatrix}0&1\\1&0\end{pmatrix}.
+  \]
+  因而一阶能量修正为
+  \[
+    \Delta E=-{a\over4I^2},\quad {a\over4I^2},
+  \]
+  对应归一化本征态分别为
+  \[
+    {Y_{1,1}+Y_{1,-1}\over\sqrt2},
+    \qquad {Y_{1,1}-Y_{1,-1}\over\sqrt2}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+两个可区分的自旋 $1/2$ 粒子处于自旋单态
+\[
+  \psi={1\over\sqrt2}\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right],
+  \qquad \hbar=1.
+\]
+\begin{enumerate}
+  \item 求 $\hat s_{1x}+\hat s_{1y}$ 测量可能值及概率；
+  \item 求 $\hat s_{1x}+\hat s_{2y}$ 测量可能值及概率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item $\hat s_{1x}+\hat s_{1y}=(\sigma_x+\sigma_y)/2$ 作用在粒子 1 上，本征值为
+  \[
+    \lambda=\pm {1\over\sqrt2}.
+  \]
+  单态中任一单粒子约化密度矩阵为 $I/2$，故两种结果概率均为 $1/2$。
+  \item 两个算符作用在不同粒子上，可同时测量。每个分量的结果为 $\pm1/2$。由于单态中正交方向关联 $\expval{\sigma_{1x}\sigma_{2y}}=0$，四种组合等概率，故
+  \[
+    s_{1x}+s_{2y}=1,0,-1
+  \]
+  的概率分别为
+  \[
+    P(1)={1\over4},
+    \qquad P(0)={1\over2},
+    \qquad P(-1)={1\over4}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}

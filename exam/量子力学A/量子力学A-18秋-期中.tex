@@ -1,0 +1,186 @@
+\heading{量子力学A-18秋-期中}
+\noteinfo{原卷为 Advanced Quantum Mechanics Fall 2018 Midterm solutions；首页公式提示已略去。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+二维 Hilbert 空间中取一组非正交基 $\ket1,\ket2$，满足 $\braket{1}{1}=\braket{2}{2}=1$、$\braket{1}{2}=1/2$。线性算符 $A$ 的作用为 $A\ket1=\ket2$，$A\ket2=-\ket1$。
+\begin{enumerate}
+  \item 判断 $A$ 是否为厄米算符，是否为幺正算符；
+  \item 求本征值和归一化本征态。
+\end{enumerate}
+\begin{solution}
+矩阵
+\[
+  A=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+  \qquad G=\begin{pmatrix}1&1/2\\1/2&1\end{pmatrix}.
+\]
+因 $A^\dagger G\ne GA$，故非厄米；且 $A^\dagger GA\ne G$，故非幺正。特征方程为 $\lambda^2+1=0$，所以 $\lambda=\pm\ii$。对应向量可取
+\[
+  \ket{\lambda=\ii}\propto \ket1-\ii\ket2,
+  \qquad
+  \ket{\lambda=-\ii}\propto \ket1+\ii\ket2,
+\]
+二者范数均为 $2$，归一化因子为 $1/\sqrt2$。
+\end{solution}
+\end{question}
+
+\begin{question}
+二维各向同性谐振子的哈密顿量为
+\[
+  H_0={p_x^2+p_y^2\over2m}+{m\omega^2\over2}(x^2+y^2).
+\]
+\begin{enumerate}
+  \item 写出基态波函数以及全部能级和本征态；
+  \item 写出 $x,y,p_x,p_y$ 的 Heisenberg 方程和解；
+  \item 初态为 $A\exp(z_1a_x^\dagger+z_2a_y^\dagger)\ket{\phi_0}$，求 $A$ 与 $x,y,p_x,p_y$ 的期望；
+  \item 证明 $L=(xp_y-yp_x)/\hbar$ 守恒；
+  \item 求 $L$ 的本征值和本征态；
+  \item 求 $\ee^{\ii\theta L}x\ee^{-\ii\theta L}$ 与 $\ee^{\ii\theta L}y\ee^{-\ii\theta L}$。
+\end{enumerate}
+\begin{solution}
+基态
+\[
+  \phi_0(x,y)=\left({m\omega\over\pi\hbar}\right)^{1/2}\exp[-{m\omega(x^2+y^2)\over2\hbar}].
+\]
+本征态为
+\[
+  \ket{n_x,n_y}={(a_x^\dagger)^{n_x}(a_y^\dagger)^{n_y}\over\sqrt{n_x!n_y!}}\ket0,
+  \qquad E_{n_xn_y}=\hbar\omega(n_x+n_y+1).
+\]
+Heisenberg 方程为
+\[
+  \dot x={p_x\over m},\quad \dot p_x=-m\omega^2x,
+  \qquad \dot y={p_y\over m},\quad \dot p_y=-m\omega^2y,
+\]
+解为通常简谐形式，如 $x(t)=x(0)\cos\omega t+p_x(0)\sin\omega t/(m\omega)$。
+归一化常数
+\[
+  A=\exp[-(|z_1|^2+|z_2|^2)/2].
+\]
+随时间 $z_i(t)=z_i\ee^{-\ii\omega t}$，故
+\[
+  \expval{x}=\sqrt{\hbar\over2m\omega}(z_1\ee^{-\ii\omega t}+z_1^*\ee^{\ii\omega t}),
+\]
+\[
+  \expval{p_x}=-\ii\sqrt{\hbar m\omega\over2}(z_1\ee^{-\ii\omega t}-z_1^*\ee^{\ii\omega t}),
+\]
+$y,p_y$ 将 $z_1$ 换成 $z_2$。
+
+$H_0$ 旋转不变，故 $[H_0,L]=0$。定义圆偏振算符
+\[
+  a_\pm={a_x\mp\ii a_y\over\sqrt2},
+\]
+则
+\[
+  L=a_+^\dagger a_+-a_-^\dagger a_-.
+\]
+本征态为 $\ket{n_+,n_-}$，本征值为 $n_+-n_-$。最后，$L$ 生成平面旋转：
+\[
+  \ee^{\ii\theta L}x\ee^{-\ii\theta L}=x\cos\theta-y\sin\theta,
+  \quad
+  \ee^{\ii\theta L}y\ee^{-\ii\theta L}=y\cos\theta+x\sin\theta.
+\]
+\end{solution}
+\end{question}
+
+
+\begin{question}
+两模费米 Fock 空间中，定义三个双线性算符
+\[
+  S_x=f_2^\dagger f_1^\dagger+f_1f_2,
+  \quad S_y=-\ii f_2^\dagger f_1^\dagger+\ii f_1f_2,
+  \quad S_z=f_1^\dagger f_1+f_2^\dagger f_2-1.
+\]
+\begin{enumerate}
+  \item 写出 Fock 基；
+  \item 求 $[S_x,S_y]$、$[S_y,S_z]$、$[S_z,S_x]$；
+  \item 写出矩阵表示；
+  \item 计算 $\ee^{\ii\theta S_x/2}(aS_x+bS_y+cS_z)\ee^{-\ii\theta S_x/2}$；
+  \item 求 $S_z+S_y$ 的全部本征值。
+\end{enumerate}
+\begin{solution}
+取题目解答中方便的基
+\[
+  \ket0,
+  \quad \ket{12}=f_1^\dagger f_2^\dagger\ket0,
+  \quad f_1^\dagger\ket0,
+  \quad f_2^\dagger\ket0.
+\]
+注意 $f_2^\dagger f_1^\dagger\ket0=-\ket{12}$，偶粒子数子空间中
+\[
+  S_x=-\sigma_x,
+  \qquad S_y=\sigma_y,
+  \qquad S_z=-\sigma_z,
+\]
+奇粒子数子空间中三者均为零。因此
+\[
+  [S_x,S_y]=2\ii S_z,
+  \quad [S_y,S_z]=2\ii S_x,
+  \quad [S_z,S_x]=2\ii S_y.
+\]
+矩阵为
+\[
+S_x=\begin{pmatrix}0&-1&0&0\\-1&0&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix},\quad
+S_y=\begin{pmatrix}0&-\ii&0&0\\\ii&0&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix},
+\]
+\[
+S_z=\begin{pmatrix}-1&0&0&0\\0&1&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix}.
+\]
+由对易关系可得
+\[
+  \ee^{\ii\theta S_x/2}S_y\ee^{-\ii\theta S_x/2}=S_y\cos\theta-S_z\sin\theta,
+\]
+\[
+  \ee^{\ii\theta S_x/2}S_z\ee^{-\ii\theta S_x/2}=S_z\cos\theta+S_y\sin\theta,
+\]
+故
+\[
+\ee^{\ii\theta S_x/2}(aS_x+bS_y+cS_z)\ee^{-\ii\theta S_x/2}
+=aS_x+(b\cos\theta+c\sin\theta)S_y+(c\cos\theta-b\sin\theta)S_z.
+\]
+最后 $S_z+S_y$ 在偶子空间为 $-\sigma_z+\sigma_y$，故本征值为
+\[
+  \sqrt2,
+  \quad -\sqrt2,
+  \quad 0,
+  \quad 0.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+$H_1,H_2$ 均为二维 Hilbert 空间。在两个空间上分别定义 Pauli 型算符 $\sigma_1,\sigma_2$ 与 $\sigma'_1,\sigma'_2$。求复合空间中算符
+\[
+  O=\sigma_1\otimes\sigma'_1+\sigma_2\otimes\sigma'_2
+\]
+的本征值，并说明它不能分解为单个直积算符 $O_1\otimes O_2$。
+\begin{solution}
+在标准基中
+\[
+  O=2(\sigma_+\otimes\sigma'_-+\sigma_-\otimes\sigma'_+).
+\]
+它只耦合 $\ket{10}$ 与 $\ket{01}$，故本征值为
+\[
+  2, -2, 0, 0.
+\]
+若 $O=O_1\otimes O_2$，则矩阵元应分解为两个子空间矩阵元的乘积；但这里既有选择性翻转耦合又有二维零空间，非零矩阵元结构不满足秩一张量积形式，故不可能。
+\end{solution}
+\end{question}
+
+\begin{question}
+线性算符 $P$ 满足投影条件 $P^2=P$。若对任意态 $\psi$ 有
+\[
+  \braket{(1-P)\psi}{P\psi}=0,
+\]
+证明 $P$ 是厄米算符。
+\begin{solution}
+由条件得
+\[
+  \braket{\psi}{P\psi}=\braket{P\psi}{P\psi}.
+\]
+右侧为实数，故 $\braket{\psi}{P\psi}=\braket{P\psi}{\psi}$ 对任意 $\psi$ 成立。对 $\psi=c_1\psi_1+c_2\psi_2$ 极化展开，取不同 $c_1,c_2$，可得
+\[
+  \braket{\psi_1}{P\psi_2}=\braket{P\psi_1}{\psi_2}
+\]
+对任意 $\psi_1,\psi_2$ 成立，所以 $P=P^\dagger$。
+\end{solution}
+\end{question}

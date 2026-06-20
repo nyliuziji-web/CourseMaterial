@@ -1,0 +1,158 @@
+\heading{量子力学A-24秋-期末}
+\noteinfo{原卷说明：2024.12.30；考前给出黑体字提示；全卷取 $\hbar=1$；cheating sheet 已略去。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+本题考查轨道角动量与自旋角动量的可能测量值。
+\begin{enumerate}
+  \item 设空间波函数 $\psi=\ee^{-r}(x+\ii y+2z)$。写出测量 $L^2$、$L_z$ 的可能取值，并求 $\bar L_z$。
+  \item 若再乘以自旋态 $(2\alpha+\beta)$ 得到总态 $\psi'=(2\alpha+\beta)\psi$，其中 $\alpha,\beta$ 分别表示自旋上、下态，写出测量 $J^2$ 与 $J_z$ 的可能取值。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item $x+\ii y$ 与 $z$ 都属于 $\ell=1$ 球谐函数组合，所以
+  \[
+    L^2=\ell(\ell+1)=2.
+  \]
+  其中 $x+\ii y$ 对应 $m=1$，$z$ 对应 $m=0$。由球面对称积分，$x^2+y^2$ 与 $4z^2$ 的权重之比为 $2:4$，故
+  \[
+    P(m=1)={1\over3},\quad P(m=0)={2\over3},\qquad
+    \bar L_z={1\over3}.
+  \]
+  \item 若 $\alpha,\beta$ 分别表示自旋上、下态，则轨道部分有 $\ell=1$，与 $s=1/2$ 耦合后
+  \[
+    j={3\over2},{1\over2},\qquad J^2=j(j+1).
+  \]
+  由于轨道部分含 $m_\ell=1,0$，自旋部分含 $m_s=\pm 1/2$，故 $J_z=m_\ell+m_s$ 的可能值为
+  \[
+    {3\over2},\quad {1\over2},\quad -{1\over2}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+对称性与选择定则。写出下列矩阵元非零的选择定则：
+\begin{enumerate}
+  \item $\mel{n'\ell'm'}{\hat p_z}{n\ell m}$；
+  \item $\mel{n'\ell'm'}{xz}{n\ell m}$；
+  \item $\mel{n'j'\ell'm'}{\hat S_z}{nj\ell m}$。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item $p_z$ 是奇宇称的矢量算符的 $q=0$ 分量，故
+  \[
+    \Delta m=0,
+    \qquad \ell'=\ell\pm1.
+  \]
+  \item $xz$ 为偶宇称、二阶张量中 $q=\pm1$ 的组合，故
+  \[
+    \Delta m=\pm1,
+    \qquad \ell'=\ell,\ell\pm2
+  \]
+  并需满足三角条件；不满足宇称和三角条件的项为零。
+  \item $S_z$ 不作用于径向和轨道坐标，故 $n'=n,\ell'=\ell,m'=m$。在耦合表象中它可在同一 $\ell$ 内混合 $j=\ell\pm1/2$，即
+  \[
+    j'=j,j\pm1
+  \]
+  中满足三角条件的项可能非零。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+三维氢原子中取两个主量子数不同的能量本征态，记为 $\ket{N_1\ell m}$ 与 $\ket{N_2\ell' m'}$，且 $N_1\ne N_2$。求角动量算符 $L_x$ 在二者之间的矩阵元。
+\begin{solution}
+$L_x$ 只作用在角变量上，并且与中心势哈密顿量对易。氢原子本征态可写作径向部分与角向部分乘积，角动量算符不改变主量子数对应的径向量子态；径向正交性给出
+\[
+  \mel{N_1\ell'm'}{L_x}{N_2\ell m}\propto \delta_{N_1N_2}.
+\]
+因此当 $N_1\ne N_2$ 时该矩阵元为零。
+\end{solution}
+\end{question}
+
+\begin{question}
+电子初始时处于 $z$ 方向自旋向上态。施加恒定磁场 $\vb B=(1,1,0)$ 后，哈密顿量为
+\[
+  \hat H=-2\hat{\vb S}\cdot\vb B.
+\]
+求 $t$ 时刻波函数。
+\begin{solution}
+取 $\hbar=1$ 且 $\hat{\vb S}=\vb\sigma/2$，则
+\[
+  H=-(\sigma_x+\sigma_y).
+\]
+因此
+\[
+  \ket{\psi(t)}=\ee^{-\ii Ht}\ket{\uparrow}
+  =\ee^{\ii(\sigma_x+\sigma_y)t}\ket{\uparrow}.
+\]
+令 $\vb n=(1,1,0)/\sqrt2$，得
+\[
+  \ket{\psi(t)}=\cos(\sqrt2 t)\ket{\uparrow}
+  +{\ii-1\over\sqrt2}\sin(\sqrt2 t)\ket{\downarrow}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+两个自旋 $1/2$ 粒子耦合，哈密顿量为
+\[
+  \hat H=a\sigma_{1z}+b\sigma_{2z}+c\,\vb\sigma_1\cdot\vb\sigma_2.
+\]
+求能级。
+\begin{solution}
+在 $\{\ket{\uparrow\uparrow},\ket{\uparrow\downarrow},\ket{\downarrow\uparrow},\ket{\downarrow\downarrow}\}$ 中，
+\[
+  E_{\uparrow\uparrow}=a+b+c,
+  \qquad E_{\downarrow\downarrow}=-a-b+c.
+\]
+在 $\{\ket{\uparrow\downarrow},\ket{\downarrow\uparrow}\}$ 子空间中矩阵为
+\[
+  \begin{pmatrix}
+  a-b-c&2c\\
+  2c&-a+b-c
+  \end{pmatrix}.
+\]
+故另外两个能级为
+\[
+  E_{\pm}=-c\pm\sqrt{(a-b)^2+4c^2}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三维谐振子 $V={1\over2}(x^2+y^2+z^2)$。
+\begin{enumerate}
+  \item 加入微扰 $H_1=\sqrt2\alpha x$，求基态能量修正至 $\alpha^2$；
+  \item 加入微扰 $H_2=2bxy$，在第二激发能级的简并子空间中做一阶微扰，求能量修正至 $b^1$。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 因 $x=(a_x+a_x^\dagger)/\sqrt2$，所以
+  \[
+    H_1=\alpha(a_x+a_x^\dagger).
+  \]
+  一阶修正为零，二阶只由 $\ket{100}$ 贡献：
+  \[
+    \Delta E_0^{(2)}={|\alpha|^2\over E_0-E_{100}}=-\alpha^2.
+  \]
+  亦可视为沿 $x$ 方向完成平方得到精确位移能 $-\alpha^2$。因此基态能量为
+  \[
+    E_0={3\over2}-\alpha^2.
+  \]
+  \item 第二激发态简并子空间为
+  \[
+    \ket{200},\ket{020},\ket{002},\ket{110},\ket{101},\ket{011}.
+  \]
+  在该子空间中
+  \[
+    H_2=b(a_x+a_x^\dagger)(a_y+a_y^\dagger).
+  \]
+  对角化得到一阶能量修正
+  \[
+    \Delta E^{(1)}=2b,-2b,b,-b,0,0.
+  \]
+  因第二激发态未微扰能量为 $7/2$，总能量为 $7/2+\Delta E^{(1)}$，其中 $0$ 修正为二重。
+\end{enumerate}
+\end{solution}
+\end{question}

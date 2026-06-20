@@ -1,0 +1,180 @@
+\heading{量子力学A-22春-期末}
+\noteinfo{原 PDF 为期末考试试题解答；整理时保留题目和答案主线，略去原图。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+电偶极矩为 $\vb d$、转动惯量为 $I$ 的自由平面转子
+\[
+  H_0={L_\phi^2\over2I}=-{\hbar^2\over2I}\dv[2]{}{\phi}.
+\]
+在 $x$ 方向施加均匀电场 $\mathcal E$，相互作用为
+\[
+  H'=-\mathcal E d\cos\phi.
+\]
+\begin{enumerate}
+  \item 弱电场时将 $H'$ 视作微扰，计算基态能量和波函数至 $\mathcal E^2$；
+  \item 强电场 $\mathcal Ed\gg\hbar^2/(2I)$ 时，在势能最低点附近作谐振近似，计算基态能量和波函数。
+\end{enumerate}
+\begin{solution}
+未扰动本征态为
+\[
+  \psi_m^{(0)}={1\over\sqrt{2\pi}}\ee^{\ii m\phi},
+  \qquad E_m^{(0)}={\hbar^2m^2\over2I}.
+\]
+且
+\[
+  H'=-{\mathcal Ed\over2}(\ee^{\ii\phi}+\ee^{-\ii\phi}),
+  \qquad V_{m'm}=-{\mathcal Ed\over2}\delta_{m',m\pm1}.
+\]
+基态一阶能量为零，二阶能量为
+\[
+  E_0^{(2)}=2{(\mathcal Ed/2)^2\over 0-\hbar^2/(2I)}=-{I d^2\mathcal E^2\over\hbar^2}.
+\]
+波函数至一阶为
+\[
+  \psi_0\simeq \psi_0^{(0)}+{I\mathcal Ed\over\hbar^2}\left(\psi_1^{(0)}+\psi_{-1}^{(0)}\right),
+\]
+若保留二阶主项，还会出现
+\[
+  {I^2d^2\mathcal E^2\over4\hbar^4}(\psi_2^{(0)}+\psi_{-2}^{(0)}).
+\]
+强电场时在 $\phi=0$ 附近展开
+\[
+  -d\mathcal E\cos\phi\simeq -d\mathcal E+{1\over2}d\mathcal E\phi^2.
+\]
+等效为质量 $I$、频率 $\Omega=\sqrt{d\mathcal E/I}$ 的谐振子，故
+\[
+  E_0\simeq -d\mathcal E+{\hbar\over2}\sqrt{d\mathcal E\over I}.
+\]
+基态波函数为高斯
+\[
+  \psi_0(\phi)\simeq {1\over(\pi\phi_0^2)^{1/4}}\exp\left(-{\phi^2\over2\phi_0^2}\right),
+  \qquad \phi_0=\left({\hbar^2\over Id\mathcal E}\right)^{1/4}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+两个全同自旋 $1/2$ 粒子在一维耦合谐振势中运动，哈密顿量为
+\[
+  H={p_1^2\over2m}+{p_2^2\over2m}+{m\omega_0^2\over2}(x_1^2+x_2^2+\varepsilon x_1x_2).
+\]
+求能量本征值，并结合交换对称性讨论各能级的自旋简并度。
+\begin{solution}
+令
+\[
+  X={x_1+x_2\over2},\quad x=x_1-x_2,
+  \qquad M=2m,
+  \quad \mu={m\over2}.
+\]
+则体系化为两个独立谐振子，频率
+\[
+  \Omega=\omega_0\sqrt{1+{\varepsilon\over2}},
+  \qquad \omega=\omega_0\sqrt{1-{\varepsilon\over2}}.
+\]
+能量为
+\[
+  E_{Nn}=\hbar\Omega\left(N+{1\over2}\right)+\hbar\omega\left(n+{1\over2}\right),
+  \qquad N,n=0,1,2,\ldots .
+\]
+交换 $x_1\leftrightarrow x_2$ 时，$X$ 不变、$x\to-x$，故空间波函数对称性为 $(-1)^n$。若两个粒子为全同费米子，则 $n$ 偶数时空间波函数对称，自旋必须为单态，简并度为 $1$；$n$ 奇数时空间波函数反对称，自旋必须为三重态，简并度为 $3$。若出现频率比导致的偶然简并，应在上述交换对称性约束下合并计数。
+\end{solution}
+\end{question}
+
+\begin{question}
+三个自旋 $1/2$ 粒子处于 GHZ 态
+\[
+  \ket\psi={1\over\sqrt2}\left(\ket{z+}_a\ket{z+}_b\ket{z+}_c-
+  \ket{z-}_a\ket{z-}_b\ket{z-}_c\right).
+\]
+证明：三人都沿 $x$ 方向测量时，三个自旋测量值的乘积恒为 $-\hbar^3/8$；若其中一人沿 $x$ 方向、另外两人沿 $y$ 方向测量，则乘积恒为 $+\hbar^3/8$。据此讨论相应问答游戏中的经典策略与量子策略。
+\begin{solution}
+用 Pauli 矩阵表示，有
+\[
+  \sigma_x\ket{z\pm}=\ket{z\mp},
+  \qquad \sigma_y\ket{z+}=\ii\ket{z-},
+  \qquad \sigma_y\ket{z-}=-\ii\ket{z+}.
+\]
+直接作用可得
+\[
+  \sigma_x^a\sigma_x^b\sigma_x^c\ket\psi=-\ket\psi,
+\]
+以及
+\[
+  \sigma_x^a\sigma_y^b\sigma_y^c\ket\psi
+  =\sigma_y^a\sigma_x^b\sigma_y^c\ket\psi
+  =\sigma_y^a\sigma_y^b\sigma_x^c\ket\psi=+\ket\psi.
+\]
+因 $S_i=(\hbar/2)\sigma_i$，即得题中两个乘积结论。
+
+经典问答若要求
+\[
+  A_XB_XC_X=-1,
+  \quad A_XB_YC_Y=A_YB_XC_Y=A_YB_YC_X=+1,
+\]
+四式相乘左边为 $+1$，右边为 $-1$，矛盾，故无确定稳赢策略。量子策略是三人共享上式 GHZ 态；被问 $X$ 就测 $x$ 自旋，被问 $Y$ 就测 $y$ 自旋，将上/下对应 $\pm1$，即可满足所有获胜条件。
+\end{solution}
+\end{question}
+
+\begin{question}
+哈密顿算符为 $H(\lambda)=H_0+\lambda W$，其中 $\lambda$ 为实参数，$H_0,W$ 均不依赖 $\lambda$。证明基态能量 $E_0(\lambda)$ 满足 $\dd[2]{E_0}/\dd{\lambda^2}<0$（非简并情形）。
+\begin{solution}
+以 $\lambda_0$ 处的本征态作微扰，扰动为 $(\lambda-\lambda_0)W$。二阶微扰公式给出
+\[
+  {\dd[2]{E_0}\over\dd{\lambda^2}}\bigg|_{\lambda_0}
+  =2\sum_{n\ne0}{|\mel{n}{W}{0}|^2\over E_0-E_n}\le0.
+\]
+若 $W$ 与基态对所有激发态的矩阵元不全为零，则严格小于零。
+\end{solution}
+\end{question}
+
+\begin{question}
+两个质量为 $m$、电荷为 $q$ 的粒子在半径为 $R$ 的刚性圆环上运动。粒子间库仑斥力很强时，可在经典平衡构型附近作小振动近似，计算基态能量并讨论粒子全同性的影响。进一步考虑两个质量为 $M$ 的重粒子与两个质量为 $m$ 的轻粒子交错分布在同一圆环上，$m\ll M$，任意两粒子接触时均有极强斥力，求该体系的基态能量。
+\begin{solution}
+两电荷强斥时平衡构型为相隔直径，势能
+\[
+  V_0={q^2\over 8\pi\epsilon_0R}.
+\]
+令相对角 $\phi=\phi_1-\phi_2=\pi+\tilde\phi$，展开
+\[
+  {q^2\over4\pi\epsilon_0(2R|\sin(\phi/2)|)}
+  \simeq V_0+{q^2\over64\pi\epsilon_0R}\tilde\phi^2.
+\]
+相对运动的转动惯量为 $I'=mR^2/2$，故小振动频率
+\[
+  \omega_0=\sqrt{q^2\over16\pi\epsilon_0mR^3}.
+\]
+基态近似
+\[
+  E_0\simeq V_0+{\hbar\omega_0\over2}.
+\]
+全同玻色子要求空间对称，可取转动与振动基态；全同费米子还需结合自旋态，若自旋反对称则空间可对称，若自旋对称则空间需反对称，最低通常进入相对振动第一激发态。
+
+轻重粒子问题用 Born-Oppenheimer 近似。固定两重粒子的角距为 $\phi$，两个轻粒子的基态能量和为
+\[
+  V_{\rm eff}(\phi)={\pi^2\hbar^2\over2mR^2}\left({1\over\phi^2}+{1\over(2\pi-\phi)^2}\right).
+\]
+在 $\phi=\pi$ 附近展开，令 $\tilde\phi=\phi-\pi$，得到
+\[
+  V_{\rm eff}\simeq {\hbar^2\over mR^2}+{3\hbar^2\over\pi^2mR^2}\tilde\phi^2.
+\]
+重粒子相对运动有效质量为 $M/2$，故
+\[
+  \omega={\sqrt{12}\hbar\over\pi R^2\sqrt{mM}}.
+\]
+加上整体转动能，能级近似为
+\[
+  E_{N,k}={\hbar^2\over mR^2}+\hbar\omega\left(N+{1\over2}\right)+{\hbar^2k^2\over4MR^2}.
+\]
+基态为
+\[
+  E_{0,0}={\hbar^2\over mR^2}+{\sqrt3\hbar^2\over\pi R^2\sqrt{mM}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑一类二维无限深势阱，边界周长固定但形状可以任意改变。猜测哪种形状使基态能量最低，并给出物理理由。
+\begin{solution}
+自然猜测为圆形。理由是固定周长时圆形面积最大，粒子可占据的空间最大，动量不确定性最小，因而基态动能最低。这也与等周型谱不等式的物理图像一致。
+\end{solution}
+\end{question}

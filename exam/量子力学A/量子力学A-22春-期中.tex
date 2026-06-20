@@ -1,0 +1,162 @@
+\heading{量子力学A-22春-期中}
+\noteinfo{原 PDF 为期中考试答案；整理时略去原图，只保留题目、判断和计算结论。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+考虑被无限高墙限制在 $-a<x<a$ 内的一维粒子，中心处另有强度为 $\alpha>0$ 的 $\delta$ 势。势函数为
+\[
+V(x)=\begin{cases}
++\infty,&x\le -a,\\
+-\alpha\delta(x),&-a<x<a,\\
++\infty,&x\ge a.
+\end{cases}
+\]
+\begin{enumerate}
+  \item 对图中给出的吸引 $\delta$ 势，画出基态波函数的形状，并说明基态能量可能为正、零或负；
+  \item 画出第一激发态波函数的形状；
+  \item 若中心势改为排斥 $\delta$ 势 $+\alpha\delta(x)$，分别画出基态和第一激发态的形状；
+  \item 对排斥 $\delta$ 势，讨论极限 $\alpha\to\infty$ 下基态和第一激发态的变化，并说明是否违背节点定理。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 负 $\delta$ 势吸引，基态为偶宇称且可处处取正。$x=0$ 处导数满足
+  \[
+    \psi'(0^+)-\psi'(0^-)=-{2m\alpha\over\hbar^2}\psi(0),
+  \]
+  因而导数从正跳到负。能量可为负、零或正，取决于吸引强度。
+  \item 第一激发态为奇宇称，$x=0$ 为节点，因 $\psi(0)=0$，$\delta$ 势对它不起作用，形状与普通无限深势阱的奇态相同。
+  \item 正 $\delta$ 势排斥，基态仍为偶宇称，但在 $x=0$ 处有向上的导数跳变，波函数在中心被压低；第一激发态仍为奇态，中心节点使其不受 $\delta$ 势影响。
+  \item $\alpha\to\infty$ 时中心成为不可穿透硬壁，左右两个半阱退化。原基态能量趋近第一激发态能量，基态极限可在中心出现节点；这不违背节点定理，因为极限势把区间分裂为两个互不连通的阱。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+无限深势阱范围为 $0\le x\le L$。$t=0$ 时刻粒子的波函数为
+\[
+\Psi(x,0)=\begin{cases}1/\sqrt L,&0\le x\le L,\\0,&\text{otherwise}.
+\end{cases}
+\]
+\begin{enumerate}
+  \item 若 $t=0$ 测量能量，测得第 $n$ 个能级 $E_n$ 的概率 $P_n(0)$ 是多少？
+  \item 若不在 $t=0$ 测量，而在 $t$ 时刻测量能量，$P_n(t)$ 是多少？
+\end{enumerate}
+\begin{solution}
+本征态为
+\[
+  \psi_n(x)=\sqrt{2\over L}\sin {n\pi x\over L}.
+\]
+展开系数
+\[
+  c_n=\int_0^L\psi_n^*(x){1\over\sqrt L}\dd{x}
+  ={\sqrt2\over n\pi}\left[1-(-1)^n\right].
+\]
+所以
+\[
+  P_n(0)=|c_n|^2={2\over n^2\pi^2}\left[1-(-1)^n\right]^2
+  ={4\over n^2\pi^2}\left[1-(-1)^n\right].
+\]
+时间演化只给各能量本征态乘相位，故
+\[
+  P_n(t)=P_n(0).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一维散射势为
+\[
+  V(x)=V\theta(x)-{\hbar^2g\over2m}\delta(x),\qquad V>0,
+  \quad g>0.
+\]
+\begin{enumerate}
+  \item 能量 $E>V$ 的粒子从左方入射，求反射系数 $R$；
+  \item 高能极限下是否与纯阶跃势散射结果相同？
+  \item 是否存在 $E<0$ 束缚态？若存在给出能级和波函数。
+\end{enumerate}
+\begin{solution}
+令
+\[
+  k={\sqrt{2mE}\over\hbar},\qquad k'={\sqrt{2m(E-V)}\over\hbar}.
+\]
+取
+\[
+\psi=\begin{cases}\ee^{\ii kx}+r\ee^{-\ii kx},&x<0,\\ t\ee^{\ii k'x},&x>0.
+\end{cases}
+\]
+边界条件 $\psi(0^-)=\psi(0^+)$，$\psi'(0^+)-\psi'(0^-)=-g\psi(0)$ 给出
+\[
+  r=-{g+\ii(k'-k)\over g+\ii(k+k')},
+  \qquad
+  R=|r|^2={g^2+(k-k')^2\over g^2+(k+k')^2}.
+\]
+高能时 $k-k'=O(E^{-1/2})$，含 $\delta$ 势时 $r=O(E^{-1/2})$；纯阶跃势 $r=(k-k')/(k+k')=O(E^{-1})$。二者均趋于完全透射，但趋近速度不同。
+
+束缚态令
+\[
+  \kappa={\sqrt{-2mE}\over\hbar},
+  \qquad \kappa'={\sqrt{2m(V-E)}\over\hbar}.
+\]
+波函数为 $A\ee^{\kappa x}$（$x<0$）和 $A\ee^{-\kappa'x}$（$x>0$）。条件为
+\[
+  \kappa+\kappa'=g.
+\]
+解得
+\[
+  E=-{\hbar^2\over2m}\left({g\over2}-{mV\over g\hbar^2}\right)^2,
+\]
+存在条件为
+\[
+  g^2>{2mV\over\hbar^2}.
+\]
+归一化常数可取
+\[
+  A=\sqrt{2\kappa\kappa'\over\kappa+\kappa'}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑半轴 $x\ge0$ 上的一维吸引反平方势 $V(x)=-\alpha/x^2$（$\alpha>0$）中的粒子，定态方程为
+\[
+  -{\hbar^2\over2m}\psi''(x)-{\alpha\over x^2}\psi(x)=E\psi(x).
+\]
+要求原点附近的解不发生“落向中心”，并且概率流满足 $j(0)=0$。求临界耦合强度 $\alpha_0$，使得 $\alpha<\alpha_0$ 时满足上述条件。
+\begin{solution}
+在 $x\to0$ 处设 $\psi\sim x^n$。主导项给出
+\[
+  {\hbar^2\over2m}n(n-1)+\alpha=0.
+\]
+要使 $n$ 为实数并避免落向中心，需判别式非负：
+\[
+  1-{8m\alpha\over\hbar^2}\ge0.
+\]
+故临界值为
+\[
+  \alpha_0={\hbar^2\over8m}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $E,V$ 为实数，$[a,a^\dagger]=\beta^2>0$。对哈密顿量
+\[
+  H=E a^\dagger a+V(a+a^\dagger)
+\]
+通过平移振子算符求本征值。
+\begin{solution}
+定义
+\[
+  b={a\over\beta}+{V\over\beta E},
+  \qquad [b,b^\dagger]=1.
+\]
+完成平方得
+\[
+  H=E\beta^2 b^\dagger b-{V^2\over E}.
+\]
+故能级为
+\[
+  E_n=E\beta^2 n-{V^2\over E},
+  \qquad n=0,1,2,\ldots .
+\]
+\end{solution}
+\end{question}

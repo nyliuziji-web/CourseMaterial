@@ -1,0 +1,683 @@
+\heading{第10章-散射}
+\begin{question}
+卢瑟福散射（Rutherford scattering）。电荷量为 $q_1$、动能为 $E$ 的入射粒子被另一电荷量为 $q_2$、静止的重粒子散射。
+\begin{enumerate}
+\item 给出碰撞参量 $b$ 和散射角 $\theta$ 的关系。
+\item 求微分散射截面 $D(\theta)$。
+\item 证明卢瑟福散射的总截面是无穷大。
+\end{enumerate}
+\end{question}
+\begin{solution}
+库仑势写作 $V(r)=\kappa/r$，其中 $\kappa=q_1q_2/(4\pi\epsilon_0)$。经典轨道给出
+\[
+\boxed{b={|\kappa|\over2E}\cot{\theta\over2}.}
+\]
+中心力散射的微分截面为
+\[
+D(\theta)={b\over\sin\theta}\left|{\dd b\over\dd\theta}\right|.
+\]
+代入上式：
+\[
+\boxed{D(\theta)=\left({\kappa\over4E}\right)^2\csc^4{\theta\over2}.}
+\]
+总截面
+\[
+\sigma=\int D(\theta)\,\dd\Omega
+\]
+在 $\theta\to0$ 处发散，因为 $D\sim\theta^{-4}$ 而 $\dd\Omega\sim\theta\dd\theta$，积分 $\int\theta^{-3}\dd\theta$ 发散。因此卢瑟福总截面为无穷大。
+\end{solution}
+
+\begin{question}
+针对一维和二维散射，构造与式 (10.12) 相对应的表达式。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.12)：三维散射远区形式：$\psi\sim A[e^{\ii kz}+f(\theta)e^{\ii kr}/r]$。}
+
+\end{question}
+\begin{solution}
+三维散射中
+\[
+\psi\sim e^{ikz}+f(\theta){e^{ikr}\over r},
+\qquad
+D=|f(\theta)|^2.
+\]
+二维情形出射圆波振幅随 $r^{-1/2}$ 衰减，所以
+\[
+\psi\sim e^{ikx}+f(\theta){e^{ikr}\over\sqrt r},
+\qquad
+D_{2D}=|f(\theta)|^2,
+\]
+其中 $D_{2D}$ 的量纲是长度。 一维只有左右两个通道，渐近形式可写成
+\[
+\psi(x)\sim\begin{cases}e^{ikx}+r e^{-ikx},&x\to-\infty,\\ t e^{ikx},&x\to+\infty,
+\end{cases}
+\]
+相应可观测量是反射率 $R=|r|^2$ 与透射率 $T=|t|^2$，满足 $R+T=1$（实势、无吸收）。
+\end{solution}
+
+\begin{question}
+从式 (10.32) 开始，证明式 (10.33)。提示：利用勒让德多项式的正交性，证明具有不同 $\ell$ 值的系数必须分别等于零。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.32--10.33)：相移表示：$f(\theta)=k^{-1}\sum_\ell(2\ell+1)e^{\ii\delta_\ell}\sin\delta_\ell\,P_\ell(\cos\theta)$。}
+
+\end{question}
+\begin{solution}
+式 (10.32) 的两边都展开为勒让德多项式级数。利用正交性
+\[
+\int_{-1}^{1}P_\ell(x)P_{\ell'}(x)\,\dd x={2\over2\ell+1}\delta_{\ell\ell'},
+\]
+两边同乘 $P_L(\cos\theta)$ 并对 $\cos\theta$ 从 $-1$ 到 $1$ 积分。不同 $\ell$ 的系数彼此独立，故每个分波的系数必须分别相等。这样逐项比较就得到式 (10.33) 中相移、$S_\ell$ 或分波振幅之间的关系。
+\end{solution}
+
+\begin{question}
+考虑球面 $\delta$ 函数壳低能散射：
+\[
+V(r)=\alpha\delta(r-a),
+\]
+其中 $\alpha$ 和 $a$ 是正常数。计算散射振幅 $f(\theta)$、微分截面 $D(\theta)$ 以及总截面 $\sigma$。假定 $ka\ll 1$，从而只有 $\ell=0$ 项起显著作用。主要问题是确定 $C_0$；结果用无量纲量 $\beta=2m\alpha a/\hbar^2$ 表示。
+\end{question}
+\begin{solution}
+低能时只保留 $s$ 波。令 $u=rR$，壳内外分别为
+\[
+u_{<}=A\sin kr,
+\qquad
+u_{>}=B\sin(kr+\delta_0).
+\]
+在 $r=a$ 处 $u$ 连续，而导数跃变
+\[
+u'(a^+)-u'(a^-)={2m\alpha\over\hbar^2}u(a).
+\]
+取 $ka\ll1$，可得散射长度
+\[
+a_s={\beta a\over1+\beta},
+\qquad \beta={2m\alpha a\over\hbar^2}.
+\]
+低能散射振幅各向同性：
+\[
+\boxed{f(\theta)\simeq -a_s=-{\beta a\over1+\beta}.}
+\]
+因此
+\[
+\boxed{D=|f|^2={\beta^2a^2\over(1+\beta)^2},
+\qquad
+\sigma=4\pi {\beta^2a^2\over(1+\beta)^2}.}
+\]
+\end{solution}
+
+\begin{question}
+质量为 $m$、能量为 $E$ 的粒子从左边入射到如下势垒：
+\[
+V(x)=\begin{cases}
+0,&x<-a,\\
+-V_0,&-a\le x\le 0,\\
+\infty,&x>0,
+\end{cases}
+\]
+其中 $V_0$ 是正常数。
+\begin{enumerate}
+\item 设入射波是 $Ae^{ikx}$（其中 $k=\sqrt{2mE}/\hbar$，且 $E<V_0$），求反射波。
+\item 验证反射波振幅与入射波振幅相同。
+\item 对于一个非常深的势阱（$E\ll V_0$），求相移 $\delta$（式 (10.40)）。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.40)：硬球/球势低能相移常由边界条件给出；硬球情形 $\tan\delta_\ell=j_\ell(ka)/n_\ell(ka)$。}
+
+\end{question}
+\begin{solution}
+区域 $-a<x<0$ 的波数为
+\[
+q={\sqrt{2m(E+V_0)}\over\hbar}.
+\]
+硬墙条件给出 $\psi(0)=0$，故阱内
+\[
+\psi_{II}=C\sin(qx).
+\]
+左侧
+\[
+\psi_I=Ae^{ikx}+Be^{-ikx}.
+\]
+在 $x=-a$ 处匹配对数导数：
+\[
+{\ii k(Ae^{-ika}-Be^{ika})\over Ae^{-ika}+Be^{ika}}=q\cot(-qa)=-q\cot(qa).
+\]
+解得
+\[
+\boxed{B=Ae^{-2ika}{\ii k+q\cot(qa)\over \ii k-q\cot(qa)}.}
+\]
+分子分母互为复共轭（差一个负号），所以 $|B|=|A|$，反射率为 $1$。深阱 $q\gg k$ 时，反射相移主要为
+\[
+\delta\simeq -ka-qa+{\pi\over2}\quad (\mathrm{mod}\ \pi),
+\]
+等价地由上式取 $B/A=-e^{2\ii\delta}$ 读出。
+\end{solution}
+
+\begin{question}
+硬球散射（例题 10.3）的分波相移 $\delta_\ell$ 是多少？
+\end{question}
+\begin{solution}
+硬球半径为 $a$ 时，径向波函数在 $r=a$ 处为零。外部第 $\ell$ 分波可写作
+\[
+R_\ell(r)=A\bigl[j_\ell(kr)\cos\delta_\ell-n_\ell(kr)\sin\delta_\ell\bigr].
+\]
+边界条件 $R_\ell(a)=0$ 给出
+\[
+\boxed{\tan\delta_\ell={j_\ell(ka)\over n_\ell(ka)}.}
+\]
+特别地，低能 $s$ 波有 $\delta_0\simeq -ka$。
+\end{solution}
+
+\begin{question}
+求 $\delta$ 函数球壳散射中 $s$ 波（$\ell=0$）的分波相移 $\delta_0(k)$（习题 10.4）。假设当 $r\to0$ 时径向波函数 $u(r)$ 趋于 0。
+\end{question}
+\begin{solution}
+仍取
+\[
+u_{<}=A\sin kr,
+\qquad u_{>}=B\sin(kr+\delta_0).
+\]
+连续性和导数跃变
+\[
+u'(a^+)-u'(a^-)={2m\alpha\over\hbar^2}u(a)
+\]
+给出
+\[
+k\cot(ka+\delta_0)-k\cot(ka)={2m\alpha\over\hbar^2}.
+\]
+因此
+\[
+\boxed{\cot(ka+\delta_0)=\cot(ka)+{\beta\over ka},
+\qquad \beta={2m\alpha a\over\hbar^2}.}
+\]
+这就是 $s$ 波相移的精确隐式表达式；低能展开可还原习题 10.4 的散射长度。
+\end{solution}
+
+\begin{question}
+通过直接代入方法，验证式 (10.65) 满足式 (10.52)。提示：$\nabla^2(1/r)=-4\pi\delta^3(\mathbf r)$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (10.65)：Helmholtz 方程格林函数：$G(\mathbf r,\mathbf r')=-e^{\ii k|\mathbf r-\mathbf r'|}/(4\pi|\mathbf r-\mathbf r'|)$，且 $(\nabla^2+k^2)G=\delta^3(\mathbf r-\mathbf r')$。
+\item 式 (10.52)：Lippmann--Schwinger 积分形式：$\psi=e^{\ii kz}-\frac{m}{2\pi\hbar^2}\int \frac{e^{\ii k|\mathbf r-\mathbf r'|}}{|\mathbf r-\mathbf r'|}V(\mathbf r')\psi(\mathbf r')\dd^3r'$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+式 (10.65) 的格林函数满足
+\[
+(\nabla^2+k^2)G(\mathbf r)=-4\pi\delta^3(\mathbf r).
+\]
+对 $r\ne0$，直接计算 $G=e^{ikr}/r$ 有
+\[
+\nabla^2{e^{ikr}\over r}=-k^2{e^{ikr}\over r}.
+\]
+在原点的奇性由提示给出：$\nabla^2(1/r)=-4\pi\delta^3(\mathbf r)$。由于 $e^{ikr}=1+O(r)$，奇性部分仍为 $1/r$，所以
+\[
+(\nabla^2+k^2){e^{ikr}\over r}=-4\pi\delta^3(\mathbf r).
+\]
+这验证了格林函数方程，也就验证了积分形式的薛定谔方程。
+\end{solution}
+
+\begin{question}
+对于适当的 $V$ 和 $E$，证明氢原子基态（式 (4.80)）满足积分形式的薛定谔方程。注意 $E$ 为负值，所以 $k=i\kappa$，其中 $\kappa=\sqrt{-2mE}/\hbar$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (4.80)：氢基态：$\psi_{100}(r)=\pi^{-1/2}a^{-3/2}e^{-r/a}$。}
+
+\end{question}
+\begin{solution}
+氢原子基态
+\[
+\psi_{100}={1\over\sqrt{\pi a^3}}e^{-r/a},
+\qquad
+E=-{\hbar^2\over2ma^2},
+\qquad
+V=-{e^2\over4\pi\epsilon_0r}
+\]
+满足微分形式方程。对负能量令 $k=\ii\kappa$，自由格林函数变为
+\[
+G(\mathbf r-\mathbf r')={e^{-\kappa|\mathbf r-\mathbf r'|}\over |\mathbf r-\mathbf r'|}.
+\]
+积分方程为
+\[
+\psi(\mathbf r)=-{m\over2\pi\hbar^2}\int G(\mathbf r-\mathbf r')V(r')\psi(\mathbf r')\,\dd^3r'.
+\]
+代入 $V\psi\propto e^{-r'/a}/r'$ 并利用球对称卷积，可得右边仍为常数乘 $e^{-r/a}$。常数条件正是 $a=4\pi\epsilon_0\hbar^2/(me^2)$，所以基态满足积分方程。
+\end{solution}
+
+\begin{question}
+在玻恩近似下，求任意能量的软球散射的散射振幅，并证明所得结果在低能极限情况下变为式 (10.82)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.82)：Born 近似低能球对称势：$f\approx-(2m/\hbar^2)\int_0^\infty V(r)r^2\dd r$。}
+
+\end{question}
+\begin{solution}
+软球势取 $V(r)=V_0$（$r<a$）且外部为零。玻恩振幅为
+\[
+f(\theta)=-{m\over2\pi\hbar^2}\int V(r)e^{-\ii\mathbf q\cdot\mathbf r}\,\dd^3r,
+\qquad q=2k\sin{\theta\over2}.
+\]
+球对称积分给出
+\[
+\boxed{f(\theta)=-{2mV_0\over\hbar^2q^3}\,[\sin(qa)-qa\cos(qa)].}
+\]
+低能 $qa\ll1$ 时，$\sin qa-qa\cos qa\simeq(qa)^3/3$，所以
+\[
+f\to -{2mV_0a^3\over3\hbar^2},
+\]
+正是低能极限的常数振幅。
+\end{solution}
+
+\begin{question}
+计算式 (10.91) 中的积分，确定右边的表达式。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.91)：Yukawa 型积分：$\int e^{-\mu r}e^{-\ii\mathbf q\cdot\mathbf r}r^{-1}\dd^3r=4\pi/(q^2+\mu^2)$。}
+
+\end{question}
+\begin{solution}
+式 (10.91) 中出现的典型积分为
+\[
+\int_0^\infty e^{-\mu r}{\sin qr\over q}\,\dd r={1\over q}{q\over\mu^2+q^2}={1\over\mu^2+q^2}.
+\]
+或等价地
+\[
+\int {e^{-\mu r}\over r}e^{-\ii\mathbf q\cdot\mathbf r}\,\dd^3r
+=4\pi\int_0^\infty e^{-\mu r}{\sin qr\over q}\,\dd r
+={4\pi\over q^2+\mu^2}.
+\]
+这就是右端的傅里叶变换表达式。
+\end{solution}
+
+\begin{question}
+在玻恩近似下，计算汤川势散射的总截面，结果用能量 $E$ 的函数表示。
+\end{question}
+\begin{solution}
+汤川势写作
+\[
+V(r)=\beta {e^{-\mu r}\over r}.
+\]
+玻恩振幅为
+\[
+f(\theta)=-{m\over2\pi\hbar^2}{4\pi\beta\over q^2+\mu^2}
+=-{2m\beta\over\hbar^2(q^2+\mu^2)},
+\qquad q=2k\sin{\theta\over2}.
+\]
+总截面
+\[
+\sigma=\int |f|^2\,\dd\Omega
+={4m^2\beta^2\over\hbar^4}2\pi\int_{-1}^{1}{\dd u\over[2k^2(1-u)+\mu^2]^2}.
+\]
+积分得
+\[
+\boxed{\sigma={16\pi m^2\beta^2\over\hbar^4\mu^2(4k^2+\mu^2)}.}
+\]
+其中 $k=\sqrt{2mE}/\hbar$。
+\end{solution}
+
+\begin{question}
+对于习题 10.4 中的势，
+\begin{enumerate}
+\item 在低能玻恩近似下，计算 $f(\theta)$、$D(\theta)$ 和 $\sigma$；
+\item 在玻恩近似下，计算任意能量情况下的 $f(\theta)$；
+\item 在适当的范围内，证明你的结果与习题 10.4 的答案一致。
+\end{enumerate}
+\end{question}
+\begin{solution}
+玻恩振幅
+\[
+f(\theta)=-{m\over2\pi\hbar^2}\int\alpha\delta(r-a)e^{-\ii\mathbf q\cdot\mathbf r}\,\dd^3r.
+\]
+角积分给出
+\[
+\int e^{-\ii\mathbf q\cdot\mathbf r}\,\dd\Omega=4\pi{\sin qa\over qa},
+\]
+径向积分给出 $a^2$，所以
+\[
+\boxed{f(\theta)=-{2m\alpha a^2\over\hbar^2}{\sin qa\over qa}.}
+\]
+低能时 $f\to-2m\alpha a^2/\hbar^2=-\beta a$。若 $\beta\ll1$，这与习题 10.4 的精确低能结果
+\[
+-{\beta a\over1+\beta}
+\]
+一致到 $\beta$ 的一阶。总截面低能近似为 $\sigma=4\pi\beta^2a^2$。
+\end{solution}
+
+\begin{question}
+在冲激近似下，计算卢瑟福散射角 $\theta$（作为碰撞参量的函数），并证明在适当的极限下所得结果与精确表达式（习题 10.1(a)）一致。
+\end{question}
+\begin{solution}
+冲激近似中粒子几乎沿直线 $x=vt$ 通过，距离靶的垂直距离为 $b$。库仑横向力
+\[
+F_\perp={\kappa b\over(b^2+v^2t^2)^{3/2}},
+\qquad \kappa={q_1q_2\over4\pi\epsilon_0}.
+\]
+横向动量冲量为
+\[
+\Delta p_\perp=\int_{-\infty}^{\infty}F_\perp\,\dd t={2\kappa\over bv}.
+\]
+小角度下 $\theta\simeq\Delta p_\perp/(mv)$，且 $E=mv^2/2$，故
+\[
+\theta\simeq{\kappa\over Eb}.
+\]
+精确卢瑟福关系 $b=(\kappa/2E)\cot(\theta/2)$ 在小角度下给出 $b\simeq\kappa/(E\theta)$，完全一致。
+\end{solution}
+
+\begin{question}
+在二阶玻恩近似下，计算低能软球散射的散射振幅。
+\end{question}
+\begin{solution}
+二阶玻恩项为
+\[
+f^{(2)}(\mathbf k',\mathbf k)=\left(-{m\over2\pi\hbar^2}\right)^2
+\int\int e^{-\ii\mathbf k'\cdot\mathbf r}
+V(\mathbf r)G_0^+(\mathbf r-\mathbf r')V(\mathbf r')e^{\ii\mathbf k\cdot\mathbf r'}\,\dd^3r\dd^3r'.
+\]
+低能软球取 $V=V_0$（$r<a$）且 $k\to0$，$G_0^+=1/|
+\mathbf r-\mathbf r'|$ 的静态主项给出
+\[
+f^{(2)}(0)={m^2V_0^2\over(2\pi\hbar^2)^2}
+\int_{r<a}\int_{r'<a}{\dd^3r\dd^3r'\over|\mathbf r-\mathbf r'|}.
+\]
+均匀球自能积分
+\[
+\int\int {\dd^3r\dd^3r'\over|\mathbf r-\mathbf r'|}={32\pi^2a^5\over15}
+\]
+于是
+\[
+\boxed{f(0)\simeq-{2mV_0a^3\over3\hbar^2}+{8m^2V_0^2a^5\over15\hbar^4}+\cdots.}
+\]
+符号取决于格林函数约定；关键是二阶项正比 $m^2V_0^2a^5/\hbar^4$。
+\end{solution}
+
+\begin{question}
+求解一维薛定谔方程的格林函数，并利用它构造其积分形式（类似于方程 (10.66)）。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.66)：格林函数积分形式：若 $(\nabla^2+k^2)G(\mathbf r,\mathbf r')=\delta^3(\mathbf r-\mathbf r')$，则非齐次方程的解可写为 $\psi=\psi_0+\int G(\mathbf r,\mathbf r')Q(\mathbf r')\,\dd^3r'$；散射问题中 $Q=(2m/\hbar^2)V\psi$。}
+
+\end{question}
+\begin{solution}
+一维格林函数满足
+\[
+\left({\dd^2\over\dd x^2}+k^2\right)G(x,x')=\delta(x-x').
+\]
+取出射边界条件，解为
+\[
+\boxed{G(x,x')={1\over2\ii k}e^{\ii k|x-x'|}.}
+\]
+定态方程写为
+\[
+\left({\dd^2\over\dd x^2}+k^2\right)\psi={2m\over\hbar^2}V(x)\psi.
+\]
+故积分形式为
+\[
+\boxed{\psi(x)=\psi_0(x)+{2m\over\hbar^2}\int_{-\infty}^{\infty}G(x,x')V(x')\psi(x')\,\dd x'.}
+\]
+其中 $\psi_0$ 是自由解。
+\end{solution}
+
+\begin{question}
+利用习题 10.16 的结果推导一维散射的玻恩近似（在区间 $-\infty<x<\infty$ 内，原点处无“砖墙”）。也就是，选择 $\psi_0(x)=Ae^{ikx}$，且假定 $\psi(x_0)\simeq\psi_0(x_0)$ 来计算积分。证明反射系数具有相应的积分形式。
+\end{question}
+\begin{solution}
+取入射自由解 $\psi_0=Ae^{ikx}$，在积分中作玻恩近似 $\psi(x')\simeq Ae^{ikx'}$。当 $x\to-\infty$ 时，$|x-x'|=x'-x$，于是散射项含有
+\[
+e^{-ikx}\int e^{2ikx'}V(x')\,\dd x'.
+\]
+因此反射振幅
+\[
+r={m\over\ii\hbar^2k}\int_{-\infty}^{\infty}V(x)e^{2ikx}\,\dd x.
+\]
+反射系数为
+\[
+\boxed{R\simeq {m^2\over\hbar^4k^2}\left|\int_{-\infty}^{\infty}V(x)e^{2ikx}\,\dd x\right|^2.}
+\]
+这是一维散射的玻恩近似。
+\end{solution}
+
+\begin{question}
+利用一维玻恩近似（习题 10.17），分别计算 $\delta$ 函数势和有限方势阱的透射系数 $T=1-R$，并将所得结果与精确解比较。
+\end{question}
+\begin{solution}
+对 $V(x)=\alpha\delta(x)$，有
+\[
+r={m\alpha\over\ii\hbar^2k},
+\qquad
+R\simeq {m^2\alpha^2\over\hbar^4k^2},
+\qquad T\simeq1-R.
+\]
+精确结果为
+\[
+T={1\over1+(m\alpha/\hbar^2k)^2},
+\]
+弱势极限展开正与玻恩结果一致。
+
+对有限方势阱 $V=-V_0$（$|x|<a$）,
+\[
+\int_{-a}^{a}V e^{2ikx}\,\dd x=-V_0{\sin(2ka)\over k}.
+\]
+故
+\[
+R\simeq {m^2V_0^2\over\hbar^4k^4}\sin^2(2ka),
+\qquad T\simeq1-R.
+\]
+弱势或高能时与精确方势阱展开一致。
+\end{solution}
+
+\begin{question}
+证明光学定理（optical theorem）：它将总截面和向前散射振幅的虚部联系起来，
+\[
+\sigma=\frac{4\pi}{k}\operatorname{Im} f(0).
+\]
+提示：利用式 (10.47) 和式 (10.48)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.47--10.48)：总截面与光学定理：$\sigma=\int|f|^2\dd\Omega$，$\sigma_{\rm tot}=(4\pi/k)\operatorname{Im}f(0)$。}
+
+\end{question}
+\begin{solution}
+分波展开为
+\[
+f(\theta)={1\over k}\sum_{\ell=0}^\infty(2\ell+1)e^{\ii\delta_\ell}\sin\delta_\ell P_\ell(\cos\theta).
+\]
+向前方向 $P_\ell(1)=1$，所以
+\[
+\operatorname{Im}f(0)={1\over k}\sum_\ell(2\ell+1)\sin^2\delta_\ell.
+\]
+总截面由积分正交性给出
+\[
+\sigma={4\pi\over k^2}\sum_\ell(2\ell+1)\sin^2\delta_\ell.
+\]
+两式比较立即得到
+\[
+\boxed{\sigma={4\pi\over k}\operatorname{Im}f(0).}
+\]
+\end{solution}
+
+\begin{question}
+使用玻恩近似确定高斯势散射的总截面：
+\[
+V(r)=Ae^{-\mu r^2}.
+\]
+用常数 $A$、$\mu$、$m$（入射粒子质量）和 $k=\sqrt{2mE}/\hbar$ 表示结果，$E$ 是入射能量。
+\end{question}
+\begin{solution}
+玻恩振幅是势的傅里叶变换：
+\[
+f(\theta)=-{mA\over2\pi\hbar^2}\int e^{-\mu r^2}e^{-\ii\mathbf q\cdot\mathbf r}\,\dd^3r
+=-{mA\over2\pi\hbar^2}\left({\pi\over\mu}\right)^{3/2}e^{-q^2/(4\mu)}.
+\]
+其中 $q=2k\sin(\theta/2)$。总截面
+\[
+\sigma=\int |f|^2\dd\Omega
+=C^2 2\pi\int_{-1}^{1}e^{-k^2(1-u)/\mu}\,\dd u,
+\]
+其中
+\[
+C={mA\over2\pi\hbar^2}\left({\pi\over\mu}\right)^{3/2}.
+\]
+积分得
+\[
+\boxed{\sigma={\pi^2m^2A^2\over\hbar^4\mu^2k^2}\left(1-e^{-2k^2/\mu}\right).}
+\]
+低能极限可进一步化为 $2\pi^2m^2A^2/(\hbar^4\mu^3)$。
+\end{solution}
+
+\begin{question}
+中子衍射（Neutron diffraction）。考虑在晶体中散射的中子束。中子与晶体中原子核之间的相互作用是短程的，可以近似为
+\[
+V(\mathbf r)=\frac{2\pi\hbar^2 b}{m}\sum_i\delta^3(\mathbf r-\mathbf r_i),
+\]
+其中 $\mathbf r_i$ 是原子核的位置，$b$ 为核散射长度。
+\begin{enumerate}
+\item 在一阶玻恩近似下，证明微分截面可写成关于 $\sum_i e^{-i\mathbf q\cdot\mathbf r_i}$ 的平方形式，其中 $\mathbf q=\mathbf k-\mathbf k'$。
+\item 考虑原子核排列在间距为 $a$ 的立方晶格上的情况，格点位置为 $\mathbf r_i=l a\hat{\mathbf i}+m a\hat{\mathbf j}+n a\hat{\mathbf k}$，其中 $l,m,n=0,1,\ldots,N-1$。证明微分截面出现相应的衍射峰。
+\item 对几个确定的 $N$ 值（如 $N=1,5,10$），绘制相应的峰形函数。
+\item 对 $N$ 很大的极限，求出现峰值的散射角；若中子波长等于晶格间距 $a$，求三个最小的非零散射角。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 玻恩振幅
+\[
+f=-{m\over2\pi\hbar^2}{2\pi\hbar^2b\over m}\sum_i e^{-\ii\mathbf q\cdot\mathbf r_i}
+=-b\sum_i e^{-\ii\mathbf q\cdot\mathbf r_i}.
+\]
+故
+\[
+\boxed{D=|f|^2=b^2\left|\sum_i e^{-\ii\mathbf q\cdot\mathbf r_i}\right|^2.}
+\]
+(b) 对立方晶格，和式分解为
+\[
+S(\mathbf q)=\prod_{j=x,y,z}\sum_{n=0}^{N-1}e^{-\ii q_jan}
+=\prod_j e^{-\ii q_ja(N-1)/2}{\sin(Nq_ja/2)\over\sin(q_ja/2)}.
+\]
+因此
+\[
+D=b^2\prod_j\left[{\sin(Nq_ja/2)\over\sin(q_ja/2)}\right]^2.
+\]
+(c) 作图时只需画上述峰形函数。$N$ 越大，主峰越窄越高。
+(d) 大 $N$ 峰值出现在
+\[
+\mathbf q\cdot\mathbf a_j=2\pi h_j,
+\]
+即倒格矢条件。若 $\lambda=a$，则 $|\mathbf k|=2\pi/a$，散射角满足
+\[
+|\mathbf q|=2k\sin{\theta\over2}={2\pi\over a}\sqrt{h^2+k^2+l^2}.
+\]
+故
+\[
+\sin{\theta\over2}={1\over2}\sqrt{h^2+k^2+l^2}.
+\]
+三个最小非零角对应 $h^2+k^2+l^2=1,2,3$，即 $\theta=60^\circ,90^\circ,120^\circ$。
+\end{solution}
+
+\begin{question}
+二维散射理论。参照第 10.2 节，发展二维分波分析理论。
+\begin{enumerate}
+\item 在极坐标 $(r,\theta)$ 中，对具有方位角对称的势 $V(r)$，求定态薛定谔方程分离变量解，并写出径向方程。
+\item 通过求解 $r$ 很大时的径向方程，写出二维散射中入射波和出射波的渐近形式，并与习题 10.2 的结果比较。
+\item 构造类似式 (10.21) 的方程，写出分波展开中的二维散射振幅。
+\item 利用大 $z$ 时汉克尔函数的渐近式，证明 $D(\theta)=|f(\theta)|^2$，并给出二维“有效宽度”的表达式。
+\item 将第 10.1.2 节中的结论应用到二维散射。
+\item 考虑半径为 $a$ 的硬盘散射，通过 $r=a$ 处的边界条件确定二维散射的分波系数；将所得“有效宽度”作为 $ka$ 的函数作图。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (10.21)：分波展开：$f(\theta)=\sum_{\ell=0}^{\infty}(2\ell+1)f_\ell P_\ell(\cos\theta)$。}
+
+\end{question}
+\begin{solution}
+二维极坐标中令 $\psi=R_m(r)e^{\ii m\theta}$，径向方程为
+\[
+R_m''+{1\over r}R_m'+\left[k^2-{2m_0\over\hbar^2}V(r)-{m^2\over r^2}\right]R_m=0.
+\]
+远处自由解为 Bessel/Hankel 函数，散射态渐近形式
+\[
+\psi\sim e^{ikx}+f(\theta){e^{ikr}\over\sqrt r}.
+\]
+平面波展开
+\[
+e^{ikr\cos\theta}=\sum_{m=-\infty}^{\infty}\ii^mJ_m(kr)e^{\ii m\theta}.
+\]
+引入相移 $\delta_m$ 后二维振幅可写成
+\[
+\boxed{f(\theta)={1\over\sqrt{2\pi k}}\sum_{m=-\infty}^{\infty}(e^{2\ii\delta_m}-1)e^{\ii m\theta}.}
+\]
+于是 $D(\theta)=|f(\theta)|^2$，总“宽度”为 $\int_0^{2\pi}|f|^2\dd\theta$。
+
+硬盘半径 $a$ 的边界条件 $R_m(a)=0$ 给出
+\[
+\tan\delta_m={J_m(ka)\over Y_m(ka)}.
+\]
+将其代入上式即可数值画出总宽度随 $ka$ 的变化。
+\end{solution}
+
+\begin{question}
+全同粒子的散射。单粒子从固定靶上散射的结果也适用于质心系中两个粒子的散射。
+\begin{enumerate}
+\item 证明如果两个粒子是全同无自旋玻色子，则相对坐标波函数必须是 $\mathbf r$ 的偶函数。
+\item 通过对称化散射波，证明玻色子的散射振幅为 $f_B(\theta)=f(\theta)+f(\pi-\theta)$。
+\item 证明对所有奇数 $\ell$，$f_B$ 的分波振幅为零。
+\item 如果粒子是全同费米子（处于三重态），上述结论有什么不同？
+\item 证明全同费米子的散射振幅在 $\pi/2$ 处为零。
+\item 画出卢瑟福散射中费米子和玻色子微分散射截面的对数图。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 两个全同无自旋玻色子交换时总波函数不变；在质心系交换等价于 $\mathbf r\to-\mathbf r$，故相对波函数必须为偶函数。
+
+(b) 探测到角度 $\theta$ 与 $\pi-	heta$ 的两条路径不可区分，振幅相加：
+\[
+\boxed{f_B(\theta)=f(\theta)+f(\pi-	heta).}
+\]
+(c) 由于
+\[
+P_\ell(\cos(\pi-	heta))=P_\ell(-\cos\theta)=(-1)^\ell P_\ell(\cos\theta),
+\]
+玻色子只保留偶 $\ell$ 分波。
+
+(d) 全同费米子三重态自旋波函数对称，所以空间相对波函数必须反对称；振幅为
+\[
+f_F(\theta)=f(\theta)-f(\pi-	heta),
+\]
+只保留奇 $\ell$ 分波。
+
+(e) 在 $\theta=\pi/2$ 时 $f(\theta)=f(\pi-	heta)$，故
+\[
+f_F(\pi/2)=0.
+\]
+(f) 对卢瑟福振幅 $f\propto\csc^2(\theta/2)$，分别画
+\[
+D_B=|f(\theta)+f(\pi-	heta)|^2,
+\qquad
+D_F=|f(\theta)-f(\pi-	heta)|^2.
+\]
+费米子曲线在 $90^\circ$ 处有零点，玻色子曲线有增强。
+\end{solution}
+
+\begin{question}
+重做习题 10.5，但这次用势阱代替势垒（$V_0\to -V_0$）。在 (c) 部分的位置，取 $\sqrt{2mV_0}\,a/\hbar=10$，绘制作为 $ka$（从 0 到 20）的函数的相移图。
+\end{question}
+\begin{solution}
+把习题 10.5 中阱内波数改为
+\[
+q={\sqrt{2m(E-V_0)}\over\hbar}
+\]
+（若 $E<V_0$ 则 $q$ 为虚数，应写成双曲函数）。仍由硬墙条件 $\psi(0)=0$ 与 $x=-a$ 处对数导数匹配得到
+\[
+{\ii k(Ae^{-ika}-Be^{ika})\over Ae^{-ika}+Be^{ika}}=-q\cot(qa).
+\]
+故
+\[
+{B\over A}=e^{-2ika}{\ii k+q\cot(qa)\over\ii k-q\cot(qa)}.
+\]
+相移由 $B/A=-e^{2\ii\delta}$ 读出。若令 $\sqrt{2mV_0}a/\hbar=10$，以 $ka$ 为横轴，取
+\[
+qa=\sqrt{(ka)^2-10^2}
+\]
+（低于阱顶时改用 $q=\ii\kappa$）代入上式即可画出 $\delta(ka)$。在 $q a$ 接近 $(n+1/2)\pi$ 处相移快速变化，表示准束缚态共振。
+\end{solution}

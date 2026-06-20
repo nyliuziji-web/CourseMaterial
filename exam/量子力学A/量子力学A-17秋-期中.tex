@@ -1,0 +1,142 @@
+\heading{量子力学A-17秋-期中}
+\noteinfo{原卷为 Advanced Quantum Mechanics Fall 2017 Midterm solutions；首页公式提示已略去。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+二维 Hilbert 空间中取一组非正交基 $\ket1,\ket2$，其内积满足 $\braket{1}{1}=\braket{2}{2}=1$、$\braket{1}{2}=-2/3$。线性算符 $A$ 在这组基上的作用为
+\[
+  A\ket1=3\ket1+\ket2,
+  \qquad A\ket2=\ket1+3\ket2.
+\]
+\begin{enumerate}
+  \item 判断 $A$ 是否为厄米算符，是否为幺正算符；
+  \item 求 $A$ 的本征值，并写出相应的归一化本征态。
+\end{enumerate}
+\begin{solution}
+在该非正交基下，矩阵
+\[
+  A=\begin{pmatrix}3&1\\1&3\end{pmatrix},
+  \qquad G=\begin{pmatrix}1&-2/3\\-2/3&1\end{pmatrix}.
+\]
+厄米条件为 $A^\dagger G=GA$，此处成立，因此 $A$ 是厄米算符。幺正条件为 $A^\dagger GA=G$，不成立，例如 $\norm{A\ket1}^2=6\ne1$。
+
+本征向量为 $\ket1+\ket2$ 与 $\ket1-\ket2$，本征值分别为 $4,2$。归一化时
+\[
+  \norm{\ket1+\ket2}^2={2\over3},
+  \qquad \norm{\ket1-\ket2}^2={10\over3}.
+\]
+故
+\[
+  \lambda_+=4,\quad \ket{+}=\sqrt{3\over2}(\ket1+\ket2),
+\qquad
+  \lambda_-=2,\quad \ket{-}=\sqrt{3\over10}(\ket1-\ket2).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一维谐振子的未扰动哈密顿量为 $H_0=p^2/(2m)+m\omega^2x^2/2$。在外力项 $-fx$ 作用下，系统哈密顿量变为 $H'=H_0-fx$。
+\begin{enumerate}
+  \item 用平移算符把 $H_0$ 与 $H'$ 联系起来；
+  \item 求 $H'$ 基态的 $\expval{x},\expval{p}$；
+  \item 令该基态在 $H_0$ 下演化，求 $\expval{x(t)},\expval{p(t)}$；
+  \item 求 $\expval{x^2(t)},\expval{p^2(t)}$ 并检查不确定关系；
+  \item 对 $O_1=m^2\omega^2x^2-p^2$、$O_2=m\omega(xp+px)$ 写出 Heisenberg 方程并求解。
+\end{enumerate}
+\begin{solution}
+令
+\[
+  x_0={f\over m\omega^2},
+  \qquad U=\exp(-\ii x_0p/\hbar).
+\]
+则 $U H_0 U^\dagger=H'+f^2/(2m\omega^2)$。因此 $H'$ 基态是平移后的谐振子基态，
+\[
+  \expval{x}=x_0,
+  \qquad \expval{p}=0.
+\]
+在 $H_0$ 下运动为相干态圆周运动：
+\[
+  \expval{x(t)}=x_0\cos\omega t,
+  \qquad \expval{p(t)}=-m\omega x_0\sin\omega t.
+\]
+相干态宽度不变，故
+\[
+  \expval{x^2}=x_0^2\cos^2\omega t+{\hbar\over2m\omega},
+  \quad
+  \expval{p^2}=m^2\omega^2x_0^2\sin^2\omega t+{m\hbar\omega\over2},
+\]
+且 $\Delta x\Delta p=\hbar/2$。
+
+Heisenberg 方程为
+\[
+  {\dd O_1\over\dd t}=2\omega O_2,
+  \qquad
+  {\dd O_2\over\dd t}=-2\omega O_1.
+\]
+解为
+\[
+  O_1(t)=O_1(0)\cos2\omega t+O_2(0)\sin2\omega t,
+\]
+\[
+  O_2(t)=O_2(0)\cos2\omega t-O_1(0)\sin2\omega t.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+两模费米 Fock 空间中，产生湮灭算符满足 $\{f_i,f_j^\dagger\}=\delta_{ij}$。定义四个 Majorana 算符
+\[
+  \eta_1=f_1+f_1^\dagger,\quad \eta_2=-\ii(f_1-f_1^\dagger),
+  \quad \eta_3=f_2+f_2^\dagger,\quad \eta_4=-\ii(f_2-f_2^\dagger).
+\]
+\begin{enumerate}
+  \item 写出 Fock 空间正交基；
+  \item 验证 $\{\eta_i,\eta_j\}=2\delta_{ij}$；
+  \item 写出 $\eta_i$ 的矩阵表示；
+  \item 令 $L_x=\ii\eta_3\eta_4,L_y=\ii\eta_4\eta_2,L_z=\ii\eta_2\eta_3$，求对易关系和平方；
+  \item 求 $L_x,L_z$ 本征值和本征态，并求 $\ee^{\ii\theta L_z}(c_1L_x+c_2L_y+c_3L_z)\ee^{-\ii\theta L_z}$。
+\end{enumerate}
+\begin{solution}
+取 Jordan-Wigner 顺序基
+\[
+  \ket{00}=\ket{\mathrm{vac}},
+  \quad \ket{10}=f_1^\dagger\ket0,
+  \quad \ket{01}=f_2^\dagger\ket0,
+  \quad \ket{11}=f_1^\dagger f_2^\dagger\ket0.
+\]
+Majorana 反对易关系由费米反对易关系直接给出。按题目顺序取基 $\ket{00},\ket{10},\ket{01},\ket{11}=f_1^\dagger f_2^\dagger\ket0$，一个方便的表示为
+\[
+  \eta_1=I\otimes\sigma_x,
+  \quad \eta_2=I\otimes\sigma_y,
+  \quad \eta_3=\sigma_x\otimes\sigma_z,
+  \quad \eta_4=\sigma_y\otimes\sigma_z.
+\]
+于是
+\[
+  L_x=-\sigma_z\otimes I,
+  \quad L_y=\sigma_y\otimes\sigma_x,
+  \quad L_z=-\sigma_x\otimes\sigma_x .
+\]
+它们满足
+\[
+  [L_x,L_y]=-2\ii L_z,
+  \quad [L_y,L_z]=-2\ii L_x,
+  \quad [L_z,L_x]=-2\ii L_y,
+  \qquad L_a^2=1.
+\]
+故本征值均为 $\pm1$。其中 $L_x=2f_2^\dagger f_2-1$，所以 $\ket{01},\ket{11}$ 的本征值为 $+1$，$\ket{00},\ket{10}$ 的本征值为 $-1$。
+$L_z$ 可在两组二维子空间中对角化，例如
+\[
+  {\ket{00}-\ket{11}\over\sqrt2},\quad {\ket{10}-\ket{01}\over\sqrt2}
+\]
+对应本征值 $+1$，把减号换成加号则对应本征值 $-1$。
+
+旋转公式为
+\[
+  \ee^{\ii\theta L_z}L_x\ee^{-\ii\theta L_z}=L_x\cos2\theta+L_y\sin2\theta,
+\]
+\[
+  \ee^{\ii\theta L_z}L_y\ee^{-\ii\theta L_z}=L_y\cos2\theta-L_x\sin2\theta,
+  \qquad L_z\mapsto L_z.
+\]
+\end{solution}
+\end{question}

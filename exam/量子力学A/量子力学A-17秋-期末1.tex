@@ -1,0 +1,161 @@
+\heading{量子力学A-17秋-期末1}
+\noteinfo{原卷为 Advanced Quantum Mechanics Fall 2017 Final Exam Brief Solutions；首页公式和群论/cheating sheet 已略去。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+两个自旋为 $1$ 的角动量 $\vb S_1,\vb S_2$ 相互耦合，未扰动哈密顿量为
+\[
+  H_0=-J\vb S_1\cdot\vb S_2,
+  \qquad J>0.
+\]
+\begin{enumerate}
+  \item 写出 $H_0$ 的本征值和用 $S_z$ 基表示的归一化本征态；
+  \item 加入微扰 $D[(S_{1z})^2+(S_{2z})^2]$ 后，对原来 $S=2$ 的基态多重态做简并微扰，求能量修正至 $D^2$。
+\end{enumerate}
+\begin{solution}
+用总角动量 $\vb S=\vb S_1+\vb S_2$，
+\[
+  H_0=-{J\over2}S^2+2J.
+\]
+因此 $S=2,1,0$ 的能量分别为
+\[
+  E_{S=2}=-J,
+  \qquad E_{S=1}=J,
+  \qquad E_{S=0}=2J.
+\]
+本征态为标准 Clebsch-Gordan 态，例如
+\[
+\ket{2,2}=\ket{1,1},
+\quad \ket{2,1}={\ket{1,0}+\ket{0,1}\over\sqrt2},
+\]
+\[
+\ket{2,0}={\ket{1,-1}+2\ket{0,0}+\ket{-1,1}\over\sqrt6},
+\]
+\[
+\ket{1,1}={\ket{1,0}-\ket{0,1}\over\sqrt2},
+\quad
+\ket{1,0}={\ket{1,-1}-\ket{-1,1}\over\sqrt2},
+\]
+\[
+\ket{0,0}={\ket{1,-1}-\ket{0,0}+\ket{-1,1}\over\sqrt3},
+\]
+其余由降阶算符得到。
+
+微扰守恒 $M=S_z$，可在每个 $M$ 子空间做非简并微扰。原 $S=2$ 五重基态的能量修正为
+\[
+  M=\pm2: E=-J+2D,
+\]
+\[
+  M=\pm1: E=-J+D,
+\]
+\[
+  M=0: E=-J+{2D\over3}-{8D^2\over27J}+O(D^3).
+\]
+故 $D>0$ 时最低为 $M=0$；$D<0$ 时最低为 $M=\pm2$。
+\end{solution}
+\end{question}
+
+\begin{question}
+两模费米子 $f_1,f_2$ 的未扰动哈密顿量为 $H_0=E(n_1+n_2)$，微扰为
+\[
+  V=\Delta(f_1^\dagger f_2^\dagger+f_2f_1+f_1^\dagger f_2^\dagger f_2f_1).
+\]
+设初态为真空态。求从真空出发到各 Fock 态的最低非零阶跃迁概率；求全部能级展开到 $\Delta^3$；并给出真空态到双粒子态的精确跃迁概率。
+\begin{solution}
+在偶宇称基 $\{\ket0,\ket{12}=f_1^\dagger f_2^\dagger\ket0\}$ 中，
+\[
+  H_{\rm even}=\begin{pmatrix}0&\Delta\\ \Delta&2E+\Delta\end{pmatrix},
+\]
+奇宇称态 $f_1^\dagger\ket0,f_2^\dagger\ket0$ 能量仍为 $E$。低阶微扰下，真空只能跃迁到 $\ket{12}$：
+\[
+  P_1=P_2=0,
+  \qquad P_{12}\simeq\left({\Delta\over E}\sin{Et\over\hbar}\right)^2.
+\]
+偶子空间精确本征值为
+\[
+  E_\pm=E+{\Delta\over2}\pm\sqrt{(E+\Delta/2)^2+\Delta^2}.
+\]
+展开得
+\[
+  E_-=-{\Delta^2\over2E}+{\Delta^3\over4E^2}+O(\Delta^4),
+\]
+\[
+  E_+=2E+\Delta+{\Delta^2\over2E}-{\Delta^3\over4E^2}+O(\Delta^4),
+\]
+另有两个能级 $E,E$。令
+\[
+  \Omega=\sqrt{(E+\Delta/2)^2+\Delta^2}/\hbar,
+\]
+精确跃迁概率为
+\[
+  P_{12}(t)=\left({\Delta\over\sqrt{(E+\Delta/2)^2+\Delta^2}}\sin\Omega t\right)^2.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+四个自旋 $1/2$ 粒子构成方形环。考虑下列一组共同对易算符
+\[
+  (\vb S_1+\vb S_2+\vb S_3+\vb S_4)^2,
+  \quad S_z,
+  \quad (\vb S_1+\vb S_3)^2,
+  \quad (\vb S_2+\vb S_4)^2.
+\]
+\begin{enumerate}
+  \item 证明它们对易；
+  \item 写出可能的量子数，并构造按 $(1,3)$ 与 $(2,4)$ 先耦合的基；
+  \item 求 $H=\vb S_1\cdot\vb S_2+\vb S_2\cdot\vb S_3+\vb S_3\cdot\vb S_4+\vb S_4\cdot\vb S_1$ 的本征值；
+  \item 说明这些态如何进一步按方形的 $D_4$ 对称性分类。
+\end{enumerate}
+\begin{solution}
+先耦合 $(1,3)$ 与 $(2,4)$。每一对 自旋 $1/2$ 可成 单态 $s=0$ 或 三重态 $s=1$。故
+\[
+  S_{13}=0,1,
+  \qquad S_{24}=0,1,
+  \qquad S=|S_{13}-S_{24}|,\ldots, S_{13}+S_{24}.
+\]
+共同本征态为
+\[
+  \ket{[(1,3)S_{13},(2,4)S_{24}]SM}.
+\]
+例如 triplet/singlet 对态为
+\[
+  \ket{1,1}=\ket{\uparrow\uparrow},
+  \quad \ket{1,0}={\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}\over\sqrt2},
+  \quad \ket{0,0}={\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}\over\sqrt2}.
+\]
+哈密顿量可化为
+\[
+  H={1\over2}\left[S^2-S_{13}^2-S_{24}^2\right].
+\]
+因此本征值为
+\[
+  E={1\over2}\left[S(S+1)-S_{13}(S_{13}+1)-S_{24}(S_{24}+1)\right].
+\]
+列举：$(0,0)\to S=0,E=0$；$(1,0)$ 或 $(0,1)\to S=1,E=0$；$(1,1)\to S=0,1,2$，能量分别为 $-2,-1,1$。
+
+$D_4$ 的旋转和反射与总自旋对易，故可在固定 $S,M$ 子空间内继续按 $D_4$ 不可约表示分解。实际构造时对上面的耦合基施加 $C_4$ 和反射投影算符即可得到 $A_1,A_2,B_1,B_2,E$ 型基。
+\end{solution}
+\end{question}
+
+\begin{question}
+一维 Heisenberg 链取周期边界，哈密顿量为
+\[
+  H=-J\sum_{i=0}^{N-1}\left(\vb S_i\cdot\vb S_{i+1}-{1\over4}\right).
+\]
+全向下态能量取为零。令 $\ket{x}=S_{x,+}\ket{\downarrow\downarrow\cdots\downarrow}$ 表示第 $x$ 个格点自旋翻转的态。求单翻转子空间中的本征态和能量色散。
+\begin{solution}
+在单 magnon 子空间中
+\[
+  H\ket{x}=J\ket{x}-{J\over2}\left(\ket{x+1}+\ket{x-1}\right).
+\]
+平移本征态
+\[
+  \ket{k}={1\over\sqrt N}\sum_{x=0}^{N-1}\ee^{\ii kx}\ket{x},
+  \qquad k={2\pi n\over N}
+\]
+是能量本征态，
+\[
+  E(k)=J(1-\cos k).
+\]
+\end{solution}
+\end{question}

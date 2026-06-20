@@ -1,0 +1,271 @@
+\heading{量子力学A-17秋-期末2}
+\noteinfo{原卷为 2017-2018 秋季量子力学(A)期末试题；整理时只保留题目和解答。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+一个质量为 $m$、电荷为 $q$ 的粒子在均匀静电场 $\vb E$ 中运动。
+\begin{enumerate}
+  \item 写出系统的薛定谔方程；
+  \item 对任一归一化解 $\Psi(\vb r,t)$，证明牛顿方程
+  \[
+    {\dd\expval{\hat{\vb r}}\over\dd t}={\expval{\hat{\vb p}}\over m},
+    \qquad {\dd\expval{\hat{\vb p}}\over\dd t}=q\vb E.
+  \]
+\end{enumerate}
+\begin{solution}
+取势能 $V=-q\vb E\cdot\vb r$，则
+\[
+  \ii\hbar\pdv{\Psi}{t}=\left[-{\hbar^2\over2m}\nabla^2-q\vb E\cdot\vb r\right]\Psi.
+\]
+由 Ehrenfest 定理
+\[
+  {\dd\expval{\vb r}\over\dd t}={1\over\ii\hbar}\expval{[\vb r,H]}={\expval{\vb p}\over m},
+\]
+\[
+  {\dd\expval{\vb p}\over\dd t}={1\over\ii\hbar}\expval{[\vb p,H]}=-\expval{\nabla V}=q\vb E.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+$t=0$ 时氢原子波函数为
+\[
+  \psi(0)={1\over\sqrt{10}}\left(2\psi_{100}+\psi_{210}+\sqrt2\psi_{211}+\sqrt3\psi_{21,-1}\right).
+\]
+\begin{enumerate}
+  \item 令 $E_1$ 为 $\psi_{100}$ 能量本征值，求能量平均值；
+  \item 求 $t$ 时刻波函数；
+  \item 求 $t$ 时刻测得轨道角动量量子数 $\ell=1,m=1$ 的概率。
+\end{enumerate}
+\begin{solution}
+概率权重为 $4/10,1/10,2/10,3/10$。氢原子 $E_n=E_1/n^2$，故
+\[
+  \bar E={4\over10}E_1+{6\over10}{E_1\over4}={11E_1\over20}.
+\]
+时间演化为
+\[
+  \psi(t)={1\over\sqrt{10}}\left(2\ee^{-\ii E_1t/\hbar}\psi_{100}
+  +\ee^{-\ii E_2t/\hbar}\psi_{210}
+  +\sqrt2\ee^{-\ii E_2t/\hbar}\psi_{211}
+  +\sqrt3\ee^{-\ii E_2t/\hbar}\psi_{21,-1}\right).
+\]
+处于 $\ell=1,m=1$ 的概率为 $2/10=1/5$。
+\end{solution}
+\end{question}
+
+\begin{question}
+质量为 $m$ 的粒子被约束在半径为 $R$ 的圆环上，角坐标为 $\phi$，满足定态方程
+\[
+  -{\hbar^2\over2mR^2}{\dd^2\psi\over\dd\phi^2}=E\psi.
+\]
+\begin{enumerate}
+  \item 求能谱与波函数；
+  \item 加微扰 $H'=A\sin\phi\cos\phi$，求基态和第一激发态的一阶能量修正。
+\end{enumerate}
+\begin{solution}
+本征态
+\[
+  \psi_n={1\over\sqrt{2\pi}}\ee^{\ii n\phi},
+  \qquad E_n={\hbar^2n^2\over2mR^2},
+  \qquad n=0,\pm1,\ldots .
+\]
+基态 $n=0$ 一阶修正
+\[
+  \mel{0}{A\sin\phi\cos\phi}{0}=0.
+\]
+第一激发态由 $n=\pm1$ 张成。因
+\[
+  A\sin\phi\cos\phi={A\over4\ii}(\ee^{2\ii\phi}-\ee^{-2\ii\phi}),
+\]
+在 $\{\ket{1},\ket{-1}\}$ 子空间中只有非对角元，得到一阶修正
+\[
+  \Delta E=\pm {A\over4}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+质量为 $m$ 的粒子在球对称壳层吸引势
+\[
+  V(r)=-C\delta(r-a),\qquad C>0
+\]
+中运动。只考虑 $s$ 波束缚态，求出现束缚态所需的最小耦合强度 $C$。
+\begin{solution}
+令 $u(r)=rR(r)$。束缚态 $E=-\hbar^2\kappa^2/(2m)$ 时，
+\[
+  u_< =A\sinh\kappa r,
+  \qquad u_>=B\ee^{-\kappa r}.
+\]
+$u$ 连续，且
+\[
+  u'(a^+)-u'(a^-)=-{2mC\over\hbar^2}u(a).
+\]
+得到
+\[
+  \kappa\left(1+\coth\kappa a\right)={2mC\over\hbar^2}.
+\]
+束缚态刚出现时 $\kappa\to0$，左边趋于 $1/a$，故
+\[
+  C_{\min}={\hbar^2\over2ma}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+质量为 $m$ 的粒子在三维二次势场
+\[
+  V(x,y,z)=A(x^2+y^2+2\lambda xy)+B(z^2+2\mu z)
+\]
+中运动，其中 $A,B>0$。为对角化势能，作坐标变换
+\[
+  x={\tilde x+\tilde y\over\sqrt2},\qquad y={\tilde x-\tilde y\over\sqrt2},\qquad z=\tilde z.
+\]
+证明该正交变换下拉普拉斯算符形式不变；将势能改写成解耦形式，并求体系基态能量。
+\begin{solution}
+该变换是 $x,y$ 平面正交旋转，故
+\[
+  \partial_x^2+\partial_y^2=\partial_{\tilde x}^2+\partial_{\tilde y}^2.
+\]
+势能化为
+\[
+  V=A(1+\lambda)\tilde x^2+A(1-\lambda)\tilde y^2+B(\tilde z+\mu)^2-B\mu^2.
+\]
+若题面确为 $|\lambda|>1$，则有一个二次项系数为负，势能无下界，不存在基态。若原意为 $|\lambda|<1$，则
+\[
+  E_0={\hbar\over2}\left[\sqrt{2A(1+\lambda)\over m}+\sqrt{2A(1-\lambda)\over m}+\sqrt{2B\over m}\right]-B\mu^2.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三个可区分的自旋 $1/2$ 离子相互耦合，哈密顿量为
+\[
+  H={A\over\hbar^2}\vb s_1\cdot\vb s_2+{B\over\hbar^2}(\vb s_1+\vb s_2)\cdot\vb s_3.
+\]
+令 $\vb S_{12}=\vb s_1+\vb s_2$、$\vb S=\vb s_1+\vb s_2+\vb s_3$。
+\begin{enumerate}
+  \item 将 $H$ 写成 $S_{12}^2,S^2$ 的函数；
+  \item 求全部本征值与简并度。
+\end{enumerate}
+\begin{solution}
+利用
+\[
+  \vb s_1\cdot\vb s_2={1\over2}(S_{12}^2-s_1^2-s_2^2),
+  \qquad
+  (\vb s_1+\vb s_2)\cdot\vb s_3={1\over2}(S^2-S_{12}^2-s_3^2),
+\]
+且 $s_i^2=3\hbar^2/4$，得
+\[
+  H={A\over2\hbar^2}\left(S_{12}^2-{3\hbar^2\over2}\right)
+  +{B\over2\hbar^2}\left(S^2-S_{12}^2-{3\hbar^2\over4}\right).
+\]
+量子数可为：
+\[
+  S_{12}=0, S={1\over2};
+  \qquad S_{12}=1, S={1\over2},{3\over2}.
+\]
+能量和简并度为
+\[
+  E=-{3A\over4},\quad g=2;
+\]
+\[
+  E={A\over4}-B,\quad g=2;
+\]
+\[
+  E={A\over4}+{B\over2},\quad g=4.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+多电子原子的哈密顿量为 $H=T+U$，其中库仑势满足齐次缩放关系 $U(\lambda r_1,\ldots,\lambda r_N)=\lambda^{-1}U(r_1,\ldots, r_N)$。对任一归一化试探波函数 $\Psi$，定义缩放波函数
+\[
+  \Phi_\lambda(r_1,\ldots, r_N)=\lambda^{3N/2}\Psi(\lambda r_1,\ldots,\lambda r_N).
+\]
+证明 $\Phi_\lambda$ 仍归一化，并求 $\expval{T},\expval{U}$ 随 $\lambda$ 的标度；再利用真实基态能量 $-B$ 求基态中的 $\expval{T}$ 和 $\expval{U}$。
+\begin{solution}
+变量代换 $R_i=\lambda r_i$ 立即给出 $\Phi_\lambda$ 归一化。动能含二阶导数，势能按一次齐次性缩放，故
+\[
+  E(\lambda)=\lambda^2\expval{T}_\Psi+\lambda\expval{U}_\Psi.
+\]
+极小条件为
+\[
+  2\lambda\expval{T}+\expval{U}=0.
+\]
+对真实基态，取 $\lambda=1$ 已极小，故 Virial 定理
+\[
+  2\expval{T}+\expval{U}=0.
+\]
+又 $\expval{T}+\expval{U}=-B$，解得
+\[
+  \expval{T}=B,
+  \qquad \expval{U}=-2B.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+某离子自由时轨道角动量为 $L=1$、自旋为 $S=0$。嵌入晶体并加外磁场后，有效哈密顿量包含
+\[
+  H_1={\alpha\over\hbar^2}(L_x^2-L_y^2),
+  \qquad H_2={\beta B\over\hbar}L_z.
+\]
+\begin{enumerate}
+  \item 用升降算符表示 $H=H_1+H_2$；
+  \item 写出在 $\ket{1,-1},\ket{1,0},\ket{1,1}$ 中的矩阵；
+  \item 求能量本征值；
+  \item $B=0$ 时求基态。
+\end{enumerate}
+\begin{solution}
+\[
+  L_x^2-L_y^2={1\over2}(L_+^2+L_-^2),
+  \qquad H={\alpha\over2\hbar^2}(L_+^2+L_-^2)+{\beta B\over\hbar}L_z.
+\]
+在 $\{\ket{1,-1},\ket{1,0},\ket{1,1}\}$ 中
+\[
+  H=\begin{pmatrix}
+  -\beta B&0&\alpha\\
+  0&0&0\\
+  \alpha&0&\beta B
+  \end{pmatrix}.
+\]
+本征值为
+\[
+  E_0=0,
+  \qquad E_\pm=\pm\sqrt{\alpha^2+\beta^2B^2}.
+\]
+若 $\alpha>0$ 且 $B=0$，基态为
+\[
+  \Phi_0={1\over\sqrt2}(\ket{1,-1}-\ket{1,1}),
+  \qquad E=-\alpha.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+中心力场中电子的自旋-轨道相互作用写作
+\[
+  H_{S-L}=\xi(r)\vb S\cdot\vb L.
+\]
+\begin{enumerate}
+  \item 在常用的轨道角动量与自旋基中写出复共轭算符 $H_{S-L}^*$；
+  \item 构造一个正交矩阵 $U$，使 $U^\dagger H_{S-L}U=H_{S-L}^*$。
+\end{enumerate}
+\begin{solution}
+坐标表象中 $L_i^*=-L_i$。自旋矩阵满足 $S_x^*=S_x,S_y^*=-S_y,S_z^*=S_z$，所以
+\[
+  H_{S-L}^*=\xi(r)(-S_xL_x+S_yL_y-S_zL_z).
+\]
+取作用在自旋空间的
+\[
+  U=\ii\sigma_y=
+  \begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+\]
+它对应绕 $y$ 轴转动 $\pi$，满足
+\[
+  U^\dagger S_xU=-S_x,
+  \quad U^\dagger S_yU=S_y,
+  \quad U^\dagger S_zU=-S_z,
+\]
+故 $U^\dagger H_{S-L}U=H_{S-L}^*$。
+\end{solution}
+\end{question}

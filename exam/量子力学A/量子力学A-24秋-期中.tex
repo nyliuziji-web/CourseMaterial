@@ -1,0 +1,177 @@
+\heading{量子力学A-24秋-期中}
+\noteinfo{原资料为手写期中题解；整理时保留题目与解答，按 $m=\hbar\equiv 1$ 处理。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+本题为若干基础概念与 Ehrenfest 定理的简答题。
+\begin{enumerate}
+  \item 在动量表象下，写出 $\{\hat x,\hat y,\hat p_z\}$ 的共同本征函数，其对应本征值为 $\{x_0,y_0,p_0\}$。
+  \item 对势函数 $V(\vb r)=V_0\theta(z)$，列出体系的守恒量，并说明其对应的对称性。
+  \item 一维粒子的初始位置、动量平均值分别为 $x_0,p_0$。分别对下列两个哈密顿量，求 $\bar x(t)$ 与 $\bar p(t)$：
+  \begin{enumerate}
+    \item $H={\hat p^2\over 2}-\hat x$；
+    \item $H={\hat p^2\over 2}-\hat p$。
+  \end{enumerate}
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 在动量表象中 $\hat x=\ii\partial_{p_x}$、$\hat y=\ii\partial_{p_y}$，故
+  \[
+    \Phi_{x_0,y_0,p_0}(p_x,p_y,p_z)=C\exp[-\ii(x_0p_x+y_0p_y)]\delta(p_z-p_0),
+  \]
+  归一化常数按 $\delta$ 归一化约定选取。
+  \item 势能只依赖 $z$，所以平移对称给出 $p_x,p_y$ 守恒；绕 $z$ 轴转动对称给出 $L_z$ 守恒；若势不显含时间，则 $H$ 守恒。
+  \item 用 Ehrenfest 定理。
+  \begin{enumerate}
+    \item 对 $H={\hat p^2/2}-\hat x$，有 $\dot{\bar p}=1$、$\dot{\bar x}=\bar p$，故
+    \[
+      \bar p(t)=p_0+t,
+      \qquad \bar x(t)=x_0+p_0t+{t^2\over 2}.
+    \]
+    \item 对 $H={\hat p^2/2}-\hat p$，有 $\dot{\bar p}=0$、$\dot{\bar x}=\bar p-1$，故
+    \[
+      \bar p(t)=p_0,
+      \qquad \bar x(t)=x_0+(p_0-1)t.
+    \]
+  \end{enumerate}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+一维束缚态势函数为 $V(x)=4x^4$。设体系处于基态。
+\begin{enumerate}
+  \item 判断基态宇称；
+  \item 求坐标、动量均值；
+  \item 用不确定关系估计基态能量。
+\end{enumerate}
+\begin{solution}
+势能为偶函数，非简并基态可取为偶宇称。
+因此
+\[
+  \expval{x}=0,
+  \qquad \expval{p}=0 .
+\]
+令 $\Delta x=s$，用 $\Delta x\Delta p\simeq 1/2$ 估计
+\[
+  E(s)\simeq {1\over 2}(\Delta p)^2+4(\Delta x)^4
+  ={1\over 8s^2}+4s^4.
+\]
+极小条件 $E'(s)=0$ 给出 $s=1/2$，故
+\[
+  E_0\simeq {3\over 4}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+无限深方势阱的范围为 $0<x<2a$，阱内势能为零、阱外势能为无穷大。某时刻粒子的波函数为
+\[
+  \psi(x)=A\sin {\pi x\over a}\,\theta(a-x).
+\]
+\begin{enumerate}
+  \item 求 $A$；
+  \item 求能量均值；
+  \item 展开到宽度为 $2a$ 的势阱本征态后，哪些能量本征值有非零测量概率？
+  \item 哪个能量本征值的测量概率最大？最大概率为多少？
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 归一化给出
+  \[
+    1=A^2\int_0^a\sin^2{\pi x\over a}\dd{x}=A^2{a\over 2},
+    \qquad A=\sqrt{2\over a}.
+  \]
+  \item 在势阱内 $H=-\frac12\dv[2]{}{x}$，因此
+  \[
+    \expval{H}= {1\over 2}\int_0^a |\psi'(x)|^2\dd{x}
+    ={\pi^2\over 2a^2}.
+  \]
+  \item 宽度为 $2a$ 的本征态和能级为
+  \[
+    \phi_n(x)={1\over \sqrt a}\sin {n\pi x\over 2a},
+    \qquad E_n={n^2\pi^2\over 8a^2},\quad n=1,2,\ldots .
+  \]
+  展开系数
+  \[
+    c_n=\sqrt{2\over a^2}\int_0^a\sin {\pi x\over a}\sin {n\pi x\over 2a}\dd{x}.
+  \]
+  因而 $n=2$ 必可出现；奇数 $n$ 也可出现；除 $n=2$ 外的偶数项为零。更具体地，
+  \[
+    c_2={1\over\sqrt2},\qquad
+    c_n={4\sqrt2\over \pi}{\sin(n\pi/2)\over 4-n^2}\quad(n\ne 2).
+  \]
+  \item 最大概率对应 $n=2$，
+  \[
+    E_2={\pi^2\over 2a^2},\qquad P_2=|c_2|^2={1\over 2}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+一维散射势为
+\[
+  V(x)=\alpha\delta(x)+V_0\theta(x),\qquad \alpha<0,
+\]
+能量 $E>V_0$ 的自由粒子从左方入射。求透射系数 $T$。
+\begin{solution}
+令
+\[
+  k=\sqrt{2E},\qquad K=\sqrt{2(E-V_0)} .
+\]
+取
+\[
+  \psi(x)=\begin{cases}
+  \ee^{\ii kx}+r\ee^{-\ii kx},&x<0,\\
+  t\ee^{\ii Kx},&x>0.
+  \end{cases}
+\]
+边界条件为 $1+r=t$ 及
+\[
+  \psi'(0^+)-\psi'(0^-)=2\alpha\psi(0).
+\]
+解得
+\[
+  t={2\ii k\over \ii(k+K)-2\alpha}.
+\]
+故透射系数为透射流与入射流之比：
+\[
+  T={K\over k}|t|^2={4kK\over (k+K)^2+4\alpha^2}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一维谐振子的哈密顿量为 $\hat H=(\hat p^2+\hat x^2)/2$。相干态满足 $\hat a\ket c=c\ket c$。定义算符
+\[
+  \hat O=\hat x\hat p+\hat p\hat x.
+\]
+\begin{enumerate}
+  \item 求谐振子第二激发态 $\ket2$ 中 $O$ 的平均值；
+  \item 求相干态 $\ket c$ 中 $O$ 的平均值；
+  \item 求粒子数算符 $N=a^\dagger a$ 的 $\bar N$、$\overline{N^2}$ 和 $\Delta N$。
+\end{enumerate}
+\begin{solution}
+由
+\[
+  \hat x={\hat a+\hat a^\dagger\over \sqrt2},\qquad
+  \hat p={\hat a-\hat a^\dagger\over \ii\sqrt2}
+\]
+得
+\[
+  \hat O=\ii\left[(\hat a^\dagger)^2-\hat a^2\right].
+\]
+故对数态 $\ket n$，$\mel{n}{O}{n}=0$，特别地第二激发态 $\ket2$ 下 $\bar O=0$。
+相干态中
+\[
+  \expval{O}_c=\ii\left[(c^*)^2-c^2\right].
+\]
+若 $c=u+\ii v$，则 $\expval{O}_c=4uv$。
+粒子数为泊松分布，故
+\[
+  \bar N=|c|^2,
+  \qquad \overline{N^2}=|c|^4+|c|^2,
+  \qquad \Delta N=|c|.
+\]
+\end{solution}
+\end{question}

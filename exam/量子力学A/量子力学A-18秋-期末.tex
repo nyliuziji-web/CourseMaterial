@@ -1,0 +1,187 @@
+\heading{量子力学A-18秋-期末}
+\noteinfo{原卷为 Advanced Quantum Mechanics Fall 2018 Final solutions；首页公式提示已略去。；题面按回忆版略作语句润色，未额外加入 cheating sheet 内容。}
+
+\begin{question}
+两个自旋为 $1$ 的角动量 $\vb S_1,\vb S_2$ 满足 $S_1^2=S_2^2=2$。令未扰动哈密顿量为
+\[
+  H_0=-J\vb S_1\cdot\vb S_2,
+  \qquad J>0,
+\]
+并定义
+\[
+  \chi_z=S_{1x}S_{2y}-S_{1y}S_{2x}.
+\]
+\begin{enumerate}
+  \item 写出 $H_0$ 的本征值和总角动量本征态；
+  \item 证明 $[\chi_z,S_z]=0$，其中 $S_z=S_{1z}+S_{2z}$；
+  \item 计算 $\ee^{-\ii\theta(S_{1z}-S_{2z})}\chi_z\ee^{\ii\theta(S_{1z}-S_{2z})}$；
+  \item 对 $H=H_0+D\chi_z$，求对应于原基态的能量至 $D^2$；
+  \item 初态为 $\ket{1,-1}$ 时，用含时微扰至 $D^2$ 求处于原基态子空间的概率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 用 $\vb S=\vb S_1+\vb S_2$，
+  \[
+    H_0=-{J\over2}S^2+2J.
+  \]
+  因而 $S=2,1,0$ 的能量分别为 $-J,J,2J$。典型归一化态为
+  \[
+    \ket{2,2}=\ket{1,1},\quad
+    \ket{2,1}={\ket{1,0}+\ket{0,1}\over\sqrt2},
+  \]
+  \[
+    \ket{2,0}={\ket{1,-1}+2\ket{0,0}+\ket{-1,1}\over\sqrt6},
+  \]
+  \[
+    \ket{1,1}={\ket{1,0}-\ket{0,1}\over\sqrt2},\quad
+    \ket{1,0}={\ket{1,-1}-\ket{-1,1}\over\sqrt2},
+  \]
+  \[
+    \ket{0,0}={\ket{1,-1}-\ket{0,0}+\ket{-1,1}\over\sqrt3},
+  \]
+  其余态由降阶算符得到。
+  \item 直接利用 $[S_z,S_{i\pm}]=\pm S_{i\pm}$，并写作
+  \[
+    \chi_z={1\over2\ii}(S_{1-}S_{2+}-S_{1+}S_{2-}),
+  \]
+  可见每一项都保持总 $S_z$，故 $[\chi_z,S_z]=0$。
+  \item 绕 $z$ 轴转动给出
+  \[
+    \ee^{-\ii\theta(S_{1z}-S_{2z})}\chi_z\ee^{\ii\theta(S_{1z}-S_{2z})}
+    =\chi_z\cos2\theta+(S_{1x}S_{2x}+S_{1y}S_{2y})\sin2\theta.
+  \]
+  \item 因 $S_z$ 守恒，可在固定 $M$ 子空间中作非简并微扰。对原 $S=2$ 五重基态，能量为
+  \[
+    M=\pm2:\quad E=-J,
+  \]
+  \[
+    M=\pm1:\quad E=-J-{D^2\over2J}+O(D^4),
+  \]
+  \[
+    M=0:\quad E=-J-{2D^2\over3J}+O(D^4).
+  \]
+  其中一阶修正均为零。
+  \item 原基态子空间由 $\ket{S=2,M}$ 张成。由 $S_z$ 守恒，初态 $\ket{1,-1}$ 只需投影到 $M=0$ 子空间。含时微扰至二阶可得
+  \[
+    P_0(t)\simeq {1\over6}-{D\over3J}\sin{2Jt\over\hbar}
+    -{4D^2\over27J^2}\left(\cos{3Jt\over\hbar}-1\right),
+  \]
+  且 $t=0$ 时回到 $|\braket{2,0}{1,-1}|^2=1/6$。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+三个自旋 $1/2$ 粒子位于等边三角形顶点。考虑体系的 $D_3$ 对称性以及哈密顿量
+\[
+  H=(S_{1x}S_{2x}+S_{1y}S_{2y})+(S_{2x}S_{3x}+S_{2y}S_{3y})
+  +(S_{3x}S_{1x}+S_{3y}S_{1y}).
+\]
+\begin{enumerate}
+  \item 写出固定 $S_z$ 子空间中 $C_3$ 和反射 $\sigma$ 的表示矩阵；
+  \item 构造按 $D_3$ 不可约表示分类的正交归一基；
+  \item 求 $H$ 的本征值和本征态；
+  \item 说明简并原因。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 在 $S_z=\pm3/2$ 子空间中表示均为 $(1)$。在 $S_z=\pm1/2$ 子空间，按
+  \[
+    (\ket{\downarrow\uparrow\uparrow},\ket{\uparrow\downarrow\uparrow},\ket{\uparrow\uparrow\downarrow})
+  \]
+  或同时翻转后的顺序取基，有
+  \[
+    R(C_3)=\begin{pmatrix}0&0&1\\1&0&0\\0&1&0\end{pmatrix},
+    \qquad
+    R(\sigma)=\begin{pmatrix}1&0&0\\0&0&1\\0&1&0\end{pmatrix}.
+  \]
+  \item 归一化基可取
+  \[
+    \ket{3/2,3/2}=\ket{\uparrow\uparrow\uparrow},
+  \]
+  \[
+    \ket{3/2,1/2}={\ket{\downarrow\uparrow\uparrow}+\ket{\uparrow\downarrow\uparrow}+\ket{\uparrow\uparrow\downarrow}\over\sqrt3},
+  \]
+  以及 $S=1/2,M=1/2$ 的二维不可约表示基
+  \[
+    \ket{u_1}={2\ket{\downarrow\uparrow\uparrow}-\ket{\uparrow\downarrow\uparrow}-\ket{\uparrow\uparrow\downarrow}\over\sqrt6},
+    \quad
+    \ket{u_2}={\ket{\uparrow\downarrow\uparrow}-\ket{\uparrow\uparrow\downarrow}\over\sqrt2}.
+  \]
+  $M<0$ 的对应态由全体自旋翻转得到。
+  \item 利用
+  \[
+    H={1\over2}S^2-{1\over2}S_z^2-{3\over4},
+    \qquad \vb S=\vb S_1+\vb S_2+\vb S_3,
+  \]
+  可直接读出本征值。$S=3/2,M=\pm3/2$ 时 $E=0$；$S=3/2,M=\pm1/2$ 时 $E=1$；$S=1/2,M=\pm1/2$ 的两个 $D_3$ 二维表示态均有
+  \[
+    E=-{1\over2}.
+  \]
+  \item 简并来自两个事实：$H$ 具有 $D_3$ 对称性，二维不可约表示给出二重简并；此外体系含奇数个 自旋 $1/2$，时间反演满足 $T^2=-1$，给出 Kramers 简并。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $\Gamma_1,\Gamma_2,\Gamma_3,\Gamma_4$ 是 $4\times4$ 的无迹厄米矩阵，满足 $\Gamma_i^2=1$。其中 $\Gamma_1$ 与 $\Gamma_2$ 反对易，$\Gamma_3$ 与 $\Gamma_4$ 反对易，而任意一个前两者与任意一个后两者相互对易。求
+\[
+  A=a_1\Gamma_1+a_2\Gamma_2+a_3\Gamma_3+a_4\Gamma_4
+\]
+的本征值。
+\begin{solution}
+令
+\[
+  \lambda_1=\sqrt{a_1^2+a_2^2},
+  \qquad \lambda_2=\sqrt{a_3^2+a_4^2}.
+\]
+两组相互对易，可同时对角化；每组平方分别为 $\lambda_1^2$ 与 $\lambda_2^2$。故总本征值为
+\[
+  \lambda=\pm\lambda_1\pm\lambda_2,
+\]
+四种符号组合均出现。
+\end{solution}
+\end{question}
+
+\begin{question}
+三个费米模 $f_{1,2,3}$ 的未扰动哈密顿量为 $H_0=E_0(n_1-n_3)$。先考虑普通跃迁微扰
+\[
+  V=-t[(f_1^\dagger f_2+f_2^\dagger f_3)+(f_2^\dagger f_1+f_3^\dagger f_2)],
+\]
+再考虑加入配对项后的
+\[
+  V'=V-t(f_1f_3+f_3^\dagger f_1^\dagger).
+\]
+分别求两种情形下 Fock 空间中各能量的低阶展开；对含配对项的第二种情形，还要求给出精确能谱形式并解释简并原因。
+\begin{solution}
+\begin{enumerate}
+  \item 对 $H=H_0+V$，这是单粒子三能级紧束缚问题的二次量子化。单粒子矩阵为
+  \[
+    h=\begin{pmatrix}E_0&-t&0\\-t&0&-t\\0&-t&-E_0\end{pmatrix},
+  \]
+  单粒子本征值为
+  \[
+    0,\quad \pm\sqrt{E_0^2+2t^2}=\pm\left(E_0+{t^2\over E_0}\right)+O(t^4).
+  \]
+  多体能量为这些单粒子能级的任意占据和，因此 $0$ 四重，$\pm\sqrt{E_0^2+2t^2}$ 各二重。
+  \item 对 $H'=H_0+V'$，粒子数不守恒但奇偶性守恒。能量至三阶为
+  \[
+    E= t-{t^3\over E_0^2},\quad -t+{t^3\over E_0^2},
+    \quad E_0+{t^2\over E_0},
+    \quad -E_0-{t^2\over E_0},
+  \]
+  每个能级均二重。
+  \item 精确写法为
+  \[
+    E=\pm\lambda_1\pm\lambda_2,
+  \]
+  其中
+  \[
+    \lambda_1=\sqrt{\left({E_0+t\over2}\right)^2+{t^2\over2}},
+    \qquad
+    \lambda_2=\sqrt{\left({t-E_0\over2}\right)^2+{t^2\over2}}.
+  \]
+  四种符号组合各有二重简并。简并可由粒子数奇偶算符 $P=(-1)^{n_1+n_2+n_3}$ 和一个把偶、奇子空间互换的对称酉算符说明：$H'$ 与该酉算符对易，而 $P$ 在其作用下变号，故每个本征态都有同能量、相反奇偶性的伙伴态。
+\end{enumerate}
+\end{solution}
+\end{question}

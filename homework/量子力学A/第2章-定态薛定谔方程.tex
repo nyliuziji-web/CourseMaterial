@@ -1,0 +1,2543 @@
+\heading{第2章-定态薛定谔方程}
+\begin{question}
+证明下列三个定理：
+\begin{enumerate}
+\item 对归一化的解，其分离变量常数 $E$ 必为实数。提示：把 $E$ 写成 $E_0+i\Gamma$ 的形式，其中 $E_0$ 和 $\Gamma$ 都是实数；然后证明若式 (1.20) 对任何时刻 $t$ 都成立，则 $\Gamma$ 必为零。
+\item 定态波函数 $\psi(x)$ 总可以取作实数。提示：对给定能量 $E$，如果 $\psi(x)$ 满足定态薛定谔方程，那么 $\psi^*(x)$ 也满足；于是 $\psi+\psi^*$ 和 $i(\psi-\psi^*)$ 给出实函数解。
+\item 如果 $V(x)$ 是偶函数，即 $V(-x)=V(x)$，那么 $\psi(x)$ 总可以取作偶函数或者奇函数。提示：若 $\psi(x)$ 是给定能量的解，则 $\psi(-x)$ 也是解；考虑 $\psi(x)\pm\psi(-x)$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (1.20)：波函数归一化：$\int |\Psi(x,t)|^2\dd x=1$。}
+
+\end{question}
+\begin{solution}
+(1) 分离变量写成
+\[
+\Psi(x,t)=\psi(x)\exp(-\ii Et/\hbar),\qquad E=E_0+\ii\Gamma .
+\]
+于是
+\[
+|\Psi(x,t)|^2=|\psi(x)|^2\exp(2\Gamma t/\hbar).
+\]
+若波函数在每个时刻都归一化，则 $\exp(2\Gamma t/\hbar)$ 必恒为 $1$，故 $\Gamma=0$，所以 $E$ 为实数。
+
+(2) 定态方程为实系数微分方程。若 $\psi$ 是能量 $E$ 的解，则 $\psi^*$ 也是同一能量的解。因此
+\[
+\psi_R=\psi+\psi^*,\qquad \psi_I=\ii(\psi-\psi^*)
+\]
+均为实解。除非其中一个恒为零，总可取它们的实线性组合来表示该能量本征态；归一化后即为实波函数。
+
+(3) 若 $V(x)$ 是偶函数，且 $\psi(x)$ 是能量 $E$ 的解，则 $\psi(-x)$ 也是同一能量的解。于是
+\[
+\psi_+(x)=\psi(x)+\psi(-x),\qquad \psi_-(x)=\psi(x)-\psi(-x)
+\]
+分别为偶解和奇解。若其中一个不为零，归一化后即可作为定态波函数。若两者都非零，它们仍属于同一能量；在一维束缚态非简并时，实际只会留下一个确定的奇偶性。
+\end{solution}
+
+\begin{question}
+证明对于定态薛定谔方程的每一个归一化解，$E$ 必须大于 $V(x)$ 的最小值。在经典力学中，这句话对应的是什么？提示：把定态方程重写为
+\[
+\frac{d^2\psi}{dx^2}=\frac{2m}{\hbar^2}[V(x)-E]\psi .
+\]
+如果 $E<V_{\min}$，那么 $\psi$ 和它的二阶导数有相同的符号；论证这样的波函数不可归一化。
+\end{question}
+\begin{solution}
+设 $V_{\min}$ 为势能最小值。若 $E<V_{\min}$，则对一切 $x$ 有 $V(x)-E>0$，定态方程给出
+\[
+\psi''(x)=\frac{2m}{\hbar^2}[V(x)-E]\psi(x).
+\]
+因此在 $\psi>0$ 的地方曲线向上凹，在 $\psi<0$ 的地方曲线向下凹。这样的曲线若要趋于零，就会被二阶导数推离零点；它不可能在两端都衰减并保持平方可积。故可归一化束缚态必须满足
+\[
+E>V_{\min}.
+\]
+经典对应是：总能量不能低于势能最小值，否则动能 $K=E-V(x)$ 会处处为负，这是不可能的。
+\end{solution}
+
+\begin{question}
+对一维无限深方势阱，证明在 $E=0$ 或 $E<0$ 的情况下，定态薛定谔方程不存在可接受的物理解。这是习题 2.2 中一般定理的一个特殊情形。
+\end{question}
+\begin{solution}
+无限深方势阱内 $V=0$，阱外要求 $\psi=0$，阱内方程为
+\[
+-\frac{\hbar^2}{2m}\psi''=E\psi,
+\qquad \psi(0)=\psi(a)=0.
+\]
+若 $E=0$，则 $\psi=Ax+B$。边界条件给出 $B=0$ 和 $A=0$，只剩零解。
+
+若 $E<0$，令 $\kappa=\sqrt{-2mE}/\hbar$，则
+\[
+\psi=Ae^{\kappa x}+Be^{-\kappa x}.
+\]
+由 $\psi(0)=0$ 得 $A+B=0$，由 $\psi(a)=0$ 得 $A(e^{\kappa a}-e^{-\kappa a})=0$，所以 $A=B=0$。因此 $E\le0$ 时不存在非零物理解。
+\end{solution}
+
+\begin{question}
+对一维无限深方势阱中的第 $n$ 个定态，计算 $\langle x\rangle$、$\langle x^2\rangle$、$\langle p\rangle$ 和 $\langle p^2\rangle$。求 $\sigma_x$ 和 $\sigma_p$，验证不确定原理成立。指出哪个状态最接近不确定原理的极限。
+\end{question}
+\begin{solution}
+对宽度为 $a$ 的无限深方势阱，
+\[
+\psi_n(x)=\sqrt{\frac2a}\sin\frac{n\pi x}{a},\qquad
+E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}.
+\]
+由对称性或直接积分，
+\[
+\langle x\rangle=\frac a2,
+\qquad
+\langle x^2\rangle=\frac{a^2}{3}-\frac{a^2}{2n^2\pi^2}.
+\]
+由于 $\psi_n$ 可取实且边界项为零，
+\[
+\langle p\rangle=-\ii\hbar\int_0^a\psi_n\psi_n'\,\dd x=0,
+\qquad
+\langle p^2\rangle=2mE_n=\frac{n^2\pi^2\hbar^2}{a^2}.
+\]
+故
+\[
+\sigma_x=a\sqrt{\frac1{12}-\frac1{2n^2\pi^2}},
+\qquad
+\sigma_p=\frac{n\pi\hbar}{a}.
+\]
+于是
+\[
+\sigma_x\sigma_p
+=\hbar\sqrt{\frac{n^2\pi^2}{12}-\frac12}>\frac{\hbar}{2}.
+\]
+$n=1$ 时乘积最小，因此基态最接近不确定关系的下限。
+\end{solution}
+
+\begin{question}
+一维无限深方势阱中粒子的初始波函数由前两个定态波函数叠加而成：
+\[
+\Psi(x,0)=A[\psi_1(x)+\psi_2(x)] .
+\]
+\begin{enumerate}
+\item 求 $\Psi(x,0)$ 的归一化常数。利用 $\psi_1$ 和 $\psi_2$ 的正交归一性可以使计算简化。
+\item 求 $\Psi(x,t)$ 和 $|\Psi(x,t)|^2$，像例题 2.1 一样把后者写成随时间正弦振荡的形式。为简化结果，令 $\omega=\pi^2\hbar/(2ma^2)$。
+\item 计算 $\langle x\rangle$，注意结果随时间振荡。振荡的角频率和振幅分别是多少？
+\item 计算 $\langle p\rangle$。
+\item 若测量粒子的能量，可能得到哪些值？各自的几率是多少？求 $\langle H\rangle$，并与 $E_1$ 和 $E_2$ 比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 由正交归一性，
+\[
+1=|A|^2\int_0^a(\psi_1+\psi_2)^2\dd x=2|A|^2,
+\]
+故可取 $A=1/\sqrt2$。
+
+(2) 令 $\omega=\pi^2\hbar/(2ma^2)$，则 $E_n=n^2\hbar\omega$，
+\[
+\Psi(x,t)=\frac1{\sqrt2}\left[\psi_1(x)e^{-\ii\omega t}+\psi_2(x)e^{-4\ii\omega t}\right].
+\]
+因此
+\[
+|\Psi|^2=\frac12(\psi_1^2+\psi_2^2)+\psi_1\psi_2\cos(3\omega t).
+\]
+
+(3) 设
+\[
+I_{12}=\int_0^a x\psi_1\psi_2\dd x=-\frac{16a}{9\pi^2},
+\]
+则
+\[
+\langle x\rangle=\frac a2-\frac{16a}{9\pi^2}\cos(3\omega t).
+\]
+振荡角频率为 $3\omega$，振幅为 $16a/(9\pi^2)$。
+
+(4) 由埃伦菲斯特定理或直接积分，
+\[
+\langle p\rangle=m\frac{\dd\langle x\rangle}{\dd t}
+=\frac{8\hbar}{3a}\sin(3\omega t).
+\]
+
+(5) 能量测量只可能得到 $E_1=\hbar\omega$ 和 $E_2=4\hbar\omega$，几率均为 $1/2$。所以
+\[
+\langle H\rangle=\frac12(E_1+E_2)=\frac52\hbar\omega.
+\]
+它位于 $E_1$ 与 $E_2$ 之间。
+\end{solution}
+
+\begin{question}
+虽然波函数的整体相位常数没有物理意义，但式 (2.17) 中系数的相对相位会起作用。把习题 2.5 中 $\psi_1$ 和 $\psi_2$ 的相对相位改为
+\[
+\Psi(x,0)=A[\psi_1(x)+e^{i\phi}\psi_2(x)],
+\]
+其中 $\phi$ 为常数。求 $\Psi(x,t)$、$|\Psi(x,t)|^2$ 和 $\langle x\rangle$，并与习题 2.5 的结果比较；特别研究 $\phi=\pi/2$ 和 $\phi=\pi$ 的情形。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.17)：定态展开：$\Psi(x,t)=\sum_n c_n\psi_n(x)\exp(-\ii E_nt/\hbar)$。}
+
+\end{question}
+\begin{solution}
+仍有 $A=1/\sqrt2$。含时态为
+\[
+\Psi(x,t)=\frac1{\sqrt2}\left[\psi_1e^{-\ii\omega t}+e^{\ii\phi}\psi_2e^{-4\ii\omega t}\right].
+\]
+于是
+\[
+|\Psi|^2=\frac12(\psi_1^2+\psi_2^2)+\psi_1\psi_2\cos(\phi-3\omega t),
+\]
+并且
+\[
+\langle x\rangle=\frac a2-\frac{16a}{9\pi^2}\cos(\phi-3\omega t).
+\]
+相对相位只改变振荡的初相位，不改变频率和振幅。若 $\phi=\pi/2$，则 $\langle x\rangle=a/2-(16a/9\pi^2)\sin(3\omega t)$；若 $\phi=\pi$，则 $\langle x\rangle=a/2+(16a/9\pi^2)\cos(3\omega t)$，与习题 2.5 的偏移方向相反。
+\end{solution}
+
+\begin{question}
+一维无限深方势阱中粒子的初始波函数为
+\[
+\Psi(x,0)=
+\begin{cases}
+Ax, & 0<x<a/2,\\
+A(a-x), & a/2<x<a.
+\end{cases}
+\]
+\begin{enumerate}
+\item 归一化 $\Psi(x,0)$。
+\item 求 $\Psi(x,t)$。
+\item 测量能量时，得到 $E_1$ 的几率是多少？
+\item 求能量的期望值。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 归一化给出
+\[
+1=2A^2\int_0^{a/2}x^2\dd x=\frac{A^2a^3}{12},
+\qquad
+A=\sqrt{\frac{12}{a^3}}.
+\]
+
+(2) 展开为无限深方势阱定态：
+\[
+\Psi(x,t)=\sum_{n=1}^{\infty}c_n\psi_n(x)e^{-\ii E_nt/\hbar}.
+\]
+由关于 $a/2$ 的对称性，偶数 $n$ 系数为零；奇数 $n$ 有
+\[
+ c_n=\sqrt{\frac2a}\int_0^a\Psi(x,0)\sin\frac{n\pi x}{a}\dd x
+ =\frac{4\sqrt6}{n^2\pi^2}\sin\frac{n\pi}{2}.
+\]
+
+(3) 因此
+\[
+P(E_1)=|c_1|^2=\frac{96}{\pi^4}.
+\]
+
+(4) 能量期望值为
+\[
+\langle H\rangle=\sum_{n\ \mathrm{odd}}|c_n|^2E_n
+=\frac{96E_1}{\pi^4}\sum_{n\ \mathrm{odd}}\frac1{n^2}
+=\frac{12}{\pi^2}E_1
+=\frac{6\hbar^2}{ma^2}.
+\]
+\end{solution}
+
+\begin{question}
+处在一维无限深、宽度为 $a$ 的方势阱中，质量为 $m$ 的粒子初态为
+\[
+\Psi(x,0)=
+\begin{cases}
+A, & 0<x<a/2,\\
+0, & a/2<x<a.
+\end{cases}
+\]
+求常数 $A$。在 $t=0$ 时，势阱左半区域中每一点发现粒子的可能性相同。对能量进行测量得到数值 $\pi^2\hbar^2/(2ma^2)$ 的几率是多少？
+\end{question}
+\begin{solution}
+归一化条件为 $A^2(a/2)=1$，故
+\[
+A=\sqrt{\frac2a}.
+\]
+基态展开系数
+\[
+ c_1=\int_0^a\psi_1(x)\Psi(x,0)\dd x
+ =\sqrt{\frac2a}\sqrt{\frac2a}\int_0^{a/2}\sin\frac{\pi x}{a}\dd x
+ =\frac2\pi.
+\]
+测得 $E_1=\pi^2\hbar^2/(2ma^2)$ 的几率为
+\[
+P(E_1)=|c_1|^2=\frac4{\pi^2}.
+\]
+\end{solution}
+
+\begin{question}
+对例题 2.2 中的波函数，用公式
+\[
+\langle H\rangle=\int \Psi^*(x,0)\hat H\Psi(x,0)\,dx
+\]
+求 $t=0$ 时能量的期望值，并同例题 2.3 中用式 (2.21) 求出的结果比较。注意：由于 $\langle H\rangle$ 不依赖时间，所以取 $t=0$ 不失一般性。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.21)：若 $\Psi=\sum_n c_n\psi_n e^{-\ii E_nt/\hbar}$，则 $\langle H\rangle=\sum_n |c_n|^2E_n$。}
+
+\end{question}
+\begin{solution}
+例题 2.2 的初态为 $\Psi(x,0)=A x(a-x)$，其中 $A=\sqrt{30/a^5}$。直接作用哈密顿量：
+\[
+\frac{\dd^2}{\dd x^2}[Ax(a-x)]=-2A.
+\]
+于是
+\[
+\langle H\rangle
+=-\frac{\hbar^2}{2m}\int_0^a\Psi\Psi''\dd x
+=\frac{\hbar^2A^2}{m}\int_0^a x(a-x)\dd x
+=\frac{5\hbar^2}{ma^2}.
+\]
+若用能量展开，只有奇数项，且
+\[
+ c_n=\frac{8\sqrt{15}}{n^3\pi^3}\quad(n\ \mathrm{odd}),
+\]
+所以
+\[
+\sum_{n\ \mathrm{odd}} |c_n|^2E_n
+=\frac{960E_1}{\pi^6}\sum_{n\ \mathrm{odd}}\frac1{n^4}
+=\frac{10}{\pi^2}E_1
+=\frac{5\hbar^2}{ma^2},
+\]
+与直接计算一致。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 构造出谐振子的 $\psi_2(x)$。
+\item 画出 $\psi_0$、$\psi_1$ 和 $\psi_2$ 的图形。
+\item 通过直接积分，检验 $\psi_0$、$\psi_1$ 和 $\psi_2$ 彼此正交。若利用函数的奇偶性，实际只需做一个积分。
+\end{enumerate}
+\end{question}
+\begin{solution}
+令 $\alpha=m\omega/\hbar$，谐振子定态为
+\[
+\psi_n(x)=\left(\frac{\alpha}{\pi}\right)^{1/4}\frac{1}{\sqrt{2^n n!}}H_n(\sqrt\alpha x)e^{-\alpha x^2/2}.
+\]
+因 $H_2(\xi)=4\xi^2-2$，
+\[
+\psi_2(x)=\left(\frac{\alpha}{\pi}\right)^{1/4}\frac1{\sqrt2}(2\alpha x^2-1)e^{-\alpha x^2/2}.
+\]
+$\psi_0$ 是偶的单峰高斯，$\psi_1$ 是奇函数且在原点有节点，$\psi_2$ 是偶函数且有两个节点 $x=\pm1/\sqrt{2\alpha}$。正交性由奇偶性立刻给出 $\int\psi_0\psi_1=\int\psi_1\psi_2=0$；剩下的
+\[
+\int_{-\infty}^{\infty}\psi_0\psi_2\dd x
+=\frac1{\sqrt2}\left(2\alpha\langle x^2\rangle_0-1\right)=0,
+\]
+因为基态高斯满足 $\langle x^2\rangle_0=1/(2\alpha)$。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 通过直接积分，计算 $\psi_0$（式 (2.60)）和 $\psi_1$（式 (2.62)）态的 $\langle x\rangle$、$\langle p\rangle$、$\langle x^2\rangle$ 和 $\langle p^2\rangle$。提示：引入 $\xi=\sqrt{m\omega/\hbar}\,x$ 和 $\alpha=m\omega/\hbar$ 可简化计算。
+\item 用这些状态验证不确定原理。
+\item 计算这些状态的 $\langle T\rangle$（平均动能）和 $\langle V\rangle$（平均势能）。它们的和应当等于什么？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (2.60)：谐振子基态：$\psi_0(x)=(m\omega/\pi\hbar)^{1/4}\exp[-m\omega x^2/(2\hbar)]$。
+\item 式 (2.62)：谐振子第一激发态：$\psi_1(x)=\sqrt{2m\omega/\hbar}\,x\,\psi_0(x)$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+对 $n=0,1$ 均有 $\langle x\rangle=\langle p\rangle=0$。直接积分或用升降算符等价地得到
+\[
+\langle x^2\rangle_n=\frac{\hbar}{m\omega}\left(n+\frac12\right),
+\qquad
+\langle p^2\rangle_n=m\hbar\omega\left(n+\frac12\right).
+\]
+因此
+\[
+\begin{array}{c|cc}
+ n&\langle x^2\rangle&\langle p^2\rangle\\ \hline
+0&\dfrac{\hbar}{2m\omega}&\dfrac{m\hbar\omega}{2}\\[0.4em]
+1&\dfrac{3\hbar}{2m\omega}&\dfrac{3m\hbar\omega}{2}
+\end{array}
+\]
+并有
+\[
+\sigma_x\sigma_p=\hbar\left(n+\frac12\right),
+\]
+所以基态达到下限 $\hbar/2$，第一激发态给出 $3\hbar/2$。平均动能和势能相等：
+\[
+\langle T\rangle=\langle V\rangle=\frac12 E_n
+=\frac12\left(n+\frac12\right)\hbar\omega.
+\]
+两者之和正是 $E_n$。
+\end{solution}
+
+\begin{question}
+利用例题 2.5 中的方法，计算谐振子第 $n$ 个状态的 $\langle x\rangle$、$\langle p\rangle$、$\langle x^2\rangle$、$\langle p^2\rangle$ 以及 $\langle T\rangle$，并验证不确定原理。
+\end{question}
+\begin{solution}
+谐振子第 $n$ 个能量本征态满足
+\[
+E_n=\left(n+\frac12\right)\hbar\omega.
+\]
+由奇偶性或升降算符，
+\[
+\langle x\rangle=0,
+\qquad
+\langle p\rangle=0,
+\]
+并且
+\[
+\langle x^2\rangle=\frac{\hbar}{m\omega}\left(n+\frac12\right),
+\qquad
+\langle p^2\rangle=m\hbar\omega\left(n+\frac12\right).
+\]
+故
+\[
+\sigma_x\sigma_p=\hbar\left(n+\frac12\right)\ge\frac\hbar2.
+\]
+又
+\[
+\langle V\rangle=\frac12m\omega^2\langle x^2\rangle=\frac12E_n,
+\qquad
+\langle T\rangle=\frac{\langle p^2\rangle}{2m}=\frac12E_n.
+\]
+\end{solution}
+
+\begin{question}
+处于谐振子势场中粒子的初始状态为
+\[
+\Psi(x,0)=A[3\psi_0(x)+4\psi_1(x)].
+\]
+\begin{enumerate}
+\item 求 $A$。
+\item 给出 $\Psi(x,t)$ 和 $|\Psi(x,t)|^2$。如果得到的 $|\Psi(x,t)|^2$ 是经典振荡的频率，也不要惊讶；若指定的是 $\psi_2(x)$ 而不是 $\psi_1(x)$，会发生什么？
+\item 计算 $\langle x\rangle$ 和 $\langle p\rangle$，对这个波函数验证埃伦菲斯特定理成立。
+\item 若测量该粒子的能量，可能得到哪些值？各自出现的几率是多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 由正交归一性，
+\[
+1=|A|^2(9+16),
+\qquad A=\frac15.
+\]
+
+(2) 
+\[
+\Psi(x,t)=\frac15\left[3\psi_0e^{-\ii\omega t/2}+4\psi_1e^{-3\ii\omega t/2}\right].
+\]
+因此
+\[
+|\Psi|^2=\frac{9}{25}\psi_0^2+\frac{16}{25}\psi_1^2+\frac{24}{25}\psi_0\psi_1\cos\omega t.
+\]
+若把 $\psi_1$ 改成 $\psi_2$，干涉项频率变为 $2\omega$，且由于二者同为偶函数，$\langle x\rangle$ 不再作经典频率的振荡。
+
+(3) 只有相邻能级的 $x$ 矩阵元非零，
+\[
+\langle x\rangle=\frac{24}{25}\sqrt{\frac{\hbar}{2m\omega}}\cos\omega t,
+\]
+从而
+\[
+\langle p\rangle=m\frac{\dd\langle x\rangle}{\dd t}
+=-\frac{24}{25}\sqrt{\frac{m\hbar\omega}{2}}\sin\omega t.
+\]
+这满足 $\dd\langle x\rangle/\dd t=\langle p\rangle/m$ 和 $\dd\langle p\rangle/\dd t=-m\omega^2\langle x\rangle$。
+
+(4) 可能测得 $E_0=\hbar\omega/2$ 和 $E_1=3\hbar\omega/2$，概率分别为 $9/25$ 与 $16/25$。
+\end{solution}
+
+\begin{question}
+对于处在谐振子基态的粒子，在经典理论所允许范围之外发现粒子的几率是多少（精确到小数点后三位）？提示：经典谐振子的能量为 $E=(1/2)kA^2=(1/2)m\omega^2A^2$，其经典允许范围是 $-\sqrt{2E/(m\omega^2)}$ 到 $+\sqrt{2E/(m\omega^2)}$；可查误差函数或用计算机做数值积分。
+\end{question}
+\begin{solution}
+基态能量 $E_0=\hbar\omega/2$，经典振幅由
+\[
+\frac12m\omega^2A_c^2=\frac12\hbar\omega
+\]
+给出，即
+\[
+A_c=\sqrt{\frac{\hbar}{m\omega}}.
+\]
+基态概率密度为
+\[
+|\psi_0|^2=\sqrt{\frac{\alpha}{\pi}}e^{-\alpha x^2},
+\qquad \alpha=\frac{m\omega}{\hbar}.
+\]
+故经典禁区概率为
+\[
+P=2\int_{A_c}^{\infty}\sqrt{\frac{\alpha}{\pi}}e^{-\alpha x^2}\dd x
+=\operatorname{erfc}(1)
+\approx 0.157.
+\]
+\end{solution}
+
+\begin{question}
+利用递归公式 (2.85) 求出 $H_5(\xi)$ 和 $H_6(\xi)$，按照惯例选择适当常数使最高次幂的系数为 $2^n$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.85)：Hermite 多项式递推：$H_{n+1}(\xi)=2\xi H_n(\xi)-2nH_{n-1}(\xi)$，$H_0=1,H_1=2\xi$。}
+
+\end{question}
+\begin{solution}
+递推关系
+\[
+H_{n+1}(\xi)=2\xi H_n(\xi)-2nH_{n-1}(\xi)
+\]
+配合 $H_0=1$、$H_1=2\xi$，可得
+\[
+H_5(\xi)=32\xi^5-160\xi^3+120\xi,
+\]
+\[
+H_6(\xi)=64\xi^6-480\xi^4+720\xi^2-120.
+\]
+最高次项系数分别为 $2^5$ 和 $2^6$。
+\end{solution}
+
+\begin{question}
+在下面问题中，探讨厄米多项式的一些有用定理。
+\begin{enumerate}
+\item 罗德里格斯公式为
+\[
+H_n(\xi)=(-1)^n e^{\xi^2}\left(\frac{d}{d\xi}\right)^n e^{-\xi^2} .
+\]
+利用该式推出 $H_3$ 和 $H_4$。
+\item 利用前两个厄米多项式 $H_{n-1}$ 和 $H_n$ 表示 $H_{n+1}$ 的递推关系：
+\[
+H_{n+1}(\xi)=2\xi H_n(\xi)-2nH_{n-1}(\xi).
+\]
+利用该式和 (a) 的结果，求出 $H_5$ 和 $H_6$。
+\item 厄米多项式满足
+\[
+\frac{dH_n}{d\xi}=2nH_{n-1}(\xi).
+\]
+通过对 $H_5$ 和 $H_6$ 求导来检验此式。
+\item $H_n(\xi)$ 是母函数 $\exp(-z^2+2z\xi)$ 对 $z$ 求 $n$ 次导数后在 $z=0$ 的值；等价地，
+\[
+e^{-z^2+2z\xi}=\sum_{n=0}^{\infty}\frac{z^n}{n!}H_n(\xi).
+\]
+利用该公式求 $H_1$、$H_2$ 和 $H_3$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 由罗德里格斯公式可得
+\[
+H_3=8\xi^3-12\xi,
+\qquad
+H_4=16\xi^4-48\xi^2+12.
+\]
+
+(2) 递推给出
+\[
+H_5=2\xi H_4-8H_3=32\xi^5-160\xi^3+120\xi,
+\]
+\[
+H_6=2\xi H_5-10H_4=64\xi^6-480\xi^4+720\xi^2-120.
+\]
+
+(3) 直接求导：
+\[
+H_5'=160\xi^4-480\xi^2+120=10H_4,
+\]
+\[
+H_6'=384\xi^5-1920\xi^3+1440\xi=12H_5,
+\]
+正是 $H_n'=2nH_{n-1}$。
+
+(4) 展开母函数
+\[
+e^{-z^2+2z\xi}=1+2\xi z+(2\xi^2-1)z^2+\left(\frac43\xi^3-2\xi\right)z^3+\cdots.
+\]
+与 $\sum z^nH_n/n!$ 比较，得
+\[
+H_1=2\xi,
+\qquad H_2=4\xi^2-2,
+\qquad H_3=8\xi^3-12\xi.
+\]
+\end{solution}
+
+\begin{question}
+证明 $(Ae^{ikx}+Be^{-ikx})$ 与 $(C\cos kx+D\sin kx)$ 是同一函数的等价表示形式；用 $A$ 和 $B$ 表示 $C$ 和 $D$，并用 $C$ 和 $D$ 表示 $A$ 和 $B$。注释：在量子力学中，当 $V=0$ 时，用指数形式讨论自由粒子的行波最方便；正弦和余弦则对应驻波，常出现在无限深方势阱问题中。
+\end{question}
+\begin{solution}
+利用欧拉公式，
+\[
+Ae^{\ii kx}+Be^{-\ii kx}
+=(A+B)\cos kx+\ii(A-B)\sin kx.
+\]
+因此
+\[
+C=A+B,
+\qquad
+D=\ii(A-B).
+\]
+反过来，
+\[
+A=\frac12(C-\ii D),
+\qquad
+B=\frac12(C+\ii D).
+\]
+所以指数形式与正弦余弦形式只是同一通解的两种基底。
+\end{solution}
+
+\begin{question}
+求自由粒子波函数式 (2.95) 的几率流（见习题 1.14），几率流向哪个方向？
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.95)：自由粒子平面波：$\Psi_k(x,t)=Ae^{\ii(kx-\omega t)}$，$\omega=\hbar k^2/(2m)$。}
+
+\end{question}
+\begin{solution}
+自由粒子行波可写为
+\[
+\Psi(x,t)=Ae^{\ii(kx-\omega t)}.
+\]
+几率流为
+\[
+j=\frac{\hbar}{2m\ii}\left(\Psi^*\frac{\partial\Psi}{\partial x}-\Psi\frac{\partial\Psi^*}{\partial x}\right)
+=\frac{\hbar k}{m}|A|^2.
+\]
+若 $k>0$，几率流沿正 $x$ 方向；若 $k<0$，则沿负 $x$ 方向。
+\end{solution}
+
+\begin{question}
+本题从有限区间上的普通傅里叶级数理论出发，引导你“证明”普朗克尔定理，并允许将有限区间扩展到无穷大。
+\begin{enumerate}
+\item 狄利克雷定理表明，在区间 $[-a,a]$ 上的函数 $f(x)$ 可展开为傅里叶级数。证明它可以等价写成
+\[
+f(x)=\sum_{n=-\infty}^{\infty}c_n e^{in\pi x/a},
+\]
+并把 $c_n$ 用普通傅里叶系数表示出来。
+\item 证明
+\[
+c_n=\frac{1}{2a}\int_{-a}^{a}f(x)e^{-in\pi x/a}\,dx .
+\]
+\item 引入 $k=n\pi/a$、$\Delta k=\pi/a$ 和 $F(k)=\sqrt{2a/\pi}\,c_n$，证明
+\[
+f(x)=\frac{1}{\sqrt{2\pi}}\sum F(k)e^{ikx}\Delta k,
+\qquad
+F(k)=\frac{1}{\sqrt{2\pi}}\int_{-a}^{a}f(x)e^{-ikx}\,dx .
+\]
+\item 取 $a\to\infty$ 的极限得到普朗克尔定理。注释：两个公式在无限区间极限下具有相似结构。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 普通傅里叶级数
+\[
+f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty\left(a_n\cos\frac{n\pi x}{a}+b_n\sin\frac{n\pi x}{a}\right)
+\]
+用 $\cos u=(e^{\ii u}+e^{-\ii u})/2$、$\sin u=(e^{\ii u}-e^{-\ii u})/(2\ii)$ 可写成
+\[
+f(x)=\sum_{n=-\infty}^{\infty}c_ne^{\ii n\pi x/a},
+\]
+其中 $c_0=a_0/2$，$c_n=(a_n-\ii b_n)/2$，$c_{-n}=(a_n+\ii b_n)/2$。
+
+(2) 由正交性
+\[
+\int_{-a}^{a}e^{\ii(n-m)\pi x/a}\dd x=2a\delta_{mn},
+\]
+故
+\[
+c_n=\frac1{2a}\int_{-a}^{a}f(x)e^{-\ii n\pi x/a}\dd x.
+\]
+
+(3) 令 $k=n\pi/a$、$\Delta k=\pi/a$、$F(k)=\sqrt{2a/\pi}c_n$，则
+\[
+f(x)=\frac1{\sqrt{2\pi}}\sum_k F(k)e^{\ii kx}\Delta k,
+\]
+且
+\[
+F(k)=\frac1{\sqrt{2\pi}}\int_{-a}^{a}f(x)e^{-\ii kx}\dd x.
+\]
+
+(4) 当 $a\to\infty$ 时，$\Delta k\to0$，求和变成积分，得到
+\[
+f(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(k)e^{\ii kx}\dd k,
+\qquad
+F(k)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}f(x)e^{-\ii kx}\dd x.
+\]
+\end{solution}
+
+\begin{question}
+自由粒子的初始波函数为
+\[
+\Psi(x,0)=Ae^{-a|x|},
+\]
+其中 $A$ 和 $a$ 是正的实常数。
+\begin{enumerate}
+\item 归一化 $\Psi(x,0)$。
+\item 求出 $\phi(k)$。
+\item 以积分形式写出 $\Psi(x,t)$。
+\item 讨论极限情况：$a$ 很大和 $a$ 很小。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 归一化：
+\[
+1=2A^2\int_0^\infty e^{-2ax}\dd x=\frac{A^2}{a},
+\qquad A=\sqrt a.
+\]
+
+(2) 傅里叶振幅为
+\[
+\phi(k)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\sqrt a\,e^{-a|x|}e^{-\ii kx}\dd x
+=\sqrt{\frac{2a^3}{\pi}}\frac1{a^2+k^2}.
+\]
+
+(3) 自由演化为
+\[
+\Psi(x,t)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)
+\exp\left[\ii kx-\ii\frac{\hbar k^2}{2m}t\right]\dd k.
+\]
+
+(4) $a$ 很大时，初态在坐标空间很窄，而 $\phi(k)$ 很宽，动量分布离散得很厉害，波包迅速扩散。$a$ 很小时，初态很宽，$\phi(k)$ 很窄，动量集中在 $k=0$ 附近，扩散较慢。
+\end{solution}
+
+\begin{question}
+高斯波包。自由粒子的初始波函数为
+\[
+\Psi(x,0)=Ae^{-ax^2},
+\]
+其中 $A$ 和 $a$ 是常数，且 $a$ 为正实数。
+\begin{enumerate}
+\item 归一化 $\Psi(x,0)$。
+\item 求出 $\Psi(x,t)$。提示：可用配平方处理高斯积分。
+\item 求出 $|\Psi(x,t)|^2$，并用合适的量表示结果；画出 $t=0$ 和 $t$ 很大时的草图，定性说明随时间增加时波包如何变化。
+\item 求 $\langle x\rangle$、$\langle p\rangle$、$\langle x^2\rangle$、$\langle p^2\rangle$、$\sigma_x$ 和 $\sigma_p$。
+\item 不确定原理成立吗？系统在什么时刻最接近不确定原理的极限？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 归一化给出
+\[
+1=A^2\int_{-\infty}^{\infty}e^{-2ax^2}\dd x,
+\qquad
+A=\left(\frac{2a}{\pi}\right)^{1/4}.
+\]
+
+(2) 令
+\[
+\tau=\frac{2\hbar at}{m}.
+\]
+高斯积分给出
+\[
+\Psi(x,t)=\left(\frac{2a}{\pi}\right)^{1/4}\frac1{\sqrt{1+\ii\tau}}
+\exp\left[-\frac{a x^2}{1+\ii\tau}\right].
+\]
+
+(3) 因而
+\[
+|\Psi(x,t)|^2=\sqrt{\frac{2a}{\pi}}\frac1{\sqrt{1+\tau^2}}
+\exp\left[-\frac{2ax^2}{1+\tau^2}\right].
+\]
+随时间增大，峰值下降、宽度增大，波包向两侧扩散。
+
+(4) 由偶性和动量空间分布，
+\[
+\langle x\rangle=0,
+\qquad \langle p\rangle=0,
+\]
+\[
+\langle x^2\rangle=\frac{1+\tau^2}{4a},
+\qquad
+\langle p^2\rangle=\hbar^2a.
+\]
+故
+\[
+\sigma_x=\frac{\sqrt{1+\tau^2}}{2\sqrt a},
+\qquad
+\sigma_p=\hbar\sqrt a.
+\]
+
+(5) 
+\[
+\sigma_x\sigma_p=\frac\hbar2\sqrt{1+\tau^2}\ge\frac\hbar2.
+\]
+$t=0$ 时恰好达到不确定关系下限，此后乘积增大。
+\end{solution}
+
+\begin{question}
+计算下列积分：
+\begin{enumerate}
+\item $\displaystyle \int_{-3}^{\infty}(-3x^2+2x-1)\delta(x+2)\,dx$。
+\item $\displaystyle \int_{0}^{\infty}[\cos(3x)+2]\delta(x-\pi)\,dx$。
+\item $\displaystyle \int_{-\infty}^{\infty}(e^{|x|}+3)\delta(x-2)\,dx$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+利用 $\delta$ 函数的抽样性质：
+\[
+\int f(x)\delta(x-x_0)\dd x=f(x_0),
+\]
+只要 $x_0$ 在积分区间内。
+
+(1) $x=-2$ 在区间内，故
+\[
+-3(-2)^2+2(-2)-1=-17.
+\]
+
+(2) $x=\pi$ 在区间内，故
+\[
+\cos(3\pi)+2=-1+2=1.
+\]
+
+(3) $x=2$ 在区间内，故
+\[
+e^{|2|}+3=e^2+3.
+\]
+\end{solution}
+
+\begin{question}
+若对任意一般函数 $f(x)$ 有
+\[
+\int f(x)D_1(x)\,dx=\int f(x)D_2(x)\,dx,
+\]
+则把 $D_1(x)$ 和 $D_2(x)$ 看作 $\delta$ 函数的两个相同表示。
+\begin{enumerate}
+\item 证明
+\[
+\delta(ax)=\frac{1}{|a|}\delta(x),
+\]
+其中 $a$ 为实常数。一定要检验 $a<0$ 的情况。
+\item 设 $\theta(x)$ 为阶跃函数，
+\[
+\theta(x)=\begin{cases}1,&x>0,\\0,&x<0,
+\end{cases}
+\]
+在少数情况下定义 $\theta(0)=1/2$。证明 $d\theta/dx=\delta(x)$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 对任意测试函数 $f$，令 $u=ax$，则
+\[
+\int_{-\infty}^{\infty}f(x)\delta(ax)\dd x
+=\int f\left(\frac{u}{a}\right)\delta(u)\frac{\dd u}{|a|}
+=\frac1{|a|}f(0).
+\]
+这等于 $\int f(x)|a|^{-1}\delta(x)\dd x$，故
+\[
+\delta(ax)=\frac1{|a|}\delta(x).
+\]
+绝对值正是为了处理 $a<0$ 时积分方向改变的问题。
+
+(2) 对任意光滑 $f$，分部积分得
+\[
+\int f(x)\theta'(x)\dd x
+=-\int f'(x)\theta(x)\dd x
+=-\int_0^\infty f'(x)\dd x=f(0),
+\]
+假定边界项在无穷远消失。因此 $\theta'(x)$ 与 $\delta(x)$ 对所有测试函数作用相同，故
+\[
+\frac{\dd\theta}{\dd x}=\delta(x).
+\]
+\end{solution}
+
+\begin{question}
+对式 (2.132) 中的波函数验证不确定原理。提示：因为 $\psi$ 的导数在 $x=0$ 处存在阶梯不连续，计算 $\langle p^2\rangle$ 时可能很费事；可利用习题 2.23(b) 的结果。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.132)：$\delta$ 势阱 $V(x)=-\alpha\delta(x)$ 的束缚态：$\psi(x)=\sqrt{m\alpha}/\hbar\,e^{-m\alpha|x|/\hbar^2}$，$E=-m\alpha^2/(2\hbar^2)$。}
+
+\end{question}
+\begin{solution}
+令
+\[
+\beta=\frac{m\alpha}{\hbar^2},
+\qquad
+\psi(x)=\sqrt\beta\,e^{-\beta |x|}.
+\]
+显然 $\langle x\rangle=0$，并且
+\[
+\langle x^2\rangle=2\beta\int_0^\infty x^2e^{-2\beta x}\dd x=\frac1{2\beta^2}.
+\]
+所以 $\sigma_x=1/(\sqrt2\beta)$。
+
+由能量 $E=-\hbar^2\beta^2/(2m)$ 与
+\[
+\langle V\rangle=-\alpha |\psi(0)|^2=-\alpha\beta=-\frac{\hbar^2\beta^2}{m},
+\]
+得
+\[
+\langle T\rangle=E-\langle V\rangle=\frac{\hbar^2\beta^2}{2m}.
+\]
+因此
+\[
+\langle p^2\rangle=2m\langle T\rangle=\hbar^2\beta^2,
+\qquad
+\sigma_p=\hbar\beta.
+\]
+最终
+\[
+\sigma_x\sigma_p=\frac{\hbar}{\sqrt2}>\frac\hbar2.
+\]
+\end{solution}
+
+\begin{question}
+验证 $\delta$ 函数势阱的束缚态（式 (2.132)）和散射态（式 (2.134)、(2.135)）彼此正交。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (2.132)：$\delta$ 势阱 $V(x)=-\alpha\delta(x)$ 的束缚态：$\psi(x)=\sqrt{m\alpha}/\hbar\,e^{-m\alpha|x|/\hbar^2}$，$E=-m\alpha^2/(2\hbar^2)$。
+\item 式 (2.134--2.135)：$\delta$ 势阱散射态可写成左、右入射的分段平面波；在 $x=0$ 处 $\psi$ 连续，且 $\psi'(0^+)-\psi'(0^-)=-2m\alpha\psi(0)/\hbar^2$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+设 $\psi_b$ 是束缚态，能量 $E_b<0$；$\psi_k$ 是散射态，能量 $E_k>0$。二者满足同一厄米哈密顿量的定态方程：
+\[
+H\psi_b=E_b\psi_b,
+\qquad
+H\psi_k=E_k\psi_k.
+\]
+把第一式乘以 $\psi_k^*$，第二式共轭后乘以 $\psi_b$，相减并积分，得
+\[
+(E_b-E_k)\int_{-\infty}^{\infty}\psi_k^*\psi_b\dd x
+=-\frac{\hbar^2}{2m}\left[\psi_k^*\psi_b'-\psi_b(\psi_k^*)'\right]_{-\infty}^{\infty}.
+\]
+束缚态在无穷远指数衰减，而散射态有界，所以边界项为零。由于 $E_b\ne E_k$，必有
+\[
+\int_{-\infty}^{\infty}\psi_k^*\psi_b\dd x=0.
+\]
+这同时适用于从左、从右入射的散射态。
+\end{solution}
+
+\begin{question}
+$\delta(x)$ 的傅里叶变换是什么？利用普朗克尔定理证明
+\[
+\delta(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}\,dk .
+\]
+评注：这个公式需要以广义函数的意义理解。
+\end{question}
+\begin{solution}
+按本章的傅里叶约定，
+\[
+F(k)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}\delta(x)e^{-\ii kx}\dd x
+=\frac1{\sqrt{2\pi}}.
+\]
+代回反变换，
+\[
+\delta(x)=\frac1{\sqrt{2\pi}}\int_{-\infty}^{\infty}F(k)e^{\ii kx}\dd k
+=\frac1{2\pi}\int_{-\infty}^{\infty}e^{\ii kx}\dd k.
+\]
+这个等式必须理解为广义函数恒等式，即只有放在积分号内作用于测试函数时才有意义。
+\end{solution}
+
+\begin{question}
+考虑双 $\delta$ 函数势阱
+\[
+V(x)=-\alpha[\delta(x+a)+\delta(x-a)],
+\]
+其中 $\alpha$ 和 $a$ 都为正常数。
+\begin{enumerate}
+\item 画出这个势的草图。
+\item 存在多少个束缚态？当 $\alpha=\hbar^2/(ma)$ 和 $\alpha=\hbar^2/(4ma)$ 时，求允许能级并画出波函数草图。
+\item 在 $a\to0$ 和 $a\to\infty$ 的极限下求束缚态能量（固定 $\alpha$），并与单个 $\delta$ 势阱的结果比较，解释答案的合理性。
+\end{enumerate}
+\end{question}
+\begin{solution}
+令
+\[
+\beta=\sqrt{-2mE}/\hbar,
+\qquad
+\eta=\frac{m\alpha}{\hbar^2},
+\qquad
+z=2\beta a,
+\qquad
+g=2\eta a=\frac{2m\alpha a}{\hbar^2}.
+\]
+势关于原点对称，束缚态可分为偶态和奇态。偶态满足
+\[
+\beta=\eta\left(1+e^{-2\beta a}\right),
+\qquad\text{即}\qquad z=g(1+e^{-z}),
+\]
+奇态满足
+\[
+\beta=\eta\left(1-e^{-2\beta a}\right),
+\qquad\text{即}\qquad z=g(1-e^{-z}).
+\]
+偶束缚态总存在；奇束缚态只有在 $g>1$ 时存在。
+
+若 $\alpha=\hbar^2/(ma)$，则 $g=2$。数值解为
+\[
+z_+=2.2177,
+\qquad z_-=1.5936,
+\]
+故
+\[
+E_\pm=-\frac{\hbar^2z_\pm^2}{8ma^2}.
+\]
+这里 $+$ 表示偶态，$-$ 表示奇态。若 $\alpha=\hbar^2/(4ma)$，则 $g=1/2$，只有偶态，
+\[
+z_+=0.73884,
+\qquad
+E_+=-\frac{\hbar^2z_+^2}{8ma^2}.
+\]
+
+当 $a\to0$ 时，两个 $\delta$ 势合并为 $-2\alpha\delta(x)$，只剩一个束缚态，
+\[
+E\to-\frac{m(2\alpha)^2}{2\hbar^2}=-\frac{2m\alpha^2}{\hbar^2}.
+\]
+当 $a\to\infty$ 时，两阱相互独立，偶、奇两态趋于简并，
+\[
+E\to-\frac{m\alpha^2}{2\hbar^2},
+\]
+即单个 $\delta$ 势阱的束缚态能量。
+\end{solution}
+
+\begin{question}
+对于习题 2.27 中的势，求出其透射系数。
+\end{question}
+\begin{solution}
+令
+\[
+k=\frac{\sqrt{2mE}}{\hbar},
+\qquad
+\gamma=\frac{m\alpha}{\hbar^2k}.
+\]
+用传递矩阵处理两个位于 $\pm a$ 的吸引 $\delta$ 势。单个 $\delta$ 势的传递矩阵与中间自由传播矩阵相乘后，可得总矩阵的右下元素满足
+\[
+|M_{22}|^2=1+4\gamma^2\left[\cos(2ka)-\gamma\sin(2ka)\right]^2.
+\]
+左右两侧势能相同，透射系数为 $T=1/|M_{22}|^2$，所以
+\[
+T=\frac{1}{1+4\gamma^2\left[\cos(2ka)-\gamma\sin(2ka)\right]^2}.
+\]
+当方括号为零时出现共振透射，$T=1$。
+\end{solution}
+
+\begin{question}
+分析有限深方势阱的奇束缚态波函数，推导出允许能级满足的超越方程，并用作图法求解。检查两种极限情况。是否总是至少存在一个奇束缚态？
+\end{question}
+\begin{solution}
+取有限深方势阱
+\[
+V(x)=\begin{cases}-V_0,& |x|<a,\\0,& |x|>a.
+\end{cases}
+\]
+奇束缚态在阱内可写为
+\[
+\psi(x)=A\sin(\ell x),
+\qquad
+\ell=\frac{\sqrt{2m(E+V_0)}}{\hbar},
+\]
+阱外为指数衰减，
+\[
+\psi(x)=B\operatorname{sgn}(x)e^{-\kappa |x|},
+\qquad
+\kappa=\frac{\sqrt{-2mE}}{\hbar}.
+\]
+在 $x=a$ 处连续并使导数连续，得到
+\[
+\ell\cot(\ell a)=-\kappa.
+\]
+又有
+\[
+\ell^2+\kappa^2=\frac{2mV_0}{\hbar^2}.
+\]
+令 $z=\ell a$、$z_0=a\sqrt{2mV_0}/\hbar$，可写为
+\[
+-z\cot z=\sqrt{z_0^2-z^2}.
+\]
+这是奇束缚态的能级方程。作图时左边与右边在区间 $\pi/2<z<z_0$、$3\pi/2<z<z_0$ 等处的交点给出奇态。只有当 $z_0>\pi/2$ 时才有第一个奇束缚态；因此并非总存在奇束缚态。
+\end{solution}
+
+\begin{question}
+对式 (2.154) 中的 $\psi(x)$ 归一化，确定常数 $D$ 和 $F$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.154)：有限深方势阱偶束缚态可取 $\psi(x)=F e^{\kappa x}$（$x<-a$），$D\cos(\ell x)$（$|x|<a$），$F e^{-\kappa x}$（$x>a$）。}
+
+\end{question}
+\begin{solution}
+式 (2.154) 的偶束缚态可写为
+\[
+\psi(x)=\begin{cases}
+F e^{\kappa x},&x<-a,\\
+D\cos(\ell x),& |x|<a,\\
+F e^{-\kappa x},&x>a,
+\end{cases}
+\]
+其中 $\ell=\sqrt{2m(E+V_0)}/\hbar$，$\kappa=\sqrt{-2mE}/\hbar$。连续性给出
+\[
+F e^{-\kappa a}=D\cos(\ell a),
+\qquad
+F=D\cos(\ell a)e^{\kappa a}.
+\]
+归一化条件为
+\[
+1=D^2\int_{-a}^{a}\cos^2(\ell x)\dd x
++2F^2\int_a^\infty e^{-2\kappa x}\dd x.
+\]
+代入 $F$ 得
+\[
+1=D^2\left[a+\frac{\sin(2\ell a)}{2\ell}+\frac{\cos^2(\ell a)}{\kappa}\right].
+\]
+因此可取
+\[
+D=\left[a+\frac{\sin(2\ell a)}{2\ell}+\frac{\cos^2(\ell a)}{\kappa}\right]^{-1/2},
+\qquad
+F=D\cos(\ell a)e^{\kappa a}.
+\]
+奇态情形只需把阱内的 $\cos$ 换成 $\sin$，并相应把最后的 $\cos^2(\ell a)$ 换成 $\sin^2(\ell a)$。
+\end{solution}
+
+\begin{question}
+$\delta(x)$ 函数可以看作高度趋于无穷、宽度趋于零、面积为 1 的矩形极限。证明在该极限下，$\delta$ 函数势阱确实只有一个束缚态；把它看作有限深方势阱的极限，确定 $\delta$ 势阱的束缚态能级，并验证与式 (2.132) 一致。同时证明在适当极限下，式 (2.172) 还原为式 (2.144)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (2.132)：$\delta$ 势阱 $V(x)=-\alpha\delta(x)$ 的束缚态：$\psi(x)=\sqrt{m\alpha}/\hbar\,e^{-m\alpha|x|/\hbar^2}$，$E=-m\alpha^2/(2\hbar^2)$。
+\item 式 (2.170--2.172)：由上述边界条件得有限深方势阱散射的透射率 $T=\{1+[V_0^2/(4E(E+V_0))]\sin^2(2\ell a)\}^{-1}$，其中 $\ell=\sqrt{2m(E+V_0)}/\hbar$。
+\item 式 (2.144)：$\delta$ 势阱散射透射率：$T=1/(1+m\alpha^2/(2\hbar^2E))$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+把宽度 $2a$、深度 $V_0$ 的矩形阱取极限
+\[
+2aV_0=\alpha,
+\qquad a\to0,
+\qquad V_0\to\infty.
+\]
+有限深阱的偶态能级方程为
+\[
+\kappa=\ell\tan(\ell a),
+\qquad
+\ell^2+\kappa^2=\frac{2mV_0}{\hbar^2}.
+\]
+在极限中 $\ell a\ll1$，故 $\tan(\ell a)\simeq \ell a$，于是
+\[
+\kappa\simeq \ell^2a\simeq \frac{2mV_0a}{\hbar^2}=\frac{m\alpha}{\hbar^2}.
+\]
+所以
+\[
+E=-\frac{\hbar^2\kappa^2}{2m}=-\frac{m\alpha^2}{2\hbar^2},
+\]
+与单个 $\delta$ 势阱束缚态一致。奇态方程为 $\kappa=-\ell\cot(\ell a)$，但当 $a\to0$ 时不可能给出满足边界条件的归一化束缚态，因此只剩一个束缚态。
+
+散射方面，矩形阱透射系数
+\[
+T^{-1}=1+\frac{V_0^2}{4E(E+V_0)}\sin^2(2\ell a)
+\]
+在上述极限下满足 $\sin(2\ell a)\simeq 2\ell a$，从而化为
+\[
+T^{-1}=1+\frac{m\alpha^2}{2\hbar^2E},
+\]
+即 $\delta$ 势阱散射结果。
+\end{solution}
+
+\begin{question}
+推导出式 (2.170) 和式 (2.171)。提示：由式 (2.168) 和 (2.169) 消去 $F$，得到 $C$ 和 $D$，再代入式 (2.166) 和 (2.167)。求出透射系数，并验证式 (2.172)。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (2.170--2.172)：由上述边界条件得有限深方势阱散射的透射率 $T=\{1+[V_0^2/(4E(E+V_0))]\sin^2(2\ell a)\}^{-1}$，其中 $\ell=\sqrt{2m(E+V_0)}/\hbar$。
+\item 式 (2.166--2.169)：有限方势阱散射中取 $\psi_I=Ae^{\ii kx}+Be^{-\ii kx}$、$\psi_{II}=Ce^{\ii\ell x}+De^{-\ii\ell x}$、$\psi_{III}=Fe^{\ii kx}$，并在 $x=\pm a$ 令 $\psi$ 和 $\psi'$ 连续。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+对有限深方势阱散射，设
+\[
+k=\frac{\sqrt{2mE}}{\hbar},
+\qquad
+\ell=\frac{\sqrt{2m(E+V_0)}}{\hbar}.
+\]
+在左、阱内、右三段分别写
+\[
+\psi_I=Ae^{\ii kx}+Be^{-\ii kx},
+\quad
+\psi_{II}=Ce^{\ii\ell x}+De^{-\ii\ell x},
+\quad
+\psi_{III}=Fe^{\ii kx}.
+\]
+在 $x=\pm a$ 处要求波函数及导数连续，先由右边界解出 $C,D$ 关于 $F$ 的表达式，再代入左边界，可得反射与透射振幅。化简后透射系数为
+\[
+T=\frac1{1+\dfrac{V_0^2}{4E(E+V_0)}\sin^2(2\ell a)}.
+\]
+这就是式 (2.172)。当 $2\ell a=n\pi$ 时，$T=1$，出现共振透射。
+\end{solution}
+
+\begin{question}
+讨论方势垒问题，其势与式 (2.148) 相似，只不过在 $-a<x<a$ 区域内 $V(x)=+V_0>0$。分别按 $E<V_0$、$E=V_0$ 和 $E>V_0$ 三种情况讨论，注意这三种情况下势垒区域内的波函数形式不同；求透射系数。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.148)：有限深方势阱：$V(x)=-V_0$（$|x|<a$），$V(x)=0$（$|x|>a$）。}
+
+\end{question}
+\begin{solution}
+设势垒宽度为 $2a$。
+
+若 $E>V_0$，令
+\[
+k=\frac{\sqrt{2mE}}{\hbar},
+\qquad
+q=\frac{\sqrt{2m(E-V_0)}}{\hbar}.
+\]
+势垒区为振荡解，透射系数为
+\[
+T=\frac1{1+\dfrac{V_0^2}{4E(E-V_0)}\sin^2(2qa)}.
+\]
+
+若 $E<V_0$，令
+\[
+\kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}.
+\]
+势垒区为指数解，透射系数为
+\[
+T=\frac1{1+\dfrac{V_0^2}{4E(V_0-E)}\sinh^2(2\kappa a)}.
+\]
+这就是隧穿结果。
+
+若 $E=V_0$，势垒区解为线性函数。也可由上式取极限得到
+\[
+T=\frac1{1+\dfrac{2mV_0a^2}{\hbar^2}}.
+\]
+三种情形的区别只在势垒区波函数分别为正弦指数、线性函数或双曲指数函数。
+\end{solution}
+
+\begin{question}
+考虑阶梯势
+\[
+V(x)=\begin{cases}0,&x<0,\\ V_0,&x>0.
+\end{cases}
+\]
+\begin{enumerate}
+\item 对 $E<V_0$ 的情形，计算反射系数，并讨论结果。
+\item 计算 $E>V_0$ 时的反射系数。
+\item 透射系数不是简单的 $|F|^2/|A|^2$，因为透射波以不同的波速传播。证明对 $E>V_0$ 有
+\[
+T=\sqrt{\frac{E-V_0}{E}}\frac{|F|^2}{|A|^2}.
+\]
+提示：可以利用式 (2.99) 或几率流来计算。
+\item 对 $E>V_0$ 求阶梯势的透射系数，并验证 $T+R=1$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.99)：一维概率流：$J=(\hbar/m)\operatorname{Im}(\Psi^*\partial_x\Psi)$；平面波 $Ae^{\ii kx}$ 的流为 $\hbar k|A|^2/m$。}
+
+\end{question}
+\begin{solution}
+(1) 若 $E<V_0$，右侧为指数衰减波，没有向 $+\infty$ 传播的透射流，全部反射：
+\[
+R=1,
+\qquad T=0.
+\]
+
+(2) 若 $E>V_0$，令
+\[
+k=\sqrt{2mE}/\hbar,
+\qquad
+q=\sqrt{2m(E-V_0)}/\hbar.
+\]
+取
+\[
+\psi_I=Ae^{\ii kx}+Be^{-\ii kx},
+\qquad
+\psi_{II}=Fe^{\ii qx}.
+\]
+连续性给出
+\[
+\frac BA=\frac{k-q}{k+q},
+\qquad
+R=\left(\frac{k-q}{k+q}\right)^2.
+\]
+
+(3) 几率流对 $Ce^{\ii kx}$ 为 $j=(\hbar k/m)|C|^2$。因此
+\[
+T=\frac{j_{\rm tr}}{j_{\rm in}}
+=\frac{q}{k}\frac{|F|^2}{|A|^2}
+=\sqrt{\frac{E-V_0}{E}}\frac{|F|^2}{|A|^2}.
+\]
+
+(4) 由 $F/A=2k/(k+q)$，
+\[
+T=\frac{4kq}{(k+q)^2},
+\qquad
+R=\frac{(k-q)^2}{(k+q)^2},
+\]
+显然 $R+T=1$。
+\end{solution}
+
+\begin{question}
+质量为 $m$、动能 $E>0$ 的粒子靠近一个突然降至 $-V_0$ 的突变势。
+\begin{enumerate}
+\item 若 $E=V_0/3$，粒子被“反弹”回来的几率是多少？提示：与习题 2.34 相似，只不过阶梯由向上变为向下。
+\item 图中可想象有一辆车靠近悬崖。解释为什么这个势不能正确表示一个悬崖。
+\item 当一个自由中子进入原子核时，势能从外部的 $0$ 到原子核内部大约 $-12\,\mathrm{MeV}$。假设裂变产生一个动能为 $4\,\mathrm{MeV}$ 的中子撞击原子核，求中子被吸收的几率；并讨论能否触发新的裂变。
+\end{enumerate}
+\end{question}
+\begin{solution}
+向下阶梯可令右侧波数
+\[
+q=\sqrt{\frac{2m(E+V_0)}{\hbar^2}},
+\qquad
+k=\sqrt{\frac{2mE}{\hbar^2}}.
+\]
+反射系数仍为
+\[
+R=\left(\frac{k-q}{k+q}\right)^2.
+\]
+
+(1) 当 $E=V_0/3$ 时，$q/k=\sqrt{(E+V_0)/E}=2$，故
+\[
+R=\left(\frac{1-2}{1+2}\right)^2=\frac19.
+\]
+
+(2) 这个势并不能正确描述汽车驶向悬崖，因为汽车的竖直自由度、重力势、碰撞和轨道约束都被忽略了；一维势阶跃只描述沿 $x$ 方向的势能突变。
+
+(3) 对 $E=4\,\mathrm{MeV}$、$V_0=12\,\mathrm{MeV}$，同样有 $q/k=2$，故进入核内的透射概率为
+\[
+T=1-R=\frac89.
+\]
+因此中子有很大概率进入核内；是否引发新的裂变还取决于核反应截面、能量损失和具体核素，阶跃势模型只能给出粗略的入射概率。
+\end{solution}
+
+\begin{question}
+对于“中心”无限深方势阱
+\[
+V(x)=\begin{cases}0,&-a<x<a,\\ \infty,&\text{其他地方},
+\end{cases}
+\]
+利用适当边界条件求解定态薛定谔方程。验证能量允许值与式 (2.30) 一致；证明所得 $\psi$ 可由式 (2.28) 做平移变换得到（并归一化）；画出前三个解的草图，并与图 2.2 比较。注意势阱宽度现在是 $2a$。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：}
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt]
+\item 式 (2.30)：无限深方势阱能量：$E_n=n^2\pi^2\hbar^2/(2ma^2)$。
+\item 式 (2.28)：无限深方势阱本征函数：$\psi_n(x)=\sqrt{2/a}\,\sin(n\pi x/a)$，$n=1,2,\ldots$。
+\end{enumerate}
+
+\end{question}
+\begin{solution}
+阱内 $-a<x<a$ 满足自由粒子方程，阱壁给出
+\[
+\psi(-a)=\psi(a)=0.
+\]
+由于势是偶函数，可分奇偶解。归一化后
+\[
+\psi_n(x)=\begin{cases}
+\dfrac1{\sqrt a}\cos\dfrac{n\pi x}{2a},& n=1,3,5,\ldots,\\[0.8em]
+\dfrac1{\sqrt a}\sin\dfrac{n\pi x}{2a},& n=2,4,6,\ldots.
+\end{cases}
+\]
+相应能量为
+\[
+E_n=\frac{n^2\pi^2\hbar^2}{8ma^2},
+\qquad n=1,2,3,\ldots.
+\]
+这正是宽度 $2a$ 的无限深方势阱能级。若把标准区间 $0<x<2a$ 的解平移 $x\mapsto x+a$，即可得到这里的解。前三个态依次为偶、奇、偶，节点数依次为 $0,1,2$。
+\end{solution}
+
+\begin{question}
+处于无限深方势阱（式 (2.22)）中的粒子初始波函数为
+\[
+\Psi(x,0)=A\sin^3\left(\frac{\pi x}{a}\right),\qquad 0\le x\le a.
+\]
+求 $A$ 和 $\Psi(x,t)$，并计算作为时间函数的 $\langle x\rangle$。能量期望值是多少？提示：$\sin^n\theta$ 和 $\cos^n\theta$ 可通过重复使用三角公式化简为 $\sin(m\theta)$ 和 $\cos(m\theta)$ 的线性组合。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.22)：无限深方势阱：$V(x)=0\ (0<x<a)$，$V=\infty$（其他区域）。}
+
+\end{question}
+\begin{solution}
+利用
+\[
+\sin^3\theta=\frac{3\sin\theta-\sin3\theta}{4},
+\]
+且
+\[
+\int_0^a\sin^6\frac{\pi x}{a}\dd x=\frac{5a}{16},
+\]
+归一化常数为
+\[
+A=\frac4{\sqrt{5a}}.
+\]
+因此
+\[
+\Psi(x,0)=\frac{3}{\sqrt{5a}}\sin\frac{\pi x}{a}-\frac1{\sqrt{5a}}\sin\frac{3\pi x}{a}
+=\frac3{\sqrt{10}}\psi_1-\frac1{\sqrt{10}}\psi_3.
+\]
+含时波函数为
+\[
+\Psi(x,t)=\frac3{\sqrt{10}}\psi_1e^{-\ii E_1t/\hbar}
+-\frac1{\sqrt{10}}\psi_3e^{-\ii E_3t/\hbar}.
+\]
+由于 $\int_0^a x\psi_1\psi_3\dd x=0$，
+\[
+\langle x\rangle=\frac{a}{2}
+\]
+不随时间变化。能量期望值为
+\[
+\langle H\rangle=\frac9{10}E_1+\frac1{10}E_3
+=\frac95E_1.
+\]
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明：无限深方势阱中粒子的波函数经过量子恢复时间
+\[
+T=\frac{4ma^2}{\pi\hbar}
+\]
+后恢复到初始形式，即对任何态（不只限于定态）有 $\Psi(x,T)=\Psi(x,0)$。
+\item 能量为 $E$ 的粒子在势阱壁之间往返碰撞，其经典恢复时间是多少？
+\item 在什么能量下，两种恢复时间相等？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 任意初态可展开为
+\[
+\Psi(x,0)=\sum_{n=1}^{\infty}c_n\psi_n(x),
+\qquad
+E_n=n^2\frac{\pi^2\hbar^2}{2ma^2}.
+\]
+在
+\[
+T=\frac{4ma^2}{\pi\hbar}
+\]
+时，
+\[
+e^{-\ii E_nT/\hbar}=\exp(-\ii 2\pi n^2)=1,
+\]
+故所有项恢复原相位，$\Psi(x,T)=\Psi(x,0)$。
+
+(2) 经典粒子速度 $v=\sqrt{2E/m}$，在两壁间完成一次往返距离 $2a$，故
+\[
+T_{\rm cl}=\frac{2a}{v}=a\sqrt{\frac{2m}{E}}.
+\]
+
+(3) 令 $T_{\rm cl}=T$，得
+\[
+E=\frac{\pi^2\hbar^2}{8ma^2}=\frac14E_1.
+\]
+这个能量低于量子基态能量，说明普通经典恢复时间和量子恢复时间不是同一个概念。
+\end{solution}
+
+\begin{question}
+在习题 2.7(d) 中，通过对式 (2.21) 中各项求和可以得到能量期望值，但不要直接用“老式方法”
+\[
+\langle H\rangle=\int \psi^*(x,0)\hat H\psi(x,0)\,dx,
+\]
+因为 $\psi(x,0)$ 一阶导数的不连续会使二阶导数产生问题。狄拉克 $\delta$ 函数提供了处理反常点的方法。
+\begin{enumerate}
+\item 计算 $\psi(x,0)$ 的一阶导数（习题 2.7），并用阶跃函数 $\theta(x-a/2)$ 表示结果。
+\item 利用习题 2.23(b)，把 $\psi(x,0)$ 的二阶导数用 $\delta$ 函数表示出来。
+\item 计算积分 $\int\psi^*(x,0)\hat H\psi(x,0)\,dx$，并检验与前面结果一致。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.21)：若 $\Psi=\sum_n c_n\psi_n e^{-\ii E_nt/\hbar}$，则 $\langle H\rangle=\sum_n |c_n|^2E_n$。}
+
+\end{question}
+\begin{solution}
+习题 2.7 的归一化常数为 $A=\sqrt{12/a^3}$。初态可写为
+\[
+\psi(x)=Ax[1-\theta(x-a/2)]+A(a-x)\theta(x-a/2).
+\]
+更简单地，一阶导数为
+\[
+\psi'(x)=A\left[1-2\theta(x-a/2)\right].
+\]
+因此
+\[
+\psi''(x)=-2A\delta(x-a/2).
+\]
+于是
+\[
+\langle H\rangle=-\frac{\hbar^2}{2m}\int_0^a\psi(x)\psi''(x)\dd x
+=\frac{\hbar^2A}{m}\psi(a/2).
+\]
+而 $\psi(a/2)=Aa/2$，故
+\[
+\langle H\rangle=\frac{\hbar^2A^2a}{2m}
+=\frac{6\hbar^2}{ma^2},
+\]
+与习题 2.7(d) 的展开求和结果一致。
+\end{solution}
+
+\begin{question}
+处在谐振子势（式 (2.43)）中质量为 $m$ 的粒子从初态开始运动：
+\[
+\Psi(x,0)=A\left(1-2\sqrt{\frac{m\omega}{\hbar}}x\right)^2 e^{-m\omega x^2/(2\hbar)},
+\]
+其中 $A$ 为常数。
+\begin{enumerate}
+\item 根据谐振子的定态，确定 $A$ 和该状态的各展开系数 $c_n$。
+\item 测量粒子的能量，能得到哪些结果？对应几率是多少？能量的期望值是多少？
+\item 经过时间 $T$ 后波函数为
+\[
+\Psi(x,T)=B\left(1+2\sqrt{\frac{m\omega}{\hbar}}x\right)^2 e^{-m\omega x^2/(2\hbar)},
+\]
+其中 $B$ 为常数。$T$ 的最小可能值是多少？
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.43)：谐振子势能：$V(x)=\frac12m\omega^2x^2$。}
+
+\end{question}
+\begin{solution}
+令 $\xi=\sqrt{m\omega/\hbar}\,x$。利用
+\[
+\psi_0=N e^{-\xi^2/2},\quad
+\psi_1=\sqrt2\xi\psi_0,
+\quad
+\psi_2=\frac1{\sqrt2}(2\xi^2-1)\psi_0,
+\]
+可把多项式展开为
+\[
+(1-2\xi)^2e^{-\xi^2/2}
+=\frac1N\left(3\psi_0-2\sqrt2\psi_1+2\sqrt2\psi_2\right).
+\]
+归一化要求系数平方和为 $1$，而 $9+8+8=25$，故
+\[
+A=\frac{N}{5},
+\quad
+c_0=\frac35,
+\quad
+c_1=-\frac{2\sqrt2}{5},
+\quad
+c_2=\frac{2\sqrt2}{5}.
+\]
+
+可能测得
+\[
+E_0=\frac12\hbar\omega,
+\quad E_1=\frac32\hbar\omega,
+\quad E_2=\frac52\hbar\omega,
+\]
+概率分别为
+\[
+\frac9{25},\qquad \frac8{25},\qquad \frac8{25}.
+\]
+能量期望值为
+\[
+\langle H\rangle=\frac9{25}\frac{\hbar\omega}{2}
++\frac8{25}\frac{3\hbar\omega}{2}
++\frac8{25}\frac{5\hbar\omega}{2}
+=\frac{73}{50}\hbar\omega.
+\]
+
+要使线性项变号而常数项和二次项不变，需要相对相位满足
+\[
+e^{-\ii\omega T}=-1,
+\qquad e^{-2\ii\omega T}=1.
+\]
+最小正时间为
+\[
+T=\frac{\pi}{\omega}.
+\]
+\end{solution}
+
+\begin{question}
+求半谐振子势允许的能级：
+\[
+V(x)=\begin{cases}(1/2)m\omega^2x^2,&x>0,\\ \infty,&x<0.
+\end{cases}
+\]
+例如，这表示一个只能被拉伸而不能被压缩的弹簧。提示：本题需要仔细思考，计算很少。
+\end{question}
+\begin{solution}
+半谐振子在 $x<0$ 有无限壁，因此必须满足
+\[
+\psi(0)=0.
+\]
+完整谐振子的奇宇称本征函数正好在原点为零，而偶宇称本征函数不满足该边界条件。因此半谐振子的允许态就是完整谐振子的奇态在 $x>0$ 上截取后重新归一化：
+\[
+\psi^{\rm half}_j(x)=\sqrt2\,\psi_{2j+1}(x),\qquad x>0,
+\]
+其中 $j=0,1,2,\ldots$。能级为
+\[
+E_j=\left(2j+1+\frac12\right)\hbar\omega
+=\left(2j+\frac32\right)\hbar\omega.
+\]
+所以最低能量为 $3\hbar\omega/2$。
+\end{solution}
+
+\begin{question}
+在习题 2.21 中已经分析了自由粒子静态高斯波包。现在对传播中的高斯波包做同样问题，其初始波函数为
+\[
+\Psi(x,0)=Ae^{-ax^2}e^{i\ell x},
+\]
+其中 $\ell$ 为实常数。建议：从 $\phi(k)$ 求 $\Psi(x,t)$ 的过程中，在积分前先做变量替换 $u=k-\ell$。求 $\Psi(x,t)$，分析波包包络和内部行波的传播速度，并与习题 2.21 比较。
+\end{question}
+\begin{solution}
+这是习题 2.21 的高斯波包再乘以平均波数 $\ell$。令
+\[
+v=\frac{\hbar\ell}{m},
+\qquad
+\tau=\frac{2\hbar at}{m},
+\qquad
+A=\left(\frac{2a}{\pi}\right)^{1/4}.
+\]
+把傅里叶积分中的变量换成 $u=k-\ell$，得到
+\[
+\Psi(x,t)=A\frac1{\sqrt{1+\ii\tau}}
+\exp\left[-\frac{a(x-vt)^2}{1+\ii\tau}\right]
+\exp\left[\ii\ell x-\ii\frac{\hbar\ell^2}{2m}t\right].
+\]
+概率密度为
+\[
+|\Psi|^2=\sqrt{\frac{2a}{\pi}}\frac1{\sqrt{1+\tau^2}}
+\exp\left[-\frac{2a(x-vt)^2}{1+\tau^2}\right].
+\]
+因此包络以群速度
+\[
+v_g=\frac{\hbar\ell}{m}
+\]
+传播，同时像静止高斯波包一样扩散。内部平面波相位速度为
+\[
+v_{\rm ph}=\frac{\omega}{\ell}=\frac{\hbar\ell}{2m}=\frac12v_g.
+\]
+\end{solution}
+
+\begin{question}
+在原点对称的无限深方势阱中央存在一个 $\delta$ 函数势：
+\[
+V(x)=\begin{cases}\alpha\delta(x),& |x|<a,\\ \infty,& |x|=a.
+\end{cases}
+\]
+求解定态薛定谔方程。分别处理偶波函数和奇波函数的情况；不必归一化这些波函数。求允许能量（必要时用作图法）。与没有 $\delta$ 函数时相比，能级有何不同？解释为什么奇函数解不受 $\delta$ 函数影响。讨论 $\alpha\to0$ 和 $\alpha\to\infty$ 两个极限。
+\end{question}
+\begin{solution}
+奇函数满足 $\psi(0)=0$，所以中央 $\delta$ 势不起作用。边界 $\psi(\pm a)=0$ 给出
+\[
+\psi_n^{(-)}(x)=A\sin\frac{n\pi x}{a},
+\qquad
+E_n^{(-)}=\frac{\hbar^2}{2m}\left(\frac{n\pi}{a}\right)^2,
+\quad n=1,2,\ldots.
+\]
+
+偶函数可写为
+\[
+\psi^{(+)}(x)=C\sin[k(a-|x|)].
+\]
+它自动满足 $\psi(\pm a)=0$。在 $x=0$ 处，波函数连续，但导数满足
+\[
+\psi'(0^+)-\psi'(0^-)=\frac{2m\alpha}{\hbar^2}\psi(0).
+\]
+代入得
+\[
+-2Ck\cos(ka)=\frac{2m\alpha}{\hbar^2}C\sin(ka),
+\]
+即
+\[
+-k\cot(ka)=\frac{m\alpha}{\hbar^2}.
+\]
+偶态能量为 $E=\hbar^2k^2/(2m)$，其中 $k$ 由上式作图求得。
+
+当 $\alpha\to0$ 时，偶态条件变为 $\cos(ka)=0$，恢复无 $\delta$ 势的偶态。$\alpha\to\infty$ 时，必须有 $\sin(ka)=0$，相当于中央出现无限壁，偶态能级趋近奇态能级。奇态因为在原点为零，对 $\delta$ 势完全不敏感。
+\end{solution}
+
+\begin{question}
+如果两个或更多定态薛定谔方程的不同解具有同一能量，这些态称为简并。证明：在一维情况下 $(-\infty<x<\infty)$ 不存在简并束缚态。提示：假设 $\psi_1$ 和 $\psi_2$ 具有同样能量，写出它们满足的定态方程；将一式乘以另一波函数后相减，证明
+\[
+\psi_2\frac{d\psi_1}{dx}-\psi_1\frac{d\psi_2}{dx}
+\]
+是常数。利用归一化解在 $\pm\infty$ 处趋于零，说明该常数为零，从而两个解只差一个常数因子。
+\end{question}
+\begin{solution}
+设 $\psi_1$、$\psi_2$ 是同一能量 $E$ 的两个束缚态。它们满足
+\[
+-\frac{\hbar^2}{2m}\psi_i''+V\psi_i=E\psi_i\quad(i=1,2).
+\]
+用 $\psi_2$ 乘第一式、用 $\psi_1$ 乘第二式并相减，得
+\[
+\psi_2\psi_1''-\psi_1\psi_2''=0.
+\]
+这等价于
+\[
+\frac{\dd}{\dd x}\left(\psi_2\psi_1'-\psi_1\psi_2'\right)=0.
+\]
+故 Wronskian
+\[
+W=\psi_2\psi_1'-\psi_1\psi_2'
+\]
+为常数。束缚态在 $\pm\infty$ 处趋于零，导数也趋于零，所以 $W=0$。于是
+\[
+\frac{\dd}{\dd x}\left(\frac{\psi_1}{\psi_2}\right)=\frac{\psi_1'\psi_2-\psi_1\psi_2'}{\psi_2^2}=0
+\]
+在无节点区间内成立，并可连续延拓到全空间。因此 $\psi_1=C\psi_2$。两者不是独立态，一维束缚态不简并。
+\end{solution}
+
+\begin{question}
+证明一维势中定态的节点数目总是随能量增加而增加。设给定势 $V(x)$ 下有两个实的归一化解 $\psi_1$ 和 $\psi_2$，能量满足 $E_2>E_1$。
+\begin{enumerate}
+\item 证明相应的 Wronskian 导数满足一个与 $(E_2-E_1)\psi_1\psi_2$ 成正比的关系。
+\item 若 $x_a$ 和 $x_b$ 是 $\psi_1(x)$ 的相邻两个节点，证明把上式从 $x_a$ 积分到 $x_b$ 会给出一个与 $\int_{x_a}^{x_b}\psi_1\psi_2\,dx$ 有关的边界式。
+\item 如果 $\psi_2$ 在 $x_a$ 和 $x_b$ 之间没有节点，则它在该区间内符号不变；证明这与 (b) 矛盾。因此，在 $\psi_1$ 的每对相邻节点之间，$\psi_2$ 至少有一个节点。
+\end{enumerate}
+\end{question}
+\begin{solution}
+令
+\[
+W=\psi_2\psi_1'-\psi_1\psi_2'.
+\]
+由定态方程
+\[
+\psi_i''=\frac{2m}{\hbar^2}(V-E_i)\psi_i
+\]
+得
+\[
+W'=\psi_2\psi_1''-\psi_1\psi_2''
+=\frac{2m}{\hbar^2}(E_2-E_1)\psi_1\psi_2.
+\]
+
+设 $x_a,x_b$ 是 $\psi_1$ 的相邻节点。积分得
+\[
+W(x_b)-W(x_a)=\frac{2m}{\hbar^2}(E_2-E_1)
+\int_{x_a}^{x_b}\psi_1\psi_2\dd x.
+\]
+由于 $\psi_1(x_a)=\psi_1(x_b)=0$，边界项为
+\[
+W(x_b)-W(x_a)=\psi_2(x_b)\psi_1'(x_b)-\psi_2(x_a)\psi_1'(x_a).
+\]
+在两个相邻节点之间，$\psi_1$ 不变号，且两端导数符号相反。若 $\psi_2$ 在该区间内无节点，则它不变号，于是边界式与积分式的符号要求矛盾。因此 $\psi_2$ 在 $\psi_1$ 的每对相邻节点之间至少有一个节点。能量越高，节点数越多。
+\end{solution}
+
+\begin{question}
+设质量为 $m$ 的小珠子绕周长为 $L$ 的圆环无摩擦滑动。这类似自由粒子，只是要求 $\psi(x+L)=\psi(x)$。求它的定态（并适当归一化）和相应的允许能量。注意每个能级（除一个例外）对应两个相反方向的运动态。根据习题 2.44 的定理，如何解释这种简并性？
+\end{question}
+\begin{solution}
+圆环上要求周期边界条件
+\[
+\psi(x+L)=\psi(x).
+\]
+自由粒子定态满足
+\[
+\psi(x)=Ae^{\ii kx},
+\qquad e^{\ii kL}=1,
+\]
+所以
+\[
+k_n=\frac{2\pi n}{L},
+\qquad n=0,\pm1,\pm2,\ldots.
+\]
+归一化后
+\[
+\psi_n(x)=\frac1{\sqrt L}e^{\ii2\pi nx/L},
+\]
+能量为
+\[
+E_n=\frac{\hbar^2k_n^2}{2m}
+=\frac{2\pi^2\hbar^2n^2}{mL^2}.
+\]
+除 $n=0$ 外，$n$ 与 $-n$ 具有相同能量，对应相反方向的环流。习题 2.44 的非简并定理要求束缚态在无穷远衰减，而圆环是紧致空间并采用周期边界条件，因此不适用。
+\end{solution}
+
+\begin{question}
+这是一个定性问题，不允许做计算。考虑双有限方势阱，其中两阱宽度和深度固定，阱间距离 $b$ 可变且足够大以存在几个束缚态。
+\begin{enumerate}
+\item 对 $b=0$、$b\approx a$ 和 $b\to\infty$，画出基态波函数 $\psi_1$ 和第一激发态波函数 $\psi_2$ 的草图。
+\item 定性描述当 $b$ 从 $0$ 变到 $\infty$ 时，$\psi_1$ 和 $\psi_2$ 对应能级 $E_1$、$E_2$ 的变化趋势，并在同一图中画出 $E_1(b)$ 和 $E_2(b)$。
+\item 双阱模型可用来描述双原子分子中电子所受势场。若两个核可自由移动，根据 (b) 的结论，电子更倾向于使两核靠近还是远离？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 当 $b=0$ 时，双阱合并成一个较宽的单阱，基态无节点、第一激发态有一个节点。$b\approx a$ 时，两个阱开始分开，基态在两阱中同相分布，第一激发态在两阱中反相分布，中间势垒处振幅较小。$b\to\infty$ 时，两阱互不影响，$\psi_1$ 和 $\psi_2$ 分别趋于左右局域基态的对称、反对称组合。
+
+(2) 随 $b$ 增大，两个阱之间的隧穿耦合减弱，$E_1$ 与 $E_2$ 的能级劈裂逐渐减小，最后趋于同一个单阱基态能量。$E_1(b)$ 从较低值上升或趋近单阱值，$E_2(b)$ 从较高值下降或趋近同一值；两曲线不会交叉，而是逐渐并合。
+
+(3) 电子处于基态时，核靠近会形成更宽的有效势阱并降低基态能量。因此电子倾向于使两核靠近，这就是成键态能量降低的定性来源。
+\end{solution}
+
+\begin{question}
+处在势场中质量为 $m$ 的粒子满足
+\[
+V(x)=\begin{cases}\infty,&x<0,\\ -\dfrac{\hbar^2}{ma^2},&0<x<a,\\0,&x>a.
+\end{cases}
+\]
+\begin{enumerate}
+\item 存在多少个束缚态？
+\item 对最高能级的束缚态，粒子在阱外 $x>a$ 被发现的几率是多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+阱内设
+\[
+\psi=A\sin(kx),
+\qquad
+k^2+\kappa^2=\frac{2}{a^2},
+\]
+阱外 $x>a$ 为 $Be^{-\kappa(x-a)}$。在 $x=a$ 处连续并导数连续，得到
+\[
+k\cot(ka)=-\kappa.
+\]
+令 $z=ka$、$\rho=\kappa a$，则
+\[
+z^2+\rho^2=2,
+\qquad
+-z\cot z=\rho.
+\]
+由于右边为正，最低可能束缚态要求 $\pi/2<z<\sqrt2$。但
+\[
+\sqrt2<\frac\pi2,
+\]
+所以没有满足条件的实根。
+
+因此此势没有束缚态；所谓“最高能级的束缚态”不存在，阱外概率也无从定义。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明
+\[
+\Psi(x,t)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}
+\exp\!\left[-\frac{m\omega}{2\hbar}(x-x_0\cos\omega t)^2\right]
+\exp\!\left\{-\frac{i}{\hbar}\left[\frac{\hbar\omega t}{2}+m\omega x x_0\sin\omega t-\frac{m\omega x_0^2}{4}\sin(2\omega t)\right]\right\}
+\]
+满足谐振子的含时薛定谔方程，其中 $x_0$ 是具有长度量纲的任意实数。
+\item 求 $|\Psi(x,t)|^2$，并描述波包的运动。
+\item 计算 $\langle x\rangle$ 和 $\langle p\rangle$，并检验它们满足埃伦菲斯特定律。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 代入含时薛定谔方程即可验证。最有效的做法是令
+\[
+y=x-x_0\cos\omega t
+\]
+并分别求 $\partial\Psi/\partial t$ 与 $\partial^2\Psi/\partial x^2$。高斯包络给出谐振子基态的项，额外相位正好抵消由中心运动产生的线性 $x$ 项。
+
+(2) 概率密度为
+\[
+|\Psi(x,t)|^2=\left(\frac{m\omega}{\pi\hbar}\right)^{1/2}
+\exp\left[-\frac{m\omega}{\hbar}(x-x_0\cos\omega t)^2\right].
+\]
+这是宽度不变的高斯波包，其中心按经典谐振子规律往复运动。
+
+(3) 由概率密度直接得
+\[
+\langle x\rangle=x_0\cos\omega t.
+\]
+相位对 $x$ 的导数给出局域动量，故
+\[
+\langle p\rangle=-m\omega x_0\sin\omega t.
+\]
+于是
+\[
+\frac{\dd\langle x\rangle}{\dd t}=\frac{\langle p\rangle}{m},
+\qquad
+\frac{\dd\langle p\rangle}{\dd t}=-m\omega^2\langle x\rangle,
+\]
+满足埃伦菲斯特定理。
+\end{solution}
+
+\begin{question}
+考虑运动的 $\delta$ 函数势阱
+\[
+V(x,t)=-\alpha\delta(x-vt),
+\]
+其中常数 $v$ 是势阱运动速度。
+\begin{enumerate}
+\item 证明含时薛定谔方程有严格解
+\[
+\Psi(x,t)=\sqrt{\frac{m\alpha}{\hbar^2}}
+\exp\!\left[-\frac{m\alpha}{\hbar^2}|x-vt|+\frac{i}{\hbar}\left((E+\frac12mv^2)t-mvx\right)\right],
+\]
+其中 $E=-m\alpha^2/(2\hbar^2)$ 是静止 $\delta$ 势阱的束缚态能量。提示：用习题 2.23(b) 的结果，将此解代入验证。
+\item 求此状态下哈密顿量的期望值，并讨论所得结果。
+\end{enumerate}
+\end{question}
+\begin{solution}
+令 $\beta=m\alpha/\hbar^2$。静止 $\delta$ 势阱束缚态为
+\[
+\psi_0(x)=\sqrt\beta e^{-\beta|x|},
+\qquad
+E=-\frac{m\alpha^2}{2\hbar^2}.
+\]
+运动势阱的解是静止束缚态的伽利略变换。对向 $+x$ 方向速度为 $v$ 的势阱，可写作
+\[
+\Psi(x,t)=\sqrt\beta e^{-\beta|x-vt|}
+\exp\left[\frac{\ii}{\hbar}\left(mvx-\left(E+\frac12mv^2\right)t\right)\right],
+\]
+与题中公式只差等价的相位符号约定。利用
+\[
+\frac{\dd^2}{\dd x^2}e^{-\beta|x-vt|}
+=\beta^2e^{-\beta|x-vt|}-2\beta\delta(x-vt)e^{-\beta|x-vt|}
+\]
+即可直接代入验证含时薛定谔方程。
+
+平均动量为
+\[
+\langle p\rangle=mv,
+\]
+平均能量为静止束缚能加上整体平动动能：
+\[
+\langle H\rangle=E+\frac12mv^2.
+\]
+这说明束缚态内部能量不变，只是整个局域波包随势阱一起平移。
+\end{solution}
+
+\begin{question}
+自由下落。证明
+\[
+\Psi(x,t)=\Psi_0\left(x+\frac12gt^2,t\right)
+\exp\left[-\frac{i}{\hbar}mgt\left(x+\frac{g t^2}{6}\right)\right]
+\]
+满足粒子在引力势 $V(x)=mgx$ 中的含时薛定谔方程，其中 $\Psi_0(x,t)$ 为自由高斯波包（式 (2.111)）。求作为时间函数的 $\langle x\rangle$，并讨论结果。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (2.111)：自由高斯波包常用形式：若 $\Psi(x,0)=(2a/\pi)^{1/4}e^{-ax^2}$，则 $\Psi_0(x,t)=(2a/\pi)^{1/4}(1+2\ii\hbar at/m)^{-1/2}\exp[-ax^2/(1+2\ii\hbar at/m)]$。}
+
+\end{question}
+\begin{solution}
+将给定形式写成
+\[
+\Psi(x,t)=\Psi_0(X,t)e^{-\ii\Phi(x,t)/\hbar},
+\qquad
+X=x+\frac12gt^2,
+\qquad
+\Phi=mgt\left(x+\frac{gt^2}{6}\right).
+\]
+求导时注意 $\partial X/\partial t=gt$、$\partial X/\partial x=1$。把 $\partial_t\Psi$ 和 $\partial_x^2\Psi$ 代入含时薛定谔方程，所有含 $\Psi_{0X}$ 的项相消，剩下的方程正是自由粒子方程
+\[
+\ii\hbar\frac{\partial\Psi_0}{\partial t}
+=-\frac{\hbar^2}{2m}\frac{\partial^2\Psi_0}{\partial X^2}.
+\]
+因此该式确为 $V=mgx$ 中的解。
+
+概率密度为
+\[
+|\Psi(x,t)|^2=|\Psi_0(x+\tfrac12gt^2,t)|^2.
+\]
+若自由高斯包的中心在 $X=0$，则
+\[
+\langle x\rangle=-\frac12gt^2.
+\]
+这正是受恒力 $F=-mg$ 的经典自由落体结果。
+\end{solution}
+
+\begin{question}
+考虑势能
+\[
+V(x)=-\frac{\hbar^2a^2}{m}\sech^2(ax),
+\]
+其中 $a$ 是正实常数，$\sech$ 表示双曲正割。
+\begin{enumerate}
+\item 画出该势的图形。
+\item 验证该势存在基态 $\psi_0(x)=A\sech(ax)$，求基态能量，归一化 $\psi_0$，并作图。
+\item 证明对任意正能量，
+\[
+\psi_k(x)=A\frac{ik-a\tanh(ax)}{ik+a}e^{ikx},\qquad k=\sqrt{2mE}/\hbar,
+\]
+满足定态薛定谔方程。求 $x\to+\infty$ 的渐近形式，并确定反射系数 $R$ 与透射系数 $T$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 势能为偶函数，在原点取最小值，向两侧以 $\sech^2(ax)$ 形状上升到 $0$，是一口光滑有限深势阱，深度为 $\hbar^2a^2/m$。
+
+(2) 取 $\psi_0=A\sech(ax)$。利用
+\[
+\frac{\dd^2}{\dd x^2}\sech(ax)=a^2\sech(ax)-2a^2\sech^3(ax),
+\]
+代入定态方程得
+\[
+E_0=-\frac{\hbar^2a^2}{2m}.
+\]
+归一化由
+\[
+\int_{-\infty}^{\infty}\sech^2(ax)\dd x=\frac2a
+\]
+给出
+\[
+A=\sqrt{\frac a2}.
+\]
+
+(3) 把
+\[
+\psi_k=A\frac{\ii k-a\tanh(ax)}{\ii k+a}e^{\ii kx}
+\]
+代入定态方程可直接验证，对应 $E=\hbar^2k^2/(2m)$。当 $x\to-\infty$，$\tanh(ax)\to-1$，故
+\[
+\psi_k\sim Ae^{\ii kx},
+\]
+没有反射波；当 $x\to+\infty$，$\tanh(ax)\to1$，
+\[
+\psi_k\sim A\frac{\ii k-a}{\ii k+a}e^{\ii kx}.
+\]
+透射振幅的模为 $1$，所以
+\[
+R=0,
+\qquad T=1.
+\]
+这是一个反射为零的势阱。
+\end{solution}
+
+\begin{question}
+散射理论可推广到任意局域势。设在区域 I 和区域 III 中 $V(x)=0$，故
+\[
+\psi_I(x)=Ae^{ikx}+Be^{-ikx},\qquad
+\psi_{III}(x)=Fe^{ikx}+Ge^{-ikx}.
+\]
+在中间区域，通解写为 $\psi_{II}(x)=Cf(x)+Dg(x)$。由边界条件可把出射振幅 $B,F$ 用入射振幅 $A,G$ 表示，构成散射矩阵
+\[
+\begin{pmatrix}B\\F\end{pmatrix}=\begin{pmatrix}S_{11}&S_{12}\\S_{21}&S_{22}\end{pmatrix}
+\begin{pmatrix}A\\G\end{pmatrix}.
+\]
+\begin{enumerate}
+\item 构造由 $\delta$ 函数势阱散射的 $S$ 矩阵。
+\item 构造有限深方势阱的 $S$ 矩阵。提示：仔细利用势的对称性。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 对 $V(x)=-\alpha\delta(x)$，令 $\eta=m\alpha/\hbar^2$、$\gamma=\eta/k$。左右无穷远的波数相同。由连续性和导数跳跃条件可得从左入射的振幅
+\[
+t=\frac1{1-\ii\gamma},
+\qquad
+r=\frac{\ii\gamma}{1-\ii\gamma}.
+\]
+势关于原点对称，所以从右入射相同。因此
+\[
+S=\begin{pmatrix}r&t\\t&r\end{pmatrix}.
+\]
+
+(2) 对有限深方势阱，令外侧波数为 $k$，阱内波数为 $\ell$，阱宽 $2a$。由于势对称，仍有
+\[
+S=\begin{pmatrix}r&t\\t&r\end{pmatrix}.
+\]
+可取
+\[
+t=\frac{e^{-2\ii ka}}{\cos(2\ell a)-\ii\dfrac{k^2+\ell^2}{2k\ell}\sin(2\ell a)},
+\]
+\[
+r=\frac{\ii\dfrac{k^2-\ell^2}{2k\ell}\sin(2\ell a)e^{-2\ii ka}}
+{\cos(2\ell a)-\ii\dfrac{k^2+\ell^2}{2k\ell}\sin(2\ell a)}.
+\]
+由此立即得到前面有限深方势阱的 $T=|t|^2$。
+\end{solution}
+
+\begin{question}
+传递矩阵 $M$ 给出势右侧波的振幅 $F,G$ 与左侧波的振幅 $A,B$ 之间的关系：
+\[
+\begin{pmatrix}F\\G\end{pmatrix}=M\begin{pmatrix}A\\B\end{pmatrix}.
+\]
+\begin{enumerate}
+\item 利用 $S$ 矩阵中的元素表示 $M$ 矩阵的元素；再用 $M$ 矩阵表示反射和透射系数。
+\item 假设势由两个孤立部分组成，证明总传递矩阵为两个孤立部分势的传递矩阵的乘积 $M=M_2M_1$。
+\item 对点 $a$ 处的 $\delta$ 函数散射势 $V(x)=-\alpha\delta(x-a)$，构造传递矩阵。
+\item 利用 (b) 的方法求双 $\delta$ 函数散射势
+\[
+V(x)=-\alpha[\delta(x+a)+\delta(x-a)]
+\]
+的传递矩阵，并求此势的透射系数。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 由
+\[
+\begin{pmatrix}B\\F\end{pmatrix}
+=S\begin{pmatrix}A\\G\end{pmatrix}
+\]
+得
+\[
+G=\frac{B-S_{11}A}{S_{12}},
+\]
+从而
+\[
+\begin{pmatrix}F\\G\end{pmatrix}
+=\begin{pmatrix}
+S_{21}-\dfrac{S_{22}S_{11}}{S_{12}}&\dfrac{S_{22}}{S_{12}}\\[0.8em]
+-\dfrac{S_{11}}{S_{12}}&\dfrac1{S_{12}}
+\end{pmatrix}
+\begin{pmatrix}A\\B\end{pmatrix}.
+\]
+这就是 $M$。若右侧无入射波 $G=0$，则
+\[
+\frac BA=-\frac{M_{21}}{M_{22}},
+\qquad
+\frac FA=\frac{\det M}{M_{22}}.
+\]
+左右波数相同时
+\[
+R=\left|\frac{M_{21}}{M_{22}}\right|^2,
+\qquad
+T=\left|\frac{\det M}{M_{22}}\right|^2.
+\]
+常见实势中 $\det M=1$，故 $T=1/|M_{22}|^2$。
+
+(2) 若粒子先经过势 1 再经过势 2，则振幅先被 $M_1$ 作用，再被 $M_2$ 作用，故
+\[
+M=M_2M_1.
+\]
+
+(3) 对 $V(x)=-\alpha\delta(x-a)$，令 $\gamma=m\alpha/(\hbar^2k)$，传递矩阵为
+\[
+M_a=\begin{pmatrix}
+1+\ii\gamma&\ii\gamma e^{-2\ii ka}\\
+-\ii\gamma e^{2\ii ka}&1-\ii\gamma
+\end{pmatrix}.
+\]
+
+(4) 对两个位于 $\pm a$ 的 $\delta$ 势，把两个单点矩阵相乘，化简得
+\[
+T=\frac{1}{1+4\gamma^2[\cos(2ka)-\gamma\sin(2ka)]^2}.
+\]
+与习题 2.28 一致。
+\end{solution}
+
+\begin{question}
+利用“摇摆狗尾”方法，数值求谐振子的基态能级，保留五位有效数字。也就是说，数值求解无量纲谐振子方程，通过不断改变参数 $K$，使 $x$ 很大时波函数尾部趋于零。可用 Mathematica 的 \texttt{NDSolve} 与作图命令，从接近基态的两个 $K$ 值开始，观察尾部的快速翻转，并逐渐缩小区间。
+\end{question}
+\begin{solution}
+把谐振子方程写成无量纲形式
+\[
+-y''(\xi)+\xi^2y(\xi)=Ky(\xi),
+\qquad K=\frac{2E}{\hbar\omega}.
+\]
+基态为偶函数，可取初值 $y(0)=1$、$y'(0)=0$。数值积分到较大的 $\xi$，不断调整 $K$，会发现当 $K$ 穿过本征值时尾部从 $+\infty$ 型发散迅速翻转为 $-\infty$ 型发散。二分或割线法收敛到
+\[
+K_0=1.0000.
+\]
+因此
+\[
+E_0=\frac12\hbar\omega.
+\]
+这与解析基态能量一致。
+\end{solution}
+
+\begin{question}
+利用习题 2.55 中的“摇摆狗尾”方法求出谐振子的前三个激发态能级（保留五位有效数字）。对第一和第三激发态，需要设定奇宇称的初始条件。
+\end{question}
+\begin{solution}
+同样使用
+\[
+-y''+\xi^2y=Ky,
+\qquad K=\frac{2E}{\hbar\omega}.
+\]
+第一、第三激发态为奇函数，取 $y(0)=0$、$y'(0)=1$；第二激发态为偶函数，取 $y(0)=1$、$y'(0)=0$。用“摇摆狗尾”法分别寻找尾部不发散的 $K$，得到
+\[
+K_1=3.0000,
+\qquad
+K_2=5.0000,
+\qquad
+K_3=7.0000.
+\]
+故前三个激发态能量为
+\[
+E_1=\frac32\hbar\omega,
+\qquad
+E_2=\frac52\hbar\omega,
+\qquad
+E_3=\frac72\hbar\omega.
+\]
+\end{solution}
+
+\begin{question}
+利用“摇摆狗尾”方法求出无限深方势阱中的前四个能级（保留五位有效数字）。提示：参照习题 2.55，对微分方程作适当改变，本题要寻找的条件是波函数在边界处为零。
+\end{question}
+\begin{solution}
+对无限深方势阱取无量纲变量 $u=x/a$，方程为
+\[
+-y''(u)=Ky(u),
+\qquad y(0)=y(1)=0,
+\]
+其中 $K=2ma^2E/\hbar^2$。从 $y(0)=0$、$y'(0)=1$ 出发，调节 $K$ 使 $y(1)=0$。数值上前四个本征值为
+\[
+K_n=n^2\pi^2,
+\qquad n=1,2,3,4.
+\]
+因此
+\[
+E_n=\frac{n^2\pi^2\hbar^2}{2ma^2},
+\]
+前四个能级比例为
+\[
+1:4:9:16.
+\]
+保留五位有效数字，$E_n/E_1=1.0000,4.0000,9.0000,16.000$。
+\end{solution}
+
+\begin{question}
+在单价金属固体中，每个原子的一个电子在固体中自由运动。本题给出关于金属结合的一个粗略但有启发性的解释。
+\begin{enumerate}
+\item 把孤立金属原子看作其一个电子处在宽度为 $a$ 的无限深方势阱中的基态，估计 $N$ 个孤立原子的能量。
+\item 当这些原子聚集形成金属，可看作 $N$ 个电子位于宽度为 $Na$ 的无限深方势阱中运动。由于泡利不相容原理，每个允许能级只能有一个电子（忽略自旋），求系统最低能量。
+\item 两种情况的能量差就是金属内聚能。在 $N$ 很大的极限下，求每个原子的内聚能。
+\item 若金属中典型原子间距为几个埃（例如 $a=4\,\text{\AA}$），在此模型中每个原子的内聚能是多少？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 孤立原子中每个电子近似处于宽度 $a$ 的无限深方势阱基态，故
+\[
+E_{\rm sep}=N\frac{\pi^2\hbar^2}{2ma^2}.
+\]
+
+(2) 聚成金属后，$N$ 个电子在宽度 $Na$ 的阱中，占据 $n=1,2,\ldots,N$。于是
+\[
+E_{\rm metal}=\sum_{n=1}^N\frac{n^2\pi^2\hbar^2}{2mN^2a^2}
+=\frac{\pi^2\hbar^2}{2mN^2a^2}\frac{N(N+1)(2N+1)}6.
+\]
+
+(3) 当 $N\gg1$，
+\[
+E_{\rm metal}\simeq \frac{\pi^2\hbar^2}{6ma^2}N.
+\]
+故每个原子的内聚能估计为
+\[
+\frac{E_{\rm sep}-E_{\rm metal}}{N}
+\simeq \frac{\pi^2\hbar^2}{3ma^2}.
+\]
+
+(4) 若 $a=4\,\text{\AA}$，取 $m$ 为电子质量，得
+\[
+\frac{\pi^2\hbar^2}{3ma^2}\approx 1.57\,\mathrm{eV}.
+\]
+数量级与金属内聚能相当，但模型非常粗糙，且忽略了自旋、库仑相互作用和晶格势。
+\end{solution}
+
+\begin{question}
+“弹跳球”。设
+\[
+V(x)=\begin{cases}mgx,&x>0,\\ \infty,&x<0.
+\end{cases}
+\]
+\begin{enumerate}
+\item 求此势的束缚态。提示：把方程化成无量纲形式
+\[
+-y''(z)+zy(z)=\epsilon y(z).
+\]
+确定所需缩放常数。用数值法求基态能量和第十个能级，并给出相应的归一化因子；画出相应波函数，并检验正交性。
+\item 对这两个状态，求出不确定度 $\sigma_x$ 和 $\sigma_p$，并验证不确定原理。
+\item 球处在高度 $x$ 到 $x+dx$ 间的量子几率为 $|\psi(x)|^2dx$。经典类比是弹性球在该高度区间经历的时间分数。求经典几率分布，并与量子分布作叠加图，讨论结果。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 令
+\[
+s=\left(\frac{\hbar^2}{2m^2g}\right)^{1/3},
+\qquad
+z=\frac{x}{s},
+\qquad
+\epsilon=\frac{E}{mgs}.
+\]
+薛定谔方程化为
+\[
+-y''(z)+zy(z)=\epsilon y(z).
+\]
+令 $u=z-\epsilon$，可得 Airy 方程，平方可积解为
+\[
+\psi_n(x)=N_n\operatorname{Ai}\left(\frac{x}{s}-a_n\right),
+\]
+其中 $a_n$ 是 $\operatorname{Ai}(-a_n)=0$ 的正零点。能量为
+\[
+E_n=mgs\,a_n.
+\]
+基态 $a_1=2.338107$，第十个 $a_{10}=12.82878$。归一化常数可写为
+\[
+N_n=\frac1{\sqrt{s}\,|\operatorname{Ai}'(-a_n)|}.
+\]
+
+(2) 利用量子维里定理，对线性势有
+\[
+\langle V\rangle=\frac23E_n,
+\qquad
+\langle T\rangle=\frac13E_n.
+\]
+故
+\[
+\langle x\rangle=\frac{2E_n}{3mg}=\frac23sa_n,
+\qquad
+\langle p^2\rangle=2m\langle T\rangle=\frac{2mE_n}{3}.
+\]
+Airy 积分还给出
+\[
+\langle x^2\rangle=\frac{8}{15}s^2a_n^2,
+\qquad
+\sigma_x=\frac{2sa_n}{3\sqrt5},
+\qquad
+\sigma_p=\sqrt{\frac{2mE_n}{3}}.
+\]
+由此可直接验证 $\sigma_x\sigma_p>\hbar/2$。
+
+(3) 经典最高高度 $h=E/(mg)$。速度为 $v(x)=\sqrt{2g(h-x)}$，在高度 $x$ 到 $x+\dd x$ 的时间分数为
+\[
+P_{\rm cl}(x)\dd x=\frac{\dd x}{2\sqrt{h(h-x)}},
+\qquad 0<x<h.
+\]
+高量子数时，量子概率密度的快速振荡包络趋近此经典分布；低量子数时差别明显。
+\end{solution}
+
+\begin{question}
+$1/x^2$ 势。设
+\[
+V(x)=\begin{cases}-\alpha/x^2,&x>0,\\ \infty,&x<0,
+\end{cases}
+\]
+其中 $\alpha$ 为具有适当量纲的正常数。希望寻找束缚态。
+\begin{enumerate}
+\item 从量纲分析说明，不可能用 $m$、$\hbar$ 和 $\alpha$ 构造一个具有能量量纲的基态能量公式。
+\item 把方程写成无量纲形式，证明如果 $\psi(x)$ 是能量 $E$ 的解，那么对任意正数 $\lambda$，$\psi(\lambda x)$ 也是解，且能量按比例改变。讨论这为何意味着系统没有正常的离散基态。
+\item 证明合适的修正贝塞尔函数形式可以给出可归一化解；讨论其节点结构与能量较低态数目的关系。
+\item 若把无穷壁从 $x=0$ 移到 $x=\epsilon>0$，势变为正常。对给定参数用数值法求基态波函数，并说明基态能量应具有怎样的量纲形式。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) $\alpha$ 的量纲由 $\alpha/x^2$ 为能量确定：$[\alpha]=[E][L]^2$。用 $m,\hbar,\alpha$ 无法构造唯一的能量尺度；这是该势具有尺度不变性的反映。
+
+(2) 束缚态令 $E=-\hbar^2\kappa^2/(2m)$，方程为
+\[
+\psi''+\left(\frac{2m\alpha}{\hbar^2x^2}-\kappa^2\right)\psi=0.
+\]
+若 $\psi(x)$ 是能量 $E$ 的解，则 $\psi(\lambda x)$ 是能量 $\lambda^2E$ 的解。能量可按连续比例缩放，因此不存在正常的离散基态能量。
+
+(3) 令
+\[
+\nu=\sqrt{\frac14-\frac{2m\alpha}{\hbar^2}}.
+\]
+束缚态解可写为
+\[
+\psi(x)=\sqrt{x}\,K_\nu(\kappa x)
+\]
+或其线性组合。$K_\nu$ 在无穷远指数衰减，可给出可归一化尾部；但在原点的行为导致需要额外边界条件。强吸引时 $\nu$ 变为虚数，节点在原点附近无限积累，能量无下界，这就是“落向中心”。
+
+(4) 若把硬壁放到 $x=\epsilon$，尺度不变性被破坏，能量必须具有
+\[
+E_0=-\frac{\hbar^2}{2m\epsilon^2}\,C\left(\frac{2m\alpha}{\hbar^2}\right)
+\]
+的形式，其中无量纲常数 $C$ 由边界条件和数值求解决定。此时势变为正常，可以用射击法或矩阵离散法求基态。
+\end{solution}
+
+\begin{question}
+获得势阱允许能级的一种数值方法，是把变量 $x$ 离散化，将薛定谔方程变成矩阵方程。在等间距点 $x_j$ 上，把二阶导数近似为差分，从而得到
+\[
+H\mathbf{\psi}=E\mathbf{\psi},
+\]
+其中 $H$ 是含有主对角元和相邻对角元的三对角矩阵。
+将这种方法应用于无限深方势阱。把区间 $0<x<a$ 分成 $N+1$ 个相等部分，边界条件为 $\psi_0=\psi_{N+1}=0$。
+\begin{enumerate}
+\item 对 $N=1,2,3$ 构造 $H$ 的 $N\times N$ 矩阵。
+\item 对这三种情况手算 $H$ 的本征值，并与精确能级比较。
+\item 对 $N=10$ 和 $N=100$，用计算机数值求最低五个能级本征值，并与精确解比较。
+\item 画出 $N=1,2,3$ 的本征矢；用计算机画出 $N=10$ 和 $N=100$ 时的前三个本征矢。
+\end{enumerate}
+\end{question}
+\begin{solution}
+令
+\[
+\Delta=\frac{a}{N+1},
+\qquad
+C=\frac{\hbar^2}{2m\Delta^2}.
+\]
+差分哈密顿量为
+\[
+H=C\begin{pmatrix}
+2&-1&0&\cdots\\
+-1&2&-1&\cdots\\
+0&-1&2&\cdots\\
+\vdots&\vdots&\vdots&\ddots
+\end{pmatrix}_{N\times N}.
+\]
+
+(1) 
+\[
+N=1:\quad H=C(2).
+\]
+\[
+N=2:\quad H=C\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
+\]
+\[
+N=3:\quad H=C\begin{pmatrix}2&-1&0\\-1&2&-1\\0&-1&2\end{pmatrix}.
+\]
+
+(2) 本征值分别为
+\[
+N=1:\ 2C;
+\qquad
+N=2:\ C,3C;
+\qquad
+N=3:\ (2-\sqrt2)C,2C,(2+\sqrt2)C.
+\]
+它们逐渐逼近精确值 $E_n=n^2\pi^2\hbar^2/(2ma^2)$。
+
+(3) 一般差分本征值为
+\[
+E_j^{(N)}=\frac{\hbar^2}{2m\Delta^2}
+\left[2-2\cos\frac{j\pi}{N+1}\right]
+=\frac{\hbar^2}{2m\Delta^2}4\sin^2\frac{j\pi}{2(N+1)}.
+\]
+以精确基态 $E_1$ 为单位，$N=10$ 时前五个约为
+\[
+0.9932,
+\quad 3.8924,
+\quad 8.4627,
+\quad 14.3339,
+\quad 21.0302.
+\]
+$N=100$ 时前五个约为
+\[
+0.9999,
+\quad 3.9987,
+\quad 8.9935,
+\quad 15.9794,
+\quad 24.9496.
+\]
+
+(4) 本征矢分量为
+\[
+\psi_j^{(n)}\propto \sin\frac{nj\pi}{N+1},
+\]
+即连续正弦本征函数在网格点上的取样。
+\end{solution}
+
+\begin{question}
+假设无限深方势阱的底部不是平坦的 $V(x)=0$，而是
+\[
+V(x)=V_0\sin\left(\frac{\pi x}{a}\right),\qquad 0<x<a .
+\]
+使用习题 2.61 中的数值方法求出前三个允许能量，并画出相应波函数（取 $N=100$）。
+\end{question}
+\begin{solution}
+取与习题 2.61 相同的网格，
+\[
+x_j=j\Delta,
+\qquad \Delta=\frac{a}{N+1},
+\qquad j=1,\ldots,N.
+\]
+矩阵元变为
+\[
+H_{jj}=\frac{\hbar^2}{m\Delta^2}+V_0\sin\frac{\pi x_j}{a},
+\qquad
+H_{j,j\pm1}=-\frac{\hbar^2}{2m\Delta^2}.
+\]
+其余元素为零。取 $N=100$ 后，对这个三对角矩阵做数值对角化，最低三个本征值就是前三个允许能量；对应本征矢给出波函数在网格点上的值。
+
+若写成无量纲形式，以
+\[
+E_1^{(0)}=\frac{\pi^2\hbar^2}{2ma^2},
+\qquad v=\frac{V_0}{E_1^{(0)}}
+\]
+为单位，则只需对角化
+\[
+\frac{H}{E_1^{(0)}}=\frac{(N+1)^2}{\pi^2}
+\begin{pmatrix}
+2&-1&0&\cdots\\
+-1&2&-1&\cdots\\
+0&-1&2&\cdots\\
+\vdots&\vdots&\vdots&\ddots
+\end{pmatrix}
++v\,\operatorname{diag}\left(\sin\frac{\pi j}{N+1}\right).
+\]
+由于题目未指定 $V_0$ 的数值，最终的三个数值能量应作为 $v$ 的函数由该矩阵计算。
+\end{solution}
+
+\begin{question}
+玻尔兹曼分布
+\[
+P(n)=\frac{1}{Z}e^{-\beta E_n},\qquad Z=\sum_n e^{-\beta E_n},
+\]
+给出系统在温度 $T$ 时处在能量为 $E_n$ 的状态 $n$ 的几率，其中 $\beta=1/(k_BT)$。
+\begin{enumerate}
+\item 证明系统能量的热平均可写为
+\[
+\bar E=\sum_n E_nP(n)=-\frac{\partial}{\partial\beta}\ln Z .
+\]
+\item 对简单量子谐振子，$E_n=(n+1/2)\hbar\omega$。求配分函数 $Z$。
+\item 利用 (a) 和 (b) 的结果，求量子谐振子的平均能量；并与经典谐振子的 $\bar E=k_BT$ 比较。
+\item 由 $N$ 个原子组成的晶体可看成 $3N$ 个振子的集合。证明在此模型下每个原子的热容为
+\[
+C=3k_B\left(\frac{\Theta_E}{T}\right)^2\frac{e^{\Theta_E/T}}{(e^{\Theta_E/T}-1)^2},
+\]
+其中 $\Theta_E=\hbar\omega/k_B$ 为爱因斯坦温度。经典模型给出 $C=3k_B$。
+\item 画出 $C/k_B$ 随 $T/\Theta_E$ 的变化曲线，并与金刚石比热数据和经典预言比较。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 
+\[
+\bar E=\sum_nE_n\frac{e^{-\beta E_n}}{Z}
+=\frac1Z\sum_nE_ne^{-\beta E_n}.
+\]
+而
+\[
+\frac{\partial Z}{\partial\beta}=\sum_n(-E_n)e^{-\beta E_n},
+\]
+故
+\[
+\bar E=-\frac1Z\frac{\partial Z}{\partial\beta}
+=-\frac{\partial}{\partial\beta}\ln Z.
+\]
+
+(2) 对谐振子，
+\[
+Z=\sum_{n=0}^{\infty}e^{-\beta(n+1/2)\hbar\omega}
+=\frac{e^{-\beta\hbar\omega/2}}{1-e^{-\beta\hbar\omega}}
+=\frac1{2\sinh(\beta\hbar\omega/2)}.
+\]
+
+(3) 
+\[
+\bar E=-\frac{\partial}{\partial\beta}\ln Z
+=\frac{\hbar\omega}{2}\coth\frac{\beta\hbar\omega}{2}
+=\frac{\hbar\omega}{2}+\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}.
+\]
+高温 $k_BT\gg\hbar\omega$ 时，$\bar E\to k_BT$，回到经典结果。
+
+(4) 一个振子的热容为
+\[
+C_1=\frac{\partial\bar E}{\partial T}
+=k_B\left(\frac{\Theta_E}{T}\right)^2
+\frac{e^{\Theta_E/T}}{(e^{\Theta_E/T}-1)^2}.
+\]
+每个原子有三个振动自由度，所以
+\[
+C=3k_B\left(\frac{\Theta_E}{T}\right)^2
+\frac{e^{\Theta_E/T}}{(e^{\Theta_E/T}-1)^2}.
+\]
+
+(5) 该函数在 $T\gg\Theta_E$ 时趋于 $3k_B$，在 $T\ll\Theta_E$ 时指数趋于零。它能解释低温热容下降，但真实金刚石低温行为更接近德拜 $T^3$ 定律。
+\end{solution}
+
+\begin{question}
+勒让德微分方程为
+\[
+(1-x^2)\frac{d^2f}{dx^2}-2x\frac{df}{dx}+\ell(\ell+1)f=0,
+\]
+其中 $\ell$ 是非负实数。
+\begin{enumerate}
+\item 假定存在幂级数解
+\[
+f(x)=\sum_{n=0}^{\infty}a_nx^n,
+\]
+给出系数 $a_n$ 的递推关系。
+\item 论证除非级数被截断（这只有当 $\ell$ 是整数时才会发生），方程的解在 $x=1$ 时会发散。
+\item 当 $\ell$ 是整数时，两个线性独立解中的一个级数序列会被截断；这些解称为勒让德多项式 $P_\ell(x)$。根据递推关系求出 $P_0(x)$、$P_1(x)$、$P_2(x)$ 和 $P_3(x)$，用 $a_0$ 或 $a_1$ 表示即可。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(1) 设
+\[
+f(x)=\sum_{n=0}^{\infty}a_nx^n.
+\]
+代入
+\[
+(1-x^2)f''-2xf'+\ell(\ell+1)f=0
+\]
+并比较 $x^n$ 系数，得
+\[
+(n+2)(n+1)a_{n+2}+[\ell(\ell+1)-n(n+1)]a_n=0.
+\]
+因此
+\[
+a_{n+2}=\frac{n(n+1)-\ell(\ell+1)}{(n+1)(n+2)}a_n.
+\]
+偶次系数和奇次系数彼此独立。
+
+(2) 当 $n$ 很大时，
+\[
+\frac{a_{n+2}}{a_n}\sim1,
+\]
+级数在 $x=1$ 附近行为类似 $1+x^2+x^4+\cdots$ 或 $x+x^3+\cdots$，通常发散。只有当某一步分子为零，即
+\[
+\ell(\ell+1)=n(n+1),
+\]
+也就是 $\ell$ 为非负整数时，相应的偶或奇级数截断，得到有限多项式。
+
+(3) 取合适归一化，
+\[
+P_0(x)=1,
+\qquad
+P_1(x)=x,
+\]
+\[
+P_2(x)=\frac12(3x^2-1),
+\qquad
+P_3(x)=\frac12(5x^3-3x).
+\]
+若不规定 $P_\ell(1)=1$，则它们只确定到一个整体常数因子。
+\end{solution}

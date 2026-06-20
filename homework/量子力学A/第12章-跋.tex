@@ -1,0 +1,260 @@
+\heading{第12章-跋}
+\begin{question}
+纠缠态（Entangled states）。纠缠态的一个经典例子是自旋单态（式 (12.1)）：两个粒子体系的状态不能写成两个单粒子状态波函数的乘积。考虑两能级体系 $|\phi_a\rangle$、$|\phi_b\rangle$，且 $\langle\phi_i|\phi_j\rangle=\delta_{ij}$。证明：对于任意单粒子状态 $|\psi_r\rangle$ 和 $|\psi_s\rangle$，两粒子体系状态
+\[
+\alpha|\phi_a(1)\rangle|\phi_b(2)\rangle+\beta|\phi_b(1)\rangle|\phi_a(2)\rangle\qquad(\alpha\ne0,\ \beta\ne0)
+\]
+都不能表示为乘积形式 $|\psi_r(1)\rangle|\psi_s(2)\rangle$。提示：把 $|\psi_r\rangle$ 和 $|\psi_s\rangle$ 分别写成 $|\phi_a\rangle$ 和 $|\phi_b\rangle$ 的线性组合。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (12.1)：两个自旋 $1/2$ 的单态：$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$，不能分解为两个单粒子态的乘积。}
+
+\end{question}
+\begin{solution}
+设
+\[
+|\psi_r\rangle=c_a|\phi_a\rangle+c_b|\phi_b\rangle,
+\qquad
+|\psi_s\rangle=d_a|\phi_a\rangle+d_b|\phi_b\rangle.
+\]
+若两粒子态可分离，则
+\[
+|\psi_r(1)\rangle|\psi_s(2)\rangle
+=c_ad_a|aa\rangle+c_ad_b|ab\rangle+c_bd_a|ba\rangle+c_bd_b|bb\rangle.
+\]
+题给态只有 $|ab\rangle$ 和 $|ba\rangle$ 项，且二者系数均非零，所以必须
+\[
+c_ad_a=0,
+\qquad c_bd_b=0,
+\qquad c_ad_b\ne0,
+\qquad c_bd_a\ne0.
+\]
+后两式要求 $c_a,d_b,c_b,d_a$ 全部非零，却与前两式矛盾。因此该态不能写成单粒子态的乘积，是纠缠态。
+\end{solution}
+
+\begin{question}
+爱因斯坦盒子（Einstein's Boxes）。想象一个粒子被限制在盒子里（可看作一维无限方势阱），处于基态；当引入一个不可穿透隔板时，它将盒子分成 $B_1$ 和 $B_2$ 两半。随后将两部分移开相距很远，并对 $B_1$ 进行测量查看粒子是否在其中。若答案为肯定，立刻知道粒子不在远处的 $B_2$ 中。
+\begin{enumerate}
+\item 爱因斯坦会怎么说明这一点？
+\item 哥本哈根学派如何解释？在对 $B_1$ 测量之后，$B_2$ 中的波函数是什么？
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 爱因斯坦会说：粒子在测量前已经客观地位于某一个半盒中。对 $B_1$ 的测量只是揭示这个既有事实；远处 $B_2$ 的物理状态没有被瞬时改变。
+
+(b) 哥本哈根解释中，隔板插入后态是两个空间波包的叠加
+\[
+|\Psi\rangle={1\over\sqrt2}(|B_1\rangle+|B_2\rangle)
+\]
+（忽略相位）。测量 $B_1$ 后，若结果为有粒子，态坍缩为 $|B_1\rangle$；若结果为无粒子，态坍缩为 $|B_2\rangle$。因此在肯定结果之后，$B_2$ 中的波函数为零；在否定结果之后，$B_2$ 中的波函数成为归一化的盒中波函数。
+\end{solution}
+
+\begin{question}
+（局域）确定性（“隐变量”）理论的一个例子是经典力学。设用宏观物体（如棒球）代替电子和质子进行贝尔实验，并令隐变量 $\lambda=(\theta,\phi)$ 表示角动量方向。探测器只记录沿 $\mathbf a$ 和 $\mathbf b$ 方向的分量符号：
+\[
+A=\operatorname{sign}(\mathbf a\cdot\mathbf S_a),\qquad B=\operatorname{sign}(\mathbf b\cdot\mathbf S_b).
+\]
+\begin{enumerate}
+\item 取图 12.5 中的坐标轴，使 $\mathbf a$ 与 $\mathbf b$ 位于 $x$-$y$ 平面内，$\mathbf a$ 沿 $x$ 轴。证明
+\[
+A(\mathbf a,\lambda)B(\mathbf b,\lambda)=-\operatorname{sign}[\cos\phi\cos(\phi-\eta)],
+\]
+其中 $\eta$ 为 $\mathbf a$ 和 $\mathbf b$ 之间的夹角。
+\item 假设棒球发射方向的可能性均匀，计算 $P(\mathbf a,\mathbf b)$。
+\item 在 $\eta=-\pi$ 到 $+\pi$ 的范围内作图 $P(\mathbf a,\mathbf b)$，并在同一图上画出量子公式；取 $\eta$ 的什么值时，隐变量理论与量子力学结果一致？
+\item 验证你的结果满足式 (12.12) 所表示的贝尔不等式。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (12.12)：Bell 型不等式的相关函数形式：$|P(\mathbf a,\mathbf b)-P(\mathbf a,\mathbf c)|\le 1+P(\mathbf b,\mathbf c)$。}
+
+\end{question}
+\begin{solution}
+(a) 取 $\mathbf a$ 沿 $x$ 轴，$\mathbf b$ 与其夹角为 $\eta$。若两粒子角动量反向，则
+\[
+A=\operatorname{sign}(\cos\phi),
+\qquad
+B=-\operatorname{sign}(\cos(
+\phi-
+\eta)),
+\]
+所以
+\[
+AB=-\operatorname{sign}[\cos\phi\cos(\phi-
+\eta)].
+\]
+(b) $\phi$ 均匀分布。两个余弦符号相同的总角长度为 $2(\pi-|\eta|)$，符号相反的长度为 $2|\eta|$（$0\le|
+\eta|\le\pi$）。故
+\[
+P(\mathbf a,\mathbf b)=\langle AB\rangle
+=-{\pi-2|
+\eta|\over\pi}=-1+{2|
+\eta|\over\pi}.
+\]
+(c) 量子单态结果为
+\[
+P_Q=-\cos\eta.
+\]
+二者在 $\eta=0,\pm\pi/2,\pm\pi$ 处一致。
+(d) 由于该模型有确定的局域函数 $A(\mathbf a,
+\lambda),B(\mathbf b,
+\lambda)=\pm1$，对每个 $\lambda$ 都满足 Bell 代数不等式，平均后自然满足式 (12.12)。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明式 (12.17)--式 (12.20)。
+\item 证明密度算符随时间演化由下式确定：
+\[
+i\hbar\frac{\dd\hat\rho}{\dd t}=[\hat H,\hat\rho].
+\]
+这是由 $\hat\rho$ 表示的薛定谔方程。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (12.17--12.20)：密度算符：$\rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|$，$\rho^\dagger=\rho$，$\operatorname{Tr}\rho=1$，$\langle Q\rangle=\operatorname{Tr}(\rho Q)$，纯态为 $\rho^2=\rho$。}
+
+\end{question}
+\begin{solution}
+(a) 若
+\[
+\rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|,
+\qquad \sum_i p_i=1,
+\]
+则 $\rho^\dagger=\rho$、$\operatorname{Tr}\rho=1$，任意可观测量期望为
+\[
+\langle Q\rangle=\operatorname{Tr}(\rho Q).
+\]
+纯态是特例 $\rho=|\psi\rangle\langle\psi|$，并且在基变换下矩阵元按 $\rho' = U\rho U^\dagger$ 变换。这些就是式 (12.17)--(12.20) 的内容。
+
+(b) 对纯态投影算符，薛定谔方程给出
+\[
+\dot\rho=|\dot\psi\rangle\langle\psi|+|\psi\rangle\langle\dot\psi|
+=-{\ii\over\hbar}H\rho+{\ii\over\hbar}\rho H.
+\]
+因此
+\[
+\boxed{\ii\hbar{\dd\rho\over\dd t}=[H,\rho].}
+\]
+混合态是纯态投影的概率和，同样满足该方程。
+\end{solution}
+
+\begin{question}
+对沿 $y$ 方向自旋向下的电子重复例题 12.1 的计算。
+\end{question}
+\begin{solution}
+取 $S_z$ 基。沿 $y$ 方向自旋向下的旋量可写成
+\[
+\chi_{-y}={1\over\sqrt2}\begin{pmatrix}1\\-\ii\end{pmatrix}.
+\]
+密度矩阵
+\[
+\rho=\chi_{-y}\chi_{-y}^\dagger
+={1\over2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}.
+\]
+因此
+\[
+\langle S_x\rangle=0,
+\qquad
+\langle S_y\rangle=-{\hbar\over2},
+\qquad
+\langle S_z\rangle=0.
+\]
+沿任意方向 $\hat n$ 测得 $+\hbar/2$ 的概率为
+\[
+P_+(\hat n)={1\over2}(1-\hat y\cdot\hat n).
+\]
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明式 (12.31)--式 (12.34)。
+\item 证明 $\operatorname{Tr}(\rho^2)\le 1$，且仅当 $\rho$ 表示纯态时才等于 1。
+\item 证明：当且仅当 $\rho$ 表示纯态时，$\rho^2=\rho$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文，本题中引用的公式为：式 (12.31--12.34)：密度矩阵的判据：厄米、迹为 $1$、本征值非负；任意观测量平均值仍为 $\langle Q\rangle=\operatorname{Tr}(\rho Q)$。}
+
+\end{question}
+\begin{solution}
+(a) 密度矩阵厄米、迹为 1，且本征值非负；式 (12.31)--(12.34) 分别表达这些性质及 $\langle Q\rangle=\operatorname{Tr}(\rho Q)$。
+
+(b) 在使 $\rho$ 对角化的基中，设本征值为 $p_i\ge0$、$\sum p_i=1$。则
+\[
+\operatorname{Tr}(\rho^2)=\sum_i p_i^2\le\left(\sum_i p_i\right)^2=1.
+\]
+等号成立当且仅当一个 $p_i=1$ 而其余为零，即纯态。
+
+(c) 若纯态 $\rho=|\psi\rangle\langle\psi|$，则 $\rho^2=\rho$。反之若 $\rho^2=\rho$，其本征值满足 $p_i^2=p_i$，故 $p_i=0$ 或 $1$；又迹为 1，只能有一个本征值为 1，所以是纯态。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 构造电子状态处于沿 $x$ 轴自旋向上（几率为 $1/3$）或沿 $y$ 轴自旋向下（几率为 $2/3$）的密度矩阵。
+\item 对 (a) 中的电子，计算 $\langle S_y\rangle$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 沿 $x$ 向上态密度矩阵为
+\[
+\rho_{+x}={1\over2}(I+\sigma_x),
+\]
+沿 $y$ 向下为
+\[
+\rho_{-y}={1\over2}(I-\sigma_y).
+\]
+混合态
+\[
+\rho={1\over3}\rho_{+x}+{2\over3}\rho_{-y}
+={1\over2}\left(I+{1\over3}\sigma_x-{2\over3}\sigma_y\right).
+\]
+矩阵形式为
+\[
+\boxed{\rho={1\over2}\begin{pmatrix}1&{1\over3}+{2\ii\over3}\\ {1\over3}-{2\ii\over3}&1\end{pmatrix}.}
+\]
+(b) 因 Bloch 矢量的 $y$ 分量为 $-2/3$，
+\[
+\boxed{\langle S_y\rangle={\hbar\over2}\left(-{2\over3}\right)=-{\hbar\over3}.}
+\]
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明自旋 $1/2$ 粒子最常见的密度矩阵可以用 3 个实数 $(a_1,a_2,a_3)$ 表示为
+\[
+\rho=\frac12\begin{pmatrix}1+a_3&a_1-ia_2\\a_1+ia_2&1-a_3\end{pmatrix}=\frac12(1+\mathbf a\cdot\boldsymbol\sigma),
+\]
+其中 $\sigma_1,\sigma_2,\sigma_3$ 是泡利矩阵。提示：它必须是厄米的，且迹必须为 1。
+\item 证明当且仅当 $|\mathbf a|=1$ 时 $\rho$ 表示纯态；当 $|\mathbf a|<1$ 时表示混合态。
+\item 若布洛赫矢量的端点分别位于北极 $(0,0,1)$、球心 $(0,0,0)$ 和南极 $(0,0,-1)$，对 $S_z$ 测量得到 $+\hbar/2$ 的几率是多少？
+\item 若纯态的布洛赫矢量位于赤道上且方位角为 $\phi$，求系统的旋量 $\chi$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 任意 $2\times2$ 厄米矩阵可写为 $c_0I+\mathbf c\cdot\boldsymbol\sigma$。迹为 1 给出 $c_0=1/2$，于是
+\[
+\rho={1\over2}(I+
+\mathbf a\cdot\boldsymbol\sigma)
+={1\over2}\begin{pmatrix}1+a_3&a_1-\ii a_2\\a_1+\ii a_2&1-a_3\end{pmatrix}.
+\]
+(b) 本征值为
+\[
+\lambda_\pm={1\over2}(1\pm|
+\mathbf a|).
+\]
+非负性要求 $|
+\mathbf a|\le1$。纯态要求一个本征值为 1、另一个为 0，即 $|
+\mathbf a|=1$；$|
+\mathbf a|<1$ 为混合态。
+(c) 测得 $S_z=+\hbar/2$ 的概率为
+\[
+P_+={1+a_3\over2}.
+\]
+北极、球心、南极分别给出 $1,1/2,0$。
+(d) 赤道纯态 $\mathbf a=(\cos\phi,\sin\phi,0)$。可取
+\[
+\boxed{\chi={1\over\sqrt2}\begin{pmatrix}1\\ e^{\ii\phi}\end{pmatrix}.}
+\]
+整体相位任意。
+\end{solution}
