@@ -1,0 +1,545 @@
+\heading{理论力学-26春-期末}
+\noteinfo{题目来源于考后回忆，答案由AI生成。任课教师：邵立晶。}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\begin{question}[含辅助变量的拉格朗日量]
+考察包含辅助变量 $\chi$ 的拉格朗日量
+\[
+L(q,\dot q,\chi)=\frac12 m\dot q^{2}-\frac12 k q^{2}+a\chi\dot q+b\chi^{2}.
+\]
+
+\begin{enumerate}[label=(\roman*)]
+  \item 写出辅助变量 $\chi$ 满足的 Euler--Lagrange 方程；
+  \item 求解 $\chi$，并代入得到等效拉格朗日量 $L_{\text{eff}}(q,\dot q)$；
+  \item 分析当参数满足何条件时，会出现``负质量效应''，导致运动不稳定（即``快子不稳定''）。
+\end{enumerate}
+
+\begin{solution}
+
+\textbf{(i)} $\chi$ 的 Euler--Lagrange 方程为
+\[
+\frac{\partial L}{\partial\chi}-\frac{\dd}{\dd t}\frac{\partial L}{\partial\dot\chi}=0.
+\]
+计算偏导数：
+\[
+\frac{\partial L}{\partial\chi}=a\dot q+2b\chi,\qquad
+\frac{\partial L}{\partial\dot\chi}=0,
+\]
+故 $\chi$ 满足代数方程（非动力学变量）
+\[
+a\dot q+2b\chi=0.
+\]
+
+\textbf{(ii)} 由上式立得
+\[
+\chi=-\frac{a}{2b}\,\dot q.
+\]
+代入原拉格朗日量：
+\begin{align*}
+L_{\text{eff}}
+&=\frac12 m\dot q^{2}-\frac12 k q^{2}
++a\Bigl(-\frac{a}{2b}\dot q\Bigr)\dot q
++b\Bigl(-\frac{a}{2b}\dot q\Bigr)^{\!2} \\[2pt]
+&=\frac12 m\dot q^{2}-\frac12 k q^{2}
+-\frac{a^{2}}{2b}\dot q^{2}+\frac{a^{2}}{4b}\dot q^{2} \\[2pt]
+&=\frac12\Bigl(m-\frac{a^{2}}{2b}\Bigr)\dot q^{2}
+-\frac12 k q^{2}.
+\end{align*}
+
+\textbf{(iii)} 等效动能项系数为 $m_{\text{eff}}=m-\dfrac{a^{2}}{2b}$。
+当 $m_{\text{eff}}<0$ 时出现``负质量效应''，即
+
+\ansmath{
+\frac{a^{2}}{2b}>m\quad\Longrightarrow\quad a^{2}>2bm.
+}
+
+此时等效动能项变号，体系能量无下界，导致``快子不稳定''。
+物理上这对应着辅助场 $\chi$ 与 $q$ 的耦合过强，使得有效惯量为负。
+\end{solution}
+\end{question}
+
+
+\begin{question}[Hamilton 矢量场与生成函数]
+写出定义在相空间上的函数 $G(q,p)=pq$ 对应的 Hamilton 矢量场，
+写出其对应的无穷小正则变换，以及其对应的第二类生成函数。
+
+\begin{solution}
+
+\textbf{Hamilton 矢量场：}
+\[
+X_{G}
+=\frac{\partial G}{\partial p}\frac{\partial}{\partial q}
+-\frac{\partial G}{\partial q}\frac{\partial}{\partial p}
+=q\,\frac{\partial}{\partial q}-p\,\frac{\partial}{\partial p}.
+\]
+
+\textbf{无穷小正则变换：}
+设无穷小参数为 $\varepsilon$，则
+\[
+\delta q=\varepsilon\{q,G\}=\varepsilon\frac{\partial G}{\partial p}
+=\varepsilon\,q,\qquad
+\delta p=\varepsilon\{p,G\}=-\varepsilon\frac{\partial G}{\partial q}
+=-\varepsilon\,p.
+\]
+即 $(q,p)\to(q+\varepsilon q,\;p-\varepsilon p)$，这是相空间的标度变换（伸缩变换）。
+有限形式为
+\[
+Q=\ee^{\varepsilon}q,\qquad P=\ee^{-\varepsilon}p.
+\]
+
+\textbf{第二类生成函数：}
+对无穷小正则变换，第二类生成函数的形式为
+\[
+F_{2}(q,P)=qP+\varepsilon\,G(q,P).
+\]
+代入 $G(q,P)=qP$ 得
+\[
+F_{2}(q,P)=qP+\varepsilon\,qP=(1+\varepsilon)qP.
+\]
+相应地，有限形式的生成函数为
+
+\ansmath{
+F_{2}(q,P)=\ee^{\varepsilon}qP,
+}
+其中 $\varepsilon$ 为变换参数。验证：
+\[
+p=\frac{\partial F_{2}}{\partial q}=\ee^{\varepsilon}P,\qquad
+Q=\frac{\partial F_{2}}{\partial P}=\ee^{\varepsilon}q.
+\]
+
+\end{solution}
+\end{question}
+
+
+\begin{question}[阻尼振子]
+考察阻尼振子满足的拉格朗日量
+\[
+L(q,\dot q,t)=\ee^{2\lambda t}
+\Bigl(\frac12 m\dot q^{2}-\frac12 m\omega^{2}q^{2}\Bigr).
+\]
+
+\begin{enumerate}[label=(\roman*)]
+  \item 写出体系的哈密顿量 $H(q,p,t)$；
+  \item 计算在第二类生成函数 $F_{2}(q,P,t)=\ee^{\lambda t}qP$ 对应的正则变换下得到的哈密顿量 $K(Q,P,t)$；
+  \item 取 $\lambda=\omega$，使用 Hamilton--Jacobi 方程求解 $q(t)$ 和 $p(t)$。
+\end{enumerate}
+
+\begin{solution}
+
+\textbf{(i)} 正则动量：
+\[
+p=\frac{\partial L}{\partial\dot q}=m\ee^{2\lambda t}\dot q
+\quad\Longrightarrow\quad
+\dot q=\frac{p}{m}\,\ee^{-2\lambda t}.
+\]
+
+哈密顿量：
+\begin{align*}
+H(q,p,t)&=p\dot q-L
+=p\cdot\frac{p}{m}\ee^{-2\lambda t}
+-\ee^{2\lambda t}\Bigl(\frac12 m\frac{p^{2}}{m^{2}}\ee^{-4\lambda t}
+-\frac12 m\omega^{2}q^{2}\Bigr) \\[2pt]
+&=\frac{p^{2}}{m}\ee^{-2\lambda t}
+-\frac{p^{2}}{2m}\ee^{-2\lambda t}
++\frac12 m\omega^{2}\ee^{2\lambda t}q^{2} \\[2pt]
+&=\frac{p^{2}}{2m}\,\ee^{-2\lambda t}
++\frac12 m\omega^{2}\ee^{2\lambda t}q^{2}.
+\end{align*}
+
+\textbf{(ii)} 由 $F_{2}=\ee^{\lambda t}qP$：
+\[
+p=\frac{\partial F_{2}}{\partial q}=\ee^{\lambda t}P,\qquad
+Q=\frac{\partial F_{2}}{\partial P}=\ee^{\lambda t}q.
+\]
+因此
+\[
+q=\ee^{-\lambda t}Q,\qquad p=\ee^{\lambda t}P.
+\]
+
+新哈密顿量：
+\[
+K(Q,P,t)=H(q,p,t)+\frac{\partial F_{2}}{\partial t}.
+\]
+计算 $\partial F_{2}/\partial t=\lambda\ee^{\lambda t}qP=\lambda QP$。
+
+将 $q,p$ 用 $Q,P$ 表达代入 $H$：
+\begin{align*}
+H&=\frac{(\ee^{\lambda t}P)^{2}}{2m}\,\ee^{-2\lambda t}
++\frac12 m\omega^{2}\ee^{2\lambda t}(\ee^{-\lambda t}Q)^{2} \\[2pt]
+&=\frac{P^{2}}{2m}+\frac12 m\omega^{2}Q^{2}.
+\end{align*}
+故
+
+\ansmath{
+K(Q,P,t)=\frac{P^{2}}{2m}+\frac12 m\omega^{2}Q^{2}+\lambda QP.
+}
+
+\textbf{(iii)} 取 $\lambda=\omega$，则新哈密顿量为
+\[
+K(Q,P)=\frac{P^{2}}{2m}+\frac12 m\omega^{2}Q^{2}+\omega QP.
+\]
+
+$K$ 不含时（时间显无关），故可令主函数 $S(Q,\alpha,t)=W(Q,\alpha)-\alpha t$，
+其中 $\alpha$ 为新的守恒动量。Hamilton--Jacobi 方程为
+\[
+\frac{\partial S}{\partial t}+K\!\Bigl(Q,\frac{\partial S}{\partial Q}\Bigr)=0
+\quad\Longrightarrow\quad
+\frac{1}{2m}\Bigl(\frac{\partial W}{\partial Q}\Bigr)^{\!2}
++\frac12 m\omega^{2}Q^{2}+\omega Q\frac{\partial W}{\partial Q}
+=\alpha.
+\]
+
+这是 $\partial W/\partial Q$ 的二次方程：
+\[
+\Bigl(\frac{\partial W}{\partial Q}\Bigr)^{\!2}
++2m\omega Q\frac{\partial W}{\partial Q}
++m^{2}\omega^{2}Q^{2}-2m\alpha=0.
+\]
+
+配方得
+\[
+\Bigl(\frac{\partial W}{\partial Q}+m\omega Q\Bigr)^{\!2}=2m\alpha
+\quad\Longrightarrow\quad
+\frac{\partial W}{\partial Q}=-m\omega Q\pm\sqrt{2m\alpha}.
+\]
+
+积分（取 $+$ 号，$-$ 号等价）得
+\[
+W(Q,\alpha)=-\frac12 m\omega Q^{2}+\sqrt{2m\alpha}\,Q.
+\]
+
+故主函数为
+\[
+S(Q,\alpha,t)=-\frac12 m\omega Q^{2}+\sqrt{2m\alpha}\,Q-\alpha t.
+\]
+
+新的守恒坐标 $\beta$ 为
+\[
+\beta=\frac{\partial S}{\partial\alpha}
+=\frac{mQ}{\sqrt{2m\alpha}}-t
+=Q\sqrt{\frac{m}{2\alpha}}-t.
+\]
+
+因此
+\[
+Q=\sqrt{\frac{2\alpha}{m}}\,(t+\beta).
+\]
+
+新哈密顿量为零（$K'=0$），$\alpha,\beta$ 均为常数。由 $P=\partial S/\partial Q$ 得
+\[
+P=\frac{\partial S}{\partial Q}=-m\omega Q+\sqrt{2m\alpha}
+=\sqrt{2m\alpha}\bigl[1-\omega(t+\beta)\bigr].
+\]
+
+回到原变量 ($q=\ee^{-\omega t}Q$，$p=\ee^{\omega t}P$)：
+
+\ansmath{
+q(t)=\ee^{-\omega t}\sqrt{\frac{2\alpha}{m}}\,(t+\beta),\qquad
+p(t)=\sqrt{2m\alpha}\,\ee^{\omega t}\bigl[1-\omega(t+\beta)\bigr].
+}
+
+引入 $A=\sqrt{2\alpha/m}$，$B=\beta$，则简写为
+
+\ansmath{
+q(t)=\ee^{-\omega t}A\,(t+B),\qquad
+p(t)=m\ee^{\omega t}A\bigl[1-\omega(t+B)\bigr].
+}
+
+这正是$\lambda=\omega$（临界阻尼）情形下的精确解。与原轨迹方程
+$\ddot Q=0\to Q=C_{1}t+C_{2}$ 所得结果完全一致。
+
+\end{solution}
+\end{question}
+
+
+\begin{question}[隆格楞次矢量]
+隆格楞次矢量定义为
+\[
+\vec A=\vec r\times\vec J-\alpha m\hat r,
+\]
+其中 $\vec J=\vec r\times\vec p$ 为角动量，$\hat r=\vec r/r$ 为径向单位矢量，$\alpha$ 为常参数。
+计算 $\{A^{i},J^{j}\}$（Poisson 括号）。
+
+\begin{solution}
+
+在直角坐标下，$J^{j}=\varepsilon^{jmn}r_{m}p_{n}$。
+首先将 $A^{i}$ 用坐标和动量表出：
+\begin{align*}
+A^{i}&=\varepsilon^{ikl}r_{k}J^{l}-\alpha m\frac{r^{i}}{r} \\
+&=\varepsilon^{ikl}\varepsilon^{lmn}r_{k}r_{m}p_{n}
+-\alpha m\frac{r^{i}}{r}.
+\end{align*}
+
+利用恒等式 $\varepsilon^{ikl}\varepsilon^{lmn}
+=\varepsilon^{lik}\varepsilon^{lmn}
+=\delta^{im}\delta^{kn}-\delta^{in}\delta^{km}$：
+\[
+\varepsilon^{ikl}\varepsilon^{lmn}r_{k}r_{m}p_{n}
+=(\delta^{im}\delta^{kn}-\delta^{in}\delta^{km})r_{k}r_{m}p_{n}
+=r_{n}r^{i}p_{n}-r_{m}r_{m}p^{i}
+=r^{i}(\vec r\cdot\vec p)-r^{2}p^{i}.
+\]
+
+因此
+\[
+A^{i}=r^{i}(\vec r\cdot\vec p)-r^{2}p^{i}-\alpha m\frac{r^{i}}{r}.
+\]
+
+现在计算 Poisson 括号 $\{A^{i},J^{j}\}$。利用 $J^{j}$ 是旋转生成元这一事实，
+$\{A^{i},J^{j}\}$ 应当体现矢量 $\vec A$ 的旋转性质：
+
+\ansmath{
+\{A^{i},J^{j}\}=\varepsilon^{ijk}A^{k}.
+}
+
+这一结果可直接验证。以 $j=1$ 为例（$J^{1}=yp_{z}-zp_{y}$）：
+
+计算 $\{A^{2},J^{1}\}\stackrel{?}{=}\varepsilon^{213}A^{3}=-A^{3}$。
+由 $\{r^{i},J^{j}\}=\varepsilon^{ijk}r^{k}$，$\{p^{i},J^{j}\}=\varepsilon^{ijk}p^{k}$，
+以及 $A^{i}$ 是 $r^{i},p^{i}$ 的矢量组合（$A^{i}$ 中各项均是矢量的分量），
+根据 Poisson 括号的链式法则可得上述结果。
+
+\textbf{验证要点：}
+\begin{itemize}
+  \item $\{r^{i}(\vec r\cdot\vec p),J^{j}\}
+  =\{r^{i},J^{j}\}(\vec r\cdot\vec p)+r^{i}\{\vec r\cdot\vec p,J^{j}\}
+  =\varepsilon^{ijk}r^{k}(\vec r\cdot\vec p)+r^{i}\cdot0$（因 $\vec r\cdot\vec p$ 是转动标量）；
+  \item $\{r^{2}p^{i},J^{j}\}
+  =\{r^{2},J^{j}\}p^{i}+r^{2}\{p^{i},J^{j}\}
+  =0\cdot p^{i}+r^{2}\varepsilon^{ijk}p^{k}
+  =\varepsilon^{ijk}r^{2}p^{k}$；
+  \item $\bigl\{\dfrac{r^{i}}{r},J^{j}\bigr\}
+  =\dfrac{1}{r}\{r^{i},J^{j}\}+r^{i}\bigl\{\dfrac{1}{r},J^{j}\bigr\}
+  =\dfrac{1}{r}\varepsilon^{ijk}r^{k}+0$。
+\end{itemize}
+
+将各部分组合即得
+\[
+\{A^{i},J^{j}\}
+=\varepsilon^{ijk}\bigl[r^{k}(\vec r\cdot\vec p)-r^{2}p^{k}-\alpha m\tfrac{r^{k}}{r}\bigr]
+=\varepsilon^{ijk}A^{k}.
+\]
+
+这正表明 $\vec A$ 在空间旋转下如同一个三维矢量变换，
+它是 $\vec r$ 和 $\vec p$ 构成的唯一与 $\vec J$ 对合的矢量守恒量（在 Kepler 问题中）。
+\end{solution}
+\end{question}
+
+
+\begin{question}[场论——哈密顿原理与正则方程]
+
+\begin{enumerate}[label=(\roman*)]
+  \item 一个 $3+1$ 维体系 $(t,x,y,z)$ 的拉氏量密度为
+  $\mathcal{L}(\eta,\eta_{,\mu},\eta_{,\mu\nu},x^{\mu})$，
+  使用哈密顿原理给出 $\eta$ 满足的场方程；
+  \item 一个 $1+1$ 维体系 $(t,x)$ 的哈密顿量密度为
+  $\mathcal{H}(\eta,\eta_{,x},\pi,\pi_{,x},\pi_{,xx})$，
+  给出其对应的正则方程组。
+\end{enumerate}
+
+\begin{solution}
+
+\textbf{(i)} 作用量为 $S[\eta]=\displaystyle\int\dd^{4}x\;\mathcal{L}
+(\eta,\eta_{,\mu},\eta_{,\mu\nu},x^{\mu})$。
+哈密顿原理要求 $\delta S=0$：
+\begin{align*}
+\delta S&=\int\dd^{4}x\;\Bigl[
+\frac{\partial\mathcal{L}}{\partial\eta}\delta\eta
++\frac{\partial\mathcal{L}}{\partial\eta_{,\mu}}\delta\eta_{,\mu}
++\frac{\partial\mathcal{L}}{\partial\eta_{,\mu\nu}}\delta\eta_{,\mu\nu}
+\Bigr] \\[2pt]
+&=\int\dd^{4}x\;
+\frac{\partial\mathcal{L}}{\partial\eta}\delta\eta
+-\int\dd^{4}x\;\partial_{\mu}\!\Bigl(\frac{\partial\mathcal{L}}{\partial\eta_{,\mu}}\Bigr)\delta\eta
++\int\dd^{4}x\;\partial_{\mu}\partial_{\nu}\!\Bigl(
+\frac{\partial\mathcal{L}}{\partial\eta_{,\mu\nu}}\Bigr)\delta\eta,
+\end{align*}
+其中用到了两次分部积分，并设边界上 $\delta\eta$ 及其一阶导数为零。
+
+令 $\delta S=0$ 对任意 $\delta\eta$ 成立，得到
+
+\ansmath{
+\frac{\partial\mathcal{L}}{\partial\eta}
+-\partial_{\mu}\Bigl(\frac{\partial\mathcal{L}}{\partial\eta_{,\mu}}\Bigr)
++\partial_{\mu}\partial_{\nu}\Bigl(\frac{\partial\mathcal{L}}{\partial\eta_{,\mu\nu}}\Bigr)=0.
+}
+
+这是含二阶导数的广义 Euler--Lagrange 方程。
+
+\textbf{(ii)} 正则变量为 $\eta$ 和 $\pi$，哈密顿量为
+$\displaystyle H=\int\dd x\;\mathcal{H}(\eta,\eta_{,x},\pi,\pi_{,x},\pi_{,xx})$。
+
+由变分原理 $\delta\int\dd t\dd x\,(\pi\dot\eta-\mathcal{H})=0$，得正则方程：
+\[
+\dot\eta=\frac{\delta H}{\delta\pi},\qquad
+\dot\pi=-\frac{\delta H}{\delta\eta},
+\]
+其中 $\delta/\delta\pi$ 表示泛函导数。
+
+对 $\mathcal{H}$ 含 $\pi$ 的二阶空间导数情形：
+
+\ansmath{
+\begin{aligned}
+\dot\eta&=\frac{\partial\mathcal{H}}{\partial\pi}
+-\partial_{x}\Bigl(\frac{\partial\mathcal{H}}{\partial\pi_{,x}}\Bigr)
++\partial_{x}^{2}\Bigl(\frac{\partial\mathcal{H}}{\partial\pi_{,xx}}\Bigr),\\[6pt]
+\dot\pi&=-\frac{\partial\mathcal{H}}{\partial\eta}
++\partial_{x}\Bigl(\frac{\partial\mathcal{H}}{\partial\eta_{,x}}\Bigr).
+\end{aligned}}
+
+泛函导数由 $\displaystyle\frac{\delta H}{\delta\pi}
+=\sum_{n=0}^{\infty}(-1)^{n}\partial_{x}^{n}
+\frac{\partial\mathcal{H}}{\partial(\partial_{x}^{n}\pi)}$ 给出。
+
+\end{solution}
+\end{question}
+
+
+\begin{question}[复标量电子场]
+复标量电子场的拉格朗日量密度为
+\[
+\mathcal{L}_{0}=\phi^{,\mu}\phi_{,\mu}^{*}-m^{2}\phi\phi^{*},
+\]
+其对应的 $\mathrm{U}(1)$ Noether 流为
+$j^{\mu}=\ii(\phi^{*}\phi^{,\mu}-\phi\phi^{*,\mu})$。
+在外场 $A_{\mu}$ 下，拉格朗日量密度会多一项 $j^{\mu}A_{\mu}$，
+即 $\mathcal{L}=\mathcal{L}_{0}+j^{\mu}A_{\mu}$。
+
+\begin{enumerate}[label=(\roman*)]
+  \item 给出 $\phi,\phi^{*}$ 满足的场方程；
+  \item 给出守恒流与对应的守恒定律。
+\end{enumerate}
+
+\begin{solution}
+
+\textbf{(i)} 总拉格朗日量密度：
+\[
+\mathcal{L}
+=\partial_{\mu}\phi\,\partial^{\mu}\phi^{*}-m^{2}\phi\phi^{*}
++\ii A_{\mu}\,(\phi^{*}\partial^{\mu}\phi-\phi\,\partial^{\mu}\phi^{*}).
+\]
+
+注意第二项中 $A_{\mu}$ 与 $\phi^{*}\partial^{\mu}\phi$ 均为普通的数（经典场），
+可交换顺序。
+
+对 $\phi^{*}$ 做变分：
+\[
+\frac{\partial\mathcal{L}}{\partial\phi^{*}}
+=-m^{2}\phi+\ii A_{\mu}\,\partial^{\mu}\phi
+=-m^{2}\phi+\ii A^{\mu}\partial_{\mu}\phi,
+\]
+\[
+\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi^{*})}
+=\partial^{\mu}\phi-\ii A^{\mu}\phi.
+\]
+
+代入 Euler--Lagrange 方程
+$\displaystyle\frac{\partial\mathcal{L}}{\partial\phi^{*}}
+-\partial_{\mu}\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi^{*})}=0$：
+\begin{align*}
+0&=-m^{2}\phi+\ii A^{\mu}\partial_{\mu}\phi
+-\partial_{\mu}\bigl(\partial^{\mu}\phi-\ii A^{\mu}\phi\bigr) \\
+&=-m^{2}\phi+\ii A^{\mu}\partial_{\mu}\phi
+-\square\phi+\ii\partial_{\mu}(A^{\mu}\phi) \\
+&=-\square\phi-m^{2}\phi
++\ii A^{\mu}\partial_{\mu}\phi
++\ii(\partial_{\mu}A^{\mu})\phi+\ii A^{\mu}\partial_{\mu}\phi \\
+&=-\square\phi-m^{2}\phi
++2\ii A^{\mu}\partial_{\mu}\phi+\ii(\partial_{\mu}A^{\mu})\phi.
+\end{align*}
+
+整理得 $\phi$ 的场方程
+
+\ansmath{
+\square\phi+m^{2}\phi-2\ii A^{\mu}\partial_{\mu}\phi-\ii(\partial_{\mu}A^{\mu})\phi=0.
+}
+
+对 $\phi$ 做变分类似可得 $\phi^{*}$ 的共轭场方程：
+\[
+\square\phi^{*}+m^{2}\phi^{*}+2\ii A^{\mu}\partial_{\mu}\phi^{*}+\ii(\partial_{\mu}A^{\mu})\phi^{*}=0.
+\]
+
+\textbf{注：}若希望将方程写成协变导数的紧凑形式，注意到
+$(\partial_{\mu}-\ii A_{\mu})^{2}\phi+m^{2}\phi
+=\square\phi-2\ii A^{\mu}\partial_{\mu}\phi-\ii(\partial_{\mu}A^{\mu})\phi-A^{2}\phi+m^{2}\phi$。
+由于拉氏量只加了 $j^{\mu}A_{\mu}$ 项而未包含 $A^{2}$ 项，
+场方程中不含 $A^{2}\phi$，因此不等于通常的 $D_{\mu}D^{\mu}\phi+m^{2}\phi=0$。
+这正是``外场''处理的含义——$A_{\mu}$ 是给定的背景场，不参与动力学。
+
+\textbf{(ii)} 总拉格朗日量 $\mathcal{L}=\mathcal{L}_{0}+j^{\mu}A_{\mu}$ 仍具有整体 $\mathrm{U}(1)$ 对称性（$A_{\mu}$ 作为背景场不参与变换）：
+\[
+\phi\to\ee^{-\ii\alpha}\phi,\qquad
+\phi^{*}\to\ee^{+\ii\alpha}\phi^{*},
+\]
+无穷小形式为 $\delta\phi=-\ii\alpha\phi$，$\delta\phi^{*}=+\ii\alpha\phi^{*}$。
+
+由 Noether 定理，守恒流需对 $\mathcal{L}$ 而非仅 $\mathcal{L}_{0}$ 计算：
+\[
+J^{\mu}
+=\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}\,\frac{\delta\phi}{\alpha}
++\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi^{*})}\,\frac{\delta\phi^{*}}{\alpha}.
+\]
+
+偏导数为
+\[
+\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi)}
+=\partial^{\mu}\phi^{*}+\ii A^{\mu}\phi^{*},\qquad
+\frac{\partial\mathcal{L}}{\partial(\partial_{\mu}\phi^{*})}
+=\partial^{\mu}\phi-\ii A^{\mu}\phi.
+\]
+
+代入得
+\begin{align*}
+J^{\mu}
+&=\bigl(\partial^{\mu}\phi^{*}+\ii A^{\mu}\phi^{*}\bigr)(-\ii\phi)
++\bigl(\partial^{\mu}\phi-\ii A^{\mu}\phi\bigr)(+\ii\phi^{*}) \\[2pt]
+&=-\ii\phi\,\partial^{\mu}\phi^{*}+A^{\mu}|\phi|^{2}
++\ii\phi^{*}\partial^{\mu}\phi+A^{\mu}|\phi|^{2} \\[2pt]
+&=\ii\bigl(\phi^{*}\partial^{\mu}\phi-\phi\,\partial^{\mu}\phi^{*}\bigr)
++2A^{\mu}|\phi|^{2}.
+\end{align*}
+
+因此含外场的总守恒流为
+
+\ansmath{
+J^{\mu}=j^{\mu}+2A^{\mu}|\phi|^{2},
+\qquad
+j^{\mu}\equiv\ii(\phi^{*}\partial^{\mu}\phi-\phi\,\partial^{\mu}\phi^{*}).
+}
+
+\textbf{守恒律验证：}由第 (i) 问得到的场方程
+\begin{align*}
+\square\phi+m^{2}\phi-2\ii A^{\mu}\partial_{\mu}\phi-\ii(\partial_{\mu}A^{\mu})\phi &=0,\\
+\square\phi^{*}+m^{2}\phi^{*}+2\ii A^{\mu}\partial_{\mu}\phi^{*}+\ii(\partial_{\mu}A^{\mu})\phi^{*} &=0,
+\end{align*}
+计算
+\begin{align*}
+\partial_{\mu}J^{\mu}&=
+\ii\bigl(\partial_{\mu}\phi^{*}\partial^{\mu}\phi+\phi^{*}\square\phi
+-\partial_{\mu}\phi\partial^{\mu}\phi^{*}-\phi\square\phi^{*}\bigr)
++2\partial_{\mu}(A^{\mu}|\phi|^{2}) \\[2pt]
+&=\ii(\phi^{*}\square\phi-\phi\square\phi^{*})
++2(\partial_{\mu}A^{\mu})|\phi|^{2}+2A^{\mu}\partial_{\mu}|\phi|^{2}.
+\end{align*}
+代入场方程，并利用 $\partial_{\mu}|\phi|^{2}=\phi^{*}\partial_{\mu}\phi+\phi\,\partial_{\mu}\phi^{*}$，
+各项相互抵消，故
+
+\ansmath{
+\partial_{\mu}J^{\mu}=0.
+}
+
+对应的守恒荷为
+\[
+Q=\int\dd^{3}x\;J^{0}
+=\int\dd^{3}x\;\bigl[\ii(\phi^{*}\dot\phi-\phi\dot\phi^{*})+2A^{0}|\phi|^{2}\bigr],
+\qquad \frac{\dd Q}{\dd t}=0.
+\]
+
+\textbf{物理意义：}外场 $A_{\mu}$ 存在时，$\mathrm{U}(1)$ 对称性依然保持，
+但守恒流 $J^{\mu}$ 相比自由情形多出一项 $2A^{\mu}|\phi|^{2}$，
+反映外场对荷密度分布的贡献。
+
+\end{solution}
+\end{question}
+
+\clearpage
