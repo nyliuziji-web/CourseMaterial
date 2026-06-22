@@ -1,0 +1,1971 @@
+\documentclass[UTF8,11pt,a4paper]{ctexart}
+
+\usepackage[a4paper,margin=1.95cm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{booktabs,longtable,tabularx,array,multirow,makecell}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+
+\definecolor{mainblue}{HTML}{173F67}
+\definecolor{lightblue}{HTML}{EAF3FA}
+\definecolor{darkgreen}{HTML}{276044}
+\definecolor{lightgreen}{HTML}{ECF7F0}
+\definecolor{warnred}{HTML}{9A3428}
+\definecolor{lightred}{HTML}{FBEFEB}
+\definecolor{goldbrown}{HTML}{8B6513}
+\definecolor{lightgold}{HTML}{FFF8E5}
+\definecolor{graybox}{HTML}{F4F5F6}
+\definecolor{purple}{HTML}{634A7D}
+\definecolor{lightpurple}{HTML}{F3EFF8}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=mainblue,
+  urlcolor=mainblue,
+  pdftitle={宏观经济学期末复习讲义},
+  pdfauthor={根据课程讲义整理}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{宏观经济学期末复习讲义}
+\fancyfoot[R]{\thepage}
+
+\titleformat{\section}{\Large\bfseries\color{mainblue}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries\color{darkgreen}}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{warnred}}{\thesubsubsection}{0.6em}{}
+
+\setlist[itemize]{leftmargin=1.65em,itemsep=2pt,topsep=3pt,parsep=1pt}
+\setlist[enumerate]{leftmargin=2.1em,itemsep=3pt,topsep=3pt,parsep=1pt}
+\renewcommand{\arraystretch}{1.18}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\newtcolorbox{keybox}[1][]{
+  enhanced,breakable,colback=lightblue,colframe=mainblue,
+  boxrule=0.7pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  title={#1},fonttitle=\bfseries
+}
+\newtcolorbox{detailbox}[1][]{
+  enhanced,breakable,colback=lightgold,colframe=goldbrown,
+  boxrule=0.7pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  title={#1},fonttitle=\bfseries
+}
+\newtcolorbox{warningbox}[1][]{
+  enhanced,breakable,colback=lightred,colframe=warnred,
+  boxrule=0.7pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  title={#1},fonttitle=\bfseries
+}
+\newtcolorbox{methodbox}[1][]{
+  enhanced,breakable,colback=lightpurple,colframe=purple,
+  boxrule=0.7pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  title={#1},fonttitle=\bfseries
+}
+\newtcolorbox{answerbox}[1][]{
+  enhanced,breakable,colback=lightgreen,colframe=darkgreen,
+  boxrule=0.7pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  title={#1},fonttitle=\bfseries
+}
+\newtcolorbox{formulabox}[1][]{
+  enhanced,breakable,colback=graybox,colframe=black!45,
+  boxrule=0.6pt,arc=2pt,left=7pt,right=7pt,top=6pt,bottom=6pt,
+  title={#1},fonttitle=\bfseries
+}
+
+\newcommand{\term}[1]{\textbf{#1}}
+\newcommand{\GDP}{\mathrm{GDP}}
+\newcommand{\MPC}{\mathrm{MPC}}
+\newcommand{\MPS}{\mathrm{MPS}}
+\newcommand{\MPI}{\mathrm{MPI}}
+\newcommand{\NX}{\mathrm{NX}}
+\newcommand{\NCO}{\mathrm{NCO}}
+\newcommand{\NCI}{\mathrm{NCI}}
+\newcommand{\RER}{\mathrm{RER}}
+\newcommand{\SRAS}{\mathrm{SRAS}}
+\newcommand{\LRAS}{\mathrm{LRAS}}
+\newcommand{\AD}{\mathrm{AD}}
+\newcommand{\dd}{\mathrm{d}}
+
+\begin{document}
+
+\begin{center}
+  \vspace*{4em}
+  {\zihao{0}\bfseries\color{mainblue} 宏观经济学原理}\par
+  \vspace{4em}
+  {\zihao{2}\bfseries 期末复习讲义}\par
+  \vspace{2em}
+  {\color{mainblue!30}\rule{0.42\textwidth}{0.6pt}}\par
+  \vspace{2em}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[node distance=8mm and 10mm, every node/.style={font=\small},
+ box/.style={draw,rounded corners,align=center,minimum width=3.4cm,minimum height=0.9cm,fill=lightblue},
+ arr/.style={-{Stealth[length=2mm]},thick,mainblue}]
+\node[box] (measure) {第3章\\总量与物价的衡量};
+\node[box, left=of measure] (base) {第1--2章\\基础原理、税制与分配};
+\node[box, right=of measure] (growth) {第4章\\长期增长};
+\node[box, below=of growth] (finance) {第5--6章\\储蓄、金融与风险};
+\node[box, below=of measure] (labor) {第7章\\劳动市场与失业};
+\node[box, below=of base] (money) {第8--9章\\货币制度与通胀};
+\node[box, below=of finance] (open) {第10章\\开放经济与汇率};
+\node[box, below=of labor] (adas) {第11章\\收入--支出与AD--AS};
+\node[box, below=of money] (policy) {第12章\\货币与财政政策};
+\node[box, below=of adas] (pc) {第13章\\菲利普斯曲线};
+\node[box, below=of open] (debate) {第14章\\政策争论与治理};
+\draw[arr] (base)--(measure);
+\draw[arr] (measure)--(growth);
+\draw[arr] (growth)--(finance);
+\draw[arr] (measure)--(labor);
+\draw[arr] (base)--(money);
+\draw[arr] (finance)--(open);
+\draw[arr] (labor)--(adas);
+\draw[arr] (money)--(policy);
+\draw[arr] (open)--(adas);
+\draw[arr] (adas)--(policy);
+\draw[arr] (adas)--(pc);
+\draw[arr] (policy)--(debate);
+\draw[arr] (pc)--(debate);
+\end{tikzpicture}
+\end{center}
+\newpage
+\setcounter{tocdepth}{1}
+\tableofcontents
+\newpage
+
+\section{第一章：开始了解宏观经济学}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 宏观经济学为何在大萧条后成为独立学科；古典自我调节观与凯恩斯干预观。
+  \item 宏观三大问题：增长、失业、通货膨胀与通货紧缩。
+  \item 宏观与微观的区别、联系、微观基础以及加总问题。
+  \item 稀缺、权衡取舍、机会成本、边际分析、激励、比较优势、均衡、效率、公平与市场失灵。
+  \item 实证分析、规范分析与经验主义。
+\end{itemize}
+
+\subsection{宏观经济学的起源与研究对象}
+\begin{keybox}[历史逻辑]
+1929--1933 年大萧条使“市场会迅速自行恢复充分就业”的信念受到挑战。1936 年凯恩斯《就业、利息和货币通论》系统说明：总需求不足可使经济长期停留在低产出、高失业状态，财政政策和货币政策可能缩短萧条。现代宏观并非简单否定市场，而是研究市场调节的条件、速度和失灵边界。
+\end{keybox}
+
+\begin{itemize}
+  \item \term{增长问题：}为何各国长期生活水平差异巨大；资本、人力资本、制度和技术如何影响生产率。
+  \item \term{失业问题：}为何劳动者愿意工作却找不到工作；自然失业与周期性失业如何区分。
+  \item \term{通胀/通缩问题：}货币、总需求、供给冲击和预期如何影响物价；稳定物价与稳定就业如何权衡。
+\end{itemize}
+
+\subsection{宏观与微观：不能互相替代}
+\begin{longtable}{p{0.22\textwidth}p{0.35\textwidth}p{0.35\textwidth}}
+\toprule
+比较 & 微观经济学 & 宏观经济学\\
+\midrule
+分析单位 & 家庭、企业、单一市场 & 总产出、总体就业、总体物价、国际收支\\
+典型问题 & 某企业工资、某商品价格 & 总工资水平、总体价格水平、失业率\\
+共同基础 & \multicolumn{2}{l}{约束下的选择、均衡、激励、预期与证据检验}\\
+\bottomrule
+\end{longtable}
+
+\begin{detailbox}[两个容易被考细的例子]
+\term{辛普森悖论：}每个分组中的关系可能与总体关系相反。总体均值受各组权重影响，不能只看加总结果；物价指数也必须控制消费结构变化。\par
+\term{节俭悖论：}单个家庭多储蓄可改善自身资产负债表，但所有家庭同时削减消费会使总需求、收入和就业下降，最终总储蓄未必增加。这说明宏观结果不等于微观行为的机械加总。
+\end{detailbox}
+
+\subsection{基本经济学原理的精细口径}
+\subsubsection{权衡取舍、机会成本与沉没成本}
+\begin{itemize}
+  \item \term{机会成本}是作出选择时放弃的最佳替代方案价值，不是所有显性支出的总和。
+  \item 无论是否作出当前选择都必须支付的成本，不属于该选择的机会成本。
+  \item \term{沉没成本}已经发生且无法收回，理性决策只比较未来边际收益与未来边际成本。
+  \item 机会成本具有主观性：不同人的最佳替代方案不同，同一行为的机会成本也不同。
+\end{itemize}
+
+\subsubsection{边际分析与激励}
+\[
+\text{继续增加活动量的条件： } MB\ge MC;
+\qquad \text{内部最优通常满足 }MB=MC.
+\]
+\begin{itemize}
+  \item “是否做”与“做多少”不同；边际分析主要回答“再多一单位是否值得”。
+  \item 激励改变边际收益或边际成本，但“人会对激励作出反应”不等于每个人都作出相同反应。
+  \item 政策评价不仅看直接效果，还要看行为调整、规避行为和一般均衡反馈。
+\end{itemize}
+
+\subsubsection{绝对优势与比较优势}
+若一国生产 1 单位 $X$ 放弃 $a$ 单位 $Y$，则 $a$ 是 $X$ 的机会成本。谁的机会成本低，谁在 $X$ 上有比较优势。
+\begin{formulabox}[贸易互利条件]
+若甲国生产 $X$ 的机会成本为 $a$，乙国为 $b$，且 $a<b$，则以 $Y/X$ 表示的贸易价格应满足
+\[
+a<\frac{P_X}{P_Y}<b.
+\]
+边界价格只会使一方无差异；严格落在区间内才可能使双方都严格获益。
+\end{formulabox}
+
+\subsubsection{市场均衡、效率与公平}
+\begin{itemize}
+  \item \term{均衡}是各主体在既定约束和预期下都不愿单方面改变行为的状态，不等于“公平”或“道德上最好”。
+  \item \term{帕累托效率}指无法在不损害任何人的前提下改善至少一人的福利；它不说明收入分配是否公平。
+  \item 效率与公平是不同评价维度。再分配可能降低某些激励，也可能通过改善教育、健康和机会提高长期效率。
+\end{itemize}
+
+\subsubsection{市场失灵及政府工具}
+\begin{longtable}{p{0.19\textwidth}p{0.35\textwidth}p{0.38\textwidth}}
+\toprule
+原因 & 市场结果 & 常见政策\\
+\midrule
+负外部性 & 私人成本低于社会成本，数量过多 & 矫正税、排放权、监管\\
+正外部性 & 私人收益低于社会收益，数量过少 & 补贴、公共投入、产权保护\\
+市场力量 & 价格高于边际成本，产量偏低 & 反垄断、降低进入壁垒、价格监管\\
+公共品 & 非排他、非竞争导致搭便车与供给不足 & 政府提供或筹资\\
+公共资源 & 非排他但有竞争性，易过度使用 & 配额、产权、收费、监管\\
+信息不对称 & 逆向选择、道德风险 & 信息披露、认证、共同承担、监管\\
+\bottomrule
+\end{longtable}
+
+\begin{warningbox}[常见错误]
+“存在市场失灵”只说明政府干预\emph{可能}改善结果，并不自动证明某项具体干预有效。还要比较政府的信息限制、行政成本、寻租和执行偏差。
+\end{warningbox}
+
+\subsection{长期与短期的逻辑边界}
+\begin{itemize}
+  \item 长期生活水平主要取决于生产率；这是必要条件，但分配、环境和闲暇也影响福利。
+  \item 短期总支出可低于或高于潜在产出，造成衰退缺口或通胀缺口。
+  \item “发行过多货币导致通胀”主要是长期命题；短期还取决于闲置产能、货币需求、金融传导与预期。
+  \item 短期通胀与失业可能存在权衡，长期失业率回归自然率。
+\end{itemize}
+
+\subsection{实证、规范与经验主义}
+\begin{itemize}
+  \item \term{实证命题}可由数据检验，例如“提高利率会降低投资”。
+  \item \term{规范命题}包含价值判断，例如“政府应该优先降低通胀”。
+  \item 规范结论通常由“实证机制 + 社会价值权重”共同决定。
+  \item 相关性不等于因果性；经验研究需要处理反向因果、遗漏变量和选择偏差。
+\end{itemize}
+
+\newpage
+\section{第二章：税制、收入与不平等}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 政府为何征税；中国广义财政“四本账”和税收、非税收入的区别。
+  \item 税种、平均税率、边际税率、累进/比例/累退、法定纳税人与税负归宿。
+  \item 税收效率：无谓损失、行政负担、合法避税与逃税、矫正税。
+  \item 税收公平：受益原则、支付能力、横向公平、纵向公平、收入税与消费税。
+  \item 工资形成、劳动力市场歧视、洛伦兹曲线、基尼系数、贫困与经济流动性。
+\end{itemize}
+
+\subsection{政府为什么要征税}
+\begin{itemize}
+  \item 为公共品、公共服务、社会保障、基础设施和产权保护融资。
+  \item 对负外部性征矫正税，对正外部性提供补贴。
+  \item 通过再分配缓解贫困和机会不平等。
+  \item 作为自动稳定器和宏观调控工具影响总需求。
+\end{itemize}
+
+\begin{detailbox}[讲义中的财政口径]
+中国广义财政常按“四本账”理解：一般公共预算、政府性基金预算、国有资本经营预算、社会保险基金预算。狭义税收占 GDP 的比例不能单独代表全部政府负担，因为还存在社会保险缴费、政府性基金和行政事业性收费等项目。考试若给出不同口径，必须先确认分子和分母包含什么。
+\end{detailbox}
+
+\subsection{税率与税制结构}
+\subsubsection{平均税率、边际税率与速算扣除}
+\[
+\text{平均税率}=\frac{\text{总税额}}{\text{总收入}},
+\qquad
+\text{边际税率}=\frac{\Delta\text{税额}}{\Delta\text{收入}}.
+\]
+\begin{itemize}
+  \item 平均税率描述总体负担；边际税率影响多工作、多储蓄、多投资一单位的激励。
+  \item 分段累进税制中，“进入更高档”只使超过门槛的部分按更高税率征税，不是全部收入都按最高税率征税。
+  \item 速算扣除额把分段计算压缩为“应纳税所得额 $\times$ 适用税率 $-$ 速算扣除额”。
+\end{itemize}
+
+\subsubsection{累进、比例与累退}
+\begin{itemize}
+  \item \term{累进税：}收入越高，平均税率越高。
+  \item \term{比例税：}平均税率不随收入变化。
+  \item \term{累退税：}收入越高，平均税率越低；统一金额的从量税常对低收入者更累退。
+  \item 判别累进性看平均税率，而不是只看边际税率表是否分档。
+\end{itemize}
+
+\subsubsection{主要税种及容易混淆处}
+\begin{longtable}{p{0.20\textwidth}p{0.37\textwidth}p{0.35\textwidth}}
+\toprule
+税种 & 征税对象 & 细节辨析\\
+\midrule
+个人所得税 & 个人应税收入 & 扣除、免征额与税率表共同决定税负\\
+薪酬税/社保税 & 工资薪金 & 法定由雇主或雇员缴纳不决定最终归宿\\
+增值税 VAT & 各环节新增价值 & 通过进项抵扣避免重复征税\\
+销售税 & 最终零售额 & 美国常见；名义纳税人和实际承担者可不同\\
+特种消费税 & 烟酒、燃油等特定商品 & 可为从价税或从量税，常兼有矫正目的\\
+财产税 & 房产、土地或财富 & 税基稳定，但估值和流动性问题突出\\
+企业所得税 & 企业利润 & 长期可能由股东、劳动者和消费者共同承担\\
+\bottomrule
+\end{longtable}
+
+\subsection{税收归宿、效率与公平}
+\subsubsection{法定纳税人与经济归宿}
+\begin{keybox}[弹性决定归宿]
+税法规定谁把钱交给政府，不等于谁最终承担税负。需求越缺乏弹性，消费者承担越多；供给越缺乏弹性，生产者或要素所有者承担越多。税楔使买方支付价与卖方得到价分离。
+\end{keybox}
+
+\subsubsection{效率成本}
+\begin{itemize}
+  \item 在原本有效率的市场征税，会减少互利交易并产生无谓损失；税率越高、供需越有弹性，扭曲通常越大。
+  \item 对负外部性征收适当矫正税可使私人成本接近社会成本，反而减少无谓损失。
+  \item 行政负担包括报税时间、系统运营、执法和专业服务成本。
+  \item \term{合法避税}利用税法安排降低税负；\term{逃税}违反法律隐瞒税基。两者均可能侵蚀税基，但法律性质不同。
+\end{itemize}
+
+\subsubsection{公平原则}
+\begin{itemize}
+  \item \term{受益原则：}从公共服务获益更多者缴税更多，适合与使用相关的收费。
+  \item \term{支付能力原则：}收入或财富越高者承担更多。
+  \item \term{横向公平：}经济能力相近者应承担相近税负。
+  \item \term{纵向公平：}经济能力不同者应如何区别对待，需要价值判断。
+  \item 对收入征税会影响劳动和储蓄；对消费征税可能鼓励储蓄，但往往更累退。没有只提高效率而完全不涉及分配的税制选择。
+\end{itemize}
+
+\subsection{工资为何不同}
+\subsubsection{竞争性劳动市场的基础}
+企业雇佣劳动直到劳动的边际收益产品等于工资：
+\[
+MRP_L=P\cdot MPL=w.
+\]
+劳动生产率、产品价格和劳动供需共同决定工资。若雇主具有买方垄断力量，边际雇佣支出为
+\[
+ME=\frac{\dd(wL)}{\dd L}=w(L)+L\frac{\dd w(L)}{\dd L}>w(L),
+\]
+于是就业和工资可能低于竞争水平。
+
+\subsubsection{工资差异的七类解释}
+\begin{enumerate}
+  \item \term{人力资本：}教育、经验、健康和技能提高生产率。
+  \item \term{补偿性工资差异：}危险、偏远、夜班或不稳定岗位需更高工资补偿。
+  \item \term{天赋、努力与机遇：}能力和努力影响生产率，家庭背景和运气影响机会。
+  \item \term{信号：}学历可能既提高生产率，也向雇主传递能力信息。
+  \item \term{超级明星效应：}技术使少数顶尖者可服务巨大市场，收入差异被放大。
+  \item \term{效率工资：}高于市场出清工资可减少偷懒、流失和逆向选择，提高效率但可能造成失业。
+  \item \term{制度与市场力量：}工会、最低工资、雇主集中度和谈判能力改变工资。
+\end{enumerate}
+
+\subsection{歧视：观察到差异不等于已证明歧视}
+\begin{itemize}
+  \item \term{偏好型歧视：}雇主、同事或消费者愿意付出成本避免某群体。
+  \item \term{统计性歧视：}在个体信息不充分时用群体平均特征替代个体信息。
+  \item 比较群体平均工资时需控制教育、经验、职业、行业、工时、地区等；但“控制变量”本身也可能受历史歧视影响。
+  \item 竞争会惩罚成本高的雇主歧视，但消费者歧视、信息不对称和市场分割可使歧视长期存在。
+\end{itemize}
+
+\subsection{收入不平等、贫困与流动性}
+\subsubsection{洛伦兹曲线与基尼系数}
+把人口按收入从低到高排序，横轴为累计人口占比，纵轴为累计收入占比。完全平等线为 $45^\circ$ 线。
+\[
+G=\frac{A}{A+B}=1-2B,
+\]
+其中 $B$ 为洛伦兹曲线下方面积。离完全平等线越远，$G$ 越大。
+
+\begin{detailbox}[分组数据为何低估不平等]
+五等份或十等份数据通常把组内所有人近似为同一平均收入，抹掉组内差异，特别是最高收入组的长尾。因此由分组中点或组均值计算的基尼系数常低于微观数据结果。
+\end{detailbox}
+
+\subsubsection{贫困衡量与测量问题}
+\begin{itemize}
+  \item \term{绝对贫困线}基于基本生活需要；\term{相对贫困线}相对社会中位收入确定。
+  \item 贫困发生率只看低于贫困线的人数，不反映贫困深度；贫困缺口可衡量离贫困线多远。
+  \item 年度现金收入可能忽略实物转移、税收、家庭规模、地区物价、住房资产和生命周期。
+  \item 暂时低收入与长期贫困的政策含义不同；经济流动性要看同一家庭跨期位置变化和代际变化。
+\end{itemize}
+
+\subsubsection{再分配哲学与政策}
+\begin{itemize}
+  \item 功利主义强调总效用，边际效用递减为再分配提供理由。
+  \item 罗尔斯式自由主义关注最不利者和公平机会。
+  \item 自由至上主义强调正当取得、自由交换和产权，反对仅因结果不平等而再分配。
+  \item 政策工具包括现金转移、实物补助、负所得税/就业补贴、最低工资、教育和医疗投入。评价时同时看覆盖、瞄准、劳动激励和行政成本。
+\end{itemize}
+
+\newpage
+\section{第三章：衡量一国收入与生活费用}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item GDP 的循环流量、定义六要素、支出法/生产法/收入法。
+  \item 名义 GDP、真实 GDP、GDP 平减指数、链式指数和增长率。
+  \item GDP 之外的国民收入指标及 GDP 作为福利指标的局限。
+  \item CPI 的固定篮子法、权重、核心 CPI、PCE、指数化和真实利率。
+  \item CPI 的替代偏差、质量变化和新产品偏差。
+\end{itemize}
+
+\subsection{GDP 的定义要逐词掌握}
+\begin{keybox}[标准定义]
+GDP 是\term{一定时期内}、\term{一国或地区境内}、\term{所有生产活动}所生产的\term{最终产品和服务}的\term{市场价值}。
+\end{keybox}
+
+\begin{longtable}{p{0.22\textwidth}p{0.70\textwidth}}
+\toprule
+关键词 & 考试中的具体含义\\
+\midrule
+一定时期 & GDP 是流量；“2025 年 GDP”统计该年新生产，不是年末财富存量\\
+境内 & 按生产地而非国籍；外资企业在中国生产计入中国 GDP\\
+生产活动 & 转移支付、二手品所有权转移不代表当期生产\\
+最终品 & 中间品不重复计入；作为存货的未售产品属于最终投资\\
+市场价值 & 用价格加总异质产品；无市场价格的政府服务常按成本估值\\
+产品和服务 & 有形商品与当期服务均计入；家庭内部无偿家务通常不计\\
+\bottomrule
+\end{longtable}
+
+\begin{warningbox}[高频边界]
+二手房成交价不计当期 GDP，但中介费计入；股票交易本身不计 GDP，但券商服务费计入；养老金属于转移支付，不计政府购买；新住宅属于投资而非消费；进口消费进入 $C$ 后又在 $M$ 中扣除，目的不是说进口“减少 GDP”，而是剔除非国内生产。
+\end{warningbox}
+
+\subsection{三种核算方法为何相等}
+\subsubsection{支出法}
+\[
+Y=C+I+G+NX,
+\qquad NX=X-M.
+\]
+\begin{itemize}
+  \item $C$：家庭最终消费，不含新住宅。
+  \item $I$：企业固定投资、住宅投资、存货投资；金融资产购买不是投资。
+  \item $G$：政府购买产品与服务；不含养老金、失业救济等转移支付。
+  \item $NX$：出口加到国内生产，进口从各支出项中剔除。
+\end{itemize}
+
+\subsubsection{生产法（增值法）}
+\[
+Y=\sum_i VA_i,
+\qquad VA_i=\text{总产出价值}-\text{中间投入价值}.
+\]
+只加总各环节新增价值，可避免中间品重复计算。企业购买机器是最终投资，购买当期耗用原料是中间投入。
+
+\subsubsection{收入法}
+讲义的简化表达为
+\[
+Y=R+T_P+C_F+\Pi,
+\]
+可理解为劳动报酬、生产税净额、固定资本消耗（折旧）和营业盈余/利润等要素收入之和。生产产生的每一元最终价值最终都成为某主体的收入，因此三种方法理论上相等；现实统计差异来自数据源、时点和漏报。
+
+\subsection{收入用途恒等式与储蓄}
+\[
+Y=C+S+(T-TR).
+\]
+与支出法联立：
+\[
+G+C+I+NX=C+S+(T-TR),
+\]
+所以
+\[
+S=I+NX+G-(T-TR).
+\]
+重新定义私人储蓄与政府储蓄后可得到后续章节的 $S=I+NCO$。注意：会计恒等式始终成立，不是行为理论，也不说明因果方向。
+
+\subsection{名义量、真实量和价格指数}
+\subsubsection{名义 GDP 与真实 GDP}
+\[
+NGDP_t=\sum_i P_{it}Q_{it},
+\qquad
+RGDP_t=\sum_i P_{i0}Q_{it}.
+\]
+名义 GDP 同时受价格与数量影响；真实 GDP 固定价格，旨在度量产量变化。
+
+\subsubsection{GDP 平减指数}
+\[
+\text{GDP 平减指数}_t=\frac{NGDP_t}{RGDP_t}\times100.
+\]
+\begin{detailbox}[三个要点]
+\begin{enumerate}
+  \item 覆盖\term{国内生产的全部最终产品和服务}，不只消费品。
+  \item 权重随当期产出结构变化，不是固定篮子。
+  \item 进口品不属于国内生产，不直接进入 GDP 平减指数。
+\end{enumerate}
+\end{detailbox}
+
+\subsubsection{链式增长与年化增长}
+跨多年平均年增长率：
+\[
+g=\left(\frac{X_{t+N}}{X_t}\right)^{1/N}-1.
+\]
+链式 Fisher 数量指数把相邻两期 Laspeyres 和 Paasche 数量指数取几何平均，再逐期链接，减少基期越远导致的结构失真。若题目指定固定基期，就不要自行换成链式指数。
+
+\subsection{GDP 之外的总量指标}
+\begin{itemize}
+  \item \term{GNI/GNP：}按本国居民拥有的要素计算，$GNI=GDP+\text{来自国外净要素收入}$。
+  \item \term{NDP：}从 GDP 扣除折旧，反映扣除资本消耗后的新增产出。
+  \item \term{可支配收入：}家庭可用于消费和储蓄的收入，需扣税加转移支付。
+  \item 题目若出现“境内”优先想到 GDP；出现“本国居民/国民”优先想到 GNI。
+\end{itemize}
+
+\subsection{GDP 与福利：不是同义词}
+GDP 忽略或不充分反映：家庭无偿劳动、闲暇、环境质量、收入分配、健康安全、地下经济和产品质量。破窗谬论的核心是只看到修复活动带来的 GDP，却忽略被毁财富和机会成本。GDP 是生产流量指标，不能把灾害后的重建支出简单理解为社会更富裕。
+
+\subsection{CPI 的计算与应用}
+\subsubsection{固定篮子法}
+\[
+CPI_t=\frac{\sum_i p_{it}q_{i0}}{\sum_i p_{i0}q_{i0}}\times100,
+\qquad
+\pi_t=\frac{CPI_t-CPI_{t-1}}{CPI_{t-1}}\times100\%.
+\]
+也可写成分项价格指数的加权平均：
+\[
+CPI=\sum_i w_i CPI_i,
+\qquad \sum_i w_i=1.
+\]
+
+\subsubsection{核心 CPI、PCE 与 GDP 平减指数}
+\begin{longtable}{p{0.16\textwidth}p{0.22\textwidth}p{0.23\textwidth}p{0.20\textwidth}}
+\toprule
+指标 & 篮子/权重 & 覆盖 & 典型用途\\
+\midrule
+CPI & 家庭固定或定期更新篮子 & 消费品，含进口消费品 & 生活费用、合同指数化\\
+核心 CPI & CPI 剔除食品和能源 & 降低高波动项目影响 & 观察基础通胀趋势\\
+PCE & 权重更新更灵活 & 家庭消费，支付者口径更广 & 货币政策常用通胀指标\\
+GDP 平减指数 & 当期国内产出权重 & 国内最终产出 & GDP 中总体价格变化\\
+\bottomrule
+\end{longtable}
+
+\subsubsection{指数化和货币价值换算}
+\[
+V_{t_1}=V_{t_0}\frac{CPI_{t_1}}{CPI_{t_0}}.
+\]
+若工资、养老金或合同金额随 CPI 自动调整，称为指数化。比较跨期货币金额必须明确是“把旧金额换算为新时期购买力”，还是“把新金额折算为旧时期价格”。
+
+\subsubsection{名义利率与真实利率}
+精确 Fisher 关系：
+\[
+1+i=(1+r)(1+\pi),
+\]
+低通胀时近似为
+\[
+r\approx i-\pi.
+\]
+事前真实利率用预期通胀 $\pi^e$，事后真实利率用实际通胀 $\pi$。
+
+\subsection{CPI 的三类系统偏差}
+\begin{enumerate}
+  \item \term{替代偏差：}固定篮子忽略消费者转向相对便宜商品，可能高估生活费用增长。
+  \item \term{质量变化：}价格上涨可能部分反映质量提升；若调整不足，会高估纯价格上涨。
+  \item \term{新产品偏差：}新产品带来更多选择和消费者剩余，但进入篮子有时滞。
+\end{enumerate}
+
+\newpage
+\section{第四章：生产与增长}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 总量增长、人均增长、增长率、70 规则和劳动投入分解。
+  \item 马尔萨斯陷阱：技术进步为何在前现代时期转化为人口而非人均收入。
+  \item 索罗模型：资本积累、稳态、转轨、黄金律、人口与技术进步。
+  \item 增长核算、索罗余项、绝对收敛与条件收敛。
+  \item AK 模型、欧拉方程与内生增长的基本思想。
+\end{itemize}
+
+\subsection{增长率的口径}
+\[
+g^{GDP}_{t+1}=\frac{Y_{t+1}-Y_t}{Y_t},
+\qquad
+g^y_{t+1}=\frac{y_{t+1}-y_t}{y_t}.
+\]
+人均产出 $y=Y/N$，近似有
+\[
+g_y\approx g_Y-g_N.
+\]
+总 GDP 增长不代表人均生活水平同步增长；人口增长较快时，两者差别显著。
+
+\subsection{70 规则及适用条件}
+由 $(1+g)^n=2$ 得
+\[
+n=\frac{\ln2}{\ln(1+g)}\approx\frac{0.70}{g}=\frac{70}{x},
+\]
+其中 $g$ 用小数、$x$ 用百分数。增长率较低且稳定时近似较好；增长率高、为负或波动大时误差明显。增长到 8 倍需要约三个翻倍期。
+
+\subsection{生产率的来源}
+\[
+Y=F(K,L,A,H,N,\ldots).
+\]
+\begin{itemize}
+  \item 实物资本提高劳动者可使用的设备，但通常存在边际产出递减。
+  \item 人力资本包括教育、经验和健康，是“附着于人”的生产能力。
+  \item 自然资源可再生或不可再生；资源丰富既可能促进增长，也可能引发资源诅咒。
+  \item 技术和制度决定同样投入如何组合，往往是持续人均增长的核心。
+  \item 总劳动时数可分解为工作年龄人口、就业比例和人均工时：
+  \[
+  L=\text{工作年龄人口}\times\frac{\text{就业人口}}{\text{工作年龄人口}}\times\frac{\text{总工时}}{\text{就业人口}}.
+  \]
+\end{itemize}
+
+\subsection{马尔萨斯陷阱}
+\begin{itemize}
+  \item 生产函数 $Y=Y(N)$ 对人口有边际收益递减；人均收入 $y=Y/N$ 随人口上升而下降。
+  \item 人口增长率取决于生活水平：$\Delta N/N=b(y)-d(y)$。收入提高会提高出生率或降低死亡率。
+  \item 技术进步使短期人均收入上升，但人口随后增加，把人均收入拉回生存水平；长期效果更多体现为人口增加。
+  \item 逃离陷阱需要技术进步足够快、人口转型、教育和制度变化，使生育决策不再对收入作传统正向反应。
+\end{itemize}
+
+\subsection{索罗模型：基本版}
+设
+\[
+Y=AK^\alpha L^{1-\alpha},\qquad 0<\alpha<1,
+\]
+每工人变量 $y=Y/L$、$k=K/L$，则
+\[
+y=Ak^\alpha.
+\]
+储蓄率为 $s$，折旧率为 $\delta$，人口增长率为 $n$：
+\[
+\Delta k=s f(k)-(n+\delta)k.
+\]
+
+\subsubsection{稳态的含义}
+\[
+sf(k^*)=(n+\delta)k^*.
+\]
+稳态不是“总量不增长”，而是每工人资本不再变化。若人口增长，稳态时总资本和总产出仍按人口增长率增长。
+
+\subsubsection{稳态的比较静态}
+对 $f(k)=Ak^\alpha$：
+\[
+k^*=\left(\frac{sA}{n+\delta}\right)^{\frac1{1-\alpha}},
+\qquad y^*=A(k^*)^\alpha.
+\]
+\begin{longtable}{p{0.18\textwidth}p{0.25\textwidth}p{0.45\textwidth}}
+\toprule
+变化 & 新稳态 & 过渡动态\\
+\midrule
+$s\uparrow$ & $k^*,y^*\uparrow$ & 转轨期增长加快，达到新稳态后人均增长率回到 0\\
+$n\uparrow$ & $k^*,y^*\downarrow$ & 资本深化更难，单位工人资本被稀释\\
+$\delta\uparrow$ & $k^*,y^*\downarrow$ & 维持既有资本所需投资增加\\
+$A\uparrow$ & 生产函数上移，$y^*\uparrow$ & 立即提高产出并诱发资本积累\\
+\bottomrule
+\end{longtable}
+
+\begin{warningbox}[储蓄率的两面性]
+提高储蓄率会立即压低当期消费，但提高未来稳态产出。若经济资本低于黄金律水平，提高储蓄可提高长期消费；若资本已超过黄金律，继续提高储蓄反而降低长期消费。
+\end{warningbox}
+
+\subsection{黄金律资本}
+稳态消费为
+\[
+c^*=f(k^*)-(n+\delta)k^*.
+\]
+使其最大的黄金律满足
+\[
+f'(k^{gold})=n+\delta.
+\]
+有技术进步时变为 $f'(k^{gold})=n+g+\delta$。黄金律是“使稳态消费最大”的资本水平，不是自动达到的市场均衡，也不必等同社会最优，因为转轨世代的福利也重要。
+
+\subsection{加入技术进步}
+令劳动效率 $E$ 以 $g$ 增长，单位效率劳动资本 $k=K/(LE)$：
+\[
+\Delta k=sf(k)-(n+g+\delta)k.
+\]
+稳态时：
+\begin{itemize}
+  \item 单位效率劳动的 $k$、$y$ 不增长；
+  \item 人均资本和人均产出按 $g$ 增长；
+  \item 总资本和总产出按 $n+g$ 近似增长。
+\end{itemize}
+索罗模型中持续人均增长来自外生技术进步；储蓄率影响水平和转轨速度，不影响长期人均增长率。
+
+\subsection{增长核算}
+对
+\[
+Y=AK^\alpha L^{1-\alpha},
+\]
+有
+\[
+g_Y=g_A+\alpha g_K+(1-\alpha)g_L.
+\]
+\begin{itemize}
+  \item $\alpha$ 与 $1-\alpha$ 可由资本和劳动收入份额近似。
+  \item $g_A$ 是索罗余项，包含技术、组织、制度、测量误差和产能利用率等，不能机械等同“纯技术进步”。
+  \item 人均形式：$g_y=g_A+\alpha(g_K-g_N)$。
+\end{itemize}
+
+\subsection{收敛}
+\begin{itemize}
+  \item \term{绝对收敛：}若各经济体拥有相同 $s,n,\delta,A$，初始资本少者边际产出高，增长更快并趋于同一稳态。
+  \item \term{条件收敛：}参数不同的经济体向各自稳态收敛；控制制度、储蓄、人力资本等后，初始较穷者增长更快。
+  \item 没有观察到无条件收敛并不否定资本边际收益递减，可能是稳态参数差异巨大。
+\end{itemize}
+
+\subsection{内生增长与 AK 模型}
+\subsubsection{跨期选择和欧拉方程}
+两期效用最大化给出
+\[
+u'(c_t)=\beta(1+R)u'(c_{t+1}).
+\]
+若 CRRA 效用 $u'(c)=c^{-1/\sigma}$：
+\[
+\frac{c_{t+1}}{c_t}=[\beta(1+R)]^\sigma.
+\]
+真实利率越高、越有耐心，通常越愿意把消费推迟到未来；跨期替代弹性决定反应强度。
+
+\subsubsection{AK 模型}
+\[
+Y=AK,
+\]
+资本广义包含知识和人力资本，不再有递减边际收益。储蓄和投资可永久影响增长率。内生增长理论强调知识外部性、研发、学习效应和制度使私人回报与社会回报不一致，因此政策可能影响长期增长率。
+
+\newpage
+\section{第五章：储蓄、投资与金融体系}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 消费函数、MPC/MPS、私人储蓄、政府储蓄和国民储蓄。
+  \item 股票、债券、共同基金、银行等金融市场与金融中介。
+  \item 债务融资与股权融资、现值、债券价格和风险。
+  \item 可贷资金供求、政府赤字、资本流动和通胀预期。
+\end{itemize}
+
+\subsection{消费与储蓄函数}
+\[
+C=C_0+\alpha(Y-T),\qquad 0\le\alpha\le1.
+\]
+更一般地：
+\[
+C=A+\MPC(Y-T+TR).
+\]
+\begin{itemize}
+  \item $A$ 为自主消费；$\MPC=\Delta C/\Delta Y_d$。
+  \item $S=Y_d-C$，所以 $\MPS=\Delta S/\Delta Y_d=1-\MPC$（简单模型）。
+  \item 平均消费倾向 $C/Y_d$ 与边际消费倾向不同；自主消费使低收入阶段平均消费倾向较高。
+\end{itemize}
+
+\subsection{储蓄恒等式}
+\[
+S_p=Y-T+TR-C,
+\qquad S_g=T-G-TR,
+\]
+\[
+S=S_p+S_g=I+\NCO.
+\]
+若用净资本流入 $\NCI=-\NCO$：
+\[
+S+\NCI=I.
+\]
+\begin{detailbox}[符号直觉]
+经常账户顺差/净出口为正意味着本国生产大于国内支出，差额用于取得外国资产，即净资本流出为正。经常账户赤字则由外国净资本流入融资。
+\end{detailbox}
+
+\subsection{金融市场与金融中介}
+\begin{longtable}{p{0.21\textwidth}p{0.35\textwidth}p{0.36\textwidth}}
+\toprule
+工具/机构 & 核心特点 & 主要风险或功能\\
+\midrule
+股票 & 所有权、剩余索取权、无固定到期 & 收益波动大，分享增长\\
+债券 & 固定或约定现金流、有到期日 & 利率、违约、通胀和期限风险\\
+共同基金 & 汇集资金投资多种资产 & 降低分散化成本，但收取费用\\
+银行 & 吸收存款、发放贷款、期限转换 & 流动性风险、信用风险、挤兑\\
+一级市场 & 新证券首次发行 & 为发行者融资\\
+二级市场 & 已发行证券交易 & 提供流动性与价格发现\\
+\bottomrule
+\end{longtable}
+
+\subsection{债务融资与股权融资}
+\begin{itemize}
+  \item 债务融资不稀释控制权，但必须按约偿付，财务困境风险高。
+  \item 股权融资没有固定偿付义务，但稀释控制权和未来利润。
+  \item 企业选择取决于税制、信息不对称、抵押品、现金流稳定性和治理结构。
+  \item 市盈率 $PE=P/EPS$ 不是“越低越好”；低 PE 可能反映低增长或高风险。
+\end{itemize}
+
+\subsection{现值、净现值与债券价格}
+\[
+PV=\frac{V}{(1+r)^T},
+\qquad
+NPV=PV(\text{未来收益})-\text{初始成本}.
+\]
+债券价格：
+\[
+P=\sum_{t=1}^{T}\frac{x_t}{(1+r)^t}+\frac{F}{(1+r)^T}.
+\]
+\begin{itemize}
+  \item 市场利率上升，既定现金流现值下降，债券价格下降。
+  \item 到期越远，现金流折现越强，价格对利率越敏感。
+  \item 票面利率与市场收益率不同；平价、溢价、折价由票息与市场利率比较决定。
+\end{itemize}
+
+\subsection{可贷资金市场}
+纵轴是真实利率 $r$，横轴是可贷资金量。储蓄形成供给，投资与净资本流出形成需求。
+
+\subsubsection{供给移动}
+\begin{itemize}
+  \item 储蓄税收优惠、政府盈余、资本净流入增加：供给右移，$r\downarrow$，投资增加。
+  \item 财富幻觉或消费偏好增强、政府赤字增加（若视为国民储蓄减少）：供给左移。
+\end{itemize}
+
+\subsubsection{需求移动}
+\begin{itemize}
+  \item 技术进步、商业信心、投资税收优惠：投资需求右移，$r\uparrow$，均衡资金量增加。
+  \item 净资本流出增加：本国资金用于购买外国资产，需求右移，可能挤出国内投资。
+  \item 若模型把政府借款单列为需求，赤字使需求右移；若用国民储蓄口径，则表现为供给左移。两种画法结论一致，但不能混用。
+\end{itemize}
+
+\subsection{名义利率、真实利率与通胀预期}
+\[
+1+i=(1+r)(1+\pi^e),
+\qquad i\approx r+\pi^e.
+\]
+预期通胀上升会使名义利率上升；可贷资金图若纵轴是真实利率，纯粹的一对一 Fisher 调整不应误画成真实利率变化。未预期通胀会重新分配债权人与债务人的财富。
+
+\newpage
+\section{第六章：金融学的基本工具}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 期望收益、方差、标准差、风险厌恶与风险溢价。
+  \item 保险中的风险分摊、道德风险和逆向选择。
+  \item 股票定价、肥尾风险、系统性风险与企业特有风险。
+  \item 协方差、相关系数、资产组合与分散化。
+  \item 有效市场假说与资产泡沫。
+\end{itemize}
+
+\subsection{收益和风险的数学表达}
+离散随机变量：
+\[
+\mu=E(X)=\sum_i p_iX_i,
+\qquad
+\sigma^2=\sum_i p_i(X_i-\mu)^2.
+\]
+标准差 $\sigma$ 与收益单位相同，比方差更易解释。期望收益高不代表一定更优，必须结合风险和偏好。
+
+\subsection{风险厌恶、确定性等价与风险溢价}
+风险厌恶者效用函数凹：
+\[
+u(EW)>E[u(W)].
+\]
+\begin{itemize}
+  \item \term{确定性等价}是与风险赌局带来相同效用的确定财富。
+  \item \term{风险溢价}=期望财富 $-$ 确定性等价。
+  \item CRRA 效用：
+  \[
+  u(c)=\frac{c^{1-\sigma}}{1-\sigma},
+  \quad R(c)=-\frac{cu''(c)}{u'(c)}=\sigma.
+  \]
+  $\sigma$ 越大，相对风险厌恶程度越高。
+\end{itemize}
+
+\subsection{保险：分散风险不等于消灭风险}
+\begin{itemize}
+  \item 大量独立风险可通过大数定律分摊；高度相关的系统性风险难以由私人保险完全分散。
+  \item \term{道德风险}发生在签约后：有保险后更不谨慎、医疗使用增加。
+  \item \term{逆向选择}发生在签约前：高风险者更愿购买保险，推高平均成本。
+  \item 免赔额、共同支付、风险分类、强制参保和信息披露分别在风险保障与激励之间权衡。
+\end{itemize}
+
+\subsection{股票的一种定价方法}
+若下一期股利为 $D_1$，此后按 $g$ 永久增长，贴现率为 $r>g$：
+\[
+P_0=\frac{D_1}{r-g}.
+\]
+\begin{warningbox}[条件与敏感性]
+该模型要求长期稳定增长且 $r>g$。当 $r$ 与 $g$ 很接近时，价格对参数极其敏感；不能把短期高增长率永久外推。
+\end{warningbox}
+
+\subsection{正态分布与肥尾}
+金融收益常比正态分布具有更厚尾部，极端事件概率更高。仅用均值和方差可能低估危机风险；历史波动率也可能在制度变化后失效。压力测试和情景分析是对方差指标的补充。
+
+\subsection{系统性风险、特有风险与 Beta}
+\begin{itemize}
+  \item 企业特有风险可由多样化显著降低；系统性风险来自全市场冲击，无法通过持有更多同类资产消除。
+  \item Beta：
+  \[
+  \beta_i=\frac{\operatorname{Cov}(R_i,R_m)}{\operatorname{Var}(R_m)}.
+  \]
+  $\beta>1$ 表示资产对市场波动更敏感；Beta 不是总风险，也不等于违约概率。
+\end{itemize}
+
+\subsection{协方差、相关系数与组合方差}
+\[
+\rho_{ij}=\frac{\operatorname{Cov}(R_i,R_j)}{\sigma_i\sigma_j}.
+\]
+两资产组合：
+\[
+\sigma_p^2=w^2\sigma_1^2+(1-w)^2\sigma_2^2+2w(1-w)\rho_{12}\sigma_1\sigma_2.
+\]
+\begin{itemize}
+  \item 分散化关键不只是资产数量，而是相关性。
+  \item 若风险独立且方差相同，等权组合特有风险方差约为 $\sigma^2/n$。
+  \item 危机时期相关性常上升，平时估计的分散化效果可能被高估。
+\end{itemize}
+
+\subsection{有效市场假说与泡沫}
+\begin{itemize}
+  \item 弱式：价格反映历史价格信息；半强式：反映所有公开信息；强式：反映全部公开和私人信息。
+  \item “价格反映信息”不等于价格永不波动，也不等于每次都等于真实基本价值。
+  \item 泡沫可由乐观预期、自我实现、羊群行为、杠杆、代理问题和套利约束推动。
+  \item 即使投资者知道价格偏高，也可能因做空困难或泡沫破裂时点不确定而无法纠正。
+\end{itemize}
+
+\newpage
+\section{第七章：失业}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 就业、失业、非劳动力三分法及统计口径。
+  \item 存量失业率、劳动参与率、就业人口比和状态转移率。
+  \item 自愿/非自愿、摩擦性/结构性/周期性、自然失业率。
+  \item 丧志工人、边缘劳动力、准待业工人和不充分就业。
+  \item 奥肯定律、单边搜寻、双边匹配和长期就业政策。
+\end{itemize}
+
+\subsection{劳动状态分类必须按顺序判断}
+\begin{methodbox}[分类顺序]
+\begin{enumerate}
+  \item 调查期内是否从事有报酬工作，或虽未工作但有工作岗位？若是，为就业者。
+  \item 若无工作，是否可工作且在规定近期内主动寻找工作？若是，为失业者。
+  \item 其余为非劳动力，包括学生、退休者、全职家务者以及未主动求职者。
+\end{enumerate}
+“想工作”本身不足以成为失业者；关键是可工作和主动求职条件。
+\end{methodbox}
+
+\subsection{四个核心比率}
+\[
+LF=E+U,
+\]
+\[
+u=\frac{U}{E+U}\times100\%,
+\qquad
+LFPR=\frac{E+U}{\text{成年人口}}\times100\%,
+\]
+\[
+EPOP=\frac{E}{\text{成年人口}}\times100\%.
+\]
+\begin{warningbox}[分母陷阱]
+失业率分母是劳动力人口，不是成年人口；劳动参与率分子是就业者加失业者，不只是就业者。一个失业者放弃求职转为非劳动力，会使失业人数和劳动力同时减少，官方失业率可能下降，但劳动参与率一定下降。
+\end{warningbox}
+
+\subsection{其他类型劳动者}
+\begin{itemize}
+  \item \term{丧志工人：}想工作、可工作，但认为找不到合适工作而停止主动寻找；通常不计入劳动力。
+  \item \term{边缘劳动力/准待业工人：}与劳动力市场保持一定联系但未满足近期主动求职标准；不同统计制度定义窗口可能不同。
+  \item \term{经济原因兼职者：}希望全职但只能兼职，仍计为就业者，却反映不充分就业。
+  \item 广义劳动闲置指标会把部分边缘劳动力和非自愿兼职者纳入，通常高于标准失业率。
+\end{itemize}
+
+\subsection{存量与流量}
+存量失业率描述某时点状态，转移率描述一段时期内状态变化：
+\[
+XY\text{率}=\frac{\text{从状态 }X\text{ 转入 }Y\text{ 的人数}}{\text{期初状态 }X\text{ 人数}}.
+\]
+同一失业率可能来自“很多人短暂失业”或“少数人长期失业”，政策含义不同。
+
+\subsection{失业类型的边界}
+\begin{longtable}{p{0.20\textwidth}p{0.40\textwidth}p{0.32\textwidth}}
+\toprule
+类型 & 原因 & 典型政策\\
+\midrule
+摩擦性 & 搜寻、信息和匹配需要时间 & 信息平台、职业介绍、提高匹配效率\\
+结构性 & 技能、地区、行业或工资结构不匹配 & 培训、迁移支持、教育、劳动力市场改革\\
+周期性 & 实际产出偏离潜在产出、总需求不足 & 扩张性财政或货币政策\\
+自然失业 & 摩擦性与结构性失业之和 & 不等于零，也不等于“理想失业率”\\
+\bottomrule
+\end{longtable}
+
+\begin{detailbox}[周期性失业率可以为负]
+\[
+u^{cyc}=u-u^*.
+\]
+经济衰退时 $u>u^*$，周期性失业为正；经济过热、职位空缺多时 $u<u^*$，周期性失业为负。把周期性失业率理解为“实际失业中某一批人的固定分类”会出错，它是实际失业率相对自然率的偏离。
+\end{detailbox}
+
+\subsection{自愿与非自愿失业}
+自愿失业强调劳动者在现有工资和条件下选择不接受工作；非自愿失业强调愿意按现行条件工作却找不到岗位。摩擦性失业中可能含自愿搜寻，结构性或周期性失业也可能包含复杂选择，因此“自愿/非自愿”与“摩擦/结构/周期”不是一一对应的两套分类。
+
+\subsection{奥肯定律}
+产出缺口形式：
+\[
+\frac{Y-Y^*}{Y^*}=-c(u-u^*),\qquad c>0.
+\]
+增长率形式：
+\[
+\frac{\Delta Y}{Y}=k-c\Delta u.
+\]
+这是经验关系，不是会计恒等式；系数随国家、时期、劳动参与和工时调整而变。
+
+\subsection{单边搜寻模型}
+设就业者失业的分离率为 $s$，失业者找到工作的概率为 $f$：
+\[
+s(1-u)=fu,
+\qquad
+u=\frac{s}{s+f}.
+\]
+若求职者收到工作机会的概率为 $\lambda$，保留工资为 $R$：
+\[
+f=\lambda[1-\Pr(w\le R)].
+\]
+提高保留工资会延长失业时间，但也可能改善匹配质量和未来工资；失业保险既提供消费平滑，也可能降低搜寻强度，政策要权衡。
+
+\subsection{双边搜寻与匹配}
+\[
+M=M(U,V),
+\qquad \theta=\frac{V}{U}.
+\]
+求职者找到工作的概率与市场紧张度正相关，企业填补职位的概率与紧张度负相关。职位空缺率和失业率的负相关关系可用贝弗里奇曲线表示；曲线外移常意味着匹配效率下降或结构错配加剧。
+
+\subsection{长期就业政策}
+\begin{itemize}
+  \item 降低摩擦性失业：信息匹配、就业服务、合理设计失业保险、降低招聘和流动成本。
+  \item 降低结构性失业：职业培训、终身教育、住房与户籍等迁移障碍改革、帮助产业转型。
+  \item 某些结构性失业是技术进步和资源重配的短期代价；目标不是冻结岗位，而是降低转型成本。
+  \item 周期性失业主要靠总需求管理，不能只靠培训解决。
+\end{itemize}
+
+\newpage
+\section{第八章：货币制度}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 货币的定义、商品货币与法币、四项职能及“什么不是货币”。
+  \item M0、M1、M2、M3 的流动性分层和中美统计口径差异。
+  \item 中央银行的目标、历史、组织架构、政策委员会和最后贷款人职能。
+  \item 金本位制的供给规则、价格调整与局限。
+  \item 公开市场操作、准备金率、准备金利率、贴现与银行间利率。
+  \item T 账户、基础货币、货币供给、存款创造和各种漏损。
+\end{itemize}
+
+\subsection{什么是货币}
+讲义从两个必要条件理解货币：
+\begin{enumerate}
+  \item 能作为结清债务的工具和凭证；
+  \item 具有较广泛的社会接受性。
+\end{enumerate}
+\term{商品货币}本身具有非货币用途和内在价值；\term{法币}主要依靠法律地位、国家信用和社会接受流通。可兑换为商品的纸币处于二者之间。
+
+\subsection{货币的职能及边界}
+\begin{longtable}{p{0.20\textwidth}p{0.38\textwidth}p{0.34\textwidth}}
+\toprule
+职能 & 含义 & 易混点\\
+\midrule
+交易媒介 & 在交易中被普遍接受 & 信用卡是支付指令和借款工具，不是货币本身\\
+最终支付手段 & 用于最终清偿债务 & 支票是转移存款的工具，支票纸本身不是货币\\
+计价单位/价格尺度 & 统一表示价格和债务 & 高波动资产难以稳定履行该职能\\
+价值贮藏 & 把购买力转移到未来 & 货币并非唯一价值贮藏工具，也未必收益最高\\
+\bottomrule
+\end{longtable}
+
+\begin{warningbox}[“财富”“信用”与“货币”]
+股票、长期债券、住房是财富，但通常不直接计入货币；信用卡额度和花呗额度是借款能力，不是现有货币余额；把现金存入活期账户只是货币形态改变，不必然改变货币供给总量。
+\end{warningbox}
+
+\subsection{货币分层：本课程口径}
+\begin{longtable}{p{0.13\textwidth}p{0.52\textwidth}p{0.27\textwidth}}
+\toprule
+层次 & 中国课程口径中的主要构成 & 经济含义\\
+\midrule
+M0 & 银行体系外流通现金，含纳入统计的数字人民币 & 最强流动性\\
+M1 & M0 加活期性支付存款；课程讲义说明中国统计口径近年扩充个人活期存款及支付机构备付金 & 现实购买力、交易性资金\\
+M2 & M1 加定期存款等准货币，并包含更广的非银行金融机构相关项目 & 现实与潜在购买力\\
+M3 & M2 加大额定期存款及其他短期可转换资产 & 更广义流动性；美国已停止官方发布\\
+\bottomrule
+\end{longtable}
+
+\begin{detailbox}[中美 M2 不能机械对照]
+美国 M1 自 2020 年口径调整后包含储蓄存款；中国 M2 的统计范围相对更广，包含部分美国旧 M3 才覆盖的项目。选择题若比较中美货币层次，应按课程给定口径，而不是凭“流动性大概差不多”猜测。长期债券通常不属于 M2；非零售货币基金等项目的归属具有明显制度差异。
+\end{detailbox}
+
+\subsection{中央银行的基本目标与职能}
+\begin{itemize}
+  \item \term{宏观经济稳定：}稳定物价、就业和总需求，防止经济过热或过冷。
+  \item \term{金融稳定：}监管、宏观审慎、危机流动性支持和最后贷款人。
+  \item 发行基础货币、管理支付清算、持有外汇储备、代理国库等。
+  \item 2008 年后，央行更加重视资产负债表政策、前瞻指引、系统性金融风险和宏观审慎管理。
+\end{itemize}
+
+\subsection{央行架构中的讲义细节}
+\begin{detailbox}[组织结构要分层记忆]
+\begin{itemize}
+  \item 美联储理事会 7 人：1 位主席、1 位副主席、5 位理事/委员。理事由总统提名、参议院批准，法定任期较长以增强独立性。
+  \item 中国人民银行课程讲义所列领导班子为“1+1+5”：1 位行长、1 位纪检监察组组长、5 位副行长。人数相同不代表制度角色完全对应；仅从配置数量比较，美联储 5 位普通理事更接近 5 位副行长。
+  \item 美联储有 12 家地区联邦储备银行；纽约联储因执行公开市场操作和全球金融中心地位最特殊。
+  \item FOMC 共 12 个投票席位：7 名理事、纽约联储行长、其余地区联储行长轮值 4 席；通常一年开会 8 次。
+  \item 中国货币政策委员会是咨询议事机构，成员来源更广，按季度召开例会。不要把“央行领导班子”和“货币政策委员会”混为一组人数。
+\end{itemize}
+\end{detailbox}
+
+\subsection{金本位制}
+\begin{itemize}
+  \item 货币单位与一定黄金重量挂钩，银行券可按固定价格兑换黄金；货币供给受黄金储备约束。
+  \item 黄金流入使货币供给和物价上升，黄金流出使货币供给和物价下降，形成一定的国际收支自动调节。
+  \item 问题包括：黄金供给增长与经济货币需求不匹配；通缩压力；危机时央行难以充当最后贷款人；国内稳定目标受外部黄金流动约束。
+  \item 现代积极货币政策需要可调节的法币体系，与严格金本位存在根本张力。
+\end{itemize}
+
+\subsection{商业银行资产负债表与准备金}
+\begin{center}
+\begin{tabularx}{0.88\linewidth}{|Y|Y|}
+\hline
+\multicolumn{2}{|c|}{商业银行 T 账户}\\
+\hline
+资产 & 负债与权益\\
+\hline
+准备金、贷款、证券等 & 存款、借款、资本金等\\
+\hline
+\end{tabularx}
+\end{center}
+
+\begin{itemize}
+  \item \term{法定准备金}=法定准备金率 $\times$ 可计提准备金存款。
+  \item \term{超额准备金}=实际准备金 $-$ 法定准备金。
+  \item 存款是银行对客户的负债；准备金和贷款是银行资产。
+  \item 单家银行放贷后资金可能流向其他银行；整个银行体系的准备金总量只有央行操作、现金流入流出等才改变。
+\end{itemize}
+
+\subsection{基础货币、货币供给与乘数}
+\[
+B=C+R,
+\qquad
+M=C+D,
+\]
+其中 $C$ 为公众持有现金，$R$ 为银行准备金，$D$ 为存款。
+
+\subsubsection{简单存款乘数}
+若无现金漏损、无超额准备金、所有新增贷款重新存入银行：
+\[
+m_D=\frac{1}{rrr},
+\qquad
+\Delta D=\frac{1}{rrr}\Delta R.
+\]
+这里得到的是\term{总存款增加}；总贷款增加为 $\Delta D-\Delta R$。
+
+\subsubsection{一般货币乘数}
+令 $c=C/D$，$r=R/D$：
+\[
+MM=\frac{M}{B}=\frac{C+D}{C+R}=\frac{c+1}{c+r}.
+\]
+若 $r=rrr+e$，$e$ 为超额准备金率：现金持有率或超额准备金率上升，乘数下降。讲义强调
+\[
+MM<\frac{1}{r}<\frac{1}{rrr}
+\]
+通常成立，因为现实有现金与超额准备金漏损。
+
+\begin{warningbox}[“存现金”与“银行创造货币”分开看]
+公众把枕头下现金存入银行：$C\downarrow$、$D\uparrow$，初始时 $M=C+D$ 不变；$C\downarrow$、$R\uparrow$，$B=C+R$ 也不变。银行随后发放贷款才创造额外存款货币，但不创造基础货币。
+\end{warningbox}
+
+\subsection{公开市场操作的连续逻辑}
+\begin{itemize}
+  \item 央行从公众购买债券并把款项存入银行：央行资产证券增加、负债准备金增加；商业银行准备金和存款增加。
+  \item 央行从银行购买债券：银行证券减少、准备金增加，银行负债端初始不变。
+  \item 央行出售债券：方向相反，准备金减少；若银行出现准备金不足，需收回贷款、出售资产、借入准备金或吸收存款。
+  \item 公开市场操作首先改变基础货币，最终货币供给变化还取决于银行与公众行为。
+\end{itemize}
+
+\subsection{其他货币政策工具}
+\begin{itemize}
+  \item \term{法定准备金率：}提高会降低可贷款空间和乘数，但调整频繁可能扰动银行经营。
+  \item \term{准备金利率：}提高银行持有准备金的机会收益，倾向抑制贷款扩张；现代央行常用它建立利率走廊或地板。
+  \item \term{贴现率/常备借贷便利：}影响银行向央行借款成本；危机时发挥最后贷款人作用。
+  \item \term{银行间政策利率：}央行通过准备金供求和政策工具引导短期市场利率，再传导至贷款与资产价格。
+\end{itemize}
+
+\newpage
+\section{第九章：货币增长与通货膨胀}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 交易、谨慎和投机性货币需求；名义余额与真实余额。
+  \item 鲍莫尔--托宾模型、货币需求函数和短长期利率模型。
+  \item 古典二分法、货币中性、费雪交易方程和剑桥现金余额公式。
+  \item 通胀税、铸币税及其分解。
+  \item 预期与非预期通胀成本、反通胀成本和通缩成本。
+\end{itemize}
+
+\subsection{持有货币的收益与成本}
+货币流动性高、名义收益通常低。持币的主要机会成本是放弃有息资产收益。利率上升时货币需求下降；名义收入或价格水平上升时，为完成相同实际交易所需名义余额增加。
+
+\subsection{短期货币需求的三种动机}
+\begin{itemize}
+  \item \term{交易需求：}收入与支出时点不一致，需要支付余额。
+  \item \term{谨慎需求：}应对意外支出和流动性风险。
+  \item \term{投机需求：}在货币和债券间配置；利率很低、预期未来利率上升时，人们可能更愿持币以避免债券价格损失。
+\end{itemize}
+
+\subsection{鲍莫尔--托宾交易需求模型}
+设一段时期名义支出为 $SY$，每次将有息资产转换为现金的固定成本为 $C$，转换次数为 $N$，利率为 $i$：
+\[
+TC=NC+i\frac{SY}{2N}.
+\]
+最优次数与平均货币余额：
+\[
+N^*=\sqrt{\frac{iSY}{2C}},
+\qquad
+M^*=\sqrt{\frac{CSY}{2i}}.
+\]
+\begin{itemize}
+  \item 收入/支出上升，货币需求上升，但低于同比例增长，因为提款次数也增加。
+  \item 利率上升，提款更频繁，平均持币下降。
+  \item 支付技术降低转换成本，会降低交易性货币需求；电子支付并未使交易成本完全消失。
+\end{itemize}
+
+\subsection{货币需求函数}
+名义形式：
+\[
+M^d=PY\cdot L(i).
+\]
+真实形式：
+\[
+\frac{M^d}{P}=L(Y,r),
+\qquad L_Y>0,\quad L_r<0.
+\]
+\begin{warningbox}[曲线移动与沿曲线移动]
+在纵轴利率、横轴真实货币余额的图中，收入或支付技术变化使货币需求曲线移动；利率变化是在同一需求曲线上移动。价格水平变化若讨论名义货币需求会改变规模，若讨论真实余额则需谨慎区分。
+\end{warningbox}
+
+\subsection{短期货币市场与长期可贷资金市场}
+\begin{itemize}
+  \item 短期价格黏性时，央行改变名义货币供给会改变真实货币余额，均衡主要通过短期利率调整。
+  \item 长期价格充分调整后，真实货币余额回到货币需求决定的水平，名义货币增加主要表现为价格水平同比例上升。
+  \item 短期政策利率与长期真实资本回报不能简单等同；长期利率还受储蓄、投资、风险和预期影响。
+\end{itemize}
+
+\subsection{古典二分法与货币中性}
+\term{古典二分法}把名义变量与真实变量分开分析；\term{货币中性}指长期货币供给水平变化不影响真实产出、真实工资和真实利率。货币超中性更强，指货币增长率变化也不影响真实变量；现实中税制、现金余额和通胀成本使其未必严格成立。
+
+\subsection{数量论的两种表达}
+\subsubsection{费雪交易方程}
+\[
+MV=PT.
+\]
+若用真实 GDP 近似交易量：
+\[
+MV=PY.
+\]
+\subsubsection{剑桥现金余额公式}
+\[
+M=kPY,
+\qquad k=\frac1V.
+\]
+$k$ 是公众希望以货币形式持有的名义收入比例。两式是同一恒等关系的不同解释：一个强调流通速度，一个强调货币需求。
+
+\subsection{货币增长与通胀}
+对数量方程取增长率：
+\[
+g_M+g_V=\pi+g_Y,
+\]
+所以
+\[
+\pi=g_M+g_V-g_Y.
+\]
+若长期 $g_V\approx0$、产出由真实因素决定，则持续高于真实增长的货币增长导致通胀。短期内速度、产出和金融体系会变化，因此不能把任何一次货币增长机械等同于同幅通胀。
+
+\subsection{通胀税与铸币税}
+真实通胀税：
+\[
+\frac{M_{t-1}}{P_{t-1}}-\frac{M_{t-1}}{P_t}.
+\]
+真实铸币税：
+\[
+\frac{\Delta M_t}{P_t}.
+\]
+分解：
+\[
+\frac{M_t-M_{t-1}}{P_t}
+=\left(\frac{M_t}{P_t}-\frac{M_{t-1}}{P_{t-1}}\right)
++\left(\frac{M_{t-1}}{P_{t-1}}-\frac{M_{t-1}}{P_t}\right).
+\]
+铸币税是政府通过发行基础货币获得的真实资源；通胀税是既有货币余额购买力损失。两者相关但不相同。
+
+\subsection{通货膨胀的成本}
+\begin{longtable}{p{0.21\textwidth}p{0.66\textwidth}}
+\toprule
+成本 & 机制\\
+\midrule
+皮鞋成本 & 为减少现金余额而更频繁管理资金\\
+菜单成本 & 调价、重新印制、沟通与系统修改成本\\
+价格尺度成本 & 货币计价单位不稳定，跨期比较和合同更困难\\
+相对价格扭曲 & 不同企业调价时点不同，价格信号含噪声\\
+税收扭曲 & 名义资本利得和利息可能被征税，实际税负变化\\
+资源错配 & 企业家庭花资源预测和规避通胀，而非生产\\
+随机再分配 & 未预期通胀损害固定名义债权人，利于债务人\\
+\bottomrule
+\end{longtable}
+
+\begin{detailbox}[预期通胀并非“没有成本”]
+若完全预期且合同可指数化，债权债务再分配可减轻，但皮鞋成本、菜单成本、税制扭曲和价格信号问题仍存在。高而波动的通胀还会提高不确定性和风险溢价。
+\end{detailbox}
+
+\subsection{反通胀与通缩}
+\begin{itemize}
+  \item 降低通胀通常需暂时压低总需求，产生失业和产出损失；成本取决于预期调整速度与政策可信度。
+  \item \term{债务紧缩：}通缩提高债务实际价值，债务人削减支出，抵押品价值下降，金融风险加剧。
+  \item \term{预期紧缩：}预期未来价格更低会推迟消费和投资，进一步压低需求。
+  \item 名义利率接近零时，通缩使真实利率 $r\approx i-\pi^e$ 上升，传统货币政策更受限制。
+  \item 弗里德曼规则的理想逻辑是让持币机会成本接近零，使名义利率接近零；现实还需考虑财政、金融稳定和零下限问题。
+\end{itemize}
+
+\newpage
+\section{第十章：开放宏观经济学导论}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 世界经济开放度、服务贸易和国际资本流动的长期变化。
+  \item 国际收支表的经常账户、资本账户、金融账户、储备资产与净误差遗漏。
+  \item 净出口、净资本流出和开放经济储蓄恒等式。
+  \item 两种名义汇率标价、升值贬值、真实汇率和国际竞争力。
+  \item 外汇市场、购买力平价、利率平价和汇率制度。
+\end{itemize}
+
+\subsection{开放度与全球化结构}
+\[
+\text{开放度}=\frac{X+M}{GDP}\times100\%.
+\]
+该比率受经济规模、地理位置、产业结构和转口贸易影响；大国通常因国内市场大而比率较低，不能直接理解为“更不开放”。讲义强调二十世纪以来：全球经济从动荡到稳定又出现新动荡、总体开放度上升、产业开放不平衡、服务贸易占比上升、资本流动规模与方向变化。
+
+\subsection{国际收支的复式记录逻辑}
+\begin{itemize}
+  \item 贷方通常表示外汇流入或对外负债增加；借方表示外汇流出或对外资产增加。
+  \item 中国课程表格惯例把贷方/负债记正，借方/资产记负，差额为两者相加。
+  \item 每笔国际交易理论上有两个方向相反的记录；统计误差、时滞和非法流动使实际表中需要净误差与遗漏项。
+\end{itemize}
+
+\subsection{经常账户}
+\begin{longtable}{p{0.23\textwidth}p{0.65\textwidth}}
+\toprule
+项目 & 内容\\
+\midrule
+货物和服务 & 出口贷方、进口借方；差额是狭义净出口\\
+初次收入 & 跨境劳动报酬、投资收益等要素收入\\
+二次收入 & 无对价经常转移，如侨汇、经常性援助\\
+\bottomrule
+\end{longtable}
+
+\begin{warningbox}[侨汇分类]
+本国居民临时在国外工作获得劳动报酬，属于初次收入；已经成为外国居民后无偿汇给本国家庭，通常属于二次收入。关键不是“钱从国外寄回”，而是是否有要素服务对价以及居民身份。
+\end{warningbox}
+
+\subsection{资本账户与金融账户}
+\begin{itemize}
+  \item \term{资本账户}记录资本转移和非生产、非金融资产交易，如债务减免、移民资本转移、土地权利和知识产权等特定资产。
+  \item \term{金融账户}记录直接投资、证券投资、金融衍生品、其他投资和储备资产的跨境变化。
+  \item FDI 通常以获得持久管理影响为特征，课程以 10\% 股权作为常见统计界限；包括绿地投资和并购。
+  \item 对外购买外国资产是资本流出、金融资产增加；外国购买本国资产是资本流入、对外负债增加。
+  \item 储备资产由央行持有，包括外汇储备、货币黄金、SDR 和 IMF 储备头寸。
+\end{itemize}
+
+\subsection{国际收支恒等式}
+按课程的净资本流出口径：
+\[
+NX=NCO.
+\]
+更广义地，把经常账户、资本账户和误差项纳入时，实际统计表中各项应加总平衡。开放经济国民收入恒等式给出：
+\[
+S=I+NCO.
+\]
+\begin{detailbox}[实物面与金融面是同一交易的两面]
+若一国净出口为正，外国用本国未立即兑换为商品的支付凭证融资；本国由此取得外国资产或减少对外负债，即净资本流出。贸易顺差不是“钱白白流出”，资本流出也不是必然坏事。
+\end{detailbox}
+
+\subsection{净误差与遗漏}
+净误差与遗漏来自统计方法不一致、报告时滞、估值差异、漏报和非法资本流动。其绝对值越大，表明已记录的经常与金融交易越难闭合；但不能简单把全部误差解释为资本外逃。
+
+\subsection{名义汇率的两种标价}
+站在本国视角：
+\begin{itemize}
+  \item \term{第一种汇率：}$E=$ 每 1 单位外币兑换多少本币（本币/外币）。$E\uparrow$ 表示本币贬值、外币升值。
+  \item \term{第二种汇率：}$S=$ 每 1 单位本币兑换多少外币（外币/本币）。$S\uparrow$ 表示本币升值。
+  \item 两者互为倒数：$S=1/E$。做题必须先写单位，不能只看数字上升下降。
+\end{itemize}
+
+\subsection{真实汇率}
+课程采用第一种名义汇率时：
+\[
+RER=E\frac{P_{foreign}}{P_{domestic}}.
+\]
+它表示一篮子外国商品以本币计价后相对于本国商品的价格。$RER\uparrow$ 通常表示外国商品相对变贵、本国产品相对便宜，本国净出口倾向增加。
+
+增长率近似：
+\[
+\frac{\Delta RER}{RER}\approx
+\frac{\Delta E}{E}+\pi_{foreign}-\pi_{domestic}.
+\]
+\begin{warningbox}[名义贬值不必然真实贬值]
+若本国通胀远高于外国，即使名义汇率 $E$ 上升，本国产品价格也可能上升得更快，真实汇率未必提高。国际竞争力看真实汇率，而不是只看名义汇率。
+\end{warningbox}
+
+\subsection{外汇市场的供求}
+在第一种标价法、纵轴为 $E$（本币/外币）时：
+\begin{itemize}
+  \item 本国进口、对外投资和资本外流需要外币，形成外汇需求。
+  \item 出口收入、外国对本国投资和资本流入提供外币，形成外汇供给。
+  \item 外币需求增加使 $E\uparrow$，即本币贬值；外币供给增加使 $E\downarrow$，即本币升值。
+\end{itemize}
+
+\subsection{开放经济的三市场传导}
+在可贷资金--净资本流出--外汇市场框架中：
+\begin{enumerate}
+  \item 真实利率由国民储蓄供给与国内投资加净资本流出需求决定。
+  \item 本国真实利率上升会降低净资本流出（本国资产更有吸引力）。
+  \item 净资本流出决定本国货币在外汇市场上的供给；再与净出口需求共同决定真实汇率。
+\end{enumerate}
+分析政策时固定顺序：先可贷资金市场，再 NCO 曲线，再外汇市场，避免直接跳结论。
+
+\subsection{购买力平价 PPP}
+绝对 PPP：
+\[
+P=EP^*,
+\qquad E=\frac{P}{P^*}.
+\]
+相对 PPP 关注通胀差与名义汇率变化：
+\[
+\frac{\Delta E}{E}\approx\pi-\pi^*.
+\]
+\begin{itemize}
+  \item 理论基础是一价定律和套利。
+  \item 长期解释力强于短期；运输成本、关税、非贸易品、品质差异、价格黏性和市场分割造成偏离。
+  \item 用单一商品（如巨无霸）预测汇率只能是粗略近似，因为商品包含本地租金和工资等不可贸易成本。
+\end{itemize}
+
+\subsection{利率平价 IRP}
+有抛补利率平价：
+\[
+\frac{1+r_t}{S_t}F_{t,t+1}=1+r_t^*,
+\]
+即
+\[
+\frac{F_{t,t+1}}{S_t}=\frac{1+r_t^*}{1+r_t}.
+\]
+对数近似下，远期升贴水补偿利差。无抛补利率平价用预期未来即期汇率替代远期汇率，但会受到风险溢价和预期误差影响。
+
+\subsection{汇率制度}
+\begin{longtable}{p{0.19\textwidth}p{0.39\textwidth}p{0.34\textwidth}}
+\toprule
+制度 & 优点 & 代价\\
+\midrule
+浮动汇率 & 货币政策自主、自动吸收外部冲击 & 汇率波动和不确定性\\
+固定汇率 & 降低交易成本、提供名义锚 & 需储备干预，牺牲独立货币政策\\
+中间制度 & 管理浮动、区间、爬行盯住等兼顾目标 & 容易面临投机攻击和政策透明度问题\\
+\bottomrule
+\end{longtable}
+“不可能三角”说明资本自由流动、固定汇率和独立货币政策三者最多同时实现两个。
+
+\newpage
+\section{第十一章：总需求与总供给}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 收入--支出模型、计划支出、非计划存货和支出乘数。
+  \item 消费、投资、政府、税收、转移支付、进出口进入均衡的方式。
+  \item 长期与短期、潜在产出、经济周期和产出缺口。
+  \item AD 的斜率和移动，SRAS 的三类微观基础，LRAS 的决定。
+  \item 需求冲击、供给冲击和短期偏离长期均衡的调整。
+\end{itemize}
+
+\subsection{收入--支出模型的核心}
+\[
+AE_{planned}=C+I_{planned}+G+NX,
+\qquad Y=AE_{planned}.
+\]
+实际投资包括计划投资和非计划存货投资：
+\[
+I=I_{planned}+I_{unplanned}.
+\]
+若 $Y>AE_{planned}$，产品卖不完，非计划存货增加，企业随后减产；若 $Y<AE_{planned}$，存货意外下降，企业增产。
+
+\subsection{最简单的凯恩斯交叉}
+若
+\[
+C=A+cY,
+\qquad AE=A+I+G+NX+cY,
+\]
+则
+\[
+Y^*=\frac{A+I+G+NX}{1-c},
+\qquad k=\frac1{1-c}.
+\]
+乘数来自“一人的支出是另一人的收入”的连锁反应；不是凭空创造资源，经济越接近充分就业，价格和利率反馈越强，实际产出乘数越小。
+
+\subsection{含税收、转移和进口的一般乘数}
+设
+\[
+C=A+c(Y-T+TR),
+\qquad T=T_0+tY,
+\]
+\[
+M=M_0+m(Y-T+TR),
+\qquad I=I_0,
+\]
+则计划支出的收入斜率小于 $c$，比例税和边际进口倾向都是漏出。典型分母为
+\[
+1-c(1-t)+m(1-t),
+\]
+具体形式取决于进口函数是否以税后收入或总收入为自变量。
+
+\begin{detailbox}[先看自主项还是斜率]
+固定金额的 $G$、$T_0$、$TR$、$I_0$ 改变计划支出截距；比例税率 $t$、MPC、MPI 改变斜率和乘数。题目若问“均衡变化量”，必须判断政策是否同时改变乘数。
+\end{detailbox}
+
+\subsection{政府支出、税收与转移乘数}
+在最简单模型中：
+\[
+\frac{\Delta Y}{\Delta G}=\frac1{1-c},
+\quad
+\frac{\Delta Y}{\Delta T}=-\frac{c}{1-c},
+\quad
+\frac{\Delta Y}{\Delta TR}=\frac{c}{1-c}.
+\]
+政府购买第一轮直接进入支出，税收和转移先改变可支配收入，再按 MPC 改变消费，因此绝对值通常较小。平衡预算乘数在最简单固定税模型中为 1，但加入进口、比例税和利率反馈后不再必然等于 1。
+
+\subsection{短期、长期与潜在产出}
+\begin{itemize}
+  \item 短期指至少部分工资、价格和预期未完全调整；长期指这些名义变量可调整，产出由劳动、资本、技术等真实因素决定。
+  \item 潜在产出 $Y^*$ 不是最大物理产能，而是正常利用率和自然失业率下可持续产出。
+  \item 产出缺口：
+  \[
+  \frac{Y-Y^*}{Y^*}\times100\%.
+  \]
+  正缺口表示过热，负缺口表示衰退。
+\end{itemize}
+
+\subsection{总需求曲线为何向右下倾斜}
+\begin{itemize}
+  \item \term{真实余额/利率效应：}$P\downarrow\Rightarrow M/P\uparrow\Rightarrow r\downarrow\Rightarrow I,C\uparrow$。
+  \item \term{汇率效应：}国内利率下降可能引起资本流出、本币贬值、净出口增加。
+  \item 财富效应在某些教材中也被使用，但本课程政策传导更强调货币需求和利率。
+  \item AD 曲线上移动由价格水平变化引起；消费信心、财政、货币供给、投资预期和国外需求变化使整条 AD 移动。
+\end{itemize}
+
+\subsection{从收入--支出模型推导 AD}
+若投资随利率下降、货币市场使价格水平上升推高利率，则每个给定 $P$ 对应一个不同均衡支出和产出，形成向下倾斜的 AD。代数题通常依次：
+\begin{enumerate}
+  \item 用货币市场求 $r=r(P,Y)$；
+  \item 代入投资函数 $I(r)$；
+  \item 再代入计划支出均衡，整理为 $Y=a-bP$ 或 $P=a-bY$。
+\end{enumerate}
+
+\subsection{总供给}
+\subsubsection{LRAS}
+\[
+Y^*=F(L^*,K,A,H,N,\ldots).
+\]
+资本、劳动供给、人力资本、自然资源、技术和制度改变潜在产出，使 LRAS 移动；价格水平本身不改变长期真实产出。
+
+\subsubsection{SRAS 向右上倾斜的三类解释}
+\begin{enumerate}
+  \item \term{工资黏性：}名义工资预先签订，价格高于预期使实际工资下降，企业扩大就业和产出。
+  \item \term{价格黏性：}部分企业未及时调价，其他商品价格上升时其相对价格下降，需求增加。
+  \item \term{误判模型：}生产者把总体价格变化误认为自身产品相对价格变化。
+\end{enumerate}
+统一表达：
+\[
+Y=Y^*+\alpha(P-P^e),\qquad \alpha>0.
+\]
+实际价格高于预期时，短期产出高于潜在水平。
+
+\subsection{SRAS 与 LRAS 的移动因素}
+\begin{longtable}{p{0.18\textwidth}p{0.38\textwidth}p{0.36\textwidth}}
+\toprule
+曲线 & 右移因素 & 左移因素\\
+\midrule
+SRAS & 投入品价格下降、预期价格下降、生产率暂时提高 & 工资/能源上涨、预期价格上升、灾害与供应链冲击\\
+LRAS & 资本、劳动、人力资本、技术、制度改善 & 资本毁损、劳动力减少、资源受损、制度恶化\\
+AD & 扩张财政货币、信心和外需上升 & 紧缩政策、信心下降、外需下降\\
+\bottomrule
+\end{longtable}
+
+\subsection{四类冲击与短长期调整}
+\begin{enumerate}
+  \item \term{负需求冲击：}AD 左移，短期 $Y\downarrow,P\downarrow$；失业上升。长期工资和预期价格下降，SRAS 右移，产出回到 $Y^*$。
+  \item \term{正需求冲击：}AD 右移，短期 $Y\uparrow,P\uparrow$；长期预期和工资上升，SRAS 左移，产出回归潜在，价格更高。
+  \item \term{负供给冲击：}SRAS 左移，$Y\downarrow,P\uparrow$，出现滞胀；自动恢复可能缓慢，政策面临两难。
+  \item \term{正供给冲击：}SRAS 右移，$Y\uparrow,P\downarrow$；若提高潜在生产能力，LRAS 也右移。
+\end{enumerate}
+
+\newpage
+\section{第十二章：货币政策和财政政策对总需求的影响}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 货币政策通过利率、预期、资产价格、信贷和汇率影响 AD。
+  \item 流动性陷阱、量化宽松、前瞻指引和金融泡沫政策争论。
+  \item 泰勒规则与通胀目标。
+  \item 财政政策、预算余额、结构性与周期性赤字、政府债务。
+  \item 支出/税收/转移乘数、挤出效应、李嘉图等价和自动稳定器。
+\end{itemize}
+
+\subsection{货币政策的基础传导链}
+\[
+M\uparrow\Rightarrow M/P\uparrow\Rightarrow r\downarrow
+\Rightarrow I,C,NX\uparrow\Rightarrow AD\uparrow.
+\]
+这只是主干。现实还包括：
+\begin{itemize}
+  \item 银行信贷渠道：准备金和融资条件影响贷款供给；
+  \item 资产价格与财富渠道：贴现率下降推高债券、股票和房地产价格；
+  \item 预期渠道：政策承诺改变未来利率和通胀预期；
+  \item 汇率渠道：降息引起资本流动和汇率变化；
+  \item 资产负债表渠道：抵押品价值变化影响借款能力。
+\end{itemize}
+
+\subsection{货币供给、价格水平和利率}
+在名义货币供给给定时，$P\uparrow$ 使真实货币余额 $M/P\downarrow$，货币市场均衡利率上升，投资和总需求下降，这也是 AD 向下倾斜的重要机制。央行增加货币供给则在每个价格水平下压低利率，使 AD 右移。
+
+\subsection{流动性陷阱与非常规政策}
+\begin{itemize}
+  \item 当短期名义利率接近有效下限，货币与短期债券近似替代，继续增加准备金未必明显压低短期利率。
+  \item \term{量化宽松 QE}是大规模购买较广泛的金融资产，特别是中长期国债、抵押贷款支持证券等，不等于只买短期国库券，也不等于简单“印钞撒钱”。
+  \item 长期资产购买通过期限溢价、资产组合再平衡和市场流动性压低长期利率。
+  \item 前瞻指引承诺未来维持低利率，影响预期的未来短期利率路径。
+  \item 提高预期通胀可降低真实利率 $r=i-\pi^e$，但需要可信度并承担通胀风险。
+\end{itemize}
+
+\subsection{央行是否应刺破泡沫}
+\begin{longtable}{p{0.22\textwidth}p{0.65\textwidth}}
+\toprule
+策略 & 主要理由与风险\\
+\midrule
+等待并事后清理 & 泡沫难识别，普遍加息会伤害实体经济；但泡沫破裂后可能已造成金融危机\\
+预防性干预 & 提前抑制杠杆和风险；但误判成本高\\
+渐进调整 & 避免突然冲击，同时观察数据；可能让泡沫继续扩大\\
+沟通与前瞻指引 & 改变风险预期，成本较低；效果依赖信誉\\
+宏观审慎工具 & 定向限制杠杆、首付、资本缓冲，较少牺牲总体就业\\
+\bottomrule
+\end{longtable}
+
+\subsection{泰勒规则}
+一般形式：
+\[
+i_t=\pi_t+r_t^*+\alpha_\pi(\pi_t-\pi_t^*)+\alpha_y(y_t-\bar y_t).
+\]
+\begin{itemize}
+  \item 通胀高于目标或产出高于潜在时，提高政策利率。
+  \item 若 $\alpha_\pi>0$，名义利率对通胀上升超过一比一，真实利率才会上升，称泰勒原则。
+  \item 规则是政策基准，不是机械法律；自然利率、产出缺口和数据实时值都存在估计误差。
+\end{itemize}
+
+\subsection{财政政策与 AD}
+$G$ 直接进入总需求；$T$ 和 $TR$ 通过可支配收入影响消费。改变财政变量通常需立法和预算程序，存在识别、决策和实施滞后。
+
+\subsection{预算盈余、赤字和债务}
+\[
+BS=T-G-TR.
+\]
+$BS>0$ 为预算盈余，$BS<0$ 为预算赤字。预算余额是\term{流量}，政府债务是历年赤字累积形成的\term{存量}。
+
+\subsubsection{结构性与周期性赤字}
+若 $T=tY$：
+\[
+\text{结构性赤字}=G^*+TR^*-tY^*,
+\]
+\[
+\text{周期性赤字}=(G-G^*)+(TR-TR^*)-t(Y-Y^*).
+\]
+实际赤字上升可能只是衰退导致税收减少和救济增加，不代表政府主动更扩张。判断政策立场应看周期调整后的结构性余额。
+
+\subsection{政府债务的风险与可持续性}
+\begin{itemize}
+  \item 利息支出挤占公共服务，风险溢价上升，财政空间下降。
+  \item 充分就业附近政府借款可能推高利率、挤出私人投资。
+  \item 债务货币化可能导致通胀；外币债务还面临汇率风险。
+  \item 债务负担涉及代际公平，但若用于高回报公共投资，未来世代也获得资产和更高产出。
+  \item 判断可持续性要比较利率与经济增长率、初级财政余额、债务币种、期限和税收能力，而非只看债务绝对额。
+  \item 隐性负债包括养老金、医疗承诺、灾害与环境修复、担保等未完全列入当期显性债务的未来义务。
+\end{itemize}
+
+\subsection{财政乘数}
+\[
+\Delta Y=\frac{1}{1-\MPC}\Delta G,
+\]
+\[
+\Delta Y=\frac{\MPC}{1-\MPC}\Delta TR,
+\qquad
+\Delta Y=-\frac{\MPC}{1-\MPC}\Delta T.
+\]
+有比例税时：
+\[
+\frac{\Delta Y}{\Delta G}=\frac{1}{1-\MPC(1-t)}.
+\]
+若有进口、利率上升、预期未来税收和供给约束，乘数进一步变化。
+
+\subsection{财政政策何时更有效}
+\begin{itemize}
+  \item 经济有大量闲置资源、货币政策受零下限约束、政策及时可信、进口漏出小，乘数较大。
+  \item 经济接近充分就业、央行反向加息、政府借款推高利率、支出执行缓慢，乘数较小。
+  \item 政府支出并非总会一比一挤出私人支出；在衰退中它可动用闲置资源并提高收入与储蓄。
+\end{itemize}
+
+\subsection{挤出效应与李嘉图等价}
+\begin{itemize}
+  \item \term{利率挤出：}赤字融资提高资金需求和利率，私人投资下降；充分就业时更明显。
+  \item \term{资源挤出：}政府购买占用已充分使用的劳动和资本。
+  \item \term{汇率挤出：}开放经济中利率上升吸引资本流入、本币升值、净出口下降。
+  \item \term{李嘉图等价：}家庭预期未来税收，当前减税被储蓄而非消费。严格成立需理性、无限或代际联结、信贷无约束、税收不扭曲等强条件，现实通常只部分抵消政策。
+\end{itemize}
+
+\subsection{自动稳定器}
+累进税、失业保险和收入相关转移无需临时立法：衰退时税收自动下降、转移增加，缓冲可支配收入；扩张时相反。自动稳定器减小乘数和波动，但也会使实际预算余额随周期变化。
+
+\newpage
+\section{第十三章：通货膨胀与失业之间的短期权衡}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 原始菲利普斯曲线从工资增长与失业的经验关系出发。
+  \item AD--AS 与通胀--失业组合之间的映射。
+  \item 长期菲利普斯曲线、预期扩展曲线和自然率假说。
+  \item 预期与供给冲击导致短期曲线移动。
+  \item 牺牲率、理性预期、政策可信度和反通胀历史。
+\end{itemize}
+
+\subsection{原始菲利普斯曲线}
+菲利普斯最初研究英国名义工资增长与失业的负相关；萨缪尔森和索洛将其转换为通胀率与失业率的短期政策关系。它最初是经验规律，不是永恒结构参数。
+
+\subsection{与 AD--AS 的对应}
+在给定 SRAS 和预期下，AD 右移使短期产出上升、失业下降、价格水平增长加快，形成高通胀低失业组合；AD 左移则相反。因此一条短期菲利普斯曲线可理解为经济沿既定 SRAS 移动所对应的点集。
+
+\subsection{预期扩展的菲利普斯曲线}
+课程形式：
+\[
+U=U^*-a(\pi-\pi^e),\qquad a>0.
+\]
+等价地：
+\[
+\pi=\pi^e-\frac1a(U-U^*).
+\]
+\begin{itemize}
+  \item 实际通胀高于预期，失业率暂时低于自然率。
+  \item 实际通胀等于预期，失业率等于自然率。
+  \item 每个预期通胀率对应一条 SRPC；$\pi^e\uparrow$ 时整条曲线上移。
+  \item 长期预期追上实际通胀，失业回到 $U^*$，LRPC 在自然失业率处垂直。
+\end{itemize}
+
+\begin{warningbox}[价格水平和通胀率不是同一变量]
+价格水平 $P$ 是水平值，通胀率 $\pi$ 是价格水平的增长率。紧缩政策可使通胀率下降但价格水平仍继续上升，只是上升得更慢；只有通胀率为负才是通缩。
+\end{warningbox}
+
+\subsection{为什么长期没有稳定权衡}
+若政府持续用扩张政策把失业压到自然率以下，短期意外通胀有效；随后工资合同和预期上调，SRAS 左移、SRPC 上移，失业回到自然率，但通胀永久更高。长期无法用更高的可预期通胀换取更低失业。
+
+\subsection{自然率假说与历史检验}
+1960 年代美国数据一度呈现稳定负相关，但 1970 年代出现高通胀与高失业并存，说明原始曲线会移动。弗里德曼和费尔普斯在滞胀前提出自然率与预期修正，为后来的数据提供解释。
+
+\subsection{供给冲击}
+石油、粮食、供应链或工资成本上升使 SRAS 左移，并使短期菲利普斯曲线上移：任一失业率对应更高通胀，任一通胀率对应更高失业。政策若刺激需求稳定就业，会加剧通胀；若紧缩稳定通胀，会加剧失业。
+
+\subsection{牺牲率}
+\[
+\text{牺牲率}=\frac{\text{反通胀期间累计 GDP 损失百分比}}{\text{通胀下降百分点}}.
+\]
+其大小取决于：
+\begin{itemize}
+  \item 短期菲利普斯曲线斜率；
+  \item 预期调整速度；
+  \item 政策可信度与沟通；
+  \item 工资合同期限和价格黏性；
+  \item 反通胀是否伴随有利或不利供给冲击。
+\end{itemize}
+
+\subsection{理性预期与低成本反通胀}
+理性预期指人们有效使用可得信息，包括政策制度。若央行可信地宣布并执行反通胀，人们快速下调预期，SRPC 可较快下移，产出损失较小。但“宣布”不足以建立信誉；过去政策记录、财政配合和制度独立性都重要。
+
+\subsection{沃尔克反通胀的启示}
+1979 年后美联储强力紧缩使通胀下降，但失业和衰退成本明显，说明预期不会瞬间无成本调整。与此同时，实际牺牲率可能低于旧模型预测，说明可信度确实能降低而非完全消除成本。
+
+\subsection{曲线变平不等于曲线失效}
+稳定通胀预期、全球供应、企业定价方式和央行信誉可使通胀对失业缺口的表面反应较弱。此时简单散点图看起来更平，但需求过热仍可能在约束收紧或预期脱锚后引发通胀。政策不能把历史低相关误当作不存在结构关系。
+
+\newpage
+\section{第十四章：宏观政策的争论与国家治理}
+
+\subsection{本章知识树}
+\begin{itemize}
+  \item 为什么同一模型不能自动给出唯一政策答案。
+  \item 稳增长、稳物价、防风险和公平之间的基本权衡。
+  \item 积极稳定政策与政府克制的理由。
+  \item 财政短期刺激与长期结构优化。
+  \item 货币规则与自由裁量、通胀目标、财政可持续性、储蓄与消费。
+\end{itemize}
+
+\subsection{模型解释机制，不决定价值权重}
+宏观模型回答“政策通过什么渠道产生什么后果”，但政策选择还需决定：不同群体福利权重、短期与长期权重、风险容忍度、代际公平和制度可执行性。两位经济学家接受同一乘数或菲利普斯曲线，也可能因价值判断和风险评估不同提出不同政策。
+
+\subsection{三类基本权衡}
+\begin{enumerate}
+  \item \term{稳定与效率：}积极干预可减少衰退损失，但错误干预会扭曲价格信号。
+  \item \term{短期与长期：}刺激当前需求可能增加债务、通胀或延迟结构调整。
+  \item \term{增长与分配/风险：}高增长政策可能扩大差距或金融杠杆，过度防风险也可能压制创新。
+\end{enumerate}
+
+\subsection{政府应否积极稳定经济}
+\subsubsection{支持积极政策}
+\begin{itemize}
+  \item 失业、企业倒闭和人力资本损失具有持久成本。
+  \item 工资价格黏性、金融摩擦和协调失败使市场修复缓慢。
+  \item 稳定政策和可信承诺可阻止悲观预期自我实现。
+\end{itemize}
+
+\subsubsection{支持克制}
+\begin{itemize}
+  \item 数据修订、模型不确定和冲击识别困难。
+  \item 识别、决策、实施和生效均有滞后，政策可能在经济已反转后才起效。
+  \item 政治周期、寻租和时间不一致使政府并非全知且完全公益。
+  \item 主体会根据政策改变行为，历史经验关系可能失效（卢卡斯批判）。
+\end{itemize}
+
+\subsection{财政政策：刺激还是结构优化}
+\begin{itemize}
+  \item 衰退中政府购买直接弥补需求，零利率环境下乘数可能更大。
+  \item 长期应关注支出质量：基础设施、教育、健康和研发若提高潜在产出，不能只按当期赤字评价。
+  \item 低效率项目、地方隐性债务和重复建设会把短期刺激变成长期负担。
+  \item 结构性财政政策应兼顾区域、产业转型和公共服务，而不是简单追求支出规模。
+\end{itemize}
+
+\subsection{货币政策：规则还是自由裁量}
+\begin{longtable}{p{0.20\textwidth}p{0.36\textwidth}p{0.36\textwidth}}
+\toprule
+ & 优点 & 局限\\
+\midrule
+规则 & 透明、可预期、约束通胀偏好、建立信誉 & 难以覆盖罕见冲击，关键变量不可观测\\
+自由裁量 & 灵活应对危机、多目标与金融创新 & 时间不一致、政治压力、沟通不确定\\
+折中 & 以规则为基准、允许有解释的偏离 & 需要高质量沟通和问责\\
+\bottomrule
+\end{longtable}
+
+\subsection{卢卡斯批判与理性预期}
+卢卡斯因发展和应用理性预期假说、改变宏观政策评估方式而获得 1995 年诺贝尔经济学奖。核心不是“人永远预测正确”，而是政策规则改变后，家庭和企业的预期与行为参数也会改变，因此不能用旧制度下的统计关系机械预测新政策效果。
+
+\subsection{为什么不追求绝对零通胀}
+\begin{itemize}
+  \item 适度正通胀缓解名义工资向下刚性，使实际工资可调整。
+  \item 为衰退时降低真实利率留下名义利率空间，减少零下限风险。
+  \item 物价指数可能高估真实生活费用增长，零测得通胀可能意味着真实通缩。
+  \item 但目标过高会增加价格不确定、税制扭曲和预期脱锚风险。
+\end{itemize}
+
+\subsection{预算平衡还是财政可持续}
+年度严格平衡预算会使衰退时被迫加税减支，放大周期；资本项目和公共投资也跨期受益。更合理的目标是跨周期可持续：债务路径稳定、支出有回报、风险可控、代际负担合理。债务可持续不等于永不赤字，也不等于债务率必须下降到零。
+
+\subsection{储蓄与消费}
+提高储蓄可增加资本积累和未来生产能力，但全社会在衰退中同步储蓄会触发节俭悖论；储蓄率过高也可能反映社保不足、收入分配和消费信心问题。政策重点应从“越多越好”转向储蓄结构、投资效率和居民消费能力。
+
+\subsection{治理思维的最终框架}
+\begin{methodbox}[评价任一宏观政策的七问]
+\begin{enumerate}
+  \item 政策目标是什么，目标之间是否冲突？
+  \item 当前经济处于衰退缺口、过热还是供给冲击？
+  \item 传导机制和关键行为弹性是什么？
+  \item 谁受益、谁承担成本，短期和长期是否不同？
+  \item 有哪些识别、实施和生效滞后？
+  \item 主体预期和制度信誉会怎样变化？
+  \item 是否有更定向、成本更低的替代工具？
+\end{enumerate}
+\end{methodbox}
+
+\newpage
+\section{概念辨析总表}
+
+\begin{longtable}{p{0.19\textwidth}p{0.32\textwidth}p{0.41\textwidth}}
+\toprule
+主题 & 公式/定义 & 条件与易错点\\
+\midrule
+\endfirsthead
+\toprule
+主题 & 公式/定义 & 条件与易错点\\
+\midrule
+\endhead
+机会成本 & 放弃的最佳替代方案价值 & 不是全部支出；沉没成本不进入当前边际决策\\
+比较优势 & 机会成本较低者具有比较优势 & 绝对优势与比较优势不能混同\\
+基尼系数 & $G=1-2B$ & $B$ 为洛伦兹曲线下方面积；分组数据常低估\\
+支出法 GDP & $Y=C+I+G+NX$ & 新住宅计 $I$；转移支付不计 $G$；进口只为剔除国外生产\\
+生产法 GDP & $Y=\sum VA_i$ & 中间投入只扣当期生产中耗用的部分\\
+GDP 平减指数 & $NGDP/RGDP\times100$ & 当期国内产出权重，不含进口\\
+CPI & 当期固定篮子成本/基期成本 & 含进口消费品，存在替代、质量和新产品偏差\\
+真实利率 & $1+i=(1+r)(1+\pi)$ & 事前用预期通胀，事后用实际通胀\\
+70 规则 & 翻倍年数 $\approx70/g(\%)$ & 低而稳定的正增长率时近似较好\\
+索罗动态 & $\Delta k=sf(k)-(n+g+\delta)k$ & $k$ 为单位效率劳动资本\\
+索罗稳态 & $sf(k^*)=(n+g+\delta)k^*$ & 稳态不代表总产出不增长\\
+黄金律 & $f'(k^{gold})=n+g+\delta$ & 最大化稳态消费，不自动考虑转轨世代\\
+增长核算 & $g_Y=g_A+\alpha g_K+(1-\alpha)g_L$ & 索罗余项含测量误差和利用率变化\\
+私人储蓄 & $S_p=Y-T+TR-C$ & 可支配收入减消费\\
+政府储蓄 & $S_g=T-G-TR$ & 与预算盈余同方向\\
+开放储蓄恒等式 & $S=I+NCO$ & 恒等式不说明储蓄或投资谁因果决定谁\\
+债券现值 & $P=\sum CF_t/(1+r)^t$ & 利率与价格反向，期限越长越敏感\\
+期望收益 & $E(X)=\sum p_iX_i$ & 不能单独衡量风险\\
+组合方差 & $w^2\sigma_1^2+(1-w)^2\sigma_2^2+2w(1-w)\rho\sigma_1\sigma_2$ & 分散化取决于相关性\\
+失业率 & $u=U/(E+U)$ & 非劳动力不在分母\\
+劳动参与率 & $(E+U)/\text{成年人口}$ & 丧志工人通常不在分子\\
+稳态失业率 & $u=s/(s+f)$ & 由分离率和找工作率共同决定\\
+奥肯定律 & $(Y-Y^*)/Y^*=-c(u-u^*)$ & 经验关系，系数不固定\\
+基础货币 & $B=C+R$ & 商业银行贷款不创造基础货币\\
+货币供给 & $M=C+D$ & 现金存入银行初始不改变 $M$\\
+简单存款乘数 & $1/rrr$ & 无现金、无超额准备金、贷款全数回存\\
+一般货币乘数 & $(1+c)/(c+r)$ & $c=C/D$，$r=R/D$\\
+货币需求 & $M^d/P=L(Y,r)$ & 收入正向，利率反向\\
+数量方程 & $MV=PY$ & 恒等式；数量论还需速度稳定和长期产出外生等假设\\
+通胀分解 & $\pi=g_M+g_V-g_Y$ & 短期速度与产出并非固定\\
+真实汇率 & $RER=EP^*/P$ & 此处 $E$ 为本币/外币；$RER\uparrow$ 表示本国产品相对便宜\\
+购买力平价 & $E=P/P^*$ & 长期更有解释力，短期偏离常见\\
+计划支出均衡 & $Y=AE_{planned}$ & 不等于实际支出永远等于计划；非计划存货负责调整\\
+简单支出乘数 & $1/(1-MPC)$ & 税收、进口、利率和价格反馈使其变小\\
+SRAS & $Y=Y^*+\alpha(P-P^e)$ & 实际价格与预期价格之差影响短期产出\\
+预算余额 & $BS=T-G-TR$ & 是流量，不是债务存量\\
+泰勒规则 & $i=\pi+r^*+\alpha_\pi(\pi-\pi^*)+\alpha_y(y-\bar y)$ & 是政策基准，关键变量有估计误差\\
+菲利普斯曲线 & $U=U^*-a(\pi-\pi^e)$ & 每个预期通胀对应一条短期曲线\\
+牺牲率 & 累计 GDP 损失/通胀下降百分点 & 依赖预期、可信度和供给冲击\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.25\textwidth}p{0.67\textwidth}}
+\toprule
+容易混淆 & 正确辨析\\
+\midrule
+想工作的人都是失业者 & 还需满足可工作与近期主动求职；丧志和部分边缘劳动者属于非劳动力\\
+自然失业率永远固定 & 它会随匹配效率、人口结构、制度和技术变化\\
+周期性失业不可能为负 & 经济过热时实际失业率低于自然率，周期性部分为负\\
+信用卡、花呗是货币 & 它们是支付或信贷工具，使用后形成债务，不是现有货币余额\\
+存现金进银行创造了货币 & 初始只是 $C$ 转为 $D$；银行后续贷款才扩大存款货币\\
+货币乘数永远等于 $1/rrr$ & 公众持币、银行超额准备金与贷款需求都会降低实际乘数\\
+量化宽松就是大量印钞 & QE 的操作形式是大规模购买金融资产，重点常是长期利率和资产负债表渠道\\
+贸易逆差就是损失 & 它对应资本净流入；需评价资金用途、偿债能力和跨期消费，不是会计上“白送”\\
+本币贬值必然提高竞争力 & 高通胀可抵消名义贬值；应看真实汇率\\
+GDP 上升就代表福利上升 & 还需考虑分配、环境、闲暇、灾害损失和非市场活动\\
+政府赤字上升就是主动扩张 & 衰退会自动降低税收、提高转移，需看结构性赤字\\
+高通胀与低失业可永久交换 & 只有未预期通胀有短期效果；长期失业回归自然率\\
+通胀下降就是价格下降 & 通胀下降通常只是价格上涨变慢；通缩才是价格水平下降\\
+规则政策意味着完全机械 & 规则可作为系统性基准，并允许对异常冲击作有解释的偏离\\
+\bottomrule
+\end{longtable}
+
+\begin{multicols}{2}
+\begin{itemize}
+  \item 能否逐词解释 GDP 的定义？
+  \item 能否判断二手品、存货、住宅、转移支付和进口的归类？
+  \item 能否区分 CPI、核心 CPI、PCE 与 GDP 平减指数？
+  \item 能否写出并解释 $S=I+NCO$？
+  \item 能否画索罗图并说明 $s,n,g,\delta,A$ 的影响？
+  \item 能否区分稳态、黄金律和平衡增长路径？
+  \item 能否区分平均税率、边际税率与税收归宿？
+  \item 能否从分组数据计算洛伦兹曲线和基尼系数？
+  \item 能否按统计条件区分就业、失业和非劳动力？
+  \item 能否解释周期性失业率为什么可为负？
+  \item 能否区分货币、财富与信用工具？
+  \item 能否写出 $B=C+R$ 与 $M=C+D$？
+  \item 能否画连续 T 账户并保证左右平衡？
+  \item 能否说明简单乘数的严格假设？
+  \item 能否区分货币需求曲线移动和沿曲线移动？
+  \item 能否解释通胀税与铸币税的差别？
+  \item 能否按中国课程口径填写国际收支表的正负号？
+  \item 能否先写汇率单位，再判断升值贬值？
+  \item 能否由名义汇率和两国通胀计算真实汇率变化？
+  \item 能否从货币市场和商品市场推导 AD？
+  \item 能否分别处理需求冲击和供给冲击？
+  \item 能否区分价格水平下降与通胀率下降？
+  \item 能否解释 QE 与普通公开市场操作的联系和差别？
+  \item 能否分解结构性赤字与周期性赤字？
+  \item 能否说明财政乘数在什么情况下大或小？
+  \item 能否解释预期如何移动 SRAS 与菲利普斯曲线？
+  \item 能否用“机制 + 分配 + 时滞 + 预期 + 风险”评价政策？
+\end{itemize}
+\end{multicols}
+
+\end{document}

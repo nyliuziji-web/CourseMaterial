@@ -1,0 +1,239 @@
+\heading{数据结构与算法A-16秋-期末}
+
+oteinfo{本卷为 Python 语言版；题面与解答已逐题复核，图示均已改为随文 TikZ，不依赖外部图片文件。}
+
+\begin{question}
+一、选择填空题（每空1 分，共11 分）\\
+1. G 是一个非连通无向图，共有21 条边，则图G 至少有  8  个顶点。\\
+2. 对于一个包含N（N>1）个顶点的图，假定任意两点间最多只有一条边，\\
+那么下列哪些情况是错误的\_\_\_\_AB\_\_\_\_\_。\\
+A. 如果是有向图，则其任何一个极大强连通子图都无法进行拓扑排序。\\
+B.\\
+如果是无向连通图，则其最小生成树一定不包括权重最大的边。\\
+C.\\
+如果是无向连通图，假设所有边的权重均为正值，Dijkstra 算法给出\\
+的生成树不一定是最小生成树，但是与该图的任何一个最小生成树都\\
+至少有一条相同边。\\
+3. 有向图 $G$ 如下图所示：\
+
+\begin{center}
+\begin{tikzpicture}[>=stealth,scale=0.9]
+  \node[draw,circle,minimum size=8mm] (v1) at (0,1.6) {$V_1$};
+  \node[draw,circle,minimum size=8mm] (v3) at (0,0) {$V_3$};
+  \node[draw,circle,minimum size=8mm] (v4) at (2.2,-0.45) {$V_4$};
+  \node[draw,circle,minimum size=8mm] (v2) at (4.0,1.2) {$V_2$};
+  \draw[->,thick] (v1) -- (v3);
+  \draw[->,thick] (v3) -- (v4);
+  \draw[->,thick] (v2) -- (v4);
+\end{tikzpicture}
+\end{center}
+
+\
+（1）写出所有可能的拓扑序列： \blank。\\
+（2）若要使该图只有唯一的拓扑序列，则可以添加一条弧 \blank。\\
+4. 在快速排序中，定义一次平分的划分为 “幸运的划分”，而一次划分如果有\\
+一边为空则是“不幸的划分”。假设划分的过程总是“幸运”和“不幸”交替的，\\
+则该快速排序的时间复杂性为         nlogn       。\\
+5. 具有10000 个关键码的16 阶B 树的查找路径长度（从根到叶节点访问B\\
+树索引块的次数）不会小于   3    。\\
+6. 设有8 个初始归并段，其长度分别为32，46，56，64，20，87，70，40；\\
+进行3 路归并排序，所构造的最佳归并树对应的总读写次数为 1590   。\\
+7. A[N][N]是对称矩阵，现将下三角矩阵按行存储到一维数组T[N(N+1)/2]中\\
+（包括对角线），则对任一上三角元素A[i][j]其对应值（0 <= i <= j < N）在\\
+T[k]中的下标k 是     j(j+1)/2+i       。\\
+8. 在一棵空AVL 树中，顺序插入如下关键码：\{5, 9, 4, 2, 1, 3, 8\}，请问全部\\
+插入后，在等概率下查找成功的平均检索长度为  17/7     。\\
+9. 已知广义表 C=(c, (d, A), B, e)，则广义表C 的深度为   2     ，\\
+tail(head(tail(C)))的运算结果为  (A)     。\\
+二、简答辨析题（每题3 分，共 15 分）\\
+1. 如果要找出一个具有n 个元素集合中的第k (1<=k<=n)个最小元素，所学过的\\
+排序方法中哪种最适合？给出实现的基本思想。\\
+三、算法填空题（每空1 分，共5 分）\\
+1. 下述算法实现在图G 中计算从顶点i 到顶点j 之间长度为len 的简单路径条\\
+数。图的ADT 如下：\\
+Class Graph \{\\
+public:\\
+int VerticesNum();\\
+int EdgesNum();\\
+Edge FirstEdge(int oneVertex);\\
+Edge NextEdge(Edge preEdge);\\
+IsEdge(Edge onEdge);\\
+int FromVertex(Edge oneEdge);\\
+int ToVertex(Edge oneEdge);\\
+\};\\
+int visited[MAXSIZE];     //初始化为0\\
+int GetPathNum\_Len(G, int i, int j, int len)  \{\\
+if (      i == j and len == 0         )  return 1;\\
+sum = 0;             //sum 表示通过本结点的路径数\\
+visited[i] = 1;\\
+for (Edge e = G.FirstEdge(i); G.IsEdge(e); e = G.NextEdge(e)) \{\\
+int v = G.ToVertex(e);\\
+if (not visited[v])\\
+sum += GetPathNum\_Len(G, v, j, len - 1) ;\\
+\} // for\\
+visited[i] = 0; //本题允许曾经被访问过的结点出现在另一条路径中\\
+return sum;\\
+\} // GetPathNum\_Len\\
+2. 下面的代码实现了一种计数排序：对每个待排序记录，扫描整个序列统计\\
+比它小的记录个数count，count 即是该记录在序列中的争取位置。请将下\\
+面是计数排序的程序代码补充完整。\\
+Template <class Record> def Sort(Record Array[], int n)\{\\
+int curIndex = 0;        //待排下标\\
+while (curIndex < n) \{\\
+int count=0;\\
+for ( int j=0;j<n;j++ )  //统计比Array[curIndex]小的值的个数\\
+if (Array[j] < Array[curIndex])\\
+count++\\
+swap(Array, curIndex, count);\\
+if (curIndex == count)\\
+curIndex++\\
+\}\\
+\}\\
+四、设计分析题（共 9 分）\\
+1. （3 分）某小区有N 座别墅需要供水。在第i 座别墅里挖井需要w[i]的费用，\\
+在第i 座和第j 座别墅之间铺水管需要c[i][j]的费用。给每座别墅供水，要\\
+么挖井、要么跟其他有井的别墅铺设连通的水管路径。请设计算法，求解\\
+使每座别墅都得到供水的最小费用方案。\\
+2. （6 分）现有一个工资系统，请实现满足如下操作需求的Splay 树，并给出\\
+算法的伪代码：（Splay 树根为root，其他变量可以自己定义）\\
+1) def insert(int w);  新加一位工资为w 的员工（假设w 没有重复值）\\
+2) def fire(int t);     解雇工资大于t 的员工\\
+相关定义和函数说明如下：\\
+伸展树是一种自平衡的BST，数据结构如下：\\
+class TreeNode \{\\
+int   wage;           //表示员工工资\\
+TreeNode * father,* left,* right;\\
+\};\\
+可以直接使用的函数：\\
+def Splay(TreeNode* x, TreeNode* f);//将x旋为f的子结点(f在x的祖先路)\\
+//把x旋到根结点即Splay(x, None)\\
+TreeNode* find(int x, TreeNode* S);  //表示在以S 为根的树中查找元素x\\
+的位置，若找不到，返回x 应该插入位置的父亲结点\\
+def Delete(TreeNode* x); // 删除以x 结点为根的子树\\
+def insert(int w)\{\\
+if (root is None) \{\\
+root = TreeNode(w);\\
+return;\\
+\}\\
+int salary = w;\\
+TreeNode * tmp = find(wage, root);\\
+if (tmp.wage > salary) \{\\
+tmp.left = TreeNode(salary);\\
+Splay(tmp.left, None);\\
+\}\\
+else \{\\
+tmp.right = TreeNode(salary);\\
+Splay(tmp.right, None);\\
+\}\\
+\}\\
+\}\\
+def fire(int t)\{\\
+if (root is None) return;\\
+salary = t;\\
+TreeNode * tmp = find(salary, root);\\
+if (tmp.wage == salary)\{\\
+Splay(tmp, None);\\
+Delete(tmp.right);\\
+\}\\
+else \{\\
+if (tmp.wage > salary) \{\\
+tmp.left = TreeNode(salary);\\
+Splay(tmp.left, None);\\
+\}\\
+else \{\\
+tmp.right = TreeNode(salary);\\
+Splay(tmp.right, None);\\
+\}\\
+Delete(root.right);\\
+if (root.left) \{\\
+Splay(root.left, None);\\
+Delete(root.right);\\
+\} else Delete(root);\\
+\}\\
+\}\\
+五、期中考试题（共25 分，成绩由助教登记）\\
+六、上机考试题（共35 分，成绩由助教登记）\\
+\\
+\
+
+\begin{solution}
+答案：在具有n 个元素的集合中找第k 个最小元素，应使用快速排序算法。\\
+其基本思想如下：设n 个元素的集合用一维数组表示，其第一个元素的下\\
+标为1，最后一个元素下标为n。以第一个元素为“枢轴”，经过快速排序的\\
+一次划分，找到“枢轴”的位置i，若i = k，则该位置的元素下标为n；若i >\\
+k 则在1 至i-1 间继续进行快速排序的划分；若 i < k 则在i+1 至n 间继续\\
+进行快速排序的划分。这种划分一直进行到i = k 为止，第i 位置上的元素\\
+就是第k 个最小元素。\\
+2. 已知一组关键码为（26，36，41，38，44，15，68，12，06，51，25），散\\
+列表长度为15，用线性探查法解决冲突构造这组关键码的散列表。散列函\\
+数为：h(k)= k \%13。请回答：\\
+1) 构造顺序插入上述关键码集合后的散列表；\\
+2) 下一记录放到第11 个槽和第7 个槽中的概率分别是多少？\\
+下一条记录放在第11 个槽中的概率是2/13\\
+放到第7 个槽中的概率是9/13\\
+3) 查找成功和失败情形下的平均查找长度ASL 分别是多少？\\
+3. 有如下图所示的一个3 阶B+树，请完成如下题目：\
+
+\begin{center}
+\begin{tikzpicture}[scale=0.60]
+  \tikzset{bt/.style={draw,rectangle,minimum height=6mm,inner sep=2pt,font=\scriptsize}}
+  \node[bt] (r) at (5.0,3.0) {4\quad 34};
+  \node[bt] (l) at (2.2,1.8) {4\quad 7\quad 21};
+  \node[bt] (rr) at (7.8,1.8) {34\quad 60};
+  \node[bt] (l1) at (0.0,0.55) {4\quad 6};
+  \node[bt] (l2) at (2.2,0.55) {7\quad 12\quad 13};
+  \node[bt] (l3) at (4.8,0.55) {21\quad 25\quad 28};
+  \node[bt] (r1) at (7.2,0.55) {34\quad 47};
+  \node[bt] (r2) at (9.4,0.55) {60\quad 75};
+  \draw (r)--(l); \draw (r)--(rr);
+  \draw (l)--(l1); \draw (l)--(l2); \draw (l)--(l3);
+  \draw (rr)--(r1); \draw (rr)--(r2);
+  \draw[densely dotted] (l1.east)--(l2.west); \draw[densely dotted] (l2.east)--(l3.west); \draw[densely dotted] (l3.east)--(r1.west); \draw[densely dotted] (r1.east)--(r2.west);
+\end{tikzpicture}
+\end{center}
+
+\
+1) 分别画出依次插入关键码10 和删除关键码4 的B+树；\\
+2) 分析上述操作过程中的访外读写次数。\\
+（注：插入和删除操作过程中读入内存的节点都在内存）\\
+参考答案：\\
+插入10 的结果（读3 次，写5 次）\\
+删除4 的结果（写3 次）\\
+4. 一棵红黑树如下图所示（空树叶未画出），请首先画出插入节点17 的红黑\
+
+\begin{center}
+\begin{tikzpicture}[scale=0.78]
+  \tikzset{blacknode/.style={draw,rectangle,fill=black,text=white,minimum size=6.5mm,inner sep=1pt},
+           rednode/.style={draw=red,circle,text=red,minimum size=7mm,inner sep=1pt}}
+  \node[blacknode] (n7) at (3.8,3.6) {7};
+  \node[blacknode] (n4) at (1.8,2.45) {4};
+  \node[rednode] (n14) at (5.8,2.45) {14};
+  \node[rednode] (n3) at (0.8,1.25) {3};
+  \node[rednode] (n5) at (2.8,1.25) {5};
+  \node[blacknode] (n12) at (4.8,1.25) {12};
+  \node[blacknode] (n16) at (6.8,1.25) {16};
+  \node[rednode] (n15) at (5.8,0.05) {15};
+  \node[rednode] (n18) at (7.8,0.05) {18};
+  \draw (n7)--(n4); \draw (n7)--(n14);
+  \draw (n4)--(n3); \draw (n4)--(n5);
+  \draw (n14)--(n12); \draw (n14)--(n16);
+  \draw (n16)--(n15); \draw (n16)--(n18);
+\end{tikzpicture}
+\end{center}
+
+\
+树，在此基础上，然后画出删除节点14 的红黑树。（画图说明：黑节点用\\
+方框，红节点用圆圈，不画空树叶）\\
+参考答案:\\
+插入17 号节点\\
+删除14 号节点\\
+5. 字符串的后缀是指字符串的任意尾部串。比如 “abbc”的后缀有“abbc”,\\
+“bbc”,“bc”, “c”和“\$”(表示为空串)。现有两个字符串“window”和“indigo”，\\
+请画出他们所有后缀串所组成的Trie 树（注意：对路径进行压缩，并把局\\
+部子串标注在相应的边上）。\\
+参考答案：\\
+构造由N 座别墅和井组成的带权无向图，别墅之间边的权重是c[i][j]，井\\
+跟别墅之间边的权重是w[i]。最小生成树就是最小费用的方案。\\
+
+\end{solution}
+\end{question}

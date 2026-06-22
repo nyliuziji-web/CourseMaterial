@@ -1,31 +1,44 @@
-\usepackage[a4paper,top=1.7cm,bottom=1.65cm,left=1.55cm,right=1.55cm,headsep=0.4cm,footskip=0.65cm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,bm,esint,enumitem,xparse,etoolbox,xstring,titlesec,multicol,longtable,booktabs,array,caption,import,fancyhdr,lastpage,totcount,tcolorbox,physics,cancel}
+% ── Packages ──────────────────────────────────────────────
+\usepackage[a4paper,top=1.7cm,bottom=1.65cm,left=1.55cm,right=1.55cm,
+  headsep=0.4cm,footskip=0.65cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,esint}
+\usepackage{enumitem,xparse,etoolbox,xstring,titlesec}
+\usepackage{multicol,longtable,booktabs,array,caption}
+\usepackage{import,fancyhdr,lastpage,totcount}
 \usepackage{graphicx,tikz}
+\usepackage{physics,cancel}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{fancyvrb}
 
-\setlist[enumerate,1]{label=(\arabic*),leftmargin=2.3em,itemsep=0.18em,topsep=0.18em,parsep=0pt}
-\setlist[enumerate,2]{label=(\alph*),leftmargin=2.2em,itemsep=0.12em,topsep=0.12em,parsep=0pt}
-\setlist[enumerate,3]{label=(\roman*),leftmargin=2.1em,itemsep=0.1em,topsep=0.1em,parsep=0pt}
+% ── enumerate default styles ──────────────────────────────
+\setlist[enumerate,1]{label=(\arabic*),leftmargin=2.3em,
+  itemsep=0.18em,topsep=0.18em,parsep=0pt}
+\setlist[enumerate,2]{label=(\alph*),leftmargin=2.2em,
+  itemsep=0.12em,topsep=0.12em,parsep=0pt}
+\setlist[enumerate,3]{label=(\roman*),leftmargin=2.1em,
+  itemsep=0.1em,topsep=0.1em,parsep=0pt}
 
+% ── TikZ ──────────────────────────────────────────────────
+\usetikzlibrary{trees,positioning}
 \tikzset{
   every node/.append style={
-    inner sep=1.4pt,
-    fill=white,
-    fill opacity=0.88,
-    text opacity=1
+    inner sep=1.4pt, fill=white, fill opacity=0.88, text opacity=1
   }
 }
 
-\newcommand{\pandocbounded}[1]{#1}
+% ── Tabular ───────────────────────────────────────────────
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
-\tcbuselibrary{breakable}
 
+% ── Short math commands ───────────────────────────────────
 \newcommand{\ee}{\mathrm{e}}
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\Beta}{\mathrm{B}}
 \newcommand{\J}{\mathrm{J}}
 
+% ── Figure with caption (used by homework) ───────────────
 \NewDocumentCommand{\pyfig}{O{0.72\linewidth} m m}{%
   \par\smallskip
   \begin{center}
@@ -35,6 +48,7 @@
   \smallskip
 }
 
+% ── Page layout ───────────────────────────────────────────
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.22em}
 \linespread{1.08}
@@ -46,6 +60,7 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+% ── Header / footer ───────────────────────────────────────
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small\bfseries\nouppercase{\leftmark}}
@@ -62,35 +77,34 @@
   \renewcommand{\footrulewidth}{0pt}
 }
 
+% ── Solution toggle ──────────────────────────────────────
 \newif\ifShowSolutions
 \ShowSolutionsfalse
 
+% ── Section formatting ────────────────────────────────────
 \titleformat{\section}[block]{\centering\Large\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{0.35em}{0.2em}
-
 \newcommand{\coursesection}[1]{%
-  \clearpage
-  \phantomsection
+  \clearpage\phantomsection
   \addcontentsline{toc}{section}{#1}%
-  \markboth{#1}{}
-}
+  \markboth{#1}{}}
 
+% ── Exam title helper ─────────────────────────────────────
 \newcommand{\examtitle}[3][]{%
   \begin{center}
-    {\LARGE\bfseries #2\par}
-    \vspace{0.4em}
+    {\LARGE\bfseries #2\par}\vspace{0.4em}
     {\Large\bfseries #3\par}
     \if\relax\detokenize{#1}\relax\else\vspace{0.3em}{\small #1\par}\fi
-  \end{center}
-  \vspace{0.4em}
-}
+  \end{center}\vspace{0.4em}}
 \newcommand{\noteinfo}[1]{{\small\kaishu #1\par}}
 \newcommand{\instructions}[1]{\noteinfo{#1}}
 
+% ── Question counter ─────────────────────────────────────
 \newcounter{question}
 \regtotcounter{question}
 \renewcommand{\theHquestion}{\arabic{subsection}.\arabic{question}}
 
+% ── \heading{…} at top of each exam file ──────────────────
 \newcommand{\heading}[1]{%
   \setcounter{question}{0}%
   \def\HeadingCourse{#1}%
@@ -106,29 +120,37 @@
   \examtitle{\HeadingCourse}{\HeadingName}%
 }
 
-\NewDocumentEnvironment{question}{ O{} +b }{%
+% ── Question environments ─────────────────────────────────
+% (non-collecting to allow verbatim/pycode inside)
+\RenewDocumentEnvironment{question}{ O{} }{%
   \refstepcounter{question}%
   \par\smallskip
-  \noindent\hangindent=2.2em\hangafter=1\textbf{\arabic{question}. }\ignorespaces
+  \noindent\hangindent=2.2em\hangafter=1
+  \textbf{\arabic{question}. }\ignorespaces
   \ifstrempty{#1}{}{\textbf{(#1)}\ }%
-  #2\par\smallskip
-}{}
+}{\par\smallskip}
 
 \NewDocumentEnvironment{choiceoptions}{ O{2} }{%
-  \par\smallskip
+  \par
   \ifnum#1>1\relax\begin{multicols}{#1}\fi
-  \begin{enumerate}[label=(\Alph*),leftmargin=2.5em,itemsep=0.15em,topsep=0.15em,parsep=0pt]
+  \begin{enumerate}[label=(\Alph*),leftmargin=2.5em,
+    itemsep=0.15em,topsep=0.15em,parsep=0pt]
 }{%
   \end{enumerate}
   \ifnum#1>1\relax\end{multicols}\fi
-  \par\smallskip
+  \par
 }
 \newcommand{\optionitem}[1]{\item #1}
-\NewDocumentCommand{\blank}{O{4cm}}{\underline{\makebox[#1][c]{\strut}}}
 
+% ── Fill-in-the-blank ─────────────────────────────────────
+\NewDocumentCommand{\blank}{O{1.5cm}}{\makebox[#1]{\hrulefill}}
+
+% ── Solution display (conditional on \ifShowSolutions) ────
 \NewDocumentEnvironment{solution}{ +b }{%
   \ifShowSolutions
-          \begin{tcolorbox}[colback=black!3,colframe=black!8,sharp corners,boxrule=0.4pt,breakable,left=1.2em,right=1.2em,top=0.5em,bottom=0.5em,before skip=10pt,after skip=6pt]
+    \begin{tcolorbox}[colback=black!3,colframe=black!8,sharp corners,
+      boxrule=0.4pt,breakable,left=1.2em,right=1.2em,
+      top=0.5em,bottom=0.5em,before skip=10pt,after skip=6pt]
       \noindent{\heiti 解答：}\par
       #1
     \end{tcolorbox}%
@@ -136,26 +158,38 @@
 }{}
 
 \NewDocumentCommand{\ansmath}{m}{%
-  \[
-  \boxed{\displaystyle #1}
-  \]
-}
-
+  \[ \boxed{\displaystyle #1} \]}
 \NewDocumentCommand{\anstext}{m}{%
-  \par\smallskip
-  \noindent\fbox{\strut\,#1\,}%
-  \par\smallskip
-}
+  \par\smallskip\noindent\fbox{\strut\,#1\,}\par\smallskip}
 
-\makeatletter
-\@ifundefined{code}{\newcommand{\code}[1]{\texttt{#1}}}{}
-\@ifundefined{codeans}{\newcommand{\codeans}[1]{\texttt{#1}}}{}
-\@ifundefined{codestr}{\NewDocumentCommand{\codestr}{v}{\texttt{#1}}}{}
-\@ifundefined{ttbox}{%
-  \NewDocumentEnvironment{ttbox}{ O{} +b }{%
-    \begin{tcolorbox}[colback=black!2,colframe=black!10,sharp corners,boxrule=0.35pt,breakable,left=0.8em,right=0.8em,top=0.35em,bottom=0.35em,before skip=6pt,after skip=6pt,#1]%
+% ── Code display ─────────────────────────────────────────
+\newcommand{\code}[1]{\texttt{#1}}
+
+\NewDocumentEnvironment{ttbox}{ O{} +b }{%
+  \begin{tcolorbox}[colback=black!2,colframe=black!10,sharp corners,
+    boxrule=0.35pt,breakable,left=0.8em,right=0.8em,
+    top=0.35em,bottom=0.35em,before skip=6pt,after skip=6pt,#1]
     \ttfamily\small #2%
-    \end{tcolorbox}%
-  }{}%
+  \end{tcolorbox}%
 }{}
-\makeatother
+
+\NewDocumentEnvironment{codebox}{ O{} +b }{%
+  \begin{tcolorbox}[colback=blue!2,colframe=blue!6,sharp corners,
+    boxrule=0.4pt,breakable,left=1em,right=1em,
+    top=0.5em,bottom=0.5em,before skip=8pt,after skip=8pt,#1]
+    \footnotesize\ttfamily #2%
+  \end{tcolorbox}%
+}{}
+
+% Python code blocks (verbatim, with a light frame)
+\DefineVerbatimEnvironment{pycode}{Verbatim}{%
+  fontsize=\small,
+  frame=single,
+  framesep=2.5mm,
+  framerule=0.35pt,
+  rulecolor=\color{black!25},
+  xleftmargin=0.6em,
+  xrightmargin=0.6em,
+  baselinestretch=1.02,
+  tabsize=4
+}

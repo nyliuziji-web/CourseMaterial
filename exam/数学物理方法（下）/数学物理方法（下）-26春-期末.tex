@@ -162,8 +162,9 @@ $\psi(x)$ 为已知初始分布。
 求解该微分方程。
 
 \begin{solution}
+该方程可视为 Ornstein--Uhlenbeck 生成元对应的后向 Kolmogorov 方程。
 
-该方程为 Ornstein--Uhlenbeck 过程的 Fokker--Planck 前向方程。
+\textbf{方法一（变量代换法）：}
 作自变量变换
 \[
 \xi = x\,\ee^{-\alpha t},\qquad u(x,t) = v(\xi, t).
@@ -177,7 +178,7 @@ $\psi(x)$ 为已知初始分布。
 \frac{\partial u}{\partial x} = v_{\xi}\,\ee^{-\alpha t}.
 \]
 
-代入原方程，$\alpha\xi v_{\xi}$ 项互相抵消，得
+代入原方程，含 $v_{\xi}$ 的两项相消，得
 \[
 v_{t} = \kappa\,\ee^{-2\alpha t}\,v_{\xi\xi}.
 \]
@@ -194,24 +195,102 @@ v_{\tau} = \kappa\,v_{\xi\xi},
 \qquad v(\xi,0) = \psi(\xi).
 \]
 
-由 Poisson 公式得解：
+由 Poisson 公式，
 \[
 v(\xi,\tau) = \frac{1}{\sqrt{4\pi\kappa\tau}}
 \int_{-\infty}^{\infty} \psi(\eta)\,
 \exp\!\left(-\frac{(\xi-\eta)^{2}}{4\kappa\tau}\right)\dd\eta.
 \]
+代回 $\xi=x\ee^{-\alpha t}$ 与
+$\tau=(1-\ee^{-2\alpha t})/(2\alpha)$，即得所求解。
 
-代回原变量 $\xi = x\,\ee^{-\alpha t}$，$\tau = \frac{1-\ee^{-2\alpha t}}{2\alpha}$：
+\textbf{方法二（Laplace--Fourier 变换法）：}
+先对 $t$ 作 Laplace 变换，记
+\[
+U(x,p)=\mathcal{L}_{t}\{u(x,t)\}
+=\int_{0}^{\infty}\ee^{-pt}u(x,t)\,\dd t.
+\]
+由初值条件得
+\[
+pU-\psi(x)-\kappa U_{xx}+\alpha xU_{x}=0.
+\]
+再对 $x$ 作 Fourier 变换，记
+\[
+\hat U(k,p)=\mathcal{F}_{x}\{U(x,p)\},\qquad
+\hat\psi(k)=\mathcal{F}_{x}\{\psi(x)\},
+\]
+并取
+\[
+\hat f(k)=\int_{-\infty}^{\infty}f(x)\ee^{-\ii kx}\,\dd x.
+\]
+利用
+\[
+\mathcal{F}_{x}\{U_{xx}\}=-k^{2}\hat U,
+\qquad
+\mathcal{F}_{x}\{xU_{x}\}=-\hat U-k\frac{\partial\hat U}{\partial k},
+\]
+可得关于 $k$ 的一阶常微分方程
+\[
+\alpha k\frac{\partial\hat U}{\partial k}
++(\alpha-p-\kappa k^{2})\hat U=-\hat\psi(k).
+\]
+
+令 $a=\kappa/(2\alpha)$。对 $k\neq0$，取在 $|k|\to\infty$ 时不增长的解，可统一写成
+\[
+\hat U(k,p)
+=\frac{\ee^{ak^{2}}}{\alpha|k|}
+\int_{|k|}^{\infty}
+\ee^{-ar^{2}}\,
+\hat\psi\!\bigl(\operatorname{sgn}(k)r\bigr)
+\exp\!\left[-\frac{p}{\alpha}\ln\frac{r}{|k|}\right]\dd r.
+\]
+其中 $k=0$ 处由连续极限确定。对 $p$ 作逆 Laplace 变换，并记
+\[
+\hat U(k,t)=\mathcal{L}^{-1}_{p\to t}\{\hat U(k,p)\}.
+\]
+利用
+\[
+\mathcal{L}^{-1}_{p\to t}\{\ee^{-p\tau}\}=\delta(t-\tau),
+\]
+得
+\[
+\hat U(k,t)
+=\frac{\ee^{ak^{2}}}{\alpha|k|}
+\int_{|k|}^{\infty}\ee^{-ar^{2}}
+\hat\psi\!\bigl(\operatorname{sgn}(k)r\bigr)
+\delta\!\left(t-\frac{1}{\alpha}\ln\frac{r}{|k|}\right)\dd r.
+\]
+$\delta$ 函数的支点为 $r_{*}=|k|\ee^{\alpha t}$，且
+\[
+\delta\!\left(t-\frac{1}{\alpha}\ln\frac{r}{|k|}\right)
+=\alpha r_{*}\,\delta(r-r_{*}),
+\]
+故
+\[
+\hat U(k,t)
+=\ee^{\alpha t}
+\exp\!\left[-\frac{\kappa k^{2}}{2\alpha}
+\bigl(\ee^{2\alpha t}-1\bigr)\right]
+\hat\psi\!\left(k\ee^{\alpha t}\right).
+\]
+最后作 Fourier 逆变换，并令 $q=k\ee^{\alpha t}$，得到
+\[
+u(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}
+\ee^{\ii qx\ee^{-\alpha t}}
+\exp\!\left[-\frac{\kappa q^{2}}{2\alpha}
+\bigl(1-\ee^{-2\alpha t}\bigr)\right]
+\hat\psi(q)\,\dd q.
+\]
+由高斯函数的 Fourier 逆变换及卷积定理，最终有
 
 \ansmath{
 u(x,t) = \sqrt{\frac{\alpha}{2\pi\kappa\,(1-\ee^{-2\alpha t})}}
 \int_{-\infty}^{\infty} \psi(\eta)\,
 \exp\!\left(
--\frac{\alpha\,\bigl(x\,\ee^{-\alpha t} - \eta\bigr)^{2}}
+-\frac{\alpha\,\bigl(x\ee^{-\alpha t} - \eta\bigr)^{2}}
 {2\kappa\,(1-\ee^{-2\alpha t})}
 \right)\dd\eta.
 }
-
 
 \end{solution}
 \end{question}

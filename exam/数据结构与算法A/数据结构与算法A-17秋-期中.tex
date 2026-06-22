@@ -1,0 +1,252 @@
+\heading{数据结构与算法A-17秋-期中}
+
+oteinfo{本卷为 Python 语言版；题面与解答已逐题复核，图示均已改为随文 TikZ，不依赖外部图片文件。}
+
+\begin{question}
+一、 选择与填空（每空2 分，共24 分）\\
+1.\\
+下面函数的时间复杂度是（    ）\\
+def recursive(int n, int m, int k)\{\\
+if (n <= 0)\\
+print(m, k)\\
+else \{\\
+recursive(n-1, m+1, k);\\
+recursive(n-1, m, k+1);\\
+\}\\
+\}\\
+A. O(n*m*k)        B. O(n\textasciicircum{}2*m\textasciicircum{}2)\\
+B.\\
+O(2\textasciicircum{}n)           D. O(n!)\\
+2.\\
+完成在双循环链表结点p 之后插入s 的操作为(       ):\\
+A. p.next.prev=s; s.prev=p; s.next=p.next; p.next=s;\\
+B. p.next.prev=s; p.next=s; s.prev=p; s.next=p.next;\\
+C. s.next=p.next; s.prev=p; p.next.prev=s; p.next=s;\\
+D. s.prev=p; s.next=p.next; s.prev.next=s; s.next.prev=s;\\
+3.\\
+设栈S 和队列Q 初始状态为空，元素e1，e2，e3，e4，e5，e6 依次通过栈S，一个元素出\\
+栈后即进队列Q，若6 个元素出队序列是e2，e4，e3，e6，e5，e1，则栈S 的容量至少是\\
+(       )\\
+A.2;\\
+B.3;\\
+C.4;\\
+D.6\\
+4.\\
+设循环队列的容量为40 （序号从0 到39） ，现经过一系列的入队和出队运算后： 1）\\
+front=12，rear=19；2）front=19，rear=12；在这两种情况下，循环队列中的元素个数分别为\\
+和        。\\
+5.\\
+一个n 位的字符串共有                    个子串。\\
+6.\\
+已知二叉树有n 个结点 (n > 0)，则度为2 的结点最多有            个。\\
+7.\\
+用数组存储一个有50 个元素的最小值堆。已知堆中没有重复元素。给出最大元素的下标\\
+可能的取值范围为           到          。\\
+8.\\
+假设用于通信的电文由5 个字符组成。已知其中一个字符的Huffman 编码为1101，则\\
+该Huffman 编码树的平均编码长度为           。\\
+9.\\
+假设先根次序遍历某棵树的结点次序为GABCDIJEFH，后根次序遍历该树的结点次序为\\
+BADIJCFEHG，那么I 结点的父结点是            。\\
+10. 一个拥有144 个结点的完全三叉树，现在从倒数第二层上任取一个结点，该结点为叶结点\\
+\\
+二、 辨析与简答(共24 分)\\
+1.\\
+（6 分）现有一个由单链表和循环单链表构成的特殊链表，单链表的头元素是head，末尾\\
+元素为tail，head.….tail 即是一条普通的链表，同时tail 元素还是另一条循环单链表的头\\
+元素。如A.B.C.D.E.F.G.H.E 就是一个特殊链表，其中head 为A，tail 为E。\\
+现在你只知道head，但是你想知道这个循环链表中有多少元素，但同时你的剩余空间十分\\
+的小，所以你想用尽可能小的空间来解决问题，请问你会怎么做？（依据占用空间给分）\\
+2.\\
+（6 分）假设以I 和O 分别表示入栈和出栈操作，栈的初始和终态均为空，入栈和出栈的\\
+操作序列可表示为仅由I 和O 组成的序列，称可以操作的序列为合法序列，否则为非法序\\
+列。如 IOIIOIOO 合法，IOOIOIIO 和IIIOIOIO 为非法。请给出一个算法，判断所给操作\\
+序列是否合法。\\
+3.\\
+（6 分）给定一棵用数组存储的完全二叉树\{10, 5, 12, 3, 2, 1, 8\}\\
+（1） 用筛选建堆法将该完全二叉树调整为最大值堆。画出调整后得到的最大值堆，并说明\\
+在调整过程中都依次交换了哪些元素。（注：画堆只需要写出层次遍历序列结果即可）\\
+（2） 将6、7、14 按顺序插入（1）得到的最大值堆，堆的空间足够大，画出插入14 后得\\
+到的最大值堆，并说明在插入14 的过程中都依次交换了哪些元素。\\
+（3） 对（2）得到的堆进行3 次deleteMax，画出第3 次deleteMax 后得到的堆，并说明在\\
+第3 次deleteMax 的过程中都依次交换了哪些元素。\\
+4.\\
+（6 分）对下列15 个等价对进行合并，给出所得等价类树的图示。在初始情况下，集合中\\
+的每个元素分别在独立的等价类中。使用重量权衡合并规则，合并时子树结点少的并入结\\
+点数多的那棵（多的那个作为新树根，少的那个根作为新根的直接子结点）；若两棵树规模\\
+同样大，则把根值较大的并入根值较小（新树根取值小的）。同时，采用路径压缩优化。\\
+(0,2) (1,2) (3,4) (3,1) (3,5) (9,11) (12,14) (12,9) (4,14) (6,7) (8,10) (8,7) (7,11) (10,15) (10,13)\\
+三、 算法填空(每空3 分，共24 分)\\
+1.\\
+下面的算法利用一个栈将一给定的序列从小到大排序。长度为n的序列由1, 2, …, n这n个连\\
+续的正整数组成。请补全下面的代码段，使其可以判断给定的序列是否可以利用一个栈进\\
+行排序，如果可以，输出相应的操作。\\
+例如：序列4 3 1 2，此序列可以排序，输出：push push push pop push pop pop pop。\\
+template <class T>                            // 栈的元素类型为T\\
+class Stack \{\\
+public:\\
+def clear();\\
+// 变为空栈\\
+def push(const T item);\\
+//  item 入栈\\
+T pop();\\
+// 返回栈顶内容并弹出\\
+T top();\\
+// 返回栈顶内容但不弹出\\
+isEmpty();\\
+// 若栈已空返回真\\
+isFull();\\
+// 若栈已满返回真\\
+\};\\
+\\
+\\
+s = Stack()\\
+//  s 为栈\\
+sequence = [\ldots]; len = len(sequence)                 // sequence 为待排序序列， len 为序列长度\\
+islegal()  \{\\
+// 判断序列是否可以排序\\
+int i, j, k;\\
+for (i = 0; i < len; i++) \{\\
+for (j = i+1; j < len; j++) \{\\
+for (k = j+1; k < len; k++) \{\\
+if (  //填空 1   )\\
+return False;\\
+\}\\
+\}\\
+\}\\
+return True;\\
+\}\\
+def transform()  \{\\
+// 输出转换操作\\
+cur, i = 1, 0\\
+while  (  //填空2  ) \{\\
+while (s.isEmpty()  or  //填空3 ) \{\\
+//填空4\\
+cout << "push ";\\
+if (cur == s.top()) break;\\
+\}\\
+s.pop();\\
+print("pop", end=" ")\\
+++cur;\\
+\}\\
+\}\\
+2.\\
+下面的算法将一个用带右链的先根次序法表示的森林转换为用带度数的后根次序法表示。\\
+请利用题目给出的树结点ADT和栈ADT，填充空格，使其成为完整的算法。\\
+class Node:      // 数据结构\\
+class RlinkTreeNode \{\\
+int ltag;                // 左标记\\
+T info;\\
+RlinkTreeNode<T> *rlink; // 右链\\
+\}\\
+class Node:\\
+class PostTreeNode \{\\
+T info;\\
+int degree;              // 度数\\
+\}\\
+// 算法描述：递归遍历用带右链的先根次序法表示的森林，同时计算出度数并转成后根次\\
+序森林；设带右链的先根次序法表示的森林为数组\\
+RlinkTreeNode RlinkTree[n];\\
+// 带度数的后根次序法表示的森林为数组\\
+PostTreeNode PostTree[n];\\
+count = 0                      // 计数器\\
+int convert(PostTreeNode * node) \{ // 返回值表示所有右兄弟的数量（包括自己）\\
+int tmp;\\
+if (1 == node.ltag) \{           // 若没有左子结点，将该结点输出到PostTree\\
+// 填空5\\
+PostTree[count].degree = 0; // 度数必然是0\\
+count++;\\
+\}\\
+else \{                        // 有左子结点则压栈\\
+tmp = convert(node+1);     // 访问第一个子结点，并返回度数\\
+PostTree[count].info = node.info;\\
+// 填空6\\
+count++;\\
+\}\\
+if (       // 填空7         ) \{  // 有右兄弟(，访问并返回右边兄弟的数量+1)\\
+return convert(node.rlink) + 1;\\
+\}\\
+else \{                       // 没有右兄弟\\
+// 填空8\\
+\}\\
+\}\\
+四、 算法设计与实现 (14 分)\\
+1.\\
+（8 分） 编写算法伪码，对给定的字符串str，返回其最长重复子串及其下标位置。如\\
+str=”abcdaccdac”，则子串”cdac”是str 的最长重复子串，下标为2。\\
+（重复子串允许重叠）\\
+2.\\
+（6 分）给出一个算法，求一棵树的树高。可以写出伪代码，需要相应的注释，或者写\\
+出详细算法思路。对时间复杂度无具体要求。\\
+五、 分析证明题 (共 14 分)\\
+1.\\
+（8 分）二叉树的内部路径长度是指所有节点的深度的和。假设将N 个互不相同的随机\\
+元素插入一棵空的二叉搜索树。请证明得到的二叉搜索树的内部路径长度期望为\\
+O(NlogN)。\\
+2.\\
+（6 分）证明按先根次序周游树获得的序列与其对应二叉树的前序周游获得的序列相同。\\
+\\
+\\
+\\
+\
+
+
+\begin{solution}
+一、选择与填空：
+\begin{enumerate}[leftmargin=2em]
+  \item 选 $O(2^n)$。每次递归产生两个规模为 $n-1$ 的子问题，递归树叶结点数为 $2^n$。
+  \item A、C、D 的赋值次序均能正确完成在双循环链表结点 $p$ 后插入 $s$；B 错在过早令 \texttt{\detokenize{p.next=s}}，随后 \texttt{\detokenize{s.next=p.next}} 会使 \texttt{\detokenize{s.next}} 指向自身。
+  \item 容量至少为 3。过程为：压入 $e_1,e_2$ 后弹出 $e_2$；压入 $e_3,e_4$ 后弹出 $e_4,e_3$；压入 $e_5,e_6$ 后弹出 $e_6,e_5,e_1$，最大栈深为 3。
+  \item 按通常约定 \texttt{\detokenize{front}} 指向队首、\texttt{\detokenize{rear}} 指向下一个可插入位置，元素个数为 $(rear-front+40)\bmod40$，故分别为 $7$ 和 $33$。
+  \item 若只计非空子串，为 $n(n+1)/2$；若按教材定义把空串也计入，则为 $n(n+1)/2+1$。
+  \item 度为 2 的结点最多为 $\lfloor(n-1)/2\rfloor$。
+  \item 若堆数组采用 0 下标，最大元素只能出现在叶结点位置，范围为 $25$ 到 $49$；若采用 1 下标，则为 $26$ 到 $50$。
+  \item 仅给出一个 Huffman 码字 \texttt{\detokenize{1101}} 不能唯一确定按频率加权的平均编码长度；若补充约定 5 个字符等概率，且码长集合为 $1,2,3,4,4$，则平均编码长度为 $14/5$。
+  \item $I$ 的父结点是 $C$。由先根序 $GABCDIJEFH$ 与后根序 $BADIJCFEHG$ 可知 $G$ 的孩子依次为 $A,C,E,H$，而 $C$ 的孩子为 $D,I,J$。
+  \item 补全题意为“从倒数第二层任取一个结点，该结点为叶结点的概率”。完全三叉树前 5 层共有 $1+3+9+27+81=121$ 个结点，144 个结点说明第 6 层有 23 个结点，占据第 5 层前 $\lceil23/3\rceil=8$ 个父结点，因此第 5 层叶结点数为 $81-8=73$，概率为 $73/81$。
+\end{enumerate}
+
+二、辨析与简答：
+\begin{enumerate}[leftmargin=2em]
+  \item 用 Floyd 快慢指针。先令慢指针每次走一步、快指针每次走两步，二者相遇则进入环；从相遇点继续沿环走一圈并计数即可得到循环链表元素个数。空间复杂度 $O(1)$。
+  \item 扫描操作串，用计数器记录当前栈深：遇到 I 加 1，遇到 O 减 1。任意前缀中 O 的数量不得超过 I，即栈深不能为负；扫描结束时 I 与 O 数量相等，即栈深为 0。两条件同时满足则合法。
+  \item 初始数组 $\{10,5,12,3,2,1,8\}$ 经筛选建最大堆得 $\{12,5,10,3,2,1,8\}$，主要交换 $10\leftrightarrow12$。依次插入 $6,7,14$ 后，插入 14 的交换为 $14\leftrightarrow2$、$14\leftrightarrow7$、$14\leftrightarrow12$，得到 $\{14,12,10,6,7,1,8,3,5,2\}$。随后连续 3 次 \texttt{\detokenize{deleteMax}} 后堆为 $\{8,7,5,6,2,1,3\}$；第 3 次删除中的下滤交换为 $3\leftrightarrow8$、$3\leftrightarrow5$。
+  \item 按题给重量权衡规则并在查找时路径压缩，所有 $0\sim15$ 最终合并为一个等价类，代表元可取 $0$。完全压缩后的等价类树可画成以 $0$ 为根，其余结点均为 $0$ 的孩子。
+\end{enumerate}
+
+三、算法填空：
+\begin{enumerate}[leftmargin=2em]
+  \item 一个排列可由一个栈排成升序，当且仅当不存在 $i<j<k$ 且 $sequence[k]<sequence[i]<sequence[j]$ 的 231 模式。填空为：
+  \begin{enumerate}[leftmargin=2em]
+    \item \texttt{\detokenize{sequence[k] < sequence[i] and sequence[i] < sequence[j]}}；
+    \item \texttt{\detokenize{cur <= len}}；
+    \item \texttt{\detokenize{cur < s.top()}}；
+    \item \texttt{\detokenize{s.push(sequence[i]); i += 1}}。
+  \end{enumerate}
+  \item 带右链先根序转带度数后根序的填空：
+  \begin{enumerate}[leftmargin=2em]
+    \item \texttt{\detokenize{PostTree[count].info = node.info}}；
+    \item \texttt{\detokenize{PostTree[count].degree = tmp}}；
+    \item \texttt{\detokenize{node.rlink is not None}}；
+    \item \texttt{\detokenize{return 1}}。
+  \end{enumerate}
+\end{enumerate}
+
+四、算法设计与实现：
+\begin{enumerate}[leftmargin=2em]
+  \item 可用后缀数组。构造所有后缀及其起始下标，按字典序排序；最长重复子串一定是相邻后缀的最长公共前缀之一。依次计算相邻后缀 LCP，取最长者及较小起始下标即可。朴素实现时间 $O(n^2\log n)$，若用线性 LCP 算法可降为 $O(n\log n)$ 或更优。
+  \item 树高递归算法：若结点为空，返回 $-1$；若为叶子，返回 $0$；否则返回所有孩子树高最大值加 1。若按“层数”定义树高，则空树为 0，叶结点为 1，相应整体加 1 即可。
+\end{enumerate}
+
+五、证明题：
+\begin{enumerate}[leftmargin=2em]
+  \item 随机插入得到的 BST 与快速排序递归树同分布。设 $E[I_N]$ 为内部路径长度期望，根的左子树规模 $i$ 在 $0\sim N-1$ 上等可能，因此
+  \[
+  E[I_N]=N-1+\frac1N\sum_{i=0}^{N-1}(E[I_i]+E[I_{N-1-i}]),
+  \]
+  解得 $E[I_N]=O(N\log N)$。
+  \item 树的孩子兄弟表示中，树的“第一个孩子”成为对应二叉树的左孩子，“右兄弟”成为右孩子。树的先根遍历先访问根，再依次访问各子树；对应二叉树的前序遍历也是先访问根，再沿左孩子进入第一个子树，并沿右孩子依次访问兄弟子树。因此两者访问序列相同。
+\end{enumerate}
+\end{solution}
+
+\end{question}
