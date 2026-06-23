@@ -460,10 +460,48 @@ $n\;(n\ge2)$ 个顶点的有向强连通图最少有 \blank 条边。
 \end{enumerate}
 \begin{solution}
 顺序插入得到：根为 $18$；左子树为 $5$，且 $5$ 的右孩子为 $10$；右子树根为 $73$，$73$ 的左孩子为 $68$、右孩子为 $99$，$68$ 的左孩子为 $27$。
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,every node/.style={draw,circle,font=\small,minimum size=6mm,inner sep=0pt}]
+\node (a18) at (0,0) {18};
+\node (a5) at (-2,-1) {5};
+\node (a73) at (2,-1) {73};
+\node (a10) at (-1.2,-2) {10};
+\node (a68) at (1,-2) {68};
+\node (a99) at (3,-2) {99};
+\node (a27) at (0.35,-3) {27};
+\foreach \u/\v in {a18/a5,a18/a73,a5/a10,a73/a68,a73/a99,a68/a27}
+  \draw (\u)--(\v);
+\end{tikzpicture}
+\end{center}
 
 删除 $73$ 时，可用其左子树最大结点 $68$ 替代，得到右子树根 $68$，其左孩子为 $27$、右孩子为 $99$。
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,every node/.style={draw,circle,font=\small,minimum size=6mm,inner sep=0pt}]
+\node (b18) at (0,0) {18};
+\node (b5) at (-2,-1) {5};
+\node (b68) at (2,-1) {68};
+\node (b10) at (-1.2,-2) {10};
+\node (b27) at (1.2,-2) {27};
+\node (b99) at (2.8,-2) {99};
+\foreach \u/\v in {b18/b5,b18/b68,b5/b10,b68/b27,b68/b99}
+  \draw (\u)--(\v);
+\end{tikzpicture}
+\end{center}
 
 若在原集合 $\{5,10,18,27,68,73,99\}$ 上等概率查找，最优二叉排序树可取中位数 $27$ 为根，左子树根为 $10$、右子树根为 $73$，叶结点为 $5,18,68,99$。这是高度尽量平衡的二叉搜索树，成功查找平均比较次数最小。
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,every node/.style={draw,circle,font=\small,minimum size=6mm,inner sep=0pt}]
+\node (c27) at (0,0) {27};
+\node (c10) at (-2,-1) {10};
+\node (c73) at (2,-1) {73};
+\node (c5) at (-3,-2) {5};
+\node (c18) at (-1,-2) {18};
+\node (c68) at (1,-2) {68};
+\node (c99) at (3,-2) {99};
+\foreach \u/\v in {c27/c10,c27/c73,c10/c5,c10/c18,c73/c68,c73/c99}
+  \draw (\u)--(\v);
+\end{tikzpicture}
+\end{center}
 \end{solution}
 \end{question}
 

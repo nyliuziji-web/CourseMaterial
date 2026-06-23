@@ -155,6 +155,56 @@ AVL 树是一种（\quad）。
 \begin{solution}
 先统计字符频率：空格、\texttt{e}、\texttt{s} 各 $5$ 次，\texttt{t} 为 $4$ 次，\texttt{i}、\texttt{n} 各 $2$ 次，\texttt{c,d,f,h,o,r,u} 各 $1$ 次。Huffman 编码不唯一，下面给出一种合法编码：
 \begin{center}
+\resizebox{0.98\linewidth}{!}{%
+\begin{tikzpicture}[
+  level distance=11mm,
+  level 1/.style={sibling distance=88mm},
+  level 2/.style={sibling distance=50mm},
+  level 3/.style={sibling distance=31mm},
+  level 4/.style={sibling distance=21mm},
+  level 5/.style={sibling distance=15mm},
+  every node/.style={draw,rounded corners=1pt,align=center,font=\scriptsize,inner sep=1.3pt}
+]
+\node {30}
+  child {node {12}
+    child {node {\texttt{s}:5}}
+    child {node {7}
+      child {node {3}
+        child {node {\texttt{u}:1}}
+        child {node {\texttt{i}:2}}
+      }
+      child {node {\texttt{t}:4}}
+    }
+  }
+  child {node {18}
+    child {node {8}
+      child {node {4}
+        child {node {\texttt{n}:2}}
+        child {node {2}
+          child {node {\texttt{c}:1}}
+          child {node {\texttt{d}:1}}
+        }
+      }
+      child {node {4}
+        child {node {2}
+          child {node {\texttt{f}:1}}
+          child {node {\texttt{h}:1}}
+        }
+        child {node {2}
+          child {node {\texttt{o}:1}}
+          child {node {\texttt{r}:1}}
+        }
+      }
+    }
+    child {node {10}
+      child {node {空格:5}}
+      child {node {\texttt{e}:5}}
+    }
+  };
+\end{tikzpicture}
+}%
+\end{center}
+\begin{center}
 \begin{tabular}{c|ccccccccccccc}
 \toprule
 字符 & 空格 & c & d & e & f & h & i & n & o & r & s & t & u \\
@@ -195,47 +245,53 @@ AVL 树是一种（\quad）。
 下面是一个带权有向图的邻接矩阵表示（$\infty$ 表示无边），试画出该图结构，并给出该图中由 $V_0$ 到 $V_4$ 的最短路径。
 \[
 \begin{pmatrix}
-0&10&\infty&30&100\\
-\infty&0&50&\infty&\infty\\
-\infty&\infty&0&\infty&10\\
-\infty&\infty&20&0&60\\
-\infty&\infty&\infty&\infty&0
+0&50&10&\infty&45&\infty\\
+\infty&0&15&\infty&5&\infty\\
+20&\infty&0&15&\infty&\infty\\
+\infty&20&\infty&0&35&\infty\\
+\infty&\infty&\infty&30&0&\infty\\
+\infty&\infty&\infty&3&\infty&0
 \end{pmatrix}
 \]
 \begin{center}
-\begin{tikzpicture}[x=10mm,y=8mm,every node/.style={draw,circle,font=\small,minimum size=6mm,inner sep=0pt},>=stealth]
-\node (v0) at (0,0) {$V_0$};
-\node (v1) at (2,1) {$V_1$};
-\node (v3) at (2,-1) {$V_3$};
-\node (v2) at (4,0) {$V_2$};
-\node (v4) at (6,0) {$V_4$};
-\draw[->] (v0)--node[above,draw=none,fill=white]{10}(v1);
-\draw[->] (v0)--node[below,draw=none,fill=white]{30}(v3);
-\draw[->] (v0) to[bend left=25] node[above,draw=none,fill=white]{100}(v4);
-\draw[->] (v1)--node[above,draw=none,fill=white]{50}(v2);
-\draw[->] (v3)--node[below,draw=none,fill=white]{20}(v2);
-\draw[->] (v3) to[bend right=18] node[below,draw=none,fill=white]{60}(v4);
-\draw[->] (v2)--node[above,draw=none,fill=white]{10}(v4);
+\begin{tikzpicture}[x=10mm,y=10mm,every node/.style={draw,circle,font=\small,minimum size=6mm,inner sep=0pt},>=stealth]
+\node (v0) at (0,1) {$V_0$};
+\node (v1) at (2.2,2.5) {$V_1$};
+\node (v2) at (2.2,-0.5) {$V_2$};
+\node (v3) at (4.6,-0.5) {$V_3$};
+\node (v4) at (5,2.5) {$V_4$};
+\node (v5) at (7,-0.5) {$V_5$};
+\draw[->] (v0)--node[above left,draw=none,fill=white]{50}(v1);
+\draw[->] (v0) to[bend right=12] node[left,draw=none,fill=white]{10}(v2);
+\draw[->] (v0) to[bend left=28] node[above,draw=none,fill=white]{45}(v4);
+\draw[->] (v1)--node[right,draw=none,fill=white]{15}(v2);
+\draw[->] (v1)--node[above,draw=none,fill=white]{5}(v4);
+\draw[->] (v2) to[bend right=12] node[right,draw=none,fill=white]{20}(v0);
+\draw[->] (v2)--node[below,draw=none,fill=white]{15}(v3);
+\draw[->] (v3) to[bend left=18] node[pos=0.72,below left,draw=none,fill=white]{20}(v1);
+\draw[->] (v3) to[bend left=14] node[left,draw=none,fill=white]{35}(v4);
+\draw[->] (v4) to[bend left=14] node[right,draw=none,fill=white]{30}(v3);
+\draw[->] (v5)--node[below,draw=none,fill=white]{3}(v3);
 \end{tikzpicture}
 \end{center}
 
 \begin{solution}
-由矩阵可得有向边：$V_0\to V_1(10)$、$V_0\to V_3(30)$、$V_0\to V_4(100)$、$V_1\to V_2(50)$、$V_3\to V_2(20)$、$V_3\to V_4(60)$、$V_2\to V_4(10)$。从 $V_0$ 执行 Dijkstra 算法：
+由矩阵可得有向边：$V_0\to V_1(50)$、$V_0\to V_2(10)$、$V_0\to V_4(45)$、$V_1\to V_2(15)$、$V_1\to V_4(5)$、$V_2\to V_0(20)$、$V_2\to V_3(15)$、$V_3\to V_1(20)$、$V_3\to V_4(35)$、$V_4\to V_3(30)$、$V_5\to V_3(3)$。从 $V_0$ 执行 Dijkstra 算法：
 \begin{center}
 \small
 \begin{tabular}{c c c c}
 \toprule
-步骤 & 确定顶点 & 当前距离 $(d_1,d_2,d_3,d_4)$ & 前驱更新 \\ 
+步骤 & 确定顶点 & 当前距离 $(d_1,d_2,d_3,d_4,d_5)$ & 前驱更新 \\
 \midrule
-初始 & $V_0$ & $(10,\infty,30,100)$ & $pre_1=0,pre_3=0,pre_4=0$ \\ 
-1 & $V_1$ & $(10,60,30,100)$ & $pre_2=1$ \\ 
-2 & $V_3$ & $(10,50,30,90)$ & $pre_2=3,pre_4=3$ \\ 
-3 & $V_2$ & $(10,50,30,60)$ & $pre_4=2$ \\ 
-4 & $V_4$ & $(10,50,30,60)$ & 完成 \\ 
+初始 & $V_0$ & $(50,10,\infty,45,\infty)$ & $pre_1=0,pre_2=0,pre_4=0$ \\
+1 & $V_2$ & $(50,10,25,45,\infty)$ & $pre_3=2$ \\
+2 & $V_3$ & $(45,10,25,45,\infty)$ & $pre_1=3$ \\
+3 & $V_1$ & $(45,10,25,45,\infty)$ & 无更新 \\
+4 & $V_4$ & $(45,10,25,45,\infty)$ & 完成 \\
 \bottomrule
 \end{tabular}
 \end{center}
-故最短路径为 $V_0\to V_3\to V_2\to V_4$，长度为 $30+20+10=60$。
+故最短路径为 $V_0\to V_4$，长度为 $45$。顶点 $V_5$ 从 $V_0$ 不可达，不影响该最短路径。
 \end{solution}
 \end{question}
 
