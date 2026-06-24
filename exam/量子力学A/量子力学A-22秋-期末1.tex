@@ -1,0 +1,172 @@
+\heading{量子力学A-22秋-期末1}
+\noteinfo{整理自 Quantum Mechanics: Fall 2022 Final Exam: Brief Solutions；题面和解答按项目格式重写。}
+
+\begin{question}
+二维各向同性谐振子
+\[
+H_0={p_x^2\over2m}+{m\omega^2x^2\over2}+{p_y^2\over2m}+{m\omega^2y^2\over2}.
+\]
+\begin{enumerate}
+  \item 写出基态和第一激发态波函数。
+  \item 加入微扰 $H_1=Vx^2y^2$，求基态能量至 $V^2$。
+  \item 求第一激发能级的一阶修正。
+  \item 求第一激发能级的二阶修正。
+  \item 用变分哈密顿量 $H_\Omega$ 的基态估计基态能量。
+\end{enumerate}
+\begin{solution}
+本征态为 $\psi_{n_xn_y}=\psi_{n_x}(x)\psi_{n_y}(y)$，能量
+\[
+  E_{n_xn_y}=\hbar\omega(n_x+n_y+1).
+\]
+基态 $\psi_{00}=(m\omega/\pi\hbar)^{1/2}\exp[-m\omega(x^2+y^2)/(2\hbar)]$；第一激发态为 $\psi_{10},\psi_{01}$。
+
+用 $x=\sqrt{\hbar/(2m\omega)}(a_x+a_x^\dagger)$，有
+\[
+  H_1\ket{00}=V\left({\hbar\over2m\omega}\right)^2
+  \left(\ket{00}+\sqrt2\ket{20}+\sqrt2\ket{02}+2\ket{22}\right).
+\]
+故
+\[
+  E_{00}= \hbar\omega
+  +V\left({\hbar\over2m\omega}\right)^2
+  -{3V^2\hbar^3\over16m^4\omega^5}+O(V^3).
+\]
+第一激发子空间中一阶久期矩阵为
+\[
+  3V\left({\hbar\over2m\omega}\right)^2 I_2,
+\]
+简并不解除。二阶修正对 $\ket{10},\ket{01}$ 相同：
+\[
+  \Delta E_{10}^{(2)}=\Delta E_{01}^{(2)}
+  =-{15V^2\hbar^3\over16m^4\omega^5}.
+\]
+变分基态取频率 $\Omega$ 的二维谐振子基态，
+\[
+  E(\Omega)={\hbar\over2}\left(\Omega+{\omega^2\over\Omega}\right)
+  +V\left({\hbar\over2m\Omega}\right)^2 .
+\]
+极小化得
+\[
+  E_{\rm var}=\hbar\omega+V\left({\hbar\over2m\omega}\right)^2
+  -{V^2\hbar^3\over8m^4\omega^5}+O(V^3).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+质量为 $m$ 的粒子在周长 $L$ 的圆环上运动，周期边界条件。势为随速度 $v$ 匀速运动的梳状 $\delta$ 势
+\[
+  V(x,t)=\alpha\sum_{j\in\mathbb Z}\delta(x-vt-jL).
+\]
+\begin{enumerate}
+  \item 写出自由粒子本征值与归一化本征函数。
+  \item 令 $\ket\psi=\sum_n c_n(t)\ee^{-\ii E_nt/\hbar}\ket n$，推导 $c_n$ 方程。
+  \item 求从基态到第一激发态的最低非零阶跃迁概率。
+  \item 通过 Galilean boost 化为不含时问题，并写出基态能量满足的方程。
+\end{enumerate}
+\begin{solution}
+\[
+  \psi_n={1\over\sqrt L}\ee^{\ii2\pi nx/L},\qquad
+  E_n={\hbar^2\over2m}\left({2\pi n\over L}\right)^2 .
+\]
+矩阵元为
+\[
+  \mel{n}{V(t)}{m}={\alpha\over L}\exp\left[\ii{2\pi(m-n)vt\over L}\right],
+\]
+故
+\[
+  \ii\hbar\dot c_n=\sum_m \ee^{\ii\omega_{nm}t}{\alpha\over L}
+  \ee^{\ii2\pi(m-n)vt/L}c_m .
+\]
+一阶微扰给
+\[
+  P_{m\to n}(t)={\alpha^2\over\hbar^2L^2}
+  {4\sin^2[(\omega_{nm}+2\pi(m-n)v/L)t/2]
+  \over[\omega_{nm}+2\pi(m-n)v/L]^2}.
+\]
+取 $m=0,n=\pm1$ 即得到第一激发双重态的两个跃迁概率。
+
+令 $\tilde x=x-vt$，$\tilde\psi(\tilde x,t)=\psi(x,t)$，则
+\[
+  \ii\hbar\partial_t\tilde\psi=\left({\tilde p^2\over2m}-v\tilde p
+  +\alpha\sum_j\delta(\tilde x-jL)\right)\tilde\psi .
+\]
+设
+\[
+  \tilde p_\pm=mv\pm\sqrt{2m\tilde E+m^2v^2},
+\]
+周期与跳变条件给出能量的隐式方程
+\[
+  {\hbar\over m}\sqrt{2m\tilde E+m^2v^2}
+  =-\alpha\,{\sin\!\left(\sqrt{2m\tilde E+m^2v^2}L/\hbar\right)
+  \over2\sin(\tilde p_+L/2\hbar)\sin(\tilde p_-L/2\hbar)} .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+两个全同粒子在一维谐振势中运动，
+\[
+  H_0={p_1^2+p_2^2\over2m}+{m\omega^2\over2}(x_1^2+x_2^2).
+\]
+\begin{enumerate}
+  \item 写出两个无自旋玻色子的基态、第一激发态、第二激发态。
+  \item 对无自旋费米子重复上述问题。
+  \item 对自旋 $1/2$ 玻色子和费米子写出基态和第一激发态。
+  \item 对费米子情况加入 $H_1=\lambda(p_1+p_2)(S_{1x}+S_{2x})$，求最低非零阶能量修正。
+\end{enumerate}
+\begin{solution}
+用单粒子谐振子本征态 $\psi_n$。无自旋玻色子取对称组合：
+\[
+  \Psi_{00}^{B}=\psi_0(1)\psi_0(2),\quad E=\hbar\omega,
+\]
+\[
+  \Psi_{01}^{B}={\psi_0(1)\psi_1(2)+\psi_1(1)\psi_0(2)\over\sqrt2},\quad E=2\hbar\omega,
+\]
+第二激发态为 $\Psi_{02}^B$ 与 $\psi_1(1)\psi_1(2)$，能量 $3\hbar\omega$。无自旋费米子取反对称组合；其基态为
+\[
+  \Psi_{01}^{F}={\psi_0(1)\psi_1(2)-\psi_1(1)\psi_0(2)\over\sqrt2},\quad E=2\hbar\omega,
+\]
+第一激发态 $\Psi_{02}^{F}$，第二激发态 $\Psi_{03}^{F},\Psi_{12}^{F}$。
+
+自旋 $1/2$ 情形中，总波函数需按交换对称性组合。玻色子基态为空间对称 $\Psi_{00}^{B}$ 乘自旋三重态；费米子基态为空间对称 $\Psi_{00}^{B}$ 乘自旋单态。第一激发能级 $2\hbar\omega$ 中，玻色子可为空间对称乘三重态或空间反对称乘单态；费米子相反。
+
+对费米子，改用 $S_x$ 表象。自旋单态或 $S_x=0$ 的三重态中 $H_1$ 不起作用；$S=1,S_x=\pm1$ 子空间中
+\[
+  H_1=\pm\lambda\hbar(p_1+p_2),
+\]
+可由动量平移完成平方，所有能级修正为
+\[
+  \Delta E=-m\lambda^2\hbar^2.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+两个自旋 $1/2$ 磁矩在 $z$ 向静磁场中，
+\[
+  H_0=-\gamma B_0(S_{1z}+S_{2z}),
+\]
+再加小的旋转横场
+\[
+  V(t)=-\gamma B_1[\cos\omega t(S_{1x}+S_{2x})-\sin\omega t(S_{1y}+S_{2y})].
+\]
+\begin{enumerate}
+  \item 用含时微扰论求从基态到最高能态的最低非零阶跃迁概率。
+  \item 若 $H_0$ 还含 $J\vb S_1\cdot\vb S_2$，$J>0$，重做计算。
+\end{enumerate}
+\begin{solution}
+横场可写作
+\[
+  V(t)=-{\gamma B_1\over2}\left(\ee^{\ii\omega t}S_{1+}
+  +\ee^{-\ii\omega t}S_{1-}+\ee^{\ii\omega t}S_{2+}
+  +\ee^{-\ii\omega t}S_{2-}\right).
+\]
+从 $\ket{\uparrow\uparrow}$ 到 $\ket{\downarrow\downarrow}$ 需二阶过程，两个中间态振幅相加，得
+\[
+  P_{\uparrow\uparrow\to\downarrow\downarrow}(t)
+  =(\gamma B_1)^4{\sin^4[(\gamma B_0-\omega)t/2]\over(\gamma B_0-\omega)^4}.
+\]
+加入交换作用后，三重态能量整体加 $J\hbar^2/4$，单态为 $-3J\hbar^2/4$。若 $J\hbar^2>\gamma B_0\hbar$，基态为单态，横场保持总自旋，不能跃迁到最高三重态，概率为零。若 $J\hbar^2<\gamma B_0\hbar$，基态仍为 $\ket{\uparrow\uparrow}$，唯一中间态为三重态 $\ket{1,0}$，结果与上式相同。
+\end{solution}
+\end{question}

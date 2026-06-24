@@ -61,10 +61,48 @@ H'_{13}=H'_{31}=eE(t)\langle100|z|210\rangle,
 \qquad
 \dot c_b=-{\ii\over\hbar}V^* e^{\ii\omega_0t}c_a.
 \]
-精确解可写成 Rabi 形式
+将第二式对时间求导：
 \[
-P_{a\to b}(t)=|c_b(t)|^2={|V|^2/\hbar^2\over |V|^2/\hbar^2+(\omega_0/2)^2}
-\sin^2\left(t\sqrt{|V|^2/\hbar^2+(\omega_0/2)^2}\right).
+\ddot c_b=-{\ii\over\hbar}V^*\left(\ii\omega_0 e^{\ii\omega_0t}c_a+e^{\ii\omega_0t}\dot c_a\right).
+\]
+代入 $\dot c_a$ 的表达式：
+\[
+\ddot c_b=-{\ii\over\hbar}V^*\left[\ii\omega_0 e^{\ii\omega_0t}c_a
++e^{\ii\omega_0t}\left(-{\ii\over\hbar}V e^{-\ii\omega_0t}c_b\right)\right]
+=\omega_0{\ii\over\hbar}V^* e^{\ii\omega_0t}c_a-{|V|^2\over\hbar^2}c_b.
+\]
+注意到第一项正是 $\omega_0\dot c_b$，故
+\[
+\ddot c_b=\ii\omega_0\dot c_b-{|V|^2\over\hbar^2}c_b.
+\]
+这是常系数二阶齐次线性微分方程。设 $c_b=e^{rt}$，代入得特征方程
+\[
+r^2-\ii\omega_0 r+{|V|^2\over\hbar^2}=0.
+\]
+解为
+\[
+r_\pm={\ii\omega_0\pm\sqrt{-\omega_0^2-4|V|^2/\hbar^2}\over2}
+={\ii\over2}\left(\omega_0\pm\sqrt{\omega_0^2+{4|V|^2\over\hbar^2}}\right).
+\]
+定义 Rabi 频率
+\[
+\Omega_R={1\over2}\sqrt{\omega_0^2+{4|V|^2\over\hbar^2}}
+=\sqrt{{|V|^2\over\hbar^2}+\left({\omega_0\over2}\right)^2}.
+\]
+一般解为
+\[
+c_b(t)=e^{\ii\omega_0t/2}\left(A e^{\ii\Omega_R t}+B e^{-\ii\Omega_R t}\right).
+\]
+代入初值 $c_a(0)=1$、$c_b(0)=0$ 以及由第一式确定的初始斜率 $\dot c_b(0)=-(\ii/\hbar)V^*$，解得 $A=-B=-V^*/(2\hbar\Omega_R)$。因此
+\[
+c_b(t)=-{\ii V^*\over\hbar\Omega_R}e^{\ii\omega_0t/2}\sin(\Omega_R t).
+\]
+类似地可得 $c_a(t)$。跃迁概率为
+\[
+P_{a\to b}(t)=|c_b(t)|^2
+={|V|^2/\hbar^2\over\Omega_R^2}\sin^2(\Omega_R t)
+=\boxed{{|V|^2/\hbar^2\over|V|^2/\hbar^2+(\omega_0/2)^2}
+\sin^2\left(t\sqrt{|V|^2/\hbar^2+(\omega_0/2)^2}\right).}
 \]
 并且 $|c_a|^2=1-P_{a\to b}$，故归一性保持。它不与一般结论矛盾，因为常微扰并不意味着能量守恒跃迁只能在一阶长期极限发生；有限二能级系统会发生相干振荡。
 \end{solution}
@@ -118,18 +156,35 @@ c_b(t)=-{\ii\over\hbar}H'_{ba}\int_0^t e^{\ii\omega_0t'}\dd t'.
 \]
 于是 $|c_a|^2+|c_b|^2=1+O(H'^2)$，在一阶精度内归一。
 
-(b) 定义
+(b) 保留对角元后，相互作用绘景方程变为
 \[
-d_a=c_a e^{\ii H'_{aa}t/\hbar},
-\qquad d_b=c_b e^{\ii H'_{bb}t/\hbar}.
+\dot c_a=-{\ii\over\hbar}\big(H'_{aa}c_a+H'_{ab}e^{-\ii\omega_0t}c_b\big),\qquad
+\dot c_b=-{\ii\over\hbar}\big(H'_{bb}c_b+H'_{ba}e^{\ii\omega_0t}c_a\big).
 \]
-则对角项被吸收到相位中，非对角耦合带有修正频率
+做相位变换以吸收对角项。定义
 \[
-\omega=\omega_0+(H'_{bb}-H'_{aa})/\hbar.
+d_a=c_a e^{\ii H'_{aa}t/\hbar},\qquad
+d_b=c_b e^{\ii H'_{bb}t/\hbar}.
 \]
-方程化为无对角项的形式。
+求导：
+\[
+\dot d_a=\dot c_a e^{\ii H'_{aa}t/\hbar}+{\ii H'_{aa}\over\hbar}c_a e^{\ii H'_{aa}t/\hbar}
+=-{\ii\over\hbar}\big(H'_{aa}c_a+H'_{ab}e^{-\ii\omega_0t}c_b\big)e^{\ii H'_{aa}t/\hbar}
++{\ii H'_{aa}\over\hbar}c_a e^{\ii H'_{aa}t/\hbar}
+=-{\ii\over\hbar}H'_{ab}e^{-\ii\omega_0t}e^{\ii H'_{aa}t/\hbar}c_b.
+\]
+利用 $c_b=d_b e^{-\ii H'_{bb}t/\hbar}$，得
+\[
+\dot d_a=-{\ii\over\hbar}H'_{ab}e^{-\ii\omega_0t+\ii(H'_{aa}-H'_{bb})t/\hbar}d_b
+=-{\ii\over\hbar}H'_{ab}e^{-\ii\tilde\omega_0 t}d_b,
+\]
+其中 $\tilde\omega_0=\omega_0+(H'_{bb}-H'_{aa})/\hbar$。类似可得
+\[
+\dot d_b=-{\ii\over\hbar}H'_{ba}e^{\ii\tilde\omega_0 t}d_a.
+\]
+这正是与式 (11.17) 同构的方程，但 $\omega_0$ 被替换为修正频率 $\tilde\omega_0$，且没有对角项。
 
-(c) 用 $d$ 变量做一阶微扰，再变回 $c$，展开到 $H'$ 一阶，与 (a) 完全一致。
+(c) 用 $d$ 变量做一阶微扰，得到 $d_a^{(1)}=1$、$d_b^{(1)}$ 的表达式，再通过逆变换 $c_i=d_i e^{-\ii H'_{ii}t/\hbar}$ 变回 $c$，展开到 $H'$ 一阶，与 (a) 完全一致。
 \end{solution}
 
 \begin{question}
@@ -146,44 +201,79 @@ d_a=c_a e^{\ii H'_{aa}t/\hbar},
 \qquad
 \Omega^*(t)={1\over\hbar}H'_{ba}e^{\ii\omega_0t}.
 \]
-则
+则方程化为
+\[
+\dot c_a=-\ii\Omega(t)c_b,\qquad
+\dot c_b=-\ii\Omega^*(t)c_a.
+\]
+对两边从 $0$ 到 $t$ 积分，得到积分方程组
 \[
 c_a(t)=a-\ii\int_0^t\Omega(t_1)c_b(t_1)\dd t_1,
 \qquad
 c_b(t)=b-\ii\int_0^t\Omega^*(t_1)c_a(t_1)\dd t_1.
 \]
-迭代到二阶：
+这个形式已隐含了迭代结构。零阶近似为 $c_a^{(0)}=a$、$c_b^{(0)}=b$。代入右侧得一阶近似：
+\[
+c_a^{(1)}(t)=a-\ii b\int_0^t\Omega(t_1)\dd t_1,
+\qquad
+c_b^{(1)}(t)=b-\ii a\int_0^t\Omega^*(t_1)\dd t_1.
+\]
+再将一阶结果回代到右侧得到二阶近似。对 $c_a$ 而言，需将 $c_b\approx c_b^{(1)}$ 代入：
+\[
+c_a^{(2)}(t)=a-\ii\int_0^t\Omega(t_1)\left[b-\ii a\int_0^{t_1}\Omega^*(t_2)\dd t_2\right]\dd t_1.
+\]
+展开后即为
 \[
 c_a(t)=a-\ii b\int_0^t\Omega_1\dd t_1
--a\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,\Omega_1\Omega_2^*,
+-a\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,\Omega_1\Omega_2^*+O(\Omega^3).
 \]
+同理，
 \[
 c_b(t)=b-\ii a\int_0^t\Omega_1^*\dd t_1
--b\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,\Omega_1^*\Omega_2.
+-b\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,\Omega_1^*\Omega_2+O(\Omega^3),
 \]
-其中下标表示对应时间。这就是二阶微扰解。
+其中下标 $1,2$ 表示对应时间 $t_1,t_2$。这是含时微扰下的一般二阶解。注意二阶项中两时间变量先后有序（$t_2<t_1$），反映了时间排序的要求。
 \end{solution}
 
 \begin{question}
 计算习题 11.3 中 $c_a(t)$ 和 $c_b(t)$ 至二阶近似，并将结果同精确解比较。
 \end{question}
 \begin{solution}
-习题 11.3 的精确概率为 Rabi 形式。弱耦合展开时，令
+习题 11.3 的精确概率为 Rabi 形式。这里从含时微扰方程出发逐阶展开。相互作用绘景方程为
 \[
-\Omega_R=\sqrt{|V|^2/\hbar^2+(\omega_0/2)^2}.
+\dot c_a=-{\ii V\over\hbar}e^{-\ii\omega_0t}c_b,\qquad
+\dot c_b=-{\ii V^*\over\hbar}e^{\ii\omega_0t}c_a,
 \]
-到二阶，
+初值 $c_a(0)=1$、$c_b(0)=0$。零阶解：$c_a^{(0)}=1$、$c_b^{(0)}=0$。
+
+一阶：将零阶解代入右端，对时间积分：
 \[
-c_b^{(1)}(t)={V^*\over\hbar\omega_0}(1-e^{\ii\omega_0t}),
+c_a^{(1)}(t)=1,\qquad
+c_b^{(1)}(t)=-{\ii V^*\over\hbar}\int_0^t e^{\ii\omega_0t_1}\dd t_1
+=-{V^*\over\hbar\omega_0}\big(e^{\ii\omega_0t}-1\big).
 \]
-而
+因此一阶跃迁概率为
 \[
-c_a^{(2)}(t)=-{\ii |V|^2t\over\hbar^2\omega_0}+{ |V|^2\over\hbar^2\omega_0^2}(e^{-\ii\omega_0t}-1)
+P_{a\to b}^{(1)}={4|V|^2\over\hbar^2\omega_0^2}\sin^2{\omega_0t\over2}.
 \]
-（整体相位约定可有差异）。展开精确解到 $|V|^2$ 阶可得到同样结果，特别是
+二阶：将 $c_a\approx c_a^{(1)}=1$ 和 $c_b\approx c_b^{(1)}$ 回代：
 \[
-P_{a\to b}^{(2)}={4|V|^2\over\hbar^2\omega_0^2}\sin^2{\omega_0t\over2}.
+c_a^{(2)}(t)=1-{\ii V\over\hbar}\int_0^t e^{-\ii\omega_0t_1}c_b^{(1)}(t_1)\dd t_1
+=1-{\ii V\over\hbar}\int_0^t e^{-\ii\omega_0t_1}\left[-{V^*\over\hbar\omega_0}(e^{\ii\omega_0t_1}-1)\right]\dd t_1
 \]
+\[
+=1+{|V|^2\over\hbar^2\omega_0}\int_0^t\left(1-e^{-\ii\omega_0t_1}\right)\dd t_1
+=1+{|V|^2\over\hbar^2\omega_0}t+{\ii|V|^2\over\hbar^2\omega_0^2}(e^{-\ii\omega_0t}-1).
+\]
+因此
+\[
+c_a^{(2)}(t)=1-{\ii |V|^2t\over\hbar^2\omega_0}+{ |V|^2\over\hbar^2\omega_0^2}(e^{-\ii\omega_0t}-1),
+\]
+（整体相位约定可有差异）。$c_b$ 的二阶修正来自将 $c_a\approx c_a^{(1)}=1$ 代入二阶迭代，但 $c_b^{(1)}$ 已是一阶量，其零阶项 $c_a^{(0)}=1$ 已被使用；再下一阶将给出 $c_a$ 的二阶修正对 $c_b$ 的影响。展开精确 Rabi 解到 $|V|^2$ 阶可得到一致结果：
+\[
+P_{a\to b}^{(2)}={4|V|^2\over\hbar^2\omega_0^2}\sin^2{\omega_0t\over2},
+\]
+这正是微扰论在一阶给出的一致结果。
 \end{solution}
 
 \begin{question}
@@ -203,36 +293,106 @@ H'_{ab}=H'_{ba}=\frac{\alpha}{\sqrt{\pi}\tau}e^{-(t/\tau)^2},\qquad H'_{aa}=H'_{
 \[
 c_b(\infty)=-{\ii\over\hbar}\int_{-\infty}^{\infty}{\alpha\over\sqrt\pi\tau}e^{-(t/\tau)^2}e^{\ii\omega_0t}\dd t.
 \]
-高斯积分给出
+计算高斯型积分。被积函数 $\exp(-t^2/\tau^2+\ii\omega_0t)$，对指数配方法：
+\[
+-{t^2\over\tau^2}+\ii\omega_0t
+=-{1\over\tau^2}\left(t^2-\ii\omega_0\tau^2 t\right)
+=-{1\over\tau^2}\left[\left(t-{\ii\omega_0\tau^2\over2}\right)^2+{\omega_0^2\tau^4\over4}\right]
+=-{1\over\tau^2}\left(t-{\ii\omega_0\tau^2\over2}\right)^2-{\omega_0^2\tau^2\over4}.
+\]
+因此
+\[
+\int_{-\infty}^{\infty}e^{-t^2/\tau^2}e^{\ii\omega_0t}\dd t
+=e^{-\omega_0^2\tau^2/4}\int_{-\infty}^{\infty}
+\exp\left[-{1\over\tau^2}\left(t-{\ii\omega_0\tau^2\over2}\right)^2\right]\dd t
+=e^{-\omega_0^2\tau^2/4}\cdot\sqrt\pi\,\tau.
+\]
+乘以归一化因子 $1/(\sqrt\pi\tau)$ 后得
 \[
 \int_{-\infty}^{\infty}{1\over\sqrt\pi\tau}e^{-(t/\tau)^2}e^{\ii\omega_0t}\dd t=e^{-\omega_0^2\tau^2/4}.
 \]
-所以
+所以跃迁概率为
 \[
 \boxed{P_{a\to b}^{(1)}={\alpha^2\over\hbar^2}e^{-\omega_0^2\tau^2/2}.}
 \]
-当 $\tau\to0$，得 $P\to\alpha^2/\hbar^2$，这是 $\sin^2(\alpha/\hbar)$ 的弱耦合极限。若 $\omega_0\tau\gg1$，指数抑制很强，说明缓慢扰动不能有效激发非简并系统，符合绝热定理。
+当 $\tau\to0$，高斯脉冲趋于 $\delta$ 函数，$e^{-\omega_0^2\tau^2/2}\to1$，得 $P\to\alpha^2/\hbar^2$，这正是习题 11.4 结果 $\sin^2(\alpha/\hbar)$ 在弱耦合 $\alpha/\hbar\ll1$ 时的展开首项。若 $\omega_0\tau\gg1$，指数抑制 $\exp(-\omega_0^2\tau^2/2)\to0$，说明缓慢扰动不能有效激发非简并系统，符合绝热定理。
 \end{solution}
 
 \begin{question}
 求解正弦微扰情形的二能级系统的精确解，并将跃迁几率与一阶微扰理论结果相比较。讨论旋波近似及其适用条件。
 \end{question}
 \begin{solution}
-正弦微扰可写成 $V\cos\omega t=(V/2)(e^{\ii\omega t}+e^{-\ii\omega t})$。在相互作用绘景中，接近共振的项随 $e^{\ii(\omega_0-\omega)t}$ 缓慢变化，反旋项随 $e^{\ii(\omega_0+
-\omega)t}$ 快速振荡。旋波近似保留前者，得到精确 Rabi 概率
+正弦微扰可写成 $H'(t)=V\cos\omega t$，其中 $V$ 为不含时算符。在薛定谔绘景中，微扰矩阵元
 \[
-P_{a\to b}(t)={\Omega^2\over\Omega^2+\Delta^2}
-\sin^2\left({1\over2}\sqrt{\Omega^2+\Delta^2}\,t\right),
+H'_{ba}(t)=\langle b|V|a\rangle\cos\omega t
+=V_{ba}\cos\omega t={V_{ba}\over2}\left(e^{\ii\omega t}+e^{-\ii\omega t}\right).
 \]
-其中
+相互作用绘景方程为
 \[
-\Omega={|V_{ba}|\over\hbar},
-\qquad
-\Delta=\omega-
-\omega_0.
+\dot c_a=-{\ii\over\hbar}H'_{ab}e^{-\ii\omega_0t}c_b,\qquad
+\dot c_b=-{\ii\over\hbar}H'_{ba}e^{\ii\omega_0t}c_a,
 \]
-一阶微扰对应短时或弱耦合极限。旋波近似要求 $|\Delta|,\Omega\ll\omega+
-\omega_0$。
+其中 $\omega_0=(E_b-E_a)/\hbar$。代入余弦微扰的具体形式：
+\[
+\dot c_a=-{\ii V_{ab}\over2\hbar}\left(e^{\ii\omega t}+e^{-\ii\omega t}\right)e^{-\ii\omega_0t}c_b
+=-{\ii V_{ab}\over2\hbar}\left[e^{-\ii(\omega_0-\omega)t}+e^{-\ii(\omega_0+\omega)t}\right]c_b,
+\]
+\[
+\dot c_b=-{\ii V_{ba}\over2\hbar}\left(e^{\ii\omega t}+e^{-\ii\omega t}\right)e^{\ii\omega_0t}c_a
+=-{\ii V_{ba}\over2\hbar}\left[e^{\ii(\omega_0-\omega)t}+e^{\ii(\omega_0+\omega)t}\right]c_a.
+\]
+其中 $e^{\pm\ii(\omega_0-\omega)t}$ 项在 $\omega\approx\omega_0$ 时缓慢变化（称为旋波项），而 $e^{\pm\ii(\omega_0+\omega)t}$ 项随 $(\omega_0+\omega)$ 快速振荡（称为反旋项）。旋波近似忽略反旋项，则方程简化为
+\[
+\dot c_a=-{\ii V_{ab}\over2\hbar}e^{-\ii(\omega_0-\omega)t}c_b,\qquad
+\dot c_b=-{\ii V_{ba}\over2\hbar}e^{\ii(\omega_0-\omega)t}c_a.
+\]
+定义失谐 $\Delta=\omega-\omega_0$ 和 Rabi 频率 $\Omega=|V_{ba}|/\hbar$，并取 $V_{ab}=V_{ba}^*$，则方程化为
+\[
+\dot c_a=-{\ii\Omega\over2}e^{\ii\Delta t}c_b,\qquad
+\dot c_b=-{\ii\Omega\over2}e^{-\ii\Delta t}c_a.
+\]
+对第二式求导：
+\[
+\ddot c_b=-{\ii\Omega\over2}\left(-\ii\Delta e^{-\ii\Delta t}c_a+e^{-\ii\Delta t}\dot c_a\right).
+\]
+代入 $\dot c_a$ 的表达式：
+\[
+\ddot c_b=-{\ii\Omega\over2}\left[-\ii\Delta e^{-\ii\Delta t}c_a
++e^{-\ii\Delta t}\left(-{\ii\Omega\over2}e^{\ii\Delta t}c_b\right)\right]
+=-\Delta{\ii\Omega\over2}e^{-\ii\Delta t}c_a-{\Omega^2\over4}c_b.
+\]
+而第一项 $-\Delta({\ii\Omega}/{2})e^{-\ii\Delta t}c_a=\Delta\dot c_b$，故
+\[
+\ddot c_b=-\ii\Delta\dot c_b-{\Omega^2\over4}c_b.
+\]
+这是常系数二阶微分方程。设 $c_b=e^{rt}$，特征方程为
+\[
+r^2+\ii\Delta r+{\Omega^2\over4}=0,
+\]
+解为
+\[
+r_\pm={-\ii\Delta\pm\sqrt{-\Delta^2-\Omega^2}\over2}
+=-{\ii\Delta\over2}\pm{\ii\over2}\sqrt{\Delta^2+\Omega^2}.
+\]
+定义有效 Rabi 频率 $\Omega_R={1\over2}\sqrt{\Omega^2+\Delta^2}$，一般解为
+\[
+c_b(t)=e^{-\ii\Delta t/2}\left(A e^{\ii\Omega_R t}+B e^{-\ii\Omega_R t}\right).
+\]
+取初值 $c_a(0)=1$、$c_b(0)=0$，得 $A+B=0$；由 $\dot c_b(0)=-\ii\Omega/2$ 得 $-\ii\Delta(A+B)/2+\ii\Omega_R(A-B)=-\ii\Omega/2$，解得 $A=-B=\Omega/(4\Omega_R)$。因此
+\[
+c_b(t)={\ii\Omega\over2\Omega_R}e^{-\ii\Delta t/2}\sin(\Omega_R t).
+\]
+跃迁概率为
+\[
+\boxed{P_{a\to b}(t)=|c_b(t)|^2={\Omega^2/4\over\Omega_R^2}\sin^2(\Omega_R t)
+={\Omega^2\over\Omega^2+\Delta^2}
+\sin^2\left({1\over2}\sqrt{\Omega^2+\Delta^2}\,t\right).}
+\]
+一阶微扰对应短时或弱耦合极限，将 $\sin^2(\Omega_R t)\approx\Omega_R^2 t^2$ 展开即得一阶结果：
+\[
+P_{a\to b}^{(1)}(t)={\Omega^2 t^2\over4}.
+\]
+旋波近似要求 $|\Delta|,\Omega\ll\omega+\omega_0$，即反旋项在一个振荡周期内平均为零，否则需要保留完整方程。
 \end{solution}
 
 \begin{question}
@@ -260,72 +420,160 @@ P_{a\to b}(t)={\Omega^2\over\Omega^2+\Delta^2}
 若系统从一个束缚态跃迁到连续态，证明总跃迁率可由费米黄金规则给出，并说明态密度因子的来源。
 \end{question}
 \begin{solution}
-一阶跃迁概率到连续态 $|f\rangle$ 为
+考虑简谐微扰 $H'(t)=V e^{-\ii\omega t}+V^\dagger e^{\ii\omega t}$，从初始束缚态 $|i\rangle$ 跃迁到连续态 $|f\rangle$。一阶振幅为
 \[
-P_f={1\over\hbar^2}|V_{fi}|^2
-{4\sin^2[(\omega_{fi}-\omega)t/2]\over(
-\omega_{fi}-\omega)^2}.
+c_f^{(1)}(t)=-{\ii\over\hbar}\int_0^t H'_{fi}(t')e^{\ii\omega_{fi}t'}\dd t'
+=-{\ii\over\hbar}V_{fi}\int_0^t e^{\ii(\omega_{fi}-\omega)t'}\dd t'
+=-{V_{fi}\over\hbar}{e^{\ii(\omega_{fi}-\omega)t}-1\over\omega_{fi}-\omega},
 \]
-长时间极限用上一题的 $\delta$ 函数表示，得到单位时间跃迁率
+其中 $\omega_{fi}=(E_f-E_i)/\hbar$，并假设只有共振项 $e^{-\ii\omega t}$ 起主导作用（旋波近似）。跃迁概率为
 \[
-\dd W={2\pi\over\hbar}|V_{fi}|^2\delta(E_f-E_i-\hbar\omega)\rho(E_f)\dd E_f.
+P_f=|c_f^{(1)}(t)|^2={|V_{fi}|^2\over\hbar^2}
+\left|{e^{\ii(\omega_{fi}-\omega)t}-1\over\omega_{fi}-\omega}\right|^2
+={|V_{fi}|^2\over\hbar^2}
+{4\sin^2[(\omega_{fi}-\omega)t/2]\over(\omega_{fi}-\omega)^2}.
 \]
-积分后
+引入函数
+\[
+f_t(x)={\sin^2(xt/2)\over\pi t x^2/2},\qquad x=\omega_{fi}-\omega,
+\]
+则 $\lim_{t\to\infty}f_t(x)=\delta(x)$（习题11.10的结果）。于是长时间极限下
+\[
+P_f={2\pi t\over\hbar^2}|V_{fi}|^2\cdot{\sin^2[(\omega_{fi}-\omega)t/2]\over\pi t(\omega_{fi}-\omega)^2/2}
+\to{2\pi t\over\hbar^2}|V_{fi}|^2\,\delta(\omega_{fi}-\omega).
+\]
+对连续态，需要将所有可能的末态求和（积分）。末态能量在 $E_f$ 附近 $\dd E_f$ 范围内的态数为 $\rho(E_f)\dd E_f$，其中 $\rho(E_f)$ 为态密度。因此总跃迁概率为
+\[
+P_{i\to}(t)=\int P_f\rho(E_f)\dd E_f
+={2\pi t\over\hbar}\int|V_{fi}|^2\,\delta(E_f-E_i-\hbar\omega)\rho(E_f)\dd E_f.
+\]
+单位时间的跃迁率（跃迁概率除以 $t$）为
+\[
+W={P_{i\to}(t)\over t}
+={2\pi\over\hbar}\int|V_{fi}|^2\,\delta(E_f-E_i-\hbar\omega)\rho(E_f)\dd E_f.
+\]
+若矩阵元 $V_{fi}$ 和态密度 $\rho(E_f)$ 在共振能量附近变化平缓，可提出积分号：
+\[
+W={2\pi\over\hbar}|V_{fi}|^2\rho(E_f)\bigg|_{E_f=E_i+\hbar\omega}.
+\]
+这是费米黄金规则的标准形式：
 \[
 \boxed{W={2\pi\over\hbar}|V_{fi}|^2\rho(E_f).}
 \]
-态密度 $\rho(E)$ 来自把对离散末态的求和改写为对连续能量的积分。
+态密度 $\rho(E)=\dd N/\dd E$ 来自把对离散末态 $\sum_f$ 改写为对连续能量的积分 $\int\rho(E_f)\dd E_f$。例如对三维自由粒子，$\rho(E)\propto\sqrt{E}$；对光子，$\rho(\omega)\propto\omega^2$。
 \end{solution}
 
 \begin{question}
 激发态的有限寿命（lifetime）。在自发辐射近似中，推导指数衰减律与能级宽度之间的关系。
 \end{question}
 \begin{solution}
-若激发态振幅按
+设激发态振幅以指数形式衰减：
 \[
-c(t)=e^{-\ii E_0t/\hbar}e^{-t/(2\tau)}
+c(t)=e^{-\ii E_0t/\hbar}e^{-t/(2\tau)}\Theta(t),
 \]
-衰减，则能量振幅是其傅里叶变换：
+其中 $\Theta(t)$ 为阶跃函数，表示 $t<0$ 时系统处于激发态，$t>0$ 后按指数衰减。能量振幅通过对时间的傅里叶变换获得：
 \[
-\tilde c(E)\propto {1\over E-E_0+\ii\hbar/(2\tau)}.
+\tilde c(E)=\int_0^\infty c(t)e^{\ii Et/\hbar}\dd t
+=\int_0^\infty e^{-\ii E_0t/\hbar}e^{-t/(2\tau)}e^{\ii Et/\hbar}\dd t
+=\int_0^\infty e^{\ii(E-E_0)t/\hbar-t/(2\tau)}\dd t.
 \]
-因此能量分布为洛伦兹型
+计算该积分：
 \[
-|\tilde c(E)|^2\propto{1\over(E-E_0)^2+(
-\hbar/2\tau)^2}.
+\tilde c(E)=\int_0^\infty
+\exp\left[{\ii\over\hbar}(E-E_0)t-{t\over2\tau}\right]\dd t
+={1\over{1\over2\tau}-{\ii\over\hbar}(E-E_0)}
+={\hbar\over{\hbar\over2\tau}-\ii(E-E_0)}.
 \]
-半高半宽为 $\hbar/(2\tau)$，全宽为
+能量分布的概率密度为
+\[
+|\tilde c(E)|^2={\hbar^2\over\left({\hbar\over2\tau}\right)^2+(E-E_0)^2}
+\propto{1\over(E-E_0)^2+(\hbar/2\tau)^2}.
+\]
+这是标准的洛伦兹线型。半高全宽（FWHM）由分母 $(E-E_0)^2+(\hbar/2\tau)^2$ 决定：当 $E-E_0=\pm\hbar/(2\tau)$ 时，$|\tilde c|^2$ 降至峰值一半。故半高半宽为
+\[
+\Delta E_{1/2}={\hbar\over2\tau},
+\]
+全宽
 \[
 \boxed{\Gamma={\hbar\over\tau}.}
 \]
+这便是能量-时间不确定性关系 $\Gamma\tau\sim\hbar$ 的体现。
 \end{solution}
 
 \begin{question}
 证明原子与辐射场相互作用中电偶极近似的选择定则；特别地，求出 $\Delta \ell$ 与 $\Delta m$ 的限制。
 \end{question}
 \begin{solution}
-电偶极矩阵元为 $\langle n'\ell' m'|\mathbf r|n\ell m\rangle$。$\mathbf r$ 是秩 1 的球张量，角动量耦合给出
+电偶极相互作用矩阵元为 $\langle n'\ell' m'|\mathbf r|n\ell m\rangle$。将直角坐标 $\mathbf r=(x,y,z)$ 写成球张量形式：
 \[
-\Delta\ell=\pm1,
-\qquad
-\Delta m=0,\pm1.
+r_q = \begin{cases}
+-\dfrac{x+\ii y}{\sqrt2} & (q=+1),\\[4pt]
+z & (q=0),\\[4pt]
+\dfrac{x-\ii y}{\sqrt2} & (q=-1).
+\end{cases}
 \]
-同时宇称必须改变，因为 $\mathbf r$ 为奇宇称算符，所以 $\ell'$ 与 $\ell$ 奇偶性相反；这与 $\Delta\ell=\pm1$ 一致。线偏振 $z$ 分量对应 $q=0$，故 $\Delta m=0$；圆偏振对应 $q=\pm1$，故 $\Delta m=\pm1$。
+球谐函数的加法定理表明，$r_q$ 与 $Y_{1q}$ 成正比：
+\[
+r_q = r\sqrt{4\pi\over3}\,Y_{1q}(\theta,\phi).
+\]
+因此矩阵元分解为径向部分和角向部分：
+\[
+\langle n'\ell' m'|r_q|n\ell m\rangle
+=\int R_{n'\ell'}^* r^3 R_{n\ell}\dd r
+\cdot\int Y_{\ell'm'}^* Y_{1q}Y_{\ell m}\dd\Omega.
+\]
+角向积分由两个球谐函数乘积的 Clebsch--Gordan 耦合决定。根据 Wigner--Eckart 定理，
+\[
+\langle \ell' m'|Y_{1q}|\ell m\rangle
+=(-1)^{\ell'-m'}\begin{pmatrix}\ell'&1&\ell\\ -m'&q&m\end{pmatrix}
+\langle\ell'\|Y_1\|\ell\rangle.
+\]
+$3j$ 符号非零的条件为：
+\begin{enumerate}
+\item $\Delta\ell\equiv\ell'-\ell=\pm1$（因为 $j$ 三角形的边长为 $\ell$、$\ell'$、$1$，排除 $\ell'=0$ 时 $\ell=0$ 的平庸情况）；
+\item $\Delta m=m'-m=q$，其中 $q=0,\pm1$；
+\item 宇称条件：$Y_{\ell m}$ 的宇称为 $(-1)^\ell$，而 $r_q$ 的宇称为奇（$(-1)^1=-1$），故要求 $(-1)^{\ell'}=-(-1)^\ell$，即 $\ell'$ 与 $\ell$ 奇偶性相反，与 $\Delta\ell=\pm1$ 一致。
+\end{enumerate}
+因此选择定则为
+\[
+\boxed{\Delta\ell=\pm1,\qquad\Delta m=0,\pm1.}
+\]
+线偏振 $z$ 分量对应 $q=0$，故 $\Delta m=0$；圆偏振对应 $q=\pm1$，故 $\Delta m=\pm1$。
 \end{solution}
 
 \begin{question}
 对氢原子的 $2p\to1s$ 跃迁，计算角向矩阵元，并确定辐射的角分布。
 \end{question}
 \begin{solution}
-$2p\to1s$ 的角向部分取决于 $m$ 和偏振。若 $2p$ 态为 $m=0$，偶极矩沿 $z$ 方向，矩阵元含
+$2p\to1s$ 的角向部分取决于 $m$ 和偏振。对 $2p$ 态 $|n=2,\ell=1,m\rangle$ 和 $1s$ 态 $|n=1,\ell=0,m'=0\rangle$，球谐函数的具体形式为
 \[
-\int Y_{00}^*\cos\theta\,Y_{10}\,\dd\Omega={1\over\sqrt3}.
+Y_{00}={1\over\sqrt{4\pi}},\qquad
+Y_{10}=\sqrt{3\over4\pi}\cos\theta,\qquad
+Y_{1,\pm1}=\mp\sqrt{3\over8\pi}\sin\theta\,e^{\pm\ii\phi}.
 \]
-辐射角分布与经典振荡偶极相同：
+若 $2p$ 态为 $m=0$（对应 $Y_{10}$），矩阵元为
 \[
-{\dd P\over\dd\Omega}\propto \sin^2\theta.
+\langle1s|z|2p,m=0\rangle
+=\int Y_{00}^* r\cos\theta Y_{10}\,\dd\Omega
+\propto\int Y_{00}^*\cos\theta Y_{10}\,\dd\Omega.
 \]
-若 $m=\pm1$，对应圆偏振偶极，角分布按球张量分量重新组合；对未取向的 $2p$ 态平均后分布各向同性。
+代入具体函数：
+\[
+\int Y_{00}^*\cos\theta Y_{10}\,\dd\Omega
+=\int_0^{2\pi}\dd\phi\int_0^\pi\sin\theta\dd\theta
+\,{1\over\sqrt{4\pi}}\cos\theta\sqrt{3\over4\pi}\cos\theta
+={1\over4\pi}\sqrt3\cdot2\pi\int_{-1}^{1}\cos^2\theta\,\dd(\cos\theta)
+={\sqrt3\over2}\cdot{2\over3}={1\over\sqrt3}.
+\]
+相应的偶极矩沿 $z$ 方向，辐射角分布与经典振荡偶极相同：
+\[
+{\dd P\over\dd\Omega}\propto\sin^2\theta.
+\]
+若 $m=\pm1$，矩阵元来自 $x\pm\ii y$ 分量，对应圆偏振偶极，其角分布呈环状：
+\[
+{\dd P\over\dd\Omega}\propto{1\over2}(1+\cos^2\theta).
+\]
+对未取向的 $2p$ 态（对三个 $m$ 子态平均），角分布各向同性。
 \end{solution}
 
 \begin{question}
@@ -362,11 +610,15 @@ A_{2p\to1s}\simeq 6.25\times10^8\ {\rm s}^{-1}.
 c_f^{(1)}(t)=-{\ii\over\hbar}\int_0^t
 \langle f|H'(t')|i\rangle e^{\ii\omega_{fi}t'}\dd t'.
 \]
-若扰动为电偶极型 $H'=-q\mathbf E(t)\cdot\mathbf r$，矩阵元分解为三个一维积分。选择定则来自
+若扰动为电偶极型 $H'=-q\mathbf E(t)\cdot\mathbf r$，矩阵元分解为三个一维积分。考虑 $x$ 方向的矩阵元：
 \[
-\int_0^a \sin{n\pi x\over a}\,x\,\sin{m\pi x\over a}\dd x,
+\int_0^a \sin{n_x\pi x\over a}\,x\,\sin{n_x'\pi x\over a}\dd x
+=\begin{cases}
+0, & n_x,n_x' \text{ 同奇偶},\\[4pt]
+\dfrac{8a}{\pi^2}\dfrac{n_x n_x'}{(n_x^2-n_x'^2)^2}, & n_x,n_x' \text{ 奇偶相反}.
+\end{cases}
 \]
-它仅在 $n,m$ 奇偶性相反时非零；未被坐标算符作用的方向要求量子数相同。
+因此选择定则为 $\boxed{\Delta n_x=\pm1,\pm3,\pm5,\ldots}$（奇偶性相反），未被坐标算符作用的方向（如 $H'\propto x$ 时的 $y,z$）要求量子数不变：$\Delta n_y=\Delta n_z=0$。
 \end{solution}
 
 \begin{question}
@@ -380,9 +632,9 @@ P(t)={\Omega^2\over\Omega^2+\Delta^2}
 \]
 最大值为
 \[
-P_{\max}={\Omega^2\over\Omega^2+\Delta^2}.
+\boxed{P_{\max}={\Omega^2\over\Omega^2+\Delta^2}.}
 \]
-共振 $\Delta=0$ 时可达到 $1$，周期为 $2\pi/\Omega$。非共振时振荡更快，但振幅小于 $1$。
+共振 $\Delta=0$ 时可达到 $1$，周期为 $\boxed{T=2\pi/\Omega}$。非共振时振荡更快，但振幅小于 $1$。
 \end{solution}
 
 \begin{question}
@@ -405,13 +657,13 @@ P(E)\propto {1\over(E-E_0)^2+(\hbar/2\tau)^2}.
 \begin{solution}
 自然线宽来自激发态有限寿命。若上能级寿命为 $\tau$，则能量宽度
 \[
-\Gamma={\hbar\over\tau},
+\boxed{\Gamma={\hbar\over\tau},}
 \]
 角频率宽度
 \[
 \Delta\omega={1\over\tau},
 \]
-普通频率宽度 $\Delta\nu=1/(2\pi\tau)$。典型原子偶极跃迁 $\tau\sim10^{-9}{\rm s}$，所以 $\Delta\nu\sim10^8{\rm Hz}$，远小于光学频率本身。
+普通频率宽度 $\boxed{\Delta\nu=1/(2\pi\tau)}$。典型原子偶极跃迁 $\tau\sim10^{-9}{\rm s}$，所以 $\Delta\nu\sim10^8{\rm Hz}$，远小于光学频率本身。
 \end{solution}
 
 \begin{question}
@@ -475,46 +727,77 @@ U(t)=\exp\left[-{\ii\over\hbar}\int_0^t H(t')\dd t'\right]
 \[
 [H_1,H_2]=0.
 \]
-若不对易，Baker--Campbell--Hausdorff 公式给出
+若不对易，Baker--Campbell--Hausdorff (BCH) 公式给出
 \[
-e^Ae^B=\exp\left(A+B+{1\over2}[A,B]+\cdots\right),
+e^Ae^B=\exp\left(A+B+{1\over2}[A,B]+{1\over12}[A,[A,B]]-{1\over12}[B,[A,B]]+\cdots\right),
 \]
-多出对易子项。反例可取自旋 $1/2$：$H_1\propto\sigma_x$，$H_2\propto\sigma_z$，因为 $[\sigma_x,\sigma_z]=-2\ii\sigma_y\ne0$，两个表达式不相等。
+其中多出对易子及高阶对易子项。具体到本问题，令 $A=-\ii H_2(t-\tau)/\hbar$、$B=-\ii H_1\tau/\hbar$，则
+\[
+e^{-\ii H_2(t-\tau)/\hbar}e^{-\ii H_1\tau/\hbar}
+=\exp\left[-\ii(H_1\tau+H_2(t-\tau))/\hbar
+-{1\over2}(t-\tau)\tau[H_1,H_2]/\hbar^2+\cdots\right].
+\]
+当 $[H_1,H_2]\neq0$ 时，额外的对易子项破坏了普通指数合并形式。反例可取自旋 $1/2$ 系统：设 $H_1=\hbar\omega\sigma_x/2$，$H_2=\hbar\omega\sigma_z/2$，由于 $[\sigma_x,\sigma_z]=-2\ii\sigma_y\neq0$，两个表达式显然不相等。此时先后作用 $H_1$ 再 $H_2$ 的演化路径与反向次序给出不同的结果。
 \end{solution}
 
 \begin{question}
 对图示多次散射或多步跃迁过程，写出相应的二阶振幅；解释虚中间态分母的含义。
 \end{question}
 \begin{solution}
-二阶跃迁振幅一般为
+考虑单频简谐扰动 $H'(t)=V e^{-\ii\omega t}+V^\dagger e^{\ii\omega t}$。二阶跃迁振幅的一般形式由含时微扰的积分迭代给出：
 \[
 c_f^{(2)}(t)=\left(-{\ii\over\hbar}\right)^2
 \sum_n\int_0^t\dd t_1\int_0^{t_1}\dd t_2
 H'_{fn}(t_1)H'_{ni}(t_2)e^{\ii\omega_{fn}t_1}e^{\ii\omega_{ni}t_2}.
 \]
-对简谐扰动并取长时间极限，可化为含中间态分母的形式
+其中中间态 $|n\rangle$ 遍历所有可能的本征态。对于吸收过程（系统从 $|i\rangle$ 吸收一个 $\hbar\omega$ 的光子跃迁到 $|f\rangle$），二阶过程可经历虚中间态 $|n\rangle$。对时间积分：
+\[
+\int_0^t\dd t_1\int_0^{t_1}\dd t_2\,
+e^{\ii(\omega_{fn}-\omega)t_1}e^{\ii(\omega_{ni}-\omega)t_2}
+={e^{\ii(\omega_{fi}-2\omega)t}-1\over\ii(\omega_{fi}-2\omega)}
+\cdot{1\over\ii(\omega_{ni}-\omega)}+\text{交叉项}.
+\]
+在长时间极限下，最主要的贡献来自最终能量守恒的项，以及中间态 $|n\rangle$ 导致的能量分母。具体取 $t\to\infty$ 时主值积分给出：
 \[
 M_{fi}^{(2)}=\sum_n {V_{fn}V_{ni}\over E_i+\hbar\omega-E_n+\ii0^+}.
 \]
-分母表示中间态不必满足能量守恒，所以称为虚中间态；最终态仍由总能量守恒的 delta 函数约束。
+分母中的 $\ii0^+$ 保证了因果性（推迟格林函数），它与时间积分的收敛性有关：若先进行绝热绝热开关 $e^{\eta t}$ 再取 $\eta\to0^+$，则自动得到 $\ii0^+$ 项。该分母表示中间态不必满足能量守恒（$E_n\neq E_i+\hbar\omega$），因此称为虚中间态；只有最终态仍由总能量守恒的 $\delta(E_f-E_i-\hbar\omega)$ 函数约束。
 \end{solution}
 
 \begin{question}
 对正弦微扰 $V(\mathbf r)\cos\omega t$，推导吸收和受激发射的跃迁率，并与费米黄金规则相联系。
 \end{question}
 \begin{solution}
-对 $H'=V(\mathbf r)\cos\omega t$，一阶振幅含两项
+对 $H'=V(\mathbf r)\cos\omega t$，展开为
 \[
-{1\over2}V_{fi}e^{\ii\omega t},
-\qquad
-{1\over2}V_{fi}e^{-\ii\omega t}.
+H'(t)={V\over2}e^{\ii\omega t}+{V\over2}e^{-\ii\omega t}.
 \]
-长时间极限给出
+一阶振幅为两项之和：
+\[
+c_f^{(1)}(t)=-{\ii\over\hbar}\int_0^t H'_{fi}(t')e^{\ii\omega_{fi}t'}\dd t'
+=-{\ii V_{fi}\over2\hbar}\left[\int_0^t e^{\ii(\omega_{fi}+\omega)t'}\dd t'
++\int_0^t e^{\ii(\omega_{fi}-\omega)t'}\dd t'\right].
+\]
+第二项在 $\omega\approx\omega_{fi}$ 时共振（吸收），第一项在 $\omega\approx-\omega_{fi}$ 时共振（受激发射）。仅考虑吸收项：
+\[
+c_f^{(1)}(t)=-{V_{fi}\over2\hbar}{e^{\ii(\omega_{fi}-\omega)t}-1\over\omega_{fi}-\omega}.
+\]
+跃迁概率的长时间极限（利用习题11.10的 $\delta$ 函数表示）：
+\[
+P_{i\to f}=|c_f^{(1)}(t)|^2
+={|V_{fi}|^2\over4\hbar^2}{4\sin^2[(\omega_{fi}-\omega)t/2]\over(\omega_{fi}-\omega)^2}
+\to{\pi t\over2\hbar^2}|V_{fi}|^2\delta(\omega_{fi}-\omega).
+\]
+对连续态求和，乘以态密度 $\rho(E_f)$，得跃迁率
 \[
 W_{i\to f}={\pi\over2\hbar}|V_{fi}|^2
 \left[\delta(E_f-E_i-\hbar\omega)+\delta(E_f-E_i+\hbar\omega)\right]\rho(E_f).
 \]
-第一项是吸收，第二项是受激发射。这就是费米黄金规则在周期微扰下的形式。
+其中第一项 $\delta(E_f-E_i-\hbar\omega)$ 对应吸收（系统从辐射场获得能量 $\hbar\omega$），第二项 $\delta(E_f-E_i+\hbar\omega)$ 对应受激发射（系统释放能量 $\hbar\omega$ 给辐射场）。这就是费米黄金规则在周期微扰下的形式：
+\[
+\boxed{W_{i\to f}^{\rm(abs)}={\pi\over2\hbar}|V_{fi}|^2\rho(E_f)\big|_{E_f=E_i+\hbar\omega},\qquad
+W_{i\to f}^{\rm(emit)}={\pi\over2\hbar}|V_{fi}|^2\rho(E_f)\big|_{E_f=E_i-\hbar\omega}.}
+\]
 \end{solution}
 
 \begin{question}
@@ -558,32 +841,85 @@ A_{i\to f}={\omega_{if}^3\over3\pi\epsilon_0\hbar c^3}|e\langle f|\mathbf r|i\ra
 考虑自发发射中光子态密度。由单位体积中允许的 $\mathbf k$ 态数推导频率区间 $\dd\omega$ 内的态数。
 \end{question}
 \begin{solution}
-周期边界条件下，单位体积中 $\mathbf k$ 态密度为
+考虑边长为 $L$ 的立方体，采用周期边界条件。波矢 $\mathbf k$ 的分量为
+\[
+k_x={2\pi n_x\over L},\quad k_y={2\pi n_y\over L},\quad k_z={2\pi n_z\over L},\qquad n_x,n_y,n_z\in\mathbb Z.
+\]
+在 $\mathbf k$ 空间中，每个态占体积 $(2\pi/L)^3$，故单位体积中 $\mathbf k$ 态的密度为
 \[
 {\dd^3k\over(2\pi)^3}.
 \]
-光子有两个横向偏振，因此频率在 $\omega$ 到 $\omega+
-\dd\omega$ 的态数密度为
+光子的色散关系为 $\omega=ck$，即 $k=\omega/c$。从 $k$ 空间变换到频率空间：$\dd k=(\dd k/\dd\omega)\dd\omega=\dd\omega/c$。$k$ 空间球壳体积元为
 \[
-2{4\pi k^2\dd k\over(2\pi)^3}
+\dd^3k=4\pi k^2\dd k=4\pi\left({\omega\over c}\right)^2{\dd\omega\over c}
+={4\pi\omega^2\over c^3}\dd\omega.
+\]
+光子有两个独立的横向偏振态（两个偏振方向），因此频率在 $\omega$ 到 $\omega+\dd\omega$ 之间的态数密度（单位体积内的态数）为
+\[
+2\times{\dd^3k\over(2\pi)^3}
+=2\times{1\over(2\pi)^3}{4\pi\omega^2\over c^3}\dd\omega
 ={\omega^2\over\pi^2c^3}\dd\omega.
 \]
-若在体积 $V$ 中，则乘以 $V$。
+即光子态密度（单位体积）为
+\[
+\boxed{\rho(\omega)={\omega^2\over\pi^2c^3}.}
+\]
+若在有限体积 $V$ 中，总态数为
+\[
+\dd N=V\rho(\omega)\dd\omega={V\omega^2\over\pi^2c^3}\dd\omega.
+\]
 \end{solution}
 
 \begin{question}
 由含时微扰理论导出自发发射的爱因斯坦 $A$ 系数，并说明它与受激发射系数的关系。
 \end{question}
 \begin{solution}
-把辐射场量子化后，电偶极相互作用矩阵元含 $\sqrt{\hbar\omega/(2\epsilon_0V)}$。对末态光子求和并用态密度
+考虑一个原子从激发态 $|i\rangle$ 自发辐射光子跃迁到低能态 $|f\rangle$。将辐射场量子化后，电偶极相互作用的哈密顿量为
 \[
-\rho(\omega)={V\omega^2\over\pi^2c^3}
+H'=-e\mathbf r\cdot\mathbf E=-e\sum_{\mathbf k,s}\ii\sqrt{\hbar\omega\over2\epsilon_0 V}
+\left(a_{\mathbf k,s}\boldsymbol\epsilon_se^{\ii\mathbf k\cdot\mathbf r}-a^\dagger_{\mathbf k,s}\boldsymbol\epsilon_s^* e^{-\ii\mathbf k\cdot\mathbf r}\right)\cdot\mathbf r,
 \]
-代入费米黄金规则，得到
+其中 $a_{\mathbf k,s}$ 和 $a^\dagger_{\mathbf k,s}$ 分别为光子的湮灭和产生算符，$\boldsymbol\epsilon_s$ 为偏振矢量。对于自发辐射，初态无光子，末态有一个光子。矩阵元为
+\[
+\langle f,1_{\mathbf k,s}|H'|i,0\rangle
+=-\ii e\sqrt{\hbar\omega\over2\epsilon_0 V}\,\boldsymbol\epsilon_s^*\cdot\langle f|\mathbf r|i\rangle.
+\]
+代入费米黄金规则：
+\[
+W={2\pi\over\hbar}|H'_{fi}|^2\rho(E_f).
+\]
+末态为光子态，其能量 $E_f=\hbar\omega$。需要遍历所有可能的光子模。单位体积中 $\mathbf k$ 空间的态密度在上一题中已计算：
+\[
+\rho(k)\dd^3k={V\over(2\pi)^3}\dd^3k.
+\]
+变换到频率和立体角：
+\[
+\dd^3k=k^2\dd k\dd\Omega={\omega^2\over c^3}\dd\omega\dd\Omega.
+\]
+因此末态密度为
+\[
+\rho(\hbar\omega)\dd(\hbar\omega)={V\over(2\pi)^3}{\omega^2\over c^3}\dd\omega\dd\Omega,
+\qquad
+\rho(E_f)={V\omega^2\over(2\pi)^3\hbar c^3}\dd\Omega.
+\]
+将矩阵元平方和对两个偏振求和：
+\[
+\sum_{s=1,2}|\boldsymbol\epsilon_s^*\cdot\langle f|\mathbf r|i\rangle|^2
+=|\langle f|\mathbf r|i\rangle|^2-|(\hat{\mathbf k}\cdot\langle f|\mathbf r|i\rangle)|^2
+=|\mathbf d_{fi}|^2\sin^2\theta,
+\]
+其中 $\mathbf d_{fi}=e\langle f|\mathbf r|i\rangle$，$\theta$ 为 $\mathbf d_{fi}$ 与 $\mathbf k$ 的夹角。对 $\dd\Omega$ 积分得 $8\pi/3$。综上，自发辐射总跃迁率为
+\[
+A_{i\to f}=\int{W\over V}\dd\Omega
+={2\pi\over\hbar}\left(e\sqrt{\hbar\omega\over2\epsilon_0 V}\right)^2
+{8\pi\over3}|\langle f|\mathbf r|i\rangle|^2{V\omega^2\over(2\pi)^3\hbar c^3}
+={\omega^3\over3\pi\epsilon_0\hbar c^3}|\mathbf d_{fi}|^2.
+\]
+因此
 \[
 \boxed{A_{i\to f}={\omega^3\over3\pi\epsilon_0\hbar c^3}|\mathbf d_{fi}|^2.}
 \]
-受激发射系数与吸收系数由同一矩阵元决定；热平衡条件给出 Einstein 关系 $A/B\propto\omega^3$。
+受激发射系数与吸收系数由同一矩阵元 $|\mathbf d_{fi}|^2$ 决定；热平衡条件下，细致平衡原理给出 Einstein 关系 $A/B\propto\omega^3$。
 \end{solution}
 
 \begin{question}
@@ -596,20 +932,17 @@ A={\omega^3\over3\pi\epsilon_0\hbar c^3}|e\langle1s|\mathbf r|2p\rangle|^2.
 \]
 计算径向积分和角向平均后得到
 \[
-A\simeq6.25\times10^8\,\mathrm{s}^{-1},
-\qquad
-\tau=A^{-1}\simeq1.6\,\mathrm{ns}.
+\boxed{A\simeq6.25\times10^8\,\mathrm{s}^{-1}},\qquad
+\boxed{\tau=A^{-1}\simeq1.6\,\mathrm{ns}}.
 \]
 自然线宽
 \[
-\Gamma=\hbar A,
-\qquad
-\Delta
-\nu={A\over2\pi}.
+\boxed{\Gamma=\hbar A},\qquad
+\Delta\nu={A\over2\pi}.
 \]
 辐射功率等于跃迁能量乘跃迁率：
 \[
-P=\hbar\omega A.
+\boxed{P=\hbar\omega A}.
 \]
 \end{solution}
 
@@ -628,19 +961,41 @@ P=\hbar\omega A.
 考虑与时间有关的谐振子扰动，计算从基态到低激发态的一阶跃迁概率。
 \end{question}
 \begin{solution}
-设扰动为 $H'(t)=\lambda(t)x$。谐振子中
+设扰动为 $H'(t)=\lambda(t)x$，其中 $\lambda(t)$ 为含时标量函数。一维谐振子的坐标算符可用升降算符表示为
 \[
 x=\sqrt{\hbar\over2m\omega}(a+a^\dagger).
 \]
-因此基态只在一阶中耦合到 $|1\rangle$：
+升降算符的作用为
 \[
-c_1^{(1)}(\infty)=-{\ii\over\hbar}\sqrt{\hbar\over2m\omega}\int_{-\infty}^{\infty}\lambda(t)e^{\ii\omega t}\dd t.
+a|n\rangle=\sqrt{n}|n-1\rangle,\qquad
+a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle.
 \]
-所以
+因此矩阵元
 \[
-P_{0\to1}= {1\over2m\hbar\omega}\left|\int \lambda(t)e^{\ii\omega t}\dd t\right|^2.
+\langle m|x|n\rangle=\sqrt{\hbar\over2m\omega}
+\big(\sqrt{n}\,\delta_{m,n-1}+\sqrt{n+1}\,\delta_{m,n+1}\big).
 \]
-若扰动为 $x^2$ 型，则选择定则变为 $\Delta n=0,\pm2$。
+基态 $|0\rangle$ 在 $H'(t)$ 作用下仅与 $|1\rangle$ 耦合（$\Delta n=\pm1$）：
+\[
+\langle1|x|0\rangle=\sqrt{\hbar\over2m\omega}.
+\]
+一阶跃迁振幅为
+\[
+c_1^{(1)}(\infty)=-{\ii\over\hbar}\int_{-\infty}^{\infty}\lambda(t)
+\langle1|x|0\rangle e^{\ii\omega_{10}t}\dd t
+=-{\ii\over\hbar}\sqrt{\hbar\over2m\omega}\int_{-\infty}^{\infty}\lambda(t)e^{\ii\omega t}\dd t,
+\]
+其中利用了谐振子能量差 $\hbar\omega_{10}=\hbar\omega$。跃迁概率为
+\[
+\boxed{P_{0\to1}=|c_1^{(1)}|^2
+= {1\over2m\hbar\omega}\left|\int_{-\infty}^{\infty}\lambda(t)e^{\ii\omega t}\dd t\right|^2.}
+\]
+若扰动为 $H'(t)=\mu(t)x^2$，则用
+\[
+x^2={\hbar\over2m\omega}(a^2+a^{\dagger2}+a^\dagger a+aa^\dagger)
+={\hbar\over2m\omega}(a^2+a^{\dagger2}+2a^\dagger a+1)
+\]
+展开。基态下 $\langle0|x^2|0\rangle=\hbar/(2m\omega)$ 非零（对角），而 $\langle2|x^2|0\rangle\propto\langle0|a^2|0\rangle^*$ 也非零，因此选择定则为 $\Delta n=0,\pm2$。
 \end{solution}
 
 \begin{question}

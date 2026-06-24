@@ -1,0 +1,176 @@
+\heading{量子力学A-22秋-期中}
+\noteinfo{整理自 Quantum Mechanics: Fall 2022 Midterm Exam: Brief Solutions；题面和解答按项目格式重写。}
+
+\begin{question}
+质量为 $m$ 的粒子在周长为 $L$ 的圆环上运动，等价地取 $-L/2\le x\le L/2$ 并满足周期边界条件。
+\begin{enumerate}
+  \item 无势能时，写出所有能量本征值与归一化本征函数。
+  \item 加入吸引 $\delta$ 势 $-\alpha\delta(x)$，$\alpha>0$。定性画出基态、第一激发态和第二激发态波函数。
+  \item 推导基态和第一激发态能量应满足的方程。
+\end{enumerate}
+\begin{solution}
+自由粒子本征态为
+\[
+  \psi_n(x)={1\over\sqrt L}\ee^{\ii 2\pi n x/L},\qquad
+  E_n={\hbar^2\over2m}\left({2\pi n\over L}\right)^2,\quad n\in\mathbb Z .
+\]
+除 $n=0$ 外能级二重简并。
+
+体系有反演对称性。本征态可取奇、偶宇称。奇函数满足 $\psi(0)=0$，不受 $\delta$ 势影响：
+\[
+  \psi_{n,\mathrm{odd}}=\sqrt{2\over L}\sin {2\pi n x\over L},
+  \qquad E_{n,\mathrm{odd}}={\hbar^2\over2m}\left({2\pi n\over L}\right)^2 .
+\]
+偶函数在 $x=0$ 处连续且导数满足
+\[
+  \psi'(0^+)-\psi'(0^-)=-{2m\alpha\over\hbar^2}\psi(0) .
+\]
+偶束缚态 $E=-\hbar^2\kappa^2/(2m)$ 可写作
+\[
+  \psi=A\cosh\kappa(|x|-L/2),
+  \qquad \kappa\tanh{\kappa L\over2}={m\alpha\over\hbar^2}.
+\]
+该方程有唯一正根，给出基态。偶的正能态 $E=\hbar^2k^2/(2m)$ 满足
+\[
+  \psi=A\cos k(|x|-L/2),
+  \qquad k\tan{kL\over2}=-{m\alpha\over\hbar^2}.
+\]
+最小正根位于 $\pi/L<k<2\pi/L$，能量低于同一区间端点的奇态
+$n=1$，因此给出第一激发态；第二激发态为奇态 $n=1$。
+\end{solution}
+\end{question}
+
+\begin{question}
+氢原子哈密顿量为
+\[
+  H={\hat p^2\over2m}-{\hbar^2\over ma}{1\over r},
+\]
+能量 $E_n=-\hbar^2/(2ma^2n^2)$，波函数 $\psi_{n\ell m}=R_{n\ell}Y_{\ell m}$。已知 $R_{10},R_{20},R_{21}$。
+\begin{enumerate}
+  \item 求态 $\psi_{210}$ 中动能 $\hat p^2/(2m)$ 的期望值。
+  \item 在第一激发态子空间 $\Psi_1=\psi_{200},\Psi_2=\psi_{211},\Psi_3=\psi_{210},\Psi_4=\psi_{21,-1}$ 中，计算 $z$ 的所有矩阵元。
+\end{enumerate}
+\begin{solution}
+由
+\[
+  {\hat p^2\over2m}=H+{\hbar^2\over ma}{1\over r}
+\]
+得
+\[
+  \mel{\psi_{210}}{{\hat p^2\over2m}}{\psi_{210}}
+  =E_2+{\hbar^2\over ma}\int_0^\infty {1\over r}R_{21}^2r^2\,\dd r
+  ={\hbar^2\over8ma^2}=-E_2 .
+\]
+对 $z$ 的矩阵元，$[z,L_z]=0$，故 $m\ne m'$ 的项全为零；对角元因宇称为零。只剩
+\[
+  \mel{\Psi_1}{z}{\Psi_3}=\mel{\Psi_3}{z}{\Psi_1}=-3a .
+\]
+因此在给定基底下
+\[
+  (z)_{ij}=
+  \begin{pmatrix}
+  0&0&-3a&0\\
+  0&0&0&0\\
+  -3a&0&0&0\\
+  0&0&0&0
+  \end{pmatrix}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三个自旋 $1/2$ 的角动量算符为 $\vb S_1,\vb S_2,\vb S_3$。定义 $\vb S_{12}=\vb S_1+\vb S_2$，$\vb S=\vb S_1+\vb S_2+\vb S_3$。
+\begin{enumerate}
+  \item 写出 $\vb S_{12}^2,S_{12,z}$ 的可能本征值和共同本征态。
+  \item 证明 $\vb S^2,S_z,\vb S_{12}^2$ 两两对易。
+  \item 求 $\vb S^2,S_z,\vb S_{12}^2$ 的共同本征态。
+\end{enumerate}
+\begin{solution}
+前两个自旋可耦合为三重态与单态：
+\[
+\begin{aligned}
+  &\ket{1,1}=\ket{\uparrow\uparrow},\quad
+  \ket{1,0}={1\over\sqrt2}(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}),\\
+  &\ket{1,-1}=\ket{\downarrow\downarrow},\quad
+  \ket{0,0}={1\over\sqrt2}(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow}).
+\end{aligned}
+\]
+再张乘第三个自旋即得 $\vb S_{12}^2,S_{12,z}$ 的共同本征态。
+
+利用角动量对易关系与 $[AB,C]=A[B,C]+[A,C]B$，可得
+\[
+  [S_a,\vb S_{12}^2]=0,\qquad [S_z,\vb S^2]=0,
+\]
+从而 $[\vb S^2,\vb S_{12}^2]=[S_z,\vb S_{12}^2]=0$。
+
+若 $S_{12}=0$，再与第三个自旋耦合只给出 $S=1/2$：
+\[
+  \ket{1/2,\pm1/2;S_{12}=0}=\ket{0,0}_{12}\ket{\uparrow/\downarrow}_3 .
+\]
+若 $S_{12}=1$，与 $1/2$ 耦合得到 $S=3/2,1/2$。例如
+\[
+\begin{aligned}
+  &\ket{3/2,3/2}=\ket{\uparrow\uparrow\uparrow},\\
+  &\ket{3/2,1/2}={1\over\sqrt3}(\ket{\downarrow\uparrow\uparrow}+\ket{\uparrow\downarrow\uparrow}+\ket{\uparrow\uparrow\downarrow}),\\
+  &\ket{1/2,1/2;S_{12}=1}={1\over\sqrt6}(\ket{\downarrow\uparrow\uparrow}+\ket{\uparrow\downarrow\uparrow}-2\ket{\uparrow\uparrow\downarrow}),
+\end{aligned}
+\]
+其余 $m$ 态由降算符或替换 $\uparrow\leftrightarrow\downarrow$ 得到。
+\end{solution}
+\end{question}
+
+\begin{question}
+一维谐振子
+\[
+  H={\hat p^2\over2m}+{m\omega^2\hat x^2\over2}
+  =\hbar\omega(a^\dagger a+1/2)
+\]
+被改写为
+\[
+  H'=H+{\Delta\over2}(a^\dagger a^\dagger+aa),\qquad |\Delta|\ll \hbar\omega .
+\]
+\begin{enumerate}
+  \item 写出 $H'$ 的基态能量与波函数。
+  \item 将 $H'$ 的基态展开在 $H$ 的本征态 $\ket n$ 上。
+  \item 若初态为 $H'$ 的基态、之后按 $H$ 演化，测量 $H$ 的可能结果及概率是什么？
+  \item 求 $\expval{x},\expval{p},\expval{x^2},\expval{p^2}$ 并检验不确定关系。
+\end{enumerate}
+\begin{solution}
+把 $H'$ 写成新的谐振子：
+\[
+  H'={\hat p^2\over2m'}+{m'\omega'^2\hat x^2\over2},\qquad
+  m'={m\over1-\Delta/(\hbar\omega)},\quad
+  \omega'=\omega\sqrt{1-\left({\Delta\over\hbar\omega}\right)^2}.
+\]
+故
+\[
+  E'_0={\hbar\omega'\over2},\qquad
+  \psi'_0(x)=\left({m'\omega'\over\pi\hbar}\right)^{1/4}
+  \exp\left(-{m'\omega' x^2\over2\hbar}\right).
+\]
+该压缩态只含偶数激发态：
+\[
+  \ket{\psi'_0}=\sum_{k=0}^\infty c_{2k}\ket{2k},\qquad c_{2k}
+  =c_0(-1)^k\sqrt{(2k-1)!!\over(2k)!!}
+  \left({\Delta\over\hbar\omega+\hbar\omega'}\right)^k,
+\]
+\[
+  c_0=\left[1-\left({\Delta\over\hbar\omega+\hbar\omega'}\right)^2\right]^{1/4}.
+\]
+按 $H$ 演化时 $\ket{2k}$ 只获得相位，因此测量 $H$ 的可能值为
+\[
+  E_{2k}=\hbar\omega\left(2k+{1\over2}\right),
+  \qquad P_{2k}=|c_{2k}|^2 .
+\]
+由于波函数始终为偶函数，$\expval{x}=\expval{p}=0$。令 $\eta=\Delta/(\hbar\omega)$，则
+\[
+  \expval{x^2}={\hbar\over2m\omega}{1-\eta\cos2\omega t\over\sqrt{1-\eta^2}},
+  \qquad
+  \expval{p^2}={\hbar m\omega\over2}{1+\eta\cos2\omega t\over\sqrt{1-\eta^2}}.
+\]
+于是
+\[
+  \sigma_x^2\sigma_p^2={\hbar^2\over4}{1-\eta^2\cos^2 2\omega t\over1-\eta^2}\ge{\hbar^2\over4}.
+\]
+\end{solution}
+\end{question}

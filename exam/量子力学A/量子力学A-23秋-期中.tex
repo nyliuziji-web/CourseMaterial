@@ -1,0 +1,185 @@
+\heading{量子力学A-23秋-期中}
+\noteinfo{整理自 Quantum Mechanics: Fall 2023 Midterm Exam: Brief Solutions；题面和解答按项目格式重写。}
+
+\begin{question}
+一维谐振子
+\[
+  H={p^2\over2m}+{m\omega^2x^2\over2}.
+\]
+初态为
+\[
+  \phi(x,0)=A\left(x+\sqrt{\hbar\over m\omega}\right)^2
+  \exp\left(-{m\omega x^2\over2\hbar}\right).
+\]
+\begin{enumerate}
+  \item 求归一化常数 $A$。
+  \item 测量能量的可能结果及概率。
+  \item 求 $\phi(x,t)$。
+  \item 求 $\expval{x},\expval{p},\expval{x^2},\expval{p^2}$ 并检验不确定关系。
+\end{enumerate}
+\begin{solution}
+记
+\[
+  x=\sqrt{\hbar\over2m\omega}(a+a^\dagger),\qquad
+  \psi_0(x)=\left({m\omega\over\pi\hbar}\right)^{1/4}
+  \exp\left(-{m\omega x^2\over2\hbar}\right).
+\]
+于是
+\[
+  \phi(x,0)=A{\hbar\over2m\omega}\left({\pi\hbar\over m\omega}\right)^{1/4}
+  \left(\sqrt2\ket2+2\sqrt2\ket1+3\ket0\right).
+\]
+归一化给
+\[
+  |A|=\left({m\omega\over\pi\hbar}\right)^{1/4}{2m\omega\over\hbar\sqrt{19}}.
+\]
+取 $A$ 为正实数，则
+\[
+  \ket{\phi(0)}={1\over\sqrt{19}}\left(\sqrt2\ket2+2\sqrt2\ket1+3\ket0\right).
+\]
+测量能量的结果和概率为
+\[
+  {1\over2}\hbar\omega:\ {9\over19},\qquad
+  {3\over2}\hbar\omega:\ {8\over19},\qquad
+  {5\over2}\hbar\omega:\ {2\over19}.
+\]
+时间演化为
+\[
+  \ket{\phi(t)}={\ee^{-\ii\omega t/2}\over\sqrt{19}}
+  \left(\sqrt2\,\ee^{-2\ii\omega t}\ket2
+  +2\sqrt2\,\ee^{-\ii\omega t}\ket1+3\ket0\right).
+\]
+用升降算符直接计算得
+\[
+  \expval{x}={20\sqrt2\over19}\sqrt{\hbar\over2m\omega}\cos\omega t,
+\]
+\[
+  \expval{p}=-{20\sqrt2\over19}\sqrt{\hbar m\omega\over2}\sin\omega t,
+\]
+\[
+  \expval{x^2}={\hbar\over2m\omega}{43+12\cos2\omega t\over19},
+  \qquad
+  \expval{p^2}={\hbar m\omega\over2}{43-12\cos2\omega t\over19}.
+\]
+因此
+\[
+  \sigma_x^2\sigma_p^2=\left(\expval{x^2}-\expval{x}^2\right)
+  \left(\expval{p^2}-\expval{p}^2\right)\ge{\hbar^2\over4}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑
+\[
+  H={p^2\over2m}+{\hbar^2\over2m}\beta_1[\delta(x-L)+\delta(x+L)]
+  -{\hbar^2\over2m}\beta_2\delta(x),
+\]
+其中 $\beta_1,\beta_2,L>0$。
+\begin{enumerate}
+  \item 定性画出束缚态。
+  \item 推导束缚态能量方程。
+  \item 判断出现束缚态的参数条件。
+\end{enumerate}
+\begin{solution}
+束缚态能量写成 $E=-\hbar^2\kappa^2/(2m)$，$\kappa>0$。势能为偶函数，态可取偶或奇。奇态在 $x=0$ 为零，中央吸引 $\delta$ 不作用；两侧 $\delta$ 势为排斥，因此不存在奇束缚态。偶束缚态可写成
+\[
+  \psi(x)=\begin{cases}
+  A\ee^{\kappa |x|}+B\ee^{-\kappa |x|},& |x|<L,\\
+  C\ee^{-\kappa(|x|-L)},& |x|>L.
+  \end{cases}
+\]
+边界条件为
+\[
+  \psi'(+0)-\psi'(-0)=-\beta_2\psi(0),
+  \qquad
+  \psi'(\pm L^+)-\psi'(\pm L^-)=\beta_1\psi(\pm L).
+\]
+消去系数得
+\[
+  \ee^{2\kappa L}={\beta_1(\beta_2+2\kappa)\over(\beta_2-2\kappa)(\beta_1+2\kappa)}.
+\]
+等价地
+\[
+  2\kappa L=\log{1+2\kappa/\beta_2\over(1-2\kappa/\beta_2)(1+2\kappa/\beta_1)}.
+\]
+由 $\kappa\to0^+$ 的阈值条件可得存在束缚态当且仅当
+\[
+  L-{2\over\beta_2}+{1\over\beta_1}>0,
+  \qquad\text{即}\qquad
+  \beta_2>{2\beta_1\over1+\beta_1L}.
+\]
+当 $L\to0$ 时，这化为单个 $\delta$ 势的条件 $\beta_2>2\beta_1$。
+\end{solution}
+\end{question}
+
+\begin{question}
+氢原子电子。设轨道波函数
+\[
+  \psi(\vb r)=A(x+y+z)\ee^{-r/2a}.
+\]
+\begin{enumerate}
+  \item 求归一化常数 $A$。
+  \item 求 $L_x,L_y,L_z$ 的期望。
+  \item 若电子自旋 $S=1/2$ 且总态为 $\psi(\vb r)\ket{\downarrow}$，定义 $\vb J=\vb L+\vb S$。测量 $J^2,J_z$，求可能结果、概率和塌缩态。
+\end{enumerate}
+\begin{solution}
+由球面对称性，
+\[
+  \int (x+y+z)^2\ee^{-r/a}\dd^3r
+  =\int r^2\ee^{-r/a}\dd^3r=96\pi a^5,
+\]
+故
+\[
+  |A|={1\over\sqrt{96\pi}\,a^{5/2}}.
+\]
+波函数可取为实函数，且在 $x\to y\to z\to x$ 的循环转动下不变，所以
+\[
+  \expval{L_x}=\expval{L_y}=\expval{L_z}=0.
+\]
+轨道态展开为
+\[
+  \ket{\psi}={1\over\sqrt3}\left(-\ee^{-\ii\pi/4}\ket{1,1}
+  +\ket{1,0}+\ee^{\ii\pi/4}\ket{1,-1}\right),
+\]
+其中 $\ket{1,m}$ 表示 $\psi_{21m}$。用 $\ell=1$ 与 $s=1/2$ 的 C-G 系数展开 $\ket{\psi}\ket{\downarrow}$，测量结果为
+\[
+\begin{array}{c|c|c}
+(J^2,J_z)&P&\text{塌缩态}\\ \hline
+\left({15\over4}\hbar^2,{1\over2}\hbar\right)&{1\over9}
+&{1\over\sqrt3}\left(\ket{1,1}\ket{\downarrow}+\sqrt2\ket{1,0}\ket{\uparrow}\right)\\
+\left({3\over4}\hbar^2,{1\over2}\hbar\right)&{2\over9}
+&{1\over\sqrt3}\left(\sqrt2\ket{1,1}\ket{\downarrow}-\ket{1,0}\ket{\uparrow}\right)\\
+\left({15\over4}\hbar^2,-{1\over2}\hbar\right)&{2\over9}
+&{1\over\sqrt3}\left(\sqrt2\ket{1,0}\ket{\downarrow}+\ket{1,-1}\ket{\uparrow}\right)\\
+\left({3\over4}\hbar^2,-{1\over2}\hbar\right)&{1\over9}
+&{1\over\sqrt3}\left(\ket{1,0}\ket{\downarrow}-\sqrt2\ket{1,-1}\ket{\uparrow}\right)\\
+\left({15\over4}\hbar^2,-{3\over2}\hbar\right)&{1\over3}
+&\ket{1,-1}\ket{\downarrow}
+\end{array}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+粒子处于谐振势与有限高势垒组合势中：$|x|<a$ 内近似为谐振势，外部为有限常数势垒。讨论低能束缚态。
+\begin{enumerate}
+  \item 定性画出基态、第一激发态、第二激发态波函数。
+  \item 写出内外区级数解的递推关系与边界匹配条件。
+  \item 说明与普通谐振子的递推关系有何联系。
+\end{enumerate}
+\begin{solution}
+低能束缚态在阱内类似谐振子本征态，在阱外指数衰减；基态偶且无节点，第一激发态奇且一个节点，第二激发态偶且两个节点。势能为偶函数，解可按宇称分类。
+
+阱内把波函数写作
+\[
+  \psi_{\rm in}(x)=\ee^{-m\omega x^2/(2\hbar)}\sum_j c_{{\rm in},j}x^j,
+\]
+阱外写作指数衰减乘级数。代入定态薛定谔方程得到与谐振子相同形式的三项递推，只是能量不再由级数截断决定，而由 $x=\pm a$ 处
+\[
+  \psi_{\rm in}=\psi_{\rm out},\qquad
+  \psi_{\rm in}'=\psi_{\rm out}'
+\]
+共同决定。有限势垒使能级相对无限谐振子发生偏移，且波函数在外部有尾部。
+\end{solution}
+\end{question}

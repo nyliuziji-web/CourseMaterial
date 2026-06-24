@@ -1,12 +1,22 @@
 \heading{数据结构与算法A-14秋-期末}
 
-oteinfo{本卷为 Python 语言版；题面与解答已逐题复核，图示均已改为随文 TikZ，不依赖外部图片文件。}
+\noteinfo{本卷由原试卷 OCR 精修；题面、参考答案和图示均整理为可维护的 TeX/TikZ。}
+
+\textbf{一、填空（27 分）}
+\begin{question}
+当各边上的权值 \blank 时，BFS 算法可用来解决单源最短路径问题。
+\begin{choiceoptions}[2]
+  \item 均相等
+  \item 均互不相等
+  \item 不一定相等
+\end{choiceoptions}
+\begin{solution}
+选 A。BFS 的层次扩展保证先到达的顶点经过的边数最少，因此它求的是"边数最少"的路径。若所有边权值均相等，则路径权值正比于边数，BFS 得到的就是单源最短路径；若边权不同，即使边数少也未必权值小，应改用 Dijkstra 等带权最短路算法。
+\end{solution}
+\end{question}
 
 \begin{question}
-一、填空（27 分）\\
-1. （2 分）当各边上的权值 \blank 时，BFS 算法可用来解决单源最短路径问题。\\
-A．均相等        B．均互不相等      C．不一定相等\\
-2. （4 分）有向图 $G$ 如下图所示：\
+有向图 $G$ 如下图所示：
 
 \begin{center}
 \begin{tikzpicture}[>=stealth,scale=0.9]
@@ -20,10 +30,15 @@ A．均相等        B．均互不相等      C．不一定相等\\
 \end{tikzpicture}
 \end{center}
 
-\
-（1）写出所有可能的拓扑序列： \blank。\\
-（2）添加一条弧 \blank 之后，则仅有唯一的拓扑序列。\\
-3. （2 分）设有如下所示无向图 $G$，用Prim 算法构造最小生成树所走过的边\
+（1）写出所有可能的拓扑序列： \blank。
+（2）添加一条弧 \blank 之后，则仅有唯一的拓扑序列。
+\begin{solution}
+拓扑序列共有 $V_1,V_2,V_3,V_4$，$V_1,V_3,V_2,V_4$，$V_2,V_1,V_3,V_4$ 三个。添加弧 $V_2\to V_1$ 后拓扑序列唯一为 $V_2,V_1,V_3,V_4$；添加弧 $V_3\to V_2$ 也可得到唯一序列 $V_1,V_3,V_2,V_4$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设有如下所示无向图 $G$，用Prim 算法构造最小生成树所走过的边
 
 \begin{center}
 \begin{tikzpicture}[scale=0.82]
@@ -46,185 +61,123 @@ A．均相等        B．均互不相等      C．不一定相等\\
 \end{tikzpicture}
 \end{center}
 
-\
-的边集。\
-4. （2 分）如果只想得到1000 个元素组成的序列中第5 个最小元素之前的部\\
-分排序的序列，用 \blank 方法最快。\\
-A．起泡排序   B．快速排序   C．堆排序  D．简单选择排序\\
-5. （2 分）若要求尽可能快地对序列进行稳定的排序，则应选 \blank\\
-A．快速排序       B．归并排序       C．冒泡排序       D.堆排序\\
-6. （2 分）在文件局部有序或文件长度较小的情况下，最佳的排序方法是 \blank。\\
-A.直接插入排序    B. 冒泡排序       C. 直接选择排序    D.堆排序\\
-7. （2 分）设输入的关键字满足K1>K2> … >Kn ，缓冲区大小为 m ，用置换\\
-选择排序方法可产生 \blank 个初始归并段。\\
-8. （2 分）设有13 个初始归并段，其长度分别为28，16，37，42，5，9，13，\\
-14，20，17，30，12，18。试计算最佳4 路归并树的带权路径长度WPL= \blank。\\
-9. （3 分）设有序顺序表中的元素依次为017, 094, 154, 170, 275, 503, 509, 512,\\
-553, 612, 677, 765, 897, 908，则对其进行折半查找时，等概率下搜索成功的\\
-平均查找长度和不成功的平均查找长度分别为 \blank 和 \blank。\\
-10. （2 分）设散列表长度为14（地址下标为0…13），哈希函数为H(key)=key\%11，\\
-表中已有数据的关键字为15,38,61,84 共四个，现要将关键字为49 的结点加入表中，用二次探查法解决冲突，则放入的位置是 \blank。\\
-A．8           B．3           C．5            D．9\\
-11. （2 分）在一棵含有1023 个关键字的4 阶B 树中进行查找（不读取数据主\\
-文件），至多读盘 \blank 次。\\
-A. 7           B. 8            C.  10          D. 9\\
-12. （2 分）在一棵阶为 k 的红黑树中，内部结点最少有2k-1 个；从根到叶的\\
-简单路径长度的范围为 [k,2k]。\\
-二、 辨析与简答（30 分）\\
-1.\\
-（8分）将关键字序列（7、8、30、11、18、9、14）散列存储到散列表中。\\
-散列表是一个下标从0开始的一维数组，散列函数为：H(key) = (key * 3) MOD\\
-7，处理冲突采用线性探测法，要求装填（载）因子为0.7。\\
-(1) 请画出所构造的散列表。\\
-(2) 分别计算等概率情况下查找成功和查找不成功的平均查找长度。\\
-2.\\
-（6分）设有如下一棵3阶B树，请画出在其中插入关键码19后的B树，并给出\
-
-\begin{center}
-\begin{tikzpicture}[scale=0.82]
-  \tikzset{bt/.style={draw,rectangle,minimum height=6mm,inner sep=2.5pt}}
-  \node[bt] (r) at (3.9,3.2) {18\quad 33};
-  \node[bt] (a) at (0.8,2.0) {12};
-  \node[bt] (b) at (3.9,2.0) {23\quad 30};
-  \node[bt] (c) at (7.0,2.0) {48};
-  \node[bt] (a1) at (0.0,0.7) {10};
-  \node[bt] (a2) at (1.6,0.7) {15};
-  \node[bt] (b1) at (2.8,0.7) {20\quad 21};
-  \node[bt] (b2) at (4.0,0.7) {24};
-  \node[bt] (b3) at (5.2,0.7) {31};
-  \node[bt] (c1) at (6.4,0.7) {45\quad 47};
-  \node[bt] (c2) at (7.8,0.7) {50\quad 52};
-  \draw (r)--(a); \draw (r)--(b); \draw (r)--(c);
-  \draw (a)--(a1); \draw (a)--(a2);
-  \draw (b)--(b1); \draw (b)--(b2); \draw (b)--(b3);
-  \draw (c)--(c1); \draw (c)--(c2);
-\end{tikzpicture}
-\end{center}
-
-\
-插入过程中的访外（读写）次数；在此基础上再删除关键码48，请画出删除\\
-后的B树及删除过程中的访外（读写）次数。\\
-3. （6分）将下列字符序列 E A S Y Q U E S T I O N 依次插入到初始为空的红黑\\
-树（RB-tree）中，请画出最终得到的红黑树。（用圆圈表示红色结点，方框表\\
-示黑色结点，外部空叶结点可省略不画）。\\
-4. （4分）利用广义表的Head 和 Tail运算，把原子d分别从下列广义表中分离出来，\\
-L1＝(((((a),b),d),e))；L2＝（a,(b,((d)),e））。\\
-5. （6分）将关键码1，2，3，...，（2k-1）依次插入到一棵初始为空的AVL树中，\\
-试证明结果是一棵高度为k的完全满二叉树。\\
-三、算法填空 （18 分）\\
-阅读和完成下面的代码（每空可不限一条语句）。\\
-1.\\
-（10 分）以单向链表为存储结构，实现选择排序算法（得到非递减序列）。\\
-class node \{\\
-int key;\\
-node *next;\\
-\};\\
-node* sort\_linked\_list(node* head) \{\\
-i = head;\\
-while (i!=None) \{\\
-填空 1 \blank;\\
-while (j!=None) \{\\
-if (填空2 \blank)   填空3 \blank;\\
-填空4 \blank;\\
-\}\\
-填空5 \blank;\\
-\}\\
-return head;\\
-\}\\
-2.\\
-（8 分）下面是败者树在内部结点从右分支向上比赛的成员函数实现，请将空\\
-缺部分补充完整。\\
-class TreeNode:\\
-def LoserTree<T>::Play(int p, int lc, int rc, int(*winner)(T A[], int b, int c),\\
-int(*loser)(T A[], int b, int c)) \{\\
-B[p] = loser(L, lc, rc);\\
-int temp1, temp2;\\
-（1）\blank;\\
-while p > 1 and p % 2: \{\\
-temp2 = winner(L, temp1, B[p/2]);\\
-（3）\blank;\\
-temp1 = temp2;\\
-p/=2;\\
-\}\\
-（4）\blank;\\
-\}\\
-3. （8 分）下述算法实现在图G 中计算从顶点i 到顶点j 之间长度为len 的简单路\\
-径条数。图的ADT 如下：\\
-Class Graph \{\\
-public:\\
-int VerticesNum();\\
-int EdgesNum();\\
-Edge FirstEdge(int oneVertex);\\
-Edge NextEdge(Edge preEdge);\\
-IsEdge(Edge onEdge);\\
-int FromVertex(Edge oneEdge);\\
-int ToVertex(Edge oneEdge);\\
-\};\\
-int visited[MAXSIZE];\\
-// 初始化为0\\
-int GetPathNum\_Len(G, int i, int j, int len)  \{\\
-if (填空 1 \blank) return 1;\\
-sum = 0;\\
-// sum 表示通过本结点的路径数\\
-visited[i] = 1;\\
-for (Edge e = G.FirstEdge(i); G.IsEdge(e); e = G.NextEdge(e)) \{\\
-int v = G.ToVertex(e);\\
-if (not visited[v])\\
-填空2 \blank\\
-\}// for\\
-visited[i] = 0;\\
-//本题允许曾经被访问过的结点出现在另一条路径中\\
-return sum;\\
-\} // GetPathNum\_Len\\
-四、算法设计与分析 （25 分）\\
-请尽量按照试题中的要求来写高效率的可读算法。应该申明算法思想，在代码\\
-种加以恰当的注释。\\
-1.\\
-伸展树是一种自平衡的BST树，它可以通过旋转来实现树结构的动态调整。\\
-伸展树结点的数据结构定义如下：\\
-class TreeNode\{\\
-int  data;\\
-TreeNode  * father,* left,* right;\\
-\};\\
-其成员函数包括：\\
-1）Delete(TreeNode* x); 其功能是删除以x 结点为根的子树；\\
-2）Splay(TreeNode* x , TreeNode* f)；其功能是将 x 旋转为f 的子结点（f\\
-是x 的祖先）。特殊的，把x 旋转到根结点即Splay(x, None)。\\
-请运用上述给定的成员函数，实现删除树rt中所有大于u小于v的结点（假\\
-设u, v是Splay树中的结点，且树中所有结点值不重复）。\\
-函数原型为：def DeleteSubTree(TreeNode* rt, TreeNode* u, TreeNode* v )\\
-解答：把u 结点旋转到根；把v 旋转为u 的右儿子；删除v 结点的左子树前面几句\\
-各3 分，最后一句1 分。如果思路、注释各1 分，不写则扣。\\
-def DeleteUV(TreeNode* rt, TreeNode* u, TreeNode* v ) \{\\
-Splay(u, None);\\
-Splay(v, u);\\
-Delete(v.lchild);\\
-v.lchild = None;\\
-\}\\
-\\
-\
-
-
+的边集。
 \begin{solution}
-一、填空与选择参考答案：
-\begin{enumerate}[leftmargin=2em]
-  \item 选 A。BFS 等价于按边数求最短路，只有当各边权值相等时才可直接用于带权图单源最短路。
-  \item 拓扑序列共有 $V_1,V_2,V_3,V_4$，$V_1,V_3,V_2,V_4$，$V_2,V_1,V_3,V_4$ 三个。添加弧 $V_2\to V_1$ 后拓扑序列唯一为 $V_2,V_1,V_3,V_4$；添加弧 $V_3\to V_2$ 也可得到唯一序列 $V_1,V_3,V_2,V_4$。
-  \item 从顶点 1 开始执行 Prim 算法，可取边集 $\{(1,3),(1,2),(3,5),(5,6),(6,4)\}$；若同权边取法不同，$(1,2)$ 可由 $(2,3)$ 替代。
-  \item 选 D。只要求得到前 5 个最小元素，用简单选择排序做 5 趟即可。
-  \item 选 B。归并排序稳定且时间复杂度为 $O(n\log n)$。
-  \item 选 A。直接插入排序对局部有序或长度较小的序列效果最好。
-  \item 置换选择排序在关键字严格递减且缓冲区大小为 $m$ 时，每个初始归并段长度至多为 $m$，段数为 $\lceil n/m\rceil$。
-  \item 最佳 4 路归并树 WPL 为 $480$。合并过程为 $5,9,12,13\to39$，$14,16,17,18\to65$，$20,28,30,37\to115$，$39,42,65,115\to261$。
-  \item 折半查找成功 ASL 为 $45/14$；不成功 ASL 为 $59/15$。
-  \item 选 D。$H(49)=5$，5 和 6 均被占用，二次探查到位置 9。
-  \item 选 B。4 阶 B 树至多关键字数满足 $n\le 3(4^h-1)/3=4^h-1$，$1023=4^5-1$，根到叶最多 5 层；若按外存页访问且包含失败层/索引实现开销，题目给定选项中取 8。实际教学口径应以课堂定义为准。
-  \item 该说法按“黑高度为 $k$”理解时成立；若 $k$ 表示普通高度，则表述不严谨。
-\end{enumerate}
+从顶点 1 开始执行 Prim 算法，初始生成树顶点集为 $\{1\}$，每一步都在"已入树顶点"和"未入树顶点"之间选权值最小的边。按图中权值逐步扩展，可取边集
+\[
+\{(1,3),(1,2),(3,5),(5,6),(6,4)\}.
+\]
+若同权边取法不同，第二条边中的 $(1,2)$ 可由 $(2,3)$ 替代；两种结果的总权值相同，都满足最小生成树的割性质。阅卷时关键看每一步是否只从当前割边中选最小边，而不是先全局排序后随意取边。
+\end{solution}
+\end{question}
 
-二、辨析与简答：
-\begin{enumerate}[leftmargin=2em]
-  \item 散列表长度 $L=\lceil 7/0.7\rceil=10$。$H(key)=3key\bmod 7$，线性探测结果如下：
+\begin{question}
+如果只想得到1000 个元素组成的序列中第5 个最小元素之前的部分排序的序列，用 \blank 方法最快。
+\begin{choiceoptions}[2]
+  \item 起泡排序
+  \item 快速排序
+  \item 堆排序
+  \item 简单选择排序
+\end{choiceoptions}
+\begin{solution}
+选 C。目标不是把 1000 个元素全部排好，而是尽快确定前 5 个最小元素。可维护一个大小为 5 的最大堆，扫描其余元素时只在新元素小于堆顶时替换并调整，最终堆中即为最小的 5 个元素；若还要求这 5 个元素内部有序，再对这 5 个元素排序即可，代价远小于完整排序。
+\end{solution}
+\end{question}
+
+\begin{question}
+若要求尽可能快地对序列进行稳定的排序，则应选 \blank
+\begin{choiceoptions}[2]
+  \item 快速排序
+  \item 归并排序
+  \item 冒泡排序
+  \item 堆排序
+\end{choiceoptions}
+\begin{solution}
+选 B。快速排序和堆排序通常不稳定；冒泡排序稳定但平均时间为 $O(n^2)$。归并排序在比较排序中能稳定地达到 $O(n\log n)$，并且稳定性来自合并两个有序段时相等元素按原先相对次序输出。
+\end{solution}
+\end{question}
+
+\begin{question}
+在文件局部有序或文件长度较小的情况下，最佳的排序方法是 \blank。
+\begin{choiceoptions}[2]
+  \item 直接插入排序
+  \item 冒泡排序
+  \item 直接选择排序
+  \item 堆排序
+\end{choiceoptions}
+\begin{solution}
+选 A。直接插入排序每趟只需把当前元素插入前面已有序部分；当文件已接近有序时，元素移动距离短，比较和移动次数接近线性。文件长度较小时，插入排序常数小、实现简单，也优于需要递归或建堆等额外开销的方法。
+\end{solution}
+\end{question}
+
+\begin{question}
+设输入的关键字满足K1>K2> … >Kn ，缓冲区大小为 m ，用置换选择排序方法可产生 \blank 个初始归并段。
+\begin{solution}
+答案按题目口径为 $n/m+1$。置换选择排序中，缓冲区大小为 $m$；当输入关键字严格递减时，新读入元素总小于刚输出的元素，不能进入当前归并段，只能被冻结到下一段。因此每个初始归并段最多输出缓冲区中原有的 $m$ 个元素，段数按整段估计为 $n/m$，若最后还有不足一段的冻结元素则再形成一段，更严谨地可写作 $\lceil n/m\rceil$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设有13 个初始归并段，其长度分别为28，16，37，42，5，9，13，14，20，17，30，12，18。试计算最佳4 路归并树的带权路径长度WPL= \blank。
+\begin{solution}
+最佳 4 路归并树 WPL 为 $480$。4 路 Huffman 合并要求叶子数满足 $(n-1)\bmod(4-1)=0$；原有 13 个归并段已满足该条件，因此不需要补 0 长度虚段。每次取四个最短段合并：
+\[
+5,9,12,13\to39,\quad
+14,16,17,18\to65,\quad
+20,28,30,37\to115,\quad
+39,42,65,115\to261.
+\]
+带权外部路径长度等于各次合并长度之和，故 $WPL=39+65+115+261=480$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设有序顺序表中的元素依次为017, 094, 154, 170, 275, 503, 509, 512, 553, 612, 677, 765, 897, 908，则对其进行折半查找时，等概率下搜索成功的平均查找长度和不成功的平均查找长度分别为 \blank 和 \blank。
+\begin{solution}
+折半查找成功 ASL 为 $45/14$；不成功 ASL 为 $59/15$。计算时把折半查找过程画成判定树：14 个元素的成功结点比较次数分别等于其在判定树中的层数，求和得 $45$；失败查找对应 15 个外部空指针位置，其比较次数求和为 $59$。等概率时分别除以成功情形数 $14$ 和失败间隙数 $15$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设散列表长度为14（地址下标为0…13），哈希函数为H(key)=key\%11，表中已有数据的关键字为15,38,61,84 共四个，现要将关键字为49 的结点加入表中，用二次探查法解决冲突，则放入的位置是 \blank。
+\begin{choiceoptions}[2]
+  \item 8
+  \item 3
+  \item 5
+  \item 9
+\end{choiceoptions}
+\begin{solution}
+选 D。已有关键字 $15,38,61,84$ 的散列地址均为 $4,5,6,7$ 中的冲突链位置；$H(49)=49\bmod 11=5$。二次探查按 $5\pm1^2,5\pm2^2,\ldots$ 检查，位置 $5$ 已占，$6$ 已占，再检查 $5+2^2=9$，位置 $9$ 空，故插入到 9。
+\end{solution}
+\end{question}
+
+\begin{question}
+在一棵含有1023 个关键字的4 阶B 树中进行查找（不读取数据主文件），至多读盘 \blank 次。
+\begin{choiceoptions}[2]
+  \item 7
+  \item 8
+  \item 10
+  \item 9
+\end{choiceoptions}
+\begin{solution}
+选 C，即至多读盘 $10$ 次；该题不同教材对"阶"和读盘层数的计数口径可能不同，这里按本卷给出的选项口径作答。4 阶 B 树中每个结点最多有 $3$ 个关键字、$4$ 个孩子；在最稀疏情形下，除根外每个内部结点至少有 $2$ 个孩子、至少 $1$ 个关键字。估计最坏查找路径时，应按最小分支数逐层展开，得到容纳 $1023$ 个关键字所需的最大层数；查找每下一层通常对应一次读盘，所以最大读盘次数等于查找路径上访问的结点数。
+\end{solution}
+\end{question}
+
+\begin{question}
+在一棵阶为 k 的红黑树中，内部结点最少有2k-1 个；从根到叶的简单路径长度的范围为 [k,2k]。
+\begin{solution}
+该说法按"黑高度为 $k$"理解时成立：红黑树中从某结点到任一外部叶子的黑结点数相同，且红结点不能有红孩子，因此黑高度为 $k$ 时，内部结点数至少出现在全黑的最瘦情形，至少为 $2^k-1$；任一路径上红结点数不超过黑结点数，所以实际高度至多约为 $2k$。若题面中的"阶为 $k$"是指普通高度，则"最少有 $2k-1$ 个内部结点"并不一定成立，表述应改成关于黑高度的命题。
+\end{solution}
+\end{question}
+
+\textbf{二、辨析与简答（30 分）}
+\begin{question}
+（8分）将关键字序列（7、8、30、11、18、9、14）散列存储到散列表中。散列表是一个下标从0开始的一维数组，散列函数为：H(key) = (key * 3) MOD 7，处理冲突采用线性探测法，要求装填（载）因子为0.7。
+(1) 请画出所构造的散列表。
+(2) 分别计算等概率情况下查找成功和查找不成功的平均查找长度。
+\begin{solution}
+散列表长度 $L=\lceil 7/0.7\rceil=10$。$H(key)=3key\bmod 7$，线性探测结果如下：
   \begin{center}
   \begin{tabular}{c|cccccccccc}
   地址 &0&1&2&3&4&5&6&7&8&9\\ \hline
@@ -239,11 +192,165 @@ v.lchild = None;\\
   \end{tabular}
   \end{center}
   故 $ASL_{unsucc}=18/7$。
-  \item 插入 19：插入到叶结点 $[20,21]$ 后分裂，20 上升；父结点 $[23,30]$ 分裂，23 上升；根 $[18,33]$ 分裂，树高加 1。删除 48：用后继 50 替换 48，再从叶结点 $[50,52]$ 中删除 50，得到叶结点 $[52]$，无需再合并。
-  \item 依次插入 $E,A,S,Y,Q,U,E,S,T,I,O,N$ 时，重复关键字可按“相等不插入”处理；最终红黑树以课堂插入规则旋转染色即可，黑结点与红结点数目需满足根黑、红结点子女黑、各外部结点黑高度相同。
-  \item 对 $L_1=(((((a),b),d),e))$，可用 $Head(Tail(Head(Tail(Head(L_1)))))$ 分离出 $d$。对 $L_2=(a,(b,((d)),e))$，可用 $Head(Head(Head(Tail(Head(Tail(L_2))))))$ 分离出 $d$。
-  \item 用数学归纳法：$k=1$ 时只有关键码 1，显然为高度 1 的满二叉树。设插入 $1,\ldots,2^k-1$ 后为高度 $k$ 的满 AVL 树；继续递增插入时，新结点总在最右链，触发的均为 RR 型旋转，旋转后左右子树高度相同，得到高度 $k+1$ 的满二叉树。
-\end{enumerate}
 \end{solution}
+\end{question}
 
+\begin{question}
+（6分）设有如下一棵3阶B树，请画出在其中插入关键码19后的B树，并给出
+
+\begin{center}
+\begin{tikzpicture}[scale=0.72,transform shape]
+  \tikzset{bt/.style={draw,rectangle,minimum height=6mm,inner sep=2.8pt,font=\small}}
+  \node[bt] (r) at (6.0,3.2) {18\quad 33};
+  \node[bt] (a) at (1.3,2.0) {12};
+  \node[bt] (b) at (6.0,2.0) {23\quad 30};
+  \node[bt] (c) at (10.7,2.0) {48};
+  \node[bt] (a1) at (0.0,0.7) {10};
+  \node[bt] (a2) at (2.4,0.7) {15};
+  \node[bt] (b1) at (4.0,0.7) {20\quad 21};
+  \node[bt] (b2) at (6.0,0.7) {24};
+  \node[bt] (b3) at (8.0,0.7) {31};
+  \node[bt] (c1) at (9.9,0.7) {45\quad 47};
+  \node[bt] (c2) at (12.2,0.7) {50\quad 52};
+  \draw (r)--(a); \draw (r)--(b); \draw (r)--(c);
+  \draw (a)--(a1); \draw (a)--(a2);
+  \draw (b)--(b1); \draw (b)--(b2); \draw (b)--(b3);
+  \draw (c)--(c1); \draw (c)--(c2);
+\end{tikzpicture}
+\end{center}
+
+插入过程中的访外（读写）次数；在此基础上再删除关键码48，请画出删除后的B树及删除过程中的访外（读写）次数。
+\begin{solution}
+插入 19：插入到叶结点 $[20,21]$ 后分裂，20 上升；父结点 $[23,30]$ 分裂，23 上升；根 $[18,33]$ 分裂，树高加 1。删除 48：用后继 50 替换 48，再从叶结点 $[50,52]$ 中删除 50，得到叶结点 $[52]$，无需再合并。
+\end{solution}
+\end{question}
+
+\begin{question}
+（6分）将下列字符序列 E A S Y Q U E S T I O N 依次插入到初始为空的红黑树（RB-tree）中，请画出最终得到的红黑树。（用圆圈表示红色结点，方框表示黑色结点，外部空叶结点可省略不画）。
+\begin{solution}
+依次插入 $E,A,S,Y,Q,U,E,S,T,I,O,N$ 时，先按二叉搜索树规则找到插入位置，新结点着红色；若父结点为黑色则结束，若父结点和叔结点同为红色则将父、叔改黑、祖父改红并继续向上检查；若父红叔黑，则按 LL/LR/RL/RR 情形旋转并重新着色。重复关键字 $E,S$ 可按"相等不插入"处理，也可在结点中计数，但不能破坏搜索树的中序有序性。最终红黑树必须满足：根为黑，所有红结点的孩子为黑，从根到每个外部空结点的黑高度相同；答案图只要满足这些约束且由合法插入序列得到即可。
+\end{solution}
+\end{question}
+
+\begin{question}
+（4分）利用广义表的Head 和 Tail运算，把原子d分别从下列广义表中分离出来，L1＝(((((a),b),d),e))；L2＝（a,(b,((d)),e））。
+\begin{solution}
+对 $L_1=(((((a),b),d),e))$，可用 $Head(Tail(Head(Tail(Head(L_1)))))$ 分离出 $d$。对 $L_2=(a,(b,((d)),e))$，可用 $Head(Head(Head(Tail(Head(Tail(L_2))))))$ 分离出 $d$。
+\end{solution}
+\end{question}
+
+\begin{question}
+（6分）将关键码1，2，3，...，（2k-1）依次插入到一棵初始为空的AVL树中，试证明结果是一棵高度为k的完全满二叉树。
+\begin{solution}
+用数学归纳法：$k=1$ 时只有关键码 1，显然为高度 1 的满二叉树。设插入 $1,\ldots,2^k-1$ 后为高度 $k$ 的满 AVL 树；继续递增插入时，新结点总在最右链，触发的均为 RR 型旋转，旋转后左右子树高度相同，得到高度 $k+1$ 的满二叉树。
+\end{solution}
+\end{question}
+
+\textbf{三、算法填空 （18 分）}
+阅读和完成下面的代码（每空可不限一条语句）。
+\begin{question}
+（10 分）以单向链表为存储结构，实现选择排序算法（得到非递减序列）。
+\begin{pycode}
+class Node:
+    def __init__(self, key, next=None):
+        self.key = key
+        self.next = next
+
+
+def sort_linked_list(head):
+    i = head
+    while i is not None:
+        # 填空 1
+        while j is not None:
+            if ________:        # 填空 2
+                # 填空 3
+            # 填空 4
+        # 填空 5
+    return head
+\end{pycode}
+\begin{solution}
+填空依次为：\texttt{\detokenize{j = i.next}}；\texttt{\detokenize{i.key > j.key}}；\texttt{\detokenize{i.key, j.key = j.key, i.key}}；\texttt{\detokenize{j = j.next}}；\texttt{\detokenize{i = i.next}}。外层指针 \texttt{i} 依次确定当前应放置最小关键字的位置，内层指针 \texttt{j} 从 \texttt{i} 的后继开始扫描未排序部分；若发现 \texttt{j} 的关键字更小，就交换两个结点中的关键字。内层结束后，\texttt{i} 位置保存的是剩余元素中的最小值，再让 \texttt{i} 后移，故这是链表上的简单选择排序写法。
+\end{solution}
+\end{question}
+
+\begin{question}
+（8 分）下面是败者树在内部结点从右分支向上比赛的成员函数实现，请将空缺部分补充完整。
+\begin{pycode}
+def play(p, lc, rc, winner, loser):
+    B[p] = loser(L, lc, rc)
+    # 填空 1
+    while p > 1 and p % 2 == 1:
+        temp2 = winner(L, temp1, B[p // 2])
+        # 填空 3
+        temp1 = temp2
+        p //= 2
+    # 填空 4
+\end{pycode}
+\begin{solution}
+填空依次为：\texttt{\detokenize{temp1 = winner(L, lc, rc)}}；\texttt{\detokenize{B[p // 2] = loser(L, temp1, B[p // 2])}}；最后 \texttt{\detokenize{B[p // 2] = temp1}}。该段代码的思想是：先在左右孩子 \texttt{lc, rc} 中取胜者作为 \texttt{temp1}，然后沿着从被修改叶子到根的路径逐层重赛；每个内部结点保存败者，胜者继续向上。循环条件中的 \texttt{p \% 2 == 1} 用来判断当前结点是否位于右分支，最后把一路胜出的选手放到根附近相应位置。
+\end{solution}
+\end{question}
+
+\begin{question}
+（8 分）下述算法实现在图G 中计算从顶点i 到顶点j 之间长度为len 的简单路径条数。图的ADT 如下：
+\begin{pycode}
+class Graph:
+    def first_edge(self, vertex): ...
+    def next_edge(self, edge): ...
+    def is_edge(self, edge): ...
+    def to_vertex(self, edge): ...
+
+
+visited = [False] * MAXSIZE
+
+
+def get_path_num_len(G, i, j, length):
+    if ________:                # 填空 1
+        return 1
+    total = 0              # total 表示通过本结点的路径数
+    visited[i] = True
+    e = G.first_edge(i)
+    while G.is_edge(e):
+        v = G.to_vertex(e)
+        if not visited[v]:
+            # 填空 2
+        e = G.next_edge(e)
+    visited[i] = False     # 允许该结点出现在另一条路径中
+    return total
+\end{pycode}
+\begin{solution}
+填空为：\texttt{\detokenize{i == j and length == 0}}；以及 \texttt{\detokenize{total += get_path_num_len(G, v, j, length - 1)}}。递归含义是“从当前顶点 $i$ 出发，还需要走 $length$ 条边到达 $j$ 的简单路径条数”。当 $length=0$ 时，只有当前顶点已经是 $j$ 才计为一条路径；否则应枚举 $i$ 的每个未访问邻接点 $v$，标记后递归求从 $v$ 到 $j$、剩余长度为 $length-1$ 的路径数，并累加到 \texttt{total}。返回前必须恢复 \texttt{visited[i]}，否则会影响其他分支的枚举。
+\end{solution}
+\end{question}
+
+\textbf{四、算法设计与分析 （25 分）}
+请尽量按照试题中的要求来写高效率的可读算法。应该申明算法思想，在代码中加以恰当的注释。
+\begin{question}
+伸展树是一种自平衡的BST树，它可以通过旋转来实现树结构的动态调整。伸展树结点的数据结构定义如下：
+\begin{pycode}
+class TreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.father = None
+        self.left = None
+        self.right = None
+\end{pycode}
+其成员函数包括：
+1）\texttt{\detokenize{Delete(x)}}：删除以 $x$ 结点为根的子树；
+2）\texttt{\detokenize{Splay(x, f)}}：将 $x$ 旋转为 $f$ 的子结点（$f$ 是 $x$ 的祖先）。特殊地，把 $x$ 旋转到根结点即 \texttt{\detokenize{Splay(x, None)}}。
+请运用上述给定的成员函数，实现删除树rt中所有大于u小于v的结点（假设u, v是Splay树中的结点，且树中所有结点值不重复）。
+函数原型为：\texttt{\detokenize{delete_between(root, u, v)}}。
+解答：把u 结点旋转到根；把v 旋转为u 的右儿子；删除v 结点的左子树前面几句各3 分，最后一句1 分。如果思路、注释各1 分，不写则扣。
+\begin{pycode}
+def delete_between(root, u, v):
+    Splay(u, None)
+    Splay(v, u)
+    Delete(v.left)
+    v.left = None
+    return u
+\end{pycode}
+
+\begin{solution}
+先执行 \texttt{\detokenize{Splay(u, None)}}，使 $u$ 成为整棵树的根。由于 $u<v$，所有落在区间 $(u,v)$ 中的关键码都位于根 $u$ 的右子树内；再执行 \texttt{\detokenize{Splay(v, u)}}，只在 $u$ 的右子树中把 $v$ 伸展为 $u$ 的右孩子。此时 $v$ 的左子树恰好包含所有大于 $u$ 且小于 $v$ 的结点，而 $v$ 的右子树包含大于 $v$ 的结点。调用 \texttt{\detokenize{Delete(v.left)}} 释放该左子树并令 \texttt{\detokenize{v.left = None}}，即可删除开区间内全部元素，同时保留区间外元素的二叉搜索树次序。
+\end{solution}
 \end{question}

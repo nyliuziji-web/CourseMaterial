@@ -1,0 +1,159 @@
+\heading{量子力学A-22秋-期末2}
+\noteinfo{整理自 Quantum Mechanics: Fall 2022 Final Exam (B): Brief Solutions；题面和解答按项目格式重写。}
+
+\begin{question}
+粒子在周长 $L$ 的圆环上运动。加入微扰 $V(x)=V_0\cos(2\pi x/L)$。
+\begin{enumerate}
+  \item 写出自由粒子能级和本征态。
+  \item 求基态能量修正至 $V_0^2$。
+  \item 求所有激发态能量的二阶修正。
+  \item 对变分态 $\psi_A(x)=1+A\cos(2\pi x/L)$ 计算并最小化能量期望。
+\end{enumerate}
+\begin{solution}
+自由粒子
+\[
+  E_n^{(0)}={\hbar^2\over2m}\left({2\pi n\over L}\right)^2,\qquad
+  \psi_n={1\over\sqrt L}\ee^{\ii2\pi nx/L}.
+\]
+也可用 $\psi_{n,e}=\sqrt{2/L}\cos(2\pi nx/L)$ 与 $\psi_{n,o}=\sqrt{2/L}\sin(2\pi nx/L)$。
+基态只耦合到 $\psi_{1,e}$，故
+\[
+  E_0=-{V_0^2mL^2\over4\pi^2\hbar^2}+O(V_0^3).
+\]
+偶态 $n=1$ 有一阶矩阵元 $V_0/2$，于是
+\[
+  E_{1,e}=E_1^{(0)}+{V_0\over2}+{5V_0^2mL^2\over24\pi^2\hbar^2}+O(V_0^3),
+\]
+奇态 $n=1$ 为
+\[
+  E_{1,o}=E_1^{(0)}-{V_0^2mL^2\over24\pi^2\hbar^2}+O(V_0^3).
+\]
+对 $n>1$，偶、奇态均只耦合到 $n\pm1$，二阶修正
+\[
+  \Delta E_n^{(2)}={V_0^2mL^2\over4\pi^2\hbar^2}{1\over4n^2-1}.
+\]
+变分态归一化后能量可写成
+\[
+  E(A)={E_1^{(0)}A^2+2V_0A\over2+A^2},
+\]
+极小值
+\[
+  E_{\min}={1\over2}\left(E_1^{(0)}-\sqrt{(E_1^{(0)})^2+2V_0^2}\right)
+  \simeq-{V_0^2\over2E_1^{(0)}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一维谐振子受含时微扰
+\[
+  V(t)=-f_1\sin\Omega t\,x-f_2\sin2\Omega t\,x^2.
+\]
+求从基态出发到低激发态的最低非零阶跃迁概率，并指出共振条件。
+\begin{solution}
+由
+\[
+  x=\sqrt{\hbar\over2m\omega}(a+a^\dagger),\qquad
+  x^2={\hbar\over2m\omega}(a^2+a^{\dagger2}+2a^\dagger a+1)
+\]
+可知 $x$ 只在一阶耦合 $\ket0\to\ket1$，$x^2$ 只在一阶耦合 $\ket0\to\ket2$ 及对角项。故
+\[
+  c_1^{(1)}(t)={\ii f_1\over\hbar}\sqrt{\hbar\over2m\omega}
+  \int_0^t \ee^{\ii\omega t'}\sin\Omega t'\,\dd t',
+\]
+\[
+  c_2^{(1)}(t)={\ii f_2\over\hbar}{\hbar\over2m\omega}\sqrt2
+  \int_0^t \ee^{2\ii\omega t'}\sin2\Omega t'\,\dd t' .
+\]
+若记
+\[
+  I_\nu(\Omega,t)=\int_0^t \ee^{\ii\nu t'}\sin\Omega t'\,\dd t'
+  ={1\over2}\left[
+  {1-\ee^{\ii(\nu+\Omega)t}\over \nu+\Omega}
+  -{1-\ee^{\ii(\nu-\Omega)t}\over \nu-\Omega}\right],
+\]
+则最低非零阶概率为
+\[
+  P_{0\to1}={f_1^2\over 2m\hbar\omega}|I_\omega(\Omega,t)|^2,\qquad
+  P_{0\to2}={f_2^2\over 2m^2\omega^2}|I_{2\omega}(2\Omega,t)|^2 .
+\]
+当分母趋于零时取相应极限；两个一阶通道的共振条件均为
+$\Omega=\omega$。到 $\ket1$ 与 $\ket2$ 之外的跃迁需更高阶含时微扰项。
+\end{solution}
+\end{question}
+
+\begin{question}
+两个全同粒子在长度为 $L$ 的一维圆环上运动，哈密顿量
+\[
+  H_0={p_1^2+p_2^2\over2m}.
+\]
+\begin{enumerate}
+  \item 写出无自旋玻色子、费米子的基态和第一激发态。
+  \item 对自旋 $1/2$ 玻色子与费米子重复上述问题。
+  \item 加入
+  \[
+  H_1=\lambda[1-\cos(2\pi(x_1-x_2)/L)]S_{1z}S_{2z}
+  \]
+  时，求自旋 $1/2$ 费米子基态和第一激发态的一阶能量修正。
+\end{enumerate}
+\begin{solution}
+单粒子本征态为 $\varphi_n=L^{-1/2}\ee^{\ii2\pi nx/L}$。无自旋玻色子基态为 $\varphi_0(1)\varphi_0(2)$；第一激发为对称组合 $\varphi_{\pm1}\varphi_0$，能量 $\hbar^2(2\pi/L)^2/(2m)$。无自旋费米子基态需占据两个不同动量态，可取反对称组合 $\varphi_0,\varphi_{\pm1}$。
+
+自旋 $1/2$ 情况中总波函数按统计性组合：玻色子为“空间对称乘自旋对称”或“空间反对称乘自旋反对称”，费米子相反。
+
+对费米子基态，空间对称 $\varphi_0\varphi_0$ 乘自旋单态，有
+\[
+  \expval{S_{1z}S_{2z}}=-{\hbar^2\over4},\qquad
+  \expval{1-\cos(2\pi(x_1-x_2)/L)}=1,
+\]
+故
+\[
+  \Delta E_0^{(1)}=-{\lambda\hbar^2\over4}.
+\]
+第一激发态中，空间反对称态的空间期望为 $3/2$，空间对称态为 $1/2$。因此对空间反对称乘自旋三重态，
+\[
+  \Delta E^{(1)}={3\lambda\hbar^2\over8}\quad(S_z=\pm1),
+  \qquad
+  \Delta E^{(1)}=-{3\lambda\hbar^2\over8}\quad(S_z=0).
+\]
+对空间对称乘自旋单态，
+\[
+  \Delta E^{(1)}=-{\lambda\hbar^2\over8}.
+\]
+上述结果分别适用于第一激发能级中的偶、奇空间波函数；同一对称性下的偶、奇态修正相同。
+\end{solution}
+\end{question}
+
+\begin{question}
+二维谐振子
+\[
+  H_0={p_x^2+p_y^2\over2m}+{m\omega^2\over2}(x^2+y^2)
+\]
+受含时微扰
+\[
+  V(t)=-f[x\cos\Omega t+y\sin\Omega t].
+\]
+\begin{enumerate}
+  \item 写出基态、第一激发态和第二激发态。
+  \item 求从基态到第二激发能级各态的最低非零阶跃迁概率。
+\end{enumerate}
+\begin{solution}
+本征态 $\ket{n_x,n_y}$，能量 $E_{n_xn_y}=\hbar\omega(n_x+n_y+1)$。基态为 $\ket{0,0}$；第一激发态为 $\ket{1,0},\ket{0,1}$；第二激发态为 $\ket{2,0},\ket{1,1},\ket{0,2}$。
+
+记
+\[
+  A_\pm={\ee^{\ii(\omega\pm\Omega)t}-1\over\omega\pm\Omega}.
+\]
+二阶含时微扰给
+\[
+  P_{00\to20}={f^4\over128m^2\hbar^2\omega^2}|A_++A_-|^4,
+\]
+\[
+  P_{00\to02}={f^4\over128m^2\hbar^2\omega^2}|A_+-A_-|^4,
+\]
+\[
+  P_{00\to11}={f^4\over64m^2\hbar^2\omega^2}|A_+-A_-|^2|A_++A_-|^2.
+\]
+总跃迁概率为三者之和。
+\end{solution}
+\end{question}

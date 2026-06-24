@@ -1,0 +1,196 @@
+\heading{量子力学A-24秋-期中2}
+\noteinfo{整理自《量子力学 A》2024 年秋季学期 1 班期中考试参考答案；题面和解答按项目格式重写。}
+
+\begin{question}
+一维谐振子 $H=p^2/(2m)+m\omega^2x^2/2$。初态
+\[
+  \psi(x,0)=(Ax+Bx^3)\psi_0(x).
+\]
+\begin{enumerate}
+  \item 求归一化条件。
+  \item 测量能量的可能结果与概率。
+  \item 求 $\psi(x,t)$。
+  \item 求 $\expval{x},\expval{x^2},\expval{p},\expval{p^2}$ 并验证不确定关系。
+\end{enumerate}
+\begin{solution}
+设 $s=\hbar/(2m\omega)$。由
+\[
+  x\ket0=\sqrt{s}\ket1,\qquad
+  x^3\ket0=3s^{3/2}\ket1+\sqrt6\,s^{3/2}\ket3
+\]
+得
+\[
+  \ket{\psi(0)}=\sqrt s(A+3sB)\ket1+\sqrt6\,s^{3/2}B\ket3.
+\]
+归一化条件为
+\[
+  s|A+3sB|^2+6s^3|B|^2=1.
+\]
+测量能量只可能得到
+\[
+  E_1={3\over2}\hbar\omega,\qquad E_3={7\over2}\hbar\omega,
+\]
+概率分别为 $s|A+3sB|^2$ 与 $6s^3|B|^2$。时间演化
+\[
+  \ket{\psi(t)}=\sqrt s(A+3sB)\ee^{-3\ii\omega t/2}\ket1
+  +\sqrt6\,s^{3/2}B\ee^{-7\ii\omega t/2}\ket3.
+\]
+态始终为奇宇称，故 $\expval{x}=\expval{p}=0$。记
+\[
+  c_1=\sqrt s(A+3sB),\qquad c_3=\sqrt6\,s^{3/2}B,
+\]
+其中 $|c_1|^2+|c_3|^2=1$。用
+\[
+  x^2=s(a^2+a^{\dagger2}+2a^\dagger a+1),\quad
+  p^2={\hbar m\omega\over2}(-a^2-a^{\dagger2}+2a^\dagger a+1)
+\]
+得
+\[
+  \expval{x^2}=s\left(3|c_1|^2+7|c_3|^2
+  +2\sqrt6\,\operatorname{Re}\!\left[c_1^*c_3\ee^{-2\ii\omega t}\right]\right),
+\]
+\[
+  \expval{p^2}={\hbar m\omega\over2}\left(3|c_1|^2+7|c_3|^2
+  -2\sqrt6\,\operatorname{Re}\!\left[c_1^*c_3\ee^{-2\ii\omega t}\right]\right).
+\]
+因此
+\[
+  \expval{x^2}\expval{p^2}\ge{\hbar^2\over4}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+有限深方势阱与 $\delta$ 势叠加：
+\[
+V(x)=\begin{cases}
+-V_0+V_1a\,\delta(x),& |x|<a,\\
+0,& |x|>a,
+\end{cases}
+\qquad V_0,V_1,a>0.
+\]
+\begin{enumerate}
+  \item 假设最低三个本征态为束缚态，定性画出波函数。
+  \item 对束缚态 $E\in(-V_0,0)$，令 $k=\sqrt{2m(E+V_0)}/\hbar$，求 $k$ 方程。
+  \item 求存在束缚态的参数条件。
+\end{enumerate}
+\begin{solution}
+束缚态在 $|x|>a$ 指数衰减，阱内振荡；偶态在 $x=0$ 因排斥 $\delta$ 势出现朝向 $x$ 轴的尖点，奇态在 $x=0$ 为零且光滑。
+
+记
+\[
+  \kappa=\sqrt{2mV_0/\hbar^2-k^2}.
+\]
+偶态可写为 $\psi=A\cos(k|x|-\phi)$（阱内），外部为 $B\ee^{-\kappa|x|}$。$x=0$ 的跳变条件给
+\[
+  \tan\phi={mV_1a\over\hbar^2k}.
+\]
+$x=a$ 处匹配给
+\[
+  k\tan(ka-\phi)=\kappa,
+\]
+即
+\[
+  {k\left[\tan(ka)-{mV_1a\over\hbar^2k}\right]
+  \over1+\tan(ka){mV_1a\over\hbar^2k}}
+  =\sqrt{2mV_0/\hbar^2-k^2}.
+\]
+奇态不受中心 $\delta$ 势影响：
+\[
+  -k\cot(ka)=\sqrt{2mV_0/\hbar^2-k^2}.
+\]
+至少存在一个偶束缚态的条件为
+\[
+  \sqrt{2mV_0\over\hbar^2}\,a>
+  \arctan\left({mV_1a\over\hbar^2\sqrt{2mV_0/\hbar^2}}\right).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三维简谐势
+\[
+  H={\vb p^2\over2m}+{m\omega^2\vb r^2\over2}.
+\]
+定义
+\[
+\varphi_1=\psi_{000},\quad \varphi_2=A_2x\psi_{000},\quad
+\varphi_3=A_3y\psi_{000},\quad \varphi_4=A_4z\psi_{000}.
+\]
+\begin{enumerate}
+  \item 求正的归一化因子 $A_2,A_3,A_4$。
+  \item 求 $L_x,L_y,L_z$ 在该基底下的矩阵。
+  \item 对态 $\frac12(\ket{\varphi_1}\ket{\downarrow}+\ket{\varphi_2}\ket{\uparrow}+\ket{\varphi_3}\ket{\uparrow}+\ket{\varphi_4}\ket{\uparrow})$，求测量 $J^2,J_z$ 的可能结果、概率与塌缩态。
+\end{enumerate}
+\begin{solution}
+\[
+  A_2=A_3=A_4=\sqrt{2m\omega\over\hbar}.
+\]
+角动量作用为
+\[
+  L_x\varphi_3=\ii\hbar\varphi_4,\quad L_x\varphi_4=-\ii\hbar\varphi_3,
+\]
+\[
+  L_y\varphi_4=\ii\hbar\varphi_2,\quad L_y\varphi_2=-\ii\hbar\varphi_4,
+\]
+\[
+  L_z\varphi_2=\ii\hbar\varphi_3,\quad L_z\varphi_3=-\ii\hbar\varphi_2,
+\]
+且 $L_a\varphi_1=0$。故三个矩阵只在 $\varphi_2,\varphi_3,\varphi_4$ 子空间中为 $\ell=1$ 表示。
+
+轨道基底可取
+\[
+  \ket{1,0}=\ket{\varphi_4},\quad
+  \ket{1,-1}={\ket{\varphi_2}-\ii\ket{\varphi_3}\over\sqrt2},\quad
+  \ket{1,1}={-\ket{\varphi_2}-\ii\ket{\varphi_3}\over\sqrt2},
+\]
+以及 $\ket{0,0}=\ket{\varphi_1}$。再用 $\ell=0,1$ 与 $s=1/2$ 的 C-G 系数展开。非零概率和塌缩态为：
+\[
+\begin{array}{c|c|c}
+(J^2,J_z)&P&\text{塌缩态}\\ \hline
+(15\hbar^2/4,3\hbar/2)&1/4&
+{1\over\sqrt2}(-\varphi_2-\ii\varphi_3)\ket{\uparrow}\\
+(15\hbar^2/4,\hbar/2)&1/6&
+\sqrt{2\over3}\varphi_4\ket{\uparrow}
+ +{1\over\sqrt6}(-\varphi_2-\ii\varphi_3)\ket{\downarrow}\\
+(15\hbar^2/4,-\hbar/2)&1/12&
+\sqrt{2\over3}\varphi_4\ket{\downarrow}
+ +{1\over\sqrt6}(\varphi_2-\ii\varphi_3)\ket{\uparrow}\\
+(3\hbar^2/4,\hbar/2)&1/12&
+-{1\over\sqrt3}\varphi_4\ket{\uparrow}
+ +{1\over\sqrt3}(-\varphi_2-\ii\varphi_3)\ket{\downarrow}\\
+(3\hbar^2/4,-\hbar/2)&5/12&
+\sqrt{3\over5}\varphi_1\ket{\downarrow}
+ +{1+\ii\over\sqrt{15}}(\varphi_2-\ii\varphi_3)\ket{\uparrow}
+ -{1+\ii\over\sqrt{15}}\varphi_4\ket{\downarrow}
+\end{array}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三个自旋 $1/2$ 满足
+\[
+  H=J(\vb S_1\cdot\vb S_2+\vb S_2\cdot\vb S_3+\vb S_3\cdot\vb S_1)
+  ={J\over2}\vb S^2-{9\over8}J\hbar^2,\quad J>0.
+\]
+初态为 $\ket{\psi(0)}=\ket{\downarrow\uparrow\uparrow}$。求 $\expval{S_{1z}}(t)$。
+\begin{solution}
+将初态分解为总自旋本征态：
+\[
+  \ket{\downarrow\uparrow\uparrow}
+  ={1\over\sqrt3}\ket{3/2,1/2}
+  +\sqrt{2\over3}\ket{1/2,1/2}.
+\]
+能量分别为 $E_{3/2}=3J\hbar^2/4$ 与 $E_{1/2}=-3J\hbar^2/4$。因此
+\[
+  \ket{\psi(t)}={1\over\sqrt3}\ee^{-\ii E_{3/2}t/\hbar}\ket{3/2,1/2}
+  +\sqrt{2\over3}\ee^{-\ii E_{1/2}t/\hbar}\ket{1/2,1/2}.
+\]
+代回直积基并计算 $S_{1z}$，得
+\[
+  \expval{S_{1z}}(t)={\hbar\over2}\left[-{1\over9}
+  -{8\over9}\cos\left({3J\hbar t\over2}\right)\right].
+\]
+\end{solution}
+\end{question}

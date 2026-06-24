@@ -1,75 +1,155 @@
 \heading{数据结构与算法A-16秋-期中}
 
-oteinfo{本卷为 Python 语言版；题面与解答已逐题复核，图示均已改为随文 TikZ，不依赖外部图片文件。}
+\noteinfo{本卷由原试卷 OCR 精修；参考答案按题面逐题推导整理。}
+
+\textbf{一、选择题（每题 2 分，共 20 分）}
+\begin{question}
+下面函数的时间复杂度是\blank。
+\begin{pycode}
+def work(n, m):
+    total = 0
+    i = 1
+    while i <= m:
+        j = 1
+        while j <= n:
+            total += i * j
+            j *= 2
+        i *= 2
+    return total
+\end{pycode}
+\begin{solution}
+时间复杂度为 $O(\log m\log n)$。外层循环变量每次乘 2，从常数增长到超过 $m$，执行次数为 $\lfloor\log_2 m\rfloor+1$ 量级；对外层的每一次迭代，内层循环变量也每次乘 2，执行 $\lfloor\log_2 n\rfloor+1$ 次。两层循环嵌套相乘，低阶常数忽略后得到 $O(\log m\log n)$。
+\end{solution}
+\end{question}
 
 \begin{question}
-一、选择题（每题 2 分，共 20 分）\\
-1. 下面函数的时间复杂度是\_\_\_\_\_\_\_\_\_\_\_。\\
-int work(int n, int m) \{\\
-int sum = 0;\\
-for (int i = 1; i <= m; i *= 2)\\
-for (int j = 1; j <= n; j *= 2) \{\\
-sum += i * j;\\
-\}\\
-return sum;\\
-\}\\
-2. 下面关于线性表的叙述中，正确的是哪些？\\
-A. 采用顺序存储的线性表，必须占用一片连续的存储单元。\\
-B. 采用顺序存储的线性表，便于进行插入和删除操作。\\
-C. 采用链接存储的线性表，不必占用一片连续的存储单元。\\
-D. 采用链接存储的线性表，便于插入和删除操作。\\
-E. 采用链接存储的线性表，插入第i 个元素的时间与i 的数值成正比。\\
-F. 采用链接存储的线性表，在已知的结点p 后插入一个新节点的时间复杂度与结点p 的\\
-位置有关。\\
-3. 若元素a、b、c、d 依次进栈，则可能的出栈序列有\_\_\_\_\_\_\_\_种；若有元素a、b、c、d、\\
-e 依次进栈，则可能的出栈序列有\_\_\_\_\_\_\_\_种。\\
-4. 一个字符串中\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_称为该串的子串。abcab 的不相等真子串个数\\
-为\_\_\_\_\_\_\_\_\_\_\_\_。\\
-5. 一个具有n 个结点的二叉树的叶结点的个数最多为\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_。\\
-6. 一个有5 层结点的完全3 叉树。按前序遍历周游给结点从1 开始编号，则第100 号结点的\\
-父结点的编码为 \_\_\_\_\_\_。（注释：独根树为1 层的）\\
-7. 将序列 \{12, 70, 33, 65, 24, 56, 48, 92, 86, 33\} 按建堆方法调整为小值堆，\\
-调整后的序列为\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_。\\
-8. 假设用于通信的电文仅由8 个字符 \{a,b,c,d,e,f,g,h\} 组成，字符在电文中出现的频\\
-率分别为0.07，0.19，0.02，0.06，0.32，0.03，0.21，0.10，对这些字符进行哈\\
-夫曼编码的外部路径长度为\_\_\_\_\_\_\_\_\_\_。\\
-9. 将森林F 转换为对应的二叉树T，F 中的叶结点的个数为\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_。\\
-A. T 中叶结点的个数\\
-B. T 中度为1 的结点个数\\
-C. T 中左子指针为空的结点个数\\
-D. T 中右子指针为空的结点个数\\
-10. 一棵树T 有20 个度为4 的结点，10 个度为3 的结点，1 个度为2 的结点，10 个度为1\\
-的结点，则树T 的结点个数为\_\_\_\_\_\_\_\_\_\_\_\_。\\
-\\
-二、 辨析与简答(共32 分)\\
-1. （6 分）请谈谈循环队列和链表的优缺点。当遇到如下情况时，应当使用哪一种数据结构？\\
-情况：你要维护食堂鸡腿饭的排队队伍，队伍有两种操作：1. 排在队首的人出来打鸡腿\\
-饭后离开； 2. 一个新来的人排在队尾。你知道食堂不太大，所以队伍的最大长度你可以\\
-估计出来。\\
-2. （4 分）如何找出具有相同的中序序列和后序序列的所有二叉树？\\
-3. （4 分）从空二叉树开始，将关键码\{18,73,10,5,68,99,27,41,51,32,25\}严格按\\
-照BST（二叉搜索树）的插入算法逐个插入BST， 画出这样构造出的BST 树，并写出对\\
-该BST 按照前序遍历得到的序列。\\
-4.\\
-（6分）以下是计算模式P的next向量的算法：\\
-int *findNext(P) \{\\
-int i = 0,  k = -1;\\
-int m = len(P);\\
-int* next = int[m];\\
-next[0] = -1\\
-while i < m:\\
-while (k >= 0 and P[i] != P[k])\\
-k = next[k];\\
-i++, k++;\\
-if i == m: break\\
-if (P[i] == P[k])\\
-next[i] = next[k];\\
-else\\
-next[i] = k;\\
-\}\\
-return next;\\
-\}\\
-采用上述算法，计算模式P="abcdaabcab"的next向量。\\
+下面关于线性表的叙述中，正确的是哪些？
+\begin{choiceoptions}[1]
+  \item 采用顺序存储的线性表，必须占用一片连续的存储单元。
+  \item 采用顺序存储的线性表，便于进行插入和删除操作。
+  \item 采用链接存储的线性表，不必占用一片连续的存储单元。
+  \item 采用链接存储的线性表，便于插入和删除操作。
+  \item 采用链接存储的线性表，插入第i 个元素的时间与i 的数值成正比。
+  \item 采用链接存储的线性表，在已知的结点p 后插入一个新节点的时间复杂度与结点p 的位置有关。
+\end{choiceoptions}
+\begin{solution}
+正确项为 A、C、D、E。顺序存储用一段连续地址保存线性表元素，因而能随机访问但插入删除可能移动大量元素；链式存储的结点可分散在内存中，通过指针维持逻辑次序，不要求物理连续，并且已知插入/删除位置的前驱时改指针即可。若题目只给“第 $i$ 个位置”而未给前驱指针，链表仍需从表头定位到第 $i-1$ 个结点，时间与 $i$ 有关，所以不能简单说任意位置插入都为常数时间。
+\end{solution}
+\end{question}
+
+\begin{question}
+若元素a、b、c、d 依次进栈，则可能的出栈序列有\blank\ 种；若有元素a、b、c、d、e 依次进栈，则可能的出栈序列有\blank\ 种。
+\begin{solution}
+依次进栈且可任意合法出栈的序列数为 Catalan 数
+\[
+C_n=\frac{1}{n+1}\binom{2n}{n}.
+\]
+其原因是合法出栈过程可看成由 $n$ 次入栈和 $n$ 次出栈组成的合法括号序列：任意前缀中出栈次数不能超过入栈次数。代入 $n=4$ 得 $C_4=\frac15\binom84=14$；代入 $n=5$ 得 $C_5=\frac16\binom{10}{5}=42$。
+\end{solution}
+\end{question}
+
+\begin{question}
+一个字符串中\blank\ 称为该串的子串。abcab 的不相等真子串个数为\blank。
+\begin{solution}
+串中任意连续的字符序列称为子串。$abcab$ 的非空子串按长度统计：长度 1 有 $a,b,c$ 共 3 个不同子串；长度 2 有 $ab,bc,ca$ 共 3 个；长度 3 有 $abc,bca,cab$ 共 3 个；长度 4 有 $abca,bcab$ 共 2 个；长度 5 是原串本身，真子串不计。因此不相等非空真子串共 $3+3+3+2=11$ 个。
+\end{solution}
+\end{question}
+
+\begin{question}
+一个具有n 个结点的二叉树的叶结点的个数最多为\blank。
+\begin{solution}
+叶结点个数最多为 $\lceil n/2\rceil$。要使叶子尽可能多，应让除叶子以外的结点尽量都有两个孩子，形成尽可能“满”的二叉树。若度为 $0,1,2$ 的结点数分别为 $n_0,n_1,n_2$，二叉树满足 $n_0=n_2+1$，且 $n=n_0+n_1+n_2$。在固定 $n$ 时令 $n_1$ 尽量小即可最大化 $n_0$：当 $n$ 为奇数时 $n_1=0$，$n_0=(n+1)/2$；当 $n$ 为偶数时 $n_1=1$，$n_0=n/2$。合并写作 $\lceil n/2\rceil$。
+\end{solution}
+\end{question}
+
+\begin{question}
+一个有5 层结点的完全3 叉树。按前序遍历周游给结点从1 开始编号，则第100 号结点的父结点的编码为\blank。（注释：独根树为1 层的）
+\begin{solution}
+完全三叉树 5 层均满时，根的三个子树各含 $1+3+9+27=40$ 个结点。先根编号中，根为 1，第一个子树编号为 2 到 41，第二个子树为 42 到 81，第三个子树为 82 到 121。第 100 号结点在第三个子树内，相对第三个子树根的先根编号为 $100-81=19$；在该子树中定位可得其父结点相对编号为 $16$，所以全树父结点编号为 $81+16=97$。
+\end{solution}
+\end{question}
+
+\begin{question}
+将序列 \{12, 70, 33, 65, 24, 56, 48, 92, 86, 33\} 按建堆方法调整为小值堆，调整后的序列为\blank。
+\begin{solution}
+建成小值堆后的层序序列可为 $\{12,24,33,65,33,56,48,92,86,70\}$。检验时按数组下标看父子关系：$12$ 不大于 $24,33$；$24$ 不大于 $65,33$；$33$ 不大于 $56,48$；$65$ 不大于 $92,86$；$33$ 不大于 $70$。因此每个父结点都不大于其孩子，满足小值堆条件。若采用自底向上筛选建堆，等值 $33$ 的相对位置可能不同，但只要层序数组满足上述堆序性即可。
+\end{solution}
+\end{question}
+
+\begin{question}
+假设用于通信的电文仅由8 个字符 \{a,b,c,d,e,f,g,h\} 组成，字符在电文中出现的频率分别为0.07，0.19，0.02，0.06，0.32，0.03，0.21，0.10，对这些字符进行哈夫曼编码的外部路径长度为\blank。
+\begin{solution}
+Huffman 外部路径长度为 $2.61$。合并权值依次为 $0.02+0.03=0.05$，$0.05+0.06=0.11$，$0.07+0.10=0.17$，$0.11+0.17=0.28$，$0.19+0.21=0.40$，$0.28+0.32=0.60$，$0.40+0.60=1.00$，故 WPL 为这些合并权值之和 $2.61$。
+\end{solution}
+\end{question}
+
+\begin{question}
+将森林F 转换为对应的二叉树T，F 中的叶结点的个数为\blank。
+\begin{choiceoptions}[1]
+  \item T 中叶结点的个数
+  \item T 中度为1 的结点个数
+  \item T 中左子指针为空的结点个数
+  \item T 中右子指针为空的结点个数
+\end{choiceoptions}
+\begin{solution}
+选 C。森林转换为孩子兄弟二叉树时，结点的第一个孩子变为左孩子，右兄弟变为右孩子。因此森林中的叶结点正是“没有第一个孩子”的结点，在对应二叉树中表现为左子指针为空；右指针是否为空只反映它有没有右兄弟。
+\end{solution}
+\end{question}
+
+\begin{question}
+一棵树T 有20 个度为4 的结点，10 个度为3 的结点，1 个度为2 的结点，10 个度为1 的结点，则树T 的结点个数为\blank。
+\begin{solution}
+设总结点数为 $N$。树中边数为 $N-1$，也等于所有结点度数之和。已知度数总和为 $20\cdot4+10\cdot3+1\cdot2+10\cdot1=122$，因此 $N-1=122$，得到 $N=123$。叶结点数不必单独求出，也已包含在总数关系中。
+\end{solution}
+\end{question}
+
+\textbf{二、 辨析与简答(共32 分)}
+\begin{question}
+（6 分）请谈谈循环队列和链表的优缺点。当遇到如下情况时，应当使用哪一种数据结构？
+
+情况：你要维护食堂鸡腿饭的排队队伍，队伍有两种操作：1. 排在队首的人出来打鸡腿饭后离开； 2. 一个新来的人排在队尾。你知道食堂不太大，所以队伍的最大长度你可以估计出来。
+\begin{solution}
+循环队列：顺序存储，空间连续，队头删除与队尾插入均为 $O(1)$，但容量需预先确定；链表：容量可动态增长，插删方便，但每个结点需额外指针空间且局部性较差。本题队伍最大长度可估计，且只有队头出队、队尾入队两个操作，宜用循环队列。
+\end{solution}
+\end{question}
+
+\begin{question}
+（4 分）如何找出具有相同的中序序列和后序序列的所有二叉树？
+\begin{solution}
+若二叉树结点关键码互异，则中序序列与后序序列唯一确定一棵二叉树：后序末元素为根，在中序中分割左右子树，再递归构造。若关键码允许重复，则每次根值在中序中可能有多个位置，需要枚举所有可行分割并递归组合。
+\end{solution}
+\end{question}
+
+\begin{question}
+（4 分）从空二叉树开始，将关键码\{18,73,10,5,68,99,27,41,51,32,25\}严格按照BST（二叉搜索树）的插入算法逐个插入BST， 画出这样构造出的BST 树，并写出对该BST 按照前序遍历得到的序列。
+\begin{solution}
+插入 $\{18,73,10,5,68,99,27,41,51,32,25\}$ 得到的 BST 边关系为：$18$ 的左、右孩子为 $10,73$；$10$ 的左孩子为 $5$；$73$ 的左、右孩子为 $68,99$；$68$ 的左孩子为 $27$；$27$ 的左、右孩子为 $25,41$；$41$ 的左、右孩子为 $32,51$。前序遍历为 $18,10,5,73,68,27,25,41,32,51,99$。
+\end{solution}
+\end{question}
+
+\begin{question}
+（6分）以下是计算模式P的next向量的算法：
+\begin{pycode}
+def find_next(P):
+    i, k = 0, -1
+    m = len(P)
+    nxt = [0] * m
+    nxt[0] = -1
+    while i < m:
+        while k >= 0 and P[i] != P[k]:
+            k = nxt[k]
+        i += 1
+        k += 1
+        if i == m:
+            break
+        if P[i] == P[k]:
+            nxt[i] = nxt[k]
+        else:
+            nxt[i] = k
+    return nxt
+\end{pycode}
+采用上述算法，计算模式P="abcdaabcab"的next向量。
+
 i\\
 P[i]\\
 a\\
@@ -82,137 +162,9 @@ b\\
 c\\
 a\\
 b\\
-next[i]\\
-5.\\
-（6分）数组\{23, 17, 14, 6 ,13, 10, 1, 5, 8, 12\}是否为一个最大值堆？若是，\\
-请说明理由，否则请严格按照筛选法建堆的过程将其调整成为最大值堆，并画出逐步调整\\
-建堆的过程。\\
-6.\\
-（6分）对下列15个等价对进行合并，给出所得等价类树的图示。在初始情况下，集合中\\
-的每个元素分别在独立的等价类中。使用重量权衡合并规则，合并时子树结点少的并入结\\
-点数多的那棵（多的那个作为新树根，少的那个根作为新根的直接子结点）；若两棵树规\\
-模同样大，则把根值较大的并入根值较小（新树根取值小的）。同时，采用路径压缩优化。\\
-(0,2) (1,2) (3,4) (3,1) (3,5) (9,11) (12,14) (3,9) (4,14) (6,7) (8,10)\\
-(8,7) (7,0) (10,15) (10,13)\\
-\\
-三、 算法填空(每空2 分，共16 分)\\
-1. 下面的算法将一个用带度数的后根次序法表示的森林转换为左子结点/右兄弟结点法表示。\\
-请利用题目给出的树结点ADT和栈ADT，填充空格，使其成为完整的算法。空格中可能需要\\
-填写0到多条语句（或表达式）。\\
-class Stack:\\
-class stack \{\\
-public:\\
-empty();                        // 判断栈空\\
-int size();                          // 返回栈大小\\
-value\_type \&top();                  // 读栈顶\\
-def push(const value\_type\& X);  // 入栈\\
-def pop();                          // 出栈\\
-\};\\
-class Node<T> \{\\
-T info;                               // 结点的数据信息\\
-int degree;                          // 结点的度数信息\\
-\};\\
-class TreeNode:\\
-class TreeNode \{                         // 树结点类\\
-public:\\
-isLeaf();                       // 判断当前结点是否为叶结点\\
-T Value();                            // 返回结点的值\\
-TreeNode<T> *LeftMostChild();     // 返回第一个子结点\\
-TreeNode<T> *RightSibling();      // 返回右兄\\
-def setValue(const T\&);           // 设置当前结点的值\\
-def setChild(TreeNode<T> *pointer);    // 设置左子\\
-def setSibling(TreeNode<T> *pointer);  // 设置右兄\\
-\};\\
-class TreeNode:\\
-TreeNode<T> *Convert(Node<T>* nodes, int size) \{\\
-TreeNode<T> *cur, *temp1, *temp2;\\
-stack<TreeNode<T>*> Cstack;\\
-for ( int i = 0; i < size; i++) \{\\
-cur = TreeNode<T>(nodes[i].info);\\
-if ( nodes[i].degree == 0 )\\
-// 填空1\\
-else \{\\
-assert( nodes[i].degree <= Cstack.size() );\\
-temp2 = None;\\
-for (int j = 0;       // 填空2      ; j++) \{\\
-temp1 = Cstack.top();\\
-Cstack.pop();\\
-// 填空3\\
-temp2 = temp1;\\
-\}\\
-// 填空4\\
-Cstack.push(cur);\\
-\}\\
-\}\\
-cur = temp2 = None;\\
-while( not Cstack.empty() ) \{\\
-cur = Cstack.top();\\
-Cstack.pop();\\
-// 填空5\\
-temp2 = cur;\\
-\}\\
-return cur;\\
-\}\\
-2. 给定一个二叉树的根结点和树中任意两个结点，补全下面的程序段以求这两个结点的最近\\
-公共祖先。\\
-TreeNode* lowestCommonAncestor(\\
-TreeNode* root, TreeNode* p, TreeNode* q) \{\\
-if (      // 填空6      ) return root;\\
-TreeNode* left = lowestCommonAncestor(root.left, p, q);\\
-TreeNode* right = lowestCommonAncestor(root.right, p, q);\\
-if (\_      // 填空7      \_\_) return root;\\
-return \_      // 填空8      \_\_? left:right;\\
-\}\\
-\\
-四、 算法设计与实现 (16 分)\\
-1.\\
-（8 分） 现有两个满足先进先出原则的队列A 和B，在队列上可进行以下4 个操作：\\
-front(): 获得队首元素\\
-push\_back(T x)：把元素x 插到队尾。\\
-pop\_front(): 删除队首元素。\\
-empty(): 判断是否为空。\\
-请用A 和B 模拟一个栈的4 个操作：top()，pop()，push()，empty()。只要给出实\\
-现栈操作的基本思想，对时间效率无具体要求。\\
-2.\\
-（8 分） 对于两个串A 和B ，给出一种算法使得能够保证正确地求出最大的L 值，使得\\
-A 串中长为L 的前缀与B 串中长为L 的后缀相等。\\
-\\
-五、 分析证明题 (共 16 分)\\
-1.\\
-（6 分）试证明在一棵树中，u 是v 的祖先，当且仅当在先序遍历中u 在v 之前且在后序\\
-遍历中u 在v 之后。\\
-2.\\
-（10 分）对于满二叉树：\\
-（1） 试问具有n 个叶结点的树中共有多少个结点？\\
-（2） 试证明：\\
-，其中n 为叶结点的个数，\\
-il 表示第i 个叶结点所在的\\
-层次（设根结点所在的层次为0）。\\
-\\
-\
-
-
+next[i]
 \begin{solution}
-一、选择与填空：
-\begin{enumerate}[leftmargin=2em]
-  \item 时间复杂度为 $O(\log m\log n)$。外层变量每次乘 2，执行 $\lfloor\log_2 m\rfloor+1$ 次；内层同理为 $\lfloor\log_2 n\rfloor+1$ 次。
-  \item 正确项为 A、C、D、E。顺序存储必须连续；链式存储不要求连续且便于插入删除；若只给第 $i$ 个位置而未给前驱指针，插入第 $i$ 个元素需要定位，时间与 $i$ 有关。
-  \item 依次进栈的出栈序列数为 Catalan 数：$C_4=14$，$C_5=42$。
-  \item 串中任意连续的字符序列称为子串；$abcab$ 的不相等非空真子串为 $11$ 个。
-  \item $\lceil n/2\rceil$。
-  \item 若完全三叉树 5 层均满且按先根序从 1 编号，则第 100 号结点的父结点编号为 $97$。
-  \item 建成小值堆后的层序序列可为 $\{12,24,33,65,33,56,48,92,86,70\}$。
-  \item Huffman 外部路径长度为 $2.61$。合并权值依次为 $0.02+0.03=0.05$，$0.05+0.06=0.11$，$0.07+0.10=0.17$，$0.11+0.17=0.28$，$0.19+0.21=0.40$，$0.28+0.32=0.60$，$0.40+0.60=1.00$，故 WPL 为这些合并权值之和 $2.61$。
-  \item 选 C。森林结点在孩子兄弟表示对应二叉树中没有左孩子，恰好表示该结点在森林中没有孩子，即为森林叶结点。
-  \item 设总结点数为 $N$，边数 $N-1$ 等于所有结点度数之和：$20\cdot4+10\cdot3+1\cdot2+10\cdot1=122$，故 $N=123$。
-\end{enumerate}
-
-二、辨析与简答：
-\begin{enumerate}[leftmargin=2em]
-  \item 循环队列：顺序存储，空间连续，队头删除与队尾插入均为 $O(1)$，但容量需预先确定；链表：容量可动态增长，插删方便，但每个结点需额外指针空间且局部性较差。本题队伍最大长度可估计，且只有队头出队、队尾入队两个操作，宜用循环队列。
-  \item 若二叉树结点关键码互异，则中序序列与后序序列唯一确定一棵二叉树：后序末元素为根，在中序中分割左右子树，再递归构造。若关键码允许重复，则每次根值在中序中可能有多个位置，需要枚举所有可行分割并递归组合。
-  \item 插入 $\{18,73,10,5,68,99,27,41,51,32,25\}$ 得到的 BST 边关系为：$18$ 的左、右孩子为 $10,73$；$10$ 的左孩子为 $5$；$73$ 的左、右孩子为 $68,99$；$68$ 的左孩子为 $27$；$27$ 的左、右孩子为 $25,41$；$41$ 的左、右孩子为 $32,51$。前序遍历为 $18,10,5,73,68,27,25,41,32,51,99$。
-  \item 对 $P=\texttt{abcdaabcab}$，按题中优化 next 算法得：
+对 $P=\texttt{abcdaabcab}$，按题中优化 next 算法得：
   \[
   \begin{array}{c|cccccccccc}
   i&0&1&2&3&4&5&6&7&8&9\\\hline
@@ -220,43 +172,147 @@ il 表示第i 个叶结点所在的\\
   next[i]&-1&0&0&0&-1&1&0&0&3&0
   \end{array}
   \]
-  \item 原数组不是最大值堆，因为根 $23$ 的子结点 $17,14$ 虽小于根，但结点 $17$ 的子树中有 $13$、$14$ 等局部关系需按筛选法统一检查。自最后一个非叶结点向前筛选，最终最大值堆可为层序 $\{23,17,14,8,13,10,1,5,6,12\}$；若严格使用常规下滤，关键交换为 $6\leftrightarrow8$，其余父子关系满足最大堆要求。
-  \item 按重量权衡合并并在查找时路径压缩，所有 $0\sim15$ 最终属于同一个等价类，代表元为 $0$；完全压缩后可表示为以 $0$ 为根、其余结点均直接指向 $0$ 的等价类树。
-\end{enumerate}
+\end{solution}
+\end{question}
 
-三、算法填空：
-\begin{enumerate}[leftmargin=2em]
-  \item 带度数后根序转孩子兄弟表示的填空：
+\begin{question}
+（6分）数组\{23, 17, 14, 6 ,13, 10, 1, 5, 8, 12\}是否为一个最大值堆？若是，请说明理由，否则请严格按照筛选法建堆的过程将其调整成为最大值堆，并画出逐步调整建堆的过程。
+\begin{solution}
+原数组不是最大值堆，因为根 $23$ 的子结点 $17,14$ 虽小于根，但结点 $17$ 的子树中有 $13$、$14$ 等局部关系需按筛选法统一检查。自最后一个非叶结点向前筛选，最终最大值堆可为层序 $\{23,17,14,8,13,10,1,5,6,12\}$；若严格使用常规下滤，关键交换为 $6\leftrightarrow8$，其余父子关系满足最大堆要求。
+\end{solution}
+\end{question}
+
+\begin{question}
+（6分）对下列15个等价对进行合并，给出所得等价类树的图示。在初始情况下，集合中的每个元素分别在独立的等价类中。使用重量权衡合并规则，合并时子树结点少的并入结点数多的那棵（多的那个作为新树根，少的那个根作为新根的直接子结点）；若两棵树规模同样大，则把根值较大的并入根值较小（新树根取值小的）。同时，采用路径压缩优化。(0,2) (1,2) (3,4) (3,1) (3,5) (9,11) (12,14) (3,9) (4,14) (6,7) (8,10) (8,7) (7,0) (10,15) (10,13)
+\begin{solution}
+按重量权衡合并并在查找时路径压缩，所有 $0\sim15$ 最终属于同一个等价类，代表元为 $0$。合并时把规模较小的树挂到规模较大的树根下，规模相同时按题给规则选择代表元；每次 \texttt{find} 会把访问路径上的结点直接连到根。若题目要求“最终完全压缩”的树，可画成以 $0$ 为根、其余结点均直接指向 $0$ 的星形等价类树；若只压缩实际执行过 \texttt{find} 的路径，则中间若干结点可能仍保留二级父指针，但集合划分不变。
+\end{solution}
+\end{question}
+
+\textbf{三、 算法填空(每空2 分，共16 分)}
+\begin{question}
+1. 下面的算法将一个用带度数的后根次序法表示的森林转换为左子结点/右兄弟结点法表示。请利用题目给出的树结点ADT和栈ADT，填充空格，使其成为完整的算法。空格中可能需要填写0到多条语句（或表达式）。
+\begin{pycode}
+class Stack:
+    def empty(self): ...
+    def size(self): ...
+    def top(self): ...
+    def push(self, x): ...
+    def pop(self): ...
+
+
+class Node:
+    def __init__(self, info, degree):
+        self.info = info
+        self.degree = degree
+
+
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.child = None
+        self.sibling = None
+
+    def set_child(self, pointer):
+        self.child = pointer
+
+    def set_sibling(self, pointer):
+        self.sibling = pointer
+
+
+def convert(nodes):
+    cstack = Stack()
+    for i in range(len(nodes)):
+        cur = TreeNode(nodes[i].info)
+        if nodes[i].degree == 0:
+            # 填空 1
+        else:
+            assert nodes[i].degree <= cstack.size()
+            temp2 = None
+            for j in range(________):      # 填空 2
+                temp1 = cstack.top()
+                cstack.pop()
+                # 填空 3
+                temp2 = temp1
+            # 填空 4
+            cstack.push(cur)
+
+    cur = temp2 = None
+    while not cstack.empty():
+        cur = cstack.top()
+        cstack.pop()
+        # 填空 5
+        temp2 = cur
+    return cur
+\end{pycode}
+\begin{solution}
+带度数后根序转孩子兄弟表示的填空：
   \begin{enumerate}[leftmargin=2em]
-    \item \texttt{\detokenize{Cstack.push(cur)}}；
-    \item \texttt{\detokenize{j < nodes[i].degree}}；
-    \item \texttt{\detokenize{temp1.setSibling(temp2)}}；
-    \item \texttt{\detokenize{cur.setChild(temp2)}}；
-    \item \texttt{\detokenize{cur.setSibling(temp2)}}。
+    \item \texttt{\detokenize{cstack.push(cur)}}；
+    \item \texttt{\detokenize{nodes[i].degree}}；
+    \item \texttt{\detokenize{temp1.set_sibling(temp2)}}；
+    \item \texttt{\detokenize{cur.set_child(temp2)}}；
+    \item \texttt{\detokenize{cur.set_sibling(temp2)}}。
   \end{enumerate}
   其思想是：后根序中某结点出现时，它的所有子树根已经在栈顶，依次弹出并用右兄弟指针串接，再把最左孩子接到当前结点。
-  \item 最近公共祖先填空：
+\end{solution}
+\end{question}
+
+\begin{question}
+2. 给定一个二叉树的根结点和树中任意两个结点，补全下面的程序段以求这两个结点的最近公共祖先。
+\begin{pycode}
+def lowest_common_ancestor(root, p, q):
+    if ________:                         # 填空 6
+        return root
+    left = lowest_common_ancestor(root.left, p, q)
+    right = lowest_common_ancestor(root.right, p, q)
+    if ________:                         # 填空 7
+        return root
+    return left if ________ else right   # 填空 8
+\end{pycode}
+\begin{solution}
+最近公共祖先填空：
   \begin{enumerate}[leftmargin=2em]
     \item \texttt{\detokenize{root is None or root == p or root == q}}；
     \item \texttt{\detokenize{left is not None and right is not None}}；
     \item \texttt{\detokenize{left is not None}}。
   \end{enumerate}
-\end{enumerate}
+递归含义是：在以 \texttt{root} 为根的子树中查找 $p,q$ 的最近公共祖先，若当前根为空或已经遇到 $p/q$，就把当前根返回给上一层。分别递归左右子树后，若左右返回值都非空，说明 $p,q$ 分别位于当前根两侧，当前根就是最近公共祖先；若只有左边非空，则答案在左子树；若只有右边非空，则答案在右子树。每个结点最多访问一次，时间复杂度 $O(n)$。
+\end{solution}
+\end{question}
 
-四、算法设计与实现：
-\begin{enumerate}[leftmargin=2em]
-  \item 两个队列模拟栈：令 $A$ 保存当前栈元素且队首为栈顶。\texttt{push(x)} 时先把 $x$ 入空队列 $B$，再把 $A$ 中所有元素依次出队并入队到 $B$，最后交换 $A,B$；\texttt{top()} 返回 $A$ 的队首；\texttt{pop()} 删除并返回 $A$ 的队首；\texttt{empty()} 判断 $A$ 是否为空。这样四个栈操作均正确，其中 \texttt{push} 为 $O(n)$，其余为 $O(1)$。
-  \item 求最大的 $L$ 使 $A$ 的长度为 $L$ 的前缀等于 $B$ 的长度为 $L$ 的后缀：构造串 $S=A+\# +B$，其中 $\#$ 不在两个串中出现；计算 KMP 前缀函数，最后一个位置的前缀函数值即为答案。时间复杂度 $O(|A|+|B|)$。
-\end{enumerate}
+\textbf{四、 算法设计与实现 (16 分)}
+\begin{question}
+（8 分） 现有两个满足先进先出原则的队列A 和B，在队列上可进行以下4 个操作：front(): 获得队首元素；push\_back(T x)：把元素x 插到队尾；pop\_front(): 删除队首元素；empty(): 判断是否为空。请用A 和B 模拟一个栈的4 个操作：top()，pop()，push()，empty()。只要给出实现栈操作的基本思想，对时间效率无具体要求。
+\begin{solution}
+两个队列模拟栈：令 $A$ 保存当前栈元素且队首为栈顶。\texttt{push(x)} 时先把 $x$ 入空队列 $B$，再把 $A$ 中所有元素依次出队并入队到 $B$，最后交换 $A,B$；\texttt{top()} 返回 $A$ 的队首；\texttt{pop()} 删除并返回 $A$ 的队首；\texttt{empty()} 判断 $A$ 是否为空。这样四个栈操作均正确，其中 \texttt{push} 为 $O(n)$，其余为 $O(1)$。
+\end{solution}
+\end{question}
 
-五、证明题：
-\begin{enumerate}[leftmargin=2em]
-  \item 若 $u$ 是 $v$ 的祖先，先序遍历先访问祖先再访问其子树，故 $u$ 在 $v$ 前；后序遍历先访问子树再访问祖先，故 $u$ 在 $v$ 后。反之，若先序中 $u$ 在 $v$ 前且后序中 $u$ 在 $v$ 后，则 $v$ 必落在 $u$ 的子树访问区间内，否则两个结点所属的不相交子树在先序和后序中的相对次序会相同，矛盾。因此 $u$ 是 $v$ 的祖先。
-  \item 满二叉树每个内结点度为 2。若叶结点数为 $n$，内结点数为 $n-1$，总结点数为 $2n-1$。又因为每个叶结点深度为 $l_i$ 时对应一个前缀码字，满二叉树的叶结点恰好构成完备前缀码，故 Kraft 等式成立：
+\begin{question}
+（8 分） 对于两个串A 和B ，给出一种算法使得能够保证正确地求出最大的L 值，使得A 串中长为L 的前缀与B 串中长为L 的后缀相等。
+\begin{solution}
+求最大的 $L$ 使 $A$ 的长度为 $L$ 的前缀等于 $B$ 的长度为 $L$ 的后缀：构造串 $S=A+\# +B$，其中 $\#$ 不在两个串中出现；计算 KMP 前缀函数，最后一个位置的前缀函数值即为答案。时间复杂度 $O(|A|+|B|)$。
+\end{solution}
+\end{question}
+
+\textbf{五、 分析证明题 (共 16 分)}
+\begin{question}
+（6 分）试证明在一棵树中，u 是v 的祖先，当且仅当在先序遍历中u 在v 之前且在后序遍历中u 在v 之后。
+\begin{solution}
+若 $u$ 是 $v$ 的祖先，先序遍历先访问祖先再访问其子树，故 $u$ 在 $v$ 前；后序遍历先访问子树再访问祖先，故 $u$ 在 $v$ 后。反之，若先序中 $u$ 在 $v$ 前且后序中 $u$ 在 $v$ 后，则 $v$ 必落在 $u$ 的子树访问区间内，否则两个结点所属的不相交子树在先序和后序中的相对次序会相同，矛盾。因此 $u$ 是 $v$ 的祖先。
+\end{solution}
+\end{question}
+
+\begin{question}
+（10 分）对于满二叉树：
+（1） 试问具有n 个叶结点的树中共有多少个结点？
+（2） 试证明：
+，其中n 为叶结点的个数，il 表示第i 个叶结点所在的层次（设根结点所在的层次为0）。
+\begin{solution}
+满二叉树每个内结点度为 2。若叶结点数为 $n$，内结点数为 $n-1$，总结点数为 $2n-1$。又因为每个叶结点深度为 $l_i$ 时对应一个前缀码字，满二叉树的叶结点恰好构成完备前缀码，故 Kraft 等式成立：
   \[
     \sum_{i=1}^n 2^{-l_i}=1.
   \]
-\end{enumerate}
 \end{solution}
-
 \end{question}

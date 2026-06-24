@@ -15,6 +15,13 @@ function Read-Default($Prompt, $Default) {
     return $v.Trim()
 }
 
+function Get-NaturalSortKey($Name) {
+    return [regex]::Replace($Name, '\d+', {
+        param($m)
+        $m.Value.PadLeft(10, '0')
+    })
+}
+
 $mode = Read-Default "Mode [E/H, Enter=E]" "E"
 $isExam = $mode -eq "E" -or $mode -eq "e"
 $srcDir = if ($isExam) { "exam" } else { "homework" }
@@ -24,12 +31,12 @@ $both = $s -eq "c"
 $showSol = $s -eq "b" -or $both
 
 $courses = @()
-$dirs = Get-ChildItem -Directory "$srcDir\*" | Sort-Object Name
+$dirs = Get-ChildItem -Directory "$srcDir\*" | Sort-Object { Get-NaturalSortKey $_.Name }
 if ($dirs.Count -eq 0) { Write-Host "No course directories found." -ForegroundColor Red; Read-Host; exit 1 }
 
 foreach ($d in $dirs) {
     $items = @(); $displays = @()
-    foreach ($f in Get-ChildItem -Path $d.FullName -Filter "*.tex" -File | Sort-Object { $_.BaseName }) {
+    foreach ($f in Get-ChildItem -Path $d.FullName -Filter "*.tex" -File | Sort-Object { Get-NaturalSortKey $_.BaseName }) {
         $fname = $f.BaseName
         if ($fname.StartsWith("_") -or $fname.StartsWith(".")) { continue }
         $items += $fname; $displays += $fname

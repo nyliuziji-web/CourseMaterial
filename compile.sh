@@ -25,6 +25,30 @@ read_default() {
     echo "${r:-$d}"
 }
 
+# Portable natural sort: replaces each digit run with zero-padded key,
+# so "第10章" sorts after "第1章" instead of before it.
+# Uses perl (available on Linux, macOS, Windows/Git-Bash).
+natural_sort() {
+    perl -e '
+        sub nkey {
+            my $s = shift;
+            $s =~ s/(\d+)/sprintf("%015d", $1)/eg;
+            return $s;
+        }
+        my @in = <STDIN>;
+        chomp @in;
+        print join("\n", sort { nkey($a) cmp nkey($b) } @in), "\n";
+    ' 2>/dev/null
+}
+
+# Fallback: if perl is missing, use plain sort (wrong for chapter files,
+# but at least doesn't crash).
+if perl -e '' 2>/dev/null; then
+    SORT_NATURAL="natural_sort"
+else
+    SORT_NATURAL="sort"
+fi
+
 # ---- Mode ----
 mode=$(read_default "Mode [E/H, Enter=E]: " "E")
 is_exam=0
@@ -43,7 +67,7 @@ if [ ! -d "$src_dir" ]; then
     read -p "Press Enter to exit" _; exit 1
 fi
 
-for d in "$src_dir"/*/; do
+while IFS= read -r d; do
     [ -d "$d" ] || continue
     cname=$(basename "$d")
     items=()
@@ -56,13 +80,18 @@ for d in "$src_dir"/*/; do
             b=$(basename "$f" .tex)
             [[ $b == _* || $b == .* ]] && continue
             echo "$b"
-        done | sort
+        done | $SORT_NATURAL
     )
     [ ${#items[@]} -eq 0 ] && continue
     entry="$cname"
     for item in "${items[@]}"; do entry+=$'\x1F'"$item"; done
     courses+=("$entry")
-done
+done < <(
+    for d in "$src_dir"/*/; do
+        [ -d "$d" ] || continue
+        echo "$d"
+    done | $SORT_NATURAL
+)
 
 if [ ${#courses[@]} -eq 0 ]; then
     echo "Error: no course content found." >&2

@@ -1,0 +1,220 @@
+\heading{量子力学A-24秋-期末2}
+\noteinfo{整理自《量子力学 A》2024 年秋季学期 1 班期末考试参考答案；题面和解答按项目格式重写。}
+
+\begin{question}
+二维谐振子
+\[
+  H_0={p_x^2+p_y^2\over2m}+{m\omega^2\over2}(x^2+y^2),
+\]
+加入微扰 $V=\lambda x^2y^2$。
+\begin{enumerate}
+  \item 用微扰论求基态能量至 $\lambda^2$。
+  \item 用频率为 $\Omega$ 的变分谐振子基态求 $E(\Omega)$ 并最小化至 $\lambda^2$。
+\end{enumerate}
+\begin{solution}
+由
+\[
+  x=\sqrt{\hbar\over2m\omega}(a_x+a_x^\dagger),\quad
+  y=\sqrt{\hbar\over2m\omega}(a_y+a_y^\dagger)
+\]
+得
+\[
+  V\ket{00}=\lambda\left({\hbar\over2m\omega}\right)^2
+  (\ket{00}+\sqrt2\ket{20}+\sqrt2\ket{02}+2\ket{22}).
+\]
+故
+\[
+  E_0=\hbar\omega+\lambda\left({\hbar\over2m\omega}\right)^2
+  -{3\lambda^2\over\hbar\omega}\left({\hbar\over2m\omega}\right)^4+O(\lambda^3).
+\]
+变分能量为
+\[
+  E(\Omega)={\hbar\over2}\left(\Omega+{\omega^2\over\Omega}\right)
+  +\lambda\left({\hbar\over2m\Omega}\right)^2 .
+\]
+设 $\Omega=\omega(1+a\lambda+b\lambda^2+\cdots)$，极小化得
+\[
+  a={\hbar\over2m^2\omega^3},\qquad b=-{3\hbar^2\over8m^4\omega^6}.
+\]
+最小能量
+\[
+  E_{\rm var}=\hbar\omega+\lambda\left({\hbar\over2m\omega}\right)^2
+  -{2\lambda^2\over\hbar\omega}\left({\hbar\over2m\omega}\right)^4+O(\lambda^3).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一维谐振子受方波外力
+\[
+  V(t)=-f(t)x,\qquad
+  f(t)=\begin{cases}
+  f,&nT<t<(n+1/2)T,\\
+  -f,&(n+1/2)T<t<(n+1)T.
+  \end{cases}
+\]
+初态为基态。
+\begin{enumerate}
+  \item 用含时微扰论求 $P_{0\to1}(t)$ 的最低非零阶项。
+  \item 求跃迁速率 $\Gamma_{0\to1}$。
+  \item 精确求 $\ket{\psi(T)}$ 与 $P_{0\to1}(T)$。
+\end{enumerate}
+\begin{solution}
+一阶振幅
+\[
+  c_1(t)={\ii\over\hbar}\sqrt{\hbar\over2m\omega}
+  \int_0^t f(t')\ee^{\ii\omega t'}\,\dd t',
+\qquad P_{0\to1}=|c_1(t)|^2 .
+\]
+在每个半周期上分段积分即可得到显式分段函数。非共振时 $|c_1(t)|$ 有界，故长时间平均跃迁速率为零；当外力傅里叶分量与 $\omega$ 共振时，微扰结果随时间平方增长，速率公式表现为 $\delta$ 峰。
+
+精确解可看作受分段常力的谐振子。每半周期将相干态参数平移并自由转动，故一周期后仍为相干态：
+\[
+  \ket{\psi(T)}=\ee^{\ii\Phi}\ket{\alpha_T},
+\]
+其中
+\[
+  \alpha_T=-\sqrt{m\omega\over2\hbar}\,{f\over m\omega^2}
+  (1-\ee^{-\ii\omega T/2})^2
+\]
+（整体相位 $\Phi$ 不影响概率）。因此
+\[
+  P_{0\to1}(T)=\ee^{-|\alpha_T|^2}|\alpha_T|^2 .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三个无自旋全同粒子在半径 $R$ 的圆环上运动，
+\[
+  H_0=-{\hbar^2\over2mR^2}(\partial_{\theta_1}^2+\partial_{\theta_2}^2+\partial_{\theta_3}^2).
+\]
+\begin{enumerate}
+  \item 求三个全同玻色子和费米子的基态、第一激发态。
+  \item 对基态计算三粒子两两位于不同象限的概率。
+  \item 对微扰 $V=\lambda\sum_{i<j}D(\theta_i,\theta_j)$，$D=4R^2\sin^2[(\theta_i-\theta_j)/2]$，求基态能量至 $\lambda^2$。
+\end{enumerate}
+\begin{solution}
+单粒子基底
+\[
+  \varphi_k(\theta)={1\over\sqrt{2\pi}}\ee^{\ii k\theta},\qquad
+  \epsilon_k={\hbar^2k^2\over2mR^2}.
+\]
+玻色子基态为 $k_1=k_2=k_3=0$，能量 $0$；第一激发为一个粒子处于 $k=\pm1$ 的对称态，二重简并，能量 $\hbar^2/(2mR^2)$。费米子基态占据 $k=-1,0,1$，能量 $\hbar^2/(mR^2)$；第一激发态为占据相邻三个不同动量的四重简并组合，能量 $5\hbar^2/(2mR^2)$。
+
+三粒子两两不同象限事件的概率为
+\[
+  P_B={1\over16}
+\]
+对玻色子基态；对费米子基态，反对称波函数增强粒子间分离，结果为
+\[
+  P_F={1\over16}+{1\over4\pi^2}+{1\over2\pi}.
+\]
+微扰可写为
+\[
+  V=\lambda R^2\left[6-\sum_{i\ne j}\ee^{\ii(\theta_i-\theta_j)}\right].
+\]
+玻色子基态能量
+\[
+  E_B=6\lambda R^2-{6\lambda^2R^4m\over\hbar^2}+O(\lambda^3).
+\]
+费米子基态能量
+\[
+  E_F={\hbar^2\over mR^2}+8\lambda R^2-{\lambda^2R^4m\over3\hbar^2}+O(\lambda^3).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+将上一题改为三个自旋 $1/2$ 的全同粒子。
+\begin{enumerate}
+  \item 求三个全同自旋 $1/2$ 玻色子和费米子的 $H_0$ 基态能量与波函数。
+  \item 加入
+  \[
+  V=\lambda\sum_{i<j}\delta(\theta_i-\theta_j)S_{ix}S_{jx},
+  \]
+  求基态能量的一阶修正。
+  \item 从费米子基态取出粒子 $1,2$，测量 $(\vb S_1+\vb S_2)^2$，求结果与概率。
+\end{enumerate}
+\begin{solution}
+玻色子基态空间部分全在 $k=0$，需配完全对称的三个自旋 $1/2$ 态，即总自旋 $S=3/2$ 四重态：
+\[
+  \ket{\psi^{B}_{0,0,0}}\ket{S=3/2,S_z},\qquad S_z={3\over2},{1\over2},-{1\over2},-{3\over2},
+\]
+能量为 $0$。
+
+费米子基态可用单粒子轨道-自旋态的反对称行列式构造。最低能量是两个粒子占据 $k=0$ 的两种自旋、第三个粒子占据 $k=\pm1$ 中之一，因此能量
+\[
+  E_F^{(0)}={\hbar^2\over2mR^2}
+\]
+并有四重简并，可取为
+\[
+  \ket{\psi^F_{-1\uparrow,0\uparrow,0\downarrow}},\quad
+  \ket{\psi^F_{-1\downarrow,0\uparrow,0\downarrow}},\quad
+  \ket{\psi^F_{0\uparrow,0\downarrow,1\uparrow}},\quad
+  \ket{\psi^F_{0\uparrow,0\downarrow,1\downarrow}}.
+\]
+
+一阶微扰可先把 $S_x$ 方向转到 $S_z$ 方向，能谱不变。玻色子基态中
+\[
+  \int\delta(\theta_i-\theta_j)|\psi^{B}_{0,0,0}|^2\,\dd\theta_1\dd\theta_2\dd\theta_3={1\over2\pi},
+\]
+且对总自旋 $3/2$ 态
+\[
+  \expval{S_{iz}S_{jz}}=\begin{cases}
+  \hbar^2/4,& S_z=\pm3/2,\\
+  -\hbar^2/12,& S_z=\pm1/2.
+  \end{cases}
+\]
+三对粒子贡献相同，因此玻色子四个基态的一阶修正为
+\[
+  \Delta E_B^{(1)}={3\lambda\hbar^2\over8\pi},\quad
+  -{\lambda\hbar^2\over8\pi},\quad
+  -{\lambda\hbar^2\over8\pi},\quad
+  {3\lambda\hbar^2\over8\pi}.
+\]
+对费米子四个基态，直接计算久期矩阵得到同一个本征值
+\[
+  \Delta E_F^{(1)}=-{\lambda\hbar^2\over8\pi},
+\]
+所以一阶仍为四重简并。
+
+费米子基态对任取两粒子的自旋约化态可投影到单态和三重态子空间。测量
+\[
+  (\vb S_1+\vb S_2)^2
+\]
+的可能结果为
+\[
+  0,\qquad 2\hbar^2,
+\]
+两者概率均为 $1/2$。
+\end{solution}
+\end{question}
+
+\begin{question}
+一维全同粒子的统计性质可被强相互作用“掩盖”。考虑圆环上无自旋玻色子，任意两个粒子重合时波函数为零。
+\begin{enumerate}
+  \item 对两个全同玻色子，用 Bethe 假设写出波函数并说明与费米子波函数的关系。
+  \item 对三个全同玻色子重复上述讨论。
+\end{enumerate}
+\begin{solution}
+两粒子在每个排序区域内为自由粒子平面波叠加：
+\[
+  \psi_{k_1,k_2}=\sum_{\sigma\in S_2}A_\sigma
+  \exp[\ii(k_{\sigma(1)}\theta_1+k_{\sigma(2)}\theta_2)].
+\]
+硬核条件 $\psi(\theta_1=\theta_2)=0$ 要求交换两个粒子时系数变号，因此
+\[
+  A_\sigma\propto \operatorname{sgn}(\sigma).
+\]
+玻色对称性通过在不同排序区域取相应符号实现；等价地说，硬核玻色子波函数是自由费米子斯莱特行列式的绝对值。因此能谱与无自旋费米子相同。
+
+三粒子同理，
+\[
+  \psi_{k_1,k_2,k_3}=\sum_{\sigma\in S_3}\operatorname{sgn}(\sigma)
+  \exp[\ii(k_{\sigma(1)}\theta_1+k_{\sigma(2)}\theta_2+k_{\sigma(3)}\theta_3)]
+\]
+在一个排序区域内成立，延拓到全空间后成为硬核玻色子波函数。因接触处为零，能量谱与三个无自旋自由费米子一致。
+\end{solution}
+\end{question}
+

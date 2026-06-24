@@ -1,0 +1,173 @@
+\heading{量子力学A-23秋-期末}
+\noteinfo{整理自 Quantum Mechanics: Fall 2023 Final Exam: Brief Solutions；题面和解答按项目格式重写。}
+
+\begin{question}
+粒子在周长 $L$ 的圆环上运动，加入 $V(x)=V_0\cos(2\pi x/L)$。
+\begin{enumerate}
+  \item 写出自由粒子本征值和本征函数。
+  \item 求能量修正，特别讨论偶、奇宇称子空间。
+  \item 对变分波函数 $\psi=A+B\cos(2\pi x/L)$ 计算最小能量。
+\end{enumerate}
+\begin{solution}
+自由本征态
+\[
+  \psi_n={1\over\sqrt L}\ee^{\ii2\pi nx/L},\qquad
+  E_n^{(0)}={\hbar^2\over2m}\left({2\pi n\over L}\right)^2.
+\]
+在实基底中
+\[
+  \psi_{0,e}=L^{-1/2},\quad
+  \psi_{n,e}=\sqrt{2/L}\cos{2\pi nx\over L},\quad
+  \psi_{n,o}=\sqrt{2/L}\sin{2\pi nx\over L}.
+\]
+势为偶函数，偶、奇子空间不混合。基态二阶修正
+\[
+  E_0=-{V_0^2mL^2\over4\pi^2\hbar^2}+O(V_0^3).
+\]
+偶态 $n=1$ 有一阶修正 $V_0/2$，二阶修正为
+\[
+  \Delta E_{1,e}^{(2)}={5V_0^2mL^2\over24\pi^2\hbar^2};
+\]
+奇态 $n=1$ 一阶为零，二阶修正为
+\[
+  \Delta E_{1,o}^{(2)}=-{V_0^2mL^2\over24\pi^2\hbar^2}.
+\]
+一般 $n>1$ 只耦合 $n\pm1$，二阶项为
+\[
+  \Delta E_n^{(2)}={V_0^2mL^2\over4\pi^2\hbar^2}{1\over4n^2-1}.
+\]
+变分态归一化后
+\[
+  E(A,B)={E_1^{(0)}B^2/2+V_0AB\over A^2+ B^2/2}.
+\]
+令 $r=B/A$ 为变分参数，最小化
+\[
+  E(r)={E_1^{(0)}r^2/2+V_0r\over1+r^2/2}
+\]
+得到
+\[
+  E_{\min}={1\over2}\left(E_1^{(0)}-\sqrt{(E_1^{(0)})^2+2V_0^2}\right).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+二维谐振子受旋转外力
+\[
+  V(t)=-f[x\sin\Omega t+y\cos\Omega t].
+\]
+\begin{enumerate}
+  \item 写出从基态到第一激发态的跃迁振幅。
+  \item 求从基态到第一激发能级的总跃迁概率。
+  \item 求到 $\ket{1,1}$ 的最低非零阶跃迁概率。
+  \item 定义旋转坐标，写出旋转参考系中的哈密顿量。
+\end{enumerate}
+\begin{solution}
+使用升降算符
+\[
+  x=\sqrt{\hbar\over2m\omega}(a_x+a_x^\dagger),\qquad
+  y=\sqrt{\hbar\over2m\omega}(a_y+a_y^\dagger).
+\]
+一阶振幅为
+\[
+  c_{10}^{(1)}={\ii f\over\hbar}\sqrt{\hbar\over2m\omega}
+  \int_0^t\ee^{\ii\omega t'}\sin\Omega t'\,\dd t',
+\]
+\[
+  c_{01}^{(1)}={\ii f\over\hbar}\sqrt{\hbar\over2m\omega}
+  \int_0^t\ee^{\ii\omega t'}\cos\Omega t'\,\dd t' .
+\]
+总跃迁概率为 $|c_{10}^{(1)}|^2+|c_{01}^{(1)}|^2$。到 $\ket{1,1}$ 需二阶过程，振幅等于 $x$、$y$ 两个一次跃迁振幅的有序积分和。
+
+旋转坐标
+\[
+  \tilde x=x\cos\Omega t-y\sin\Omega t,\qquad
+  \tilde y=x\sin\Omega t+y\cos\Omega t
+\]
+中哈密顿量变为
+\[
+  \tilde H=H_0-\Omega L_z-f\,\tilde y
+\]
+（取决于旋转方向约定，$L_z$ 项符号相应改变）。这给出了不含时问题。
+\end{solution}
+\end{question}
+
+\begin{question}
+两个全同粒子在一维圆环上运动，
+\[
+  H_0={p_1^2+p_2^2\over2m}.
+\]
+\begin{enumerate}
+  \item 写出无自旋玻色子的基态、第一激发态、第二激发态。
+  \item 写出无自旋费米子的基态、第一激发态、第二激发态。
+  \item 写出自旋 $1/2$ 玻色子、费米子的基态和第一激发态。
+  \item 在第一激发态中计算 $\cos[2\pi(x_1-x_2)/L]$ 的期望值。
+  \item 在基态中测量 $S_{1x}+S_{2x}$，求可能结果和概率。
+  \item 加入 $H_1=\lambda\delta(x_1-x_2)$，求自旋 $1/2$ 玻色子在前述能级中的最低非零阶能量修正。
+  \item 推导两个自旋 $1/2$ 玻色子基态能量的精确方程。
+\end{enumerate}
+\begin{solution}
+单粒子本征态为
+\[
+  \varphi_k(x)={1\over\sqrt L}\ee^{\ii2\pi kx/L},\qquad
+  \epsilon_k={\hbar^2\over2m}\left({2\pi k\over L}\right)^2 .
+\]
+无自旋玻色子基态为 $\varphi_0(1)\varphi_0(2)$，能量 $0$。第一激发态为
+\[
+  {1\over\sqrt2}\bigl[\varphi_{\pm1}(1)\varphi_0(2)
+  +\varphi_0(1)\varphi_{\pm1}(2)\bigr],
+  \qquad E={2\pi^2\hbar^2\over mL^2},
+\]
+第二激发态可取 $\varphi_{\pm1}(1)\varphi_{\pm1}(2)$ 和
+$(\varphi_1(1)\varphi_{-1}(2)+\varphi_{-1}(1)\varphi_1(2))/\sqrt2$，
+能量为两倍第一激发能。无自旋费米子基态必须占据两个不同动量态：
+\[
+  {1\over\sqrt2}\bigl[\varphi_0(1)\varphi_{\pm1}(2)
+  -\varphi_{\pm1}(1)\varphi_0(2)\bigr],
+  \qquad E={2\pi^2\hbar^2\over mL^2},
+\]
+第一激发态为
+$(\varphi_1(1)\varphi_{-1}(2)-\varphi_{-1}(1)\varphi_1(2))/\sqrt2$，
+能量为其两倍。
+
+自旋 $1/2$ 时，玻色子要求总波函数对称，故空间对称态配自旋三重态，
+空间反对称态配自旋单态；费米子相反。于是玻色子基态为
+$\varphi_0\varphi_0\ket{1,m}$，$m=1,0,-1$；费米子基态为
+$\varphi_0\varphi_0\ket{0,0}$。第一激发能级中同时有空间对称和空间反对称
+轨道态，分别按上述规则配自旋态。
+
+在第一激发态中，
+\[
+  \expval{\cos {2\pi(x_1-x_2)\over L}}=
+  \begin{cases}
+  1/2,&\text{空间波函数对称},\\
+  -1/2,&\text{空间波函数反对称}.
+  \end{cases}
+\]
+基态自旋测量 $S_{1x}+S_{2x}$ 的概率只由自旋态决定。自旋单态只能得到
+$0$，概率为 $1$；三重态 $\ket{1,m_z}$ 中，$\ket{1,\pm1_z}$ 给出
+$+\hbar,0,-\hbar$ 的概率 $1/4,1/2,1/4$，而 $\ket{1,0_z}$ 给出
+$+\hbar,-\hbar$ 的概率各 $1/2$。
+
+加入 $H_1=\lambda\delta(x_1-x_2)$ 时，接触相互作用只作用在空间对称部分。
+玻色子基态的一阶修正为
+\[
+  \Delta E_0^{(1)}={\lambda\over L}.
+\]
+第一激发能级中，空间对称轨道态的一阶修正为 $2\lambda/L$，空间反对称轨道态
+因在 $x_1=x_2$ 处为零而一阶修正为 $0$。
+
+对两个自旋 $1/2$ 玻色子的精确基态，可取质心 $X=(x_1+x_2)/2$ 与相对坐标
+$x=x_2-x_1$。基态的质心动量为零；相对运动满足
+\[
+  \left(-{\hbar^2\over m}{\dd^2\over\dd x^2}+\lambda\delta(x)\right)\phi(x)=E\phi(x),
+  \qquad \phi(x)=\phi(-x)=\phi(x+L).
+\]
+若 $E=\hbar^2k^2/m$，在 $0<x<L/2$ 可写
+$\phi=A\cos[k(x-L/2)]$，跳变条件给
+\[
+  {2\hbar^2k\over m\lambda}=\cot{kL\over2}.
+\]
+这就是基态能量的隐式方程；$\lambda<0$ 时令 $k=\ii\kappa$ 得到束缚态形式。
+\end{solution}
+\end{question}
