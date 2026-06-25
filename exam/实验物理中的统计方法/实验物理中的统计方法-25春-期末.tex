@@ -1,23 +1,23 @@
-﻿\heading{实验物理中的统计方法-25春-期末}
-\noteinfo{题目来源于用户提供的课堂照片；题干按照片 OCR 与上下文整理，答案按前面试卷/作业的格式补全。}
+\heading{实验物理中的统计方法-25春-期末}
+\noteinfo{内容精修版；已统一“拒绝/不拒绝”表述，并修正题干中缺字与参数条件。}
 
 \begin{question}
 在假设检验中，零假设为 $H_0$。记
 \[
 P_1=P(\text{拒绝 }H_0\mid H_0\text{ 为真}),
 \qquad
-P_2=P(\text{接受 }H_0\mid H_0\text{ 为假}),
+P_2=P(\text{不拒绝 }H_0\mid H_0\text{ 为假}),
 \]
 则 $P_1$ 被称为弃真错误，$P_2$ 被称为取伪错误。
 \begin{solution}
 $P_1$ 是在 $H_0$ 为真时拒绝 $H_0$ 的概率，即第一类错误，也称弃真错误；
-$P_2$ 是在 $H_0$ 为假时接受 $H_0$ 的概率，即第二类错误，也称取伪错误。故命题正确。
+$P_2$ 是在 $H_0$ 为假时不拒绝 $H_0$ 的概率，即第二类错误，也称取伪错误。故命题正确。
 \anstext{正确}
 \end{solution}
 \end{question}
 
 \begin{question}
-设总体 $X$ 的均值和方差分别为 $\mu$ 和 $\sigma^2$，$X_1,X_2,\cdots,X_n$ 是来自该总体的一个简单随机样本，则 $\mu$ 的有效估计量为 $\dfrac1n\sum_{i=1}^n X_i$。
+设总体 $X$ 的均值和方差分别为 $\mu$ 和 $\sigma^2$，$X_1,X_2,\cdots,X_n$ 是来自该总体的一个简单随机样本。仅由这些条件，能否断定 $\bar X=\dfrac1n\sum_{i=1}^n X_i$ 一定是 $\mu$ 的有效估计量？
 \begin{solution}
 样本均值
 \[
@@ -27,10 +27,10 @@ $P_2$ 是在 $H_0$ 为假时接受 $H_0$ 的概率，即第二类错误，也称
 \[
 E[\bar X]=\mu,
 \qquad
-\operatorname{Var}(\bar X)=\frac{\sigma^2}{n},
+\V(\bar X)=\frac{\sigma^2}{n},
 \]
-因此它是 $\mu$ 的无偏估计量和矩估计量。但是“有效估计量”通常指在无偏估计类中方差达到 Cram\'er--Rao 下界或具有最小方差的估计量。题干只给出总体均值和方差，没有给出总体分布或 Fisher 信息，不能推出 $\bar X$ 一定有效。故严格说命题错误。
-\anstext{错误}
+因此它是 $\mu$ 的无偏估计量和矩估计量。但是“有效估计量”通常指在无偏估计类中方差达到 Cram\'er--Rao 下界或具有最小方差的估计量。题干只给出总体均值和方差，没有给出总体分布或 Fisher 信息，不能推出 $\bar X$ 一定有效。故不能仅由题设断定其一定有效。
+\anstext{不能；原命题严格说错误}
 \end{solution}
 \end{question}
 
@@ -53,7 +53,7 @@ E[\bar X]=\mu,
 \[
 E[X]=2n,
 \qquad
-\operatorname{Var}(X)=2(2n)=4n.
+\V(X)=2(2n)=4n.
 \]
 卡方分布在自由度较大时渐近正态，因此
 \[
@@ -109,11 +109,11 @@ E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=n(N-1)p(1-p).
 \begin{solution}
 对单个观测量，
 \[
-\operatorname{Var}(X_i)=np(1-p).
+\V(X_i)=np(1-p).
 \]
 又因为
 \[
-E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=(N-1)\operatorname{Var}(X_i),
+E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=(N-1)\V(X_i),
 \]
 所以
 \[
@@ -151,18 +151,18 @@ E[X]=\mu,
 \[
 \theta=c_1\theta_1+c_2\theta_2
 \]
-是参数 $\mu$ 的有效估计量，且常数 $c_1>0,c_2>0,c_1+c_2=1$，则
+是在所有满足 $c_1+c_2=1$ 的线性无偏组合中方差最小的估计量。若最优解满足 $c_1>0,c_2>0$，则
 \[
 c_1=\blank[5cm],\qquad c_2=\blank[5cm].
 \]
 \begin{solution}
 由 $c_1+c_2=1$，令 $c_2=1-c_1$。记
 \[
-\operatorname{Cov}(\theta_1,\theta_2)=\rho\sigma_1\sigma_2.
+\cov(\theta_1,\theta_2)=\rho\sigma_1\sigma_2.
 \]
 则
 \[
-\operatorname{Var}(\theta)
+\V(\theta)
 =c_1^2\sigma_1^2+(1-c_1)^2\sigma_2^2
 +2c_1(1-c_1)\rho\sigma_1\sigma_2.
 \]
@@ -210,7 +210,7 @@ c_2=\frac{\sigma_1(\sigma_1-\rho\sigma_2)}
 \end{question}
 
 \begin{question}
-轴子是暗物质的候选者之一。如果存在，在实验观测中原子核端将有的事件。假设某实验的目的是探测某种特定类型的轴子，预期的本底数为 $3$ 个，观测到疑似信号 $5$ 个。试计算该观测结果的显著性水平。已知泊松分布
+轴子是暗物质的候选者之一。若某类轴子存在，探测器中会出现相应的候选事件。假设某实验预期的本底数为 $3$ 个，实际观测到疑似信号 $5$ 个。试计算该观测结果的显著性水平。已知泊松分布
 \[
 f(n;\nu)=\frac{\nu^n e^{-\nu}}{n!}.
 \]
@@ -246,7 +246,7 @@ H_0:\nu=3.
 \begin{solution}
 本底可忽略时，观测数服从
 \[
-N\sim \operatorname{Pois}(\mu_{\mathrm{sig}}).
+N\sim \Pois(\mu_{\mathrm{sig}}).
 \]
 若 $95\%$ 上限为 $\mu_{\mathrm{up}}$，则
 \[
@@ -324,49 +324,39 @@ r_{xy}=\frac1n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y),
 \end{question}
 
 \begin{question}
-静止的双粲重子的衰变时间 $t$ 服从指数分布 $t\sim \operatorname{exp}(\tau)$，其中 $\tau$ 为其固有寿命。假定某实验观测到一个双粲重子事件，且在其质心系的衰变时间为 $0.3\,\mathrm{ps}$。求 $\tau$ 的 $90\%$ 置信水平下的中心置信区间。
+静止的双粲重子的衰变时间 $t$ 服从均值为 $\tau$ 的指数分布，其中 $\tau$ 为其固有寿命。假定某实验观测到一个双粲重子事件，且在其质心系的衰变时间为 $0.3\,\mathrm{ps}$。求 $\tau$ 的 $90\%$ 置信水平下的中心置信区间。
 \begin{solution}
 只有一个观测量，记
 \[
 t_{\mathrm{obs}}=0.3\,\mathrm{ps}.
 \]
-指数分布的密度为
+指数分布密度为
 \[
-g(t;\tau)=\frac1\tau e^{-t/\tau},\qquad t\ge 0.
+g(t;\tau)=\frac1\tau e^{-t/\tau},\qquad t\ge0.
 \]
-中心 $90\%$ 置信区间取
+令
 \[
-\alpha=\beta=0.05.
+U=\frac{T}{\tau}.
 \]
-下限 $a$ 由右尾概率确定：
+则 $U$ 服从均值为 $1$ 的指数分布，分布函数为 $F_U(u)=1-e^{-u}$。中心 $90\%$ 区间两端各留 $5\%$ 尾概率，因此
 \[
-\alpha=P(T\ge t_{\mathrm{obs}}\mid \tau=a)
-=\int_{t_{\mathrm{obs}}}^{\infty}\frac1a e^{-t/a}\,dt
-=e^{-t_{\mathrm{obs}}/a}.
-\]
-故
-\[
-a=-\frac{t_{\mathrm{obs}}}{\ln\alpha}
-=-\frac{0.3}{\ln 0.05}
-=0.100\,\mathrm{ps}.
-\]
-上限 $b$ 由左尾概率确定：
-\[
-\beta=P(T\le t_{\mathrm{obs}}\mid \tau=b)
-=\int_0^{t_{\mathrm{obs}}}\frac1b e^{-t/b}\,dt
-=1-e^{-t_{\mathrm{obs}}/b}.
-\]
-于是
-\[
-e^{-t_{\mathrm{obs}}/b}=1-\beta,
+u_{0.05}=-\ln0.95,
 \qquad
-b=-\frac{t_{\mathrm{obs}}}{\ln(1-\beta)}.
+u_{0.95}=-\ln0.05.
 \]
-代入 $\beta=0.05$，得
+由
 \[
-b=-\frac{0.3}{\ln0.95}=5.85\,\mathrm{ps}.
+u_{0.05}<\frac{t_{\mathrm{obs}}}{\tau}<u_{0.95}
 \]
-因此
+反解得
+\[
+\frac{t_{\mathrm{obs}}}{u_{0.95}}<\tau<\frac{t_{\mathrm{obs}}}{u_{0.05}}.
+\]
+代入 $t_{\mathrm{obs}}=0.3\,\mathrm{ps}$，得到
+\[
+\tau\in\left[\frac{0.3}{-\ln0.05},\frac{0.3}{-\ln0.95}\right]
+=[0.100,5.85]~\mathrm{ps}.
+\]
 \ansmath{\tau\in[0.100,\,5.85]~\mathrm{ps}\quad(90\%\ \mathrm{CL})}
 \end{solution}
 \end{question}
@@ -483,6 +473,11 @@ w_1+w_2=1.
 {\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}.
 \]
 故
+\ansmath{\hat x=\frac{(\sigma_{s2}^2+\sigma_{c2}^2-\sigma_{c1}\sigma_{c2})x_1
++(\sigma_{s1}^2+\sigma_{c1}^2-\sigma_{c1}\sigma_{c2})x_2}
+{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}},\qquad
+\sigma_{\hat x}^2=\frac{\sigma_{s1}^2\sigma_{s2}^2+\sigma_{c1}^2\sigma_{s2}^2+\sigma_{c2}^2\sigma_{s1}^2}
+{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}}
 \end{solution}
 \end{question}
 

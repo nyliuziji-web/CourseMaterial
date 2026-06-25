@@ -1,15 +1,15 @@
-﻿\heading{实验物理中的统计方法-24春-期中}
-\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对。}
+\heading{实验物理中的统计方法-24春-期中}
+\noteinfo{内容精修版；已统一题干表述、边界条件与解答细节。}
 
 \begin{question}
 $X\sim N(0,2^2)$，$Y\sim N(0,2^2)$，且 $V[X-Y]=0$，求 $X$ 和 $Y$ 的协方差矩阵。
 \begin{solution}
 由
 \[
-0=\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)-2\operatorname{Cov}(X,Y)
-=4+4-2\operatorname{Cov}(X,Y),
+0=\V(X-Y)=\V(X)+\V(Y)-2\cov(X,Y)
+=4+4-2\cov(X,Y),
 \]
-得 $\operatorname{Cov}(X,Y)=4$。因此
+得 $\cov(X,Y)=4$。因此
 \ansmath{\Sigma=
 \begin{pmatrix}
 4&4\\ 4&4
@@ -18,7 +18,7 @@ $X\sim N(0,2^2)$，$Y\sim N(0,2^2)$，且 $V[X-Y]=0$，求 $X$ 和 $Y$ 的协方
 \end{question}
 
 \begin{question}
-有 $n$ 个编号为 1 到 $n$ 的小球，$n$ 个编号为 1 到 $n$ 的盒子，将小球放入盒子之中，每个盒子放且仅放一个小球。小球编号与盒子编号相等称之为配对。求配对数 $X$ 的方差。
+有 $n\ge2$ 个编号为 1 到 $n$ 的小球，$n$ 个编号为 1 到 $n$ 的盒子，将小球放入盒子之中，每个盒子放且仅放一个小球。小球编号与盒子编号相等称之为配对。求配对数 $X$ 的方差。
 \begin{solution}
 记 $I_i=\mathbf 1\{\pi(i)=i\}$，则 $X=\sum_{i=1}^n I_i$。有
 \[
@@ -35,7 +35,7 @@ E[X^2]=\sum_iE[I_i]+2\sum_{i<j}E[I_iI_j]
 \]
 于是
 \[
-\operatorname{Var}(X)=E[X^2]-E[X]^2=2-1=1.
+\V(X)=E[X^2]-E[X]^2=2-1=1.
 \]
 \end{solution}
 \end{question}
@@ -101,7 +101,7 @@ P(T>t)=[1-F(t)]^2,
 \end{question}
 
 \begin{question}
-$X$ 和 $Y$ 都服从标准正态分布，$Z=X-Y$，求 $E[Z]$，$E[|Z|]$，$V[|Z|]$。
+$X$ 和 $Y$ 相互独立且都服从标准正态分布，$Z=X-Y$，求 $E[Z]$，$E[|Z|]$，$V[|Z|]$。
 \begin{solution}
 有 $Z\sim N(0,2)$，所以
 \[
@@ -114,13 +114,13 @@ E[|Z|^2]=E[Z^2]=2,
 \]
 故
 \[
-\operatorname{Var}(|Z|)=2-\left(\frac{2}{\sqrt\pi}\right)^2=2-\frac{4}{\pi}.
+\V(|Z|)=2-\left(\frac{2}{\sqrt\pi}\right)^2=2-\frac{4}{\pi}.
 \]
 \end{solution}
 \end{question}
 
-\begin{question}
-雷达显示屏是一个半径为 $R$ 的圆形区域，圆内随机出现一个光点且其位置服从均匀分布。求光点与圆心距离的期望和方差。（10 分）
+\begin{question}[10 分]
+雷达显示屏是一个半径为 $R$ 的圆形区域，圆内随机出现一个光点且其位置服从均匀分布。求光点与圆心距离的期望和方差。
 \begin{solution}
 距离 $r$ 的密度为
 \[
@@ -134,13 +134,13 @@ E[r^2]=\int_0^R r^2\frac{2r}{R^2}dr=\frac{R^2}{2}.
 \]
 故
 \[
-\operatorname{Var}(r)=\frac{R^2}{2}-\left(\frac{2R}{3}\right)^2=\frac{R^2}{18}.
+\V(r)=\frac{R^2}{2}-\left(\frac{2R}{3}\right)^2=\frac{R^2}{18}.
 \]
 \end{solution}
 \end{question}
 
-\begin{question}
-一个矩形，边长分别为 $a$ 和 $b$，且 $a>b$。在矩形的任意边上任取两个点，求这两个点的距离的平方的期望值。（10 分）
+\begin{question}[10 分]
+一个矩形，边长分别为 $a$ 和 $b$，且 $a>b$。在矩形的任意边上任取两个点，求这两个点的距离的平方的期望值。
 \begin{solution}
 设边界上一点坐标为 $(X,Y)$，则两点距离平方
 \[
@@ -148,7 +148,7 @@ D^2=(X_1-X_2)^2+(Y_1-Y_2)^2,
 \]
 故
 \[
-E[D^2]=2\operatorname{Var}(X)+2\operatorname{Var}(Y).
+E[D^2]=2\V(X)+2\V(Y).
 \]
 对边界均匀分布，可算得
 \[
@@ -166,10 +166,7 @@ E[Y^2]=\frac{2\int_0^b y^2dy+ab^2}{2(a+b)}.
 \end{solution}
 \end{question}
 
-\begin{question}
-作业原题，见图 1。其题面如下：（10 分）
-
-习题 1.3.
+\begin{question}[10 分]
 粒子束流包含 $10^{-4}$ 的电子，其余为光子。粒子通过某双层探测器，可能在 2 层都给出信号，也可能只有一层给出信号或者没有任何信号。电子 $(e)$ 和光子 $(\gamma)$ 在穿过该双层探测器给出 0、1 或 2 个信号的概率如下
 \[
 P(0\mid e)=0.001,\qquad P(1\mid e)=0.01,\qquad P(2\mid e)=0.989,
@@ -177,13 +174,13 @@ P(0\mid e)=0.001,\qquad P(1\mid e)=0.01,\qquad P(2\mid e)=0.989,
 \[
 P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{-5}.
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 如果只有一层给出了信号，该粒子为光子的概率是多少？
 \item 如果两层都给出了信号，该粒子为电子的概率是多少？
 \end{enumerate}
 \begin{solution}
 由 Bayes 公式：
-\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item
 \ansmath{P(\gamma|1)=\frac{P(1|\gamma)P(\gamma)}{P(1|\gamma)P(\gamma)+P(1|e)P(e)}
 \approx 0.9990009}
@@ -194,8 +191,8 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 \end{solution}
 \end{question}
 
-\begin{question}
-某一个衰变事件（具体是什么我不记得了）的发生是极为稀有的事情。本底数为 3，现在观察到 6 个疑似信号，求显著性水平。（10 分）
+\begin{question}[10 分]
+某一个衰变事件（具体是什么我不记得了）的发生是极为稀有的事情。本底数为 3，现在观察到 6 个疑似信号，求显著性水平。
 \begin{solution}
 \ansmath{p=P(N\ge 6\mid \lambda=3)
 =1-\sum_{k=0}^{5}e^{-3}\frac{3^k}{k!}
@@ -203,12 +200,12 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 \end{solution}
 \end{question}
 
-\begin{question}
+\begin{question}[10 分]
 制造了一批工件，每个工件的横截面积（单位为平方毫米）服从 $N(\mu,0.02^2)$。现在抽取 15 个样本，测得样本方差为 $S^2=0.025^2$。已知
 \[
 \frac{(n-1)S^2}{\sigma^2}\sim \chi^2(n-1),
 \]
-问方差有没有明显差异？参考数据：卡方分布的两个上 $\alpha$ 分位数为 $\chi^2_{0.025}(14)=26.119$，$\chi^2_{0.975}(14)=5.629$。（10 分）
+问方差有没有明显差异？参考数据：卡方分布的两个上 $\alpha$ 分位数为 $\chi^2_{0.025}(14)=26.119$，$\chi^2_{0.975}(14)=5.629$。
 \begin{solution}
 设原假设 $H_0:\sigma^2=0.02^2$。统计量
 \[
@@ -225,8 +222,8 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 \end{solution}
 \end{question}
 
-\begin{question}
-蒲丰投针实验计算 $\pi$ 的公式为 $\pi\approx\dfrac{2lN}{an}$，其中 $N$ 为总投掷次数，$n$ 为针与线相交次数。某次实验中，$l=2.5\mathrm{cm}$，$a=3\mathrm{cm}$，$N=3408$，$n=1808$，于是算出 $\pi=3.1415929$。忽略 $l$ 和 $a$ 的误差，计算 $\pi$ 的不确定度。（7 分）
+\begin{question}[7 分]
+蒲丰投针实验计算 $\pi$ 的公式为 $\pi\approx\dfrac{2lN}{an}$，其中 $N$ 为总投掷次数，$n$ 为针与线相交次数。某次实验中，$l=2.5\mathrm{cm}$，$a=3\mathrm{cm}$，$N=3408$，$n=1808$，于是算出 $\pi=3.1415929$。忽略 $l$ 和 $a$ 的误差，计算 $\pi$ 的不确定度。
 \begin{solution}
 把 $n$ 视为二项分布 $\mathrm{Bin}(N,p)$，其中 $p\approx n/N$。于是
 \[
@@ -244,8 +241,8 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 \end{solution}
 \end{question}
 
-\begin{question}
-仪器在任意时间内观察到噪声的概率相等。在 $[0,T]$ 的时间窗口内观察到两个噪声，如果两个噪声间距小于 $t$，就被误鉴别为信号。在时间窗口内已经观察到两个噪声的前提下，求误鉴别为信号的概率。（6 分）
+\begin{question}[6 分]
+仪器在任意时间内观察到噪声的概率相等。在 $[0,T]$ 的时间窗口内观察到两个噪声，如果两个噪声间距小于 $t$，就被误鉴别为信号。在时间窗口内已经观察到两个噪声的前提下，求误鉴别为信号的概率。
 \begin{solution}
 条件于“恰有两个噪声”后，两到达时刻等价于两个独立均匀点 $U,V\sim U(0,T)$。所求为
 \[
@@ -253,7 +250,7 @@ P(|U-V|<t)=1-\frac{2\cdot \frac12(T-t)^2}{T^2}
 =1-\frac{(T-t)^2}{T^2}
 =\frac{2t}{T}-\left(\frac{t}{T}\right)^2,
 \]
-其中 $0\le t\le T$。
+其中 $0\le t\le T$；若 $t\ge T$，该概率为 $1$。
 \ansmath{P(|U-V|<t)=1-\frac{2\cdot \frac12(T-t)^2}{T^2}
 =1-\frac{(T-t)^2}{T^2}
 =\frac{2t}{T}-\left(\frac{t}{T}\right)^2,}

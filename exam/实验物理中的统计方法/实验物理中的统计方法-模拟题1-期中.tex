@@ -54,7 +54,7 @@ P(U>u,I=1)=\frac12 e^{-2\lambda u}=P(U>u)P(I=1).
 \end{question}
 
 \begin{question}
-有 $n$ 个编号为 $1$ 到 $n$ 的球，$n$ 个编号为 $1$ 到 $n$ 的盒子，将球随机放入盒子，每个盒子放且仅放一个球。称“球号与盒号相同”为一次配对。设配对数为 $K$，求 $E[K(K-1)]$ 及 $\operatorname{Var}(K)$。
+有 $n$ 个编号为 $1$ 到 $n$ 的球，$n$ 个编号为 $1$ 到 $n$ 的盒子，将球随机放入盒子，每个盒子放且仅放一个球。称“球号与盒号相同”为一次配对。设配对数为 $K$，求 $E[K(K-1)]$ 及 $\V(K)$。
 \begin{solution}
 记
 \[
@@ -136,7 +136,7 @@ c(x+y),&0<x<1,\ 0<y<1-x,\\
 0,&\text{其他}.
 \end{cases}
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求常数 $c$；
 \item 求边缘密度 $f_X(x)$；
 \item 求 $P(Y>X)$。
@@ -162,7 +162,7 @@ f_X(x)=\int_0^{1-x}3(x+y)\,dy
 
 \begin{question}
 用宇宙射线标定一块闪烁体的探测效率：把待测闪烁体夹在上下两个闪烁体中间，只有上下两块都计数时才认为有一次有效穿过。现测得上下两块同时计数 $2500$ 次，其中中间闪烁体计数 $2310$ 次。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求待测闪烁体效率的估计值及其统计不确定度；
 \item 若现在串联放两块完全相同且相互独立的待测闪烁体，要求两块都计数才算通过，求系统效率及其统计不确定度。
 \end{enumerate}
@@ -202,7 +202,7 @@ f_X(x)=\int_0^{1-x}3(x+y)\,dy
 \pi(\theta)\propto \theta(1-\theta),\qquad 0<\theta<1.
 \]
 现观测到 6 次抛掷结果，其中 4 次正面、2 次反面。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $\theta$ 的后验分布；
 \item 求下一次仍为正面的后验预测概率；
 \item 求后面两次都为正面的后验预测概率。
@@ -247,7 +247,7 @@ Y\mid N\sim \mathrm{Poisson}(N\nu_2),
 \]
 因此
 \[
-E[Y\mid N]=N\nu_2,\qquad \operatorname{Var}(Y\mid N)=N\nu_2.
+E[Y\mid N]=N\nu_2,\qquad \V(Y\mid N)=N\nu_2.
 \]
 由全期望公式，
 \[
@@ -255,11 +255,11 @@ E[Y]=E(E[Y\mid N])=\nu_2E[N]=\nu_1\nu_2.
 \]
 由全方差公式，
 \[
-\operatorname{Var}(Y)=E(\operatorname{Var}(Y\mid N))+\operatorname{Var}(E[Y\mid N])
-=\nu_2E[N]+\nu_2^2\operatorname{Var}(N).
+\V(Y)=E(\V(Y\mid N))+\V(E[Y\mid N])
+=\nu_2E[N]+\nu_2^2\V(N).
 \]
-由于 $N\sim \mathrm{Poisson}(\nu_1)$，故 $E[N]=\operatorname{Var}(N)=\nu_1$，从而
-\ansmath{E[Y]=\nu_1\nu_2,\qquad \operatorname{Var}(Y)=\nu_1\nu_2+\nu_1\nu_2^2}
+由于 $N\sim \mathrm{Poisson}(\nu_1)$，故 $E[N]=\V(N)=\nu_1$，从而
+\ansmath{E[Y]=\nu_1\nu_2,\qquad \V(Y)=\nu_1\nu_2+\nu_1\nu_2^2}
 \end{solution}
 \end{question}
 

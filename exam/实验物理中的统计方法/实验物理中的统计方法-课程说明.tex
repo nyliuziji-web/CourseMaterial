@@ -4,7 +4,7 @@
 \textbf{一、课程定位与复习目标}
 
 本课程的核心不在于记忆大量孤立公式，而在于完成以下三步：
-\begin{enumerate}[leftmargin=2.2em,itemsep=0.18em,topsep=0.2em]
+\begin{enumerate}
   \item 将实验或抽样情景准确翻译为随机试验，明确样本空间、随机变量、参数、独立性与条件结构；
   \item 识别题目对应的标准概率模型，判断应使用计数方法、连续密度方法、参数估计、区间估计还是假设检验；
   \item 在统一记号下完成计算，并对结果给出物理或统计解释，例如效率、纯度、显著性、后验概率、不确定度等。
@@ -35,7 +35,7 @@ X\sim \mathrm{Bin}(n,p),\qquad P(X=k)=\binom{n}{k}p^k(1-p)^{n-k},\quad k=0,1,\do
 \]
 其均值与方差为
 \[
-E[X]=np,\qquad \operatorname{Var}(X)=np(1-p).
+E[X]=np,\qquad \V(X)=np(1-p).
 \]
 
 \textbf{参数化题型 A：}某探测器对单个事件的通过概率为 $p$，独立检测 $n$ 个事件。求恰有 $k$ 个事件通过的概率、至少一个事件通过的概率以及通过率的估计标准差。
@@ -63,7 +63,7 @@ T\sim \mathrm{Geom}(p),\qquad P(T=k)=(1-p)^{k-1}p,\quad k=1,2,\dots
 \]
 且
 \[
-E[T]=\frac{1}{p},\qquad \operatorname{Var}(T)=\frac{1-p}{p^2}.
+E[T]=\frac{1}{p},\qquad \V(T)=\frac{1-p}{p^2}.
 \]
 
 若记第 $r$ 次成功发生在第 $N$ 次试验，则
@@ -90,7 +90,7 @@ P(X=k)=\frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}.
 其均值与方差为
 \[
 E[X]=n\frac{M}{N},\qquad
-\operatorname{Var}(X)=n\frac{M}{N}\left(1-\frac{M}{N}\right)\frac{N-n}{N-1}.
+\V(X)=n\frac{M}{N}\left(1-\frac{M}{N}\right)\frac{N-n}{N-1}.
 \]
 
 \textbf{参数化题型 C：}盒中有红球 $R$ 个、白球 $W$ 个，从中不放回取 $n$ 个。求恰有 $k$ 个红球、至少一个红球、全部同色的概率。
@@ -122,7 +122,7 @@ P(N_t=k)=e^{-\lambda t}\frac{(\lambda t)^k}{k!},\quad k=0,1,2,\dots
 \]
 并且
 \[
-E[N_t]=\lambda t,\qquad \operatorname{Var}(N_t)=\lambda t.
+E[N_t]=\lambda t,\qquad \V(N_t)=\lambda t.
 \]
 
 \textbf{参数化题型 D：}本底事件以速率 $\lambda$ 到达，观测窗口长度为 $t$。求窗口内恰有 $k$ 个本底计数的概率、至少一个计数的概率，以及“观测到不小于 $n_\mathrm{obs}$ 个计数”的右尾概率。
@@ -152,7 +152,7 @@ f_X(x)=\frac{1}{b-a},\qquad a\le x\le b,
 \]
 且
 \[
-E[X]=\frac{a+b}{2},\qquad \operatorname{Var}(X)=\frac{(b-a)^2}{12}.
+E[X]=\frac{a+b}{2},\qquad \V(X)=\frac{(b-a)^2}{12}.
 \]
 若随机点在某一区域 $\Omega$ 上均匀分布，则事件 $A\subseteq \Omega$ 的概率为
 \[
@@ -189,7 +189,7 @@ T\sim \mathrm{Exp}(\lambda),\qquad f_T(t)=\lambda e^{-\lambda t},\quad t>0.
 \]
 其分布函数、均值和方差为
 \[
-P(T\le t)=1-e^{-\lambda t},\qquad E[T]=\frac{1}{\lambda},\qquad \operatorname{Var}(T)=\frac{1}{\lambda^2}.
+P(T\le t)=1-e^{-\lambda t},\qquad E[T]=\frac{1}{\lambda},\qquad \V(T)=\frac{1}{\lambda^2}.
 \]
 
 \textbf{参数化题型 G：}某探测器本底触发满足泊松过程，平均速率为 $\lambda$。求等待下一次本底触发超过 $t$ 的概率。
@@ -297,7 +297,7 @@ L(\lambda)=\prod_{i=1}^n e^{-\lambda}\frac{\lambda^{x_i}}{x_i!},\qquad
 \textbf{七、假设检验：课程范围内的标准语言}
 
 设原假设为 $H_0$，备择假设为 $H_1$，统计量为 $T$。假设检验的核心步骤为：
-\begin{enumerate}[leftmargin=2.2em,itemsep=0.15em,topsep=0.15em]
+\begin{enumerate}
   \item 在 $H_0$ 下求出统计量 $T$ 的分布；
   \item 依据题目给定的显著性水平 $\alpha$ 或给定的拒绝域，计算对应阈值；
   \item 将观测值 $t_{\mathrm{obs}}$ 代入，计算 $p$ 值或判断是否落入拒绝域；
@@ -356,14 +356,14 @@ p\mid k \sim \mathrm{Beta}(\alpha+k,\beta+n-k).
   \item Poisson：$P(X=k)=e^{-\lambda}\lambda^k/k!$；
   \item 指数：$P(T>t)=e^{-\lambda t}$，$E[T]=1/\lambda$；
   \item 正态标准化：$Z=(X-\mu)/\sigma$；
-  \item 方差与协方差：$\operatorname{Var}(X\pm Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\pm 2\operatorname{Cov}(X,Y)$；
+  \item 方差与协方差：$\V(X\pm Y)=\V(X)+\V(Y)\pm 2\cov(X,Y)$；
   \item 误差传播：$\sigma_f^2\approx \sum_i(\partial f/\partial x_i)^2\sigma_i^2$（独立情形）；
   \item Bayes 更新：$p(\theta\mid x)\propto p(\theta)p(x\mid\theta)$。
 \end{itemize}
 
 \textbf{十一、复习建议与做题顺序}
 
-\begin{enumerate}[leftmargin=2.2em,itemsep=0.18em,topsep=0.18em]
+\begin{enumerate}
   \item 先用一到两天把条件概率、全概率、Bayes、随机变量变换、边缘密度与条件密度刷熟；
   \item 再集中复习二项、超几何、Poisson、指数、正态五类最常见分布，做到“看题面能立即识别模型”；
   \item 接着练效率、纯度、显著性、寿命、不确定度传播这几类应用题；

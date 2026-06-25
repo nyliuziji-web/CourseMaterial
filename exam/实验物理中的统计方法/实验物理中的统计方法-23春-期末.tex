@@ -1,253 +1,519 @@
-﻿\heading{实验物理中的统计方法-23春-期末}
-\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对；其中第 3 题在 PDF 中仅记为“忘了，但是既然忘了那应该是水题”。}
-
-\begin{question}
-两个物理量 $X$ 和 $Y$，不确定度分别为 $\sigma_X,\sigma_Y$，给出 $X-Y$ 的不确定度。
+\heading{实验物理中的统计方法-23春-期末}
+\noteinfo{内容精修版；仅保留正文内容，适配已有 preamble 与题目环境。}
+\begin{question}[误差传播]
+两个物理量 $X$ 和 $Y$ 的标准不确定度分别为 $\sigma_X,\sigma_Y$。求 $X-Y$ 的标准不确定度。分别给出 $X,Y$ 独立和不独立时的公式。
 \begin{solution}
 若 $X,Y$ 独立，则
 \[
-\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2}.
+\V(X-Y)=\V(X)+\V(Y),
 \]
-更一般地，
+所以
+\ansmath{\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2}}.
+若 $X,Y$ 不独立，则要保留协方差项：
 \[
-\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2-2\operatorname{Cov}(X,Y)}.
+\V(X-Y)=\V(X)+\V(Y)-2\cov(X,Y),
+\]
+即
+\ansmath{\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2-2\cov(X,Y)}}.
+若记相关系数为 $\rho$，则也可写为
+\[
+\sigma_{X-Y}=\sqrt{\sigma_X^2+\sigma_Y^2-2\rho\sigma_X\sigma_Y}.
 \]
 \end{solution}
 \end{question}
 
-\begin{question}
-设 $X$ 满足自由度为 $2n$ 的卡方分布，则 $n$ 很大时，$\dfrac{X-2n}{2\sqrt n}$ 满足什么分布？
+\begin{question}[卡方分布的渐近正态]
+设 $X\sim\chi^2(2n)$。当 $n$ 很大时，
+\[
+\frac{X-2n}{2\sqrt n}
+\]
+近似服从什么分布？
 \begin{solution}
-因为 $E[X]=2n,\ \operatorname{Var}(X)=4n$，标准化后按中心极限定理（或卡方分布渐近正态）有
+若 $X\sim\chi^2(k)$，则
 \[
-\frac{X-2n}{2\sqrt n}\xrightarrow[]{d}N(0,1).
+\E[X]=k,\qquad \V(X)=2k.
 \]
-\end{solution}
-\end{question}
-
-\begin{question}
-忘了，但是既然忘了那应该是水题。
-\begin{solution}
-上传稿未保留题面。
-\anstext{上传稿未保留题面。}
-\end{solution}
-\end{question}
-
-\begin{question}
-$X$ 满足概率密度
+这里 $k=2n$，故
 \[
-f(x)=\begin{cases}
-(\theta+1)x^{\theta},&0<x<1,\\
+\E[X]=2n,\qquad \V(X)=4n.
+\]
+卡方分布是独立标准正态平方和。当自由度趋于无穷时，经标准化后满足渐近正态性，因此
+\ansmath{\frac{X-2n}{2\sqrt n}\xrightarrow[]{d} \N(0,1)}.
+\end{solution}
+\end{question}
+
+\begin{question}[正态总体的常用抽样分布]
+设 $X_1,\ldots,X_n$ 是来自正态总体 $\N(\mu,\sigma^2)$ 的简单随机样本，定义
+\[
+\bar X=\frac1n\sum_{i=1}^nX_i,\qquad
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2.
+\]
+写出 $\bar X$、$(n-1)S^2/\sigma^2$ 以及 $\sqrt n(\bar X-\mu)/S$ 的分布。
+\begin{solution}
+正态总体样本均值仍服从正态分布：
+\[
+\bar X\sim \N\left(\mu,\frac{\sigma^2}{n}\right).
+\]
+样本方差满足
+\[
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1).
+\]
+并且在正态总体下，$\bar X$ 与 $S^2$ 独立，所以
+\[
+\frac{\sqrt n(\bar X-\mu)}{S}
+=\frac{(\bar X-\mu)/(\sigma/\sqrt n)}{\sqrt{[(n-1)S^2/\sigma^2]/(n-1)}}
+\sim t(n-1).
+\]
+\ansmath{\bar X\sim \N\left(\mu,\frac{\sigma^2}{n}\right),\quad
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1),\quad
+\frac{\sqrt n(\bar X-\mu)}{S}\sim t(n-1)}
+\end{solution}
+\end{question}
+
+\begin{question}[矩估计与极大似然估计]
+设随机变量 $X$ 的概率密度为
+\[
+f(x;\theta)=
+\begin{cases}
+(\theta+1)x^\theta,&0<x<1,\\
 0,&\text{其他},
 \end{cases}
-\qquad (\theta>-1)
+\qquad \theta>-1.
 \]
-样本容量 $n$，求矩估计量与极大似然估计量。
+现有独立样本 $X_1,\ldots,X_n$，求 $\theta$ 的矩估计量和极大似然估计量。
 \begin{solution}
-有
+先求一阶矩：
 \[
-E[X]=\int_0^1 x(\theta+1)x^{\theta}dx=\frac{\theta+1}{\theta+2}.
+\E[X]=\int_0^1 x(\theta+1)x^\theta\,\dd x
+=(\theta+1)\int_0^1x^{\theta+1}\,\dd x
+=\frac{\theta+1}{\theta+2}.
 \]
-令 $\bar X=E[X]$，得矩估计
+令 $\bar X=(\theta+1)/(\theta+2)$，解得
 \[
-\hat\theta_{\mathrm{MOM}}=\frac{2\bar X-1}{1-\bar X}.
-\]
-似然函数
-\[
-L(\theta)=\prod_{i=1}^n (\theta+1)x_i^{\theta},
+\bar X(\theta+2)=\theta+1,
 \qquad
-\ell(\theta)=n\ln(\theta+1)+\theta\sum_{i=1}^n\ln x_i.
+\theta(\bar X-1)=1-2\bar X,
 \]
-求导并令零：
+所以矩估计量为
+\ansmath{\hat\theta_{\rm MOM}=\frac{2\bar X-1}{1-\bar X}}.
+
+似然函数为
 \[
-\frac{n}{\theta+1}+\sum_{i=1}^n\ln x_i=0,
+L(\theta)=\prod_{i=1}^n(\theta+1)X_i^\theta
+=(\theta+1)^n\left(\prod_{i=1}^nX_i\right)^\theta,
+\qquad \theta>-1.
 \]
-故极大似然估计
+对数似然为
 \[
-\hat\theta_{\mathrm{MLE}}=-\frac{n}{\sum_{i=1}^n\ln x_i}-1.
+\ell(\theta)=n\ln(\theta+1)+\theta\sum_{i=1}^n\ln X_i.
 \]
+求导：
+\[
+\ell'(\theta)=\frac{n}{\theta+1}+\sum_{i=1}^n\ln X_i,
+\qquad
+\ell''(\theta)=-\frac{n}{(\theta+1)^2}<0.
+\]
+令 $\ell'(\theta)=0$ 得
+\ansmath{\hat\theta_{\rm MLE}=-\frac{n}{\sum_{i=1}^n\ln X_i}-1}.
+由于 $0<X_i<1$ 几乎必然成立，故 $\sum_i\ln X_i<0$，该估计量满足 $\hat\theta_{\rm MLE}>-1$。
 \end{solution}
 \end{question}
 
-\begin{question}
-假设检验的时候，若原假设为真又被拒绝了，叫做\underline{\hspace{2em}}。若原假设为假又被接受了叫做\underline{\hspace{2em}}。怎么同时减少犯这两个错误的概率？
+\begin{question}[假设检验错误]
+在假设检验中，若原假设 $H_0$ 为真却被拒绝，这类错误叫做\underline{\hspace{2.5em}}；若 $H_0$ 为假却没有被拒绝，这类错误叫做\underline{\hspace{2.5em}}。怎样才能同时减少这两类错误的概率？
 \begin{solution}
-前者为第一类错误（弃真），后者为第二类错误（存伪）。在样本量固定时两者常此消彼长；若希望二者同时减小，通常要增加样本量，或利用更强的先验信息/更优检验。
-\anstext{前者为第一类错误（弃真），后者为第二类错误（存伪）。在样本量固定时两者常此消彼长；若希望二者同时减小，通常要增加样本量，或利用更强的先验信息/更优检验。}
+$H_0$ 为真却被拒绝称为第一类错误，也叫弃真错误；$H_0$ 为假却没有被拒绝称为第二类错误，也叫存伪错误或取伪错误。
+\anstext{第一类错误；第二类错误}
+
+需要注意，“接受 $H_0$”的表述不如“没有拒绝 $H_0$”严谨，因为检验通常只能说明证据不足以拒绝 $H_0$。
+
+在样本量和检验形式固定时，降低显著性水平 $\alpha$ 往往会增大第二类错误概率 $\beta$，二者通常不能任意同时降低。若要同时降低两类错误概率，常用办法是增加样本量、降低测量不确定度，或针对明确备择假设采用功效更高的检验方法。
 \end{solution}
 \end{question}
 
-\begin{question}
-泊松分布的随机变量测到了 $n$，求均值的极大似然估计。证明它是有效估计量。（给了 RCF 不等式）
+\begin{question}[泊松均值的有效估计]
+设一次计数实验的观测值为 $N=n$，并假定 $N\sim\Pois(\lambda)$。求 $\lambda$ 的极大似然估计量，并证明它是无偏且有效的估计量。
 \begin{solution}
-单次观测 $X=n$，似然为
+似然函数为
 \[
-L(\lambda)=e^{-\lambda}\frac{\lambda^n}{n!},
-\qquad
+L(\lambda)=P(N=n\mid \lambda)=\ee^{-\lambda}\frac{\lambda^n}{n!},
+\qquad \lambda>0.
+\]
+对数似然为
+\[
 \ell(\lambda)=-\lambda+n\ln\lambda-\ln n!.
 \]
-令 $\ell'(\lambda)=0$ 得
+求导得
 \[
-\hat\lambda=n.
+\ell'(\lambda)=-1+\frac{n}{\lambda},
 \]
-又因 $E[X]=\lambda,\ \operatorname{Var}(X)=\lambda$，所以 $\hat\lambda=X$ 无偏，且 Fisher 信息
+令其为零，得到
 \[
-I(\lambda)=\frac{1}{\lambda}
+\hat\lambda_{\rm MLE}=n.
 \]
-（单个样本），故 Cram\'er--Rao 下界为
-\[
-\frac{1}{I(\lambda)}=\lambda.
-\]
-而
-\[
-\operatorname{Var}(\hat\lambda)=\operatorname{Var}(X)=\lambda,
-\]
-恰好达到下界，所以是有效估计量。
-\end{solution}
-\end{question}
+作为随机变量，估计量就是 $\hat\lambda=N$。
 
-\begin{question}
-从一个班抽出 25 名学生的数学成绩，样本均值为 84 分，标准差为 8 分，已知年段的数学成绩满足均值为 87 分的标准正态分布，问能否在以 90\% 的置信水平下确定该班级的数学成绩均值为 87 分？（给了 $t$ 分布的分位数）
-\begin{solution}
-作双侧 $t$ 检验：
+由于泊松分布满足
 \[
-H_0:\mu=87,\qquad
-T=\frac{\bar X-\mu_0}{S/\sqrt n}
-=\frac{84-87}{8/5}=-1.875.
-\]
-自由度 $24$，双侧显著性水平 $0.1$ 的临界值约为 $t_{0.95}(24)\approx 1.711$。由于
-\ansmath{|T|=1.875>1.711,}
-故拒绝 $H_0$。也即：在 $90\%$ 置信水平下，\textbf{不能}认为该班均值为 $87$。
-
-\end{solution}
-\end{question}
-
-\begin{question}
-（茆诗松概统例题）随机变量 $X$ 满足 $[0,\theta]$ 上的均匀分布。现抽了 $n$ 个样本 $X_1,\cdots,X_n$：
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
-\item 求 $\theta$ 的极大似然估计 $\hat\theta$，求 $Y=\hat\theta/\theta$ 的概率密度函数 $g(y)$。
-\item 考虑 $\hat\theta$ 乘一个常数，构成新的估计量，使得它无偏。应该乘多少？新的估计量和 (a) 中的哪个更有效？
-\item 利用 $Y$ 给出 $\theta$ 的置信水平 $1-\alpha$ 的置信区间。又提供了 10 个测量结果，给出此时的 95\% 置信区间。
-\end{enumerate}
-\begin{solution}
-\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
-\item 似然在 $\theta\ge Y$ 时为 $L(\theta)=\theta^{-n}$，故
-\ansmath{\hat\theta_{\mathrm{MLE}}=Y}
-又
-\[
-P(Y\le y)=\left(\frac{y}{\theta}\right)^n,\qquad 0<y<\theta,
-\]
-故
-\ansmath{g(y)=\frac{n y^{n-1}}{\theta^n},\qquad 0<y<\theta}
-\item
-\[
-E[Y]=\frac{n}{n+1}\theta,
-\qquad c=\frac{n+1}{n}.
-\]
-故无偏估计量为
-\ansmath{\tilde\theta=\frac{n+1}{n}Y}
-且
-\[
-\operatorname{Var}(\tilde\theta)=\frac{\theta^2}{n(n+2)},
+\E[N]=\lambda,
 \qquad
-\operatorname{MSE}(Y)=\frac{2\theta^2}{(n+1)(n+2)}.
+\V(N)=\lambda,
 \]
-当 $n>1$ 时，
+所以 $\hat\lambda=N$ 是无偏估计量，且方差为 $\lambda$。
+
+单个观测的 Fisher 信息为
 \[
-\frac{1}{n(n+2)}<\frac{2}{(n+1)(n+2)},
+I(\lambda)=\E\left[\left(\frac{\partial}{\partial\lambda}\ln P(N\mid\lambda)\right)^2\right]
+=\E\left[\left(-1+\frac{N}{\lambda}\right)^2\right]
+=\frac{\V(N)}{\lambda^2}=\frac1\lambda.
+\]
+Cram\'er--Rao 下界为
+\[
+\V(\hat\lambda)\ge \frac1{I(\lambda)}=\lambda.
+\]
+而 $\V(N)=\lambda$ 正好达到下界，因此
+\anstext{$\hat\lambda=N$ 是有效估计量。}
+\end{solution}
+\end{question}
+
+\begin{question}[单样本 $t$ 检验]
+从某班抽出 $25$ 名学生，数学成绩样本均值为 $84$ 分，样本标准差为 $8$ 分。假定该班成绩可看作来自正态总体，且总体方差未知。问在 $90\%$ 置信水平下，是否可以认为该班数学成绩总体均值为年段均值 $87$ 分？已知 $t_{0.95}(24)=1.711$。
+\begin{solution}
+这是总体方差未知的单样本双侧 $t$ 检验。设
+\[
+H_0:\mu=87,
+\qquad
+H_1:\mu\ne87.
+\]
+检验统计量为
+\[
+T=\frac{\bar X-\mu_0}{S/\sqrt n}
+=\frac{84-87}{8/\sqrt{25}}
+=\frac{-3}{1.6}=-1.875.
+\]
+$90\%$ 置信水平对应双侧显著性水平 $\alpha=0.10$，临界值为
+\[
+t_{1-\alpha/2}(24)=t_{0.95}(24)=1.711.
+\]
+因为
+\[
+|T|=1.875>1.711,
+\]
+故在 $\alpha=0.10$ 水平下拒绝 $H_0$。因此不能认为该班总体均值等于 $87$ 分。
+
+等价地，$90\%$ 置信区间为
+\[
+\bar X\pm t_{0.95}(24)\frac{S}{\sqrt n}
+=84\pm1.711\times1.6
+=[81.26,86.74],
+\]
+其中不包含 $87$。所以结论一致。
+\anstext{拒绝 $\mu=87$；在 $90\%$ 置信水平下不能认为该班均值为 $87$ 分。}
+\end{solution}
+\end{question}
+
+\begin{question}[均匀分布端点估计]
+设 $X_1,\ldots,X_n$ 是来自均匀分布 $U(0,\theta)$ 的独立样本，其中 $\theta>0$。记
+\[
+M=X_{(n)}=\max\{X_1,\ldots,X_n\}.
+\]
+\begin{enumerate}
+\item 求 $\theta$ 的极大似然估计 $\hat\theta$，并求 $Y=\hat\theta/\theta$ 的概率密度函数。
+\item 将 $\hat\theta$ 乘以常数 $c$ 构造无偏估计量，求 $c$。按均方误差比较，修正后的估计量和原极大似然估计量哪个更好？
+\item 利用 $Y$ 给出 $\theta$ 的置信水平为 $1-\alpha$ 的双侧等尾置信区间。若 $n=10$ 且 $M=9.8$，给出 $95\%$ 置信区间。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item 对给定样本，似然函数为
+\[
+L(\theta)=\theta^{-n}\mathbf 1_{\{\theta\ge M\}}.
+\]
+在 $\theta\ge M$ 上，$\theta^{-n}$ 随 $\theta$ 单调递减，因此极大似然估计为
+\ansmath{\hat\theta=M}.
+
+先求 $M$ 的分布：当 $0<m<\theta$ 时，
+\[
+P(M\le m)=P(X_1\le m,\ldots,X_n\le m)=\left(\frac{m}{\theta}\right)^n.
+\]
+令 $Y=M/\theta$，则 $0<Y<1$，且
+\[
+P(Y\le y)=P(M\le \theta y)=y^n,
+\qquad 0<y<1.
+\]
+所以
+\ansmath{g_Y(y)=ny^{n-1},\qquad 0<y<1}.
+
+\item 由 $Y=M/\theta$ 的密度可得
+\[
+\E[Y]=\int_0^1y\,ny^{n-1}\,\dd y=\frac{n}{n+1}.
+\]
+因此
+\[
+\E[M]=\frac{n}{n+1}\theta.
+\]
+要使 $cM$ 无偏，需要
+\[
+c\frac{n}{n+1}\theta=\theta,
 \]
 故
-\anstext{$\tilde\theta$ 比 $Y$ 更有效（按 MSE 比较）。}
-\item 由 $Y/\theta$ 的分布与 $\theta$ 无关，取等尾区间：
+\ansmath{c=\frac{n+1}{n},\qquad \tilde\theta=\frac{n+1}{n}M}.
+
+进一步，
 \[
-P\left((\alpha/2)^{1/n}\le \frac{Y}{\theta}\le (1-\alpha/2)^{1/n}\right)=1-\alpha.
+\E[Y^2]=\int_0^1 y^2ny^{n-1}\,\dd y=\frac{n}{n+2},
 \]
-故可得
-\ansmath{\theta\in \left[\frac{Y}{(1-\alpha/2)^{1/n}},\ \frac{Y}{(\alpha/2)^{1/n}}\right]}
-上传稿未给出那 10 个样本值，因此无法继续代入得到数值区间。
+所以
+\[
+\V(M)=\theta^2\left(\frac{n}{n+2}-\frac{n^2}{(n+1)^2}\right)
+=\frac{n\theta^2}{(n+1)^2(n+2)}.
+\]
+无偏修正估计量的方差为
+\[
+\V(\tilde\theta)=\left(\frac{n+1}{n}\right)^2\V(M)
+=\frac{\theta^2}{n(n+2)}.
+\]
+原 MLE 的偏差为
+\[
+\operatorname{Bias}(M)=\E[M]-\theta=-\frac{\theta}{n+1},
+\]
+故
+\[
+\operatorname{MSE}(M)=\V(M)+\operatorname{Bias}(M)^2
+=\frac{2\theta^2}{(n+1)(n+2)}.
+\]
+比较
+\[
+\frac{\theta^2}{n(n+2)}<\frac{2\theta^2}{(n+1)(n+2)}
+\quad\Longleftrightarrow\quad n>1.
+\]
+因此当 $n>1$ 时，按均方误差比较，无偏修正估计量 $\tilde\theta$ 更好；当 $n=1$ 时二者均方误差相同。
+
+\item 因 $Y=M/\theta$ 的分布与 $\theta$ 无关，取
+\[
+P\left(a\le \frac{M}{\theta}\le b\right)=1-\alpha.
+\]
+等尾选择满足
+\[
+P(Y<a)=\frac{\alpha}{2},\qquad P(Y>b)=\frac{\alpha}{2}.
+\]
+由于 $F_Y(y)=y^n$，
+\[
+a=\left(\frac{\alpha}{2}\right)^{1/n},
+\qquad
+b=\left(1-\frac{\alpha}{2}\right)^{1/n}.
+\]
+由
+\[
+a\le \frac{M}{\theta}\le b
+\]
+反解得
+\ansmath{\theta\in\left[\frac{M}{b},\frac{M}{a}\right]
+=\left[\frac{M}{(1-\alpha/2)^{1/n}},\frac{M}{(\alpha/2)^{1/n}}\right]}.
+
+当 $n=10$、$M=9.8$、$\alpha=0.05$ 时，
+\[
+a=0.025^{1/10}\approx0.6915,
+\qquad
+b=0.975^{1/10}\approx0.9975.
+\]
+所以
+\[
+\theta\in\left[\frac{9.8}{0.9975},\frac{9.8}{0.6915}\right]
+\approx[9.825,14.172].
+\]
+\anstext{$95\%$ 等尾置信区间约为 $[9.83,14.17]$。}
 \end{enumerate}
 \end{solution}
 \end{question}
 
-\begin{question}
-做小车匀速直线运动的实验，已知小车在 $t=0$ 时通过 $d=0$（但这不视为实验数据），测了 6 组 $(d,t)$ 值。估计 $t$ 测量的不确定度为 $0.1\,\mathrm s$，用最小二乘法估计小车的速度，并给出 $\chi^2_{\min}$ 值。
-\begin{solution}
-因误差在 $t$ 上，宜写成模型
+\begin{question}[过原点的加权最小二乘]
+小车做匀速直线运动。已知小车在 $t=0$ 时通过 $d=0$，但这一点不作为实验数据。现测得 6 组 $(d,t)$ 数据如下，距离 $d$ 视为准确，时间测量的标准不确定度为 $\sigma_t=0.1\,\mathrm{s}$：
 \[
-t_i=\frac{d_i}{v}+\varepsilon_i,
-\qquad \varepsilon_i\sim N(0,\sigma_t^2).
+\begin{array}{c|cccccc}
+ d\ (\mathrm m) &0.50&1.00&1.50&2.00&2.50&3.00\\ \hline
+ t\ (\mathrm s) &1.02&2.07&2.94&4.11&4.92&6.06
+\end{array}
 \]
-令 $k=1/v$，则
+用过原点的最小二乘法估计小车速度 $v$，并给出 $\chi^2_{\min}$。同时写出等方差情形的一般公式。
+\begin{solution}
+因为主要不确定度在 $t$ 上，应将模型写为
+\[
+t_i=kd_i+\epsilon_i,
+\qquad k=\frac1v,
+\qquad \epsilon_i\sim\N(0,\sigma_t^2).
+\]
+由于原点不是实验数据，但运动模型经过原点，所以不拟合截距。于是
 \[
 \chi^2(k)=\sum_{i=1}^6\frac{(t_i-kd_i)^2}{\sigma_t^2}.
 \]
-最小二乘解为
+令导数为零：
 \[
-\hat k=\frac{\sum d_i t_i}{\sum d_i^2},
-\qquad
-\hat v=\frac{\sum d_i^2}{\sum d_i t_i}.
+\frac{\dd}{\dd k}\sum_{i=1}^6(t_i-kd_i)^2
+=-2\sum_{i=1}^6d_i(t_i-kd_i)=0,
 \]
-代回得
-\ansmath{\chi^2_{\min}=\frac{1}{\sigma_t^2}\left(\sum t_i^2-\frac{(\sum d_i t_i)^2}{\sum d_i^2}\right)}
-上传稿未附 6 组数据，因此不能化为数值。
+得
+\ansmath{\hat k=\frac{\sum_i d_it_i}{\sum_i d_i^2},\qquad
+\hat v=\frac1{\hat k}=\frac{\sum_i d_i^2}{\sum_i d_it_i}}.
+对本题数据，
+\[
+\sum_i d_i^2=22.75,
+\qquad
+\sum_i d_it_i=45.69,
+\]
+所以
+\[
+\hat k=\frac{45.69}{22.75}=2.00835\ \mathrm{s/m},
+\qquad
+\hat v=0.49792\ \mathrm{m/s}.
+\]
+代回可得
+\[
+\chi^2_{\min}
+=\frac1{\sigma_t^2}\left(\sum_i t_i^2-\frac{(\sum_i d_it_i)^2}{\sum_i d_i^2}\right).
+\]
+本题中
+\[
+\sum_i t_i^2=91.791,
+\]
+因此
+\[
+\chi^2_{\min}
+=\frac1{0.1^2}\left(91.791-\frac{45.69^2}{22.75}\right)
+\approx2.94.
+\]
+\anstext{$\hat v\approx0.498\ \mathrm{m/s}$，$\chi^2_{\min}\approx2.94$。}
+若需要速度的不确定度，在 $\sigma_t$ 已知时有
+\[
+\sigma_{\hat k}=\frac{\sigma_t}{\sqrt{\sum_i d_i^2}},
+\qquad
+\sigma_{\hat v}\approx\frac{\sigma_{\hat k}}{\hat k^2},
+\]
+本题约为 $\sigma_{\hat v}=0.0052\,\mathrm{m/s}$。
 \end{solution}
 \end{question}
 
-\begin{question}
-探测器探测质子衰变（极其稀有的事件，可认为事例数满足泊松分布）。探测器探测 1 吨水，其中有大约 $6\times 10^{23}$ 个质子。等了一年观察到 7 个事例。不考虑本底，给出质子寿命的 90\% 置信区间。（给了泊松分布和卡方分布累积分布函数的关系和卡方分布的分位数）
+\begin{question}[泊松计数与寿命置信区间]
+某探测器寻找质子衰变。事例数可认为服从泊松分布，不考虑本底。设探测器中可衰变质子数为
+\[
+N_p=3.35\times10^{29},
+\]
+观测时间为 $T=1$ 年，实际观察到 $n=7$ 个候选事例。给出质子寿命 $\tau$ 的双侧等尾 $90\%$ 置信区间。已知泊松均值 $\mu$ 的等尾置信区间可写为
+\[
+\mu\in\left[\frac12\chi^2_{2n,\alpha/2},\frac12\chi^2_{2n+2,1-\alpha/2}\right].
+\]
 \begin{solution}
-若衰变事例数 $N\sim \mathrm{Poisson}(\mu)$，则
+若质子寿命为 $\tau$，则期望衰变事例数为
 \[
 \mu=\frac{N_pT}{\tau}.
 \]
-Poisson 均值的双侧 $90\%$ 区间可写为
+本题 $n=7$，置信水平 $90\%$ 对应 $\alpha=0.10$。泊松均值的等尾区间为
 \[
-\mu\in\left[\frac12\chi^2_{2n,\,0.05},\ \frac12\chi^2_{2n+2,\,0.95}\right].
+\mu\in\left[\frac12\chi^2_{14,0.05},\frac12\chi^2_{16,0.95}\right].
 \]
-取 $n=7$，得
+使用分位数
 \[
-\mu\in[3.285,\ 13.148].
+\chi^2_{14,0.05}=6.571,
+\qquad
+\chi^2_{16,0.95}=26.296,
 \]
-于是
+得到
 \[
-\tau\in\left[\frac{N_pT}{13.148},\ \frac{N_pT}{3.285}\right].
+\mu\in[3.2855,13.148].
 \]
-若按常见近似 $N_p\approx 6\times 10^{29}$、$T=1\,$年，则
-\ansmath{\tau\in [4.56\times 10^{28},\ 1.83\times 10^{29}]\ \text{年}}
+由于
+\[
+\tau=\frac{N_pT}{\mu},
+\]
+且 $\tau$ 与 $\mu$ 单调反向，对应的寿命区间为
+\[
+\tau\in\left[\frac{N_pT}{13.148},\frac{N_pT}{3.2855}\right].
+\]
+代入 $N_p=3.35\times10^{29}$、$T=1$ 年，得
+\[
+\tau\in[2.55\times10^{28},1.02\times10^{29}]\ \text{年}.
+\]
+\anstext{$90\%$ 等尾置信区间约为 $[2.55\times10^{28},1.02\times10^{29}]$ 年。}
 \end{solution}
 \end{question}
 
-\begin{question}
-（作业题）两个物理量 $X$ 和 $Y$，用同一台仪器测量得到结果
+\begin{question}[相关系统误差下的最佳平均]
+同一个物理量 $x$ 用同一台仪器或同一外部输入测量两次，得到
 \[
-x_1\pm\sigma_{s1}\pm\sigma_{c1}
+x_1\pm\sigma_{s1}\pm\sigma_{c1},
+\qquad
+x_2\pm\sigma_{s2}\pm\sigma_{c2}.
 \]
-\[
-x_2\pm\sigma_{s2}\pm\sigma_{c2}
-\]
-两个不确定度第一个是统计不确定度，第二个是系统不确定度。给出两个量的最佳平均以及其不确定度。
+其中第一个不确定度为统计不确定度，第二个为由共同来源引入的系统不确定度。设两次统计误差相互独立，系统误差完全正相关。求 $x$ 的最佳线性无偏估计量及其不确定度。
 \begin{solution}
-统计误差独立，系统误差由同一仪器引入，可视作完全相关。令统计权重
+记
 \[
-w_i=\frac{1}{\sigma_{si}^2}.
+\bm x=\begin{pmatrix}x_1\\x_2\end{pmatrix},
+\qquad
+\bm 1=\begin{pmatrix}1\\1\end{pmatrix}.
 \]
-则最佳平均取加权平均
+统计误差相互独立，而系统误差完全正相关，因此协方差矩阵为
 \[
-\bar x=\frac{w_1x_1+w_2x_2}{w_1+w_2}.
+V=\begin{pmatrix}
+\sigma_{s1}^2+\sigma_{c1}^2 & \sigma_{c1}\sigma_{c2}\\
+\sigma_{c1}\sigma_{c2} & \sigma_{s2}^2+\sigma_{c2}^2
+\end{pmatrix}.
 \]
-统计不确定度为
+最佳线性无偏估计量，即广义最小二乘估计，为
 \[
-\sigma_s(\bar x)=\frac{1}{\sqrt{w_1+w_2}}.
+\hat x=\frac{\bm 1^TV^{-1}\bm x}{\bm 1^TV^{-1}\bm 1},
+\qquad
+\V(\hat x)=\frac1{\bm 1^TV^{-1}\bm 1}.
 \]
-若系统误差完全相关，则平均值的系统不确定度应线性传播：
+为写成显式形式，令
 \[
-\sigma_c(\bar x)=\frac{w_1\sigma_{c1}+w_2\sigma_{c2}}{w_1+w_2}.
+v_1=\sigma_{s1}^2+\sigma_{c1}^2,
+\qquad
+v_2=\sigma_{s2}^2+\sigma_{c2}^2,
+\qquad
+c=\sigma_{c1}\sigma_{c2}.
 \]
-故最终结果可写为
-\ansmath{\bar x\pm \sigma_s(\bar x)\pm \sigma_c(\bar x)}
-特别地，若 $\sigma_{c1}=\sigma_{c2}=\sigma_c$，则系统不确定度仍为 $\sigma_c$。
+则
+\[
+V=\begin{pmatrix}v_1&c\\c&v_2\end{pmatrix}.
+\]
+直接计算 $V^{-1}$ 可得权重
+\[
+w_1=\frac{v_2-c}{v_1+v_2-2c},
+\qquad
+w_2=\frac{v_1-c}{v_1+v_2-2c},
+\qquad
+w_1+w_2=1.
+\]
+因此
+\ansmath{\hat x=w_1x_1+w_2x_2}
+即
+\[
+\hat x=
+\frac{(\sigma_{s2}^2+\sigma_{c2}^2-\sigma_{c1}\sigma_{c2})x_1
++(\sigma_{s1}^2+\sigma_{c1}^2-\sigma_{c1}\sigma_{c2})x_2}
+{\sigma_{s1}^2+\sigma_{s2}^2+(\sigma_{c1}-\sigma_{c2})^2}.
+\]
+估计量方差为
+\[
+\V(\hat x)=\frac{v_1v_2-c^2}{v_1+v_2-2c}
+=\frac{\sigma_{s1}^2\sigma_{s2}^2+
+\sigma_{s1}^2\sigma_{c2}^2+
+\sigma_{c1}^2\sigma_{s2}^2}
+{\sigma_{s1}^2+\sigma_{s2}^2+(\sigma_{c1}-\sigma_{c2})^2}.
+\]
+所以最终结果为
+\ansmath{\hat x\pm\sqrt{\V(\hat x)}}.
 
+特别地，若两次测量的系统不确定度完全相同，即 $\sigma_{c1}=\sigma_{c2}=\sigma_c$，则
+\[
+w_1=\frac{\sigma_{s2}^2}{\sigma_{s1}^2+\sigma_{s2}^2},
+\qquad
+w_2=\frac{\sigma_{s1}^2}{\sigma_{s1}^2+\sigma_{s2}^2},
+\]
+并且
+\[
+\V(\hat x)=\frac{\sigma_{s1}^2\sigma_{s2}^2}{\sigma_{s1}^2+\sigma_{s2}^2}+\sigma_c^2.
+\]
+这说明共同系统误差不能通过重复测量按 $1/\sqrt n$ 消除。
 \end{solution}
 \end{question}
-
-

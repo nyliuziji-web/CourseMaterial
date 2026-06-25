@@ -1,7 +1,4 @@
-﻿\heading{实验物理中的统计方法-最大似然法}
-
-
-
+﻿\heading{实验物理中的统计方法-第6章 最大似然法}
 
 
 \begin{question}
@@ -118,7 +115,6 @@ I(\theta)=
 \end{question}
 
 
-
 \begin{question}
 考虑某二项分布变量，即 \(N\) 次试验中成功的次数
 \(n\)，单个实验试验成功的概率为 \(p\)。如果只进行一次观测得到
@@ -162,7 +158,6 @@ V[\hat p]=\frac{V[n]}{N^2}=\frac{Np(1-p)}{N^2}=\frac{p(1-p)}{N}.
 \(p(1-p)/N\)，刚好达到下界，因此 \(\hat p\) 是有效估计量。
 \end{solution}
 \end{question}
-
 
 
 \begin{question}
@@ -225,7 +220,6 @@ N\gtrsim9\times10^6.
 \end{question}
 
 
-
 \begin{question}
 考虑泊松变量的单次观测值 \(n\)。均值 \(\nu\)
 的最大似然估计量为多少？证明该估计量是无偏的并求其方差。证明 \(\hat\nu\)
@@ -263,7 +257,6 @@ V[\hat\nu]=V[n_0]=\nu.
 \(\nu\)，等于估计量方差，因此它也是有效估计量。
 \end{solution}
 \end{question}
-
 
 
 \begin{question}
@@ -333,7 +326,6 @@ V[\hat\alpha]\approx\frac{1-\alpha^2}{\nu_{\rm tot}},
 也就是说需要约 \(10^{10}\) 个散射事例量级。
 \end{solution}
 \end{question}
-
 
 
 \begin{question}
@@ -478,7 +470,6 @@ V[\hat\theta]
 \end{question}
 
 
-
 \begin{question}
 写一段程序，根据指数分布
 
@@ -573,7 +564,6 @@ b(n=100)=0.01010.
 \end{question}
 
 
-
 \begin{question}
 日内瓦的出租车牌照号是从 1 一直到总数目 \(N_{\rm taxi}\)。对牌照的 \(N\)
 次观测得到观测数字 \(n_1,\ldots,n_N\)。
@@ -626,7 +616,6 @@ V[\hat N]=\frac{(N_{\mathrm{taxi}}-N)(N_{\mathrm{taxi}}+1)}{N(N+2)}.
 \end{enumerate}
 \end{solution}
 \end{question}
-
 
 
 \begin{question}
@@ -691,7 +680,6 @@ I(\theta)=\frac{\sum_i a_i}{\theta},
 故 CRLB 为 \(\theta/\sum_i a_i\)，恰好达到下界。
 \end{solution}
 \end{question}
-
 
 
 \begin{question}
@@ -776,7 +764,6 @@ C=\frac{G^2M}{\pi}.
 \end{question}
 
 
-
 \begin{question}
 确定阿伏伽德罗常数的最早实验之一是基于布朗运动，实验装置如图 6.1
 所示。Jean Perrin 用该装置观测悬浮在水中的乳香（一种抛光材料）颗粒。
@@ -792,17 +779,14 @@ C=\frac{G^2M}{\pi}.
 \(z\) 处的粒子数 \(n(z)\)。数据如表 6.1 所示。
 
 {% do not increment counter
-\begin{longtable}[]{@{}rr@{}}
+\begin{longtable}[]{@{}lrrrr@{}}
 \toprule\noalign{}
-高度 \(z\,(\mu\mathrm{m})\) & 粒子数 \(n\) \\
+\(z\) \((\mu\mathrm{m})\) & 0 & 6 & 12 & 18 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0 & 1880 \\
-6 & 940 \\
-12 & 530 \\
-18 & 305 \\
+粒子数 \(n\) & 1880 & 940 & 530 & 305 \\
 \end{longtable}
 }
 

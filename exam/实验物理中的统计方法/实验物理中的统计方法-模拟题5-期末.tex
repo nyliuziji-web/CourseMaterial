@@ -1,0 +1,413 @@
+\heading{实验物理中的统计方法-模拟题5-期末}
+
+\begin{question}[判断题]
+设 $X_1,\ldots,X_n$ 是来自均值为 $\mu$、方差为 $\sigma^2$ 的任意总体的简单随机样本。令
+\[
+T=\frac{\sqrt n(\bar X-\mu)}{S},\qquad
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2.
+\]
+则对任意有限方差总体，$T$ 都精确服从自由度为 $n-1$ 的 $t$ 分布。
+\begin{solution}
+命题错误。$T\sim t(n-1)$ 的精确结论依赖于总体正态性；若只假定有限方差，一般只能在较弱条件下由中心极限定理得到近似正态结论，不能得到精确 $t$ 分布。
+\anstext{错误}
+\end{solution}
+\end{question}
+
+\begin{question}[判断题]
+若估计量 $\hat\theta$ 是无偏估计，且对所有参数值均达到 Cram\'er--Rao 下界，则它是有效估计量；但最大似然估计量不一定在有限样本下无偏。
+\begin{solution}
+第一句是有效估计量的常见定义之一。第二句也正确，例如正态总体方差的 MLE 为
+\[
+\hat\sigma^2_{\rm MLE}=\frac1n\sum_{i=1}^n(X_i-\bar X)^2,
+\]
+其期望为 $(n-1)\sigma^2/n$，有限样本下有偏。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}[填空题]
+设 $\hat\theta_1,\ldots,\hat\theta_m$ 是同一参数 $\theta$ 的无偏估计量，记
+\[
+\hat{\boldsymbol\theta}=(\hat\theta_1,\ldots,\hat\theta_m)^T,
+\qquad
+V=\cov(\hat{\boldsymbol\theta})
+\]
+且 $V$ 正定。在线性无偏估计量 $\tilde\theta=\sum_{i=1}^m w_i\hat\theta_i$、$\sum_iw_i=1$ 中，方差最小的权重为
+\[
+\boldsymbol w=\blank[5.5cm],\qquad
+\Var(\tilde\theta)=\blank[5.5cm].
+\]
+\begin{solution}
+用拉格朗日乘子最小化 $\boldsymbol w^TV\boldsymbol w$，约束为 $\mathbf1^T\boldsymbol w=1$。令
+\[
+2V\boldsymbol w-\lambda\mathbf1=0,
+\]
+可得 $\boldsymbol w\propto V^{-1}\mathbf1$。归一化后
+\[
+\boldsymbol w=\frac{V^{-1}\mathbf1}{\mathbf1^TV^{-1}\mathbf1}.
+\]
+因此
+\[
+\Var(\tilde\theta)=\boldsymbol w^TV\boldsymbol w
+=\frac1{\mathbf1^TV^{-1}\mathbf1}.
+\]
+\ansmath{\boldsymbol w=\dfrac{V^{-1}\mathbf1}{\mathbf1^TV^{-1}\mathbf1},\qquad
+\Var(\tilde\theta)=\dfrac1{\mathbf1^TV^{-1}\mathbf1}}
+\end{solution}
+\end{question}
+
+\begin{question}
+某暗物质实验的零假设为"只有本底"，本底期望为 $b=4.2$ 个事件。若观测到 $n_{\rm obs}=9$ 个事件，采用右尾检验，求局部 $p$ 值，并给出等效的单边高斯显著性 $Z$。
+\begin{solution}
+在零假设下 $N\sim\Pois(4.2)$，右尾 $p$ 值为
+\[
+p=P(N\ge 9\mid b=4.2)
+=1-\sum_{n=0}^{8}\frac{4.2^n\ee^{-4.2}}{n!}.
+\]
+数值上
+\[
+p\approx 2.793\times10^{-2}.
+\]
+等效单边高斯显著性定义为 $p=1-\Phi(Z)$，故
+\[
+Z=\Phi^{-1}(1-p)\approx 1.91.
+\]
+\ansmath{p\approx 0.0279,\\ Z\approx1.91}
+\end{solution}
+\end{question}
+
+\begin{question}
+某稀有衰变实验观测到 $n_{\rm obs}=1$ 个候选事件，已知本底期望为 $b=0.8$，且本底不确定度忽略。用经典单边构造求信号期望 $s$ 的 $95\%$ 置信上限，即令
+\[
+P(N\le n_{\rm obs}\mid s_{\rm up}+b)=0.05.
+\]
+求 $s_{\rm up}$。
+\begin{solution}
+令 $\mu=s_{\rm up}+b$。因为 $n_{\rm obs}=1$，有
+\[
+P(N\le1\mid\mu)=\ee^{-\mu}(1+\mu)=0.05.
+\]
+数值求解得
+\[
+\mu\approx4.7439.
+\]
+因此
+\[
+s_{\rm up}=\mu-b\approx4.7439-0.8=3.9439.
+\]
+\ansmath{s_{\rm up}\approx3.94}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $T_1,\ldots,T_n$ 为独立指数寿命测量，密度为
+\[
+f(t;\tau)=\frac1\tau\ee^{-t/\tau},\qquad t\ge0.
+\]
+已知观测到 $n=4$ 个事件，总衰变时间 $\sum_i t_i=1.80\,\mathrm{ps}$。写出 $\tau$ 的中心 $90\%$ 置信区间，答案可用卡方分位数表示。
+\begin{solution}
+若 $T_i\sim\Exp(\tau)$，则
+\[
+\frac{2\sum_{i=1}^n T_i}{\tau}\sim\chi^2_{2n}.
+\]
+中心 $90\%$ 区间满足
+\[
+P\!\left(\chi^2_{0.05,2n}\le\frac{2S}{\tau}\le\chi^2_{0.95,2n}\right)=0.90,
+\qquad S=\sum_i t_i.
+\]
+解得
+\[
+\frac{2S}{\chi^2_{0.95,2n}}\le\tau\le
+\frac{2S}{\chi^2_{0.05,2n}}.
+\]
+代入 $n=4,S=1.80\,\mathrm{ps}$ 得
+\[
+\tau\in\left[
+\frac{3.60}{\chi^2_{0.95,8}},
+\frac{3.60}{\chi^2_{0.05,8}}
+\right]\mathrm{ps}.
+\]
+\ansmath{\tau\in\left[\dfrac{3.60}{\chi^2_{0.95,8}},\dfrac{3.60}{\chi^2_{0.05,8}}\right]\mathrm{ps}}
+\end{solution}
+\end{question}
+
+\begin{question}
+在加权直线拟合中，给定非随机的 $x_i$ 和相互独立的观测值
+\[
+y_i\sim N\bigl(\alpha+\beta(x_i-x_0),\sigma_i^2\bigr),
+\qquad i=1,\ldots,n,
+\]
+其中 $\sigma_i$ 已知但不相等。令 $u_i=x_i-x_0$，$w_i=1/\sigma_i^2$。求 $\alpha,\beta$ 的最大似然估计量。
+\begin{solution}
+最大化似然等价于最小化
+\[
+Q(\alpha,\beta)=\sum_{i=1}^n w_i(y_i-\alpha-\beta u_i)^2.
+\]
+令
+\[
+S_0=\sum_iw_i,
+\quad S_1=\sum_iw_iu_i,
+\quad S_2=\sum_iw_iu_i^2,
+\quad Y_0=\sum_iw_iy_i,
+\quad Y_1=\sum_iw_iu_iy_i.
+\]
+正规方程为
+\[
+\begin{pmatrix}S_0&S_1\\S_1&S_2\end{pmatrix}
+\begin{pmatrix}\hat\alpha\\\hat\beta\end{pmatrix}
+=\begin{pmatrix}Y_0\\Y_1\end{pmatrix}.
+\]
+令 $\Delta=S_0S_2-S_1^2$，则
+\[
+\hat\alpha=\frac{S_2Y_0-S_1Y_1}{\Delta},
+\qquad
+\hat\beta=\frac{S_0Y_1-S_1Y_0}{\Delta}.
+\]
+\ansmath{\hat\alpha=\dfrac{S_2Y_0-S_1Y_1}{S_0S_2-S_1^2},\qquad
+\hat\beta=\dfrac{S_0Y_1-S_1Y_0}{S_0S_2-S_1^2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n$ 是来自正态总体 $N(\mu,\sigma^2)$ 的样本。记
+\[
+S_n^2=\frac1n\sum_{i=1}^n(X_i-\bar X)^2,
+\qquad
+S^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X)^2.
+\]
+求 $S_n^2$ 的偏差，并说明 $S^2$ 与 $S_n^2$ 哪一个是 $\sigma^2$ 的无偏估计。
+\begin{solution}
+基本恒等式给出
+\[
+\E\left[\sum_{i=1}^n(X_i-\bar X)^2\right]=(n-1)\sigma^2.
+\]
+因此
+\[
+\E(S_n^2)=\frac{n-1}{n}\sigma^2,
+\qquad
+\Bias(S_n^2)=\E(S_n^2)-\sigma^2=-\frac{\sigma^2}{n}.
+\]
+而
+\[
+\E(S^2)=\sigma^2.
+\]
+\ansmath{\Bias(S_n^2)=-\sigma^2/n,\qquad S^2\text{ 无偏}}
+\end{solution}
+\end{question}
+
+\begin{question}
+在单个计数道中，检验
+\[
+H_0:s=0,
+\qquad H_1:s\ge0,
+\]
+已知本底为 $b$ 且无不确定度。对观测数 $n>b$，泊松似然为
+\[
+L(s)=\frac{(s+b)^n\ee^{-(s+b)}}{n!}.
+\]
+推导发现检验的似然比统计量
+\[
+q_0=-2\ln\frac{L(s=0)}{L(\hat s)}
+\]
+并代入 $n=9,b=4.2$ 求近似显著性 $Z=\sqrt{q_0}$。
+\begin{solution}
+当 $n>b$ 时，非约束最大似然估计为
+\[
+\hat s=n-b.
+\]
+于是
+\[
+q_0=-2\left[\ln L(0)-\ln L(n-b)\right]
+=2\left[n\ln\frac n b-(n-b)\right].
+\]
+代入 $n=9,b=4.2$，得
+\[
+q_0=2\left[9\ln\frac9{4.2}-4.8\right]\approx4.119,
+\qquad
+Z\approx\sqrt{4.119}=2.03.
+\]
+\ansmath{q_0=2\left[n\ln\dfrac n b-(n-b)\right],\qquad Z\approx2.03}
+\end{solution}
+\end{question}
+
+\begin{question}
+两个实验对同一物理量 $x$ 的测量结果为 $x_1,x_2$，协方差矩阵为
+\[
+V=\begin{pmatrix}
+\sigma_1^2&\rho\sigma_1\sigma_2\\
+\rho\sigma_1\sigma_2&\sigma_2^2
+\end{pmatrix},\qquad -1<\rho<1.
+\]
+求广义最小二乘平均值 $\hat x=w_1x_1+w_2x_2$ 的权重和方差。
+\begin{solution}
+使用
+\[
+\hat x=\frac{\mathbf1^TV^{-1}\mathbf x}{\mathbf1^TV^{-1}\mathbf1},
+\qquad
+\V(\hat x)=\frac1{\mathbf1^TV^{-1}\mathbf1}.
+\]
+直接代入二阶矩阵逆可得
+\[
+w_1=\frac{\sigma_2^2-\rho\sigma_1\sigma_2}
+{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2},
+\qquad
+w_2=\frac{\sigma_1^2-\rho\sigma_1\sigma_2}
+{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}.
+\]
+方差为
+\[
+\V(\hat x)=\frac{\sigma_1^2\sigma_2^2(1-\rho^2)}
+{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}.
+\]
+\ansmath{w_1=\frac{\sigma_2^2-\rho\sigma_1\sigma_2}{D},\quad
+w_2=\frac{\sigma_1^2-\rho\sigma_1\sigma_2}{D},\quad
+\V(\hat x)=\frac{\sigma_1^2\sigma_2^2(1-\rho^2)}{D}}
+其中 $D=\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2$。
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n$ 独立同分布于指数分布 $f(x;\tau)=\tau^{-1}\ee^{-x/\tau}$。求 $\tau$ 的最大似然估计量、Fisher 信息 $I_n(\tau)$，并判断该估计量是否达到 Cram\'er--Rao 下界。
+\begin{solution}
+对数似然为
+\[
+\ell(\tau)=-n\ln\tau-\frac1\tau\sum_iX_i.
+\]
+令
+\[
+\ell'(\tau)=-\frac n\tau+\frac{\sum_iX_i}{\tau^2}=0,
+\]
+得
+\[
+\hat\tau=\bar X.
+\]
+单个观测的 Fisher 信息为
+\[
+I_1(\tau)=\E\left[\left(-\frac1\tau+\frac X{\tau^2}\right)^2\right]=\frac1{\tau^2},
+\]
+故 $I_n(\tau)=n/\tau^2$，CRLB 为 $\tau^2/n$。又
+\[
+\V(\bar X)=\frac{\tau^2}{n},
+\]
+且 $\bar X$ 无偏，所以达到 CRLB。
+\ansmath{\hat\tau=\bar X,\qquad I_n(\tau)=\frac n{\tau^2},\qquad \bar X\text{ 达到 CRLB}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $\hat\theta$ 满足
+\[
+\sqrt n(\hat\theta-\theta)\xrightarrow{d}N(0,V).
+\]
+用 Delta 方法给出 $g(\theta)=\theta^2$ 的估计量 $g(\hat\theta)$ 的渐近分布。若 $\theta=0$，一阶 Delta 方法是否仍给出非退化正态近似？
+\begin{solution}
+当 $g'(\theta)=2\theta$ 时，一阶 Delta 方法给出
+\[
+\sqrt n\{g(\hat\theta)-g(\theta)\}
+\xrightarrow{d}N\bigl(0,4\theta^2V\bigr).
+\]
+若 $\theta=0$，一阶导数为零，上式方差退化为 $0$，不能给出非退化正态近似。此时需使用二阶展开：若 $\sqrt n\hat\theta\Rightarrow N(0,V)$，则
+\[
+n\hat\theta^2\Rightarrow V\chi_1^2.
+\]
+\ansmath{\sqrt n(\hat\theta^2-\theta^2)\Rightarrow N(0,4\theta^2V);\quad \theta=0\text{ 时一阶方法退化}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一次拟合有 $k=6$ 个独立计数区间，模型中用极大似然估计了两个连续参数。若最小 Pearson 卡方量为 $\chi^2_{\min}=7.4$，近似求拟合优度检验的自由度和 $p$ 值表达式。
+\begin{solution}
+拟合优度的近似自由度为
+\[
+\nu=k-1-m=6-1-2=3,
+\]
+其中 $k-1$ 来自总数约束，$m=2$ 为拟合参数个数。因此
+\[
+p=P(\chi^2_3\ge 7.4)=1-F_{\chi^2_3}(7.4).
+\]
+\ansmath{\nu=3,\\ p=1-F_{\chi^2_3}(7.4)}
+\end{solution}
+\end{question}
+
+\begin{question}
+有两个估计量 $A,B$，其期望分别为 $a,b$，协方差矩阵为
+\[
+\begin{pmatrix}
+\sigma_A^2&\rho\sigma_A\sigma_B\\
+\rho\sigma_A\sigma_B&\sigma_B^2
+\end{pmatrix}.
+\]
+用误差传播公式给出比值 $R=A/B$ 在一阶近似下的方差。
+\begin{solution}
+令 $g(A,B)=A/B$，则梯度为
+\[
+\nabla g=\left(\frac1b,-\frac a{b^2}\right)^T.
+\]
+一阶 Delta 方法给出
+\[
+\V(R)\approx
+\frac{\sigma_A^2}{b^2}+\frac{a^2\sigma_B^2}{b^4}
+-2\frac{a}{b^3}\rho\sigma_A\sigma_B.
+\]
+也可写成
+\[
+\V(R)\approx R_0^2\left[
+\left(\frac{\sigma_A}{a}\right)^2+
+\left(\frac{\sigma_B}{b}\right)^2
+-2\rho\frac{\sigma_A}{a}\frac{\sigma_B}{b}
+\right],
+\quad R_0=\frac ab.
+\]
+\ansmath{\V(A/B)\approx\frac{\sigma_A^2}{b^2}+\frac{a^2\sigma_B^2}{b^4}-2\frac{a\rho\sigma_A\sigma_B}{b^3}}
+\end{solution}
+\end{question}
+
+\begin{question}[判断题]
+在正则条件成立且参数真值位于参数空间内部时，似然比统计量 $-2\ln\lambda$ 在大样本下服从卡方分布。若被检验参数位于物理边界上，例如 $s\ge0$ 且检验 $s=0$，则仍总是服从普通的 $\chi^2_1$ 分布。
+\begin{solution}
+前半句是 Wilks 定理的典型结论；后半句错误。边界情形不满足 Wilks 定理的内部点条件，常出现混合分布，例如单个非负信号强度的边界检验中渐近分布常为 $\frac12\delta(0)+\frac12\chi^2_1$。
+\anstext{错误}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n\sim N(\mu,\sigma^2)$，$\mu,\sigma^2$ 均未知。已知样本均值为 $\bar x=10.0$，样本标准差为 $s=2.0$，样本量为 $n=16$。写出 $\mu$ 的 $95\%$ 等尾双侧置信区间表达式，并指出该区间长度是否依赖样本观测值。
+\begin{solution}
+当 $\sigma$ 未知时使用 $t$ 分布：
+\[
+\frac{\bar X-\mu}{S/\sqrt n}\sim t_{n-1}.
+\]
+故
+\[
+\mu\in\left[\bar x-t_{0.975,15}\frac{s}{\sqrt n},
+\bar x+t_{0.975,15}\frac{s}{\sqrt n}\right]
+=\left[10.0-t_{0.975,15}\cdot0.5,
+10.0+t_{0.975,15}\cdot0.5\right].
+\]
+区间长度为 $2t_{0.975,15}s/\sqrt n$，依赖观测到的样本标准差 $s$。
+\ansmath{\left[10.0-0.5t_{0.975,15},\,10.0+0.5t_{0.975,15}\right],\quad \text{长度依赖 }s}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n$ 独立同分布于 $\Bin(M,p)$，其中 $M$ 已知，$p$ 未知。求 $p$ 的最大似然估计量及其渐近方差。
+\begin{solution}
+总计数 $Y=\sum_iX_i\sim\Bin(nM,p)$。似然为
+\[
+L(p)\propto p^Y(1-p)^{nM-Y}.
+\]
+因此
+\[
+\hat p=\frac{Y}{nM}=\frac{\bar X}{M}.
+\]
+由二项分布方差或 Fisher 信息，
+\[
+\V(\hat p)=\frac{p(1-p)}{nM},
+\]
+实际估计时可用 plug-in 形式
+\[
+\widehat{\V}(\hat p)=\frac{\hat p(1-\hat p)}{nM}.
+\]
+\ansmath{\hat p=\frac1{nM}\sum_{i=1}^nX_i,\qquad \V(\hat p)\approx\frac{p(1-p)}{nM}}
+\end{solution}
+\end{question}

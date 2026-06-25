@@ -38,6 +38,17 @@
 \newcommand{\Beta}{\mathrm{B}}
 \newcommand{\J}{\mathrm{J}}
 
+% ── Statistics operators ──────────────────────────────────
+\let\tr\relax                                % undef before statmath (physics defines it)
+\usepackage{statmath}                       % \E, \cov, \V, \tr, …
+\DeclareMathOperator{\Bin}{Bin}             % binomial distribution
+\DeclareMathOperator{\Pois}{Pois}           % Poisson distribution
+\DeclareMathOperator{\Exp}{Exp}             % exponential distribution
+\DeclareMathOperator{\Bias}{Bias}           % bias
+\DeclareMathOperator{\MSE}{MSE}             % mean squared error
+\DeclareMathOperator{\Var}{Var}             % variance
+\DeclareMathOperator{\N}{N}                 % normal distribution
+
 % ── Figure with caption (used by homework) ───────────────
 \NewDocumentCommand{\pyfig}{O{0.72\linewidth} m m}{%
   \par\smallskip

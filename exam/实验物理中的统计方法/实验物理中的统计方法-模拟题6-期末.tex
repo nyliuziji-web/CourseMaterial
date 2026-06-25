@@ -1,0 +1,413 @@
+\heading{实验物理中的统计方法-模拟题6-期末}
+
+\begin{question}[判断题]
+$p$ 值是在零假设成立时，得到“不小于观测结果同等极端程度”的概率；它不是零假设为真的后验概率。
+\begin{solution}
+$p$ 值的定义是条件概率 $P(\text{更极端数据}\mid H_0)$，并不是 $P(H_0\mid\text{数据})$。后者需要先验概率和贝叶斯公式。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}[判断题]
+置信水平 $95\%$ 的含义是：在重复实验中，按同一方法构造的区间有约 $95\%$ 会覆盖真参数。对已经观测到的一条具体区间，在频率学派解释下真参数要么在区间内，要么不在区间内。
+\begin{solution}
+这是置信区间的频率学派覆盖率解释。具体观测区间一旦给定，参数被视为固定未知常数，不再随机。
+\anstext{正确}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n\sim N(\mu,\sigma^2)$，其中 $\sigma^2$ 已知。证明 $\bar X$ 是 $\mu$ 的有效估计量。
+\begin{solution}
+单个观测的对数似然为
+\[
+\ell(\mu)=-\frac12\ln(2\pi\sigma^2)-\frac{(X-\mu)^2}{2\sigma^2}.
+\]
+因此
+\[
+\frac{\partial\ell}{\partial\mu}=\frac{X-\mu}{\sigma^2},
+\qquad
+I_1(\mu)=\E\left[\left(\frac{X-\mu}{\sigma^2}\right)^2\right]=\frac1{\sigma^2}.
+\]
+所以 $I_n(\mu)=n/\sigma^2$，任意无偏估计量的 CRLB 为
+\[
+\Var(\hat\mu)\ge \frac1{I_n(\mu)}=\frac{\sigma^2}{n}.
+\]
+而
+\[
+\E(\bar X)=\mu,
+\qquad
+\Var(\bar X)=\frac{\sigma^2}{n}.
+\]
+故 $\bar X$ 达到 CRLB，是有效估计量。
+\ansmath{\bar X\text{ 无偏且 }\Var(\bar X)=1/I_n(\mu)=\sigma^2/n}
+\end{solution}
+\end{question}
+
+\begin{question}
+某实验统计 $N=50$ 次独立试验中发现 $k=7$ 次成功，模型为 $K\sim\Bin(N,p)$。求 $p$ 的 MLE，并用正态近似写出 $95\%$ Wald 置信区间。
+\begin{solution}
+二项似然为
+\[
+L(p)\propto p^k(1-p)^{N-k}.
+\]
+MLE 为
+\[
+\hat p=\frac kN=\frac7{50}=0.14.
+\]
+Wald 区间为
+\[
+\hat p\pm z_{0.975}\sqrt{\frac{\hat p(1-\hat p)}{N}}.
+\]
+代入数值，标准误差约为
+\[
+\sqrt{\frac{0.14\times0.86}{50}}\approx0.0491.
+\]
+因此
+\[
+0.14\pm1.96\times0.0491\approx[0.0438,0.2362].
+\]
+\ansmath{\hat p=0.14,\qquad p\in[0.0438,0.2362]\ \text{(Wald, 约)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑两个简单假设
+\[
+H_0:N\sim\Pois(3),
+\qquad
+H_1:N\sim\Pois(6).
+\]
+采用拒绝域 $N\ge7$。求第一类错误概率 $\alpha$ 和第二类错误概率 $\beta$。
+\begin{solution}
+第一类错误为 $H_0$ 真时拒绝 $H_0$ 的概率：
+\[
+\alpha=P(N\ge7\mid\lambda=3)
+=1-\sum_{n=0}^{6}\frac{3^n\ee^{-3}}{n!}
+\approx0.0335.
+\]
+第二类错误为 $H_1$ 真时未拒绝 $H_0$ 的概率：
+\[
+\beta=P(N\le6\mid\lambda=6)
+=\sum_{n=0}^{6}\frac{6^n\ee^{-6}}{n!}
+\approx0.6063.
+\]
+\ansmath{\alpha\approx0.0335,
+\qquad \beta\approx0.6063}
+\end{solution}
+\end{question}
+
+\begin{question}
+某信号区观测到 $n=12$ 个事件，本底期望为 $b=5.5$ 且无不确定度。用发现检验的近似公式
+\[
+Z\approx\sqrt{2\left[n\ln\frac n b-(n-b)\right]}
+\]
+计算显著性，并与直接右尾 $p=P(N\ge12\mid b=5.5)$ 的定义作比较。
+\begin{solution}
+代入公式：
+\[
+Z\approx\sqrt{2\left[12\ln\frac{12}{5.5}-6.5\right]}
+\approx2.39.
+\]
+直接右尾 $p$ 值定义为
+\[
+p=P(N\ge12\mid b=5.5)=1-\sum_{n=0}^{11}\frac{5.5^n\ee^{-5.5}}{n!}.
+\]
+两者都描述“只有本底时观测到如此大或更大涨落”的不相容程度，但一个是基于渐近似然比的 $Z$ 近似，另一个是泊松分布的精确离散尾概率。
+\ansmath{Z\approx2.39,\qquad p=1-\sum_{n=0}^{11}\frac{5.5^n\ee^{-5.5}}{n!}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $Y_i\sim N(\alpha+\beta x_i,\sigma^2)$ 独立，$x_i$ 给定，且 $\alpha,\beta,\sigma^2$ 均未知。求 $\alpha,\beta,\sigma^2$ 的最大似然估计量。
+\begin{solution}
+最大化似然等价于最小化残差平方和
+\[
+\mathrm{RSS}(\alpha,\beta)=\sum_i(y_i-\alpha-\beta x_i)^2.
+\]
+设
+\[
+\bar x=\frac1n\sum_ix_i,
+\qquad
+\bar y=\frac1n\sum_iy_i.
+\]
+则
+\[
+\hat\beta=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},
+\qquad
+\hat\alpha=\bar y-\hat\beta\bar x.
+\]
+对 $\sigma^2$，正态 MLE 使用分母 $n$，即
+\[
+\hat\sigma^2_{\rm MLE}=\frac1n\sum_i(y_i-\hat\alpha-\hat\beta x_i)^2.
+\]
+注意无偏残差方差估计使用分母 $n-2$，不是 MLE。
+\ansmath{\hat\beta=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},\quad
+\hat\alpha=\bar y-\hat\beta\bar x,
+\quad
+\hat\sigma^2_{\rm MLE}=\frac{\mathrm{RSS}(\hat\alpha,\hat\beta)}n}
+\end{solution}
+\end{question}
+
+\begin{question}
+三个实验测量同一物理量 $x$，统计误差相互独立，标准差分别为 $s_1,s_2,s_3$；此外三者有同一个完全相关的加性系统误差，标准差为 $c$。因此
+\[
+V=D+c^2\mathbf1\mathbf1^T,
+\qquad
+D=\diag(s_1^2,s_2^2,s_3^2).
+\]
+求最佳线性无偏平均值的权重，并说明完全共同的加性系统误差是否改变中心值权重。
+\begin{solution}
+最佳权重为
+\[
+\boldsymbol w=\frac{V^{-1}\mathbf1}{\mathbf1^TV^{-1}\mathbf1}.
+\]
+由 Sherman--Morrison 公式，
+\[
+V^{-1}=D^{-1}-\frac{c^2D^{-1}\mathbf1\mathbf1^TD^{-1}}{1+c^2\mathbf1^TD^{-1}\mathbf1}.
+\]
+因此
+\[
+V^{-1}\mathbf1
+=D^{-1}\mathbf1\left(1-\frac{c^2\mathbf1^TD^{-1}\mathbf1}{1+c^2\mathbf1^TD^{-1}\mathbf1}\right)
+=\frac{D^{-1}\mathbf1}{1+c^2\mathbf1^TD^{-1}\mathbf1}.
+\]
+归一化后共同因子抵消，故
+\[
+w_i=\frac{s_i^{-2}}{\sum_{j=1}^3s_j^{-2}}.
+\]
+完全共同的加性系统误差不改变中心值权重，但会增加最终方差：
+\[
+\Var(\hat x)=\frac1{\sum_js_j^{-2}}+c^2.
+\]
+\ansmath{w_i=\frac{s_i^{-2}}{\sum_js_j^{-2}},\qquad \Var(\hat x)=\frac1{\sum_js_j^{-2}}+c^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $\hat\theta_1,\hat\theta_2$ 是 $\theta$ 的无偏估计量，方差分别为 $\sigma_1^2,\sigma_2^2$，相关系数为 $\rho$。若要求组合估计量
+\[
+\tilde\theta=w\hat\theta_1+(1-w)\hat\theta_2
+\]
+无偏，且额外要求 $0\le w\le1$。写出最优 $w$，并说明何时最优解落在边界。
+\begin{solution}
+无约束最优解为
+\[
+w_0=\frac{\sigma_2^2-\rho\sigma_1\sigma_2}
+{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}.
+\]
+加入 $0\le w\le1$ 后，最优解是投影：
+\[
+w^*=\min\{1,\max\{0,w_0\}\}.
+\]
+若 $w_0<0$，最优解为 $w^*=0$，只取第二个估计量；若 $w_0>1$，最优解为 $w^*=1$，只取第一个估计量。这通常发生在相关性很强且某个估计量方差较大时，无约束 BLUE 会给出负权重。
+\ansmath{w^*=\min\{1,\max\{0,w_0\}\},\quad
+w_0=\frac{\sigma_2^2-\rho\sigma_1\sigma_2}{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设探测效率 $\varepsilon$ 已知，真实信号产生数为 $S\sim\Pois(\mu)$，每个信号以概率 $\varepsilon$ 被探测到。证明观测到的信号数 $N$ 服从 $\Pois(\varepsilon\mu)$。若观测到 $0$ 个事件且无本底，求 $\mu$ 的 $90\%$ CL 上限。
+\begin{solution}
+泊松抽稀性质给出
+\[
+N\sim\Pois(\varepsilon\mu).
+\]
+也可由全概率公式证明：
+\[
+P(N=n)=\sum_{s=n}^{\infty}P(N=n\mid S=s)P(S=s)
+=\sum_{s=n}^{\infty}\binom{s}{n}\varepsilon^n(1-\varepsilon)^{s-n}
+\frac{\mu^s\ee^{-\mu}}{s!}
+=\frac{(\varepsilon\mu)^n\ee^{-\varepsilon\mu}}{n!}.
+\]
+若 $n_{\rm obs}=0$，$90\%$ 上限满足
+\[
+P(N=0\mid\mu_{\rm up})=0.10.
+\]
+即
+\[
+\ee^{-\varepsilon\mu_{\rm up}}=0.10,
+\qquad
+\mu_{\rm up}=\frac{-\ln0.10}{\varepsilon}.
+\]
+\ansmath{N\sim\Pois(\varepsilon\mu),\qquad \mu_{\rm up}=\frac{2.3026}{\varepsilon}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n$ 的密度为
+\[
+f(x;\theta)=\frac1\theta,\qquad 0<x<\theta,
+\]
+其中 $\theta>0$。求 $\theta$ 的最大似然估计量，并判断它是否无偏；若有偏，给出一个无偏修正。
+\begin{solution}
+似然为
+\[
+L(\theta)=\theta^{-n}\mathbf1\{\theta\ge X_{(n)}\},
+\qquad X_{(n)}=\max_iX_i.
+\]
+在允许范围内 $\theta^{-n}$ 随 $\theta$ 增大而减小，所以
+\[
+\hat\theta_{\rm MLE}=X_{(n)}.
+\]
+最大次序统计量的分布函数为
+\[
+P(X_{(n)}\le x)=\left(\frac x\theta\right)^n,
+\qquad 0<x<\theta,
+\]
+密度为 $nx^{n-1}/\theta^n$，故
+\[
+\E[X_{(n)}]=\frac n{n+1}\theta.
+\]
+因此 MLE 有偏，无偏修正为
+\[
+\tilde\theta=\frac{n+1}{n}X_{(n)}.
+\]
+\ansmath{\hat\theta_{\rm MLE}=X_{(n)},\qquad \tilde\theta=\frac{n+1}{n}X_{(n)}\text{ 无偏}}
+\end{solution}
+\end{question}
+
+\begin{question}
+正态模型 $X_i\sim N(\mu,\sigma^2)$ 中，$\mu$ 未知，$\sigma^2$ 未知。试说明为什么
+\[
+\bar X\quad\text{和}\quad S^2=\frac1{n-1}\sum_i(X_i-\bar X)^2
+\]
+相互独立这一事实对构造 $t$ 置信区间是关键的。
+\begin{solution}
+有
+\[
+\frac{\bar X-\mu}{\sigma/\sqrt n}\sim N(0,1),
+\qquad
+\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}.
+\]
+要得到
+\[
+T=\frac{\bar X-\mu}{S/\sqrt n}
+=\frac{Z}{\sqrt{U/(n-1)}}\sim t_{n-1},
+\]
+必须要求 $Z$ 与 $U$ 独立。正态样本中 $\bar X$ 与 $S^2$ 独立正是保证该比值服从 $t$ 分布的关键条件。
+\ansmath{T=\frac{\bar X-\mu}{S/\sqrt n}\sim t_{n-1}\text{ 依赖于 }\bar X\perp S^2}
+\end{solution}
+\end{question}
+
+\begin{question}
+某模型有两个嵌套版本：$H_0$ 固定参数 $\theta=\theta_0$，$H_1$ 允许 $\theta$ 自由变化。在正则条件下，观测到 $-2\ln\lambda=5.99$。用 Wilks 定理给出近似 $p$ 值，并解释该数值与常见的 $95\%$ 双侧检验阈值的关系。
+\begin{solution}
+两模型相差一个自由参数，因此 Wilks 定理给出
+\[
+-2\ln\lambda\overset{a}{\sim}\chi^2_1.
+\]
+于是
+\[
+p=P(\chi^2_1\ge5.99).
+\]
+由于 $\chi^2_{0.95,1}\approx3.84$，$\chi^2_{0.95,2}\approx5.99$。所以若只相差一个参数，$5.99$ 已比 $95\%$ 阈值 $3.84$ 更极端；$5.99$ 是两个自由度情形常见的 $95\%$ 阈值。
+\ansmath{p=P(\chi^2_1\ge5.99),\qquad 5.99\text{ 对 }1\text{ 个自由度比 }95\%\text{ 阈值更强}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n\sim\Pois(\lambda)$，考虑估计 $g(\lambda)=\ee^{-\lambda}$，即零计数概率。用 Delta 方法给出 $g(\hat\lambda)$ 的渐近方差，其中 $\hat\lambda=\bar X$。
+\begin{solution}
+对泊松分布，
+\[
+\sqrt n(\bar X-\lambda)\xrightarrow{d}N(0,\lambda).
+\]
+令 $g(\lambda)=\ee^{-\lambda}$，则
+\[
+g'(\lambda)=-\ee^{-\lambda}.
+\]
+Delta 方法给出
+\[
+\sqrt n\{\ee^{-\bar X}-\ee^{-\lambda}\}
+\xrightarrow{d}N(0,\lambda\ee^{-2\lambda}).
+\]
+因此
+\[
+\Var(\ee^{-\bar X})\approx\frac{\lambda\ee^{-2\lambda}}n,
+\]
+实际可用 plug-in 估计为 $\bar X\ee^{-2\bar X}/n$。
+\ansmath{\Var(\ee^{-\bar X})\approx\frac{\lambda\ee^{-2\lambda}}n}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $m$ 个独立观测道的计数为 $n_i\sim\Pois(\nu_i(\theta))$。写出总对数似然，并推导 Pearson 卡方量在大样本下的形式
+\[
+\chi_P^2=\sum_i\frac{(n_i-\nu_i(\hat\theta))^2}{\nu_i(\hat\theta)}.
+\]
+说明其常用于拟合优度而不是直接作为精确似然。
+\begin{solution}
+泊松总似然为
+\[
+L(\theta)=\prod_{i=1}^m\frac{\nu_i(\theta)^{n_i}\ee^{-\nu_i(\theta)}}{n_i!},
+\]
+对数似然为
+\[
+\ell(\theta)=\sum_i\{n_i\ln\nu_i(\theta)-\nu_i(\theta)-\ln(n_i!)\}.
+\]
+当每个道的期望较大时，泊松分布可由正态近似
+\[
+n_i\approx N(\nu_i,\nu_i)
+\]
+替代。于是负二倍近似对数似然差具有加权平方残差形式
+\[
+\sum_i\frac{(n_i-\nu_i)^2}{\nu_i},
+\]
+在参数由数据拟合后得到 Pearson 卡方量。它是大样本近似的拟合优度统计量；精确推断通常应从原始泊松似然或似然比出发。
+\ansmath{\ell(\theta)=\sum_i\{n_i\ln\nu_i(\theta)-\nu_i(\theta)-\ln(n_i!)\},\quad
+\chi_P^2=\sum_i\frac{(n_i-\nu_i(\hat\theta))^2}{\nu_i(\hat\theta)}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X,Y$ 是两个独立测量量，$\hat z=X+Y$ 用来估计 $z=x+y$。后来发现两者有共同校准误差，导致 $\cov(X,Y)=c>0$，但边际方差 $\Var(X)=\sigma_X^2$、$\Var(Y)=\sigma_Y^2$ 不变。原来按独立性给出的不确定度偏大还是偏小？正确方差是多少？
+\begin{solution}
+独立时会给出
+\[
+\Var(X+Y)=\sigma_X^2+\sigma_Y^2.
+\]
+若存在正协方差 $c>0$，正确方差为
+\[
+\Var(X+Y)=\sigma_X^2+\sigma_Y^2+2c.
+\]
+因此原来忽略正相关会低估不确定度。
+\ansmath{\Var(X+Y)=\sigma_X^2+\sigma_Y^2+2c,\qquad \text{忽略正相关会偏小}}
+\end{solution}
+\end{question}
+
+\begin{question}
+一个测量结果写为
+\[
+x=100.0\pm3.0_{\rm stat}\pm4.0_{\rm syst}.
+\]
+若统计和系统不确定度相互独立，求总不确定度。若另一个实验使用相同外部输入导致系统误差与该结果完全相关，合并两个实验时是否可以简单把每个实验的总误差当作独立误差使用？
+\begin{solution}
+单个结果中统计和系统误差独立时，总方差相加：
+\[
+\sigma_{\rm tot}=\sqrt{3.0^2+4.0^2}=5.0.
+\]
+但若两个实验的系统误差由相同外部输入造成，则实验间系统误差相关。合并时不能简单把每个实验的总误差当作独立误差；应构造含协方差项的协方差矩阵，并用广义最小二乘合并。
+\ansmath{\sigma_{\rm tot}=5.0,\qquad \text{合并时不能把总误差简单视为相互独立}}
+\end{solution}
+\end{question}
+
+\begin{question}
+设 $X_1,\ldots,X_n$ 来自均匀分布 $U(0,\theta)$。矩估计给出 $\hat\theta_{\rm MOM}=2\bar X$，MLE 给出 $\hat\theta_{\rm MLE}=X_{(n)}$。比较二者是否无偏，并给出二者的大样本一致性。
+\begin{solution}
+因为 $\E(X_i)=\theta/2$，故
+\[
+\E(2\bar X)=\theta,
+\]
+矩估计无偏。MLE 满足
+\[
+\E(X_{(n)})=\frac n{n+1}\theta,
+\]
+所以有限样本下有偏。二者都一致：由大数定律，$2\bar X\to\theta$；又
+\[
+P(X_{(n)}\le\theta-\varepsilon)=\left(1-\frac\varepsilon\theta\right)^n\to0,
+\]
+故 $X_{(n)}\to\theta$ 依概率成立。
+\ansmath{2\bar X\text{ 无偏且一致};\quad X_{(n)}\text{ 有偏但一致}}
+\end{solution}
+\end{question}

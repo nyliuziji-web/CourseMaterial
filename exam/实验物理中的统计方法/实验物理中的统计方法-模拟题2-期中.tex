@@ -4,21 +4,21 @@
 \begin{question}
 $X\sim N(0,1)$，$Y\sim N(0,1)$，并且
 \[
-\operatorname{Var}(2X-Y)=1.
+\V(2X-Y)=1.
 \]
 求 $(X,Y)$ 的协方差矩阵。
 \begin{solution}
 由
 \[
-\operatorname{Var}(2X-Y)=4\operatorname{Var}(X)+\operatorname{Var}(Y)-4\operatorname{Cov}(X,Y),
+\V(2X-Y)=4\V(X)+\V(Y)-4\cov(X,Y),
 \]
-代入 $\operatorname{Var}(X)=\operatorname{Var}(Y)=1$ 得
+代入 $\V(X)=\V(Y)=1$ 得
 \[
-1=4+1-4\operatorname{Cov}(X,Y).
+1=4+1-4\cov(X,Y).
 \]
 故
 \[
-\operatorname{Cov}(X,Y)=1.
+\cov(X,Y)=1.
 \]
 因此
 \ansmath{\Sigma=
@@ -104,7 +104,7 @@ D^2=(X_1-X_2)^2+(Y_1-Y_2)^2.
 \]
 故
 \[
-E[D^2]=2\operatorname{Var}(X)+2\operatorname{Var}(Y).
+E[D^2]=2\V(X)+2\V(Y).
 \]
 对边界均匀分布，直接计算可得
 \[
@@ -154,7 +154,7 @@ cx,&0<y<x<1,\\
 0,&\text{其他}.
 \end{cases}
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求常数 $c$；
 \item 求 $P\!\left(Y<\dfrac{X}{2}\right)$。
 \end{enumerate}
@@ -184,7 +184,7 @@ P(0\mid e)=0.005,\qquad P(1\mid e)=0.015,\qquad P(2\mid e)=0.98,
 \[
 P(0\mid \gamma)=0.99898,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=2\times10^{-5}.
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 若只看到 1 个信号，该粒子为电子的概率是多少？
 \item 若看到 2 个信号，该粒子为电子的概率是多少？
 \end{enumerate}
@@ -299,7 +299,7 @@ E[Y^2]=\int_0^\theta y^2\frac{n y^{n-1}}{\theta^n}\,dy
 \]
 所以
 \[
-\operatorname{Var}(Y)=E[Y^2]-E[Y]^2
+\V(Y)=E[Y^2]-E[Y]^2
 =\frac{n\theta^2}{(n+1)^2(n+2)}.
 \]
 \end{solution}

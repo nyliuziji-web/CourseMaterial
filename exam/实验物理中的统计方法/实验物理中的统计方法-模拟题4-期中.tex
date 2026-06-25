@@ -5,26 +5,26 @@
 设 $X,Y$ 服从二维正态分布，且
 \[
 E[X]=E[Y]=0,
-\qquad \operatorname{Var}(X)=4,
-\qquad \operatorname{Var}(Y)=1,
+\qquad \V(X)=4,
+\qquad \V(Y)=1,
 \]
 并已知
 \[
-\operatorname{Var}(X-Y)=3.
+\V(X-Y)=3.
 \]
 求 $(X,Y)$ 的协方差矩阵。
 \begin{solution}
 由
 \[
-\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)-2\operatorname{Cov}(X,Y),
+\V(X-Y)=\V(X)+\V(Y)-2\cov(X,Y),
 \]
 得
 \[
-3=4+1-2\operatorname{Cov}(X,Y).
+3=4+1-2\cov(X,Y).
 \]
 故
 \[
-\operatorname{Cov}(X,Y)=1.
+\cov(X,Y)=1.
 \]
 于是协方差矩阵为
 \ansmath{\Sigma=\begin{pmatrix}4&1\\1&1\end{pmatrix}}
@@ -33,7 +33,7 @@ E[X]=E[Y]=0,
 
 \begin{question}
 从 $\{1,2,\cdots,N\}$ 中独立、等概率地抽取 $n$ 次（可重复），记样本最大值为 $M$。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $M$ 恰好只出现一次的概率；
 \item 写出这一概率的求和表达式。
 \end{enumerate}
@@ -62,7 +62,7 @@ V=\frac{4\pi}{3}R^3,
 \[
 S=4\pi R^2.
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $V$ 的概率密度函数；
 \item 求 $E[S]$。
 \end{enumerate}
@@ -100,7 +100,7 @@ E[S]=4\pi E[R^2]
 
 \begin{question}
 设 $\{N(t),t\ge 0\}$ 是泊松过程。已知在区间 $(0,T)$ 内恰好有 $4$ 次到达。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求前 $T/3$ 时间内恰好有 $2$ 次到达的概率；
 \item 求第一次到达时刻 $T_1$ 的条件密度 $f_{T_1\mid N(T)=4}(t)$。
 \end{enumerate}
@@ -112,7 +112,7 @@ P\bigl(N(T/3)=2\mid N(T)=4\bigr)=\binom42\left(\frac13\right)^2\left(\frac23\rig
 \]
 第一次到达时刻是 4 个均匀点中的最小者，其分布满足
 \[
-P(T_1\leqt\mid N(T)=4)=1-\left(1-\frac{t}{T}\right)^4,
+P(T_1\leq t\mid N(T)=4)=1-\left(1-\frac{t}{T}\right)^4,
 \qquad 0<t<T.
 \]
 对 $t$ 求导得密度
@@ -131,7 +131,7 @@ cy,&0<x<y<1,\\
 0,&\text{其他}.
 \end{cases}
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求常数 $c$；
 \item 求边缘密度 $f_Y(y)$；
 \item 求 $P(X+Y<1)$；
@@ -169,7 +169,7 @@ f_{X\mid Y}(x\mid y)=\frac{3y}{3y^2}=\frac1y,
 
 \begin{question}
 用宇宙射线做刻度。已知在“上下两块都击中”的触发条件下，共记录到 $5000$ 次有效穿过；其中中间探测器有 $4620$ 次给出信号。另一方面，电子学门宽所导致的偶然击中概率为 $p_a=0.01$。设中间探测器的真实效率为 $\varepsilon$，且“偶然击中”和“真实探测到”相互独立。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $\varepsilon$ 的估计值；
 \item 忽略 $p_a$ 的误差，求 $\varepsilon$ 的统计不确定度的近似表达式。
 \end{enumerate}
@@ -218,7 +218,7 @@ P(3\mid e)=0.97,\qquad P(2\mid e)=0.02,
 \[
 P(3\mid \gamma)=10^{-6},\qquad P(2\mid \gamma)=10^{-4}.
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 若观测到 3 个信号，求该粒子为电子的后验概率；
 \item 若观测到 2 个信号，求该粒子为电子的后验概率。
 \end{enumerate}

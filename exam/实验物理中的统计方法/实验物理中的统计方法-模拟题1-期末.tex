@@ -6,7 +6,7 @@
 \[
 Z=\frac{X}{Y},
 \]
-其中 $X,Y$ 的标准差分别为 $\sigma_X,\sigma_Y$，协方差为 $c=\operatorname{Cov}(X,Y)$。写出小误差近似下 $Z$ 的不确定度公式。
+其中 $X,Y$ 的标准差分别为 $\sigma_X,\sigma_Y$，协方差为 $c=\cov(X,Y)$。写出小误差近似下 $Z$ 的不确定度公式。
 \begin{solution}
 由误差传播公式，
 \[
@@ -29,7 +29,7 @@ Z=\frac{X}{Y},
 \begin{solution}
 对卡方分布，
 \[
-E[X]=2n,\qquad \operatorname{Var}(X)=4n.
+E[X]=2n,\qquad \V(X)=4n.
 \]
 令
 \[
@@ -38,11 +38,11 @@ g(x)=\sqrt{x},
 \]
 由 delta 方法，
 \[
-\sqrt{X}\approx N\!\left(g(2n),\ [g'(2n)]^2\operatorname{Var}(X)\right).
+\sqrt{X}\approx N\!\left(g(2n),\ [g'(2n)]^2\V(X)\right).
 \]
 因此
 \[
-[g'(2n)]^2\operatorname{Var}(X)
+[g'(2n)]^2\V(X)
 =\frac{1}{4\cdot 2n}\cdot 4n=\frac12.
 \]
 故
@@ -59,7 +59,7 @@ f(x;\theta)=\begin{cases}
 \qquad \theta>-1.
 \]
 现有样本 $X_1,\cdots,X_n$。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $\theta$ 的矩估计量；
 \item 求 $\theta$ 的极大似然估计量；
 \item 求极大似然估计量的渐近方差。
@@ -96,7 +96,7 @@ I_1(\theta)=-E\!\left[\frac{\partial^2 \ell_1}{\partial \theta^2}\right]
 I_n(\theta)=\frac{n}{(\theta+1)^2}.
 \]
 于是 MLE 的渐近方差为
-\ansmath{\operatorname{Var}(\hat\theta_{\rm MLE})\approx \frac{(\theta+1)^2}{n}}
+\ansmath{\V(\hat\theta_{\rm MLE})\approx \frac{(\theta+1)^2}{n}}
 \end{solution}
 \end{question}
 
@@ -119,7 +119,7 @@ L(\lambda)=\prod_{i=1}^n e^{-\lambda}\frac{\lambda^{x_i}}{x_i!},
 \]
 又有
 \[
-E[\bar X]=\lambda,\qquad \operatorname{Var}(\bar X)=\frac{\lambda}{n}.
+E[\bar X]=\lambda,\qquad \V(\bar X)=\frac{\lambda}{n}.
 \]
 单个样本的 Fisher 信息为
 \[
@@ -133,7 +133,7 @@ I_n(\lambda)=\frac{n}{\lambda},
 \]
 由于
 \[
-\operatorname{Var}(\hat\lambda)=\frac{\lambda}{n}
+\V(\hat\lambda)=\frac{\lambda}{n}
 \]
 恰好达到 Cram\'er--Rao 下界，因此
 \anstext{$\hat\lambda=\bar X$ 是有效估计量。}
@@ -182,7 +182,7 @@ T=\frac{\bar X-\mu_0}{S/\sqrt{n}}
 \[
 Y=\max(X_1,\cdots,X_n).
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $\theta$ 的极大似然估计量；
 \item 求一个由 $Y$ 构造的无偏估计量；
 \item 比较二者的均方误差。
@@ -206,19 +206,19 @@ E[Y]=\frac{n}{n+1}\theta,
 \]
 再算
 \[
-\operatorname{Var}(Y)=\frac{n\theta^2}{(n+1)^2(n+2)},
+\V(Y)=\frac{n\theta^2}{(n+1)^2(n+2)},
 \qquad
-\operatorname{Bias}(Y)=-\frac{\theta}{n+1}.
+\Bias(Y)=-\frac{\theta}{n+1}.
 \]
 因此
 \[
-\operatorname{MSE}(Y)=\operatorname{Var}(Y)+\operatorname{Bias}(Y)^2
+\MSE(Y)=\V(Y)+\Bias(Y)^2
 =\frac{2\theta^2}{(n+1)(n+2)}.
 \]
 而
 \[
-\operatorname{MSE}(\tilde\theta)=\operatorname{Var}(\tilde\theta)
-=\left(\frac{n+1}{n}\right)^2\operatorname{Var}(Y)
+\MSE(\tilde\theta)=\V(\tilde\theta)
+=\left(\frac{n+1}{n}\right)^2\V(Y)
 =\frac{\theta^2}{n(n+2)}.
 \]
 比较得
@@ -256,7 +256,7 @@ y_i=ax_i+\varepsilon_i,\qquad i=1,\cdots,n,
 \]
 又由于 $\hat a$ 是 $y_i$ 的线性组合，故
 \[
-\operatorname{Var}(\hat a)=\frac{1}{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
+\V(\hat a)=\frac{1}{\sum_{i=1}^n \dfrac{x_i^2}{\sigma_i^2}}.
 \]
 代回可得
 \[

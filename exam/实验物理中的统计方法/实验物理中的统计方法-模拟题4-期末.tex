@@ -6,7 +6,7 @@
 \[
 R=\frac{X}{X+Y},
 \]
-其中 $X,Y$ 的标准差分别为 $\sigma_X,\sigma_Y$，协方差为 $c=\operatorname{Cov}(X,Y)$。写出小误差近似下 $R$ 的不确定度公式。
+其中 $X,Y$ 的标准差分别为 $\sigma_X,\sigma_Y$，协方差为 $c=\cov(X,Y)$。写出小误差近似下 $R$ 的不确定度公式。
 \begin{solution}
 由误差传播公式，
 \[
@@ -26,7 +26,7 @@ R=\frac{X}{X+Y},
 
 \begin{question}
 设 $X_1,\cdots,X_n$ 独立同分布于 Bernoulli$(p)$。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $p$ 的极大似然估计量；
 \item 求 Fisher 信息；
 \item 写出大样本下 $\hat p$ 的近似方差；
@@ -47,7 +47,7 @@ I_1(p)=\frac{1}{p(1-p)}.
 \]
 由极大似然估计的渐近正态性，
 \[
-\operatorname{Var}(\hat p)\approx \frac{p(1-p)}{n}.
+\V(\hat p)\approx \frac{p(1-p)}{n}.
 \]
 当 $n=100,k=37$ 时，
 \[

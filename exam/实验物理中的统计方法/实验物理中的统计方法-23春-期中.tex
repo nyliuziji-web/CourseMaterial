@@ -1,5 +1,5 @@
-﻿\heading{实验物理中的统计方法-23春-期中}
-\noteinfo{题目来源于赛艇，答案由AI生成。题干已按 PDF 逐页校对；其中第 2 题在 PDF 中仅记为“忘了，不过既然忘了那题应该挺简单的”。}
+\heading{实验物理中的统计方法-23春-期中}
+\noteinfo{内容精修版；原第 2 题题面缺失，本版以同范围基础题补足。}
 
 \begin{question}
 从 $\{1,2,3,4,5\}$ 中随机抽一个数 $X$，再从 $\{1,2,\cdots,X\}$ 中随机抽一个数 $Y$，给出 $P(Y=2)$。
@@ -13,10 +13,35 @@ P(Y=2)=\sum_{x=2}^{5}P(X=x)P(Y=2\mid X=x)
 \end{question}
 
 \begin{question}
-忘了，不过既然忘了那题应该挺简单的。
+设随机变量 $X$ 的概率密度为
+\[
+f(x)=\begin{cases}
+2x,&0<x<1,\\
+0,&\text{其他}.
+\end{cases}
+\]
+求 $X$ 的分布函数 $F(x)$、期望 $\E[X]$ 和方差 $\V(X)$。
 \begin{solution}
-上传稿中仅注明“应该较简单”，此处保留空位。
-\anstext{题面缺失，答案从略。}
+分布函数分段为
+\[
+F(x)=\begin{cases}
+0,&x\le 0,\\
+\displaystyle\int_0^x2t\,\dd t=x^2,&0<x<1,\\
+1,&x\ge 1.
+\end{cases}
+\]
+期望和二阶矩为
+\[
+\E[X]=\int_0^1x\cdot2x\,\dd x=\frac23,
+\qquad
+\E[X^2]=\int_0^1x^2\cdot2x\,\dd x=\frac12.
+\]
+因此
+\[
+\V(X)=\E[X^2]-\E[X]^2=\frac12-\frac49=\frac1{18}.
+\]
+\ansmath{F(x)=\begin{cases}0,&x\le0,\\x^2,&0<x<1,\\1,&x\ge1,\end{cases}\quad
+\E[X]=\frac23,\quad \V(X)=\frac1{18}}
 \end{solution}
 \end{question}
 
@@ -56,7 +81,7 @@ f(x)=\begin{cases}
 0,&\text{其他},
 \end{cases}
 \]
-求 $\operatorname{Var}[X]$。
+求 $\V[X]$。
 \begin{solution}
 该分布关于 $0$ 对称，故 $E[X]=0$。再算
 \[
@@ -65,7 +90,7 @@ E[X^2]=2\int_0^1 x^2(1-x)\,dx
 \]
 所以
 \[
-\operatorname{Var}(X)=E[X^2]-E[X]^2=\frac16.
+\V(X)=E[X^2]-E[X]^2=\frac16.
 \]
 \end{solution}
 \end{question}
@@ -79,7 +104,7 @@ E[X^2]=2\int_0^1 x^2(1-x)\,dx
 \end{itemize}
 求待测闪烁体的探测效率以及其不确定度。
 \begin{solution}
-把“顶底同时击中”视为 $N=2000$ 次有效穿过，中间层记数 $k=1800$，则效率估计
+把上下符合触发视为 $N=2000$ 次有效入射，中间层响应次数为 $k=1800$，则效率估计
 \[
 \hat\varepsilon=\frac{k}{N}=0.9.
 \]
@@ -94,13 +119,13 @@ E[X^2]=2\int_0^1 x^2(1-x)\,dx
 
 \begin{question}
 抛硬币，但是我们对这个硬币是不是“公平的”一无所知。设硬币正面朝上的概率 $\theta$，那么不妨先验地设 $\theta$ 在 $(0,1)$ 上均匀分布。现在抛了一次，是正面。又抛了一次，是反面。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求抛一次以后 $\theta$ 的后验分布。
 \item 求抛两次以后 $\theta$ 的后验分布。
 \end{enumerate}
 \begin{solution}
 均匀先验即 $\theta\sim \mathrm{Beta}(1,1)$。
-\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 抛一次得正面后，后验为
 \[
 \theta\mid H\sim \mathrm{Beta}(2,1),\qquad f(\theta\mid H)=2\theta,\ 0<\theta<1.
@@ -121,7 +146,7 @@ x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
 0,&\text{else},
 \end{cases}
 \]
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求 $t$。
 \item 求 $P(x+y>1)$。
 \item 求 $P(y>1\mid x<\frac12)$。
@@ -132,7 +157,7 @@ x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
 1=\int_0^1\int_0^2\left(x^2+\frac{xy}{t}\right)dy\,dx
 =\frac23+\frac1t,
 \]
-\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item \ansmath{t=3}
 \item
 \ansmath{P(x+y>1)=1-\int_0^1\int_0^{1-x}\left(x^2+\frac{xy}{3}\right)dy\,dx
@@ -151,19 +176,19 @@ x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
 \begin{solution}
 显著性水平（$p$ 值）取右尾概率
 \ansmath{p=P(N\ge 8\mid \lambda=4)
-=1-\sum_{k=0}^{7}e^{-4}\frac{4^k}{k!}
+=\sum_{k=8}^{\infty}e^{-4}\frac{4^k}{k!}=1-\sum_{k=0}^{7}e^{-4}\frac{4^k}{k!}
 \approx 0.0511}
 \end{solution}
 \end{question}
 
 \begin{question}
 小明搭车。平均每分钟过 1 辆车。每个司机拒绝小明搭车的概率为 1\%，且每个司机是否拒绝相互独立。
-\begin{enumerate}[label=(\alph*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 求过了 60 辆车的时候小明没搭上车的概率。
 \item 求一个小时内小明没搭上车的概率。
 \end{enumerate}
 \begin{solution}
-\begin{enumerate}[label=（\arabic*）,leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}
 \item 过了 $60$ 辆车仍没搭上车，等价于 $60$ 人全拒绝：
 \ansmath{P=(0.01)^{60}}
 \item 一小时内车辆数 $N\sim \mathrm{Poisson}(60)$。条件于 $N=n$ 时，没搭上车概率为 $(0.01)^n$，故
