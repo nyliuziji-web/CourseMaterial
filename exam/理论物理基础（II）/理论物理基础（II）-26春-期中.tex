@@ -1,0 +1,484 @@
+\heading{理论物理基础（II）-26春-期中}
+
+\begin{question}[25 分]
+一个经典理想气体的内能为 $U=Nc_VT$，物态方程为 $pV=Nk_BT$，这里 $U,N,T,p,V$ 分别为内能、粒子数、温度、压强、体积，且定容比热 $c_V$ 为正的常量。考虑一个可逆多方过程，过程中 $pV^n=\text{常量}$，``多方指数'' $n$ 为无量纲常数。用下标 $i$ 与 $f$ 分别标记初态与末态的物理量。下面问题的结果都应该用初态温度 $T_i$、初态体积 $V_i$、$N$ 和前面给出的常量表示。
+\begin{enumerate}
+    \item 如末态体积为初态的二倍，$V_f=2V_i$，计算过程中外界对气体做的功 $W$。
+    \item 按上一问中条件，计算过程中气体的吸热 $Q$。
+    \item 按上一问中条件，计算过程中气体的熵的变化量 $\Delta S\equiv S_f-S_i$。
+\end{enumerate}
+\begin{solution}
+在可逆准静态过程中，气体压强始终满足
+\[
+    pV^n=p_iV_i^n,
+    \qquad
+    p_iV_i=Nk_BT_i.
+\]
+因此沿过程有
+\[
+    p(V)=p_i\left(\frac{V_i}{V}\right)^n
+    =Nk_BT_iV_i^{n-1}V^{-n}.
+\]
+又因为题目采用外界对气体做功的符号约定，对可逆体积功有
+\[
+    \delta W=-p\dd{V},
+    \qquad
+    \dd{U}=\delta Q+\delta W.
+\]
+\begin{enumerate}
+    \item 当 $n\ne 1$ 时，
+    \[
+        W=-\int_{V_i}^{V_f}p\dd{V}
+        =-Nk_BT_iV_i^{n-1}\int_{V_i}^{2V_i}V^{-n}\dd{V}.
+    \]
+    计算积分得
+    \[
+        W
+        =-Nk_BT_iV_i^{n-1}\left.\frac{V^{1-n}}{1-n}\right|_{V_i}^{2V_i}
+        =Nk_BT_i\frac{2^{1-n}-1}{n-1}.
+    \]
+    因此
+    \[
+        \boxed{W=Nk_BT_i\frac{2^{1-n}-1}{n-1}\quad(n\ne 1).}
+    \]
+    当 $n=1$ 时，过程为等温过程，取极限可得
+    \[
+        \boxed{W=-Nk_BT_i\ln 2.}
+    \]
+
+    \item 由多方关系和物态方程，
+    \[
+        \frac{T_f}{T_i}
+        =\frac{p_fV_f}{p_iV_i}
+        =\frac{p_iV_i^nV_f^{1-n}}{p_iV_i}
+        =\left(\frac{V_f}{V_i}\right)^{1-n}
+        =2^{1-n}.
+    \]
+    所以内能变化为
+    \[
+        \Delta U=Nc_V(T_f-T_i)=Nc_VT_i(2^{1-n}-1).
+    \]
+    第一律给出
+    \[
+        Q=\Delta U-W.
+    \]
+    代入上一问的 $W$，得
+    \[
+        Q=Nc_VT_i(2^{1-n}-1)-Nk_BT_i\frac{2^{1-n}-1}{n-1}.
+    \]
+    即
+    \[
+        \boxed{Q=NT_i(2^{1-n}-1)\left(c_V-\frac{k_B}{n-1}\right)\quad(n\ne 1).}
+    \]
+    当 $n=1$ 时，$\Delta U=0$，故
+    \[
+        \boxed{Q=Nk_BT_i\ln 2.}
+    \]
+
+    \item 对粒子数 $N$ 不变的经典理想气体，由热力学基本关系
+    \[
+        T\dd{S}=\dd{U}+p\dd{V}
+    \]
+    得
+    \[
+        \dd{S}=Nc_V\frac{\dd{T}}{T}+Nk_B\frac{\dd{V}}{V}.
+    \]
+    因此熵变只与初末态有关：
+    \[
+        \Delta S=Nc_V\ln\frac{T_f}{T_i}+Nk_B\ln\frac{V_f}{V_i}.
+    \]
+    代入 $T_f/T_i=2^{1-n}$ 和 $V_f/V_i=2$，得到
+    \[
+        \Delta S=Nc_V(1-n)\ln2+Nk_B\ln2.
+    \]
+    因此
+    \[
+        \boxed{\Delta S=N\bigl[(1-n)c_V+k_B\bigr]\ln2.}
+    \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[25 分]
+考虑粒子数为 $N$ 的单原子经典理想气体，平衡时内能为 $\frac{3}{2}Nk_BT$，物态方程为 $pV=Nk_BT$。将气体密封在正四棱柱形状的绝热容器内，容器的三边长分别为 $L,L,H$。气体中每个原子的质量为 $m$，处于重力加速度为 $g$ 的均匀重力场内，设气体形成的局域平衡态的温度始终均匀。
+\begin{enumerate}
+    \item 初始时，容器的 $H$ 边沿着竖直方向，容器的底面为重力势能零点，气体的温度为 $T$。计算气体的总内能 $U$。注意这里的内能包括重力势能。
+    \item 按上一问中条件，计算气体的总熵 $S$。结果可以含有一个未知常量与 $N$ 的乘积。
+    \item 将容器缓慢地放倒，使一个 $L$ 边沿着竖直方向。列出气体末态温度 $T'$ 满足的方程并说明理由。
+\end{enumerate}
+\begin{solution}
+设竖直坐标为 $h$，底面处 $h=0$，单个原子的重力势能为 $mgh$。令
+\[
+    y_a(T)=\frac{mga}{k_BT},
+    \qquad
+    \lambda_T=\frac{h}{\sqrt{2\pi mk_BT}},
+\]
+其中 $a$ 表示容器沿竖直方向的高度，$\lambda_T$ 是热德布罗意波长。
+\begin{enumerate}
+    \item 初态竖直高度为 $H$，水平截面积为 $L^2$。局域平衡下数密度满足 Boltzmann 分布：
+    \[
+        n(h)=n_0\exp\left(-\frac{mgh}{k_BT}\right).
+    \]
+    由归一化条件
+    \[
+        N=L^2\int_0^H n_0\exp\left(-\frac{mgh}{k_BT}\right)\dd{h}
+    \]
+    得
+    \[
+        n_0=\frac{Nmg}{L^2k_BT}\frac{1}{1-\exp[-mgH/(k_BT)]}.
+    \]
+    总能量由平动内能和重力势能两部分组成：
+    \[
+        U=\int_0^HL^2n(h)\left(\frac{3}{2}k_BT+mgh\right)\dd{h}.
+    \]
+    第一部分直接给出 $\frac{3}{2}Nk_BT$。第二部分需要计算平均高度：
+    \[
+        \langle h\rangle
+        =\frac{\int_0^Hh\exp[-mgh/(k_BT)]\dd{h}}{\int_0^H\exp[-mgh/(k_BT)]\dd{h}}
+        =\frac{k_BT}{mg}-\frac{H}{\exp[mgH/(k_BT)]-1}.
+    \]
+    所以重力势能为
+    \[
+        Nmg\langle h\rangle
+        =Nk_BT-\frac{NmgH}{\exp[mgH/(k_BT)]-1}.
+    \]
+    因此总内能为
+    \[
+        \boxed{U=\frac{5}{2}Nk_BT-\frac{NmgH}{\exp[mgH/(k_BT)]-1}.}
+    \]
+
+    \item 用经典正则系综可以直接得到包含相空间体积常数的熵。初态的单粒子配分函数为
+    \[
+        Z_1(T,H)=\frac{1}{h^3}\int_{0}^{H}L^2\dd{h}\int \dd[3]{p}\,
+        \exp\left[-\frac{p^2/(2m)+mgh}{k_BT}\right].
+    \]
+    动量积分给出 $\lambda_T^{-3}$，故
+    \[
+        Z_1(T,H)=\frac{L^2}{\lambda_T^3}\frac{k_BT}{mg}
+        \left(1-\exp\left[-\frac{mgH}{k_BT}\right]\right).
+    \]
+    对非定域经典粒子，$Z_N=Z_1^N/N!$。由
+    \[
+        S=k_B(\ln Z_N+\beta U),
+        \qquad \beta=\frac{1}{k_BT},
+    \]
+    并用 Stirling 公式 $\ln N!\simeq N\ln N-N$，得到
+    \[
+        S=Nk_B\left[\ln\frac{Z_1}{N}+1\right]+\frac{U}{T}.
+    \]
+    代入上一问的 $U$，可得
+    \[
+        \boxed{
+        S=Nk_B\left\{
+        \ln\left[\frac{L^2k_BT}{Nmg\lambda_T^3}
+        \left(1-\exp\left[-\frac{mgH}{k_BT}\right]\right)\right]
+        +\frac{7}{2}-\frac{mgH/(k_BT)}{\exp[mgH/(k_BT)]-1}
+        \right\}.}
+    \]
+    如果不写出相空间常数，也可以把与参考温度和相空间单位有关的部分并入 $N$ 倍常量中；依赖于 $T,H,L,N,m,g$ 的部分与上式一致。
+
+    \item 缓慢放倒且容器绝热，若过程保持准静态，则过程可逆且无热交换，因此气体熵保持不变。需要注意，转动容器时外力可通过改变气体在重力场中的分布对系统做功，所以不能把总内能当成守恒量使用。
+
+    对竖直高度为 $a$、水平截面积为 $A$ 的同一类容器，有
+    \[
+        Z_1(T,a,A)=\frac{A}{\lambda_T^3}\frac{k_BT}{mg}
+        \left(1-\exp\left[-\frac{mga}{k_BT}\right]\right),
+    \]
+    从而
+    \[
+        S(T,a,A)=Nk_B\left\{
+        \ln\left[\frac{Ak_BT}{Nmg\lambda_T^3}
+        \left(1-\exp\left[-\frac{mga}{k_BT}\right]\right)\right]
+        +\frac{7}{2}-\frac{mga/(k_BT)}{\exp[mga/(k_BT)]-1}
+        \right\}.
+    \]
+    初态为 $a=H,A=L^2,T$；末态为 $a=L,A=LH,T'$。因此 $T'$ 满足
+    \[
+    \boxed{
+    \begin{aligned}
+    &\ln\left[\frac{L^2k_BT}{Nmg\lambda_T^3}
+    \left(1-\exp\left[-\frac{mgH}{k_BT}\right]\right)\right]
+    -\frac{mgH/(k_BT)}{\exp[mgH/(k_BT)]-1} \\
+    &\quad =
+    \ln\left[\frac{LHk_BT'}{Nmg\lambda_{T'}^3}
+    \left(1-\exp\left[-\frac{mgL}{k_BT'}\right]\right)\right]
+    -\frac{mgL/(k_BT')}{\exp[mgL/(k_BT')]-1}.
+    \end{aligned}}
+    \]
+    这就是末态温度的隐式方程。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[25 分]
+考虑三维空间中粒子数为 $N$ 的非相对论无自旋玻色子理想气体，即近独立自由粒子体系。该玻色子的能量--动量关系为 $\varepsilon_{\mathbf p}=\mathbf p^2/(2m)$。初始时，该气体在体积为 $V$ 的绝热容器内处于平衡，且有 $N_0=N/2$ 的粒子凝聚为 Bose--Einstein 凝聚体。下面的结果都应仅用题干中给出的量和物理常量表示。
+\begin{enumerate}
+    \item 求出该玻色气体初始时的温度 $T$。注意这不是粒子数为 $N$ 的临界温度。
+    \item 求出该玻色气体初始时的压强 $p$ 和熵 $S$。
+    \item 突然将容器体积扩大为 $V'=2V$，让该玻色气体做自由膨胀。计算重新达到平衡后 Bose--Einstein 凝聚体的粒子数 $N_0'$。
+\end{enumerate}
+\begin{solution}
+三维非相对论理想玻色气体在凝聚相中有 $\mu=0$，非凝聚粒子数和内能分别为
+\[
+    N_{\rm ex}=\frac{V}{\lambda_T^3}\zeta\left(\frac{3}{2}\right),
+    \qquad
+    U=\frac{3}{2}k_BT\frac{V}{\lambda_T^3}\zeta\left(\frac{5}{2}\right),
+\]
+其中
+\[
+    \lambda_T=\frac{h}{\sqrt{2\pi mk_BT}}.
+\]
+\begin{enumerate}
+    \item 初态有 $N_0=N/2$，所以非凝聚粒子数为
+    \[
+        N_{\rm ex}=N-N_0=\frac{N}{2}.
+    \]
+    因此
+    \[
+        \frac{N}{2}=\frac{V}{\lambda_T^3}\zeta\left(\frac{3}{2}\right).
+    \]
+    由 $\lambda_T=h/\sqrt{2\pi mk_BT}$ 解得
+    \[
+        \boxed{T=\frac{h^2}{2\pi mk_B}
+        \left[\frac{N}{2V\zeta(3/2)}\right]^{2/3}.}
+    \]
+
+    \item 初态内能为
+    \[
+        U=\frac{3}{2}k_BT\frac{V}{\lambda_T^3}\zeta\left(\frac{5}{2}\right)
+        =\frac{3}{2}k_BT\frac{N}{2}\frac{\zeta(5/2)}{\zeta(3/2)}.
+    \]
+    即
+    \[
+        U=\frac{3}{4}Nk_BT\frac{\zeta(5/2)}{\zeta(3/2)}.
+    \]
+    非相对论自由气体满足
+    \[
+        pV=\frac{2}{3}U,
+    \]
+    所以
+    \[
+        p=\frac{Nk_BT}{2V}\frac{\zeta(5/2)}{\zeta(3/2)}.
+    \]
+    再代入上一问的温度，得到
+    \[
+        \boxed{
+        p=\frac{h^2}{2\pi m}
+        \left(\frac{N}{2V}\right)^{5/3}
+        \frac{\zeta(5/2)}{\zeta(3/2)^{5/3}}.}
+    \]
+    熵可由热力学关系
+    \[
+        S=\frac{U+pV-\mu N}{T}
+    \]
+    求得。凝聚相中 $\mu=0$，且 $pV=2U/3$，故
+    \[
+        S=\frac{5U}{3T}
+        =\frac{5}{2}k_B\frac{V}{\lambda_T^3}\zeta\left(\frac{5}{2}\right)
+        =\frac{5}{2}k_B\frac{N}{2}\frac{\zeta(5/2)}{\zeta(3/2)}.
+    \]
+    因此
+    \[
+        \boxed{S=\frac{5}{4}Nk_B\frac{\zeta(5/2)}{\zeta(3/2)}.}
+    \]
+
+    \item 自由膨胀过程中容器绝热，外界不做体积功，理想气体内部也没有相互作用能，因此总粒子数和内能守恒。设末态仍有凝聚体，末态体积为 $2V$，温度为 $T'$。由内能守恒，
+    \[
+        \frac{3}{2}k_BT\frac{V}{\lambda_T^3}\zeta\left(\frac{5}{2}\right)
+        =\frac{3}{2}k_BT'\frac{2V}{\lambda_{T'}^3}\zeta\left(\frac{5}{2}\right).
+    \]
+    由于 $\lambda_T^{-3}\propto T^{3/2}$，上式等价于
+    \[
+        VT^{5/2}=2V(T')^{5/2},
+    \]
+    从而
+    \[
+        T'=T\,2^{-2/5}.
+    \]
+    末态非凝聚粒子数为
+    \[
+        N'_{\rm ex}=\frac{2V}{\lambda_{T'}^3}\zeta\left(\frac{3}{2}\right)
+        =2\frac{V}{\lambda_T^3}\left(\frac{T'}{T}\right)^{3/2}\zeta\left(\frac{3}{2}\right).
+    \]
+    利用初态 $V\lambda_T^{-3}\zeta(3/2)=N/2$，得到
+    \[
+        N'_{\rm ex}=2\cdot\frac{N}{2}\cdot\left(2^{-2/5}\right)^{3/2}
+        =N2^{-3/5}.
+    \]
+    因此
+    \[
+        \boxed{N_0'=N-N'_{\rm ex}=N\left(1-2^{-3/5}\right).}
+    \]
+    该结果为正，所以末态确实仍处于凝聚相，自洽。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[25 分]
+考虑 $N$ 个 $N\gg 1$ 全同的定域近独立粒子。每个粒子有三个状态，分别标记为 $k=1,0,-1$。单粒子状态 $k$ 的能量为 $\varepsilon_k=D(1-k^2)$，``磁矩''为 $m_k=\gamma k$，其中 $D,\gamma$ 均为正的常量。
+\begin{enumerate}
+    \item 考虑总能量为 $E=\sum_{i=1}^N\varepsilon_{k_i}$、``总磁矩''为 $M=\sum_{i=1}^Nm_{k_i}$ 的平衡态孤立系统。求热力学极限下的``比熵'' $S(E,M)/N$。
+    \item 这个系统的热力学基本关系为
+    \[
+        \dd{S}=\frac{\dd{U}}{T}-\frac{B}{T}\dd{M},
+    \]
+    其中 $T$ 为温度，$B$ 为``外磁场''。求出``比内能'' $u(T,B)=U(T,B)/N$ 及``比磁矩'' $m(T,B)=M(T,B)/N$ 作为 $T$ 和 $B$ 的函数。
+    \item 考虑``绝热去磁''过程，缓慢绝热地改变外磁场 $B$，计算温度的变化率 $(\partial T/\partial B)_S$。为简化计算，可以定义
+    \[
+        q=\frac{D}{k_BT},
+        \qquad
+        x=\frac{\gamma B}{k_BT}=\frac{q\gamma B}{D}.
+    \]
+\end{enumerate}
+\begin{solution}
+状态 $k=0$ 的能量为 $D$、磁矩为 $0$；状态 $k=1$ 和 $k=-1$ 的能量为 $0$、磁矩分别为 $\gamma$ 和 $-\gamma$。
+\begin{enumerate}
+    \item 设 $n_1,n_0,n_{-1}$ 分别为处于 $k=1,0,-1$ 的粒子数，则
+    \[
+        n_1+n_0+n_{-1}=N,
+        \qquad
+        Dn_0=E,
+        \qquad
+        \gamma(n_1-n_{-1})=M.
+    \]
+    解得
+    \[
+        n_0=\frac{E}{D},
+        \qquad
+        n_1=\frac{1}{2}\left(N-\frac{E}{D}+\frac{M}{\gamma}\right),
+        \qquad
+        n_{-1}=\frac{1}{2}\left(N-\frac{E}{D}-\frac{M}{\gamma}\right).
+    \]
+    在给定 $E,M$ 的条件下，微观态数为
+    \[
+        \Omega(E,M)=\frac{N!}{n_1!n_0!n_{-1}!}.
+    \]
+    令
+    \[
+        e=\frac{E}{N},
+        \qquad
+        m=\frac{M}{N},
+    \]
+    则三种状态的占据比例为
+    \[
+        p_0=\frac{e}{D},
+        \qquad
+        p_1=\frac{1}{2}\left(1-\frac{e}{D}+\frac{m}{\gamma}\right),
+        \qquad
+        p_{-1}=\frac{1}{2}\left(1-\frac{e}{D}-\frac{m}{\gamma}\right).
+    \]
+    用 Stirling 公式 $\ln n!\simeq n\ln n-n$，有
+    \[
+        \frac{S(E,M)}{N}=\frac{k_B\ln\Omega}{N}
+        =-k_B\left(p_1\ln p_1+p_0\ln p_0+p_{-1}\ln p_{-1}\right).
+    \]
+    因此
+    \[
+        \boxed{
+        \frac{S(E,M)}{N}=-k_B\left[
+        \frac{e}{D}\ln\frac{e}{D}
+        +\frac{1}{2}\left(1-\frac{e}{D}+\frac{m}{\gamma}\right)
+        \ln\frac{1-\frac{e}{D}+\frac{m}{\gamma}}{2}
+        +\frac{1}{2}\left(1-\frac{e}{D}-\frac{m}{\gamma}\right)
+        \ln\frac{1-\frac{e}{D}-\frac{m}{\gamma}}{2}
+        \right],}
+    \]
+    其中 $e=E/N$、$m=M/N$。该式的适用区域由 $p_0,p_1,p_{-1}\ge 0$ 决定。
+
+    \item 外场 $B$ 下，态 $k$ 的有效能量为
+    \[
+        \varepsilon_k(B)=\varepsilon_k-Bm_k.
+    \]
+    因此单粒子配分函数为
+    \[
+        Z_1(T,B)=\sum_{k=-1}^{1}\exp\left[-\frac{\varepsilon_k-Bm_k}{k_BT}\right]
+        =\exp\left(-\frac{D}{k_BT}\right)+2\cosh\left(\frac{\gamma B}{k_BT}\right).
+    \]
+    三个单粒子状态的概率分别为
+    \[
+        P_0=\frac{\exp[-D/(k_BT)]}{Z_1},
+        \qquad
+        P_1=\frac{\exp[\gamma B/(k_BT)]}{Z_1},
+        \qquad
+        P_{-1}=\frac{\exp[-\gamma B/(k_BT)]}{Z_1}.
+    \]
+    这里要求的内能 $U$ 是未扣除 $BM$ 的系统内能，因此
+    \[
+        u(T,B)=\frac{U}{N}=\sum_kP_k\varepsilon_k=DP_0.
+    \]
+    于是
+    \[
+        \boxed{
+        u(T,B)=D\frac{\exp[-D/(k_BT)]}{\exp[-D/(k_BT)]+2\cosh[\gamma B/(k_BT)]}.}
+    \]
+    同理，比磁矩为
+    \[
+        m(T,B)=\frac{M}{N}=\sum_kP_km_k=\gamma(P_1-P_{-1}).
+    \]
+    因此
+    \[
+        \boxed{
+        m(T,B)=\gamma\frac{2\sinh[\gamma B/(k_BT)]}{\exp[-D/(k_BT)]+2\cosh[\gamma B/(k_BT)]}.}
+    \]
+
+    \item 使用题目建议的变量
+    \[
+        q=\frac{D}{k_BT},
+        \qquad
+        x=\frac{\gamma B}{k_BT},
+        \qquad
+        Z=\exp(-q)+2\cosh x.
+    \]
+    三个概率为
+    \[
+        P_0=\frac{\exp(-q)}{Z},
+        \qquad
+        P_1=\frac{\exp x}{Z},
+        \qquad
+        P_{-1}=\frac{\exp(-x)}{Z}.
+    \]
+    熵可直接由 $s=-k_B\sum_kP_k\ln P_k$ 写为
+    \[
+        \frac{s(q,x)}{k_B}=\ln Z+\frac{q\exp(-q)-2x\sinh x}{Z},
+        \qquad s=\frac{S}{N}.
+    \]
+    绝热过程满足 $\dd{s}=0$，即
+    \[
+        \left(\frac{\partial s}{\partial q}\right)_x\dd{q}
+        +\left(\frac{\partial s}{\partial x}\right)_q\dd{x}=0.
+    \]
+    另一方面
+    \[
+        \dd q=-\frac{q}{T}\dd T,
+        \qquad
+        \dd x=\frac{\gamma}{k_BT}\dd B-\frac{x}{T}\dd T.
+    \]
+    代入 $\dd{s}=0$ 后得
+    \[
+        \left(\frac{\partial T}{\partial B}\right)_S
+        =\frac{\gamma}{k_B}
+        \frac{(\partial s/\partial x)_q}{q(\partial s/\partial q)_x+x(\partial s/\partial x)_q}.
+    \]
+    对 $s(q,x)$ 求偏导并化简：
+    \[
+        \left(\frac{\partial s}{\partial x}\right)_q
+        =-\frac{2Nk_B\exp q}{(2\exp q\cosh x+1)^2}
+        \left(q\sinh x+x\cosh x+2x\exp q\right),
+    \]
+    \[
+        q\left(\frac{\partial s}{\partial q}\right)_x+x\left(\frac{\partial s}{\partial x}\right)_q
+        =-\frac{2Nk_B\exp q}{(2\exp q\cosh x+1)^2}
+        \left[(q^2+x^2)\cosh x+2qx\sinh x+2x^2\exp q\right].
+    \]
+    因此公共因子相消，得到
+    \[
+        \boxed{
+        \left(\frac{\partial T}{\partial B}\right)_S
+        =\frac{\gamma}{k_B}
+        \frac{q\sinh x+x\cosh x+2x\exp q}
+        {(q^2+x^2)\cosh x+2qx\sinh x+2x^2\exp q},}
+    \]
+    其中 $q=D/(k_BT)$、$x=\gamma B/(k_BT)$。
+\end{enumerate}
+\end{solution}
+\end{question}

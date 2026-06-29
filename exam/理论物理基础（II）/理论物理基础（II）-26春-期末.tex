@@ -1,0 +1,494 @@
+\heading{理论物理基础（II）-26春-期末}
+\noteinfo{题目来源于 2026 年春季学期期末考试。}
+
+\begin{question}[共 30 分]
+考虑宽度 $2L$ 的一维无限深方势阱
+\[
+V(x)=
+\begin{cases}
++\infty, & |x|>L,\\
+0, & |x|<L.
+\end{cases}
+\]
+非相对论粒子的哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2m}\partial_x^2+V(x).
+\]
+\begin{enumerate}
+  \item （8 分）求出 $\hat H$ 的所有本征值 $E$ 和归一化的本征态波函数 $\psi_E(x)$。
+  \item （4 分）考虑波函数
+  \[
+  \psi(x)=
+  \begin{cases}
+  A(L-|x|), & |x|<L,\\
+  0, & |x|>L.
+  \end{cases}
+  \]
+  求出归一化常数 $A$（设为正实数）。
+  \item （3 分）设 $\varphi(x,t)$ 按照哈密顿量 $\hat H$ 的薛定谔方程演化，其初态为（2）中量子态，$\varphi(x,t=0)=\psi(x)$。是否有时刻 $t>0$ 使得
+  \[
+  \varphi(x,t)=\text{常数}\cdot \psi(x)?
+  \]
+  如果有，求出所有这样的 $t$；如没有，说明理由。提示：不需要完全求出 $\psi$ 按照（1）中本征态展开的系数。
+  \item （5 分）给哈密顿量添加一个 $\delta$ 势，
+  \[
+  \hat H'=-\frac{\hbar^2}{2m}\partial_x^2+V(x)+\alpha\delta(x).
+  \]
+  写出 $\hat H'$ 的本征态波函数需要满足的所有“边界条件”。提示：将定态薛定谔方程对 $\delta$ 势所在的无限小区间积分。
+  \item （5 分）求出 $\hat H'$ 的本征值 $E'$ 满足的方程（可能是无法求解的超越方程）。提示：对称性也许可以简化计算。
+  \item （5 分）如 $\hat H'$ 有一个能量为零（$E'=0$）的本征态，求出 $\alpha$。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 在 $|x|<L$ 内，定态方程为
+  \[
+  -\frac{\hbar^2}{2m}\psi''(x)=E\psi(x),\qquad \psi(-L)=\psi(L)=0.
+  \]
+  令 $q=\sqrt{2mE}/\hbar$，边界条件给出 $2qL=n\pi$，$n=1,2,\dots$。因此
+  \[
+  E_n=\frac{\hbar^2}{2m}\left(\frac{n\pi}{2L}\right)^2,
+  \]
+  一组归一化本征函数可取为
+  \ansmath{
+  \psi_n(x)=
+  \begin{cases}
+  \dfrac{1}{\sqrt L}\sin\left[\dfrac{n\pi}{2L}(x+L)\right], & |x|<L,\\[1ex]
+  0, & |x|>L,
+  \end{cases}\quad n=1,2,\dots .
+  }
+  等价地，$n=2k-1$ 为偶宇称态，$n=2k$ 为奇宇称态：
+  \[
+  \psi_{2k-1}(x)=\frac{(-1)^{k-1}}{\sqrt L}\cos\frac{(2k-1)\pi x}{2L},\qquad
+  \psi_{2k}(x)=\frac{(-1)^k}{\sqrt L}\sin\frac{k\pi x}{L}.
+  \]
+  \item 归一化条件为
+  \[
+  1=\int_{-L}^{L}A^2(L-|x|)^2\,dx
+  =2A^2\int_0^L(L-x)^2\,dx
+  =\frac{2A^2L^3}{3}.
+  \]
+  取 $A>0$，得
+  \ansmath{A=\sqrt{\frac{3}{2L^3}}.}
+  \item 初态 $\psi(x)$ 为偶函数，所以只含偶宇称能量本征态，即只含 $n=2k-1$ 的项。为了确认没有漏掉必要的相位条件，计算偶宇称展开系数的核心积分：
+  \[
+  \int_0^L(L-x)\cos\frac{(2k-1)\pi x}{2L}\,dx
+  =\frac{1}{\left[(2k-1)\pi/(2L)\right]^2}\ne 0.
+  \]
+  因而所有 $n=2k-1$ 的非零分量都必须获得同一个相位。设
+  \[
+  \Omega=\frac{E_1t}{\hbar}=\frac{\hbar\pi^2t}{8mL^2},
+  \]
+  则要求
+  \[
+  \exp\{-\ii\Omega(2k-1)^2\}
+  \]
+  对所有 $k=1,2,\dots$ 相同。任意两个奇数平方之差都是 $8$ 的整数倍，且最大公因数正是 $8$，所以充要条件为
+  \[
+  8\Omega=2\pi N,
+  \qquad N\in\mathbb Z.
+  \]
+  又要求 $t>0$，故
+  \ansmath{t=N\frac{2mL^2}{\pi\hbar},\qquad N=1,2,3,\dots .}
+  此时 $\varphi(x,t)=\ee^{-\ii\Omega}\psi(x)$，比例常数是一个整体相位。
+  \item 本征态在墙内满足分段自由粒子的定态方程。无限深势阱给出
+  \[
+  \psi(-L)=\psi(L)=0,
+  \]
+  并且波函数在 $x=0$ 连续：
+  \[
+  \psi(0^+)=\psi(0^-)=\psi(0).
+  \]
+  将定态方程
+  \[
+  -\frac{\hbar^2}{2m}\psi''(x)+\alpha\delta(x)\psi(x)=E'\psi(x)
+  \]
+  在 $(-\varepsilon,\varepsilon)$ 上积分并令 $\varepsilon\to0^+$，得到导数跳跃条件
+  \ansmath{\psi'(0^+)-\psi'(0^-)=\frac{2m\alpha}{\hbar^2}\psi(0).}
+  \item 势能关于 $x=0$ 对称，故本征态可按宇称分类。
+
+  奇宇称态满足 $\psi(0)=0$，完全不受 $\delta$ 势影响，因此
+  \[
+  \psi_k^{(-)}(x)=\frac{1}{\sqrt L}\sin\frac{k\pi x}{L},\qquad
+  E_k^{(-)}=\frac{\hbar^2}{2m}\left(\frac{k\pi}{L}\right)^2,
+  \quad k=1,2,\dots .
+  \]
+  偶宇称态可写为
+  \[
+  \psi^{(+)}(x)=C\sin\bigl(q(L-|x|)\bigr),\qquad q^2=\frac{2mE}{\hbar^2}.
+  \]
+  它自动满足 $\psi(\pm L)=0$。在 $x=0$ 处，
+  \[
+  \psi'(0^+)-\psi'(0^-)=-2Cq\cos(qL),\qquad \psi(0)=C\sin(qL).
+  \]
+  代入跳跃条件，得到偶宇称能级方程
+  \ansmath{q\cos(qL)+\frac{m\alpha}{\hbar^2}\sin(qL)=0,
+  \qquad E=\frac{\hbar^2q^2}{2m}.}
+  这个式子也可写为 $q\cot(qL)=-m\alpha/\hbar^2$。若存在负能级，可令 $q=\ii\kappa$ 得到相应的双曲函数形式。
+  \item 零能态在 $x\ne0$ 处满足 $\psi''=0$。奇宇称零能解无法同时满足两端无限深势阱边界条件并非零；偶宇称零能解可取
+  \[
+  \psi(x)=C(L-|x|),\qquad |x|<L.
+  \]
+  此时 $\psi(0)=CL$，$\psi'(0^+)=-C$，$\psi'(0^-)=C$。导数跳跃条件给出
+  \[
+  -2C=\frac{2m\alpha}{\hbar^2}CL.
+  \]
+  因此
+  \ansmath{\alpha=-\frac{\hbar^2}{mL}.}
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[共 30 分]
+考虑 $S=1$ 的自旋，其 $3$ 维 Hilbert 空间的一组完备正交归一基可以取为 $\hat S_z$ 本征基，包括
+\[
+\ket{\chi_1}\equiv\ket{S_z=1},\qquad
+\ket{\chi_2}\equiv\ket{S_z=0},\qquad
+\ket{\chi_3}\equiv\ket{S_z=-1}.
+\]
+设它们满足 Condon--Shortley 相位约定。
+\begin{enumerate}
+  \item （9 分）在 $\hat S_z$ 本征基下将自旋角动量算符 $\hat S_z,\hat S_x,\hat S_y$ 都表示为 $3\times3$ 矩阵，即求出所有
+  \[
+  (\hat S_a)_{i,j}\equiv\mel{\chi_i}{\hat S_a}{\chi_j},
+  \]
+  这里 $i,j=1,2,3$ 且 $a=x,y,z$。提示：用角动量升降算符表示 $\hat S_x,\hat S_y$，可以用 $\hat O\ket{\chi_i}=\sum_j\ket{\chi_j}(\hat O)_{j,i}$ 高效地求出矩阵元。
+  \item （6 分）求出 $\hat S_x$ 的所有本征值和归一化本征态（用 $\hat S_z$ 本征基表示，可以写成列向量）。提示：可以避免对角化 $3\times3$ 矩阵，换一组完备正交归一基
+  \[
+  \ket{\chi_+}\equiv\frac{1}{\sqrt2}\left(\ket{S_z=1}+\ket{S_z=-1}\right),\quad
+  \ket{\chi_-}\equiv\frac{1}{\sqrt2}\left(\ket{S_z=1}-\ket{S_z=-1}\right),\quad
+  \ket{\chi_2},
+  \]
+  之后，在这组基下 $\hat S_x$ 的矩阵表示是分块对角的。
+  \item （6 分）在
+  \[
+  \ket{\psi}\equiv\frac{1}{\sqrt3}\left(\ket{S_z=1}+\ket{S_z=0}+\ket{S_z=-1}\right)
+  \]
+  态下计算下列期待值：$\ev{\hat S_x},\ev{\hat S_y},\ev{\hat S_z},\ev{\hat S_y^2},\ev{\hat S_z^2}$。并验证 $\hat S_y$ 与 $\hat S_z$ 的不确定度关系。
+  \item （9 分）设 $\ket{\varphi(t)}$ 根据哈密顿量 $\hat H=-B\hat S_z$ 演化，且初态为（3）中的态 $\ket{\psi}$，即 $\ket{\varphi(t=0)}=\ket{\psi}$。在末态 $\ket{\varphi(t)}$ 下，先测量 $\hat S_x$，然后再测量 $\hat S_z$，求所有可能的测量结果的组合及出现概率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 对 $s=1$，升降算符满足
+  \[
+  \hat S_+\ket{-1}=\sqrt2\hbar\ket{0},
+  \qquad
+  \hat S_+\ket{0}=\sqrt2\hbar\ket{1},
+  \qquad
+  \hat S_+\ket{1}=0,
+  \]
+  且 $\hat S_-=(\hat S_+)^\dagger$。由
+  \[
+  \hat S_x=\frac{\hat S_++\hat S_-}{2},
+  \qquad
+  \hat S_y=\frac{\hat S_+-\hat S_-}{2\ii},
+  \]
+  在基 $\ket{1},\ket{0},\ket{-1}$ 下得到
+  \ansmath{
+  \hat S_z=\hbar
+  \begin{pmatrix}
+  1&0&0\\
+  0&0&0\\
+  0&0&-1
+  \end{pmatrix},\quad
+  \hat S_x=\frac{\hbar}{\sqrt2}
+  \begin{pmatrix}
+  0&1&0\\
+  1&0&1\\
+  0&1&0
+  \end{pmatrix},\quad
+  \hat S_y=\frac{\hbar}{\sqrt2}
+  \begin{pmatrix}
+  0&-\ii&0\\
+  \ii&0&-\ii\\
+  0&\ii&0
+  \end{pmatrix}.}
+  \item 解 $\hat S_x$ 的本征方程，或者利用绕 $y$ 轴旋转的自旋态，可取如下归一化本征态：
+  \ansmath{
+  \begin{aligned}
+  S_x=+\hbar:&\quad \ket{S_x=1}=\begin{pmatrix}1/2\\ 1/\sqrt2\\ 1/2\end{pmatrix},\\[1ex]
+  S_x=0:&\quad \ket{S_x=0}=\begin{pmatrix}1/\sqrt2\\ 0\\ -1/\sqrt2\end{pmatrix},\\[1ex]
+  S_x=-\hbar:&\quad \ket{S_x=-1}=\begin{pmatrix}1/2\\ -1/\sqrt2\\ 1/2\end{pmatrix}.
+  \end{aligned}}
+  这里列向量的分量顺序均为 $\ket{S_z=1},\ket{S_z=0},\ket{S_z=-1}$。
+  \item 记 $\ket{\psi}=(1,1,1)^\mathsf T/\sqrt3$。由上面的矩阵可直接算出
+  \[
+  \ev{\hat S_x}=\frac{1}{3}(1,1,1)\hat S_x\begin{pmatrix}1\\1\\1\end{pmatrix}
+  =\frac{2\sqrt2}{3}\hbar,
+  \]
+  而 $\hat S_y$ 为纯虚反对称结构、$\hat S_z$ 对 $m=\pm1$ 的贡献相消，因此
+  \[
+  \ev{\hat S_y}=0,
+  \qquad
+  \ev{\hat S_z}=0.
+  \]
+  进一步
+  \[
+  \hat S_y^2=\frac{\hbar^2}{2}
+  \begin{pmatrix}
+  1&0&-1\\
+  0&2&0\\
+  -1&0&1
+  \end{pmatrix},
+  \qquad
+  \hat S_z^2=\hbar^2
+  \begin{pmatrix}
+  1&0&0\\
+  0&0&0\\
+  0&0&1
+  \end{pmatrix},
+  \]
+  所以
+  \ansmath{\ev{\hat S_x}=\frac{2\sqrt2}{3}\hbar,
+  \quad \ev{\hat S_y}=0,
+  \quad \ev{\hat S_z}=0,
+  \quad \ev{\hat S_y^2}=\frac{\hbar^2}{3},
+  \quad \ev{\hat S_z^2}=\frac{2\hbar^2}{3}.}
+  因此
+  \[
+  \sigma_{S_y}^2=\frac{\hbar^2}{3},
+  \qquad
+  \sigma_{S_z}^2=\frac{2\hbar^2}{3}.
+  \]
+  又 $[\hat S_y,\hat S_z]=\ii\hbar\hat S_x$，故
+  \[
+  \frac14\left|\ev{[\hat S_y,\hat S_z]}\right|^2
+  =\frac14\hbar^2\left(\frac{2\sqrt2}{3}\hbar\right)^2
+  =\frac{2\hbar^4}{9}
+  =\sigma_{S_y}^2\sigma_{S_z}^2.
+  \]
+  不确定度关系取等号。
+  \item 设 $\theta=Bt$。由于 $\hat H\ket{S_z=m}=-B\hbar m\ket{S_z=m}$，末态为
+  \[
+  \ket{\varphi(t)}=\frac{1}{\sqrt3}\left(\ee^{\ii\theta}\ket{1}+\ket{0}+\ee^{-\ii\theta}\ket{-1}\right).
+  \]
+  对 $\hat S_x$ 本征态求投影，得
+  \[
+  \begin{aligned}
+  \braket{S_x=1}{\varphi(t)}&=\frac{1}{\sqrt3}\left(\cos\theta+\frac{1}{\sqrt2}\right),\\
+  \braket{S_x=0}{\varphi(t)}&=\ii\sqrt{\frac23}\sin\theta,\\
+  \braket{S_x=-1}{\varphi(t)}&=\frac{1}{\sqrt3}\left(\cos\theta-\frac{1}{\sqrt2}\right).
+  \end{aligned}
+  \]
+  第一次测量 $\hat S_x$ 后态坍缩为对应的 $\hat S_x$ 本征态；第二次测量 $\hat S_z$ 的条件概率就是该本征态在 $\hat S_z$ 基下各分量模方。因此所有组合概率为
+  \[
+  \begin{array}{c|c|c}
+  \hat S_x\text{ 结果} & \hat S_z\text{ 结果} & \text{概率}\\ \hline
+  +\hbar & +\hbar & \dfrac{1}{12}\left(\cos\theta+\dfrac{1}{\sqrt2}\right)^2\\[1ex]
+  +\hbar & 0 & \dfrac{1}{6}\left(\cos\theta+\dfrac{1}{\sqrt2}\right)^2\\[1ex]
+  +\hbar & -\hbar & \dfrac{1}{12}\left(\cos\theta+\dfrac{1}{\sqrt2}\right)^2\\[1ex]
+  0 & +\hbar & \dfrac{1}{3}\sin^2\theta\\[1ex]
+  0 & 0 & 0\\[1ex]
+  0 & -\hbar & \dfrac{1}{3}\sin^2\theta\\[1ex]
+  -\hbar & +\hbar & \dfrac{1}{12}\left(\cos\theta-\dfrac{1}{\sqrt2}\right)^2\\[1ex]
+  -\hbar & 0 & \dfrac{1}{6}\left(\cos\theta-\dfrac{1}{\sqrt2}\right)^2\\[1ex]
+  -\hbar & -\hbar & \dfrac{1}{12}\left(\cos\theta-\dfrac{1}{\sqrt2}\right)^2
+  \end{array}
+  \]
+  这些概率相加为 $1$。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[共 10 分]
+设
+\[
+\psi(r,\theta,\phi)=A\cos\theta\cdot r\ee^{-r/a}
+\]
+是某个三维中心势问题
+\[
+\hat H=\frac{\hat{\mathbf p}^{\,2}}{2m}+V(r)
+\]
+的本征态，这里 $a$ 是正的常量。
+\begin{enumerate}
+  \item （5 分）求出归一化系数 $A$（取为正实数）。
+  \item （5 分）求出势能 $V(r)$（会包含一个待定常数）。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 归一化条件为
+  \[
+  1=|A|^2\int_0^\infty r^4\ee^{-2r/a}\,dr\int\cos^2\theta\,d\Omega.
+  \]
+  其中
+  \[
+  \int\cos^2\theta\,d\Omega=\frac{4\pi}{3},
+  \qquad
+  \int_0^\infty r^4\ee^{-2r/a}\,dr=\frac{4!}{(2/a)^5}=\frac{3a^5}{4}.
+  \]
+  因而 $1=|A|^2\pi a^5$。取 $A>0$，得
+  \ansmath{A=\frac{1}{\sqrt{\pi a^5}}.}
+  \item 因为 $\cos\theta=\sqrt{4\pi/3}Y_1^0(\theta,\phi)$，该态的角量子数为 $\ell=1$，径向函数正比于
+  \[
+  R(r)=r\ee^{-r/a}.
+  \]
+  令 $u(r)=rR(r)=r^2\ee^{-r/a}$，径向方程为
+  \[
+  \left[-\frac{\hbar^2}{2m}\frac{d^2}{dr^2}+\frac{\hbar^2\ell(\ell+1)}{2mr^2}+V(r)\right]u(r)=E u(r).
+  \]
+  对 $u=r^2\ee^{-r/a}$，有
+  \[
+  \frac{u''}{u}=\frac{2}{r^2}-\frac{4}{ar}+\frac{1}{a^2}.
+  \]
+  代入 $\ell=1$ 后，$1/r^2$ 项相互抵消，得到
+  \[
+  -\frac{\hbar^2}{2m}\left(\frac{2}{r^2}-\frac{4}{ar}+\frac{1}{a^2}\right)
+  +\frac{\hbar^2}{mr^2}+V(r)=E.
+  \]
+  故
+  \ansmath{V(r)=V_0-\frac{2\hbar^2}{mar},
+  \qquad V_0=E+\frac{\hbar^2}{2ma^2}.}
+  其中 $V_0$ 是待定常数。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[共 30 分]
+考虑一维简谐势下的两个无相互作用全同粒子，哈密顿量为
+\[
+\hat H=-\frac{\hbar^2}{2m}\left(\frac{\partial^2}{\partial x_1^2}+\frac{\partial^2}{\partial x_2^2}\right)
++\frac{m\omega^2}{2}(x_1^2+x_2^2).
+\]
+这里 $m,\omega$ 为正的常量。
+\begin{enumerate}
+  \item （7 分）对两个全同玻色子，写出 $\hat H$ 所有的能级和归一化本征函数。可以用谐振子本征函数 $\psi_n$ 表示。
+  \item （7 分）对两个全同费米子，写出 $\hat H$ 所有的能级和归一化本征函数。
+  \item （5 分）对（1）（2）中的两个无相互作用的全同玻色子和全同费米子的情况，分别计算在温度 $T$ 的”正则系综”下的”内能” $U_{\text{玻色子}}(T,N=2)$、$U_{\text{费米子}}(T,N=2)$，并证明
+  \[
+  U_{\text{玻色子}}(T,N=2)<U_{\text{费米子}}(T,N=2).
+  \]
+  $U$ 的最终结果应为初等函数。提示：正则系综下多体能级 $E$ 出现的概率为 $\ee^{-E/k_BT}/Z$，其中 $Z=\sum_E\ee^{-E/k_BT}$，内能 $U$ 为能量的平均值。
+  \item （6 分）如两个粒子间有简谐势形式的相互作用，
+  \[
+  \hat H'=\hat H+\frac{m\Omega^2}{4}(x_1-x_2)^2,
+  \]
+  $\Omega$ 为正的常量。分别对两个全同玻色子和两个全同费米子的情况，求出 $\hat H'$ 所有的能级。提示：换到质心坐标
+  \[
+  X\equiv\frac{x_1+x_2}{2}
+  \]
+  和相对坐标 $x\equiv x_2-x_1$，对应的动量分别为质心动量 $\hat P\equiv-\ii\hbar\partial_X$ 与相对动量 $\hat p\equiv-\ii\hbar\partial_x$，将 $\hat H'$ 用新的坐标和动量表示，注意全同粒子的交换对称性。
+  \item （5 分）在 $\hat H'$ 的两个全同玻色子的基态下，测量无相互作用的 $\hat H$，求出所有可能的测量结果和概率。
+  \[
+  (\hat H'\text{ 降算符})\ket{\hat H'\text{ 基态}}=0
+  \]
+  的条件，将 $\ket{\hat H'\text{ 基态}}$ 表为 $(\hat H\text{ 升算符})^n\ket{\hat H\text{ 基态}}$ 的线性组合并求出组合系数。
+\end{enumerate}
+\begin{solution}
+设单粒子一维谐振子的归一化本征函数为 $\psi_n(x)$，能量为
+\[
+\varepsilon_n=\hbar\omega\left(n+\frac12\right),\qquad n=0,1,2,\dots .
+\]
+\begin{enumerate}
+  \item 玻色子空间要求波函数在交换 $x_1\leftrightarrow x_2$ 时对称。若 $n_1=n_2=n$，
+  \[
+  \Psi_{n,n}^{(B)}(x_1,x_2)=\psi_n(x_1)\psi_n(x_2),
+  \qquad
+  E_{n,n}=\hbar\omega(2n+1).
+  \]
+  若 $0\le n_1<n_2$，
+  \[
+  \Psi_{n_1,n_2}^{(B)}(x_1,x_2)=\frac{\psi_{n_1}(x_1)\psi_{n_2}(x_2)+\psi_{n_2}(x_1)\psi_{n_1}(x_2)}{\sqrt2},
+  \]
+  \[
+  E_{n_1,n_2}=\hbar\omega(n_1+n_2+1).
+  \]
+  等价地，可以统一写成 $0\le n_1\le n_2$，能量 $\hbar\omega(n_1+n_2+1)$，波函数按 $n_1=n_2$ 与 $n_1<n_2$ 分别采用上述归一化形式。
+  \item 费米子空间要求波函数反对称，因此不能有 $n_1=n_2$。对所有 $0\le n_1<n_2$，
+  \ansmath{
+  \Psi_{n_1,n_2}^{(F)}(x_1,x_2)=\frac{\psi_{n_1}(x_1)\psi_{n_2}(x_2)-\psi_{n_2}(x_1)\psi_{n_1}(x_2)}{\sqrt2},
+  \quad
+  E_{n_1,n_2}=\hbar\omega(n_1+n_2+1).}
+  \item 令
+  \[
+  \beta=\frac{1}{k_BT},\qquad q=\ee^{-\beta\hbar\omega}.
+  \]
+  玻色子允许 $0\le n_1\le n_2$，配分函数为
+  \[
+  Z_B=\sum_{0\le n_1\le n_2}q^{n_1+n_2+1}
+  =\frac{q}{(1-q)(1-q^2)}.
+  \]
+  费米子允许 $0\le n_1<n_2$，配分函数为
+  \[
+  Z_F=\sum_{0\le n_1<n_2}q^{n_1+n_2+1}
+  =\frac{q^2}{(1-q)(1-q^2)}=qZ_B.
+  \]
+  用 $U=-\partial_\beta\ln Z$ 得
+  \[
+  U_B=\hbar\omega+\frac{\hbar\omega}{\ee^{\beta\hbar\omega}-1}
+  +\frac{2\hbar\omega}{\ee^{2\beta\hbar\omega}-1},
+  \]
+  \[
+  U_F=2\hbar\omega+\frac{\hbar\omega}{\ee^{\beta\hbar\omega}-1}
+  +\frac{2\hbar\omega}{\ee^{2\beta\hbar\omega}-1}.
+  \]
+  因而
+  \ansmath{U_F-U_B=\hbar\omega>0,\qquad U_B<U_F.}
+  \item 令
+  \[
+  X=\frac{x_1+x_2}{2},\qquad x=x_2-x_1,
+  \]
+  则
+  \[
+  x_1=X-\frac{x}{2},
+  \qquad
+  x_2=X+\frac{x}{2}.
+  \]
+  在对应动量 $\hat P=-\ii\hbar\partial_X$、$\hat p=-\ii\hbar\partial_x$ 下，哈密顿量分解为
+  \[
+  \hat H'=\left(\frac{\hat P^2}{4m}+m\omega^2X^2\right)
+  +\left(\frac{\hat p^2}{m}+\frac{m(\omega^2+\Omega^2)}{4}x^2\right).
+  \]
+  第一项是质量 $2m$、角频率 $\omega$ 的质心谐振子；第二项是约化质量 $m/2$、角频率
+  \[
+  \omega_r=\sqrt{\omega^2+\Omega^2}
+  \]
+  的相对坐标谐振子。因此可分离能量为
+  \[
+  E'_{N,n}=\hbar\omega\left(N+\frac12\right)+\hbar\omega_r\left(n+\frac12\right),
+  \qquad N,n=0,1,2,
+  \dots .
+  \]
+  交换两个粒子时 $X$ 不变而 $x\mapsto -x$。谐振子第 $n$ 个相对坐标本征函数宇称为 $(-1)^n$，故
+  \ansmath{
+  \begin{aligned}
+  \text{玻色子：}&\quad E'_{N,2k}=\hbar\omega\left(N+\frac12\right)+\hbar\omega_r\left(2k+\frac12\right),\\
+  \text{费米子：}&\quad E'_{N,2k+1}=\hbar\omega\left(N+\frac12\right)+\hbar\omega_r\left(2k+\frac32\right),
+  \end{aligned}\quad N,k=0,1,2,\dots .}
+  \item $\hat H'$ 的玻色子基态为质心坐标和相对坐标都取基态：
+  \[
+  \ket{0_X;0'_x},
+  \]
+  其中撇号表示相对坐标谐振子的频率为 $\omega_r=\sqrt{\omega^2+\Omega^2}$。测量无相互作用的 $\hat H$ 时，质心部分仍为 $N=0$，只需要将频率 $\omega_r$ 的相对坐标基态展开到频率 $\omega$ 的相对坐标本征态中。
+
+  记
+  \[
+  \lambda=\frac{\omega_r}{\omega}=\sqrt{1+\frac{\Omega^2}{\omega^2}},
+  \qquad
+  \rho=\frac{\lambda-1}{\lambda+1}.
+  \]
+  两套相对坐标降算符满足一个 Bogoliubov 变换；由 $a'_-\ket{0'_x}=0$ 可知展开中只含偶数激发：
+  \[
+  \ket{0'_x}=\sum_{k=0}^{\infty}c_{2k}\ket{2k_x}.
+  \]
+  系数可由递推关系或直接积分得到
+  \[
+  |c_{2k}|^2=\frac{2\sqrt\lambda}{1+\lambda}\frac{(2k)!}{2^{2k}(k!)^2}\rho^{2k},
+  \qquad k=0,1,2,\dots .
+  \]
+  因此测量 $\hat H$ 的可能结果为
+  \[
+  E_k=\hbar\omega\left(0+\frac12\right)+\hbar\omega\left(2k+\frac12\right)=(2k+1)\hbar\omega,
+  \qquad k=0,1,2,\dots,
+  \]
+  对应概率为
+  \ansmath{P_k=\frac{2\sqrt\lambda}{1+\lambda}\frac{(2k)!}{2^{2k}(k!)^2}\left(\frac{\lambda-1}{\lambda+1}\right)^{2k},
+  \qquad k=0,1,2,\dots .}
+  归一化由
+  \[
+  \sum_{k=0}^\infty \frac{(2k)!}{2^{2k}(k!)^2}\rho^{2k}=\frac{1}{\sqrt{1-\rho^2}},
+  \qquad
+  \sqrt{1-\rho^2}=\frac{2\sqrt\lambda}{1+\lambda}
+  \]
+  保证。
+\end{enumerate}
+\end{solution}
+\end{question}
