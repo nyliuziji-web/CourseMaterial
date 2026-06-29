@@ -1,0 +1,286 @@
+
+\heading{电动力学-21春-期中}
+
+\begin{question}[带缺口均匀带电球壳的静电势]
+真空中有一半径为 $R$ 的非导体球壳。除靠近北极、张角为 $\alpha$ 的圆锥区域不带电外，其余球面均匀带有面电荷密度
+\[
+  \sigma_0=\frac{Q}{4\pi R^2} .
+\]
+空间其他地方没有电荷分布。求球内与球外的静电势。可用 $x=\cos\theta$ 与 Legendre 多项式展开。
+\begin{enumerate}
+  \item 先给出球面所带的总电荷量。
+  \item 分别写出 $r<R$ 与 $r>R$ 区域中满足物理边界条件的通解。
+  \item 写出 $r=R$ 处的连接条件，并求出展开系数。
+  \item 得到全空间静电势。
+\end{enumerate}
+\begin{solution}
+记
+\[
+  c_\alpha=\cos\alpha,
+  \qquad x=\cos\theta .
+\]
+北极缺口对应 $0\leq\theta<\alpha$，即 $c_\alpha<x\leq1$。带电区域为 $-1\leq x\leq c_\alpha$。
+\begin{enumerate}
+  \item 带电面积为
+  \[
+    S=4\pi R^2-2\pi R^2(1-c_\alpha)=2\pi R^2(1+c_\alpha) .
+  \]
+  因而球面总电荷为
+  \[
+    \boxed{Q_{\rm tot}=\sigma_0S=\frac{Q}{2}(1+c_\alpha)} .
+  \]
+
+  \item 轴对称问题中电势只依赖 $r,\theta$。无电荷区域满足 Laplace 方程，因此
+  \[
+    \Phi_<(r,\theta)=\sum_{l=0}^{\infty}a_lr^lP_l(\cos\theta),
+    \qquad r<R,
+  \]
+  其中舍去 $r^{-l-1}$ 项以保证原点有限；球外解为
+  \[
+    \Phi_>(r,\theta)=\sum_{l=0}^{\infty}b_lr^{-l-1}P_l(\cos\theta),
+    \qquad r>R,
+  \]
+  其中舍去 $r^l$ 项以保证无穷远处电势为零。
+
+  \item 将面电荷密度展开为
+  \[
+    \sigma(\theta)=\sum_{l=0}^{\infty}\sigma_lP_l(\cos\theta),
+  \]
+  其中
+  \[
+    \sigma_l=\frac{2l+1}{2}\sigma_0\int_{-1}^{c_\alpha}P_l(x)\,\mathrm dx .
+  \]
+  对 $l=0$，
+  \[
+    \sigma_0^{(0)}=\frac{\sigma_0}{2}(1+c_\alpha) .
+  \]
+  为避免与原始常数 $\sigma_0$ 混淆，下文仍用 $\sigma_l$ 表示第 $l$ 阶系数。对 $l\geq1$，由
+  \[
+    P'_{l+1}(x)-P'_{l-1}(x)=(2l+1)P_l(x)
+  \]
+  可得
+  \[
+  \begin{aligned}
+    \int_{-1}^{c_\alpha}P_l(x)\,\mathrm dx
+    &=\frac{P_{l+1}(c_\alpha)-P_{l-1}(c_\alpha)}{2l+1},
+  \end{aligned}
+  \]
+  因为 $P_{l+1}(-1)-P_{l-1}(-1)=0$。于是
+  \[
+    \boxed{
+    \sigma_l=\begin{cases}
+      \dfrac{\sigma_0}{2}(1+c_\alpha), & l=0,\\[6pt]
+      \dfrac{\sigma_0}{2}\bigl(P_{l+1}(c_\alpha)-P_{l-1}(c_\alpha)\bigr), & l\geq1 .
+    \end{cases}}
+  \]
+  在 $r=R$ 处电势连续：
+  \[
+    a_lR^l=b_lR^{-l-1} .
+  \]
+  法向电场跃变满足
+  \[
+    E_r^+-E_r^- =\frac{\sigma(\theta)}{\varepsilon_0},
+  \]
+  即
+  \[
+    -\left.\frac{\partial\Phi_>}{\partial r}\right|_{R}
+    +\left.\frac{\partial\Phi_<}{\partial r}\right|_{R}
+    =\frac{\sigma(\theta)}{\varepsilon_0} .
+  \]
+  代入逐阶比较，得
+  \[
+    (2l+1)a_lR^{l-1}=\frac{\sigma_l}{\varepsilon_0},
+    \qquad
+    b_l=a_lR^{2l+1} .
+  \]
+  因此
+  \[
+    a_l=\frac{\sigma_l}{\varepsilon_0(2l+1)R^{l-1}},
+    \qquad
+    b_l=\frac{\sigma_lR^{l+2}}{\varepsilon_0(2l+1)} .
+  \]
+
+  \item 最终电势为
+  \[
+    \boxed{
+    \Phi_<(r,\theta)=\sum_{l=0}^{\infty}
+    \frac{\sigma_lR}{\varepsilon_0(2l+1)}
+    \left(\frac{r}{R}\right)^lP_l(\cos\theta)} ,
+  \]
+  \[
+    \boxed{
+    \Phi_>(r,\theta)=\sum_{l=0}^{\infty}
+    \frac{\sigma_lR}{\varepsilon_0(2l+1)}
+    \left(\frac{R}{r}\right)^{l+1}P_l(\cos\theta)} .
+  \]
+  其中 $\sigma_l$ 由上一问给出。$l=0$ 项给出远场
+  \[
+    \Phi_>(r)\sim \frac{Q_{\rm tot}}{4\pi\varepsilon_0r},
+  \]
+  与总电荷结果一致。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[均匀带电旋转球壳的稳恒磁场]
+半径为 $R_0$ 的导体球壳表面均匀带电，总电荷量为 $Q$。球壳绕 $z$ 轴以角速度 $\boldsymbol\omega=\omega\hat{\mathbf z}$ 匀速转动。忽略相对论效应。
+\begin{enumerate}
+  \item 求球面电荷运动产生的面电流密度。
+  \item 写出矢势积分表达式，并用球谐展开计算矢势。
+  \item 求球内与球外的磁场。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 面电荷密度为
+  \[
+    \sigma=\frac{Q}{4\pi R_0^2} .
+  \]
+  球面上一点的速度为
+  \[
+    \mathbf v=\boldsymbol\omega\times\mathbf r
+    =\omega R_0\sin\theta\,\hat{\boldsymbol\phi} .
+  \]
+  因而面电流密度为
+  \[
+    \boxed{\mathbf K=\sigma\mathbf v
+    =\frac{Q\omega}{4\pi R_0}\sin\theta\,\hat{\boldsymbol\phi}} .
+  \]
+
+  \item 稳恒电流的矢势为
+  \[
+    \mathbf A(\mathbf r)=\frac{\mu_0}{4\pi}\int
+    \frac{\mathbf K(\mathbf r')}{|\mathbf r-\mathbf r'|}\,\mathrm da' .
+  \]
+  由于电流分布轴对称且沿 $\hat{\boldsymbol\phi}$ 方向，矢势只能有 $\phi$ 分量。该分布等价于磁偶极矩
+  \[
+  \begin{aligned}
+    \mathbf m&=\frac12\int \mathbf r'\times\mathbf K(\mathbf r')\,\mathrm da' \\
+    &=\frac12\int R_0\hat{\mathbf r}\times
+      \left(\frac{Q\omega}{4\pi R_0}\sin\theta\,\hat{\boldsymbol\phi}\right)
+      R_0^2\sin\theta\,\mathrm d\theta\mathrm d\phi \\
+    &=\frac{Q\omega R_0^2}{3}\hat{\mathbf z} .
+  \end{aligned}
+  \]
+  球外矢势就是磁偶极子的矢势：
+  \[
+    \boxed{A_\phi^{>}=\frac{\mu_0m\sin\theta}{4\pi r^2}
+    =\frac{\mu_0Q\omega R_0^2}{12\pi}\frac{\sin\theta}{r^2}} .
+  \]
+  球内满足无电流的 Laplace 型方程且在原点有限，形式为 $A_\phi^{<}=Cr\sin\theta$。由球面切向 $A_\phi$ 连续，
+  \[
+    CR_0\sin\theta=\frac{\mu_0Q\omega R_0^2}{12\pi}\frac{\sin\theta}{R_0^2},
+  \]
+  得
+  \[
+    \boxed{A_\phi^{<}=\frac{\mu_0Q\omega}{12\pi R_0}r\sin\theta} .
+  \]
+
+  \item 用球坐标中
+  \[
+    B_r=\frac{1}{r\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta A_\phi),
+    \qquad
+    B_\theta=-\frac1r\frac{\partial}{\partial r}(rA_\phi)
+  \]
+  计算。球内
+  \[
+    \boxed{\mathbf B_< = \frac{\mu_0Q\omega}{6\pi R_0}\hat{\mathbf z}}
+  \]
+  是匀强磁场。球外
+  \[
+    \boxed{\mathbf B_>
+    =\frac{\mu_0}{4\pi r^3}\left(3(\mathbf m\cdot\hat{\mathbf r})\hat{\mathbf r}-\mathbf m\right),
+    \qquad
+    \mathbf m=\frac{Q\omega R_0^2}{3}\hat{\mathbf z}} .
+  \]
+  在 $r=R_0$ 处，磁场切向分量的跃变满足 $\hat{\mathbf r}\times(\mathbf B_>-\mathbf B_<)=\mu_0\mathbf K$，与面电流结果一致。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[电离层中电磁波的传播与 Faraday 旋转]
+地球电离层可视为完全电离的电子和离子体系。自由电子数密度为 $n$，电荷为 $-e$，质量为 $m$。存在恒定磁场 $\mathbf B_0=B_0\hat{\mathbf z}$。考虑沿 $\mathbf B_0$ 方向传播的电磁波，电场为
+\[
+  \mathbf E(\mathbf r,t)=\mathbf E\,\mathrm e^{\mathrm i(kz-\omega t)},
+\]
+且 $\mathbf E$ 只含 $x,y$ 分量。
+\begin{enumerate}
+  \item 写出自由电子在电磁波电场和恒定磁场中的运动方程。
+  \item 用左、右旋圆偏振基求稳态位移响应。
+  \item 求两种圆偏振的介电常数 $\varepsilon_\pm(\omega)$。
+  \item 说明线偏振波在传播中发生偏振面旋转，并给出旋转角随传播距离的表达式。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 忽略离子的响应与电子之间相互作用。电子位移记为 $\mathbf x(t)$，速度为 $\dot{\mathbf x}$。线性近似下
+  \[
+    m\ddot{\mathbf x}=-e\bigl(\mathbf E+\dot{\mathbf x}\times\mathbf B_0\bigr) .
+  \]
+  只保留一阶量，因此不需要考虑电磁波磁场对电子的二阶 Lorentz 力。
+
+  \item 取圆偏振基
+  \[
+    \hat{\mathbf e}_+=\frac{\hat{\mathbf x}+\mathrm i\hat{\mathbf y}}{\sqrt2},
+    \qquad
+    \hat{\mathbf e}_-=\frac{\hat{\mathbf x}-\mathrm i\hat{\mathbf y}}{\sqrt2} .
+  \]
+  它们满足
+  \[
+    \hat{\mathbf e}_+\times\hat{\mathbf z}=\mathrm i\hat{\mathbf e}_+,
+    \qquad
+    \hat{\mathbf e}_-\times\hat{\mathbf z}=-\mathrm i\hat{\mathbf e}_- .
+  \]
+  设
+  \[
+    \mathbf x_\pm=x_\pm\hat{\mathbf e}_\pm\mathrm e^{-\mathrm i\omega t},
+    \qquad
+    \mathbf E_\pm=E_\pm\hat{\mathbf e}_\pm\mathrm e^{-\mathrm i\omega t} .
+  \]
+  代入运动方程。对 $+$ 分量，$\dot{\mathbf x}_+\times\mathbf B_0=\omega B_0x_+\hat{\mathbf e}_+\mathrm e^{-\mathrm i\omega t}$；对 $-$ 分量，$\dot{\mathbf x}_-\times\mathbf B_0=-\omega B_0x_-\hat{\mathbf e}_-\mathrm e^{-\mathrm i\omega t}$。因此
+  \[
+    x_\pm=\frac{eE_\pm}{m\omega(\omega\mp\omega_c)},
+    \qquad
+    \omega_c=\frac{eB_0}{m} .
+  \]
+
+  \item 介质极化强度为
+  \[
+    \mathbf P_\pm=n(-e)\mathbf x_\pm .
+  \]
+  于是
+  \[
+    \mathbf D_\pm=\varepsilon_0\mathbf E_\pm+\mathbf P_\pm
+    =\varepsilon_0\varepsilon_\pm(\omega)\mathbf E_\pm .
+  \]
+  得到
+  \[
+    \boxed{\varepsilon_\pm(\omega)
+    =1-\frac{\omega_p^2}{\omega(\omega\mp\omega_c)}} ,
+    \qquad
+    \omega_p^2=\frac{ne^2}{m\varepsilon_0} .
+  \]
+  相应波数为
+  \[
+    k_\pm=\frac{\omega}{c}\sqrt{\varepsilon_\pm(\omega)} .
+  \]
+
+  \item 线偏振可以分解为两个等振幅的圆偏振分量。传播距离 $L$ 后二者相位差为
+  \[
+    \Delta\phi=(k_+-k_-)L .
+  \]
+  线偏振方向的旋转角是相位差的一半，因此
+  \[
+    \boxed{\Theta(L)=\frac12(k_+-k_-)L} .
+  \]
+  在 $\omega\gg\omega_c$ 且 $\omega\gg\omega_p$ 时，展开得
+  \[
+    k_+-k_-\simeq \frac{\omega}{2c}\bigl(\varepsilon_+-\varepsilon_-\bigr)
+    \simeq \frac{\omega_p^2\omega_c}{c\omega^2},
+  \]
+  所以
+  \[
+    \Theta(L)\simeq \frac{\omega_p^2\omega_c}{2c\omega^2}L .
+  \]
+  左、右旋圆偏振折射率不同，正是 Faraday 旋转的原因。
+\end{enumerate}
+\end{solution}
+\end{question}

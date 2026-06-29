@@ -1,0 +1,329 @@
+\heading{理论力学-25春-期中2}
+
+\begin{question}[概念解释]
+解释以下概念：
+\begin{enumerate}
+  \item 不等时变分；
+  \item 莫佩蒂原理；
+  \item 诺特定理；
+  \item 哈密顿原理；
+  \item 拉格朗日点。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+  \item 不等时变分：变分时不仅改变轨道形状，也允许端点时刻发生变化，因此 $\delta t\ne0$。它常用于推导能量积分或更一般的变分原理。
+  \item 莫佩蒂原理：在能量给定的保守系统中，真实轨道使缩短作用量
+  \[
+    \int p_i\,\dd q_i
+  \]
+  取驻值。
+  \item 诺特定理：连续对称性对应守恒量。例如时间平移对称对应能量守恒，空间平移对称对应动量守恒，转动对称对应角动量守恒。
+  \item 哈密顿原理：在给定端点和给定时间内，真实运动使作用量
+  \[
+    S=\int_{t_1}^{t_2}L(q,\dot q,t)\,\dd t
+  \]
+  取驻值。
+  \item 拉格朗日点：在限制性三体问题的共转参考系中，小质量天体可相对两个大质量天体保持静止的平衡点，通常记为 $L_1,\dots,L_5$。
+\end{enumerate}
+
+
+\medskip
+这些概念之间的逻辑关系是：Hamilton 原理是固定端点、固定时刻的作用量驻值原理；不等时变分放宽端点时刻限制，因而会自然出现能量项；Maupertuis 原理是在能量固定后对几何轨道取驻值；Noether 定理说明作用量的连续对称性会产生守恒量；拉格朗日点则是把三体问题转到共转参考系后，有效势的驻点。
+
+
+\medskip
+这些概念的共同特点是都可以用变分结构、辛结构或守恒律来表述；因此定义时应同时给出数学表达和物理含义。
+\end{solution}
+\end{question}
+
+\begin{question}[开普勒问题的对称性]
+对于开普勒问题，分析系统的对称性与角动量守恒之间的关系。
+
+\begin{solution}
+开普勒问题的势能为
+\[
+  V(r)=-\frac{k}{r}.
+\]
+它只依赖于 $r$，故系统在空间转动下不变。由诺特定理，转动对称性对应角动量守恒：
+\[
+  \boldsymbol L=\boldsymbol r\times\boldsymbol p,
+  \qquad
+  \dot{\boldsymbol L}=0.
+\]
+角动量守恒还意味着运动始终限制在垂直于 $\boldsymbol L$ 的固定平面内。
+
+开普勒势还有比一般中心力场更高的隐藏对称性，对应 Laplace--Runge--Lenz 矢量
+\[
+  \boldsymbol A=\boldsymbol p\times\boldsymbol L-mk\frac{\boldsymbol r}{r}.
+\]
+它也是守恒量，方向指向椭圆轨道的近日点，并决定轨道离心率。因此，角动量守恒来自显式的空间转动对称性；而开普勒问题的闭合轨道和近日点方向不变，则来自额外的隐藏对称性。
+
+
+\medskip
+\textbf{关键推导：}对无穷小转动 $\delta\boldsymbol r=\boldsymbol\epsilon\times\boldsymbol r$，有
+\[
+  \delta V=\frac{\dd V}{\dd r}\delta r=0,
+\]
+因为转动不改变 $r$。动能也在转动下不变，所以作用量具有 $SO(3)$ 对称性。Noether 定理给出的守恒量正是
+\[
+  \boldsymbol J=\frac{\partial L}{\partial\dot{\boldsymbol r}}\times\boldsymbol r
+  =\boldsymbol r\times\boldsymbol p.
+\]
+LRL 矢量则不是一般中心力都有的守恒量，它依赖于势能精确为 $-k/r$；若势能稍作改变，角动量仍守恒，但 LRL 矢量通常不再守恒。
+
+
+\medskip
+角动量守恒还可直接由力矩为零得到：
+\[
+  \dot{\boldsymbol L}=\boldsymbol r\times\dot{\boldsymbol p}
+  =\boldsymbol r\times F(r)\hat{\boldsymbol r}=0.
+\]
+Noether 定理给出了这一事实更深的来源：不是因为某个坐标偶然消失，而是因为整个作用量对任意空间转动不变。开普勒问题的额外守恒量 $\boldsymbol A$ 则使轨道近日点方向固定，解释了为什么平方反比力下束缚轨道是闭合椭圆。
+\end{solution}
+\end{question}
+
+\begin{question}[光滑抛物线支架上的质点]
+一个质量为 $m$ 的质点以速度 $v_0$ 从点 $(0,0)$ 出发，在光滑抛物线支架
+\[
+  y=-\frac{x^2}{2d}
+\]
+上运动，重力加速度为 $g$，方向沿 $y$ 轴负向。求抛物线对质点的支持力 $N(x)$，并讨论初速度 $v_0$ 对质点运动轨迹的影响。
+
+\begin{solution}
+取 $x$ 为广义坐标，轨道为
+\[
+  y=-\frac{x^2}{2d},
+  \qquad
+  \frac{\dd s}{\dd x}=\sqrt{1+\frac{x^2}{d^2}}.
+\]
+能量守恒给出质点速率
+\[
+  \frac12mv^2+mgy=\frac12mv_0^2,
+  \qquad
+  v^2=v_0^2+\frac{gx^2}{d}.
+\]
+曲率半径为
+\[
+  \rho=\frac{\left(1+x^2/d^2\right)^{3/2}}{1/d}
+  =d\left(1+\frac{x^2}{d^2}\right)^{3/2}.
+\]
+取轨道的向上法向为
+\[
+  \hat{\boldsymbol n}=\frac{(x/d,1)}{\sqrt{1+x^2/d^2}}.
+\]
+曲率中心在相反方向，因此法向动力学方程为
+\[
+  mg\frac{1}{\sqrt{1+x^2/d^2}}-N
+  =m\frac{v^2}{\rho}
+\]
+或等价地，将 $N$ 定义为支架对质点沿向上法向的支持力，得
+\[
+  N=m\left[\frac{g}{\sqrt{1+x^2/d^2}}
+  -\frac{v^2}{d(1+x^2/d^2)^{3/2}}\right].
+\]
+代入 $v^2=v_0^2+gx^2/d$ 后，化简为
+\ansmath{N(x)=\frac{m\left(g-v_0^2/d\right)}{\left(1+x^2/d^2\right)^{3/2}}.}
+若 $v_0^2<gd$，则 $N>0$，质点受到向上的支持力并贴着支架运动；若 $v_0^2=gd$，则 $N\equiv0$，此时质点的自由抛体轨迹本身就是该抛物线；若 $v_0^2>gd$，则按单侧支架模型所需支持力为负，质点会脱离支架。若支架理解为双侧光滑轨道，则负号表示约束力方向反向。
+
+
+\medskip
+\textbf{拉格朗日方程核查：}将约束代入后，拉格朗日量可写成
+\[
+  L=\frac12m\left(1+\frac{x^2}{d^2}\right)\dot x^2+\frac{mgx^2}{2d}.
+\]
+于是
+\[
+  \frac{\dd}{\dd t}\left[m\left(1+\frac{x^2}{d^2}\right)\dot x\right]
+  -\left(\frac{mx}{d^2}\dot x^2+\frac{mgx}{d}\right)=0,
+\]
+即
+\[
+  \left(1+\frac{x^2}{d^2}\right)\ddot x+\frac{x}{d^2}\dot x^2-\frac{g}{d}x=0.
+\]
+这个切向方程与能量积分一致。支持力必须从法向动力学求出；只用切向方程无法得到 $N$。
+\end{solution}
+
+\end{question}
+
+\begin{question}[圆筒电磁场中的电子]
+考虑质量为 $m$、电荷量为 $-e$ 的电子在如下电磁场中的运动。内圆筒半径为 $a$，外圆筒半径为 $R$，电势分布为
+\[
+  \phi(r)=-\phi_0\frac{\ln(r/R)}{\ln(a/R)},\qquad \phi_0>0.
+\]
+沿轴向施加匀强磁场 $B_0$，其一组磁矢势可取为
+\[
+  \vec A=\frac12B_0r\,\hat{\boldsymbol\varphi}.
+\]
+初始时刻电子静止在内圆柱表面。求：
+\begin{enumerate}
+  \item 电子运动的拉格朗日量与哈密顿量；
+  \item 系统的运动积分；
+  \item 为使电子能够到达外圆筒，磁场强度 $B_0$ 需要满足的条件。
+\end{enumerate}
+
+\begin{solution}
+取柱坐标 $(r,\varphi,z)$，电子初始无轴向速度，故可只考虑垂直于轴的运动。电子电荷为 $q=-e$。题给
+\[
+  A_\varphi=\frac12B_0r,
+  \qquad
+  \phi(r)=-\phi_0\frac{\ln(r/R)}{\ln(a/R)}.
+\]
+\begin{enumerate}
+  \item 拉格朗日量为
+  \[
+    L=\frac12m(\dot r^2+r^2\dot\varphi^2)
+    +qA_\varphi r\dot\varphi-q\phi(r).
+  \]
+  代入 $q=-e$，得
+  \[
+    \boxed{L=\frac12m(\dot r^2+r^2\dot\varphi^2)
+    -\frac12eB_0r^2\dot\varphi+e\phi(r)}.
+  \]
+  正则动量为
+  \[
+    p_r=m\dot r,
+    \qquad
+    p_\varphi=mr^2\dot\varphi-\frac12eB_0r^2.
+  \]
+  哈密顿量为
+  \[
+    \boxed{H=\frac{p_r^2}{2m}
+    +\frac{1}{2mr^2}\left(p_\varphi+\frac12eB_0r^2\right)^2
+    -e\phi(r)}.
+  \]
+  \item 因为 $\varphi$ 是循环坐标，
+  \[
+    \boxed{p_\varphi=\mathrm{const.}}
+  \]
+  又系统不显含时间，
+  \[
+    \boxed{H=\mathrm{const.}}
+  \]
+  初始时电子静止于 $r=a$，故
+  \[
+    p_\varphi=-\frac12eB_0a^2,
+    \qquad
+    H=-e\phi(a)=e\phi_0.
+  \]
+  \item 要到达外筒 $r=R$，在 $r=R$ 处径向动能应非负。由于 $\phi(R)=0$，且
+  \[
+    p_\varphi+\frac12eB_0R^2=\frac12eB_0(R^2-a^2),
+  \]
+  必须有
+  \[
+    e\phi_0\ge
+    \frac{e^2B_0^2(R^2-a^2)^2}{8mR^2}.
+  \]
+  因此
+  \[
+    \boxed{B_0^2\le
+    \frac{8mR^2\phi_0}{e(R^2-a^2)^2}}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[受限三体问题]
+考虑受限三体问题。两个天体的质量分别为 $M_1$ 和 $M_2$，两者间距为 $R$，并以角频率 $\Omega$ 相互绕转。以这两个大质量天体的质心为原点，以从 $M_2$ 指向 $M_1$ 的方向为 $x$ 轴正方向建立转动坐标系。现有一质量为 $m$（$m\ll M_1,M_2$）的质点在该体系中运动。求：
+\begin{enumerate}
+  \item 转动参考系中质点的有效势能 $V_{\mathrm{eff}}$；
+  \item $x$ 轴上的拉格朗日点 $L_1,L_2,L_3$ 所满足的方程，以及不在 $x$ 轴上的拉格朗日点 $L_4$（$y>0$）、$L_5$（$y<0$）的坐标；
+  \item $L_4$ 点处势能的 Hessian 矩阵
+  \[
+    M=\begin{pmatrix}
+      V_{xx}&V_{xy}\\
+      V_{yx}&V_{yy}
+    \end{pmatrix};
+  \]
+  \item 已知初始条件
+  \[
+    \delta\vec r=(\varepsilon,\delta y),\qquad
+    \delta\vec v=\left(-\frac12\Omega\varepsilon,\delta v_y\right),\qquad
+    \frac{M_1-M_2}{M_1+M_2}=\sqrt{\frac{11}{27}},
+  \]
+  求为了使质点能够在 $L_4$ 附近的有限区域内运动，$\delta y$ 与 $\delta v_y$ 应满足的条件。
+\end{enumerate}
+
+\begin{solution}
+记
+\[
+  M=M_1+M_2,
+  \qquad
+  x_1=\frac{M_2}{M}R,
+  \qquad
+  x_2=-\frac{M_1}{M}R.
+\]
+两个大质量天体分别位于 $(x_1,0)$ 与 $(x_2,0)$。令
+\[
+  r_1=\sqrt{(x-x_1)^2+y^2},
+  \qquad
+  r_2=\sqrt{(x-x_2)^2+y^2},
+  \qquad
+  \Omega^2=\frac{GM}{R^3}.
+\]
+\begin{enumerate}
+  \item 在随两天体共同转动的参考系中，若把离心势也并入势能，则
+  \ansmath{V_{\mathrm{eff}}
+    =-\frac{GM_1m}{r_1}-\frac{GM_2m}{r_2}
+    -\frac12m\Omega^2(x^2+y^2).}
+  运动方程为
+  \[
+    m\ddot x-2m\Omega\dot y=-\frac{\partial V_{\mathrm{eff}}}{\partial x},
+    \qquad
+    m\ddot y+2m\Omega\dot x=-\frac{\partial V_{\mathrm{eff}}}{\partial y}.
+  \]
+  \item 共线拉格朗日点满足 $y=0$ 以及
+  \ansmath{GM_1\frac{x-x_1}{|x-x_1|^3}
+    +GM_2\frac{x-x_2}{|x-x_2|^3}-\Omega^2x=0.}
+  该方程的三个实根分别对应 $L_1,L_2,L_3$。非共线点由等边三角形给出，故
+  \ansmath{x_{L_4}=x_{L_5}=\frac{x_1+x_2}{2}
+    =\frac{M_2-M_1}{2M}R,}
+  \ansmath{y_{L_4}=\frac{\sqrt3}{2}R,
+    \qquad y_{L_5}=-\frac{\sqrt3}{2}R.}
+  \item 记
+  \[
+    \Delta=\frac{M_1-M_2}{M}.
+  \]
+  在 $L_4$ 处直接求二阶导数得
+  \ansmath{\begin{pmatrix}
+      V_{xx}&V_{xy}\\
+      V_{yx}&V_{yy}
+    \end{pmatrix}_{L_4}
+    =m\Omega^2\begin{pmatrix}
+      -\frac34&\frac{3\sqrt3}{4}\Delta\\
+      \frac{3\sqrt3}{4}\Delta&-\frac94
+    \end{pmatrix}.}
+  若采用天体力学中常见的正号有效势函数 $\mathcal U=-V_{\mathrm{eff}}/m$，则该矩阵整体变号并除以 $m$。
+  \item 线性化特征方程为
+  \[
+    s^4+\Omega^2s^2+\frac{27}{16}(1-\Delta^2)\Omega^4=0.
+  \]
+  题给 $\Delta^2=11/27$，所以
+  \[
+    s^4+\Omega^2s^2+\Omega^4=0.
+  \]
+  此时存在增长模，一般扰动不会在 $L_4$ 附近保持有界。令 $\tau=\Omega t$，并写
+  \[
+    \delta x(0)=\varepsilon,
+    \qquad
+    \frac{1}{\Omega}\delta\dot x(0)=-\frac12\varepsilon,
+    \qquad
+    \delta y(0)=a\varepsilon,
+    \qquad
+    \frac{1}{\Omega}\delta\dot y(0)=b\varepsilon .
+  \]
+  当 $\Delta=\sqrt{11/27}$ 时，消去两个实部为正的增长模得到
+  \[
+    a=\frac{-20+11\sqrt{11}}{133},
+    \qquad
+    b=-\frac{68}{133}-\frac{5\sqrt{11}}{266}.
+  \]
+  因此若只要求 $t\to+\infty$ 时不出现增长模，应取
+  \ansmath{\delta y=\frac{-20+11\sqrt{11}}{133}\,\varepsilon,}
+  \ansmath{\delta v_y=\left(-\frac{68}{133}-\frac{5\sqrt{11}}{266}\right)\Omega\varepsilon.}
+  若要求对正、负两个时间方向都保持有界，则由于同时存在增长模与衰减模，只能取零扰动，即精确位于平衡点。
+\end{enumerate}
+\end{solution}
+
+\end{question}

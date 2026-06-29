@@ -1,0 +1,286 @@
+
+\heading{电动力学-25春-期中}
+
+\begin{question}[电磁场能量与动量守恒]
+推导电磁场能量密度 $w$ 与能流密度 $\mathbf S$，以及电磁场动量密度 $\mathbf g$ 与动量流密度 $T_{ij}$。设介质均匀、线性、各向同性，$\varepsilon,\mu$ 为常数。
+\begin{solution}
+\begin{enumerate}
+  \item 能量守恒从电磁场对电荷做功率密度
+  \[
+    p=\mathbf j\cdot\mathbf E
+  \]
+  出发。由 Maxwell 方程
+  \[
+    \mathbf j=\frac1\mu\nabla\times\mathbf B-\varepsilon\frac{\partial\mathbf E}{\partial t}
+  \]
+  得
+  \[
+  \begin{aligned}
+    \mathbf j\cdot\mathbf E
+    &=\frac1\mu\mathbf E\cdot(\nabla\times\mathbf B)
+      -\varepsilon\mathbf E\cdot\frac{\partial\mathbf E}{\partial t} .
+  \end{aligned}
+  \]
+  用恒等式
+  \[
+    \nabla\cdot(\mathbf E\times\mathbf B)
+    =\mathbf B\cdot(\nabla\times\mathbf E)-\mathbf E\cdot(\nabla\times\mathbf B)
+  \]
+  和 $\nabla\times\mathbf E=-\partial_t\mathbf B$，得到
+  \[
+    \mathbf j\cdot\mathbf E
+    =-\frac{\partial}{\partial t}\left(\frac12\varepsilon E^2+\frac{1}{2\mu}B^2\right)
+    -\nabla\cdot\left(\frac1\mu\mathbf E\times\mathbf B\right) .
+  \]
+  因此 Poynting 定理为
+  \[
+    \frac{\partial w}{\partial t}+\nabla\cdot\mathbf S+\mathbf j\cdot\mathbf E=0,
+  \]
+  其中
+  \[
+    \boxed{w=\frac12\varepsilon E^2+\frac{1}{2\mu}B^2,
+    \qquad
+    \mathbf S=\frac1\mu\mathbf E\times\mathbf B} .
+  \]
+
+  \item Lorentz 力密度为
+  \[
+    \mathbf f=\rho\mathbf E+\mathbf j\times\mathbf B .
+  \]
+  代入 $\rho=\varepsilon\nabla\cdot\mathbf E$ 与
+  \[
+    \mathbf j=\frac1\mu\nabla\times\mathbf B-\varepsilon\frac{\partial\mathbf E}{\partial t}
+  \]
+  得
+  \[
+    \mathbf f=\varepsilon(\nabla\cdot\mathbf E)\mathbf E
+    +\frac1\mu(\nabla\times\mathbf B)\times\mathbf B
+    -\varepsilon\frac{\partial\mathbf E}{\partial t}\times\mathbf B .
+  \]
+  再把最后一项改写为
+  \[
+    -\varepsilon\partial_t(\mathbf E\times\mathbf B)
+    +\varepsilon\mathbf E\times\partial_t\mathbf B
+    =-\partial_t(\varepsilon\mathbf E\times\mathbf B)
+    -\varepsilon\mathbf E\times(\nabla\times\mathbf E) .
+  \]
+  使用恒等式
+  \[
+    (\nabla\times\mathbf B)\times\mathbf B
+    =-\nabla\left(\frac12B^2\right)+(\mathbf B\cdot\nabla)\mathbf B
+  \]
+  以及 $\nabla\cdot\mathbf B=0$，可整理为
+  \[
+    f_i=-\frac{\partial g_i}{\partial t}-\partial_jT_{ij} .
+  \]
+  其中
+  \[
+    \boxed{\mathbf g=\varepsilon\mathbf E\times\mathbf B}
+  \]
+  是场动量密度，而
+  \[
+    \boxed{T_{ij}=\left(\frac12\varepsilon E^2+\frac{1}{2\mu}B^2\right)\delta_{ij}
+    -\varepsilon E_iE_j-\frac1\mu B_iB_j}
+  \]
+  是这里采用的“动量流出”符号下的动量流密度。若把 Maxwell 应力张量定义为作用在物质上的应力，常写为其相反数
+  \[
+    \sigma_{ij}=\varepsilon E_iE_j+\frac1\mu B_iB_j-\frac12\left(\varepsilon E^2+\frac1\mu B^2\right)\delta_{ij} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[球面给定电势的 Laplace 方程]
+球坐标系中，已知半径 $r_0$ 的球面上电势分布为
+\[
+  \varphi(r_0,\theta)=\varphi_0(1+\cos\theta)^2 .
+\]
+求全空间电势分布，设无穷远电势为零且原点处电势有限。
+\begin{solution}
+轴对称无源区域满足 Laplace 方程。球内和球外通解分别为
+\[
+  \varphi_<(r,\theta)=\sum_{l=0}^{\infty}A_lr^lP_l(\cos\theta),
+  \qquad
+  \varphi_>(r,\theta)=\sum_{l=0}^{\infty}B_lr^{-l-1}P_l(\cos\theta) .
+\]
+令 $x=\cos\theta$。边界函数展开为
+\[
+  (1+x)^2=1+2x+x^2 .
+\]
+又
+\[
+  P_0=1,
+  \qquad
+  P_1=x,
+  \qquad
+  P_2=\frac12(3x^2-1),
+  \qquad
+  x^2=\frac13P_0+\frac23P_2 .
+\]
+因此
+\[
+  \varphi_0(1+x)^2
+  =\varphi_0\left(\frac43P_0+2P_1+\frac23P_2\right) .
+\]
+在 $r=r_0$ 处电势连续，逐阶比较得
+\[
+  A_lr_0^l=\varphi_0c_l,
+  \qquad
+  B_lr_0^{-l-1}=\varphi_0c_l,
+\]
+其中
+\[
+  c_0=\frac43,
+  \qquad c_1=2,
+  \qquad c_2=\frac23,
+  \qquad c_l=0\quad(l\geq3) .
+\]
+故
+\[
+  \boxed{\varphi_<(r,\theta)=\varphi_0\left[
+  \frac43+2\frac{r}{r_0}P_1(\cos\theta)
+  +\frac23\left(\frac{r}{r_0}\right)^2P_2(\cos\theta)
+  \right]},\qquad r<r_0,
+\]
+\[
+  \boxed{\varphi_>(r,\theta)=\varphi_0\left[
+  \frac43\frac{r_0}{r}+2\left(\frac{r_0}{r}\right)^2P_1(\cos\theta)
+  +\frac23\left(\frac{r_0}{r}\right)^3P_2(\cos\theta)
+  \right]},\qquad r>r_0 .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[轨道磁矩、弱磁场微扰与 Larmor 进动]
+质量为 $m$、电荷为 $-e$ 的电子绕电荷为 $e$ 的固定中心作半径为 $R$ 的非相对论圆周运动。
+\begin{enumerate}
+  \item 求轨道磁矩。
+  \item 加一垂直轨道平面的弱磁场 $\mathbf B_0$，求磁矩变化量。
+  \item 推导 Larmor 进动频率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 对任意电荷 $q$ 的圆周运动，轨道磁矩为
+  \[
+    \boldsymbol\mu=IA\hat{\mathbf n}=\frac{q}{T}\pi R^2\hat{\mathbf n}
+    =\frac{q\omega R^2}{2}\hat{\mathbf n} .
+  \]
+  角动量为
+  \[
+    \mathbf L=mR^2\omega\hat{\mathbf n} .
+  \]
+  因此
+  \[
+    \boxed{\boldsymbol\mu=\frac{q}{2m}\mathbf L} .
+  \]
+  对电子 $q=-e$，
+  \[
+    \boxed{\boldsymbol\mu=-\frac{e}{2m}\mathbf L} .
+  \]
+  若只要大小，利用
+  \[
+    \frac{e^2}{4\pi\varepsilon_0R^2}=\frac{mv^2}{R}
+  \]
+  得
+  \[
+    |\boldsymbol\mu|=\frac{evR}{2}
+    =\frac e2\sqrt{\frac{e^2R}{4\pi\varepsilon_0m}} .
+  \]
+
+  \item 设 $\mathbf B_0=B_0\hat{\mathbf z}$ 垂直轨道平面。带符号角速度为 $\omega$ 时，径向方程为
+  \[
+    mR\omega^2=\frac{e^2}{4\pi\varepsilon_0R^2}+eR\omega B_0
+  \]
+  这里已按电子电荷 $-e$ 代入，并取原轨道方向与 $\omega$ 一致。令 $\omega=\omega_0+\delta\omega$，只保留 $B_0$ 的一阶项：
+  \[
+    2mR\omega_0\delta\omega=eR\omega_0B_0,
+    \qquad
+    \delta\omega=\frac{eB_0}{2m} .
+  \]
+  轨道磁矩变化为
+  \[
+    \Delta\boldsymbol\mu=\frac{qR^2}{2}\delta\omega\hat{\mathbf z}
+    =-\frac{e^2R^2}{4m}\mathbf B_0 .
+  \]
+  因此
+  \[
+    \boxed{\Delta\boldsymbol\mu=-\frac{e^2R^2}{4m}\mathbf B_0} .
+  \]
+  负号表示抗磁响应。若只比较大小，则 $|\Delta\mu|=e^2R^2B_0/(4m)$。
+
+  \item 力矩为
+  \[
+    \mathbf N=\boldsymbol\mu\times\mathbf B_0
+    =-\frac{e}{2m}\mathbf L\times\mathbf B_0 .
+  \]
+  又 $\dot{\mathbf L}=\mathbf N$。若写作 $\dot{\mathbf L}=\boldsymbol\Omega_L\times\mathbf L$，则
+  \[
+    \boldsymbol\Omega_L=\frac{e}{2m}\mathbf B_0 .
+  \]
+  所以 Larmor 进动角频率大小为
+  \[
+    \boxed{\Omega_L=\frac{eB_0}{2m}} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[圆周运动电荷的电偶极辐射]
+电荷 $q$ 在半径 $r_0$ 的圆轨道上以角速度 $\omega$ 运动，且 $\omega r_0\ll c$。
+\begin{enumerate}
+  \item 求电偶极矩。
+  \item 求电偶极辐射场。
+  \item 讨论辐射场偏振态。
+  \item 求辐射功率角分布与总功率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 电荷位置为
+  \[
+    \mathbf r_q(t)=r_0(\cos\omega t\,\hat{\mathbf x}+\sin\omega t\,\hat{\mathbf y}) .
+  \]
+  电偶极矩为
+  \[
+    \boxed{\mathbf p(t)=q\mathbf r_q(t)
+    =qr_0(\cos\omega t\,\hat{\mathbf x}+\sin\omega t\,\hat{\mathbf y})} .
+  \]
+
+  \item 辐射区电偶极场为
+  \[
+    \boxed{\mathbf E_{\rm rad}=\frac{1}{4\pi\varepsilon_0c^2r}
+    \hat{\mathbf r}\times\bigl(\hat{\mathbf r}\times\ddot{\mathbf p}(t_r)\bigr)},
+    \qquad
+    \boxed{\mathbf B_{\rm rad}=\frac1c\hat{\mathbf r}\times\mathbf E_{\rm rad}} .
+  \]
+  其中 $t_r=t-r/c$，且 $\ddot{\mathbf p}=-\omega^2\mathbf p$。
+
+  \item 取观察方向 $\hat{\mathbf r}$ 的球坐标角为 $(\theta,\phi)$。将 $\mathbf p$ 投影到 $\hat{\boldsymbol\theta},\hat{\boldsymbol\phi}$ 上，可写成复表示
+  \[
+    \mathbf E_{\rm rad}\propto
+    \left(\cos\theta\,\hat{\boldsymbol\theta}+\mathrm i\hat{\boldsymbol\phi}\right)
+    \mathrm e^{-\mathrm i(\omega t_r-\phi)} .
+  \]
+  因而 $\theta$ 分量与 $\phi$ 分量相差 $\pi/2$。当 $\theta=0$ 或 $\pi$ 时为圆偏振；当 $\theta=\pi/2$ 时只有 $\phi$ 分量，为线偏振；一般方向为椭圆偏振。南北两侧圆偏振旋向相反。
+
+  \item 瞬时角分布为
+  \[
+    \frac{\mathrm dP}{\mathrm d\Omega}
+    =\frac{|\hat{\mathbf r}\times\ddot{\mathbf p}|^2}{16\pi^2\varepsilon_0c^3} .
+  \]
+  对一个周期平均，
+  \[
+    \left\langle |\hat{\mathbf r}\times\ddot{\mathbf p}|^2\right\rangle
+    =\frac{q^2r_0^2\omega^4}{2}(1+\cos^2\theta) .
+  \]
+  所以
+  \[
+    \boxed{\left\langle\frac{\mathrm dP}{\mathrm d\Omega}\right\rangle
+    =\frac{q^2r_0^2\omega^4}{32\pi^2\varepsilon_0c^3}(1+\cos^2\theta)} .
+  \]
+  积分得
+  \[
+    \boxed{\langle P\rangle=\frac{q^2r_0^2\omega^4}{6\pi\varepsilon_0c^3}} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}

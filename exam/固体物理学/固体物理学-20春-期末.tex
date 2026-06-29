@@ -1,0 +1,339 @@
+\heading{固体物理学-20春-期末}
+\noteinfo{题面依据原始 Word 文档精修录入；原文附带的手写答案页未直接照录；现有解答为依据题面重新推导的参考答案，结构与能带图为示意复刻。}
+
+\begin{question}[20 分]
+单层 $\mathrm{MoS_2}$ 结构及其第一布里渊区示意如下。
+\begin{center}
+\begin{tikzpicture}[scale=0.70]
+  \begin{scope}[xshift=-0.35cm]
+    \node at (0.75,2.62) {单层 $1H$-$\mathrm{MoS_2}$};
+    \coordinate (Mo) at (0.05,0.32);
+    \coordinate (S1) at (-0.95,1.10); \coordinate (S2) at (1.05,1.10); \coordinate (S3) at (0.05,-0.62);
+    \coordinate (s1) at (-0.68,0.62); \coordinate (s2) at (1.32,0.62); \coordinate (s3) at (0.32,-1.10);
+    \draw[densely dashed] (S1)--(S2)--(S3)--cycle;
+    \draw[densely dashed] (s1)--(s2)--(s3)--cycle;
+    \draw[densely dashed] (S1)--(s1) (S2)--(s2) (S3)--(s3);
+    \fill (Mo) circle (4pt); \node[anchor=east] at (-0.18,0.25) {Mo};
+    \foreach \p in {S1,S2,S3,s1,s2,s3}{\draw[thick] (Mo)--(\p); \draw[thick,fill=white] (\p) circle (3.2pt);}
+    \node at (-1.30,1.35) {S}; \draw[->] (-1.15,1.25)--(-0.98,1.13);
+  \end{scope}
+  \begin{scope}[xshift=2.65cm,yshift=-0.48cm]
+    \node at (1.45,2.72) {俯视与面内原胞};
+    \foreach \m in {0,...,2}{\foreach \n in {0,...,1}{
+      \pgfmathsetmacro{\mx}{1.18*\m+0.59*\n}
+      \pgfmathsetmacro{\my}{1.02*\n}
+      \coordinate (MM\m\n) at (\mx,\my);
+      \coordinate (SS\m\n) at ({\mx+0.59},{\my+0.34});
+      \fill (MM\m\n) circle (2.9pt);
+      \draw[thick,fill=white] (SS\m\n) circle (2.9pt);
+      \draw[thick] (MM\m\n)--(SS\m\n);
+      \ifnum\m>0 \draw[thick] (MM\m\n)--({\mx-0.59},{\my+0.34});\fi
+      \ifnum\n>0 \draw[thick] (MM\m\n)--({\mx},{\my-0.68});\fi
+    }}
+    \draw[densely dashed,very thick] (MM00)--(MM10)--(MM11)--(MM01)--cycle;
+    \draw[->,very thick] (-0.45,-0.58)--(0.73,-0.58) node[pos=0.78,below=4pt] {$\vb a_1$};
+    \draw[->,very thick] (-0.45,-0.58)--(0.14,0.44) node[pos=0.70,left=4pt] {$\vb a_2$};
+    \fill (2.55,1.86) circle (2.9pt); \node[anchor=west] at (2.78,1.86) {Mo};
+    \draw[thick,fill=white] (2.55,1.32) circle (2.9pt); \node[anchor=west] at (2.78,1.32) {$S_2$};
+  \end{scope}
+  \begin{scope}[xshift=8.35cm,yshift=0.10cm]
+    \node at (0,2.62) {第一布里渊区};
+    \foreach \a in {0,60,...,300}{\coordinate (H\a) at ({1.52*cos(\a)},{1.52*sin(\a)});}
+    \draw[densely dashed,very thick] (H0)--(H60)--(H120)--(H180)--(H240)--(H300)--cycle;
+    \draw[very thick] (0,-1.82)--(0,1.82);
+    \fill (0,0) circle (2.1pt); \node[anchor=east] at (-0.13,0) {$\Gamma$};
+    \fill (H60) circle (2.1pt); \node[anchor=south west] at (H60) {$K$};
+    \fill (H120) circle (2.1pt); \node[anchor=south east] at (H120) {$K'$};
+    \coordinate (Mtop) at (0,1.316); \fill (Mtop) circle (2.1pt); \node[anchor=east] at (-0.13,1.316) {$M$};
+    \fill (H240) circle (2.1pt); \node[anchor=north east] at (H240) {$-K$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item 判断该晶格所属的点群；画出原胞与维格纳--塞茨原胞。（4 分）
+  \item 画出第一布里渊区，并判断其取向与正格子的维格纳--塞茨原胞是否一致。（3 分）
+  \item 该体系的能带结构具有哪些对称性？（3 分）
+  \item 将 $K$ 点波函数在平面内转动 $60^\circ$ 与 $120^\circ$，所得态的能量是否分别保持不变？说明理由。（4 分）
+  \item 无外磁场时，$\Gamma$ 点自旋是否简并？证明你的结论。（4 分）
+  \item 单层 $\mathrm{MoS_2}$ 能隙约为 $1.8\,\mathrm{eV}$，单层 BN 能隙约为 $6\,\mathrm{eV}$。比较二者导带底电子的有效质量并说明理由。（2 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 单层 $1H$-MoS$_2$ 有三重主轴、三个面内二重轴和水平镜面，但无反演中心，故点群为
+  \[
+    \boxed{D_{3h}.}
+  \]
+  面内 Bravais 格子为三角格子，原胞是夹角 $60^\circ$ 的菱形并带一个 Mo、两个 S 的基元；Bravais 格子的 Wigner--Seitz 胞为正六边形。
+  \item 倒格子仍为三角格子，第一 BZ 为正六边形。由
+  $\vb a_i\cdot\vb b_j=2\pi\delta_{ij}$ 可见倒格相对正格旋转 $30^\circ$，所以 BZ 与正格 Wigner--Seitz 六边形取向
+  \[
+    \boxed{\text{相差 }30^\circ.}
+  \]
+  \item 能带至少具有：
+  \[
+    E_n(\vb k+\vb G)=E_n(\vb k)
+  \]
+  的倒格周期性；对任一点群操作 $R\in D_{3h}$，
+  $E_n(R\vb k)=E_n(\vb k)$；无磁场时有时间反演
+  \[
+    E_{n,s}(\vb k)=E_{n,\bar s}(-\vb k).
+  \]
+  因无反演，对一般 $\vb k$ 不保证同一 $\vb k$ 的两自旋简并；在 $K,K'$ 谷，自旋--轨道耦合可产生相反的自旋劈裂，但两谷由时间反演成对。
+  \item $120^\circ$ 转动是 $C_3$ 对称操作，因此
+  \[
+    \boxed{E(C_3\vb K)=E(\vb K).}
+  \]
+  纯 $60^\circ$ 转动 $C_6$ 不是 $D_{3h}$ 的对称操作，会把 $K$ 型角点送到另一类 $K'$ 角点，故“只把波函数转 $60^\circ$”不保证仍是同一哈密顿量的本征态。虽然无磁场时 $K$ 与 $K'$ 的能谱可由时间反演相等，但时间反演还包含复共轭并翻转自旋，不能用纯 $C_6$ 代替。因此
+  \[
+    \boxed{60^\circ:\text{纯转动不保证不变};\quad120^\circ:\text{能量不变}.}
+  \]
+  \item $\Gamma$ 是时间反演不变动量，$-\Gamma=\Gamma$。自旋 $1/2$ 的时间反演算符满足 $\Theta^2=-1$。若
+  $H\ket{u}=E\ket{u}$，则
+  $H\Theta\ket{u}=E\Theta\ket{u}$，且
+  $\braket{u}{\Theta u}=0$。故
+  \[
+    \boxed{\Gamma\text{ 点必有 Kramers 自旋简并}.}
+  \]
+  \item $\vb k\cdot\vb p$ 理论中，导带逆有效质量的主要带间项含
+  $\abs{p_{cv}}^2/E_g$。在矩阵元可比时，大带隙 BN 的带间耦合较弱、导带曲率较小，因此
+  \[
+    \boxed{m_c^*(\mathrm{BN})>m_c^*(\mathrm{MoS_2})}
+  \]
+  是通常趋势；精确数值仍取决于多带耦合和具体谷位置。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+\begin{enumerate}
+  \item 求解固体能带需要采用哪些近似？说明各近似的内容。（6 分）
+  \item 比较近自由电子近似与单电子近似。（2 分）
+  \item 求解固体能带时，波函数满足什么边界条件？（2 分）
+  \item 电子与声子相互作用时应满足哪些守恒关系？（2 分）
+  \item 无声子散射时，能带电子在 $k$ 空间与实空间中如何运动？（2 分）
+  \item 一维金属的晶格常数为 $a$，费米波矢为 $k_{\mathrm F}=\pi/(4a)$。体系可能发生什么不稳定性或结构变化？（2 分）
+  \item 某晶体每个原胞含 20 个电子。有人认为，由于晶体具有周期性，求原胞中某个电子的受力时只需考虑同一原胞内其余电子。判断该说法并说明理由。（4 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 从完整电子--离子多体哈密顿量出发，主要近似为：
+  \begin{enumerate}
+    \item Born--Oppenheimer 近似：固定离子，先求电子态；
+    \item 单电子平均场近似：用 Hartree、Hartree--Fock 或 DFT 有效势代替显式电子--电子相互作用；
+    \item 周期晶格近似：忽略表面、缺陷和热位移，取 $V(\vb r+\vb R)=V(\vb r)$；
+    \item 具体求解再根据势强弱采用近自由电子、紧束缚、赝势或 $\vb k\cdot\vb p$ 等近似，重元素还需计入自旋--轨道耦合。
+  \end{enumerate}
+  最终单电子方程为
+  \[
+    \left[\frac{p^2}{2m_0}+V_{\rm eff}(\vb r)\right]
+    \psi_{n\vb k}=E_n(\vb k)\psi_{n\vb k}.
+  \]
+  \item 单电子近似是把多电子问题化为独立电子在周期有效势中运动，是能带论的上层框架；近自由电子近似进一步假设该周期势相对自由电子动能很弱，并以平面波作微扰基底。故近自由电子近似必含单电子近似，反之不成立。
+  \item 采用 Born--von Karman 周期边界条件
+  \[
+    \psi(\vb r+N_i\vb a_i)=\psi(\vb r),
+  \]
+  并由 Bloch 定理满足
+  \[
+    \psi_{n\vb k}(\vb r+\vb R)=
+    \ee^{\ii\vb k\cdot\vb R}\psi_{n\vb k}(\vb r).
+  \]
+  \item 电子--声子过程满足能量守恒和晶体准动量守恒：
+  \[
+    E_{n'\vb k'}=E_{n\vb k}\pm\hbar\omega_{\vb q s},
+    \qquad
+    \vb k'=\vb k\pm\vb q+\vb G.
+  \]
+  正、负号对应吸收或发射声子。
+  \item 无散射时，实空间波包以
+  $\dot{\vb r}=\hbar^{-1}\grad_{\vb k}E$ 运动；$k$ 空间满足
+  $\hbar\dot{\vb k}=\vb F$。无外力时 $\vb k$ 不变，实空间匀速；恒定电场下 $\vb k$ 匀速穿过 BZ，因能带周期性可产生 Bloch 振荡。
+  \item 一维金属在 $Q=2k_F$ 处电子响应发散，易发生 Peierls/CDW 不稳定性。给定
+  $k_F=\pi/(4a)$，
+  \[
+    Q=2k_F=\frac\pi{2a},
+    \qquad
+    \lambda=\frac{2\pi}{Q}=4a.
+  \]
+  因而可能形成
+  \[
+    \boxed{\text{周期 }4a\text{ 的晶格畸变或电荷密度波，并在 }E_F\text{ 打开能隙}.}
+  \]
+  \item 说法错误。Coulomb 相互作用是长程的，某电子受到同一原胞、其他原胞全部电子和离子实的共同作用。周期性只说明所有原胞的电荷分布可由平移生成，使总势可写为周期函数；它不能把受力截断在单个原胞。实际计算需对全晶体求和（如 Ewald 求和）或在自洽平均场中把全体贡献包含进 $V_{\rm eff}$。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+\begin{enumerate}
+  \item 比较 $k$ 空间能带与实空间能带的含义。（2 分）
+  \item $p$ 型半导体在室温下价带中存在少量空穴。体系是否仍保持电中性？说明理由。（2 分）
+  \item 画出轻度掺杂 $p$-$n$ 结接触前后的实空间能带图。（4 分）
+  \item 分别说明发光二极管与太阳能电池的工作原理。（4 分）
+  \item 画出 NPN 结在关闭与导通状态下的空间能带图。（4 分）
+  \item 设 P 区很短，为什么室温下关闭状态仍可能存在少量电流？（2 分）
+  \item 半导体禁带中可能存在哪些电子态？（2 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item $k$ 空间能带 $E_n(\vb k)$ 描述均匀周期晶体中能量随晶体准动量的色散，斜率和曲率分别决定群速度与有效质量。实空间能带图 $E_c(x),E_v(x)$ 描述异质结、掺杂或外电势使带边随位置的变化，反映载流子势垒、势阱和内建电场；它通常是在局域能带近似下把同一色散整体平移。
+  \item 仍保持宏观电中性。价带空穴的正电荷由电离受主的负电荷补偿，电中性条件为
+  \[
+    p+N_D^+=n+N_A^-.
+  \]
+  “有空穴”并不意味着整块样品带正净电荷。
+  \item 接触前 p、n 区各自能带平直，$E_F^p$ 靠近 $E_v$、$E_F^n$ 靠近 $E_c$。接触后多数载流子扩散，在结区留下固定离化杂质，形成从 n 指向 p 的内建电场；平衡时 $E_F$ 水平，p 侧 $E_c,E_v$ 高于 n 侧，二者在耗尽区连续弯曲，内建势垒为 $qV_{bi}$。
+  \item LED 在正向偏置下压低 p--n 结势垒，电子与空穴分别注入有源区并辐射复合，光子能量约为带隙减去束缚/热化修正；直接带隙材料效率高。太阳能电池中光吸收产生电子--空穴对，耗尽区内建电场将其分离到 n、p 两侧，形成准费米能分裂和光生电压；接上负载后输出电流和功率。
+  \item N--P--N 结构关闭时，中央 P 区的导带对 n 区多数电子形成高而宽的双势垒，两个结中至少一个反偏，电流很小。导通时使发射结正偏，降低发射极到基区的势垒；同时集电结反偏，其电场把穿过薄基区的电子扫入集电极。能带图表现为发射端势垒降低、全器件出现倾斜，电子准费米能在两端分裂。
+  \item P 基区很短时，少数电子的扩散长度可超过基区宽度；即使关闭，热产生的少数载流子仍可扩散到另一结并被反偏电场收集。此外窄势垒还会有量子隧穿，因此存在反向饱和/漏电流。
+  \item 禁带中可有浅施主、浅受主能级，空位、间隙原子、杂质和复合缺陷形成的深能级，表面态、界面态，强无序造成的带尾局域态，以及位错等扩展缺陷态。激子是两粒子束缚激发，其光学能量也位于带隙以下，但不应与单电子缺陷能级混为一谈。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+原子 A、B 形成双原子分子。其原子能级分别为 $\varepsilon_A$、$\varepsilon_B$，原子轨道为 $\phi_A$、$\phi_B$，并取 $H_{11}\approx\varepsilon_A$、$H_{22}\approx\varepsilon_B$。
+\begin{enumerate}
+  \item 在原子轨道线性组合近似下，求分子能级的表达式。（10 分）
+  \item 从微扰理论出发，若跃迁矩阵元 $H_{AB}$ 已知，求 B 原子对 A 原子能级的修正。（4 分）
+  \item 当 $\varepsilon_A$ 与 $\varepsilon_B$ 相距很远且 $H_{AB}$ 很小时，证明线性组合所得能级可回到微扰论结果。（6 分）
+\end{enumerate}
+
+
+\begin{solution}
+忽略轨道重叠，取基底 $(\phi_A,\phi_B)$。久期方程为
+\[
+ \begin{vmatrix}
+ \varepsilon_A-E&H_{AB}\\
+ H_{AB}^*&\varepsilon_B-E
+ \end{vmatrix}=0,
+\]
+即
+\[
+ (E-\varepsilon_A)(E-\varepsilon_B)-\abs{H_{AB}}^2=0.
+\]
+解得
+\[
+ \boxed{E_\pm=\frac{\varepsilon_A+\varepsilon_B}{2}
+ \pm\sqrt{\left(\frac{\varepsilon_A-\varepsilon_B}{2}\right)^2
+ +\abs{H_{AB}}^2}.}
+\]
+相应系数满足
+$(\varepsilon_A-E)c_A+H_{AB}c_B=0$。若需考虑重叠
+$S=\braket{\phi_A}{\phi_B}$，应把久期方程改为
+$\det(H-ES)=0$；题面未给 $S$，故采用正交近似。
+
+把 A 原子态作为未扰动态，B 态通过 $H_{AB}$ 与其耦合。非简并二阶微扰给出
+\[
+ E_A^{(1)}=\mel{A}{H'}{A}=0,
+ \qquad
+ \boxed{\Delta E_A^{(2)}=\frac{\abs{H_{AB}}^2}
+ {\varepsilon_A-\varepsilon_B}.}
+\]
+若 $\varepsilon_A<\varepsilon_B$，修正为负，低能级进一步降低；高能级相应上移，体现能级排斥。
+
+令
+$\Delta=\varepsilon_A-\varepsilon_B$，且
+$\abs{H_{AB}}\ll\abs{\Delta}$。靠近 $\varepsilon_A$ 的精确根可写为
+\[
+ E_A^{\rm exact}=\frac{\varepsilon_A+\varepsilon_B}{2}
+ +\frac{\Delta}{2}\sqrt{1+\frac{4\abs{H_{AB}}^2}{\Delta^2}},
+\]
+这里平方根前的符号应选使 $H_{AB}\to0$ 时回到 $\varepsilon_A$。用
+$\sqrt{1+x}=1+x/2+O(x^2)$：
+\[
+\begin{aligned}
+ E_A^{\rm exact}
+ &\simeq\frac{\varepsilon_A+\varepsilon_B}{2}
+ +\frac\Delta2\left(1+\frac{2\abs{H_{AB}}^2}{\Delta^2}\right)\\
+ &=\varepsilon_A+\frac{\abs{H_{AB}}^2}{\varepsilon_A-\varepsilon_B}
+ +O(H_{AB}^4).
+\end{aligned}
+\]
+因此
+\[
+ \boxed{E_A=\varepsilon_A+\frac{\abs{H_{AB}}^2}{\varepsilon_A-\varepsilon_B}}
+\]
+正是微扰论结果；B 能级同理得到相反方向的修正。
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+图中电子与空穴均位于相应能带的左侧，外电场 $\vb E$ 指向左方。
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[->] (-3.05,0)--(3.05,0) node[right] {$k$};
+  \draw[->] (0,-2.18)--(0,2.42) node[above] {$E$};
+  \draw[domain=-2.30:2.30,samples=100,very thick]
+    plot (\x,{0.14+0.22*\x*\x});
+  \draw[domain=-2.30:2.30,samples=100,very thick]
+    plot (\x,{-0.94-0.18*\x*\x});
+  \pgfmathsetmacro{\kp}{-1.48}
+  \pgfmathsetmacro{\Ec}{0.14+0.22*\kp*\kp}
+  \pgfmathsetmacro{\Ev}{-0.94-0.18*\kp*\kp}
+  \fill (\kp,\Ec) circle (3.4pt);
+  \node[anchor=east] at ({\kp-0.18},{\Ec+0.05}) {电子};
+  \draw[thick,fill=white] (\kp,\Ev) circle (3.4pt);
+  \node[anchor=east] at ({\kp-0.18},{\Ev-0.02}) {空穴};
+  \draw[<-,very thick] (0.55,1.95)--(1.98,1.95)
+    node[midway,above=3pt] {$\vb E$};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item 指出导带电子产生的电流方向并给出依据。（2 分）
+  \item 在外电场作用下，指出电子在 $k$ 空间的运动方向及电子电流的变化方向，并给出依据。（4 分）
+  \item 指出价带空穴产生的电流方向。（2 分）
+  \item 在外电场作用下，指出空穴在 $k$ 空间的运动方向及空穴电流的变化方向，并给出依据。（4 分）
+  \item 导带底部的布洛赫态是否为真实动量或速度的本征态？（2 分）
+  \item 根据量子力学写出动量或速度平均值的计算式，并说明实际计算带边平均速度的方法。（4 分）
+  \item 求导带底部的平均速度。（2 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 导带左侧 $\partial E_c/\partial k<0$，电子群速度向左；电子电荷为负，所以其电流方向向右：
+  \[
+    \boxed{j_e=-ev_e>0.}
+  \]
+  \item 外电场向左，取右为正则 $E<0$。电子满足
+  \[
+    \hbar\dot k=-eE>0,
+  \]
+  故在 $k$ 空间向右、趋近带底 $k=0$。左支上速度由负值增至 0，原来向右的电子电流减小，故电子电流的变化方向向左。抛物近似亦给
+  $\dot j_e=ne^2E/m_e^*<0$。
+  \item 价带左侧斜率为正，缺失电子速度向右；空穴速度等于该缺失电子速度，电荷为正，故
+  \[
+    \boxed{\text{空穴电流向右}.}
+  \]
+  \item 空穴满足
+  \[
+    \hbar\dot k_h=eE<0,
+  \]
+  在空穴 $k$ 空间向左运动，正质量使速度及电流变化均向左：
+  $\dot j_h=pe^2E/m_h^*<0$。
+  \item 一般不是。Bloch 态含有多个 $\vb k+\vb G$ 的平面波分量，故不是真实动量本征态；周期势中速度算符也不与哈密顿量普遍对易，Bloch 态通常不是速度本征态。但它具有确定的速度期望值。
+  \item 量子力学中
+  \[
+    \langle\vb p\rangle=\int\psi^*(-\ii\hbar\grad)\psi\,\dd^3r,
+    \qquad
+    \langle\vb v\rangle=\mel{\psi}{\frac1{\ii\hbar}[\vb r,H]}{\psi}.
+  \]
+  对局域势 $H=p^2/(2m_0)+V$，$\vb v=\vb p/m_0$。对 Bloch 本征态更方便使用 Hellmann--Feynman 定理：
+  \[
+    \boxed{\langle\vb v\rangle=\frac1\hbar\grad_{\vb k}E_n(\vb k).}
+  \]
+  实际只需由计算或实验能带在带边求斜率。
+  \item 导带底是能量极值，$\grad_{\vb k}E_c=0$，所以
+  \[
+    \boxed{\langle\vb v\rangle_{\rm CBM}=\vb0.}
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}

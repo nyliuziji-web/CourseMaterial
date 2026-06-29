@@ -1,0 +1,320 @@
+
+\heading{电动力学-21秋-期末1}
+
+\begin{question}[场张量与 Maxwell 方程]
+\begin{enumerate}
+  \item 用电磁场 $\mathbf E,\mathbf B$ 表示电磁场张量 $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$。
+  \item 写出 $F^{\mu\nu}$，并写出用 $F^{\mu\nu}$ 表示的 Maxwell 方程。
+  \item 由 $F^{\mu\nu}$ 的方程推出电荷守恒定律。
+  \item 将运动电荷电场的辐射项分别按 Gaussian 制和 SI 制写出。
+\end{enumerate}
+\begin{solution}
+采用度规 $g_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$ 与 $x^0=t$ 的 Gaussian 制记号。
+\begin{enumerate}
+  \item 取 $A^\mu=(\varphi,\mathbf A)$，则
+  \[
+    F^{\mu\nu}=\begin{pmatrix}
+    0&-E_x&-E_y&-E_z\\
+    E_x&0&-B_z&B_y\\
+    E_y&B_z&0&-B_x\\
+    E_z&-B_y&B_x&0
+    \end{pmatrix} .
+  \]
+  降指标后空间分量符号不变，含一个时间指标的分量按度规改变符号。
+
+  \item 用场张量表示的非齐次 Maxwell 方程为
+  \[
+    \partial_\mu F^{\mu\nu}=4\pi j^\nu,
+  \]
+  齐次 Maxwell 方程为
+  \[
+    \partial_\lambda F_{\mu\nu}+\partial_\mu F_{\nu\lambda}+\partial_\nu F_{\lambda\mu}=0,
+  \]
+  或等价地
+  \[
+    \partial_\mu \tilde F^{\mu\nu}=0,
+    \qquad
+    \tilde F^{\mu\nu}=\frac12\epsilon^{\mu\nu\rho\sigma}F_{\rho\sigma} .
+  \]
+  展开后就是
+  \[
+  \begin{gathered}
+    \nabla\cdot\mathbf E=4\pi\rho,
+    \qquad
+    \nabla\times\mathbf B-\frac{\partial\mathbf E}{\partial t}=4\pi\mathbf j,\\
+    \nabla\cdot\mathbf B=0,
+    \qquad
+    \nabla\times\mathbf E+\frac{\partial\mathbf B}{\partial t}=0 .
+  \end{gathered}
+  \]
+
+  \item 对非齐次方程再取 $\partial_\nu$：
+  \[
+    \partial_\nu\partial_\mu F^{\mu\nu}=4\pi\partial_\nu j^\nu .
+  \]
+  左边为零，因为 $\partial_\nu\partial_\mu$ 关于 $\mu,\nu$ 对称，而 $F^{\mu\nu}$ 反对称。因此
+  \[
+    \boxed{\partial_\nu j^\nu=0} .
+  \]
+  三维形式为
+  \[
+    \boxed{\frac{\partial\rho}{\partial t}+\nabla\cdot\mathbf j=0} .
+  \]
+
+  \item 对运动电荷，Liénard--Wiechert 场中的辐射项在 Gaussian 制、$c=1$ 记号下为
+  \[
+    \boxed{\mathbf E_{\rm rad}
+    =\frac{e}{R}\frac{\mathbf n\times\bigl[(\mathbf n-\mathbf v)\times\mathbf a\bigr]}{(1-\mathbf n\cdot\mathbf v)^3}},
+    \qquad
+    \boxed{\mathbf B_{\rm rad}=\mathbf n\times\mathbf E_{\rm rad}} .
+  \]
+  SI 制中写成
+  \[
+    \boxed{\mathbf E_{\rm rad}^{\rm SI}
+    =\frac{e}{4\pi\varepsilon_0c^2}
+    \frac{\mathbf n\times\bigl[(\mathbf n-\boldsymbol\beta)\times\mathbf a\bigr]}{R(1-\mathbf n\cdot\boldsymbol\beta)^3}},
+    \qquad
+    \boxed{\mathbf B_{\rm rad}^{\rm SI}=\frac1c\mathbf n\times\mathbf E_{\rm rad}^{\rm SI}} .
+  \]
+  其中 $\boldsymbol\beta=\mathbf v/c$，所有量均取推迟时刻。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[矩形波导管的 TE 模式]
+矩形波导管截面为 $0<x<a$，$0<y<b$。TE 模式满足 $\psi=B_z(x,y)$，边界条件为
+\[
+  \left.\frac{\partial\psi}{\partial n}\right|_S=0,
+\]
+以及 Helmholtz 方程
+\[
+  \frac{\partial^2\psi}{\partial x^2}+\frac{\partial^2\psi}{\partial y^2}+\Omega^2\psi=0,
+  \qquad
+  B_z(\mathbf r,t)=B_z(x,y)\mathrm e^{\mathrm i(kz-\omega t)} .
+\]
+题中给出
+\[
+  \mathbf B_\perp=\frac{\mathrm i k}{\Omega^2}\nabla_\perp B_z,
+  \qquad
+  \mathbf E_\perp=-\frac{\omega}{k}\hat{\mathbf z}\times\mathbf B_\perp .
+\]
+\begin{enumerate}
+  \item 求本征解与色散关系。
+  \item 设 $a>b$，求 $k_{\min}=0$ 时的最低非平凡频率与该频率下的场。
+  \item 将带电量 $q$、质量 $m$ 的粒子放入上一问的场中，初始位置为 $(a/2,b/2,0)$，求初始加速度和初始时刻辐射功率。
+\end{enumerate}
+\begin{solution}
+以下采用题目中的 $c=1$ 单位制。
+\begin{enumerate}
+  \item 由边界条件 $\partial_x\psi=0$ 于 $x=0,a$，$\partial_y\psi=0$ 于 $y=0,b$，得到
+  \[
+    \psi_{mn}(x,y)=B_0\cos\frac{m\pi x}{a}\cos\frac{n\pi y}{b},
+    \qquad m,n=0,1,2,\cdots .
+  \]
+  不能取 $m=n=0$，否则对应平凡横向场。代入 Helmholtz 方程得
+  \[
+    \Omega_{mn}^2=\left(\frac{m\pi}{a}\right)^2+
+    \left(\frac{n\pi}{b}\right)^2 .
+  \]
+  又 $\Omega^2=\omega^2-k^2$，故
+  \[
+    \boxed{\omega_{mn}^2=k^2+\left(\frac{m\pi}{a}\right)^2+
+    \left(\frac{n\pi}{b}\right)^2} .
+  \]
+
+  \item 当 $a>b$ 时，最低非平凡横向本征值来自 $m=1,n=0$，且 $k_{\min}=0$，于是
+  \[
+    \boxed{\omega_{\min}=\frac{\pi}{a}} .
+  \]
+  该模式可取
+  \[
+    B_z=B_0\cos\frac{\pi x}{a}\,\mathrm e^{-\mathrm i\omega t} .
+  \]
+  因为 $k=0$ 时 $\mathbf B_\perp=0$，所以
+  \[
+    \mathbf B=B_0\cos\frac{\pi x}{a}\,\mathrm e^{-\mathrm i\omega t}\hat{\mathbf z} .
+  \]
+  用 Maxwell 方程 $\nabla\times\mathbf B=\partial_t\mathbf E$ 求电场。设时间因子为 $\mathrm e^{-\mathrm i\omega t}$，则
+  \[
+    \nabla\times\mathbf B=\frac{\pi B_0}{a}\sin\frac{\pi x}{a}\,\mathrm e^{-\mathrm i\omega t}\hat{\mathbf y}
+    =-\mathrm i\omega\mathbf E .
+  \]
+  由于 $\omega=\pi/a$，
+  \[
+    \boxed{\mathbf E=\mathrm iB_0\sin\frac{\pi x}{a}\,\mathrm e^{-\mathrm i\omega t}\hat{\mathbf y}} .
+  \]
+  物理场取实部；相位因子只表示 $\mathbf E$ 与 $\mathbf B$ 相差 $\pi/2$。
+
+  \item 在 $(a/2,b/2,0)$ 处，$B_z=0$，而 $|E_y|=B_0$。若粒子初速度取零，则初始磁力为零，初始加速度为
+  \[
+    \boxed{\mathbf a_0=\frac{q}{m}\mathbf E_0
+    =\frac{qB_0}{m}\hat{\mathbf y}}
+  \]
+  这里写的是场振幅对应的加速度。非相对论 Larmor 公式在 Gaussian 制、$c=1$ 下为
+  \[
+    P=\frac23q^2a^2 .
+  \]
+  因此初始辐射功率振幅为
+  \[
+    \boxed{P_0=\frac{2q^4B_0^2}{3m^2}} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[Poynting 矢量与辐射功率的 Lorentz 变换]
+设 $S'$ 系相对 $S$ 系以速度 $\mathbf u=u\hat{\mathbf z}$ 运动，且 $\hat{\mathbf z}$ 与 $S$ 系中的 $\mathbf E\times\mathbf B$ 同向。给定电磁场 Lorentz 变换式。
+\begin{enumerate}
+  \item 求 $S'$ 系中的 Poynting 矢量，并判断是否存在有限的 $0<u<1$ 使得 $\mathbf S'=\mathbf S$。
+  \item 已知相对论性粒子辐射公式
+  \[
+    P=\frac23e^2\gamma^6\bigl[a^2-(\mathbf v\times\mathbf a)^2\bigr]
+  \]
+  证明辐射功率在 Lorentz 变换下不变。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 令 $\mathbf E=E\hat{\mathbf x}$，$\mathbf B=B\hat{\mathbf y}$，则 $\mathbf E\times\mathbf B$ 沿 $+z$ 方向。对沿 $z$ 的 boost，
+  \[
+    \mathbf E'=\gamma_u(\mathbf E+\mathbf u\times\mathbf B),
+    \qquad
+    \mathbf B'=\gamma_u(\mathbf B-\mathbf u\times\mathbf E) .
+  \]
+  由 $\hat{\mathbf z}\times\hat{\mathbf y}=-\hat{\mathbf x}$ 与 $\hat{\mathbf z}\times\hat{\mathbf x}=\hat{\mathbf y}$，得
+  \[
+    \mathbf E'=\gamma_u(E-uB)\hat{\mathbf x},
+    \qquad
+    \mathbf B'=\gamma_u(B-uE)\hat{\mathbf y} .
+  \]
+  因此
+  \[
+    \boxed{\mathbf S'=\mathbf E'\times\mathbf B'
+    =\gamma_u^2(E-uB)(B-uE)\hat{\mathbf z}} .
+  \]
+  若要求 $\mathbf S'=\mathbf S=EB\hat{\mathbf z}$，则
+  \[
+    \frac{EB-u(E^2+B^2)+u^2EB}{1-u^2}=EB .
+  \]
+  化简为
+  \[
+    u\bigl(2EBu-(E^2+B^2)\bigr)=0 .
+  \]
+  非零解为
+  \[
+    u=\frac{E^2+B^2}{2EB}\geq1,
+  \]
+  等号只在 $E=B$ 时取得，仍不是有限亚光速 boost。因此不存在 $0<u<1$ 使得 $\mathbf S'=\mathbf S$。
+
+  \item 最短的证明是使用四加速度 $a^\mu=\mathrm dU^\mu/\mathrm d\tau$。它的模
+  \[
+    a^\mu a_\mu
+  \]
+  是 Lorentz 标量。对三维速度和加速度可算得
+  \[
+    -a^\mu a_\mu=\gamma^6\bigl[a^2-(\mathbf v\times\mathbf a)^2\bigr]
+  \]
+  其中采用 $c=1$。于是
+  \[
+    P=\frac23e^2\gamma^6\bigl[a^2-(\mathbf v\times\mathbf a)^2\bigr]
+    =-\frac23e^2a^\mu a_\mu .
+  \]
+  右边是 Lorentz 标量，所以 $P'=P$。这也解释了直接用速度、加速度变换式计算时许多因子最终必然抵消。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[Proca 场]
+考虑 Lagrangian 密度
+\[
+  \mathcal L=-\frac{1}{16\pi}F^{\mu\nu}F_{\mu\nu}
+  -\frac{m^2}{8\pi}A^\mu A_\mu+J^\mu A_\mu,
+  \qquad
+  F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu .
+\]
+\begin{enumerate}
+  \item 以 $A_\mu$ 为基本场，由变分原理推出运动方程；并在 Lorenz 条件下写成 Klein--Gordon 型方程。
+  \item 证明静态解
+  \[
+    A^\mu(\mathbf r)=\int\frac{J^\mu(\mathbf r')\mathrm e^{-m|\mathbf r-\mathbf r'|}}{|\mathbf r-\mathbf r'|}\,\mathrm d^3r'
+  \]
+  是方程的解。
+  \item 若电荷分布在 $z$ 轴上，$\rho(\mathbf r)=\lambda_0|z|\delta(x)\delta(y)$，求 $z=0$ 平面上的电势 $\phi(\rho)$。
+  \item 求 $z=0$ 平面上的电场，并与 $m=0$ 的结果比较。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item Euler--Lagrange 方程为
+  \[
+    \partial_\mu\frac{\partial\mathcal L}{\partial(\partial_\mu A_\nu)}-
+    \frac{\partial\mathcal L}{\partial A_\nu}=0 .
+  \]
+  有
+  \[
+    \frac{\partial\mathcal L}{\partial(\partial_\mu A_\nu)}=-\frac{1}{4\pi}F^{\mu\nu},
+    \qquad
+    \frac{\partial\mathcal L}{\partial A_\nu}=-\frac{m^2}{4\pi}A^\nu+J^\nu .
+  \]
+  因而
+  \[
+    \boxed{\partial_\mu F^{\mu\nu}-m^2A^\nu=-4\pi J^\nu} .
+  \]
+  对该式取 $\partial_\nu$，第一项因 $F^{\mu\nu}$ 反对称而为零，得
+  \[
+    -m^2\partial_\nu A^\nu=-4\pi\partial_\nu J^\nu .
+  \]
+  若电流守恒 $\partial_\nu J^\nu=0$ 且 $m\neq0$，则自动有 Lorenz 条件
+  \[
+    \partial_\nu A^\nu=0 .
+  \]
+  再用
+  \[
+    \partial_\mu F^{\mu\nu}=\partial_\mu\partial^\mu A^\nu-
+    \partial^\nu(\partial_\mu A^\mu)
+  \]
+  得
+  \[
+    \boxed{(\Box-m^2)A^\nu=-4\pi J^\nu} .
+  \]
+
+  \item 静态时 $\Box\to\nabla^2$，方程为
+  \[
+    (\nabla^2-m^2)A^\mu=-4\pi J^\mu .
+  \]
+  Yukawa Green 函数满足
+  \[
+    (\nabla^2-m^2)\frac{\mathrm e^{-m|\mathbf r-\mathbf r'|}}{|\mathbf r-\mathbf r'|}
+    =-4\pi\delta^3(\mathbf r-\mathbf r') .
+  \]
+  将题给 $A^\mu$ 代入，算符作用到 Green 函数上，立即得到 $-4\pi J^\mu$，故它是解。
+
+  \item 在 $z=0$ 平面，令柱坐标半径为 $\rho=\sqrt{x^2+y^2}$。电势为
+  \[
+  \begin{aligned}
+    \phi(\rho)&=\int_{-\infty}^{\infty}
+    \frac{\lambda_0|z'|\mathrm e^{-m\sqrt{\rho^2+z'^2}}}{\sqrt{\rho^2+z'^2}}\,\mathrm dz' \\
+    &=2\lambda_0\int_0^\infty
+    \frac{z'\mathrm e^{-m\sqrt{\rho^2+z'^2}}}{\sqrt{\rho^2+z'^2}}\,\mathrm dz' .
+  \end{aligned}
+  \]
+  令 $u=\sqrt{\rho^2+z'^2}$，则 $z'\mathrm dz'/u=\mathrm du$，下限 $u=\rho$，上限 $u=\infty$。因此
+  \[
+    \boxed{\phi(\rho)=\frac{2\lambda_0}{m}\mathrm e^{-m\rho}} .
+  \]
+
+  \item 电场为
+  \[
+    \mathbf E=-\nabla\phi=-\frac{\mathrm d\phi}{\mathrm d\rho}\hat{\boldsymbol\rho}
+    =\boxed{2\lambda_0\mathrm e^{-m\rho}\hat{\boldsymbol\rho}} .
+  \]
+  当 $m\to0$ 时，电势
+  \[
+    \phi(\rho)=\frac{2\lambda_0}{m}-2\lambda_0\rho+O(m)
+  \]
+  含有一个与 $\rho$ 无关的发散常数；该常数不影响电场。电场极限为
+  \[
+    \mathbf E\to2\lambda_0\hat{\boldsymbol\rho} .
+  \]
+  这与直接对 Coulomb 场积分得到的 $m=0$ 结果一致。
+\end{enumerate}
+\end{solution}
+\end{question}

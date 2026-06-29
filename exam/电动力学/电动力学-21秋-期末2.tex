@@ -1,0 +1,281 @@
+
+\heading{电动力学-21秋-期末2}
+
+\begin{question}[规范变换、场张量与场的 Lorentz 变换]
+\begin{enumerate}
+  \item 什么是规范变换？
+  \item 说明 $A_\mu A^\mu$ 和 $F^{\mu\nu}$ 在规范变换下是否不变。
+  \item 说明 $A_\mu A^\mu$ 和 $F^{\mu\nu}$ 在 Lorentz 变换下的性质。
+  \item 用 $F^{\mu\nu}$ 的 Lorentz 变换求电场和磁场在不同惯性系中的变换。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 规范变换为
+  \[
+    A_\mu\to A'_\mu=A_\mu+\partial_\mu\chi .
+  \]
+  三维形式是 $\mathbf A\to\mathbf A+\nabla\chi$，$\varphi\to\varphi-\partial_t\chi$。它不改变 $\mathbf E$ 与 $\mathbf B$。
+
+  \item $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ 在规范变换下不变，因为二阶偏导的反对称组合抵消：
+  \[
+    F'_{\mu\nu}=F_{\mu\nu}+\partial_\mu\partial_\nu\chi-\partial_\nu\partial_\mu\chi=F_{\mu\nu} .
+  \]
+  但
+  \[
+    A'_\mu A'^{\mu}=A_\mu A^\mu+2A^\mu\partial_\mu\chi+
+    \partial_\mu\chi\partial^\mu\chi
+  \]
+  一般不等于 $A_\mu A^\mu$，故 $A_\mu A^\mu$ 不规范不变。
+
+  \item 若 $A^\mu$ 是四矢量，则 $A_\mu A^\mu$ 是 Lorentz 标量；若 $F^{\mu\nu}$ 是二阶反对称张量，则
+  \[
+    F'^{\mu\nu}=\Lambda^\mu{}_{\rho}\Lambda^\nu{}_{\sigma}F^{\rho\sigma} .
+  \]
+  也就是说，$F^{\mu\nu}$ 的各分量会混合，但整体张量方程形式协变。
+
+  \item 对相对速度为 $\mathbf v$ 的 boost，把场分解为平行和垂直于 $\mathbf v$ 的部分：
+  \[
+    \mathbf E=\mathbf E_\parallel+\mathbf E_\perp,
+    \qquad
+    \mathbf B=\mathbf B_\parallel+\mathbf B_\perp .
+  \]
+  由 $F'^{\mu\nu}=\Lambda^\mu{}_{\rho}\Lambda^\nu{}_{\sigma}F^{\rho\sigma}$ 可得
+  \[
+    \boxed{\mathbf E'_\parallel=\mathbf E_\parallel,
+    \qquad
+    \mathbf B'_\parallel=\mathbf B_\parallel,}
+  \]
+  \[
+    \boxed{\mathbf E'_\perp=\gamma(\mathbf E_\perp+\mathbf v\times\mathbf B),
+    \qquad
+    \mathbf B'_\perp=\gamma\left(\mathbf B_\perp-\frac{1}{c^2}\mathbf v\times\mathbf E\right)} .
+  \]
+  等价的完整形式为
+  \[
+    \mathbf E'=\gamma(\mathbf E+\mathbf v\times\mathbf B)
+    -\frac{\gamma^2}{\gamma+1}\frac{\mathbf v}{c^2}(\mathbf v\cdot\mathbf E),
+  \]
+  \[
+    \mathbf B'=\gamma\left(\mathbf B-\frac1{c^2}\mathbf v\times\mathbf E\right)
+    -\frac{\gamma^2}{\gamma+1}\frac{\mathbf v}{c^2}(\mathbf v\cdot\mathbf B) .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[Liénard--Wiechert 势的推迟位置与关键导数]
+考虑运动点电荷的推迟时刻 $t_r$，定义
+\[
+  \mathbf R=\mathbf r-\mathbf r_q(t_r),
+  \qquad R=|\mathbf R|,
+  \qquad \mathbf n=\frac{\mathbf R}{R},
+  \qquad \boldsymbol\beta=\frac{\mathbf v(t_r)}{c},
+  \qquad \kappa=1-\mathbf n\cdot\boldsymbol\beta .
+\]
+\begin{enumerate}
+  \item 证明推迟位置只有一个。
+  \item 求四个关键导数 $\nabla t_r$、$\partial t_r/\partial t$、$\nabla R$、$\partial R/\partial t$。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 推迟时刻由
+  \[
+    t-t_r=\frac{|\mathbf r-\mathbf r_q(t_r)|}{c}
+  \]
+  决定。令
+  \[
+    f(t_r)=t-t_r-\frac{|\mathbf r-\mathbf r_q(t_r)|}{c} .
+  \]
+  则
+  \[
+    \frac{\mathrm df}{\mathrm dt_r}
+    =-1+\frac{\mathbf n\cdot\mathbf v(t_r)}{c}
+    =-\kappa .
+  \]
+  对亚光速电荷，$|\mathbf n\cdot\boldsymbol\beta|<1$，故 $\kappa>0$，从而 $f(t_r)$ 单调递减。单调性保证推迟时刻至多一个；结合过去光锥与世界线的交点存在性，可知推迟位置唯一。
+
+  \item 对定义式 $t-t_r=R/c$ 求空间梯度。$R$ 也通过 $t_r$ 依赖于 $\mathbf r$：
+  \[
+    -\nabla t_r=\frac1c\left(\mathbf n-c(\mathbf n\cdot\boldsymbol\beta)\nabla t_r\right).
+  \]
+  整理得
+  \[
+    \boxed{\nabla t_r=-\frac{\mathbf n}{c\kappa}} .
+  \]
+  对时间求导：
+  \[
+    1-\frac{\partial t_r}{\partial t}
+    =-\mathbf n\cdot\boldsymbol\beta\frac{\partial t_r}{\partial t},
+  \]
+  所以
+  \[
+    \boxed{\frac{\partial t_r}{\partial t}=\frac1\kappa} .
+  \]
+  再由 $R=c(t-t_r)$ 立刻得到
+  \[
+    \boxed{\nabla R=\frac{\mathbf n}{\kappa}},
+    \qquad
+    \boxed{\frac{\partial R}{\partial t}=-\frac{c\,\mathbf n\cdot\boldsymbol\beta}{\kappa}} .
+  \]
+  这些导数全部在推迟时刻处取值，是推导 Liénard--Wiechert 场的核心步骤。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[带电粒子在电磁场中的 Lagrangian]
+\begin{enumerate}
+  \item 写出带电粒子在电磁场中的 Lagrangian，并描述其在 Lorentz 变换下的性质。
+  \item 用 Euler--Lagrange 方程求运动方程。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 相对论带电粒子的作用量为
+  \[
+    S=\int\left[-mc^2\sqrt{1-\frac{v^2}{c^2}}-q\varphi+q\mathbf v\cdot\mathbf A\right]\mathrm dt .
+  \]
+  因而 Lagrangian 为
+  \[
+    \boxed{L=-mc^2\sqrt{1-\frac{v^2}{c^2}}-q\varphi+q\mathbf v\cdot\mathbf A} .
+  \]
+  其四维形式为
+  \[
+    S=-mc\int\mathrm ds+q\int A_\mu\mathrm dx^\mu .
+  \]
+  第一项是固有时长度，第二项是四矢量收缩，因此作用量是 Lorentz 标量。
+
+  \item 先求正则动量
+  \[
+    \frac{\partial L}{\partial\mathbf v}=\gamma m\mathbf v+q\mathbf A .
+  \]
+  Euler--Lagrange 方程给出
+  \[
+    \frac{\mathrm d}{\mathrm dt}(\gamma m\mathbf v+q\mathbf A)
+    =-q\nabla\varphi+q\nabla(\mathbf v\cdot\mathbf A) .
+  \]
+  展开全导数并使用恒等式
+  \[
+    \nabla(\mathbf v\cdot\mathbf A)- (\mathbf v\cdot\nabla)\mathbf A
+    =\mathbf v\times(\nabla\times\mathbf A)
+  \]
+  得
+  \[
+    \frac{\mathrm d}{\mathrm dt}(\gamma m\mathbf v)
+    =q\left(-\nabla\varphi-\frac{\partial\mathbf A}{\partial t}
+    +\mathbf v\times(\nabla\times\mathbf A)\right).
+  \]
+  即
+  \[
+    \boxed{\frac{\mathrm d}{\mathrm dt}(\gamma m\mathbf v)=q(\mathbf E+\mathbf v\times\mathbf B)} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[光子与静止电子碰撞形成 $\mu$ 子]
+光子与静止电子碰撞形成一个 $\mu$ 子。电子质量为 $m$，$\mu$ 子质量为 $M$，且 $m<M$。
+\begin{enumerate}
+  \item 求 $\mu$ 子的速度，并给出光子能量需要满足的条件。
+  \item $\mu$ 子在运动过程中衰变为反电子中微子、$\mu$ 子中微子和电子。中微子质量不计，求电子最大的运动速度。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 设入射光子能量为 $E_\gamma$。初态四动量平方为
+  \[
+    s=(p_e+k)^2=m^2c^4+2mc^2E_\gamma .
+  \]
+  若末态只有一个质量为 $M$ 的粒子，则必须有
+  \[
+    s=M^2c^4 .
+  \]
+  因此光子能量不是任意的，而必须满足
+  \[
+    \boxed{E_\gamma=\frac{M^2-m^2}{2m}c^2} .
+  \]
+  末态总能量为 $mc^2+E_\gamma$，动量为 $E_\gamma/c$，故 $\mu$ 子速度为
+  \[
+    \beta_\mu=\frac{V_\mu}{c}=\frac{pc}{E}
+    =\frac{E_\gamma}{E_\gamma+mc^2}
+    =\boxed{\frac{M^2-m^2}{M^2+m^2}} .
+  \]
+
+  \item 在 $\mu$ 子静止系中，为使电子能量最大，两个质量为零的中微子应同向带走动量，等效为一个零质量系统。于是两体运动学给出
+  \[
+    E_e^*=\frac{M^2+m^2}{2M}c^2,
+    \qquad
+    p_e^*=\frac{M^2-m^2}{2M}c .
+  \]
+  因而
+  \[
+    \beta_e^* =\frac{p_e^*c}{E_e^*}
+    =\frac{M^2-m^2}{M^2+m^2} .
+  \]
+  要使实验室系电子速度最大，电子在 $\mu$ 子静止系中应沿 $\mu$ 子运动方向发射。速度合成给出
+  \[
+    \beta_{e,\max}=\frac{\beta_e^*+\beta_\mu}{1+\beta_e^*\beta_\mu} .
+  \]
+  因为二者相等，记为 $\beta=(M^2-m^2)/(M^2+m^2)$，则
+  \[
+    \boxed{\frac{v_{e,\max}}{c}=\frac{2\beta}{1+\beta^2}
+    =\frac{M^4-m^4}{M^4+m^4}} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[经典氢原子寿命]
+用原子的行星模型估算氢原子的寿命。
+\begin{enumerate}
+  \item 一个电子绕固定原子核作圆周运动，电子电荷量大小为 $q$，质量为 $m$，圆轨道初始半径为 $r_0$。分析电子辐射特征并求寿命。
+  \item 若电子云等效分裂为两个电荷量大小为 $q/2$、质量为 $m/2$ 的粒子，原子核固定且始终在两个粒子连线中点处，圆轨道初始半径仍为 $r_0$，分析辐射特征并讨论寿命。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 圆轨道由库仑力提供向心力：
+  \[
+    \frac{q^2}{4\pi\varepsilon_0r^2}=\frac{mv^2}{r} .
+  \]
+  因而加速度大小为
+  \[
+    a=\frac{v^2}{r}=\frac{q^2}{4\pi\varepsilon_0mr^2} .
+  \]
+  非相对论 Larmor 公式给出
+  \[
+    P=\frac{q^2a^2}{6\pi\varepsilon_0c^3}
+    =\frac{q^6}{96\pi^3\varepsilon_0^3m^2c^3r^4} .
+  \]
+  圆轨道总机械能为
+  \[
+    E=\frac12mv^2-\frac{q^2}{4\pi\varepsilon_0r}
+    =-\frac{q^2}{8\pi\varepsilon_0r} .
+  \]
+  能量损失满足
+  \[
+    -\frac{\mathrm dE}{\mathrm dt}=P .
+  \]
+  又
+  \[
+    \frac{\mathrm dE}{\mathrm dr}=\frac{q^2}{8\pi\varepsilon_0r^2},
+  \]
+  所以
+  \[
+    \frac{\mathrm dr}{\mathrm dt}
+    =-\frac{q^4}{12\pi^2\varepsilon_0^2m^2c^3}\frac1{r^2} .
+  \]
+  从 $r_0$ 螺旋坠落到 $0$ 的时间为
+  \[
+    \boxed{\tau=\frac{4\pi^2\varepsilon_0^2m^2c^3r_0^3}{q^4}} .
+  \]
+  辐射特征上，电子作圆周运动，其电偶极矩等幅旋转，辐射频率为轨道角频率。
+
+  \item 两个等电荷粒子始终位于核的两侧，若位置为 $\mathbf r$ 与 $-\mathbf r$，则总电偶极矩为
+  \[
+    \mathbf p=\frac{q}{2}\mathbf r+\frac{q}{2}(-\mathbf r)=0 .
+  \]
+  因此主导的电偶极辐射相消。两个粒子的磁偶极矩在匀速圆周运动中为常量，也不产生磁偶极辐射。在最低偶极辐射近似下，该构型不辐射，经典寿命为
+  \[
+    \boxed{\tau_{\rm dipole}=\infty} .
+  \]
+  电四极等高阶辐射会给出更小的能量损失；在本题的偶极近似中，关键物理是两个等幅反相电偶极的相干相消。
+\end{enumerate}
+\end{solution}
+\end{question}

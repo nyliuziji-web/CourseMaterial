@@ -8,14 +8,13 @@ PKU 往年题、模拟题与作业的 LaTeX 整理。
 
 ```
 CourseMaterial/
-├── compile.ps1          # 编译脚本（Windows PowerShell）
-├── compile.sh           # 编译脚本（macOS / Linux）
-├── main.tex             # 编译入口，会被 compile.ps1 / compile.sh 自动更新
+├── compile.py           # 编译脚本（交互式选择题目 → 单个 PDF）
+├── main.tex             # 编译入口，会被 compile.py 自动更新
 ├── preamble.tex         # 公共宏包与格式
 ├── exam/                # 试卷
 ├── homework/            # 作业
 ├── supplement/          # 补充资料
-├── example/             # 编译好的现成内容
+├── example/             # 编译好的现成内容（含批量更新脚本）
 └── build/               # 编译输出的 pdf 存放地
 ```
 
@@ -23,10 +22,15 @@ CourseMaterial/
 
 你可以直接进入 `example/` 查看其他用户已经编译好的 pdf。也可以：
 
-- **Windows**：运行 `compile.ps1`（PowerShell）
-- **macOS / Linux**：运行 `./compile.sh`（需先 `chmod +x compile.sh`）
+```bash
+python compile.py       
+```
 
-按菜单选择内容，可以进行定制化编译。
+按菜单选择内容，可以进行定制化编译。如需批量更新 `example/` 下的全部 PDF：
+
+```bash
+python example/update-example.py
+```
 
 等价地，也可以在 `main.tex` 里面手动导入所需内容进行编译。
 

@@ -1,0 +1,485 @@
+\heading{固体物理学-14春-期末}
+\noteinfo{题面依据原始文档精修录入；个别语句作了顺句与删繁处理，未补入无法确认的条件。图为示意复刻；现有解答为依据题面整理并重新推导的参考答案。}
+
+\begin{question}[10 分]
+在能带理论中回答下列问题：
+\begin{enumerate}
+  \item $\hbar\vb k$ 是否表示电子的真实动量？为什么？应从哪两个方面理解准动量？
+  \item 导带底部和价带顶部电子的群速度各是多少？为什么？
+  \item 具有周期结构的绝缘体不导电，与无序体系因局域化而不导电，其机制是否相同？说明理由。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item $\hbar\vb k$ 一般\textbf{不是真实机械动量}。Bloch 态
+  \[
+    \psi_{n\vb k}(\vb r)=\ee^{\ii\vb k\cdot\vb r}u_{n\vb k}(\vb r)
+  \]
+  不是动量算符 $\vb p=-\ii\hbar\grad$ 的本征态，因为周期函数 $u_{n\vb k}$ 含有多个倒格矢 Fourier 分量，
+  \[
+    \psi_{n\vb k}=\sum_{\vb G}c_{\vb G}\ee^{\ii(\vb k+\vb G)\cdot\vb r}.
+  \]
+  真实动量测量可能得到多个 $\hbar(\vb k+\vb G)$。准动量应从两方面理解：一是它标记晶格平移算符的本征值
+  $T_{\vb R}\psi=\ee^{-\ii\vb k\cdot\vb R}\psi$，故只在模倒格矢意义下定义；二是在缓变外场中满足半经典动力学
+  \[
+    \hbar\dot{\vb k}=\vb F,
+  \]
+  并在电子--声子等晶体内部过程中模 $\hbar\vb G$ 守恒。
+  \item 群速度为
+  \[
+    \vb v_n(\vb k)=\frac1\hbar\grad_{\vb k}E_n(\vb k).
+  \]
+  导带底和价带顶都是能量极值点，梯度为零，所以
+  \[
+    \boxed{\vb v_c(\vb k_c)=\vb0,
+    \qquad \vb v_v(\vb k_v)=\vb0.}
+  \]
+  价带顶部曲率为负并不改变极值点速度为零，只意味着电子有效质量为负、宜改用正质量空穴描述。
+  \item 三者机制不同。周期绝缘体中的单电子态通常是延展 Bloch 态，但价带全满、导带全空且存在能隙，满带电流相消，低能下没有可用空态。无序体系的 Anderson 局域化则是多重相干散射使波函数在实空间指数局域，即使费米能处有态也不能扩散传导。两者都可不导电，但“无载流子激发”和“有态却局域”是不同机制。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+\begin{enumerate}
+  \item 求解分子能级与固体能带时，共同采用了什么基本近似？两者分别满足什么边界条件？
+  \item 简述 $\vb k\cdot\vb p$ 理论计算能带的基本思想。
+  \item 根据 $\vb k\cdot\vb p$ 理论，比较半导体与绝缘体导带底电子的有效质量，并比较二者的介电常数。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 分子能级和固体能带都先采用 Born--Oppenheimer 近似固定原子核，再以单电子或平均场近似处理电子--电子相互作用，并常用原子轨道线性组合。孤立分子束缚态满足
+  $\psi(\vb r)\to0$（$r\to\infty$）；宏观晶体采用 Born--von Karman 周期边界条件，单电子态满足 Bloch 条件
+  \[
+    \psi_{n\vb k}(\vb r+\vb R)=
+    \ee^{\ii\vb k\cdot\vb R}\psi_{n\vb k}(\vb r).
+  \]
+  \item 在已知某一高对称点（常取 $\vb k_0=0$）的本征态后，把
+  \[
+    H(\vb k)=H(\vb k_0)+\frac{\hbar}{m_0}(\vb k-\vb k_0)\cdot\vb p
+    +\frac{\hbar^2\abs{\vb k-\vb k_0}^2}{2m_0}
+  \]
+  视为关于 $\vb k-\vb k_0$ 的微扰，并在少数相邻能带基底中对角化。二阶微扰给出能带曲率和有效质量，例如非简并各向同性带
+  \[
+    \frac1{m_n^*}=\frac1{m_0}
+    +\frac{2}{m_0^2}\sum_{m\ne n}
+    \frac{\abs{\mel{u_n}{p_x}{u_m}}^2}{E_n-E_m}.
+  \]
+  \item 导带与价带的耦合项大致与 $1/E_g$ 成正比。能隙较小的半导体中，导带底曲率通常更大，故电子有效质量较小；大带隙绝缘体的带边更接近自由电子项或更平坦，质量通常较大。类似地，带间虚跃迁对电子极化率的贡献含较小能量分母，故一般
+  \[
+    \boxed{m^*_{\rm semiconductor}<m^*_{\rm insulator},
+    \qquad \varepsilon_{r,\rm semiconductor}>
+    \varepsilon_{r,\rm insulator}.}
+  \]
+  这是同类材料、矩阵元相近时的趋势，不是脱离能带结构细节的严格定理。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+半导体 A 与金属 B 的原子数密度相同。半导体 A 的施主掺杂浓度为原子数密度的 $10^{-5}$，且施主全部电离；金属 B 中每个原子贡献一个巡游电子。已知 A 的导带底有效质量为 $0.5m_0$，B 中巡游电子的有效质量为 $m_0$，温度满足 $k_{\mathrm B}T=0.03\,\mathrm{eV}$，B 的费米能为 $E_{\mathrm F}=1\,\mathrm{eV}$。
+
+比较两者单位体积载流子的磁化率，给出判断依据并求磁化率之比。计算时计入朗道抗磁性的贡献。
+
+
+\begin{solution}
+以下采用各向同性抛物带、电子自旋 $g=2$，并把轨道运动视为有效质量 $m^*$ 的 Landau 量子化。
+
+半导体 A 的电子浓度
+$n_A=10^{-5}n_0$，且低掺杂下为非简并 Maxwell--Boltzmann 气体。自旋 Curie 磁化率与 Landau 抗磁率分别为
+\[
+ \chi_{s,A}=\mu_0\frac{n_A\mu_B^2}{k_BT},
+ \qquad
+ \chi_{L,A}=-\frac13\mu_0\frac{n_A(\mu_B^*)^2}{k_BT},
+\]
+其中轨道有效玻尔磁子
+$\mu_B^*=e\hbar/(2m^*)=(m_0/m^*)\mu_B$。因此
+\[
+ \chi_A=\mu_0\frac{n_A\mu_B^2}{k_BT}
+ \left[1-\frac13\left(\frac{m_0}{m_A^*}\right)^2\right].
+\]
+代入 $m_A^*=0.5m_0$，
+\[
+ \chi_A=-\frac13\mu_0\frac{n_A\mu_B^2}{k_BT}.
+\]
+负号表示在此理想模型中较强的轨道抗磁性超过自旋顺磁性。
+
+金属 B 为简并电子气。总态密度
+$D(E_F)=3n_B/(2E_F)$，故 Pauli 顺磁率
+\[
+ \chi_{P,B}=\mu_0\mu_B^2D(E_F)
+ =\frac{3\mu_0n_B\mu_B^2}{2E_F}.
+\]
+$m_B^*=m_0$ 时
+$\chi_{L,B}=-\chi_{P,B}/3$，所以
+\[
+ \chi_B=\frac23\chi_{P,B}
+ =\mu_0\frac{n_B\mu_B^2}{E_F}.
+\]
+又 $n_A/n_B=10^{-5}$，于是
+\[
+\begin{aligned}
+ \frac{\chi_A}{\chi_B}
+ &=-\frac13\frac{n_A}{n_B}\frac{E_F}{k_BT}\\
+ &=-\frac13\times10^{-5}\times\frac{1}{0.03}
+ =-1.11\times10^{-4}.
+\end{aligned}
+\]
+因此
+\[
+ \boxed{\chi_A/\chi_B\simeq-1.1\times10^{-4}.}
+\]
+在上述理想模型下 A 为很弱的净抗磁，B 为顺磁，且
+$\abs{\chi_B}/\abs{\chi_A}\simeq9.0\times10^3$。若实际半导体的有效 $g$ 因子显著偏离 2，数值需相应修正。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+\begin{enumerate}
+  \item 比较激子与施主杂质束缚态的形成机制，并说明两类束缚态中“电离能”的含义。
+  \item 激子能否直接导电？说明理由。
+  \item 某半导体的相对介电常数为 $\varepsilon_r=10$，导带底电子有效质量为 $m_e^*=0.1m_0$，价带顶空穴有效质量为 $m_h^*=0.2m_0$。求激子与施主杂质束缚态的电离能和轨道半径。已知氢原子的电离能为 $13.6\,\mathrm{eV}$，玻尔半径为 $0.53\,\text{\AA}$。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 施主束缚态是导带电子受带正电施主离子的 Coulomb 势束缚，电离后电子进入导带、施主变为正离子；其电离能是束缚能级到导带底的能差。激子则是光生或热生导带电子与价带空穴之间的 Coulomb 束缚中性复合体；其电离能是把电子--空穴对分离成自由载流子所需的结合能。
+  \item 中性激子的总电荷为零，均匀电场对其质心不产生普通直流漂移，因此它不能像自由电子或空穴那样直接贡献稳态电导。激子可扩散、携带能量，并在强场或碰撞电离后产生自由载流子。
+  \item 有效质量近似下的氢型束缚能和半径为
+  \[
+    E_B=13.6\,\mathrm{eV}\frac{m^*/m_0}{\varepsilon_r^2},
+    \qquad
+    a^*=0.53\,\text{\AA}\frac{\varepsilon_r}{m^*/m_0}.
+  \]
+  施主电子取 $m^*=m_e^*=0.1m_0$：
+  \[
+    \boxed{E_D=13.6\frac{0.1}{10^2}\,\mathrm{eV}
+    =1.36\times10^{-2}\,\mathrm{eV},}
+  \]
+  \[
+    \boxed{a_D=0.53\frac{10}{0.1}\,\text{\AA}
+    =53\,\text{\AA}=5.3\,\mathrm{nm}.}
+  \]
+  激子相对运动使用约化质量
+  \[
+    \mu=\frac{m_e^*m_h^*}{m_e^*+m_h^*}
+    =\frac{0.1\times0.2}{0.1+0.2}m_0
+    =\frac1{15}m_0.
+  \]
+  因而
+  \[
+    \boxed{E_X=13.6\frac{1/15}{10^2}\,\mathrm{eV}
+    =9.07\times10^{-3}\,\mathrm{eV},}
+  \]
+  \[
+    \boxed{a_X=0.53\frac{10}{1/15}\,\text{\AA}
+    =79.5\,\text{\AA}=7.95\,\mathrm{nm}.}
+  \]
+  这些是三维 Wannier--Mott 氢型结果；二维材料中的结合能通常更大，需使用二维屏蔽模型。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+锗烯是具有起伏蜂窝结构的二维材料，两套子晶格位于不同高度。其结构示意如下：
+\begin{center}
+\begin{tikzpicture}[scale=0.74]
+  \begin{scope}[xshift=-0.15cm,yshift=1.25cm]
+    \node at (2.35,1.35) {侧视图};
+    \draw[densely dashed] (-0.25,0.30)--(5.65,0.30);
+    \draw[densely dashed] (-0.25,0.92)--(5.65,0.92);
+    \foreach \i in {0,...,6}{
+      \pgfmathsetmacro{\xx}{0.86*\i}
+      \pgfmathsetmacro{\yy}{0.30+0.62*mod(\i,2)}
+      \ifodd\i \fill (\xx,\yy) circle (3.3pt);
+      \else \draw[thick,fill=white] (\xx,\yy) circle (3.3pt);\fi
+      \ifnum\i<6
+        \pgfmathsetmacro{\xn}{0.86*(\i+1)}
+        \pgfmathsetmacro{\yn}{0.30+0.62*mod(\i+1,2)}
+        \draw[thick] (\xx,\yy)--(\xn,\yn);
+      \fi
+    }
+    \draw[<->,thick] (5.58,0.30)--(5.58,0.92)
+      node[midway,left=3pt] {$\Delta z$};
+    \fill (6.42,0.92) circle (3.3pt);
+    \node[anchor=west] at (6.62,0.92) {高子晶格};
+    \draw[thick,fill=white] (6.42,0.30) circle (3.3pt);
+    \node[anchor=west] at (6.62,0.30) {低子晶格};
+  \end{scope}
+  \begin{scope}[xshift=0.95cm,yshift=-3.10cm]
+    \node at (3.05,4.30) {俯视图};
+    \foreach \m in {0,...,3}{\foreach \n in {0,...,2}{
+      \pgfmathsetmacro{\ax}{1.732*\m+0.866*\n}
+      \pgfmathsetmacro{\ay}{1.5*\n}
+      \coordinate (A\m\n) at (\ax,\ay);
+      \coordinate (B\m\n) at (\ax,\ay+1);
+      \draw[thick] (A\m\n)--(B\m\n);
+      \ifnum\n>0
+        \draw[thick] (A\m\n)--({\ax-0.866},{\ay-0.5});
+        \draw[thick] (A\m\n)--({\ax+0.866},{\ay-0.5});
+      \fi
+    }}
+    \foreach \m in {0,...,3}{\foreach \n in {0,...,2}{
+      \draw[thick,fill=white] (A\m\n) circle (3.0pt);
+      \fill (B\m\n) circle (3.0pt);
+    }}
+    \draw[densely dashed,very thick] (A00)--(A10)--(A11)--(A01)--cycle;
+    \draw[->,very thick] (A00)--(A10) node[pos=0.72,below=5pt] {$\vb a_1$};
+    \draw[->,very thick] (A00)--(A01) node[pos=0.66,above left=2pt] {$\vb a_2$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item 画出锗烯的布拉伐格子及其维格纳--塞茨原胞。
+  \item 布里渊区与正格子的维格纳--塞茨原胞取向是否一致？证明你的结论。
+  \item 当两套子晶格完全等价时，锗烯可具有零能隙。设计两种破坏子晶格等价性并打开能隙的方法。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 蜂窝结构本身不是布拉伐格子，而是\textbf{三角布拉伐格子加两个原子基元}。取题图的 $\vb a_1,\vb a_2$，格点画成三角点阵；其维格纳--塞茨原胞是正六边形，胞内附着高、低两个子晶格原子。
+  \begin{center}
+  \begin{tikzpicture}[scale=0.94]
+  % Triangular Bravais lattice.
+  \foreach \m in {-2,...,2}{
+    \foreach \n in {-2,...,2}{
+      \fill ({1.50*\m+0.75*\n},{1.299*\n}) circle (1.7pt);
+    }
+  }
+  % Wigner--Seitz cell, obtained from the perpendicular bisectors to six neighbours.
+  \draw[very thick]
+    (0.75,0.433)--(0,0.866)--(-0.75,0.433)--
+    (-0.75,-0.433)--(0,-0.866)--(0.75,-0.433)--cycle;
+  \fill (0,0) circle (2.3pt);
+  \draw[->,thick] (0,0)--(1.50,0)
+    node[pos=0.82,below=5pt] {$\vb a_1$};
+  \draw[->,thick] (0,0)--(0.75,1.299)
+    node[pos=0.78,left=4pt] {$\vb a_2$};
+  \node[anchor=west] at (1.28,-1.12) {维格纳--塞茨原胞};
+  \draw[->,thick] (1.23,-0.98)--(0.62,-0.48);
+\end{tikzpicture}
+  \end{center}
+  \item 令
+  \[
+    \vb a_1=a(1,0),\qquad
+    \vb a_2=a\left(\frac12,\frac{\sqrt3}{2}\right).
+  \]
+  由 $\vb a_i\cdot\vb b_j=2\pi\delta_{ij}$ 得
+  \[
+    \vb b_1=\frac{2\pi}{a}\left(1,-\frac1{\sqrt3}\right),
+    \qquad
+    \vb b_2=\frac{2\pi}{a}\left(0,\frac2{\sqrt3}\right).
+  \]
+  $\vb b_1$ 相对 $\vb a_1$ 转过 $-30^\circ$，整个倒格三角点阵相对正格旋转 $30^\circ$。两者的维格纳--塞茨胞虽均为正六边形，但取向相差
+  \[
+    \boxed{30^\circ,\ \text{并不一致}.}
+  \]
+  \item 打开能隙的核心是在低能哈密顿量中引入两子晶格不同的在位能 $\Delta\sigma_z$。可行方法例如：
+  \begin{enumerate}
+    \item 利用起伏结构施加垂直电场，使高、低子晶格处于不同静电势；
+    \item 采用只与一套子晶格强耦合的衬底、选择性吸附或单侧化学修饰，使两子晶格的化学环境不同。
+  \end{enumerate}
+  两者都使 Dirac 点处简并解除，能隙约为 $2\abs{\Delta}$。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+已知两个氢原子的单电子轨道分别为 $\phi_A(\vb r-\vb R_A)$ 与 $\phi_B(\vb r-\vb R_B)$。
+\begin{enumerate}
+  \item 在价键理论中，假设基态两电子自旋反平行，写出 $\mathrm H_2$ 分子的基态两电子波函数。
+  \item 在说明磁性起源的海森堡模型时仍以 $\mathrm H_2$ 为例，写出相应的两电子基态波函数。
+\end{enumerate}
+注意多电子总波函数必须满足费米子交换反对称性。
+
+
+\begin{solution}
+记轨道重叠
+$S=\braket{\phi_A}{\phi_B}$，自旋单态为
+\[
+ \chi_s(1,2)=\frac1{\sqrt2}
+ [\alpha(1)\beta(2)-\beta(1)\alpha(2)].
+\]
+总波函数必须交换反对称，所以基态的空间部分应交换对称。
+
+价键（Heitler--London）理论不允许两个电子同时局域在同一原子上，取
+\[
+ \Phi_+(1,2)=\frac{
+ \phi_A(1)\phi_B(2)+\phi_B(1)\phi_A(2)}
+ {\sqrt{2(1+S^2)}}.
+\]
+因此
+\[
+ \boxed{\Psi_{\rm VB}(1,2)=\Phi_+(1,2)\chi_s(1,2).}
+\]
+空间对称、电子在两核间的概率增大，对应成键单态。
+
+在分子轨道图像中，成键轨道为
+\[
+ \phi_g=\frac{\phi_A+\phi_B}{\sqrt{2(1+S)}}.
+\]
+两个电子占据同一成键轨道时
+\[
+ \boxed{\Psi_{\rm MO}(1,2)=\phi_g(1)\phi_g(2)\chi_s(1,2).}
+\]
+用 H$_2$ 说明 Heisenberg 交换时，也可直接写出自旋本征态：单态
+$\chi_s$ 配对称空间波函数，三重态
+$\chi_{t,m}$ 必须配反对称空间波函数
+\[
+ \Phi_-\propto\phi_A(1)\phi_B(2)-\phi_B(1)\phi_A(2).
+\]
+若交换常数使单态能量较低，则上式单态就是两电子基态。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+\begin{enumerate}
+  \item 为什么稀土离子的磁矩通常由总角动量决定，而铁族过渡金属离子的磁矩主要由总自旋决定？
+  \item 对 $\mathrm{Sm}^{3+}$，磁矩不能简单由一级微扰结果 $g_J\sqrt{J(J+1)}\mu_{\mathrm B}$ 决定，原因是什么？
+  \item 铁磁居里温度主要取决于交换积分。以
+  \[
+  J_e=\iint \phi_a^*(\vb r_1)\phi_b^*(\vb r_2)
+  \frac{e^2}{4\pi\varepsilon_0\lvert\vb r_1-\vb r_2\rvert}
+  \phi_a(\vb r_2)\phi_b(\vb r_1)\,\dd^3r_1\dd^3r_2
+  \]
+  为例，说明稀土元素的居里温度为何通常低于铁等过渡金属元素。
+  \item 为什么过渡金属与稀土原子中未满的 $d$ 或 $f$ 壳层倾向于自旋平行排列？请从交换能的符号讨论洪特规则。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 稀土的未满 $4f$ 壳层位于外层 $5s,5p$ 壳层内部，晶场屏蔽强，轨道角动量不易淬灭；自旋--轨道耦合先把 $\vb L$ 与 $\vb S$ 合成为 $\vb J$，磁矩由 Land\'e 因子 $g_J\sqrt{J(J+1)}\mu_B$ 描述。铁族 $3d$ 轨道直接暴露在配位环境中，晶场把轨道简并劈裂并使 $\langle\vb L\rangle$ 大幅淬灭，故磁矩主要来自自旋。
+  \item Sm$^{3+}$ 的基态 $J$ 多重态与第一激发 $J$ 多重态能量间隔较小，外磁场会通过二阶微扰混合不同 $J$ 态，产生显著的 Van Vleck 温度无关顺磁项。因此只保留基态多重态的一级 Zeeman 结果不充分，磁矩和磁化率都不能简单由一个 $g_J$ 决定。
+  \item 交换积分要求两个轨道在同一区域有可观重叠。过渡金属 $3d$ 轨道空间延展较大，相邻原子的交换积分 $J_e$ 较大，交换能尺度和 $T_C$ 较高。稀土 $4f$ 轨道收缩且被 $5s,5p$ 屏蔽，相邻 $4f$ 波函数直接重叠极小；磁矩间通常只能经 $5d/6s$ 巡游电子的间接 RKKY 交换耦合，能量尺度较低，故多数稀土的磁有序温度低于 Fe、Co、Ni。
+  \item 对两个不同轨道，平行自旋要求空间波函数反对称，使两电子靠近的概率降低。若把正的 Coulomb 交换积分记为 $J_e>0$，则单态与三重态能量常写为
+  \[
+    E_{S=0}=E_0+J_e,
+    \qquad E_{S=1}=E_0-J_e.
+  \]
+  因而
+  \[
+    E_{S=1}-E_{S=0}=-2J_e<0.
+  \]
+  在不违反 Pauli 原理且轨道能差不太大时，电子先分占不同轨道并取平行自旋可降低交换能，这就是洪特第一规则的物理根源。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+\begin{enumerate}
+  \item 金属费米面附近的电子受声子散射。若声子能量可忽略，电子由 $\vb k$ 跃迁至 $\vb k'$ 时可能涉及多少种声子过程？
+  \item 两种金属 A、B 的其余参数相同，但 A 在费米面处的电子态密度大于 B。比较两者的电阻率并说明理由。
+  \item 比较自由载流子光吸收与带间光跃迁。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 电子可\textbf{吸收}一个声子，
+  $\vb k'=\vb k+\vb q+\vb G$；也可\textbf{发射}一个声子，
+  $\vb k'=\vb k-\vb q+\vb G$。即使声子能量相对电子能量可忽略，这仍是两个不同的量子过程。因此共有
+  \[
+    \boxed{2\ \text{类：吸收与发射}.}
+  \]
+  \item Fermi 黄金规则给出的电子--声子散射率含末态相空间因子
+  $D(E_F)$：
+  \[
+    \tau^{-1}\sim\frac{2\pi}{\hbar}\abs{M}^2D(E_F)
+    \times\text{声子占据因子}.
+  \]
+  其余参数相同且载流子浓度、有效质量等不另行改变时，A 的
+  $D_A(E_F)>D_B(E_F)$ 导致 $\tau_A<\tau_B$，Drude 电阻率
+  $\rho=m^*/(ne^2\tau)$ 因而满足
+  \[
+    \boxed{\rho_A>\rho_B.}
+  \]
+  \item 自由载流子吸收是同一能带内的低能跃迁。光子动量很小，而抛物带内不同能量态通常需要不同 $\vb k$，故理想平移不变体系中的有限频率吸收需借助杂质、声子或边界提供动量，表现为 Drude 峰，阈值不由带隙决定。带间吸收则从价带跃迁到导带，直接跃迁近似保持 $\vb k$，吸收阈值接近直接带隙（实际还受激子结合能影响）；间接带隙材料需声子参与以补偿动量。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+\begin{enumerate}
+  \item 本征半导体的费米能通常位于何处？$n$ 型与 $p$ 型半导体的费米能分别如何移动？理论上如何确定半导体的费米能？
+  \item 两块相同金属之间夹有一层 $p$ 型半导体。接触前，金属费米能为 $E_{\mathrm F}^{\mathrm M}=-4.0\,\mathrm{eV}$，半导体费米能为 $E_{\mathrm F}^{\mathrm S}=-4.2\,\mathrm{eV}$；半导体带隙为 $1.0\,\mathrm{eV}$，受主电离能为 $0.1\,\mathrm{eV}$。指出接触时电子转移方向，并画出平衡后的静电势、电子静电势能及能带图。
+  \item 分别从金属到半导体、从半导体到金属的方向，求界面势垒或势阱的高度。
+  \item 已知功函数 $W=-E_{\mathrm F}$，求接触平衡后金属与半导体的功函数，并说明依据。
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 本征半导体由电中性 $n=p$ 确定费米能：
+  \[
+    E_i=\frac{E_c+E_v}{2}
+    +\frac34k_BT\ln\frac{m_h^*}{m_e^*},
+  \]
+  所以若两有效质量相近，$E_i$ 在禁带中央。$n$ 型掺杂使 $E_F$ 向导带移动，$p$ 型使其向价带移动。一般应联立
+  \[
+    n(E_F,T)+N_A^-(E_F,T)=p(E_F,T)+N_D^+(E_F,T)
+  \]
+  与 Fermi--Dirac 分布求解。
+
+  \item 接触前 $E_F^M=-4.0\,\mathrm{eV}$ 高于
+  $E_F^S=-4.2\,\mathrm{eV}$。电子从较高电化学势流向较低电化学势，故
+  \[
+    \boxed{\text{电子由金属流向 }p\text{ 型半导体}.}
+  \]
+  金属失电子带正电，半导体界面附近得到电子并补偿空穴，形成接触电场；直至全体系费米能水平。两侧初始功函数差给出接触电势能尺度
+  \[
+    eV_{\rm bi}=W_S-W_M=4.2-4.0=0.2\,\mathrm{eV}.
+  \]
+  因而静电势 $\phi$ 与电子势能 $U_e=-e\phi$ 方向相反，半导体能带边随 $U_e$ 一同弯曲。
+
+  可用下图表示单个界面附近的定性关系（纵向只表示能量，不表示绝对真空能级）：
+  \begin{center}
+  \begin{tikzpicture}[x=1.02cm,y=0.95cm]
+  \draw[->] (-0.15,0)--(7.50,0) node[right] {$x$};
+  \draw[->] (0,-0.30)--(0,4.05) node[above] {$E$};
+  \draw[densely dashed] (0.35,1.82)--(7.05,1.82);
+  \node[anchor=west] at (6.50,1.90) {$E_F$};
+  \draw[densely dashed] (2.85,0.15)--(2.85,3.75);
+  \node[above] at (2.85,3.75) {界面};
+  \node at (1.35,3.20) {金属};
+  \node[align=center] at (5.45,3.55) {$p$ 型半导体\\（远离界面）};
+
+  % W_S>W_M: electrons flow from the metal into the p-type semiconductor.
+  % The hole-depleted semiconductor bands are lowered near the interface and
+  % recover to their bulk positions over the space-charge region.
+  \draw[very thick] plot[smooth] coordinates
+    {(3.05,2.45) (3.55,2.48) (4.20,2.55) (5.10,2.63) (7.00,2.65)};
+  \draw[very thick] plot[smooth] coordinates
+    {(3.05,1.45) (3.55,1.48) (4.20,1.55) (5.10,1.63) (7.00,1.65)};
+  \node[anchor=west] at (7.06,2.65) {$E_c$};
+  \node[anchor=west] at (7.06,1.65) {$E_v$};
+  \draw[<->,thick] (4.08,1.55)--(4.08,2.55)
+    node[midway,right=2pt] {$E_g$};
+  \draw[<->,thick] (3.36,2.45)--(3.36,2.65)
+    node[midway,left=2pt] {$eV_{\rm bi}$};
+  \node at (4.55,2.92) {空间电荷区};
+\end{tikzpicture}
+  \end{center}
+  图的上、下弯方向会随所取空间方向和电势零点改变，必须以“$E_F$ 水平、总电势降为 $0.2\,\mathrm V$”为不变量。
+
+  \item 由现有数据能唯一确定的是接触电势差
+  \[
+    \boxed{eV_{\rm bi}=0.2\,\mathrm{eV}.}
+  \]
+  对电子沿内建电场的反方向运动，它表现为 $0.2\,\mathrm{eV}$ 的势垒；反向则为同样深度的势阱或势能下降。若题目所称“界面势垒”特指金属费米能到半导体导带底的 Schottky 势垒，则还需电子亲和能、界面偶极或费米能钉扎信息，不能只由给定 $E_g$ 和两个 $E_F$ 唯一求出。若另作“受主能级约等于费米能且距价带顶 $0.1\,\mathrm{eV}$”的粗略假设，则体内
+  $E_c-E_F\simeq E_g-0.1=0.9\,\mathrm{eV}$，但这不是由题面严格保证的界面势垒。
+
+  \item 接触平衡的严格条件是\textbf{电化学势（费米能）统一}，不是说不同位置的局域真空能级必须相同。初始功函数为
+  \[
+    \boxed{W_M=4.0\,\mathrm{eV},\qquad W_S=4.2\,\mathrm{eV}.}
+  \]
+  接触后两者之间建立 $0.2\,\mathrm V$ 的 Volta 电势差。若从各自远离界面的外表面测量，局域功函数还包含表面偶极，给定信息不足以给出两个新的绝对数值；可确定的是共同 $E_F$ 与
+  $\Delta W=eV_{\rm bi}=0.2\,\mathrm{eV}$。若理想化为金属体积远大、其 $E_F$ 位移可忽略，则共同费米能近似由金属钉在 $-4.0\,\mathrm{eV}$。
+\end{enumerate}
+\end{solution}
+\end{question}

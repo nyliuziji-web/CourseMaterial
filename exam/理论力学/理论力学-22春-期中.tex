@@ -1,0 +1,450 @@
+\heading{理论力学-22春-期中}
+
+\begin{question}[半球碗中的匀质杆]
+一个固定的光滑半球形碗，半径为 $R$。一根长为 $L$ 的匀质细杆斜靠在碗边，杆的下端由碗托住，上端伸出碗外。求细杆的平衡位置，并讨论系统存在平衡的条件。用虚功原理求解。
+
+\begin{solution}
+取通过杆和碗心的竖直截面。设杆下端接触碗面于 $A$，杆与碗沿相交于 $B$，圆心为 $O$，并令
+\[
+  \angle AOB=\psi,
+  \qquad u=\frac{\psi}{2},
+  \qquad AB=2R\sin u .
+\]
+从 $A$ 指向 $B$ 的单位向量的竖直分量为 $\cos u$，而 $A$ 点的竖直坐标为 $-R\sin\psi=-2R\sin u\cos u$。杆的质心 $G$ 距 $A$ 的距离为 $L/2$，于是
+\[
+  y_G=-2R\sin u\cos u+\frac L2\cos u
+  =\left(\frac L2-2R\sin u\right)\cos u .
+\]
+由于碗面和碗沿均光滑，约束力不作虚功，平衡条件等价于重力势能 $mg y_G$ 对唯一几何参数取驻值：
+\[
+  \frac{\dd y_G}{\dd u}
+  =-\frac L2\sin u-2R\cos 2u=0.
+\]
+即
+\[
+  L\sin u+4R\cos 2u=0,
+\]
+或
+\[
+  8R\sin^2u-L\sin u-4R=0.
+\]
+令 $s=\sin u$，取物理上 $0<s<1$ 的根，得
+\[
+  s=\frac{L+\sqrt{L^2+128R^2}}{16R}.
+\]
+因此平衡位置为
+\ansmath{\sin\frac{\psi}{2}=\frac{L+\sqrt{L^2+128R^2}}{16R}.}
+还要注意两个几何条件。其一，根必须满足 $\sin u\le 1$，这给出
+\[
+  L\le 4R.
+\]
+其二，杆必须确实经过碗沿并伸出碗外，因此应有
+\[
+  L\ge AB=2R\sin u .
+\]
+把上式中的平衡根代入，得到
+\[
+  L\ge 2R\cdot\frac{L+\sqrt{L^2+128R^2}}{16R}
+  \quad\Longleftrightarrow\quad
+  L\ge \sqrt{\frac83}\,R .
+\]
+故题设这种平衡存在的条件为
+\ansmath{\sqrt{\frac83}\,R\le L\le 4R.}
+若要求“上端伸出碗外”而非刚好到达碗沿，则左端应改为严格不等号 $L>\sqrt{8/3}\,R$。
+\end{solution}
+
+\end{question}
+
+\begin{question}[相对论谐振子]
+考虑相对论效应，一个一维谐振子的拉格朗日量可写为
+\[
+  L=-mc^2\sqrt{1-\frac{v^2}{c^2}}-\frac12kx^2.
+\]
+\begin{enumerate}
+  \item 写出该谐振子的运动方程及初积分；
+  \item 在速度 $v$ 较小时，设谐振子作简谐运动的振幅为 $A$，求相对论修正后的运动周期 $T$。结果展开到
+  \[
+    T=T_0\left(1+b\frac{1}{c^2}+o\left(\frac{1}{c^2}\right)\right)
+  \]
+  即可，其中 $b$ 用 $m,k,A$ 表示。
+\end{enumerate}
+
+\begin{solution}
+相对论动量为
+\[
+  p=\frac{m\dot x}{\sqrt{1-\dot x^2/c^2}}=\gamma m\dot x.
+\]
+\begin{enumerate}
+  \item 运动方程为
+  \[
+    \frac{\dd}{\dd t}(\gamma m\dot x)+kx=0.
+  \]
+  由于拉格朗日量不显含时间，能量守恒：
+  \[
+    \boxed{E=\gamma mc^2+\frac12kx^2}.
+  \]
+  \item 在转折点 $x=\pm A$ 处速度为零，故
+  \[
+    E=mc^2+\frac12kA^2.
+  \]
+  用低速展开
+  \[
+    mc^2(\gamma-1)=\frac12m\dot x^2+\frac38m\frac{\dot x^4}{c^2}+O(c^{-4}).
+  \]
+  由能量守恒解得
+  \[
+    \dot x^2=\frac{k}{m}(A^2-x^2)
+    -\frac34\frac{k^2}{m^2c^2}(A^2-x^2)^2+O(c^{-4}).
+  \]
+  因此
+  \[
+    \frac{\dd t}{\dd x}
+    =\sqrt{\frac{m}{k}}\frac{1}{\sqrt{A^2-x^2}}
+    \left[1+\frac38\frac{k}{mc^2}(A^2-x^2)\right]+O(c^{-4}).
+  \]
+  周期为四倍的四分之一周期：
+  \[
+    T=4\sqrt{\frac{m}{k}}\int_0^A
+    \frac{\dd x}{\sqrt{A^2-x^2}}
+    \left[1+\frac38\frac{k}{mc^2}(A^2-x^2)\right].
+  \]
+  利用
+  \[
+    \int_0^A\frac{\dd x}{\sqrt{A^2-x^2}}=\frac\pi2,
+    \qquad
+    \int_0^A\sqrt{A^2-x^2}\,\dd x=\frac{\pi A^2}{4},
+  \]
+  得
+  \[
+    \boxed{T=T_0\left(1+\frac{3kA^2}{16mc^2}+O(c^{-4})\right)},
+    \qquad
+    T_0=2\pi\sqrt{\frac mk}.
+  \]
+  因而题中
+  \[
+    \boxed{b=\frac{3kA^2}{16m}}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[去金星的最小发射速度]
+将地球与金星绕太阳的轨道都近似看成位于同一平面内的圆轨道，其半径分别为 $R$ 和 $0.7R$。现从地球发射一颗人造卫星前往金星，求所需的最小发射速度，并根据题目给定数据计算数值。
+
+\begin{solution}
+最省能的转移轨道为从地球圆轨道到金星圆轨道的 Hohmann 转移椭圆。设太阳引力参数为 $\mu=GM_\odot$。地球圆轨道速度为
+\[
+  v_E=\sqrt{\frac{\mu}{R}}.
+\]
+转移椭圆的半长轴为
+\[
+  a_t=\frac{R+0.7R}{2}=0.85R.
+\]
+在地球轨道处，转移轨道速度为
+\[
+  v_t=\sqrt{\mu\left(\frac{2}{R}-\frac{1}{a_t}\right)}
+      =v_E\sqrt{2-\frac{1}{0.85}}.
+\]
+由于向内转移时应减小日心速度，所需相对地球的双曲线剩余速度为
+\[
+  v_\infty=v_E-v_t
+  =v_E\left(1-\sqrt{2-\frac{1}{0.85}}\right)
+  \approx 0.0925v_E .
+\]
+若从地面发射并忽略大气阻力、地球自转等效应，地面发射速度应满足
+\[
+  v_0^2=v_{\mathrm{esc}}^2+v_\infty^2,
+  \qquad
+  v_{\mathrm{esc}}=\sqrt{\frac{2GM_\oplus}{R_\oplus}}.
+\]
+取 $v_E\approx 29.8\,\mathrm{km/s}$、$v_{\mathrm{esc}}\approx 11.2\,\mathrm{km/s}$，得
+\[
+  v_\infty\approx 2.76\,\mathrm{km/s},
+  \qquad
+  \boxed{v_0\approx 11.5\,\mathrm{km/s}}.
+\]
+方向应大致与地球公转速度相反，以降低日心轨道能量。
+
+
+\medskip
+\textbf{物理图像：}Hohmann 转移速度来自 vis-viva 公式
+\[
+  v^2=\mu\left(\frac2r-\frac1a\right).
+\]
+向内转移时，卫星在地球轨道处的日心速度 $v_t$ 小于地球日心速度 $v_E$，所以发射后的双曲剩余速度方向应与地球公转方向相反。相对地球远离地球后的速度大小为 $v_\infty$；从地面发射还要把地球逃逸能量加进去：
+\[
+  \frac12v_0^2-\frac{GM_\oplus}{R_\oplus}=\frac12v_\infty^2.
+\]
+这一区分是本题最容易出错的地方。
+\end{solution}
+\end{question}
+
+\begin{question}[圆轨道稳定性]
+电子在势场
+\[
+  U(r)=-\frac{k\ee^{-\alpha r}}{r}
+\]
+中运动。讨论圆轨道的稳定性。
+
+\begin{solution}
+中心力场中有效势能为
+\[
+  U_{\mathrm{eff}}(r)=\frac{J^2}{2mr^2}-\frac{k\ee^{-\alpha r}}{r}.
+\]
+半径为 $a$ 的圆轨道满足
+\[
+  U_{\mathrm{eff}}'(a)=0,
+\]
+即
+\[
+  \frac{J^2}{m}=ka\ee^{-\alpha a}(1+\alpha a).
+\]
+稳定性由
+\[
+  U_{\mathrm{eff}}''(a)>0
+\]
+决定。利用圆轨道条件消去 $J$，得
+\[
+  U_{\mathrm{eff}}''(a)
+  =\frac{k\ee^{-\alpha a}}{a^3}\left(1+\alpha a-\alpha^2a^2\right).
+\]
+故稳定圆轨道的条件为
+\[
+  1+\alpha a-\alpha^2a^2>0.
+\]
+即
+\[
+  \boxed{0<\alpha a<\frac{1+\sqrt5}{2}}.
+\]
+
+
+\medskip
+\textbf{关键步骤：}上述稳定性判据也可由径向小扰动直接得到。令
+\[
+  r(t)=a+\rho(t),\qquad |
+ho|
+itimes 0,
+\]
+角动量 $J$ 保持不变，径向方程在圆轨道附近线性化为
+\[
+  m\ddot\rho+U_{\mathrm{eff}}''(a)\rho=0.
+\]
+因此只有当 $U_{\mathrm{eff}}''(a)>0$ 时小扰动才产生振动而不是指数增长；此时径向小振动频率为
+\[
+  \omega_r^2=\frac{U_{\mathrm{eff}}''(a)}{m}
+  =\frac{k\ee^{-\alpha a}}{ma^3}\left(1+\alpha a-\alpha^2a^2\right).
+\]
+圆轨道条件还说明 $J^2>0$ 自动要求 $1+\alpha a>0$，对 $\alpha>0$ 恒成立；真正限制稳定性的就是二阶导数的符号。
+
+
+\medskip
+本题中 $\alpha^{-1}$ 可理解为相互作用的有效作用程。当 $a$ 很小时，Yukawa 势近似为 Coulomb 势，稳定性条件自然满足；当 $a$ 增大到与作用程同量级以后，吸引力衰减过快，角动量势垒与吸引势的平衡点会变成不稳定点。这一物理图像对应数学条件 $\alpha a<(1+\sqrt5)/2$。
+\end{solution}
+\end{question}
+
+\begin{question}[弹簧悬挂匀质杆]
+一根原长为 $L$、劲度系数为 $k$ 的轻弹簧悬挂在天花板上。弹簧下端连接一根质量为 $m$、长度也为 $L$ 的均匀细杆。弹簧只能沿竖直方向伸缩，细杆的运动限制在同一竖直平面内。
+\begin{enumerate}
+  \item 选取广义坐标，写出系统的拉格朗日量和运动方程；
+  \item 求系统在平衡位置附近作小振动时的振动频率。
+\end{enumerate}
+
+\begin{solution}
+设弹簧瞬时长度为 $z$，杆与竖直向下方向的夹角为 $\theta$。杆质心坐标可取为
+\[
+  x_G=\frac L2\sin\theta,
+  \qquad
+  y_G=z+\frac L2\cos\theta,
+\]
+其中 $y$ 轴向下。杆的转动惯量为 $I_G=mL^2/12$。系统动能为
+\[
+  T=\frac12m\dot z^2-\frac12mL\dot z\sin\theta\,\dot\theta
+    +\frac16mL^2\dot\theta^2.
+\]
+势能为
+\[
+  V=\frac12k(z-L)^2-mg\left(z+\frac L2\cos\theta\right).
+\]
+因此 $L=T-V$。
+\begin{enumerate}
+  \item 拉格朗日方程由
+  \[
+    \frac{\dd}{\dd t}\frac{\partial L}{\partial\dot z}
+    -\frac{\partial L}{\partial z}=0,
+    \qquad
+    \frac{\dd}{\dd t}\frac{\partial L}{\partial\dot\theta}
+    -\frac{\partial L}{\partial\theta}=0
+  \]
+  给出。平衡位置满足
+  \[
+    z_0=L+\frac{mg}{k},
+    \qquad
+    \theta_0=0.
+  \]
+  \item 在平衡位置附近取 $z=z_0+\xi$，保留二阶小量，耦合项为三阶小量，可略去。于是
+  \[
+    T_2=\frac12m\dot\xi^2+\frac16mL^2\dot\theta^2,
+    \qquad
+    V_2=\frac12k\xi^2+\frac14mgL\theta^2.
+  \]
+  两个小振动频率分别为
+  \[
+    \boxed{\omega_1=\sqrt{\frac{k}{m}}},
+    \qquad
+    \boxed{\omega_2=\sqrt{\frac{3g}{2L}}}.
+  \]
+\end{enumerate}
+
+
+\medskip
+\textbf{运动方程的展开：}由拉格朗日量可得 $z$ 方程
+\[
+  m\ddot z-\frac12mL(\cos\theta\dot\theta^2+\sin\theta\ddot\theta)
+  +k(z-L)-mg=0,
+\]
+以及角变量方程
+\[
+  \frac13mL^2\ddot\theta-\frac12mL\sin\theta\ddot z
+  +\frac12mgL\sin\theta=0.
+\]
+在平衡位置附近，$\sin\theta\ddot z$ 是二阶小量，$\cos\theta\dot\theta^2$ 也是二阶小量；线性化时只保留一次小量，因而伸缩振动与摆动振动解耦。这就是两个频率分别为 $\sqrt{k/m}$ 和 $\sqrt{3g/(2L)}$ 的原因。
+\end{solution}
+\end{question}
+
+\begin{question}[抛物线彗星的轨道时间]
+设地球绕太阳作半径为 $R$ 的圆周运动。一颗彗星与地球在同一平面内运动，其轨道为抛物线，近日点到太阳的距离为 $R/3$。求该彗星位于地球轨道以内的时间。
+
+\begin{solution}
+彗星在太阳引力场中作抛物线运动。设太阳引力参数为 $\mu=GM_\odot$，近日点距离为
+\[
+  q=\frac R3.
+\]
+抛物线轨道的半通径为
+\[
+  p=2q=\frac{2R}{3},
+\]
+轨道方程为
+\[
+  r=\frac{p}{1+\cos\nu},
+\]
+其中 $\nu$ 为真近点角。彗星位于地球轨道以内的边界由 $r=R$ 给出：
+\[
+  R=\frac{2R/3}{1+\cos\nu_0}
+  \quad\Longrightarrow\quad
+  \cos\nu_0=-\frac13.
+\]
+于是
+\[
+  \tan^2\frac{\nu_0}{2}
+  =\frac{1-\cos\nu_0}{1+\cos\nu_0}=2,
+  \qquad
+  D_0=\tan\frac{\nu_0}{2}=\sqrt2 .
+\]
+抛物线运动的 Barker 公式为
+\[
+  t-t_p=\sqrt{\frac{2q^3}{\mu}}\left(D+\frac{D^3}{3}\right),
+  \qquad D=\tan\frac\nu2 .
+\]
+从 $-\nu_0$ 到 $+\nu_0$ 的总时间为
+\[
+  \Delta t=2\sqrt{\frac{2q^3}{\mu}}
+  \left(\sqrt2+\frac{(\sqrt2)^3}{3}\right)
+  =\frac{20}{9\sqrt3}\sqrt{\frac{R^3}{\mu}}.
+\]
+地球公转周期为
+\[
+  T_E=2\pi\sqrt{\frac{R^3}{\mu}}.
+\]
+故以年为单位的时间为
+\ansmath{\frac{\Delta t}{T_E}=\frac{10}{9\pi\sqrt3}\approx 0.204.}
+也就是约 $0.204$ 年，约为 $74.5$ 天。
+
+
+\medskip
+\textbf{Barker 公式来源：}抛物线轨道满足 $e=1$，可引入
+\[
+  D=\tan\frac\nu2.
+\]
+由角动量守恒 $r^2\dot\nu=h$ 与抛物线参数 $p=h^2/\mu=2q$，可以把时间积分化为
+\[
+  t-t_p=\int_0^\nu \frac{r^2}{h}\,\dd\nu
+  =\sqrt{\frac{2q^3}{\mu}}\left(D+\frac{D^3}{3}\right).
+\]
+由于进出地球轨道内侧的过程关于近日点对称，总时间必须取两倍。这也是结果中出现因子 $2$ 的原因。
+\end{solution}
+
+\end{question}
+
+\begin{question}[匀质环与小圆环]
+一个质量为 $M$、半径为 $R$ 的均匀圆环，可绕通过环上一点且垂直于环面的水平轴自由转动。另有一个质量为 $m$ 的小圆环套在大环上，并可沿大环无摩擦滑动。
+\begin{enumerate}
+  \item 选取合适的广义坐标，写出系统的拉格朗日量与运动方程；
+  \item 求系统在平衡位置附近作小振动时的频率，并写出其运动形式。
+\end{enumerate}
+
+\begin{solution}
+设大环圆心相对悬点的方向角为 $\varphi$，小环相对大环圆心的绝对方向角为 $\psi$，二者均从竖直向下方向量起。大环关于悬点的转动惯量为
+\[
+  I_O=MR^2+MR^2=2MR^2.
+\]
+系统动能为
+\[
+  T=MR^2\dot\varphi^2+\frac12mR^2
+  \left(\dot\varphi^2+\dot\psi^2+2\cos(\varphi-\psi)\dot\varphi\dot\psi\right),
+\]
+势能为
+\[
+  V=-(M+m)gR\cos\varphi-mgR\cos\psi.
+\]
+在平衡位置 $\varphi=\psi=0$ 附近保留二阶项，得
+\[
+  T_2=\frac12R^2
+  \begin{pmatrix}\dot\varphi&\dot\psi\end{pmatrix}
+  \begin{pmatrix}2M+m&m\\m&m\end{pmatrix}
+  \begin{pmatrix}\dot\varphi\\\dot\psi\end{pmatrix},
+\]
+\[
+  V_2=\frac12gR
+  \begin{pmatrix}\varphi&\psi\end{pmatrix}
+  \begin{pmatrix}M+m&0\\0&m\end{pmatrix}
+  \begin{pmatrix}\varphi\\\psi\end{pmatrix}.
+\]
+令 $\rho=M/m$，$\lambda=\omega^2R/g$，本征方程为
+\[
+  2\rho\lambda^2-(3\rho+2)\lambda+\rho+1=0.
+\]
+解得
+\[
+  \boxed{\omega_1^2=\frac{g}{2R}},
+  \qquad
+  \boxed{\omega_2^2=\frac{M+m}{M}\frac{g}{R}}.
+\]
+相应模态可取为
+\[
+  \omega_1^2=\frac{g}{2R}:\quad \psi=\varphi,
+  \qquad
+  \omega_2^2=\frac{M+m}{M}\frac{g}{R}:\quad \psi=-\frac{M+m}{M}\varphi.
+\]
+系统小振动为这两个简正振动的线性叠加。
+
+
+\medskip
+\textbf{本征方程细节：}小振动方程可写为
+\[
+  \mathbf M\ddot{\boldsymbol q}+\mathbf K\boldsymbol q=0,
+  \qquad
+  \boldsymbol q=(\varphi,\psi)^{\mathsf T},
+\]
+其中
+\[
+  \mathbf M=R^2\begin{pmatrix}2M+m&m\\m&m\end{pmatrix},
+  \qquad
+  \mathbf K=gR\begin{pmatrix}M+m&0\\0&m\end{pmatrix}.
+\]
+代入 $\boldsymbol q=\boldsymbol a\ee^{\ii\omega t}$ 得
+\[
+  \det(\mathbf K-\omega^2\mathbf M)=0.
+\]
+这一步能清楚地区分“质量矩阵”和“刚度矩阵”，避免把势能二次型中的系数直接当成本征频率。
+\end{solution}
+\end{question}

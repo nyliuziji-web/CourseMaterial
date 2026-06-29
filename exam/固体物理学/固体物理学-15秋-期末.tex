@@ -1,0 +1,377 @@
+\heading{固体物理学-15秋-期末}
+\noteinfo{考试日期：2016 年 1 月 12 日。题面依据原始 PDF 精修录入；现有解答为依据题面整理并重新推导的参考答案。}
+
+\textbf{一、名词解释（每题 5 分，共 30 分）}
+
+\begin{question}[5 分]
+解释下列概念：晶格、原胞、单胞。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{晶格：}把晶体中一组完全等价的位置抽象为空间点后得到的无限周期点阵。它只描述平移周期性，不包含原子的种类和内部结构。
+  \item \textbf{原胞：}仅靠三条原始平移矢量张成的最小重复单元。每个原胞只含一个布拉伐格点，体积为
+  \[
+    \Omega=\abs{\vb a_1\cdot(\vb a_2\times\vb a_3)}.
+  \]
+  \item \textbf{单胞：}能够通过平移充满空间的晶体重复单元。为突出对称性常选取比原胞更大的惯用单胞，因此一个单胞可以含多个布拉伐格点。
+\end{enumerate}
+三者关系可概括为：晶格是无限点阵，原胞是晶格的最小平移单元，单胞是为描述晶体而选取的任意周期重复单元。
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：等价原子、简单晶格、复式晶格。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{等价原子：}若两个原子可由晶体的空间群操作互相变换，且局域环境完全相同，则称它们等价。
+  \item \textbf{简单晶格：}每个布拉伐格点只附着一个原子，晶体结构可直接用一个布拉伐格点阵表示。
+  \item \textbf{复式晶格：}每个布拉伐格点附着含两个或更多原子的基元；晶体结构等于“布拉伐格子 $+$ 基元”。
+\end{enumerate}
+复式晶格中的基元原子不必等价，例如 NaCl 的 Na 与 Cl；即使原子种类相同，也可能因处在不同子晶格而具有不同局域环境。
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：正交变换、对称变换、对称变换群。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{正交变换：}保持任意两矢量内积不变的线性变换 $\vb r'=R\vb r$，满足
+  \[
+    R^{\mathsf T}R=I,\qquad \det R=\pm1.
+  \]
+  \item \textbf{对称变换：}作用于一个物体后，使变换后的构型与原构型不可区分的变换。晶体中可包括转动、镜映、反演以及与平移的组合。
+  \item \textbf{对称变换群：}一个物体的全部对称变换在“操作复合”下组成的集合。它满足封闭性和结合律，含恒等变换，且每个变换都有逆变换。只含保持一点不动的操作时得到点群；再含晶格平移及螺旋、滑移操作时得到空间群。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：布拉伐格子、倒格子、布里渊区。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{布拉伐格子：}由
+  \[
+    \vb R=n_1\vb a_1+n_2\vb a_2+n_3\vb a_3,
+    \qquad n_i\in\mathbb Z
+  \]
+  构成的周期点阵，其中每个格点的环境完全相同。
+  \item \textbf{倒格子：}满足 $\ee^{\ii\vb G\cdot\vb R}=1$ 的全部波矢 $\vb G$ 构成的格子。若
+  \[
+    \vb a_i\cdot\vb b_j=2\pi\delta_{ij},
+  \]
+  则 $\vb G=h_1\vb b_1+h_2\vb b_2+h_3\vb b_3$。
+  \item \textbf{布里渊区：}倒空间中由布拉格面划分出的区域。第一布里渊区是倒格子原点的维格纳--塞茨原胞；第 $n$ 布里渊区是从原点出发恰好穿过 $n-1$ 个布拉格面的区域。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：电离能、电子亲和能、电负性。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{电离能：}从孤立中性原子基态移去一个电子所需的最小能量，
+  \[
+    I=E(N-1)-E(N)>0.
+  \]
+  \item \textbf{电子亲和能：}孤立中性原子俘获一个电子形成负离子时释放的能量，常写为
+  \[
+    A=E(N)-E(N+1).
+  \]
+  \item \textbf{电负性：}原子在化学键中吸引共享电子的相对能力。它不是严格的单原子可观测量，常用 Mulliken 标度
+  \[
+    \chi_{\mathrm M}=\frac{I+A}{2}
+  \]
+  或 Pauling 标度表征。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：简正振动模式、格波、声子。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{简正振动模式：}在谐近似下，所有原子以同一频率振动、各位移间保持固定振幅比和相位差的独立本征模式。不同简正模式彼此解耦。
+  \item \textbf{格波：}简正模式在周期晶格中的行波表示，位移可写为
+  \[
+    \vb u_{l\kappa}(t)=\vb e_{\kappa s}(\vb q)A
+    \ee^{\ii(\vb q\cdot\vb R_l-\omega_s t)}.
+  \]
+  \item \textbf{声子：}量子化格波的能量量子。一个 $(\vb q,s)$ 声子的能量为 $\hbar\omega_s(\vb q)$，晶体准动量为 $\hbar\vb q$（模倒格矢等价）。声子是准粒子，不是实际粒子。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\textbf{二、简答题（每题 10 分，共 30 分）}
+
+\begin{question}[10 分]
+晶体有哪些基本结合形式？分别说明其结合力的根源与主要特点。
+
+
+\begin{solution}
+晶体中常见的结合可归纳为以下五类。
+\begin{enumerate}
+  \item \textbf{离子键：}正、负离子间的长程库仑吸引与短程泡利排斥共同决定平衡距离。结合能大、熔点高、硬而脆；固态通常绝缘，熔融或溶解后可导离子电流。
+  \item \textbf{共价键：}相邻原子共享价电子，成键态占据使能量降低。它具有明显方向性和饱和性，通常结合强、硬度高、导电性取决于能带是否有隙。
+  \item \textbf{金属键：}价电子离域成巡游电子，正离子实与电子海之间的静电作用提供结合。其方向性弱，因而金属一般延展性好，并具有良好电、热导率。
+  \item \textbf{范德瓦耳斯键：}由瞬时或诱导偶极矩之间的关联产生，远距离作用近似为 $-C_6/r^6$。结合较弱，材料熔点低、易压缩，常见于稀有气体晶体和层状材料的层间结合。
+  \item \textbf{氢键：}电负性较强原子上的 H 与另一电负性原子的孤对电子之间形成的定向作用，强度介于普通范德瓦耳斯键和强共价键之间。
+\end{enumerate}
+实际晶体常为混合键。元素晶体中常见金属键、共价键或范德瓦耳斯键；不同元素形成的化合物因电负性差异可呈离子--共价混合，电负性差越大，离子性通常越强。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+写出晶体体系的哈密顿量，说明布洛赫能带论通过哪些近似将多粒子问题化为单电子问题，并写出每一步近似后的哈密顿量。
+
+
+\begin{solution}
+设离子核坐标为 $\vb R_I$、质量为 $M_I$、电荷为 $Z_Ie$，电子坐标为 $\vb r_i$，则非相对论完整哈密顿量为
+\[
+\begin{aligned}
+H={}&-\sum_I\frac{\hbar^2}{2M_I}\nabla_I^2
+-\sum_i\frac{\hbar^2}{2m_0}\nabla_i^2
++\frac12\sum_{I\ne J}\frac{Z_IZ_Je^2}{4\pi\varepsilon_0R_{IJ}}\\
+&+\frac12\sum_{i\ne j}\frac{e^2}{4\pi\varepsilon_0r_{ij}}
+-\sum_{iI}\frac{Z_Ie^2}{4\pi\varepsilon_0\abs{\vb r_i-\vb R_I}}.
+\end{aligned}
+\]
+将多体问题化为能带问题通常经历：
+\begin{enumerate}
+  \item \textbf{Born--Oppenheimer（绝热）近似：}因 $M_I\gg m_0$，先固定离子位置求电子本征态。电子哈密顿量为
+  \[
+    H_e=\sum_i\frac{\vb p_i^2}{2m_0}+\sum_iV_{\rm ion}(\vb r_i)
+    +\frac12\sum_{i\ne j}\frac{e^2}{4\pi\varepsilon_0r_{ij}},
+  \]
+  其中固定离子间能量是常数。
+  \item \textbf{单电子或平均场近似：}用 Hartree、Hartree--Fock 或密度泛函有效势代替显式电子--电子相互作用，得到
+  \[
+    H_e\simeq\sum_i h(\vb r_i),\qquad
+    h=\frac{\vb p^2}{2m_0}+V_{\rm eff}(\vb r).
+  \]
+  电子关联被压缩进 $V_{\rm eff}$，多电子波函数由单电子轨道组成。
+  \item \textbf{周期晶格近似：}忽略热振动、缺陷和表面，使
+  \[
+    V_{\rm eff}(\vb r+\vb R)=V_{\rm eff}(\vb r).
+  \]
+  单电子方程
+  \[
+    \left[-\frac{\hbar^2}{2m_0}\nabla^2+V_{\rm eff}(\vb r)\right]
+    \psi_{n\vb k}=E_n(\vb k)\psi_{n\vb k}
+  \]
+  由 Bloch 定理化为每个 $\vb k$ 上的本征值问题。
+\end{enumerate}
+宏观晶体常采用 Born--von Karman 周期边界条件
+$\psi(\vb r+N_i\vb a_i)=\psi(\vb r)$，从而离散化允许的 $\vb k$。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+下列两题任选一题作答：
+\begin{enumerate}
+  \item 比较近自由电子模型与紧束缚模型的异同。
+  \item 用能带论解释导体、绝缘体与半导体的区别。
+\end{enumerate}
+
+
+\begin{solution}
+两种模型都在单电子周期势框架中求解 Bloch 能带，均满足
+$\psi_{n\vb k}=\ee^{\ii\vb k\cdot\vb r}u_{n\vb k}$，区别在于选取的零级极限不同。
+\begin{enumerate}
+  \item \textbf{近自由电子模型：}以自由电子为零级，假设周期势的 Fourier 分量 $V_{\vb G}$ 较小。远离简并点时作微扰；在布里渊区边界对 $\vb k$ 与 $\vb k-\vb G$ 作简并微扰，得到大小约为 $2\abs{V_{\vb G}}$ 的能隙。适合 $s,p$ 电子较离域、能带较宽的材料。
+  \item \textbf{紧束缚模型：}以彼此隔离的原子轨道为零级，假设轨道重叠和跃迁积分较小。Bloch 态写成原子轨道 Bloch 和，色散由跃迁积分产生，例如一维最近邻模型
+  \[
+    E(k)=\varepsilon_0-2t\cos ka.
+  \]
+  它适合局域性较强、能带较窄的电子。
+\end{enumerate}
+当势很弱时近自由电子描述自然；当势阱很深、轨道局域时紧束缚描述自然。两者不是互斥理论，而是同一周期单电子方程的两个互补极限。
+
+
+若选择能带论题：在 $T=0$ 时，满带中 $\vb k$ 与 $-\vb k$ 态电流相消。部分占据能带的费米能附近存在任意小能量的空态，外场可使占据分布偏移，故为金属；价带全满、导带全空且二者间有有限带隙时为绝缘体。半导体与绝缘体机制相同，差别主要是带隙较小，有限温度、掺杂或光照可产生可观载流子。
+\end{solution}
+\end{question}
+
+\textbf{三、证明题（每题 10 分，共 20 分）}
+
+\begin{question}[10 分]
+证明晶体允许的独立旋转对称轴只有有限种，不存在五重、七重等旋转轴。
+
+
+\begin{solution}
+设晶格在某二维平面内具有 $n$ 重转轴。取不在轴上的格点 $P$，其到轴的距离为 $r$；转动角为 $\theta=2\pi/n$。由晶格平移周期性，$P$ 与其转动像以及相邻格点之间必须产生新的晶格平移矢量。晶体学限制定理可写为
+\[
+ 2\cos\theta=m,\qquad m\in\mathbb Z.
+\]
+推导要点是：在二维原始基矢 $(\vb a_1,\vb a_2)$ 下，旋转把基矢变为晶格矢，故旋转矩阵在该基底中的元素为整数；其迹既为整数，又等于 $2\cos\theta$。
+
+由于 $\abs{2\cos\theta}\le2$，整数 $m$ 只能为 $-2,-1,0,1,2$，对应
+\[
+ \theta=\pi,\frac{2\pi}{3},\frac{\pi}{2},\frac{\pi}{3},0.
+\]
+因此非平凡允许转轴只有
+\[
+ \boxed{n=2,3,4,6.}
+\]
+再加恒等的一重轴，晶体允许的独立旋转轴为 $1,2,3,4,6$ 重，不允许五重、七重等与平移周期性不相容的转轴。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+设立方晶格常数为 $a$，证明面心立方与体心立方晶格中，密勒指数为 $(h_1,h_2,h_3)$ 的晶面间距分别为
+\[
+ d_{h_1h_2h_3}^{\mathrm{FCC}}
+ =\frac{a}{\sqrt{(h_2+h_3-h_1)^2+(h_3+h_1-h_2)^2+(h_1+h_2-h_3)^2}},
+\]
+\[
+ d_{h_1h_2h_3}^{\mathrm{BCC}}
+ =\frac{a}{\sqrt{(h_2+h_3)^2+(h_3+h_1)^2+(h_1+h_2)^2}}.
+\]
+
+
+\begin{solution}
+晶面间距由 $d=2\pi/\abs{\vb G}$ 给出。以下的 $(h_1,h_2,h_3)$ 是相对于所选原始基矢的密勒指数。
+
+面心立方可取原始基矢
+\[
+ \vb a_1=\frac a2(0,1,1),\quad
+ \vb a_2=\frac a2(1,0,1),\quad
+ \vb a_3=\frac a2(1,1,0),
+\]
+相应倒格基矢为
+\[
+ \vb b_1=\frac{2\pi}{a}(-1,1,1),\quad
+ \vb b_2=\frac{2\pi}{a}(1,-1,1),\quad
+ \vb b_3=\frac{2\pi}{a}(1,1,-1).
+\]
+故
+\[
+ \vb G=\frac{2\pi}{a}
+ (h_2+h_3-h_1,\ h_3+h_1-h_2,\ h_1+h_2-h_3),
+\]
+从而
+\[
+ \boxed{d^{\rm FCC}_{h_1h_2h_3}=\frac{a}{\sqrt{(h_2+h_3-h_1)^2+(h_3+h_1-h_2)^2+(h_1+h_2-h_3)^2}}.}
+\]
+
+体心立方可取
+\[
+ \vb a_1=\frac a2(-1,1,1),\quad
+ \vb a_2=\frac a2(1,-1,1),\quad
+ \vb a_3=\frac a2(1,1,-1),
+\]
+其倒格基矢为
+\[
+ \vb b_1=\frac{2\pi}{a}(0,1,1),\quad
+ \vb b_2=\frac{2\pi}{a}(1,0,1),\quad
+ \vb b_3=\frac{2\pi}{a}(1,1,0).
+\]
+于是
+\[
+ \vb G=\frac{2\pi}{a}(h_2+h_3,\ h_3+h_1,\ h_1+h_2),
+\]
+得到
+\[
+ \boxed{d^{\rm BCC}_{h_1h_2h_3}=\frac{a}{\sqrt{(h_2+h_3)^2+(h_3+h_1)^2+(h_1+h_2)^2}}.}
+\]
+\end{solution}
+\end{question}
+
+\textbf{四、计算题（每题 10 分，共 20 分）}
+
+\begin{question}[10 分]
+一维晶体的电子能带为
+\[
+ E(k)=\frac{\hbar^2}{ma^2}\left(\frac78-\cos ka+\frac18\cos 2ka\right),
+\]
+其中 $a$ 为晶格常数。求：
+\begin{enumerate}
+  \item 能带宽度；
+  \item 电子的群速度；
+  \item 能带底部与顶部的有效质量。
+\end{enumerate}
+
+
+\begin{solution}
+令 $x=ka$，并记 $A=\hbar^2/(ma^2)$。能带为
+\[
+ E=A\left(\frac78-\cos x+\frac18\cos2x\right).
+\]
+其导数为
+\[
+ \frac{\dd E}{\dd x}=A\left(\sin x-\frac14\sin2x\right)
+ =A\sin x\left(1-\frac12\cos x\right).
+\]
+因 $1-\frac12\cos x>0$，第一布里渊区内的极值只在 $x=0,\pi$：
+\[
+ E(0)=0,\qquad E(\pi/a)=2A.
+\]
+故带宽为
+\[
+ \boxed{W=\frac{2\hbar^2}{ma^2}.}
+\]
+群速度
+\[
+ \boxed{v(k)=\frac1\hbar\frac{\dd E}{\dd k}
+ =\frac{\hbar}{ma}\left(\sin ka-\frac14\sin2ka\right).}
+\]
+再求二阶导数：
+\[
+ \frac{\dd^2E}{\dd k^2}=\frac{\hbar^2}{m}
+ \left(\cos ka-\frac12\cos2ka\right),
+ \qquad
+ \frac1{m^*}=\frac1{\hbar^2}\frac{\dd^2E}{\dd k^2}.
+\]
+带底 $k=0$ 与带顶 $k=\pi/a$ 分别给出
+\[
+ \boxed{m^*_{\rm bottom}=2m,\qquad
+ m^*_{\rm top}=-\frac23m.}
+\]
+负的带顶电子有效质量等价于正质量空穴描述。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+一维金属的晶格常数为 $a$，共有 $N$ 个原胞。求自由电子的能态密度以及 $T=0$ 时的费米能级。
+
+
+\begin{solution}
+设晶体长度 $L=Na$，电子数为 $N_e$，并计入二重自旋简并。周期边界条件给出 $k$ 态间隔 $2\pi/L$。在 $k>0$ 的小区间 $\dd k$ 中，同时计入 $\pm k$ 和自旋后态数为
+\[
+ \dd\mathcal N=2\times2\frac{L}{2\pi}\dd k=\frac{2L}{\pi}\dd k.
+\]
+自由电子色散为 $E=\hbar^2k^2/(2m)$，故
+\[
+ \frac{\dd k}{\dd E}=\frac{m}{\hbar^2k}
+ =\frac1\hbar\sqrt{\frac{m}{2E}}.
+\]
+于是总能态密度和单位长度能态密度分别为
+\[
+ \boxed{g(E)=\frac{L}{\pi\hbar}\sqrt{\frac{2m}{E}},\qquad
+ \frac{g(E)}L=\frac1{\pi\hbar}\sqrt{\frac{2m}{E}}.}
+\]
+$T=0$ 时从 $-k_F$ 填到 $k_F$：
+\[
+ N_e=2\frac{L}{2\pi}(2k_F)=\frac{2Lk_F}{\pi},
+ \qquad k_F=\frac{\pi N_e}{2L}.
+\]
+因此
+\[
+ \boxed{E_F=\frac{\hbar^2\pi^2}{8m}\left(\frac{N_e}{L}\right)^2.}
+\]
+若题意默认每个原胞贡献一个电子，即 $N_e=N$、$L=Na$，则
+\[
+ \boxed{k_F=\frac\pi{2a},\qquad E_F=\frac{\hbar^2\pi^2}{8ma^2}.}
+\]
+\end{solution}
+\end{question}

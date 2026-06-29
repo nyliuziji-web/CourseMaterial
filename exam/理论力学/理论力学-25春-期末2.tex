@@ -1,0 +1,277 @@
+\heading{理论力学-25春-期末2}
+
+\begin{question}[概念解释]
+解释以下概念：
+\begin{enumerate}
+  \item 正则变换；
+  \item 泊松定理；
+  \item 最大可积系统；
+  \item 刘维尔定理；
+  \item 绝热过程。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+  \item 正则变换：保持哈密顿正则方程形式不变的相空间变换。等价地，它保持泊松括号结构，即新变量满足 $\{Q_i,P_j\}=\delta_{ij}$、$\{Q_i,Q_j\}=\{P_i,P_j\}=0$。
+  \item 泊松定理：若 $f,g$ 是不显含时间的运动积分，则它们的泊松括号 $\{f,g\}$ 也是运动积分。这由 Jacobi 恒等式直接推出。
+  \item 最大可积系统：$n$ 自由度哈密顿系统若存在 $n$ 个函数独立且两两对合的运动积分，则称为 Liouville 意义下的完全可积或最大可积系统。
+  \item 刘维尔定理：哈密顿流保持相空间体积不变，即相空间分布随哈密顿演化满足不可压缩性。
+  \item 绝热过程：系统参数变化足够缓慢，使得快变量在许多周期内完成运动，作用量等绝热不变量在演化中近似保持不变。
+\end{enumerate}
+
+
+\medskip
+这些概念之间的逻辑关系是：Hamilton 原理是固定端点、固定时刻的作用量驻值原理；不等时变分放宽端点时刻限制，因而会自然出现能量项；Maupertuis 原理是在能量固定后对几何轨道取驻值；Noether 定理说明作用量的连续对称性会产生守恒量；拉格朗日点则是把三体问题转到共转参考系后，有效势的驻点。
+
+
+\medskip
+这些概念的共同特点是都可以用变分结构、辛结构或守恒律来表述；因此定义时应同时给出数学表达和物理含义。
+\end{solution}
+\end{question}
+
+\begin{question}[薛定谔方程的经典极限]
+已知薛定谔方程
+\[
+  -\frac{\hbar^2}{2m}\nabla^2\psi+V\psi=\ii\hbar\frac{\partial\psi}{\partial t}.
+\]
+设波函数取为
+\[
+  \psi(\vec r,t)=A(\vec r,t)\ee^{\ii S(\vec r,t)/\hbar},
+\]
+其中 $A$ 为实函数。求在 $\hbar\to0$ 极限下所对应的经典方程。
+
+\begin{solution}
+将
+\[
+  \psi=A\ee^{\ii S/\hbar}
+\]
+代入薛定谔方程。分离实部与虚部可得
+\[
+  \frac{\partial S}{\partial t}+\frac{(\nabla S)^2}{2m}+V
+  -\frac{\hbar^2}{2m}\frac{\nabla^2A}{A}=0,
+\]
+以及
+\[
+  \frac{\partial A^2}{\partial t}
+  +\nabla\cdot\left(A^2\frac{\nabla S}{m}\right)=0.
+\]
+在 $\hbar\to0$ 极限下，量子势项
+\[
+  -\frac{\hbar^2}{2m}\frac{\nabla^2A}{A}
+\]
+消失，得到经典 Hamilton--Jacobi 方程
+\[
+  \boxed{\frac{\partial S}{\partial t}+\frac{(\nabla S)^2}{2m}+V=0}.
+\]
+并且 $A^2$ 满足沿经典速度场
+\[
+  \boldsymbol v=\frac{\nabla S}{m}
+\]
+的连续性方程。这就是薛定谔方程的经典极限。
+
+
+\medskip
+\textbf{代入细节：}由
+\[
+  \nabla\psi=\ee^{\ii S/\hbar}\left(\nabla A+\frac{\ii}{\hbar}A\nabla S\right)
+\]
+和
+\[
+  \frac{\partial\psi}{\partial t}=\ee^{\ii S/\hbar}
+  \left(\frac{\partial A}{\partial t}+\frac{\ii}{\hbar}A\frac{\partial S}{\partial t}\right)
+\]
+代入方程，再把实部、虚部分开，才能得到实部的 Hamilton--Jacobi 方程和虚部的连续性方程。经典极限不是令波函数本身变为粒子轨道，而是令相位函数 $S$ 满足经典作用量方程。
+
+
+\medskip
+虚部方程
+\[
+  \frac{\partial A^2}{\partial t}+\nabla\cdot\left(A^2\frac{\nabla S}{m}\right)=0
+\]
+可理解为概率密度沿经典速度场的连续性方程。实部方程中的量子势
+\[
+  Q=-\frac{\hbar^2}{2m}\frac{\nabla^2A}{A}
+\]
+在 WKB 极限下相对经典作用量项为高阶小量。于是 $S$ 是 Hamilton 主函数，经典动量为
+\[
+  \boldsymbol p=\nabla S.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[三粒子一维体系]
+在一维体系中有三个质量均为 $m$ 的粒子，任意两粒子之间的相互作用势能为
+\[
+  V_{ij}=\frac12k r_{ij}^2,
+\]
+其中 $r_{ij}$ 表示第 $i$、$j$ 个粒子之间的距离。
+\begin{enumerate}
+  \item 写出系统运动的 Hamilton--Jacobi 方程；
+  \item 求解 Hamilton--Jacobi 方程，得到 $x_i(t)$。已知初始条件为 $x_i(0)=a_i$，$p_i(0)=0$（$i=1,2,3$）；
+  \item 证明该系统是刘维尔可积系统。
+\end{enumerate}
+
+\begin{solution}
+系统哈密顿量为
+\[
+  H=\sum_{i=1}^3\frac{p_i^2}{2m}
+  +\frac12k\left[(x_1-x_2)^2+(x_1-x_3)^2+(x_2-x_3)^2\right].
+\]
+\begin{enumerate}
+  \item Hamilton--Jacobi 方程为
+  \[
+    \frac{\partial S}{\partial t}
+    +\sum_{i=1}^3\frac1{2m}\left(\frac{\partial S}{\partial x_i}\right)^2
+    +\frac12k\sum_{i<j}(x_i-x_j)^2=0.
+  \]
+  \item 引入正交坐标
+  \[
+    Q_0=\frac{x_1+x_2+x_3}{\sqrt3},
+    \qquad
+    Q_1=\frac{x_1-x_2}{\sqrt2},
+  \]
+  \[
+    Q_2=\frac{x_1+x_2-2x_3}{\sqrt6}.
+  \]
+  则
+  \[
+    \sum_{i<j}(x_i-x_j)^2=3(Q_1^2+Q_2^2).
+  \]
+  哈密顿量分离为
+  \[
+    H=\frac{P_0^2}{2m}
+    +\left(\frac{P_1^2}{2m}+\frac32kQ_1^2\right)
+    +\left(\frac{P_2^2}{2m}+\frac32kQ_2^2\right).
+  \]
+  因而两个相对运动模具有相同频率
+  \[
+    \Omega=\sqrt{\frac{3k}{m}}.
+  \]
+  初始 $p_i(0)=0$，故质心静止。记
+  \[
+    \bar a=\frac{a_1+a_2+a_3}{3}.
+  \]
+  则
+  \[
+    \boxed{x_i(t)=\bar a+(a_i-\bar a)\cos\Omega t,
+    \qquad i=1,2,3.}
+  \]
+  \item 取三个对合积分
+  \[
+    H_0=\frac{P_0^2}{2m},
+    \qquad
+    H_1=\frac{P_1^2}{2m}+\frac32kQ_1^2,
+    \qquad
+    H_2=\frac{P_2^2}{2m}+\frac32kQ_2^2.
+  \]
+  它们彼此泊松对易，且函数独立。因此该三自由度系统为刘维尔可积系统。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[一维广义谐振子]
+一维广义谐振子的哈密顿量为
+\[
+  H=\frac12\left(Xp^2+2Ypq+Zq^2\right),
+\]
+其中 $X,Y,Z$ 为已知常数，并满足 $XZ-Y^2>0$。
+\begin{enumerate}
+  \item 作变换 $Q=\sqrt{Z}\,q$。要求该变换是正则变换，并将哈密顿量化为一维谐振子的形式
+  \[
+    H=\frac12\left(P^2+\omega^2Q^2\right).
+  \]
+  给出相应的正则变换生成函数，并写出 $\omega$ 与 $X,Y,Z$ 的关系；
+  \item 求解 $q(t)$ 与 $p(t)$；
+  \item 用作用角变量 $I,\theta$ 表示 $q,p$；
+  \item 假设参数 $(X,Y,Z)$ 缓慢变化，且始终满足 $XZ-Y^2>0$，证明系统的哈内角为
+  \[
+    \Delta\theta_H
+    =\oint_C\frac{Y\,\dd Z-Z\,\dd Y}{Z\sqrt{XZ-Y^2}}
+    =\iint_S\frac{\vec R\cdot\dd\vec S}{4(XZ-Y^2)^{3/2}},
+  \]
+  其中 $S$ 为回路 $C$ 所围成的有向面积。
+\end{enumerate}
+
+\begin{solution}
+记
+\[
+  D=XZ-Y^2>0,
+  \qquad
+  \omega=\sqrt D.
+\]
+哈密顿方程为
+\[
+  \dot q=Xp+Yq,
+  \qquad
+  \dot p=-Yp-Zq.
+\]
+由此立即得到
+\[
+  \ddot q=D(-q)=-\omega^2q,
+\]
+即系统本质上是频率为 $\omega$ 的一维谐振子。
+\begin{enumerate}
+  \item 作 $Q=\sqrt Z\,q$ 的正则化处理。固定
+  \[
+    Q=\sqrt Z\,q,
+  \]
+  则为使变换正则，必须令
+  \[
+    P=\frac{p}{\sqrt Z}+\frac{Y}{X\sqrt Z}q.
+  \]
+  这可由第二类生成函数
+  \[
+    F_2(q,P)=\sqrt Z\,qP-\frac{Y}{2X}q^2
+  \]
+  得到。此时
+  \[
+    H=\frac12XZP^2+\frac12\frac{D}{XZ}Q^2.
+  \]
+  再作常数正则缩放即可化为
+  \[
+    H=\frac12(P_s^2+\omega^2Q_s^2),
+    \qquad \omega=\sqrt{XZ-Y^2}.
+  \]
+  更直接的一组标准正则变量是
+  \[
+    Q_s=\frac{q}{\sqrt X},
+    \qquad
+    P_s=\sqrt X\,p+\frac{Y}{\sqrt X}q,
+  \]
+  它满足 $\{Q_s,P_s\}=1$，并给出
+  \ansmath{H=\frac12(P_s^2+D Q_s^2).}
+  \item 设初值为 $q(0)=q_0$、$p(0)=p_0$。由
+  \[
+    \dot q(0)=Xp_0+Yq_0
+  \]
+  得
+  \ansmath{q(t)=q_0\cos\omega t+\frac{Xp_0+Yq_0}{\omega}\sin\omega t.}
+  再由 $p=(\dot q-Yq)/X$ 得
+  \ansmath{p(t)=p_0\cos\omega t-\frac{Zq_0+Yp_0}{\omega}\sin\omega t.}
+  \item 对标准变量取
+  \[
+    Q_s=\sqrt{\frac{2I}{\omega}}\sin\theta,
+    \qquad
+    P_s=\sqrt{2I\omega}\cos\theta .
+  \]
+  变回原变量得到
+  \ansmath{q=\sqrt{\frac{2IX}{\omega}}\sin\theta,}
+  \ansmath{p=\sqrt{\frac{2I\omega}{X}}\cos\theta
+    -\frac{Y}{X}\sqrt{\frac{2IX}{\omega}}\sin\theta.}
+  同时
+  \ansmath{I=\frac{H}{\omega},\qquad \dot\theta=\omega.}
+  \item 当 $(X,Y,Z)$ 缓慢变化时，$I$ 是绝热不变量。将上面的作用角变量代入辛形式并取角平均，可得到 Hannay 联络
+  \[
+    \mathcal A=\frac{Y\,\dd Z-Z\,\dd Y}{Z\sqrt{XZ-Y^2}}.
+  \]
+  因而沿闭合回路 $C$ 缓慢变化一周后，除动力学相位外的 Hannay 角为
+  \ansmath{\Delta\theta_H=\oint_C
+    \frac{Y\,\dd Z-Z\,\dd Y}{Z\sqrt{XZ-Y^2}}.}
+  对该一形式使用 Stokes 定理，可写成曲率通量形式
+  \ansmath{\Delta\theta_H
+    =\iint_S\frac{\vec R\cdot\dd\vec S}{4(XZ-Y^2)^{3/2}},}
+  其中 $\vec R=(X,Y,Z)$，$S$ 是回路 $C$ 围成的有向曲面。符号正负取决于作用角变量中角变量的取向约定；若把 $\sin\theta$ 和 $\cos\theta$ 的定义整体反向，Hannay 角也会相应变号。
+\end{enumerate}
+\end{solution}
+
+\end{question}

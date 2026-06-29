@@ -1,0 +1,244 @@
+
+\heading{电动力学-25春-期末}
+
+\begin{question}[Lorentz 变换、规范变换与不变量]
+\begin{enumerate}
+  \item 叙述 $A^\mu$、$F^{\mu\nu}$、$A_\mu A^\mu$ 在 Lorentz 变换下的性质。
+  \item 推导电磁场 $\mathbf E,\mathbf B$ 在惯性系变换下的公式。
+  \item 写出规范变换。
+  \item 判断 $F_{\mu\nu}$ 与 $A_\mu A^\mu$ 是否规范不变。
+  \item 求 $F_{\mu\nu}F^{\mu\nu}$。
+  \item 是否可能一个惯性系只观察到电场，而另一个惯性系只观察到磁场？
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item $A^\mu=(\varphi/c,\mathbf A)$ 是四矢量；$F^{\mu\nu}$ 是二阶反对称张量；$A_\mu A^\mu$ 是 Lorentz 标量。因此在 Lorentz 变换下 $A^\mu$ 的分量线性混合，$F^{\mu\nu}$ 的分量按二阶张量规律混合，而 $A_\mu A^\mu$ 的数值不变。
+
+  \item 把场分解为平行和垂直于相对速度 $\mathbf v$ 的分量。由场张量变换可得
+  \[
+    \boxed{\mathbf E'_\parallel=\mathbf E_\parallel,
+    \qquad
+    \mathbf B'_\parallel=\mathbf B_\parallel,}
+  \]
+  \[
+    \boxed{\mathbf E'_\perp=\gamma(\mathbf E_\perp+\mathbf v\times\mathbf B),
+    \qquad
+    \mathbf B'_\perp=\gamma\left(\mathbf B_\perp-\frac1{c^2}\mathbf v\times\mathbf E\right)} .
+  \]
+  等价完整形式是
+  \[
+    \mathbf E'=\gamma(\mathbf E+\mathbf v\times\mathbf B)
+    -\frac{\gamma^2}{\gamma+1}\frac{\mathbf v}{c^2}(\mathbf v\cdot\mathbf E),
+  \]
+  \[
+    \mathbf B'=\gamma\left(\mathbf B-\frac1{c^2}\mathbf v\times\mathbf E\right)
+    -\frac{\gamma^2}{\gamma+1}\frac{\mathbf v}{c^2}(\mathbf v\cdot\mathbf B) .
+  \]
+
+  \item 规范变换为
+  \[
+    \boxed{A_\mu\to A_\mu+\partial_\mu\chi} .
+  \]
+  三维形式是 $\mathbf A\to\mathbf A+\nabla\chi$，$\varphi\to\varphi-\partial_t\chi$。
+
+  \item $F_{\mu\nu}$ 规范不变，因为
+  \[
+    F'_{\mu\nu}=F_{\mu\nu}+\partial_\mu\partial_\nu\chi-
+    \partial_\nu\partial_\mu\chi=F_{\mu\nu} .
+  \]
+  但 $A_\mu A^\mu$ 一般不规范不变，因为变换后会多出 $2A^\mu\partial_\mu\chi+\partial_\mu\chi\partial^\mu\chi$。
+
+  \item 有
+  \[
+    \boxed{F_{\mu\nu}F^{\mu\nu}=2\left(B^2-\frac{E^2}{c^2}\right)} .
+  \]
+  若取 $c=1$，即 $2(B^2-E^2)$。
+
+  \item 不可能。若某系只有电场，则该系中 $B=0$，故不变量 $B^2-E^2/c^2<0$；若另一系只有磁场，则 $E=0$，故同一不变量应 $>0$。同一个 Lorentz 不变量不能同时为正和为负。零场除外。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[相对论辐射功率分解与磁场中圆周运动]
+\begin{enumerate}
+  \item 从 Larmor 公式出发，得到相对论辐射功率分解
+  \[
+    P=P_\parallel+P_\perp .
+  \]
+  \item 相对论性电子电荷量大小为 $e$、质量为 $m$、动量大小为 $p$，在匀强磁场 $B_0$ 中作圆周运动，求轨道半径。
+  \item 利用上一问结果求辐射功率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 瞬时静止系中 Larmor 公式为
+  \[
+    P^*=\frac{e^2a_*^2}{6\pi\varepsilon_0c^3} .
+  \]
+  辐射总功率可写成四加速度模的标量形式
+  \[
+    P=-\frac{e^2}{6\pi\varepsilon_0c^3}a_\mu a^\mu .
+  \]
+  将三维加速度分解为平行和垂直于速度的部分，
+  \[
+    \mathbf a=\mathbf a_\parallel+\mathbf a_\perp,
+  \]
+  可得
+  \[
+    -a_\mu a^\mu=\gamma^6a_\parallel^2+\gamma^4a_\perp^2 .
+  \]
+  因而
+  \[
+    \boxed{P=\frac{e^2}{6\pi\varepsilon_0c^3}
+    \left(\gamma^6a_\parallel^2+\gamma^4a_\perp^2\right)} .
+  \]
+  即
+  \[
+    P_\parallel=\frac{e^2\gamma^6a_\parallel^2}{6\pi\varepsilon_0c^3},
+    \qquad
+    P_\perp=\frac{e^2\gamma^4a_\perp^2}{6\pi\varepsilon_0c^3} .
+  \]
+
+  \item 在磁场中 $\mathbf v\perp\mathbf B_0$，Lorentz 力只改变动量方向。圆周运动满足
+  \[
+    \frac{pv}{R}=evB_0 .
+  \]
+  因此
+  \[
+    \boxed{R=\frac{p}{eB_0}} .
+  \]
+
+  \item 磁场力给出
+  \[
+    \frac{\mathrm d\mathbf p}{\mathrm dt}=e\mathbf v\times\mathbf B_0 .
+  \]
+  因为加速度垂直于速度，$\mathrm d\mathbf p/\mathrm dt=\gamma m\mathbf a$，所以
+  \[
+    a=\frac{evB_0}{\gamma m} .
+  \]
+  代入垂直加速度辐射公式，
+  \[
+    P=\frac{e^2}{6\pi\varepsilon_0c^3}\gamma^4a^2
+    =\frac{e^4B_0^2}{6\pi\varepsilon_0m^2c^3}\gamma^2v^2 .
+  \]
+  又 $p=\gamma mv$，故
+  \[
+    \boxed{P=\frac{e^4B_0^2p^2}{6\pi\varepsilon_0m^4c^3}} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[Liénard--Wiechert 势中 $\nabla\varphi$ 的推导]
+已知运动电荷的推迟量
+\[
+  \mathbf R_* = \mathbf r-\mathbf r_*(t_*),
+  \qquad
+  \mathbf v_* = \mathbf v(t_*),
+  \qquad
+  \mathbf a_* = \mathbf a(t_*),
+\]
+以及
+\[
+  \varphi=\frac{e}{4\pi\varepsilon_0s_*},
+  \qquad
+  s_*=R_* - \frac{\mathbf v_*\cdot\mathbf R_*}{c} .
+\]
+用关键导数求 $\nabla\varphi$。
+\begin{solution}
+记
+\[
+  \mathbf n=\frac{\mathbf R_*}{R_*},
+  \qquad
+  \boldsymbol\beta=\frac{\mathbf v_*}{c},
+  \qquad
+  \kappa=1-\mathbf n\cdot\boldsymbol\beta,
+  \qquad
+  s_*=R_*\kappa .
+\]
+推迟时刻满足
+\[
+  t-t_*=\frac{R_*}{c} .
+\]
+关键导数为
+\[
+  \nabla t_*=-\frac{\mathbf n}{c\kappa},
+  \qquad
+  \nabla R_* =\frac{\mathbf n}{\kappa} .
+\]
+对 $s_*=R_* - \boldsymbol\beta\cdot\mathbf R_*$ 求梯度。对任意小位移 $\delta\mathbf r$，
+\[
+  \delta t_*=-\frac{\mathbf n\cdot\delta\mathbf r}{c\kappa},
+  \qquad
+  \delta\mathbf R_*=
+  \delta\mathbf r-\mathbf v_*\delta t_*
+  =\delta\mathbf r+\boldsymbol\beta\frac{\mathbf n\cdot\delta\mathbf r}{\kappa} .
+\]
+又
+\[
+  \delta\boldsymbol\beta=\frac{\mathbf a_*}{c}\delta t_*
+  =-\frac{\mathbf a_*}{c^2}\frac{\mathbf n\cdot\delta\mathbf r}{\kappa} .
+\]
+于是
+\[
+\begin{aligned}
+  \delta(\boldsymbol\beta\cdot\mathbf R_*)
+  &=\delta\boldsymbol\beta\cdot\mathbf R_*+\boldsymbol\beta\cdot\delta\mathbf R_* \\
+  &=\boldsymbol\beta\cdot\delta\mathbf r
+  +\left(\beta^2-\frac{\mathbf a_*\cdot\mathbf R_*}{c^2}\right)
+    \frac{\mathbf n\cdot\delta\mathbf r}{\kappa} .
+\end{aligned}
+\]
+同时
+\[
+  \delta R_* = \frac{\mathbf n\cdot\delta\mathbf r}{\kappa} .
+\]
+故
+\[
+  \nabla s_*=-\boldsymbol\beta+\frac{1-\beta^2+R_*(\mathbf n\cdot\mathbf a_*)/c^2}{\kappa}\mathbf n .
+\]
+最后
+\[
+  \nabla\varphi=-\frac{e}{4\pi\varepsilon_0}\frac{\nabla s_*}{s_*^2}
+\]
+给出
+\[
+  \boxed{
+  \nabla\varphi
+  =\frac{e}{4\pi\varepsilon_0R_*^2\kappa^2}
+  \left[\boldsymbol\beta-\frac{1-\beta^2+R_*(\mathbf n\cdot\mathbf a_*)/c^2}{\kappa}\mathbf n\right]} .
+\]
+其中 $\mathbf v_*,\mathbf a_*,\mathbf n,R_*$ 均取推迟时刻。
+\end{solution}
+\end{question}
+
+\begin{question}[对 Maxwell 方程组的认识]
+叙述对 Maxwell 方程组及其协变形式的认识。
+\begin{solution}
+\begin{enumerate}
+  \item Maxwell 方程组把静电、静磁、电磁感应和位移电流统一为一套局域场方程：
+  \[
+  \begin{gathered}
+    \nabla\cdot\mathbf E=\rho/\varepsilon_0,
+    \qquad
+    \nabla\cdot\mathbf B=0,\\
+    \nabla\times\mathbf E=-\partial_t\mathbf B,
+    \qquad
+    \nabla\times\mathbf B=\mu_0\mathbf j+\frac1{c^2}\partial_t\mathbf E .
+  \end{gathered}
+  \]
+  \item 它们蕴含电荷守恒。对 Ampere--Maxwell 方程取散度并用 Gauss 定律，可得
+  \[
+    \partial_t\rho+\nabla\cdot\mathbf j=0 .
+  \]
+  \item 在势函数语言中，$\mathbf E$ 与 $\mathbf B$ 可由 $\varphi,\mathbf A$ 表示，且势具有规范自由度。规范自由度说明势不是唯一的，物理量是场强和 Wilson 相位等规范不变量。
+  \item 在相对论语言中，四个方程可写为
+  \[
+    \partial_\mu F^{\mu\nu}=\mu_0j^\nu,
+    \qquad
+    \partial_\mu\tilde F^{\mu\nu}=0,
+  \]
+  这显示电磁理论天然满足 Lorentz 协变性。
+  \item 无源区域中 Maxwell 方程给出波动方程，电磁波以速度 $c=1/\sqrt{\varepsilon_0\mu_0}$ 传播，并且是横波。
+\end{enumerate}
+\end{solution}
+\end{question}

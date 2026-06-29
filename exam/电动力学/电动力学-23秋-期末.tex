@@ -1,0 +1,290 @@
+
+\heading{电动力学-23秋-期末}
+
+\begin{question}[场张量、磁单极与 dyon 辐射]
+\begin{enumerate}
+  \item 已知 $F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu$ 与 $\partial_\mu F^{\mu\nu}=-4\pi J^\nu$，写出一个规范使得 $A^\mu$ 是四矢量，并论证该规范自洽。
+  \item 定义 $\tilde F^{\mu\nu}=\frac12\epsilon^{\mu\nu\rho\sigma}F_{\rho\sigma}$。用 $\mathbf E,\mathbf B$ 写出 $F^{\mu\nu}$ 和 $\tilde F^{\mu\nu}$。
+  \item 若存在磁单极子，且 $\partial_\mu F^{\mu\nu}=-4\pi J_E^\nu$，$\partial_\mu\tilde F^{\mu\nu}=-4\pi J_M^\nu$，用 $\mathbf E,\mathbf B$ 写出修正后的 Maxwell 方程。
+  \item 已知运动电荷的 Liénard--Wiechert 场，写出运动磁荷 $g$ 的电场和磁场。
+  \item 已知运动电荷辐射功率 $P=\frac23e^2\gamma^6[a^2-(\mathbf a\times\mathbf v)^2]$，写出同时具有电荷 $e$ 与磁荷 $g$ 的粒子的辐射功率。
+\end{enumerate}
+\begin{solution}
+采用 Gaussian 制并取 $c=1$。
+\begin{enumerate}
+  \item 取 Lorenz 规范
+  \[
+    \boxed{\partial_\mu A^\mu=0} .
+  \]
+  在该规范下
+  \[
+    \partial_\mu F^{\mu\nu}
+    =\partial_\mu\partial^\mu A^\nu-\partial^\nu(\partial_\mu A^\mu)
+    =\Box A^\nu .
+  \]
+  因而势满足
+  \[
+    \Box A^\nu=-4\pi J^\nu .
+  \]
+  右端 $J^\nu$ 是四矢量，$\Box$ 是 Lorentz 标量算符，所以在 Lorenz 规范中 $A^\nu$ 可作为四矢量处理。自洽性来自电荷守恒：对场方程取 $\partial_\nu$ 得
+  \[
+    \partial_\nu J^\nu=0 .
+  \]
+  对任意势 $A^\mu$，可通过规范变换 $A^\mu\to A^\mu+\partial^\mu\chi$，令
+  \[
+    \Box\chi=-\partial_\mu A^\mu
+  \]
+  来达到 Lorenz 规范；剩余规范自由满足 $\Box\chi=0$。
+
+  \item 取
+  \[
+    F^{\mu\nu}=\begin{pmatrix}
+    0&E_x&E_y&E_z\\
+    -E_x&0&B_z&-B_y\\
+    -E_y&-B_z&0&B_x\\
+    -E_z&B_y&-B_x&0
+    \end{pmatrix} .
+  \]
+  对偶张量为
+  \[
+    \tilde F^{\mu\nu}=\begin{pmatrix}
+    0&B_x&B_y&B_z\\
+    -B_x&0&-E_z&E_y\\
+    -B_y&E_z&0&-E_x\\
+    -B_z&-E_y&E_x&0
+    \end{pmatrix} .
+  \]
+
+  \item 展开两组四维方程，得到含电荷与磁荷的对称 Maxwell 方程
+  \[
+    \boxed{\nabla\cdot\mathbf E=4\pi\rho_E,
+    \qquad
+    \nabla\times\mathbf B-\frac{\partial\mathbf E}{\partial t}=4\pi\mathbf J_E,}
+  \]
+  \[
+    \boxed{\nabla\cdot\mathbf B=4\pi\rho_M,
+    \qquad
+    \nabla\times\mathbf E+\frac{\partial\mathbf B}{\partial t}=-4\pi\mathbf J_M .}
+  \]
+  对第二组取散度可得磁荷守恒 $\partial_t\rho_M+\nabla\cdot\mathbf J_M=0$。
+
+  \item Maxwell 方程在电磁对偶变换下保持形式。由纯电荷场到纯磁荷场可取
+  \[
+    \mathbf E_e\to\mathbf B_g,
+    \qquad
+    \mathbf B_e\to-\mathbf E_g,
+    \qquad
+    e\to g .
+  \]
+  运动电荷的 Liénard--Wiechert 场可写为
+  \[
+    \mathbf E_e=e\left[\frac{(1-v^2)(\mathbf n-\mathbf v)}{R^2(1-\mathbf n\cdot\mathbf v)^3}
+    +\frac{\mathbf n\times((\mathbf n-\mathbf v)\times\mathbf a)}{R(1-\mathbf n\cdot\mathbf v)^3}\right],
+    \qquad
+    \mathbf B_e=\mathbf n\times\mathbf E_e,
+  \]
+  则运动磁荷产生
+  \[
+    \boxed{\mathbf B_g=g\left[\frac{(1-v^2)(\mathbf n-\mathbf v)}{R^2(1-\mathbf n\cdot\mathbf v)^3}
+    +\frac{\mathbf n\times((\mathbf n-\mathbf v)\times\mathbf a)}{R(1-\mathbf n\cdot\mathbf v)^3}\right],}
+  \]
+  \[
+    \boxed{\mathbf E_g=-\mathbf n\times\mathbf B_g .}
+  \]
+  当 $\mathbf v=0$ 时，得到 $\mathbf B_g=g\mathbf n/R^2$、$\mathbf E_g=0$，与静止磁荷一致。
+
+  \item 对 dyon，电偶极型辐射与磁偶极型辐射由对偶对称相加，交叉项在总功率中不贡献。因此
+  \[
+    \boxed{P=\frac23(e^2+g^2)\gamma^6
+    \left[a^2-(\mathbf a\times\mathbf v)^2\right]} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[相对论速度、加速度与辐射功率]
+在 $S$ 系中，一个粒子沿 $y$ 轴运动，速度和加速度分别为 $\mathbf v=v\hat{\mathbf y}$ 与 $\mathbf a=a\hat{\mathbf y}$。$S'$ 系相对于 $S$ 系以 $\mathbf u=v_0\hat{\mathbf x}$ 运动。
+\begin{enumerate}
+  \item 求 $S'$ 系中的 $\mathbf v'$ 和 $\mathbf a'$。
+  \item 证明粒子在 $S$ 与 $S'$ 系中的辐射功率相等。
+  \item 设 $v=v_0$。若 $S'$ 中另有一个电荷 $e$，速度 $\mathbf v_e'=v_e'\hat{\mathbf x}$，加速度 $\mathbf a_e'=10\mathbf a'$，为了使 $P_e'=P'$，求 $v_e'$。
+\end{enumerate}
+\begin{solution}
+仍取 $c=1$。记 $\gamma_0=(1-v_0^2)^{-1/2}$。
+\begin{enumerate}
+  \item 沿 $x$ 方向 boost 的速度变换为
+  \[
+    v_x'=\frac{v_x-v_0}{1-v_0v_x},
+    \qquad
+    v_y'=\frac{v_y}{\gamma_0(1-v_0v_x)} .
+  \]
+  由于 $v_x=0$，
+  \[
+    \boxed{\mathbf v'=-v_0\hat{\mathbf x}+\frac{v}{\gamma_0}\hat{\mathbf y}} .
+  \]
+  又 $t'=\gamma_0t$，且 $v_y'=v_y/\gamma_0$，所以
+  \[
+    \boxed{\mathbf a'=\frac{a}{\gamma_0^2}\hat{\mathbf y}} .
+  \]
+
+  \item 在 $S$ 系中 $\mathbf v\parallel\mathbf a$，故
+  \[
+    P=\frac23e^2\gamma_v^6a^2 .
+  \]
+  也可用四加速度证明。四加速度模满足
+  \[
+    -a^\mu a_\mu=\gamma^6[a^2-(\mathbf v\times\mathbf a)^2] .
+  \]
+  右端正是辐射公式中除常数外的量，因此
+  \[
+    P=-\frac23e^2a^\mu a_\mu
+  \]
+  是 Lorentz 标量，所以 $P'=P$。
+
+  \item 当 $v=v_0$ 时，$\gamma_v=\gamma_0\equiv\gamma$，且第一粒子在 $S'$ 中的加速度大小为 $a'=a/\gamma^2$。第二粒子有 $\mathbf v_e'\perp\mathbf a_e'$，所以
+  \[
+    P_e'=\frac23e^2\gamma_e^6
+a_e'^2(1-v_e'^2)
+    =\frac23e^2\gamma_e^4a_e'^2
+    =\frac23e^2\gamma_e^4(10a')^2 .
+  \]
+  令其等于第一粒子的功率
+  \[
+    P'=P=\frac23e^2\gamma^6a^2,
+  \]
+  得
+  \[
+    100\gamma_e^4\frac{a^2}{\gamma^4}=\gamma^6a^2,
+    \qquad
+    \gamma_e=\frac{\gamma^{5/2}}{\sqrt{10}} .
+  \]
+  因此
+  \[
+    \boxed{v_e'=\sqrt{1-\frac{10}{\gamma^5}}} .
+  \]
+  这个结果要求 $\gamma^5>10$；若不满足，则不存在实的 $v_e'$。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[填充介质的矩形波导]
+截面为 $a\times b$ 的矩形波导管被相对介电常数为 $\varepsilon$ 的介质填充，且 $a>b$。考虑 TE 模式，真空中的公式为
+\[
+  \frac{\partial^2\psi}{\partial x^2}+\frac{\partial^2\psi}{\partial y^2}+\Omega^2\psi=0,
+  \qquad
+  \left.\frac{\partial\psi}{\partial n}\right|_S=0,
+  \qquad
+  \Omega^2=\omega^2-k^2 .
+\]
+\begin{enumerate}
+  \item 求介质中的截止频率 $\omega_{\min}$，并写出最低模式的 $\mathbf B$ 和 $\mathbf E$。
+  \item 若 $B_z$ 的最大值为 $B_0$，在 $t$ 时刻将电荷 $q$ 放在 $(a/2,b/2,0)$，求此时辐射功率。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 介质中色散关系改为
+  \[
+    \Omega^2=\varepsilon\omega^2-k^2 .
+  \]
+  Neumann 边界条件给出
+  \[
+    B_z=B_0\cos\frac{m\pi x}{a}\cos\frac{n\pi y}{b}\,
+    \mathrm e^{\mathrm i(kz-\omega t)},
+  \]
+  \[
+    \Omega_{mn}^2=\left(\frac{m\pi}{a}\right)^2+
+    \left(\frac{n\pi}{b}\right)^2 .
+  \]
+  最低非平凡 TE 模式为 $m=1,n=0$。截止时 $k=0$，故
+  \[
+    \boxed{\omega_{\min}=\frac{\pi}{a\sqrt\varepsilon}} .
+  \]
+  此时可取
+  \[
+    \mathbf B=B_0\cos\frac{\pi x}{a}\,\mathrm e^{-\mathrm i\omega t}\hat{\mathbf z} .
+  \]
+  由 $\nabla\times\mathbf B=\varepsilon\partial_t\mathbf E$，得
+  \[
+    \mathbf E=\frac{\mathrm iB_0}{\sqrt\varepsilon}
+    \sin\frac{\pi x}{a}\,\mathrm e^{-\mathrm i\omega t}\hat{\mathbf y} .
+  \]
+
+  \item 在 $(a/2,b/2,0)$ 处，$B_z=0$，而电场振幅为 $B_0/\sqrt\varepsilon$。初速度取零时，初始加速度振幅为
+  \[
+    a_0=\frac{qB_0}{m\sqrt\varepsilon} .
+  \]
+  用 Gaussian 制非相对论 Larmor 公式 $P=2q^2a^2/3$ 得
+  \[
+    \boxed{P=\frac{2q^4B_0^2}{3m^2\varepsilon}} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[外尔半金属中的反常电流]
+考虑三维、四维和六维外尔半金属中的手征通道。题中给出三维情形的零能级简并度
+\[
+  N_0=\frac{eB_zL_xL_y}{h}
+\]
+以及电势差 $V_{ab}=\alpha eE_z$。
+\begin{enumerate}
+  \item 证明三维情形 $J_z=e^3\alpha B_zE_z/h^2$。
+  \item 类比证明四维情形 $J_4^H=e^3B_1E_1/h^2$。
+  \item 推广到六维，给出场的施加方式和 $x_6$ 方向电流密度的量纲关系。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 每一个一维手征通道的电流由 Landauer 形式给出
+  \[
+    I_{\rm ch}=\frac{e}{h}\Delta E .
+  \]
+  题设中两支外尔锥最大占据能量差为
+  \[
+    \Delta E=V_{ab}=\alpha eE_z .
+  \]
+  乘以简并度
+  \[
+    N_0=\frac{eB_zL_xL_y}{h}
+  \]
+  得总电流
+  \[
+    I_z=N_0I_{\rm ch}
+    =\frac{eB_zL_xL_y}{h}\frac{e}{h}\alpha eE_z .
+  \]
+  除以横截面积 $L_xL_y$，得到
+  \[
+    \boxed{J_z=\frac{I_z}{L_xL_y}=\frac{e^3}{h^2}\alpha B_zE_z} .
+  \]
+
+  \item 四维情形中，磁场 $B_1$ 穿过 $x_2x_3$ 平面，给出简并度
+  \[
+    N_0=\frac{eB_1L_2L_3}{h} .
+  \]
+  沿 $x_1$ 方向的电场造成两侧边界能带的能量差
+  \[
+    \Delta E=eE_1L_1 .
+  \]
+  每个通道沿 $x_4$ 方向贡献电流 $e\Delta E/h$，故
+  \[
+    I_4=\frac{eB_1L_2L_3}{h}\frac{e}{h}(eE_1L_1) .
+  \]
+  除以三维截面积 $L_1L_2L_3$，得
+  \[
+    \boxed{J_4^H=\frac{e^3}{h^2}B_1E_1} .
+  \]
+
+  \item 六维时可以沿 $x_1$ 方向施加电场 $E_1$，并在两个互相独立的二维平面中施加磁场，例如 $B_{23}$ 穿过 $x_2x_3$ 平面，$B_{45}$ 穿过 $x_4x_5$ 平面。两个磁场分别提供 Landau 简并度，沿 $x_6$ 方向的手征通道电流满足量纲关系
+  \[
+    I_6\sim
+    \left(\frac{eB_{23}L_2L_3}{h}\right)
+    \left(\frac{eB_{45}L_4L_5}{h}\right)
+    \frac{e}{h}(eE_1L_1) .
+  \]
+  因而
+  \[
+    \boxed{J_6^H\sim\frac{e^4}{h^3}E_1B_{23}B_{45}} ,
+  \]
+  整体符号由手征性取向决定。
+\end{enumerate}
+\end{solution}
+\end{question}

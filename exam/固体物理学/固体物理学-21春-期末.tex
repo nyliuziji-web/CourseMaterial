@@ -1,0 +1,322 @@
+\heading{固体物理学-21春-期末}
+\noteinfo{英文班期末考试，授课教师：陈剑豪、刘雄军。原件为回忆整理版，部分考场提示未收录；题面已删去不影响理解的残句；现有解答为依据题面整理并重新推导的参考答案。}
+
+\begin{question}
+\begin{enumerate}
+  \item 写出一维量子谐振子的能级，求其热容，并讨论高温极限，与 Dulong--Petit 定律比较。
+  \item 在上一问基础上，给出 Einstein 模型对原子晶体热容的描述。
+  \item 给出 Debye 模型对晶体热容的描述。什么是 Debye $T^3$ 定律？为什么铜在低温下的热容不严格服从该定律？写出低温热容的相应修正。
+\end{enumerate}
+
+
+\begin{solution}
+一维量子谐振子的能级为
+\[
+ \boxed{E_n=\hbar\omega\left(n+\frac12\right),\qquad n=0,1,2,\ldots}
+\]
+配分函数
+\[
+ Z=\sum_{n=0}^\infty\ee^{-\beta E_n}
+ =\frac{\ee^{-\beta\hbar\omega/2}}{1-\ee^{-\beta\hbar\omega}}.
+\]
+由 $U=-\partial\ln Z/\partial\beta$，
+\[
+ U=\frac{\hbar\omega}{2}+
+ \frac{\hbar\omega}{\ee^{\beta\hbar\omega}-1}.
+\]
+令 $x=\hbar\omega/(k_BT)$，热容为
+\[
+ \boxed{C=k_Bx^2\frac{\ee^x}{(\ee^x-1)^2}.}
+\]
+高温 $x\ll1$ 时 $C\to k_B$，即每个一维振动自由度由动能和势能各贡献 $k_B/2$。
+
+Einstein 模型把含 $N$ 个原子的晶体看成 $3N$ 个同频率振子，$\theta_E=\hbar\omega_E/k_B$：
+\[
+ \boxed{C_V^E=3Nk_B\left(\frac{\theta_E}{T}\right)^2
+ \frac{\ee^{\theta_E/T}}{(\ee^{\theta_E/T}-1)^2}.}
+\]
+在 $T\gg\theta_E$ 时
+$C_V^E\to3Nk_B$，即 Dulong--Petit 定律；低温时则指数衰减。
+
+Debye 模型保留三条长波声学支，取 $\omega=v_sq$，并用截止频率保证总模数为 $3N$：
+\[
+ \boxed{C_V^D=9Nk_B\left(\frac{T}{\theta_D}\right)^3
+ \int_0^{\theta_D/T}\frac{x^4\ee^x}{(\ee^x-1)^2}\,\dd x.}
+\]
+低温上限可延至无穷，利用
+$\int_0^\infty x^4\ee^x/(\ee^x-1)^2\dd x=4\pi^4/15$，得到
+\[
+ \boxed{C_V^{\rm ph}=\frac{12\pi^4}{5}Nk_B
+ \left(\frac{T}{\theta_D}\right)^3,}
+\]
+这就是 Debye $T^3$ 定律。
+
+铜是金属，除声子外，费米面附近的电子也能被低温激发。Sommerfeld 展开给出电子热容
+\[
+ C_V^e=\gamma T,
+ \qquad
+ \gamma=\frac{\pi^2}{3}k_B^2D(E_F).
+\]
+因此铜的低温热容应写成
+\[
+ \boxed{C_V=\gamma T+\beta T^3,\qquad
+ \beta=\frac{12\pi^4}{5}\frac{Nk_B}{\theta_D^3}.}
+\]
+实验上常画 $C_V/T$ 对 $T^2$，截距为 $\gamma$、斜率为 $\beta$。
+\end{solution}
+\end{question}
+
+\begin{question}
+\begin{enumerate}
+  \item 写出 Boltzmann 方程。
+  \item 引入碰撞概率 $\Theta(\vb k',\vb k)$，利用细致平衡原理写出碰撞项 $S$。
+  \item 在半经典输运框架下推导 Wiedemann--Franz 定律。
+\end{enumerate}
+
+
+\begin{solution}
+半经典分布函数 $f(\vb r,\vb k,t)$ 满足
+\[
+ \boxed{\frac{\partial f}{\partial t}
+ +\dot{\vb r}\cdot\grad_{\vb r}f
+ +\dot{\vb k}\cdot\grad_{\vb k}f
+ =\left(\frac{\partial f}{\partial t}\right)_{\rm coll}.}
+\]
+其中
+$\dot{\vb r}=\vb v_{n\vb k}=\hbar^{-1}\grad_{\vb k}\varepsilon_{n\vb k}$，
+$\hbar\dot{\vb k}=-e(\vb E+\vb v\times\vb B)$。
+
+若 $\Theta(\vb k',\vb k)$ 表示单位时间从 $\vb k$ 跃迁到 $\vb k'$ 的概率，费米子碰撞项为“流入减流出”：
+\[
+\begin{aligned}
+ S_{\vb k}={}&\sum_{\vb k'}\Big[
+ \Theta(\vb k,\vb k')f_{\vb k'}(1-f_{\vb k})\\
+ &\hspace{4.5em}-\Theta(\vb k',\vb k)f_{\vb k}(1-f_{\vb k'})\Big].
+\end{aligned}
+\]
+热平衡要求 $S_{\vb k}=0$。细致平衡写为
+\[
+ \Theta(\vb k,\vb k')f^0_{\vb k'}(1-f^0_{\vb k})
+ =\Theta(\vb k',\vb k)f^0_{\vb k}(1-f^0_{\vb k'}).
+\]
+对弹性、时间反演对称的散射常有
+$\Theta(\vb k,\vb k')=\Theta(\vb k',\vb k)$。
+
+下面推导 Wiedemann--Franz 定律。在线性响应和弛豫时间近似下，
+\[
+ \delta f=-\tau\vb v\cdot
+ \left[-e\vb E-\frac{\varepsilon-\mu}{T}\grad T\right]
+ \left(-\frac{\partial f^0}{\partial\varepsilon}\right).
+\]
+定义输运积分
+\[
+ L_n=\frac13\int\dd\varepsilon\,D(\varepsilon)v^2(\varepsilon)
+ \tau(\varepsilon)(\varepsilon-\mu)^n
+ \left(-\frac{\partial f^0}{\partial\varepsilon}\right).
+\]
+电流和热流为
+\[
+ \vb j=e^2L_0\vb E+\frac{eL_1}{T}\grad T,
+ \qquad
+ \vb j_Q=-eL_1\vb E-\frac{L_2}{T}\grad T.
+\]
+开路测热导时令 $\vb j=0$，故
+\[
+ \sigma=e^2L_0,
+ \qquad
+ \kappa=\frac1T\left(L_2-\frac{L_1^2}{L_0}\right).
+\]
+低温下 $-\partial f^0/\partial\varepsilon$ 只选取费米面附近。若
+$D v^2\tau$ 在 $k_BT$ 尺度内缓变，Sommerfeld 展开给出
+\[
+ L_1=O(T^2),\qquad
+ L_2=\frac{\pi^2}{3}(k_BT)^2L_0+O(T^4).
+\]
+保留最低阶，
+\[
+ \kappa=\frac{\pi^2}{3}k_B^2TL_0,
+ \]
+从而
+\[
+ \boxed{\frac{\kappa}{\sigma T}=L_0^{\rm Lorenz}
+ =\frac{\pi^2}{3}\left(\frac{k_B}{e}\right)^2.}
+\]
+该结果成立的关键是电、热流由同一批简并电子承担，且散射在费米面附近近似弹性并具有平滑的能量依赖。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑 Heisenberg 铁磁模型
+\[
+ H=-\frac12\sum_{\vb R_l\ne\vb R_n}
+ J_{\vb R_l,\vb R_n}\,\vb S(\vb R_l)\cdot\vb S(\vb R_n),
+\]
+并引入平均场
+\[
+ H_{\mathrm{eff}}=H+\lambda M,
+ \qquad
+ \lambda=\frac{V}{N(g\mu_{\mathrm B})^2}\sum_{\vb R}J(\vb R)
+ \equiv\frac{VJ_0}{N(g\mu_{\mathrm B})^2}.
+\]
+平均场自洽方程为
+\[
+ M=\frac NV g\mu_{\mathrm B}S
+ \left[
+ \frac{2S+1}{2S}\coth\left(\frac{2S+1}{2S}\frac{g\mu_{\mathrm B}S\lambda M}{k_{\mathrm B}T}\right)
+ -\frac1{2S}\coth\left(\frac1{2S}\frac{g\mu_{\mathrm B}S\lambda M}{k_{\mathrm B}T}\right)
+ \right].
+\]
+\begin{enumerate}
+  \item 证明当 $x\ll1$ 时，$\coth x\approx x^{-1}+x/3$。
+  \item 求临界温度 $T_c$。
+  \item 加入沿 $z$ 方向的外磁场 $H$，仍保留到一阶，求磁化强度与磁化率。
+  \item 若仅考虑最近邻交换相互作用，其强度记为 $J_1$，求 $T=2T_c$ 时的磁化率。
+\end{enumerate}
+
+
+\begin{solution}
+先展开双曲余切。由
+\[
+ \sinh x=x+\frac{x^3}{6}+O(x^5),\qquad
+ \cosh x=1+\frac{x^2}{2}+O(x^4),
+\]
+有
+\[
+ \coth x=\frac{\cosh x}{\sinh x}
+ =\frac1x\frac{1+x^2/2+O(x^4)}{1+x^2/6+O(x^4)}
+ =\frac1x\left(1+\frac{x^2}{3}+O(x^4)\right).
+\]
+因此
+\[
+ \boxed{\coth x=\frac1x+\frac x3+O(x^3).}
+\]
+
+题给中括号是 Brillouin 函数 $B_S(y)$，小参数时
+\[
+ B_S(y)=\frac{S+1}{3S}y+O(y^3).
+\]
+加入外场后有效场为 $H+\lambda M$，故
+\[
+ M=\frac NVg\mu_BS\,B_S\left(
+ \frac{g\mu_BS(H+\lambda M)}{k_BT}\right).
+\]
+线性化：
+\[
+ M=\frac{N(g\mu_B)^2S(S+1)}{3Vk_BT}(H+\lambda M)
+ \equiv\frac CT(H+\lambda M),
+\]
+其中
+\[
+ C=\frac{N(g\mu_B)^2S(S+1)}{3Vk_B}.
+\]
+无外场时非零解出现的条件为 $1=C\lambda/T$，所以
+\[
+ T_c=C\lambda
+ =\frac{S(S+1)}{3k_B}J_0,
+\]
+即
+\[
+ \boxed{k_BT_c=\frac13S(S+1)J_0.}
+\]
+
+在 $T>T_c$ 且外场较弱时，
+\[
+ M\left(1-\frac{C\lambda}{T}\right)=\frac CT H,
+\]
+于是
+\[
+ \boxed{M=\frac{C}{T-T_c}H,
+ \qquad \chi=\frac MH=\frac{C}{T-T_c}.}
+\]
+这就是 Curie--Weiss 定律。若采用 SI 中 $B=\mu_0(H+M)$ 的约定，磁化率表达式会整体带相应的 $\mu_0$；题给平均场定义中未写该因子，故沿用其约定。
+
+若仅有最近邻交换且配位数为 $z$，则
+$J_0=\sum_{\vb R}J(\vb R)=zJ_1$。在 $T=2T_c$，
+\[
+ \chi(2T_c)=\frac{C}{T_c}=\frac1\lambda
+ =\boxed{\frac{N(g\mu_B)^2}{VzJ_1}.}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+本题沿用课件中的 Cooper instability 推导框架。
+\begin{enumerate}
+  \item 简要说明为什么三重态空间波函数不能形成题设中的束缚态。
+  \item 对以相对坐标和质心坐标表示的两电子 Schrödinger 方程作变量分离。
+  \item 在题设近似下推导
+  \[
+  1=\frac12N(0)g\int_0^{2\hbar\omega_c}\frac{\dd\xi}{\xi+2\Delta}.
+  \]
+  \item 证明
+  \[
+  \Delta=\hbar\omega_c\exp\left[-\frac{2}{N(0)g}\right].
+  \]
+\end{enumerate}
+
+
+\begin{solution}
+题设采用各向同性、只在费米面上方一薄层内作用的常数吸引势。三重态自旋波函数对粒子交换是对称的，因此总费米波函数要求空间部分反对称：
+\[
+ \psi_t(\vb r_1,\vb r_2)=-\psi_t(\vb r_2,\vb r_1).
+\]
+在相对坐标中即 $\psi_t(-\vb r)=-\psi_t(\vb r)$，最低允许角动量为奇数。题设常数势只耦合各向同性 $s$ 波分量；奇宇称波函数在角向平均后为零，不能获得该 $s$ 波吸引的能量降低，因此此近似下不形成所讨论的束缚态。
+
+定义质心和相对坐标
+\[
+ \vb R=\frac{\vb r_1+\vb r_2}{2},\qquad
+ \vb r=\vb r_1-\vb r_2.
+\]
+相应梯度满足
+\[
+ \nabla_1=\frac12\nabla_R+\nabla_r,
+ \qquad
+ \nabla_2=\frac12\nabla_R-\nabla_r,
+\]
+所以
+\[
+ -\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)
+ =-\frac{\hbar^2}{4m}\nabla_R^2-
+ \frac{\hbar^2}{m}\nabla_r^2.
+\]
+令
+$\Psi(\vb R,\vb r)=\ee^{\ii\vb K\cdot\vb R}\psi(\vb r)$，则质心能量为 $\hbar^2K^2/(4m)$，相对运动满足
+\[
+ \left[-\frac{\hbar^2}{m}\nabla_r^2+V(\vb r)\right]\psi
+ =E_{\rm rel}\psi.
+\]
+Cooper 对通常取总动量 $\vb K=0$，即两电子波矢为 $\vb k$ 与 $-\vb k$。
+
+把相对波函数展开为
+$\psi=\sum_{\vb k}a_{\vb k}\ee^{\ii\vb k\cdot\vb r}$。在费米海之上的相互作用壳层内，常数吸引矩阵元记为 $-g/V$，动量空间方程为
+\[
+ (2\xi_{\vb k}+2\Delta)a_{\vb k}
+ =\frac gV\sum_{\vb k'}a_{\vb k'},
+\]
+其中束缚态能量相对 $2E_F$ 降低 $2\Delta$，$\xi_{\vb k}\ge0$。记右端常数为 $C_0$，则
+\[
+ a_{\vb k}=\frac{C_0}{2(\xi_{\vb k}+\Delta)}.
+\]
+将其代回定义并把求和化为态密度积分；按题设的 $\xi$ 与 $\Delta$ 记号整理，得到
+\[
+ \boxed{1=\frac12N(0)g
+ \int_0^{2\hbar\omega_c}\frac{\dd\xi}{\xi+2\Delta}.}
+\]
+积分为
+\[
+ 1=\frac12N(0)g
+ \ln\frac{2\hbar\omega_c+2\Delta}{2\Delta}.
+\]
+弱耦合下 $\Delta\ll\hbar\omega_c$，故
+\[
+ \frac{2}{N(0)g}
+ \simeq\ln\frac{\hbar\omega_c}{\Delta}.
+\]
+指数化即得
+\[
+ \boxed{\Delta=\hbar\omega_c
+ \exp\left[-\frac{2}{N(0)g}\right].}
+\]
+结果表明：只要费米面附近存在任意弱的吸引 $g>0$，正常费米海对成对就不稳定，这就是 Cooper instability。
+\end{solution}
+\end{question}

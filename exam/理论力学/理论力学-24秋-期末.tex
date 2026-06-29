@@ -1,0 +1,113 @@
+\heading{理论力学-24秋-期末}
+
+\begin{question}[阻尼振子与 Hamilton--Jacobi 方程]
+设系统的拉格朗日函数为
+\[
+  L(q,\dot q,t)=\ee^{\lambda t/m}
+  \left(\frac12m\dot q^2-\frac12m\omega_0^2q^2\right),
+  \qquad \lambda,m,\omega_0>0.
+\]
+\begin{enumerate}
+  \item 写出相应的哈密顿函数 $H(q,p,t)$。对于第二类生成函数
+  \[
+    F_2(q,P,t)=\ee^{\lambda t/(2m)}qP,
+  \]
+  求对应正则变换后的正则变量 $Q,P$（用 $q,p,t$ 表示），以及新的哈密顿函数 $K(Q,P,t)$；
+  \item 对新的哈密顿函数，利用 Hamilton--Jacobi 方程求哈密顿主函数 $S$，并由此写出 $Q,P$ 在运动中满足的关系式；
+  \item 讨论当参数 $\lambda,m,\omega_0$ 不同时，原始运动问题的三类解 $q(t)$。
+\end{enumerate}
+
+试卷上给出的积分公式（$A,B>0$）为
+\[
+  \int\frac{\dd x}{\sqrt{A+Bx^2}}
+  =\frac{1}{\sqrt{B}}\operatorname{arcsinh}\left(\sqrt{\frac{B}{A}}x\right)+C,
+\]
+\[
+  \int\frac{\dd x}{\sqrt{A-Bx^2}}
+  =\frac{1}{\sqrt{B}}\arcsin\left(\sqrt{\frac{B}{A}}x\right)+C.
+\]
+
+\begin{solution}
+正则动量为
+\[
+  p=\frac{\partial L}{\partial\dot q}=m\ee^{\lambda t/m}\dot q,
+  \qquad
+  \dot q=\frac{p}{m}\ee^{-\lambda t/m}.
+\]
+因此原哈密顿量为
+\[
+  H(q,p,t)=p\dot q-L
+  =\frac{p^2}{2m}\ee^{-\lambda t/m}
+  +\frac12m\omega_0^2q^2\ee^{\lambda t/m}.
+\]
+由第二类生成函数
+\[
+  F_2(q,P,t)=\ee^{\lambda t/(2m)}qP
+\]
+得
+\[
+  Q=\frac{\partial F_2}{\partial P}=\ee^{\lambda t/(2m)}q,
+  \qquad
+  p=\frac{\partial F_2}{\partial q}=\ee^{\lambda t/(2m)}P.
+\]
+新哈密顿量为
+\[
+  K=H+\frac{\partial F_2}{\partial t}
+  =\frac{P^2}{2m}+\frac12m\omega_0^2Q^2+\frac{\lambda}{2m}QP.
+\]
+配方可写为
+\[
+  K=\frac{1}{2m}\left(P+\frac\lambda2Q\right)^2
+  +\frac12m\left(\omega_0^2-\frac{\lambda^2}{4m^2}\right)Q^2.
+\]
+令
+\[
+  \gamma=\frac{\lambda}{2m},
+  \qquad
+  \Omega^2=\omega_0^2-\gamma^2.
+\]
+Hamilton--Jacobi 方程取分离形式 $S=W(Q,E)-Et$，则
+\[
+  \frac{1}{2m}\left(\frac{\partial W}{\partial Q}\right)^2
+  +\frac{\lambda}{2m}Q\frac{\partial W}{\partial Q}
+  +\frac12m\omega_0^2Q^2=E.
+\]
+解得
+\[
+  \frac{\partial W}{\partial Q}
+  =-\frac\lambda2Q\pm\sqrt{2mE-m^2\Omega^2Q^2},
+\]
+从而
+\ansmath{S(Q,E,t)=-Et-\frac\lambda4Q^2
+  \pm\int^Q\sqrt{2mE-m^2\Omega^2u^2}\,\dd u.}
+当 $\Omega^2$ 为正、零、负时，上式中的积分分别化为反正弦型、幂函数型、反双曲正弦型。
+
+原变量 $q$ 直接满足
+\[
+  \ddot q+\frac{\lambda}{m}\dot q+\omega_0^2q=0.
+\]
+因此三类解为：
+\begin{enumerate}
+  \item 欠阻尼 $\omega_0^2>\lambda^2/(4m^2)$：
+  \ansmath{q(t)=\ee^{-\lambda t/(2m)}
+    \left(C_1\cos\Omega t+C_2\sin\Omega t\right),
+    \quad
+    \Omega=\sqrt{\omega_0^2-\frac{\lambda^2}{4m^2}}.}
+  \item 临界阻尼 $\omega_0^2=\lambda^2/(4m^2)$：
+  \ansmath{q(t)=\ee^{-\lambda t/(2m)}(C_1+C_2t).}
+  \item 过阻尼 $\omega_0^2<\lambda^2/(4m^2)$：令
+  \[
+    \kappa=\sqrt{\frac{\lambda^2}{4m^2}-\omega_0^2},
+  \]
+  则
+  \ansmath{q(t)=\ee^{-\lambda t/(2m)}
+    \left(C_1\ee^{\kappa t}+C_2\ee^{-\kappa t}\right).}
+\end{enumerate}
+正则动量由
+\[
+  p=m\ee^{\lambda t/m}\dot q
+\]
+求得。
+\end{solution}
+
+\end{question}

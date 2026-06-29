@@ -1,0 +1,345 @@
+
+\heading{电动力学-20秋-期末}
+
+\begin{question}[规范变换、洛伦兹性质与时空反演]
+\begin{enumerate}
+  \item 什么是规范变换？
+  \item 检验 $F^{\mu\nu}$ 和 $A_\mu j^\mu$ 是否规范不变。
+  \item 检验 $A_\mu j^\mu$ 是否 Lorentz 不变。
+  \item 检验 Maxwell 方程在空间反演和时间反演下是否不变。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 规范变换是不改变电磁场 $\mathbf E,\mathbf B$ 的势函数变换。在三维记号中可写为
+  \[
+    \mathbf A' = \mathbf A + \nabla \chi,\qquad
+    \varphi' = \varphi - \frac{\partial \chi}{\partial t},
+  \]
+  四维形式为
+  \[
+    A_\mu' = A_\mu + \partial_\mu \chi .
+  \]
+  关键点是势函数本身不是唯一的，物理场
+  \[
+    \mathbf B = \nabla \times \mathbf A,
+    \qquad
+    \mathbf E = -\nabla \varphi - \frac{\partial \mathbf A}{\partial t}
+  \]
+  才是可观测量。
+
+  \item 场张量
+  \[
+    F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu
+  \]
+  在规范变换下变为
+  \[
+  \begin{aligned}
+    F'_{\mu\nu}
+    &= \partial_\mu(A_\nu+\partial_\nu\chi)-\partial_\nu(A_\mu+\partial_\mu\chi) \\
+    &= F_{\mu\nu}+\partial_\mu\partial_\nu\chi-\partial_\nu\partial_\mu\chi
+     =F_{\mu\nu} .
+  \end{aligned}
+  \]
+  因此 $F_{\mu\nu}$ 是规范不变的。相互作用密度 $A_\mu j^\mu$ 的点值一般不规范不变，因为
+  \[
+    A'_\mu j^\mu=A_\mu j^\mu+j^\mu\partial_\mu\chi .
+  \]
+  但是作用量中的变化量为
+  \[
+    \int j^\mu\partial_\mu\chi\,\mathrm d^4x
+    =\int \partial_\mu(j^\mu\chi)\,\mathrm d^4x
+     -\int \chi\,\partial_\mu j^\mu\,\mathrm d^4x .
+  \]
+  若电荷守恒 $\partial_\mu j^\mu=0$ 且边界项可忽略，则相互作用作用量规范不变。
+
+  \item 若 $A_\mu$ 是协变四矢量，$j^\mu$ 是逆变四矢量，则
+  \[
+    A'_\mu j'^{\mu}
+    =\Lambda_\mu{}^\nu A_\nu\,\Lambda^\mu{}_{\rho}j^\rho
+    =\delta^\nu{}_{\rho}A_\nu j^\rho
+    =A_\mu j^\mu .
+  \]
+  因而 $A_\mu j^\mu$ 是 Lorentz 标量。这里的“不变”指 Lorentz 变换下的标量不变，不等同于上一问中的规范不变。
+
+  \item 在空间反演 $\mathcal P$ 下取
+  \[
+    \mathbf r\to-\mathbf r,\\quad
+    \mathbf E\to-\mathbf E,
+    \quad \mathbf B\to\mathbf B,
+    \quad \rho\to\rho,
+    \quad \mathbf j\to-\mathbf j,
+    \quad \nabla\to-\nabla .
+  \]
+  代入
+  \[
+  \begin{gathered}
+    \nabla\cdot\mathbf E=\rho/\varepsilon_0,
+    \quad \nabla\cdot\mathbf B=0,\\
+    \nabla\times\mathbf E=-\partial_t\mathbf B,
+    \quad \nabla\times\mathbf B=\mu_0\mathbf j+\frac{1}{c^2}\partial_t\mathbf E
+  \end{gathered}
+  \]
+  可见每一式两边同时按相同方式变换，所以方程组形式不变。在时间反演 $\mathcal T$ 下取
+  \[
+    t\to-t,
+    \quad \mathbf E\to\mathbf E,
+    \quad \mathbf B\to-\mathbf B,
+    \quad \rho\to\rho,
+    \quad \mathbf j\to-\mathbf j,
+    \quad \partial_t\to-\partial_t,
+  \]
+  同样可逐项验证 Maxwell 方程形式不变。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[电磁波的横波性与偏振基]
+\begin{enumerate}
+  \item 解释电磁波的横波性。
+  \item 将单色平面电磁波用线偏振基和圆偏振基展开，并给出展开系数之间的关系。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 设真空中的单色平面波为
+  \[
+    \mathbf E=\mathbf E_0\mathrm e^{\mathrm i(\mathbf k\cdot\mathbf r-\omega t)},
+    \qquad
+    \mathbf B=\mathbf B_0\mathrm e^{\mathrm i(\mathbf k\cdot\mathbf r-\omega t)} .
+  \]
+  无源 Maxwell 方程给出
+  \[
+    \mathbf k\cdot\mathbf E_0=0,
+    \qquad
+    \mathbf k\cdot\mathbf B_0=0,
+    \qquad
+    \mathbf B_0=\frac{1}{\omega}\mathbf k\times\mathbf E_0 .
+  \]
+  因而 $\mathbf E$ 和 $\mathbf B$ 都垂直于传播方向 $\mathbf k$，且三者构成右手关系。所谓横波性就是电场和磁场没有沿传播方向的分量。
+
+  \item 取 $\hat{\mathbf e}_1,\hat{\mathbf e}_2$ 为垂直于 $\mathbf k$ 的两个正交线偏振基，定义圆偏振基
+  \[
+    \hat{\mathbf e}_+=\frac{\hat{\mathbf e}_1+\mathrm i\hat{\mathbf e}_2}{\sqrt2},
+    \qquad
+    \hat{\mathbf e}_-=\frac{\hat{\mathbf e}_1-\mathrm i\hat{\mathbf e}_2}{\sqrt2} .
+  \]
+  若
+  \[
+    \mathbf E_0=E_1\hat{\mathbf e}_1+E_2\hat{\mathbf e}_2
+    =E_+\hat{\mathbf e}_+ + E_-\hat{\mathbf e}_- ,
+  \]
+  则由基矢反解
+  \[
+    \hat{\mathbf e}_1=\frac{\hat{\mathbf e}_++\hat{\mathbf e}_-}{\sqrt2},
+    \qquad
+    \hat{\mathbf e}_2=\frac{\hat{\mathbf e}_+-\hat{\mathbf e}_-}{\sqrt2\,\mathrm i}
+  \]
+  得
+  \[
+    E_+=\frac{E_1-\mathrm iE_2}{\sqrt2},
+    \qquad
+    E_-=\frac{E_1+\mathrm iE_2}{\sqrt2} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[推迟势]
+\begin{enumerate}
+  \item 验证推迟势满足 Lorenz 规范条件。
+  \item 解释推迟势的物理意义。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 在 SI 制中，推迟势可写为
+  \[
+    \varphi(\mathbf r,t)=\frac{1}{4\pi\varepsilon_0}\int
+    \frac{\rho(\mathbf r',t_r)}{|\mathbf r-\mathbf r'|}\,\mathrm d^3r',
+    \qquad
+    \mathbf A(\mathbf r,t)=\frac{\mu_0}{4\pi}\int
+    \frac{\mathbf j(\mathbf r',t_r)}{|\mathbf r-\mathbf r'|}\,\mathrm d^3r',
+  \]
+  其中
+  \[
+    t_r=t-\frac{|\mathbf r-\mathbf r'|}{c} .
+  \]
+  更简洁的验证方法是使用推迟 Green 函数。四维势满足
+  \[
+    A^\mu(x)=\mu_0\int G_{\rm ret}(x-x')j^\mu(x')\,\mathrm d^4x' .
+  \]
+  因而
+  \[
+  \begin{aligned}
+    \partial_\mu A^\mu(x)
+    &=\mu_0\int \partial_\mu G_{\rm ret}(x-x')j^\mu(x')\,\mathrm d^4x' \\
+    &=-\mu_0\int \partial'_\mu G_{\rm ret}(x-x')j^\mu(x')\,\mathrm d^4x' \\
+    &=\mu_0\int G_{\rm ret}(x-x')\partial'_\mu j^\mu(x')\,\mathrm d^4x' .
+  \end{aligned}
+  \]
+  最后一步已经略去边界项。由连续性方程 $\partial_\mu j^\mu=0$，得到
+  \[
+    \partial_\mu A^\mu=0,
+  \]
+  即三维形式
+  \[
+    \nabla\cdot\mathbf A+\frac{1}{c^2}\frac{\partial\varphi}{\partial t}=0 .
+  \]
+
+  \item 推迟势表示观察点 $(\mathbf r,t)$ 的电磁作用来自源点 $\mathbf r'$ 在较早时刻 $t_r$ 的状态，其中 $t-t_r=|\mathbf r-\mathbf r'|/c$。这体现了电磁相互作用以有限速度 $c$ 传播，而不是瞬时超距作用。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[匀速旋转电偶极子的辐射]
+电偶极矩 $\mathbf p$ 以角速度 $\boldsymbol\omega$ 旋转，且 $\boldsymbol\omega\cdot\mathbf p=0$。求辐射场 $\mathbf E,\mathbf B$，辐射能流密度 $\mathbf S$ 与总辐射功率 $P$。
+\begin{solution}
+取 $\boldsymbol\omega=\omega\hat{\mathbf z}$，令
+\[
+  \mathbf p(t)=p_0(\cos\omega t\,\hat{\mathbf x}+\sin\omega t\,\hat{\mathbf y}) .
+\]
+辐射区电偶极场为
+\[
+  \mathbf E_{\rm rad}(\mathbf r,t)
+  =\frac{1}{4\pi\varepsilon_0c^2r}
+  \hat{\mathbf r}\times\bigl(\hat{\mathbf r}\times\ddot{\mathbf p}(t_r)\bigr),
+  \qquad
+  \mathbf B_{\rm rad}=\frac{1}{c}\hat{\mathbf r}\times\mathbf E_{\rm rad},
+\]
+其中 $t_r=t-r/c$。因为 $\ddot{\mathbf p}=-\omega^2\mathbf p$，所以
+\[
+  \mathbf E_{\rm rad}
+  =-\frac{\omega^2}{4\pi\varepsilon_0c^2r}
+  \hat{\mathbf r}\times\bigl(\hat{\mathbf r}\times\mathbf p(t_r)\bigr),
+  \qquad
+  \mathbf B_{\rm rad}=\frac{1}{c}\hat{\mathbf r}\times\mathbf E_{\rm rad} .
+\]
+瞬时能流密度为
+\[
+  \mathbf S=\frac{1}{\mu_0}\mathbf E_{\rm rad}\times\mathbf B_{\rm rad}
+  =\frac{|\hat{\mathbf r}\times\ddot{\mathbf p}(t_r)|^2}{16\pi^2\varepsilon_0c^3r^2}\hat{\mathbf r} .
+\]
+若 $\theta$ 为 $\hat{\mathbf r}$ 与 $\hat{\mathbf z}$ 的夹角，则
+\[
+  \left\langle |\hat{\mathbf r}\times\ddot{\mathbf p}|^2\right\rangle
+  =\frac{\omega^4p_0^2}{2}(1+\cos^2\theta) .
+\]
+因此
+\[
+  \left\langle \frac{\mathrm dP}{\mathrm d\Omega}\right\rangle
+  =\frac{\omega^4p_0^2}{32\pi^2\varepsilon_0c^3}(1+\cos^2\theta),
+  \qquad
+  \langle \mathbf S\rangle
+  =\frac{1}{r^2}\left\langle\frac{\mathrm dP}{\mathrm d\Omega}\right\rangle\hat{\mathbf r} .
+\]
+积分 $\int(1+\cos^2\theta)\,\mathrm d\Omega=16\pi/3$，得到
+\[
+  \boxed{\langle P\rangle=\frac{\omega^4p_0^2}{6\pi\varepsilon_0c^3}} .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[极端相对论电子与光子的正碰]
+极端相对论性电子和光子正碰。电子初始能量为 $E_e=\gamma mc^2$，光子初始能量为 $E_0$。若散射光子与电子初始运动方向夹角为 $\theta$，求散射后光子能量 $E'$，并给出 $E'$ 取最大值时的 $\theta$ 及最大值。
+\begin{solution}
+取电子初始沿 $+z$ 方向运动，初始光子沿 $-z$ 方向运动。令 $\beta=v/c$，则四动量守恒给出
+\[
+  p_e+k_0=p_e'+k' .
+\]
+两边平方并利用 $p_e'^2=p_e^2=m^2c^2$ 与 $k_0^2=k'^2=0$，有
+\[
+  p_e\cdot k_0=p_e\cdot k'+k_0\cdot k' .
+\]
+逐项写出
+\[
+  p_e\cdot k_0=\gamma mE_0(1+\beta),
+\]
+\[
+  p_e\cdot k'=\gamma mE'(1-\beta\cos\theta),
+  \qquad
+  k_0\cdot k'=\frac{E_0E'}{c^2}(1+\cos\theta) .
+\]
+因此
+\[
+  \gamma mE_0(1+\beta)
+  =\gamma mE'(1-\beta\cos\theta)+\frac{E_0E'}{c^2}(1+\cos\theta) .
+\]
+用 $E_e=\gamma mc^2$ 化简得
+\[
+  \boxed{
+  E'=\frac{E_0(1+\beta)}{1-\beta\cos\theta+\dfrac{E_0}{E_e}(1+\cos\theta)} } .
+\]
+分母是 $\cos\theta$ 的线性函数。逆 Compton 散射通常满足 $E_0/E_e<\beta$，此时分母在 $\theta=0$ 时最小，散射光子能量最大：
+\[
+  E'_{\max}=\frac{E_0(1+\beta)}{1-\beta+2E_0/E_e} .
+\]
+极端相对论近似 $\beta\simeq1-1/(2\gamma^2)$ 下，
+\[
+  \boxed{E'_{\max}\simeq
+  \frac{4\gamma^2E_0}{1+4\gamma E_0/(mc^2)}} .
+\]
+在 $4\gamma E_0\ll mc^2$ 的极限下，$E'_{\max}\simeq4\gamma^2E_0$。
+\end{solution}
+\end{question}
+
+\begin{question}[带电粒子的相对论 Hamilton 量]
+电磁场中带电粒子的相对论 Hamilton 量为
+\[
+  H=\sqrt{c^2(\mathbf P-q\mathbf A)^2+m^2c^4}+q\varphi .
+\]
+\begin{enumerate}
+  \item 求非相对论 Hamilton 量。
+  \item 利用正则方程推出相对论和非相对论运动方程。
+\end{enumerate}
+\begin{solution}
+令
+\[
+  \boldsymbol\pi=\mathbf P-q\mathbf A
+\]
+为机械动量。相对论 Hamilton 量可写成
+\[
+  H=\sqrt{c^2\boldsymbol\pi^2+m^2c^4}+q\varphi .
+\]
+\begin{enumerate}
+  \item 当 $|\boldsymbol\pi|\ll mc$ 时，
+  \[
+  \begin{aligned}
+    H&=mc^2\sqrt{1+\frac{\boldsymbol\pi^2}{m^2c^2}}+q\varphi \\
+    &\simeq mc^2+\frac{\boldsymbol\pi^2}{2m}+q\varphi .
+  \end{aligned}
+  \]
+  若把静能 $mc^2$ 从 Hamilton 量中减去，则非相对论 Hamilton 量为
+  \[
+    \boxed{H_{\rm nr}=\frac{(\mathbf P-q\mathbf A)^2}{2m}+q\varphi} .
+  \]
+
+  \item 相对论情形下正则方程给出
+  \[
+    \dot{\mathbf r}=\frac{\partial H}{\partial \mathbf P}
+    =\frac{c^2\boldsymbol\pi}{H-q\varphi}
+    =\frac{\boldsymbol\pi}{\gamma m} .
+  \]
+  因而
+  \[
+    \boldsymbol\pi=\gamma m\dot{\mathbf r} .
+  \]
+  另一条正则方程为
+  \[
+    \dot{P}_i=-\frac{\partial H}{\partial x_i} .
+  \]
+  由 $\mathbf P=\boldsymbol\pi+q\mathbf A$ 得
+  \[
+    \frac{\mathrm d\boldsymbol\pi}{\mathrm dt}
+    =\dot{\mathbf P}-q\frac{\mathrm d\mathbf A}{\mathrm dt}
+    =q\left(-\nabla\varphi-\frac{\partial\mathbf A}{\partial t}
+      +\dot{\mathbf r}\times(\nabla\times\mathbf A)\right).
+  \]
+  使用 $\mathbf E=-\nabla\varphi-\partial_t\mathbf A$ 与 $\mathbf B=\nabla\times\mathbf A$，得到相对论 Lorentz 力
+  \[
+    \boxed{\frac{\mathrm d}{\mathrm dt}(\gamma m\mathbf v)=q(\mathbf E+\mathbf v\times\mathbf B)} .
+  \]
+  非相对论极限 $\gamma\to1$ 下即
+  \[
+    \boxed{m\dot{\mathbf v}=q(\mathbf E+\mathbf v\times\mathbf B)} .
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}

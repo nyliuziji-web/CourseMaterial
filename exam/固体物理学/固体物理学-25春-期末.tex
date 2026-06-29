@@ -1,0 +1,403 @@
+\heading{固体物理学-25春-期末}
+\noteinfo{题面依据回忆版 Word 文档精修录入；不影响作答的署名信息已略去；现有解答为依据题面整理并重新推导的参考答案。}
+
+\textbf{一、名词解释（每题 5 分，共 30 分）}
+
+\begin{question}[5 分]
+解释下列概念：原胞、单胞、简单晶格、复式晶格。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{原胞：}由一组原始平移矢量张成的最小平移重复单元，每个原胞恰含一个布拉伐格点，体积为
+  \[
+    \Omega=\abs{\vb a_1\cdot(\vb a_2\times\vb a_3)}.
+  \]
+  \item \textbf{单胞：}能够仅靠平移无缝充满晶体空间的重复单元。为突出对称性，惯用单胞可以大于原胞并含多个布拉伐格点。
+  \item \textbf{简单晶格：}每个布拉伐格点只附着一个原子，晶体结构可直接由一个布拉伐格点阵描述。
+  \item \textbf{复式晶格：}每个布拉伐格点附着由两个或更多原子组成的基元，晶体结构等于“布拉伐格子 $+$ 基元”。基元内原子不必彼此等价。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：正交变换、对称操作、对称素、点群。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{正交变换：}保持任意两矢量内积不变的线性变换 $\vb r'=R\vb r$，满足
+  \[
+    R^{\mathsf T}R=I,\qquad \det R=\pm1.
+  \]
+  $\det R=+1$ 为正常转动，$\det R=-1$ 包含镜映或反演。
+  \item \textbf{对称操作（对称变换）：}作用于物体后使其与原物体不可区分的空间操作，如转动、镜映、反演及其组合。
+  \item \textbf{对称素：}实施对称操作所依托的几何对象，如旋转轴、镜面、反演中心。
+  \item \textbf{点群：}所有至少保持一个空间点不动的对称操作所组成的群。群运算为操作复合，满足封闭性、结合律，并含单位元和逆元。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：布拉伐格子、倒格子、布里渊区。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{布拉伐格子：}由
+  \[
+    \vb R=n_1\vb a_1+n_2\vb a_2+n_3\vb a_3,
+    \qquad n_i\in\mathbb Z
+  \]
+  构成的周期点阵，其中每个格点的环境完全相同。
+  \item \textbf{倒格子：}满足 $\ee^{\ii\vb G\cdot\vb R}=1$ 的全部波矢 $\vb G$ 构成的格子。若
+  \[
+    \vb a_i\cdot\vb b_j=2\pi\delta_{ij},
+  \]
+  则 $\vb G=h_1\vb b_1+h_2\vb b_2+h_3\vb b_3$。
+  \item \textbf{布里渊区：}倒空间中由布拉格面划分出的区域。第一布里渊区是倒格子原点的维格纳--塞茨原胞；第 $n$ 布里渊区是从原点出发恰好穿过 $n-1$ 个布拉格面的区域。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：电离能、电子亲和能、电负性。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{电离能：}从孤立中性原子基态移去一个电子所需的最小能量，
+  \[
+    I=E(N-1)-E(N)>0.
+  \]
+  \item \textbf{电子亲和能：}孤立中性原子俘获一个电子形成负离子时释放的能量，常写为
+  \[
+    A=E(N)-E(N+1).
+  \]
+  \item \textbf{电负性：}原子在化学键中吸引共享电子的相对能力。它不是严格的单原子可观测量，常用 Mulliken 标度
+  \[
+    \chi_{\mathrm M}=\frac{I+A}{2}
+  \]
+  或 Pauling 标度表征。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：简正振动模式、格波、声子。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{简正振动模式：}在谐近似下，所有原子以同一频率振动、各位移间保持固定振幅比和相位差的独立本征模式。不同简正模式彼此解耦。
+  \item \textbf{格波：}简正模式在周期晶格中的行波表示，位移可写为
+  \[
+    \vb u_{l\kappa}(t)=\vb e_{\kappa s}(\vb q)A
+    \ee^{\ii(\vb q\cdot\vb R_l-\omega_s t)}.
+  \]
+  \item \textbf{声子：}量子化格波的能量量子。一个 $(\vb q,s)$ 声子的能量为 $\hbar\omega_s(\vb q)$，晶体准动量为 $\hbar\vb q$（模倒格矢等价）。声子是准粒子，不是实际粒子。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[5 分]
+解释下列概念：频率分布函数、费米分布函数。
+
+
+\begin{solution}
+\begin{enumerate}
+  \item \textbf{频率分布函数：}也称振动态密度 $g(\omega)$，定义为单位频率区间内的简正模式数，$g(\omega)\dd\omega$ 是频率位于 $[\omega,\omega+\dd\omega]$ 的模式数，并满足三维含 $N$ 个原子的晶体中
+  \[
+    \int_0^\infty g(\omega)\,\dd\omega=3N.
+  \]
+  \item \textbf{费米分布函数：}热平衡时能量为 $E$ 的单粒子费米态的平均占据数，
+  \[
+    \boxed{f(E)=\frac1{\exp[(E-\mu)/(k_{\mathrm B}T)]+1}.}
+  \]
+  在 $T=0$ 时它退化为以 $E_F$ 为边界的阶跃函数。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\textbf{二、简答题（共 30 分）}
+
+\begin{question}[10 分]
+晶体结合有哪些主要形式？简述各种结合形式的根源和特点，并说明元素晶体与化合物晶体在结合形式上的一般规律。
+
+
+\begin{solution}
+晶体中常见的结合可归纳为以下五类。
+\begin{enumerate}
+  \item \textbf{离子键：}正、负离子间的长程库仑吸引与短程泡利排斥共同决定平衡距离。结合能大、熔点高、硬而脆；固态通常绝缘，熔融或溶解后可导离子电流。
+  \item \textbf{共价键：}相邻原子共享价电子，成键态占据使能量降低。它具有明显方向性和饱和性，通常结合强、硬度高、导电性取决于能带是否有隙。
+  \item \textbf{金属键：}价电子离域成巡游电子，正离子实与电子海之间的静电作用提供结合。其方向性弱，因而金属一般延展性好，并具有良好电、热导率。
+  \item \textbf{范德瓦耳斯键：}由瞬时或诱导偶极矩之间的关联产生，远距离作用近似为 $-C_6/r^6$。结合较弱，材料熔点低、易压缩，常见于稀有气体晶体和层状材料的层间结合。
+  \item \textbf{氢键：}电负性较强原子上的 H 与另一电负性原子的孤对电子之间形成的定向作用，强度介于普通范德瓦耳斯键和强共价键之间。
+\end{enumerate}
+实际晶体常为混合键。元素晶体中常见金属键、共价键或范德瓦耳斯键；不同元素形成的化合物因电负性差异可呈离子--共价混合，电负性差越大，离子性通常越强。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+下列两题任选一题作答：
+\begin{enumerate}
+  \item 比较近自由电子模型与紧束缚模型的异同。
+  \item 比较 Einstein 模型与 Debye 模型的异同，并说明为什么 Debye 模型在低温极限下是精确的。
+\end{enumerate}
+
+
+\begin{solution}
+两种模型都在单电子周期势框架中求解 Bloch 能带，均满足
+$\psi_{n\vb k}=\ee^{\ii\vb k\cdot\vb r}u_{n\vb k}$，区别在于选取的零级极限不同。
+\begin{enumerate}
+  \item \textbf{近自由电子模型：}以自由电子为零级，假设周期势的 Fourier 分量 $V_{\vb G}$ 较小。远离简并点时作微扰；在布里渊区边界对 $\vb k$ 与 $\vb k-\vb G$ 作简并微扰，得到大小约为 $2\abs{V_{\vb G}}$ 的能隙。适合 $s,p$ 电子较离域、能带较宽的材料。
+  \item \textbf{紧束缚模型：}以彼此隔离的原子轨道为零级，假设轨道重叠和跃迁积分较小。Bloch 态写成原子轨道 Bloch 和，色散由跃迁积分产生，例如一维最近邻模型
+  \[
+    E(k)=\varepsilon_0-2t\cos ka.
+  \]
+  它适合局域性较强、能带较窄的电子。
+\end{enumerate}
+当势很弱时近自由电子描述自然；当势阱很深、轨道局域时紧束缚描述自然。两者不是互斥理论，而是同一周期单电子方程的两个互补极限。
+
+
+
+Einstein 模型把 $3N$ 个振动自由度看作频率相同的独立谐振子 $\omega_E$，故
+\[
+ C_V^{E}=3Nk_{\mathrm B}
+ \left(\frac{\theta_E}{T}\right)^2
+ \frac{\ee^{\theta_E/T}}{(\ee^{\theta_E/T}-1)^2}.
+\]
+它在高温给出 $3Nk_{\mathrm B}$，但低温呈指数衰减，不能描述真实晶体的长波声学模。
+
+Debye 模型把晶体视为弹性连续介质，取三条线性色散声学支
+$\omega=v_s q$，并用截止频率 $\omega_D$ 保证总模数为 $3N$。于是
+\[
+ C_V^{D}=9Nk_{\mathrm B}\left(\frac{T}{\theta_D}\right)^3
+ \int_0^{\theta_D/T}
+ \frac{x^4\ee^x}{(\ee^x-1)^2}\,\dd x.
+\]
+高温同样趋于 $3Nk_{\mathrm B}$；低温只有 $q\simeq0$ 的长波声学模被激发，而连续介质与线性色散在该极限正是精确的，因此
+\[
+ \boxed{C_V^{D}\simeq\frac{12\pi^4}{5}Nk_{\mathrm B}
+ \left(\frac{T}{\theta_D}\right)^3.}
+\]
+在中高温，真实晶体还含光学支、色散非线性和非谐效应，故单一 Debye 温度只能作近似。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+写出晶体的完整哈密顿量，说明布洛赫能带论通过哪些近似将多粒子问题化为单电子问题，并写出每一步所采用的方法及近似后的哈密顿量。
+
+
+\begin{solution}
+设离子核坐标为 $\vb R_I$、质量为 $M_I$、电荷为 $Z_Ie$，电子坐标为 $\vb r_i$，则非相对论完整哈密顿量为
+\[
+\begin{aligned}
+H={}&-\sum_I\frac{\hbar^2}{2M_I}\nabla_I^2
+-\sum_i\frac{\hbar^2}{2m_0}\nabla_i^2
++\frac12\sum_{I\ne J}\frac{Z_IZ_Je^2}{4\pi\varepsilon_0R_{IJ}}\\
+&+\frac12\sum_{i\ne j}\frac{e^2}{4\pi\varepsilon_0r_{ij}}
+-\sum_{iI}\frac{Z_Ie^2}{4\pi\varepsilon_0\abs{\vb r_i-\vb R_I}}.
+\end{aligned}
+\]
+将多体问题化为能带问题通常经历：
+\begin{enumerate}
+  \item \textbf{Born--Oppenheimer（绝热）近似：}因 $M_I\gg m_0$，先固定离子位置求电子本征态。电子哈密顿量为
+  \[
+    H_e=\sum_i\frac{\vb p_i^2}{2m_0}+\sum_iV_{\rm ion}(\vb r_i)
+    +\frac12\sum_{i\ne j}\frac{e^2}{4\pi\varepsilon_0r_{ij}},
+  \]
+  其中固定离子间能量是常数。
+  \item \textbf{单电子或平均场近似：}用 Hartree、Hartree--Fock 或密度泛函有效势代替显式电子--电子相互作用，得到
+  \[
+    H_e\simeq\sum_i h(\vb r_i),\qquad
+    h=\frac{\vb p^2}{2m_0}+V_{\rm eff}(\vb r).
+  \]
+  电子关联被压缩进 $V_{\rm eff}$，多电子波函数由单电子轨道组成。
+  \item \textbf{周期晶格近似：}忽略热振动、缺陷和表面，使
+  \[
+    V_{\rm eff}(\vb r+\vb R)=V_{\rm eff}(\vb r).
+  \]
+  单电子方程
+  \[
+    \left[-\frac{\hbar^2}{2m_0}\nabla^2+V_{\rm eff}(\vb r)\right]
+    \psi_{n\vb k}=E_n(\vb k)\psi_{n\vb k}
+  \]
+  由 Bloch 定理化为每个 $\vb k$ 上的本征值问题。
+\end{enumerate}
+宏观晶体常采用 Born--von Karman 周期边界条件
+$\psi(\vb r+N_i\vb a_i)=\psi(\vb r)$，从而离散化允许的 $\vb k$。
+\end{solution}
+\end{question}
+
+\textbf{三、证明题（共 20 分）}
+
+\begin{question}[10 分]
+设倒格矢
+\[
+ \vb G=h_1\vb b_1+h_2\vb b_2+h_3\vb b_3.
+\]
+\begin{enumerate}
+  \item 证明 $\vb G$ 垂直于密勒指数 $(h_1,h_2,h_3)$ 所代表的晶面族。
+  \item 证明 $\lvert\vb G\rvert$ 与该晶面族晶面间距的倒数成正比，并得到
+  \[
+  d=\frac{2\pi}{\lvert\vb G\rvert}.
+  \]
+\end{enumerate}
+
+
+\begin{solution}
+倒格基矢满足 $\vb a_i\cdot\vb b_j=2\pi\delta_{ij}$。密勒指数
+$(h_1,h_2,h_3)$ 的任一晶面可写成
+\[
+ \vb r=u\vb a_1+v\vb a_2+w\vb a_3,
+ \qquad h_1u+h_2v+h_3w=m,
+\]
+其中相邻平面对应相邻整数 $m$。对
+$\vb G=h_1\vb b_1+h_2\vb b_2+h_3\vb b_3$，有
+\[
+ \vb G\cdot\vb r=2\pi(h_1u+h_2v+h_3w)=2\pi m.
+\]
+因此同一晶面内任意两点 $\vb r_1,\vb r_2$ 满足
+\[
+ \vb G\cdot(\vb r_1-\vb r_2)=0,
+\]
+故 $\vb G$ 垂直于该晶面族。
+
+相邻平面沿单位法向 $\hat{\vb n}=\vb G/\abs{\vb G}$ 相差
+$\vb r_{m+1}-\vb r_m=d\hat{\vb n}$，代入平面方程得
+\[
+ \vb G\cdot(d\hat{\vb n})=d\abs{\vb G}=2\pi.
+\]
+于是
+\[
+ \boxed{d=\frac{2\pi}{\abs{\vb G}}.}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+证明体心立方晶体中由 $s$ 轨道形成的能带可写为
+\[
+ E(\vb k)=\varepsilon_s-J_0-8J_1
+ \cos\frac{k_xa}{2}\cos\frac{k_ya}{2}\cos\frac{k_za}{2}.
+\]
+
+
+\begin{solution}
+取每个格点上的归一化 $s$ 轨道 $\phi_s(\vb r-\vb R)$，Bloch 和为
+\[
+ \psi_{\vb k}(\vb r)=\frac1{\sqrt N}\sum_{\vb R}
+ \ee^{\ii\vb k\cdot\vb R}\phi_s(\vb r-\vb R).
+\]
+在最近邻紧束缚近似中，能量为
+\[
+ E(\vb k)=\varepsilon_s-J_0-
+ \sum_{\boldsymbol\delta}J_1\ee^{\ii\vb k\cdot\boldsymbol\delta},
+\]
+其中 $J_0$ 是同一格点上的晶体势修正，$\boldsymbol\delta$ 遍历最近邻。体心立方每个格点有八个最近邻
+\[
+ \boldsymbol\delta=\frac a2(\sigma_x,\sigma_y,\sigma_z),
+ \qquad \sigma_x,\sigma_y,\sigma_z=\pm1.
+\]
+故结构因子可分解为
+\[
+\begin{aligned}
+ \sum_{\boldsymbol\delta}\ee^{\ii\vb k\cdot\boldsymbol\delta}
+ &=\sum_{\sigma_x,\sigma_y,\sigma_z=\pm1}
+ \ee^{\ii(\sigma_xk_x+\sigma_yk_y+\sigma_zk_z)a/2}\\
+ &=\left(\sum_{\sigma_x=\pm1}\ee^{\ii\sigma_xk_xa/2}\right)
+   \left(\sum_{\sigma_y=\pm1}\ee^{\ii\sigma_yk_ya/2}\right)
+   \left(\sum_{\sigma_z=\pm1}\ee^{\ii\sigma_zk_za/2}\right)\\
+ &=8\cos\frac{k_xa}{2}\cos\frac{k_ya}{2}\cos\frac{k_za}{2}.
+\end{aligned}
+\]
+因此
+\[
+ \boxed{E(\vb k)=\varepsilon_s-J_0-8J_1
+ \cos\frac{k_xa}{2}\cos\frac{k_ya}{2}\cos\frac{k_za}{2}.}
+\]
+\end{solution}
+\end{question}
+
+\textbf{四、计算题（共 20 分）}
+
+\begin{question}[10 分]
+一维晶体的电子能带为
+\[
+ E(k)=\frac{\hbar^2}{ma^2}\left(\frac78-\cos ka+\frac18\cos2ka\right).
+\]
+求：
+\begin{enumerate}
+  \item 能带宽度；
+  \item 电子速度；
+  \item 带顶与带底的有效质量。
+\end{enumerate}
+
+
+\begin{solution}
+令 $x=ka$，并记 $A=\hbar^2/(ma^2)$。能带为
+\[
+ E=A\left(\frac78-\cos x+\frac18\cos2x\right).
+\]
+其导数为
+\[
+ \frac{\dd E}{\dd x}=A\left(\sin x-\frac14\sin2x\right)
+ =A\sin x\left(1-\frac12\cos x\right).
+\]
+因 $1-\frac12\cos x>0$，第一布里渊区内的极值只在 $x=0,\pi$：
+\[
+ E(0)=0,\qquad E(\pi/a)=2A.
+\]
+故带宽为
+\[
+ \boxed{W=\frac{2\hbar^2}{ma^2}.}
+\]
+群速度
+\[
+ \boxed{v(k)=\frac1\hbar\frac{\dd E}{\dd k}
+ =\frac{\hbar}{ma}\left(\sin ka-\frac14\sin2ka\right).}
+\]
+再求二阶导数：
+\[
+ \frac{\dd^2E}{\dd k^2}=\frac{\hbar^2}{m}
+ \left(\cos ka-\frac12\cos2ka\right),
+ \qquad
+ \frac1{m^*}=\frac1{\hbar^2}\frac{\dd^2E}{\dd k^2}.
+\]
+带底 $k=0$ 与带顶 $k=\pi/a$ 分别给出
+\[
+ \boxed{m^*_{\rm bottom}=2m,\qquad
+ m^*_{\rm top}=-\frac23m.}
+\]
+负的带顶电子有效质量等价于正质量空穴描述。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+求二维自由电子金属的能态密度 $g(E)$ 以及 $T=0$ 时的费米能级 $E_{\mathrm F}$。
+
+
+\begin{solution}
+设样品面积为 $A=L_xL_y$，周期边界条件使每个 $k$ 态在二维 $k$ 空间占面积 $(2\pi)^2/A$。计入自旋简并 $g_s=2$，半径小于 $k$ 的态数为
+\[
+ \mathcal N(k)=2\frac{A}{(2\pi)^2}\pi k^2=\frac{Ak^2}{2\pi}.
+\]
+自由电子色散 $E=\hbar^2k^2/(2m)$，于是
+\[
+ \mathcal N(E)=\frac{AmE}{\pi\hbar^2},
+ \qquad
+ \boxed{g(E)=\frac{\dd\mathcal N}{\dd E}=\frac{Am}{\pi\hbar^2}.}
+\]
+单位面积态密度为常数 $m/(\pi\hbar^2)$。$T=0$ 时电子面密度 $n=N_e/A$ 满足
+\[
+ n=\int_0^{E_F}\frac{m}{\pi\hbar^2}\,\dd E
+ =\frac{mE_F}{\pi\hbar^2},
+\]
+所以
+\[
+ \boxed{E_F=\frac{\pi\hbar^2n}{m},\qquad
+ k_F=\sqrt{2\pi n}.}
+\]
+\end{solution}
+\end{question}

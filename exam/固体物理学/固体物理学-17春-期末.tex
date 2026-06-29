@@ -1,0 +1,417 @@
+\heading{固体物理学-17春-期末}
+\noteinfo{题面依据原始 Word 文档精修录入；结构图与能带图按原题物理信息作示意复刻；现有解答为依据题面整理并重新推导的参考答案。}
+
+\begin{question}[15 分]
+立方金刚石与六方金刚石的结构示意如下。
+\begin{center}
+\begin{tikzpicture}[scale=0.70]
+  % Cubic diamond conventional cell.
+  \begin{scope}[xshift=0cm]
+    \node at (0.35,2.70) {立方金刚石};
+    \coordinate (f1) at (-1.15,-1.00); \coordinate (f2) at (0.95,-1.00);
+    \coordinate (f3) at (0.95,1.10);   \coordinate (f4) at (-1.15,1.10);
+    \coordinate (b1) at (-0.30,-0.25); \coordinate (b2) at (1.80,-0.25);
+    \coordinate (b3) at (1.80,1.85);   \coordinate (b4) at (-0.30,1.85);
+    \draw[thick] (f1)--(f2)--(f3)--(f4)--cycle;
+    \draw[thick] (b1)--(b2)--(b3)--(b4)--cycle;
+    \draw[thick] (f1)--(b1) (f2)--(b2) (f3)--(b3) (f4)--(b4);
+    \draw[densely dashed] (f4)--(b4) (b4)--(b3) (b4)--(b1);
+    \foreach \p in {f1,f2,f3,f4,b1,b2,b3,b4}{\fill (\p) circle (2.5pt);}
+    \coordinate (d1) at (-0.34,-0.18);
+    \coordinate (d2) at (0.18,0.35);
+    \coordinate (d3) at (0.70,0.87);
+    \coordinate (d4) at (1.22,1.40);
+    \foreach \p in {d1,d2,d3,d4}{\fill (\p) circle (2.8pt);}
+    \draw[thick] (d1)--(f1) (d1)--(f3) (d1)--(b1) (d1)--(d2);
+    \draw[thick] (d2)--(f2) (d2)--(f4) (d2)--(d3);
+    \draw[thick] (d3)--(b2) (d3)--(b4) (d3)--(d4);
+    \draw[<->,thick] (-1.15,-1.45)--(0.95,-1.45)
+      node[midway,below=3pt] {$a$};
+  \end{scope}
+
+  % Hexagonal diamond (lonsdaleite) conventional hexagonal cell.
+  \begin{scope}[xshift=5.55cm]
+    \node at (0,2.70) {六方金刚石};
+    \foreach \a in {0,60,...,300}{
+      \coordinate (lb\a) at ({1.18*cos(\a)},{0.72*sin(\a)-0.72});
+      \coordinate (lt\a) at ({1.18*cos(\a)},{0.72*sin(\a)+1.22});
+    }
+    \draw[thick] (lb0)--(lb60)--(lb120)--(lb180)--(lb240)--(lb300)--cycle;
+    \draw[thick] (lt0)--(lt60)--(lt120)--(lt180)--(lt240)--(lt300)--cycle;
+    \foreach \a in {0,60,...,300}{\draw[thick] (lb\a)--(lt\a);}
+    \foreach \a in {0,60,...,300}{\fill (lb\a) circle (2.4pt); \fill (lt\a) circle (2.4pt);}
+    \coordinate (h1) at (0,-0.32); \coordinate (h2) at (0,0.22);
+    \coordinate (h3) at (-0.62,0.66); \coordinate (h4) at (0.62,0.66);
+    \coordinate (h5) at (0,1.02);
+    \foreach \p in {h1,h2,h3,h4,h5}{\fill (\p) circle (2.8pt);}
+    \draw[thick] (h1)--(lb0) (h1)--(lb120) (h1)--(h2);
+    \draw[thick] (h2)--(h3) (h2)--(h4) (h2)--(h5);
+    \draw[thick] (h3)--(lt180) (h4)--(lt0) (h5)--(lt60) (h5)--(lt120);
+    \draw[<->,thick] (-1.18,-1.35)--(1.18,-1.35)
+      node[midway,below=3pt] {$a$};
+    \draw[<->,thick] (1.66,-0.72)--(1.66,1.22)
+      node[midway,right=3pt] {$c$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item 分别画出两种金刚石的晶体原胞，并指出每个原胞所含原子数。（4 分）
+  \item 分别画出其布拉伐格子的原胞；再画出六方金刚石布拉伐格子的维格纳--塞茨原胞。（4 分）
+  \item 立方金刚石晶体单胞所属的点群是什么？可从 $C_3$、$D_{3d}$、$D_{3h}$、$D_{6h}$、$T_d$、$O_h$ 中选择。（2 分）
+  \item 若允许对称操作中包含适当平移，整个立方金刚石晶体对应的宏观点群是什么？（2 分）
+  \item 立方金刚石的第一布里渊区是截角八面体还是菱形十二面体？（2 分）
+  \item 六方金刚石单胞所属点群是什么？可从 $D_{3d}$、$D_{3h}$、$C_3$、$D_6$、$D_{6h}$、$C_{3v}$ 中选择。（1 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 立方金刚石的 Bravais 格子为 FCC，基元位于
+  $\vb0$ 与 $a(1,1,1)/4$，故\textbf{原胞含 2 个原子}；其立方惯用单胞含 8 个原子。六方金刚石（lonsdaleite）的 Bravais 格子为简单六方，最小六方原胞的基元含\textbf{4 个原子}。
+  \item 立方金刚石的 Bravais 原胞可取 FCC 菱面体原胞；六方金刚石取由
+  $\vb a_1,\vb a_2$ 夹角 $120^\circ$ 与 $\vb c$ 张成的六方原胞。简单六方格子的维格纳--塞茨胞是正六棱柱：上下底面垂直 $c$ 轴，六个侧面由面内六个最近邻的垂直平分面构成。
+  \item 单个 C 原子的四面体最近邻配位具有
+  \[
+    \boxed{T_d}
+  \]
+  对称性。
+  \item 整个金刚石晶体的空间群为 $Fd\bar3m$；把含分数平移的空间群操作只取其旋转部分，宏观点群为
+  \[
+    \boxed{O_h.}
+  \]
+  这说明局域四面体点群与整个周期晶体的宏观点群可以不同。
+  \item 立方金刚石的 Bravais 格子为 FCC，倒格子为 BCC。第一布里渊区是 BCC 倒格点的 Wigner--Seitz 胞，即
+  \[
+    \boxed{\text{截角八面体}.}
+  \]
+  菱形十二面体则是 FCC 格子的 Wigner--Seitz 胞。
+  \item 六方金刚石的空间群为 $P6_3/mmc$，宏观点群为
+  \[
+    \boxed{D_{6h}.}
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+\begin{enumerate}
+  \item 中子、声子、电子和光子发生散射或碰撞时，过程前后应满足哪些守恒关系？（4 分）
+  \item 声子碰撞的正常过程与倒逆过程，哪一种对热阻有贡献？为什么？同一个确定的声子碰撞能否同时被视为正常过程与倒逆过程？（4 分）
+  \item 无声子参与的半导体光吸收为什么近似为竖直跃迁？是否可能存在初末态准动量相差一个倒格矢 $\vb G_n$ 的光吸收过程？说明理由。（4 分）
+  \item 电子受声子散射，初态与末态准动量分别为 $\vb k_1$、$\vb k_2$，如图所示。声子与电子是否具有相同的布里渊区？确定该过程声子的准动量 $\vb q$。（3 分）
+\end{enumerate}
+\begin{center}
+\begin{tikzpicture}[scale=0.90]
+  \draw[thick] (-2.20,-1.55) rectangle (2.20,1.55);
+  \coordinate (O) at (0,-0.05);
+  \fill (O) circle (2.6pt);
+  \draw[->,very thick] (O)--(1.62,-0.05)
+    node[pos=0.82,below=4pt] {$\vb k_1$};
+  \draw[->,very thick] (O)--(-1.25,1.02)
+    node[pos=0.78,above left=1pt] {$\vb k_2$};
+  \node at (0,-1.92) {电子第一布里渊区};
+\end{tikzpicture}
+\end{center}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 所有孤立过程都满足总能量守恒。自由中子、电子、光子满足真实动量守恒；在晶体中，电子和声子用准动量表示，晶格可吸收倒格矢，故选择定则为
+  \[
+    \sum\vb k_{\rm in}=\sum\vb k_{\rm out}+\vb G.
+  \]
+  例如中子散射产生声子时
+  \[
+    E_i-E_f=\hbar\omega_{\vb q s},
+    \qquad \vb k_i-\vb k_f=\vb q+\vb G.
+  \]
+  光子数不守恒，声子数也不守恒；守恒的是总能量以及包含晶格反冲后的总动量。
+  \item 正常过程 $N$ 满足 $\vb G=0$，总声子准动量不变，它本身不能把声子气的整体漂移准动量交给晶格，故不直接产生有限热阻。Umklapp 过程 $U$ 满足 $\vb G\ne0$，晶格获得 $\hbar\vb G$，会衰减热流，是主要阻性过程。若允许任意扩展区表示，同一等式可通过重新选取 $\vb q+\vb G$ 改写；但在把所有声子波矢唯一约化到第一布里渊区后，一个确定事件的 $N/U$ 分类是确定的，不能同时作为两个物理过程重复计数。
+  \item 可见光光子动量远小于布里渊区尺度，且无声子参与时晶体准动量守恒，故
+  \[
+    \vb k_f=\vb k_i+\vb q_\gamma+\vb G
+    \simeq\vb k_i\pmod{\vb G},
+  \]
+  在约化区图中表现为近似竖直跃迁。写成初末态相差 $\vb G_n$ 是允许的，但 $\vb k$ 与 $\vb k+\vb G_n$ 标记同一个 Bloch 准动量，并非一个新的非竖直过程；相应矩阵元还受能带对称性和偶极选择定则限制。
+  \item 电子和声子都由同一晶体平移群分类，因此其第一布里渊区相同。若电子吸收声子，
+  $\vb k_2=\vb k_1+\vb q+\vb G$；若发射声子，
+  $\vb k_2=\vb k_1-\vb q+\vb G$。由图中两矢量均在第一 BZ 内，先取
+  \[
+    \vb q_0=\vb k_2-\vb k_1
+  \]
+  （从 $\vb k_1$ 的端点指向 $\vb k_2$ 的端点），再加适当 $\vb G$ 把它约化进第一 BZ。吸收过程取
+  \[
+    \boxed{\vb q=\vb k_2-\vb k_1+\vb G,}
+  \]
+  发射过程则取相反号。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+单层 $\mathrm{MoS_2}$ 的结构及六角形布里渊区示意如下。
+\begin{center}
+\begin{tikzpicture}[scale=0.70]
+  \begin{scope}[xshift=-0.35cm]
+    \node at (0.75,2.62) {单层 $1H$-$\mathrm{MoS_2}$};
+    \coordinate (Mo) at (0.05,0.32);
+    \coordinate (S1) at (-0.95,1.10); \coordinate (S2) at (1.05,1.10); \coordinate (S3) at (0.05,-0.62);
+    \coordinate (s1) at (-0.68,0.62); \coordinate (s2) at (1.32,0.62); \coordinate (s3) at (0.32,-1.10);
+    \draw[densely dashed] (S1)--(S2)--(S3)--cycle;
+    \draw[densely dashed] (s1)--(s2)--(s3)--cycle;
+    \draw[densely dashed] (S1)--(s1) (S2)--(s2) (S3)--(s3);
+    \fill (Mo) circle (4pt); \node[anchor=east] at (-0.18,0.25) {Mo};
+    \foreach \p in {S1,S2,S3,s1,s2,s3}{\draw[thick] (Mo)--(\p); \draw[thick,fill=white] (\p) circle (3.2pt);}
+    \node at (-1.30,1.35) {S}; \draw[->] (-1.15,1.25)--(-0.98,1.13);
+  \end{scope}
+  \begin{scope}[xshift=2.65cm,yshift=-0.48cm]
+    \node at (1.45,2.72) {俯视与面内原胞};
+    \foreach \m in {0,...,2}{\foreach \n in {0,...,1}{
+      \pgfmathsetmacro{\mx}{1.18*\m+0.59*\n}
+      \pgfmathsetmacro{\my}{1.02*\n}
+      \coordinate (MM\m\n) at (\mx,\my);
+      \coordinate (SS\m\n) at ({\mx+0.59},{\my+0.34});
+      \fill (MM\m\n) circle (2.9pt);
+      \draw[thick,fill=white] (SS\m\n) circle (2.9pt);
+      \draw[thick] (MM\m\n)--(SS\m\n);
+      \ifnum\m>0 \draw[thick] (MM\m\n)--({\mx-0.59},{\my+0.34});\fi
+      \ifnum\n>0 \draw[thick] (MM\m\n)--({\mx},{\my-0.68});\fi
+    }}
+    \draw[densely dashed,very thick] (MM00)--(MM10)--(MM11)--(MM01)--cycle;
+    \draw[->,very thick] (-0.45,-0.58)--(0.73,-0.58) node[pos=0.78,below=4pt] {$\vb a_1$};
+    \draw[->,very thick] (-0.45,-0.58)--(0.14,0.44) node[pos=0.70,left=4pt] {$\vb a_2$};
+    \fill (2.55,1.86) circle (2.9pt); \node[anchor=west] at (2.78,1.86) {Mo};
+    \draw[thick,fill=white] (2.55,1.32) circle (2.9pt); \node[anchor=west] at (2.78,1.32) {$S_2$};
+  \end{scope}
+  \begin{scope}[xshift=8.35cm,yshift=0.10cm]
+    \node at (0,2.62) {第一布里渊区};
+    \foreach \a in {0,60,...,300}{\coordinate (H\a) at ({1.52*cos(\a)},{1.52*sin(\a)});}
+    \draw[densely dashed,very thick] (H0)--(H60)--(H120)--(H180)--(H240)--(H300)--cycle;
+    \draw[very thick] (0,-1.82)--(0,1.82);
+    \fill (0,0) circle (2.1pt); \node[anchor=east] at (-0.13,0) {$\Gamma$};
+    \fill (H60) circle (2.1pt); \node[anchor=south west] at (H60) {$K$};
+    \fill (H120) circle (2.1pt); \node[anchor=south east] at (H120) {$K'$};
+    \coordinate (Mtop) at (0,1.316); \fill (Mtop) circle (2.1pt); \node[anchor=east] at (-0.13,1.316) {$M$};
+    \fill (H240) circle (2.1pt); \node[anchor=north east] at (H240) {$-K$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item 该单层结构是否具有反演中心？判断其点群。（4 分）
+  \item 画出原胞与维格纳--塞茨原胞。（4 分）
+  \item 画出第一布里渊区，并判断其取向与正格子的维格纳--塞茨原胞是否一致。（4 分）
+  \item 求解 $\mathrm{MoS_2}$ 电子结构需要采用哪些近似？其 Schrödinger 方程应满足什么边界条件？（5 分）
+  \item 无外磁场时，对 $M$ 点电子态作时间反演会得到什么态（计入自旋）？$M$ 点的自旋态是否能量简并？（3 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 单层 $1H$-MoS$_2$ 的 Mo 层位于上下两层 S 之间，上、下 S 层经水平镜面对称，但不存在把 Mo 与自身、上 S 与下 S 同时正确映射的反演中心。其点群为
+  \[
+    \boxed{D_{3h}.}
+  \]
+  \item 面内 Bravais 格子是三角格子，原胞可取夹角 $60^\circ$ 的菱形；每个原胞附着一个 Mo 和两个 S。Bravais 格子的 Wigner--Seitz 原胞是正六边形。
+  \item 倒格子仍是三角格子，第一 BZ 为正六边形。若
+  $\vb a_1=a(1,0)$、$\vb a_2=a(1/2,\sqrt3/2)$，则
+  \[
+    \vb b_1=\frac{2\pi}{a}\left(1,-\frac1{\sqrt3}\right),
+    \quad
+    \vb b_2=\frac{2\pi}{a}\left(0,\frac2{\sqrt3}\right).
+  \]
+  倒格相对正格旋转 $30^\circ$，故 BZ 六边形与正格 Wigner--Seitz 六边形的取向
+  \[
+    \boxed{\text{相差 }30^\circ.}
+  \]
+  \item 需采用 Born--Oppenheimer 近似固定离子，单电子平均场（如 DFT/Hartree--Fock）处理电子相互作用，周期晶格近似忽略缺陷与热位移，并在重元素 Mo 中通常还要计入自旋--轨道耦合。单电子方程满足 Bloch 条件
+  \[
+    \psi_{n\vb k}(\vb r+\vb R)=
+    \ee^{\ii\vb k\cdot\vb R}\psi_{n\vb k}(\vb r),
+  \]
+  宏观计算采用 Born--von Karman 周期边界条件。
+  \item $M$ 点位于时间反演不变动量，因为
+  $-\vb M=\vb M+\vb G$。对自旋 $1/2$，时间反演算符
+  $\Theta=\ii\sigma_yK$ 满足 $\Theta^2=-1$。因此
+  \[
+    \Theta\ket{\vb M,\uparrow}
+    \propto\ket{-\vb M,\downarrow}
+    \equiv\ket{\vb M,\downarrow},
+  \]
+  两态正交且能量相同。无磁场、保持时间反演时，
+  \[
+    \boxed{M\text{ 点存在 Kramers 自旋简并}.}
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+在紧束缚近似下，考虑晶格常数为 $a$ 的简单立方晶格，由 $p_z$ 轨道形成能带。
+\begin{enumerate}
+  \item 求能带色散关系。（6 分）
+  \item 沿 $(0,0,k_z)$ 方向，写出 $k_z=0$ 与 $k_z=\pi/a$ 时的布洛赫波函数。（4 分）
+  \item 从相邻轨道波函数重叠的角度，判断上述两态中哪个是成键态、哪个是反键态。（4 分）
+  \item 在 $(0,0,\pi/a)$ 处，电子准动量是多少？该电子是否具有确定的真实动量？为什么？（4 分）
+  \item 求该点真实动量的平均值并说明理由。（2 分）
+\end{enumerate}
+
+
+\begin{solution}
+设最近邻沿 $x,y$ 的 $p_z$--$p_z$ 侧向跃迁积分为 $t_\pi$，沿 $z$ 的头对头跃迁积分为 $t_\sigma$，并把在位能记为 $\varepsilon_p$。忽略轨道重叠时，Bloch 和给出
+\[
+ \boxed{E(\vb k)=\varepsilon_p+2t_\pi(\cos k_xa+\cos k_ya)
+ +2t_\sigma\cos k_za.}
+\]
+若教材把正的跃迁参数定义为 $J=-t$，则等价地写为
+$E=\varepsilon_p-2J_\pi(\cos k_xa+\cos k_ya)-2J_\sigma\cos k_za$；物理内容不依赖符号命名。
+
+沿 $z$ 方向，
+\[
+ \psi_{k_z}(\vb r)=\frac1{\sqrt N}\sum_{n_x,n_y,n_z}
+ \ee^{\ii k_zn_za}\phi_{p_z}(\vb r-\vb R_n).
+\]
+故
+\[
+ \boxed{\psi_0=\frac1{\sqrt N}\sum_n\phi_{p_z}(\vb r-\vb R_n),}
+\]
+\[
+ \boxed{\psi_{\pi/a}=\frac1{\sqrt N}\sum_n(-1)^{n_z}
+ \phi_{p_z}(\vb r-\vb R_n).}
+\]
+相邻 $z$ 方向的同取向 $p_z$ 轨道，其相对的两瓣本来符号相反。因此系数同相的 $k_z=0$ 组合使面对面的波函数符号相反，在核间出现节点倾向，是沿 $z$ 的反键组合；$k_z=\pi/a$ 时相邻系数反号，使面对面的轨道同号叠加，是成键组合。因此通常 $t_\sigma>0$ 且
+$E(\pi/a)<E(0)$。
+
+在 $(0,0,\pi/a)$，晶体准动量为
+\[
+ \boxed{\hbar\vb k=\frac{\pi\hbar}{a}\hat{\vb z}
+ \pmod{\hbar\vb G}.}
+\]
+Bloch 态包含多个 $\vb k+\vb G$ 平面波分量，故不是实际动量的本征态。真实动量平均值可由速度求得：
+\[
+ \langle\vb p\rangle=m_0\langle\vb v\rangle,
+ \qquad
+ \langle\vb v\rangle=\frac1\hbar\grad_{\vb k}E.
+\]
+在区边界
+\[
+ \frac{\partial E}{\partial k_z}=-2at_\sigma\sin k_za=0,
+\]
+且 $k_x=k_y=0$ 处横向导数也为零，所以
+\[
+ \boxed{\langle\vb p\rangle=\vb0.}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+图中给出一条导带和一条价带的局部色散，红点均位于能带右侧；外电场 $\vb E$ 指向右方。
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[->] (-3.05,0)--(3.05,0) node[right] {$k$};
+  \draw[->] (0,-2.18)--(0,2.42) node[above] {$E$};
+  \draw[domain=-2.30:2.30,samples=100,very thick]
+    plot (\x,{0.14+0.22*\x*\x});
+  \draw[domain=-2.30:2.30,samples=100,very thick]
+    plot (\x,{-0.94-0.18*\x*\x});
+  \pgfmathsetmacro{\kp}{1.48}
+  \pgfmathsetmacro{\Ec}{0.14+0.22*\kp*\kp}
+  \pgfmathsetmacro{\Ev}{-0.94-0.18*\kp*\kp}
+  \fill (\kp,\Ec) circle (3.4pt);
+  \node[anchor=west] at ({\kp+0.18},{\Ec+0.05}) {电子};
+  \draw[thick,fill=white] (\kp,\Ev) circle (3.4pt);
+  \node[anchor=west] at ({\kp+0.18},{\Ev-0.02}) {空穴};
+  \draw[->,very thick] (-1.95,1.95)--(-0.52,1.95)
+    node[midway,above=3pt] {$\vb E$};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item 指出导带电子产生的电流方向，并给出依据。（2 分）
+  \item 在外电场作用下，指出电子在 $k$ 空间的运动方向及电子电流的变化方向，并给出依据。（4 分）
+  \item 指出价带空穴产生的电流方向。（2 分）
+  \item 在外电场作用下，指出空穴在 $k$ 空间的运动方向及空穴电流的变化方向，并给出依据。（4 分）
+  \item 根据 $\vb k\cdot\vb p$ 近似，半导体能隙越小，带边有效质量趋于增大还是减小？（3 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 导带右侧 $\partial E_c/\partial k>0$，故电子速度向右；电子带负电，电流方向与速度相反，所以电子电流向左：
+  \[
+    j_e=-ev_e<0.
+  \]
+  \item 电场向右时
+  \[
+    \hbar\dot k=-eE<0,
+  \]
+  电子在 $k$ 空间向左移动、趋近带底。右支上 $v_e$ 随 $k$ 减小而减小，原来向左的电子电流绝对值减小，即 $j_e$ 的变化量向右。等价地在抛物近似下
+  $\dot j_e=ne^2E/m_e^*>0$。
+  \item 价带右侧斜率为负，缺失电子的速度向左。空穴电流等于被移去电子电流的相反数，可写为 $j_h=+ev_h$，且 $v_h$ 等于缺失电子的群速度，故空穴电流向左。
+  \item 定义空穴波矢 $k_h=-k_e$，则
+  \[
+    \hbar\dot k_h=+eE>0.
+  \]
+  空穴在其 $k_h$ 空间向右运动，正有效质量使其速度和电流的变化均向右：
+  \[
+    \dot j_h=pe^2E/m_h^*>0.
+  \]
+  \item $\vb k\cdot\vb p$ 微扰给出
+  \[
+    \frac1{m_c^*}=\frac1{m_0}+\frac{2}{m_0^2}
+    \sum_{v}\frac{\abs{p_{cv}}^2}{E_c-E_v}+\cdots.
+  \]
+  在矩阵元近似不变时，能隙越小，正的带间耦合项越大，逆有效质量越大，因此
+  \[
+    \boxed{E_g\downarrow\quad\Longrightarrow\quad m_c^*\downarrow.}
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+\begin{enumerate}
+  \item 画出轻度掺杂 $p$-$n$ 结接触前后的空间能带图；光照后两侧费米能如何变化？（4 分）
+  \item 二维电子气的能态密度与有效质量有何关系？加磁场 $B$ 后，画出磁场前后的能态密度。（4 分）
+  \item 调节二维电子气的电子浓度时，电导率如何变化？边缘电子如何运动？（3 分）
+  \item 海森堡局域磁矩模型可由 $\mathrm H_2$ 分子说明。设两原子轨道为 $\phi_A$、$\phi_B$，考虑交换反对称性，写出两电子反铁磁态与铁磁态的总波函数。（2 分）
+  \item 对绝缘铁磁体，每个原胞的总磁矩是否一定为整数个玻尔磁子？说明理由。（2 分）
+\end{enumerate}
+
+
+\begin{solution}
+\begin{enumerate}
+  \item 接触前 p、n 区各自能带平直，$E_F^p$ 靠近 $E_v$，$E_F^n$ 靠近 $E_c$。接触后电子由 n 区扩散到 p 区、空穴反向扩散，形成从 n 指向 p 的内建电场；平衡时 $E_F$ 水平，p 侧能带整体高于 n 侧，结区连续弯曲。光照产生电子--空穴对后，非平衡稳态需用两个准费米能描述：n 侧电子准费米能 $E_{Fn}$ 上移并靠近 $E_c$，p 侧空穴准费米能 $E_{Fp}$ 下移并靠近 $E_v$；二者分裂给出开路光电压
+  $qV_{oc}=E_{Fn}-E_{Fp}$。
+  \item 计入二重自旋简并，二维抛物带单位面积态密度为
+  \[
+    \boxed{D_{2D}(E)=\frac{m^*}{\pi\hbar^2}\Theta(E-E_n),}
+  \]
+  即每个子带贡献一个与 $m^*$ 成正比的台阶。垂直磁场把连续能谱量子化为
+  \[
+    E_n=\hbar\omega_c(n+1/2),
+  \]
+  每级单位面积简并度（每自旋）为 $eB/h$，故理想态密度变成一串 $\delta$ 峰；无序和有限寿命使其展宽。
+  \item Drude 近似
+  \[
+    \sigma=ne^2\tau/m^*.
+  \]
+  若 $\tau,m^*$ 近似不变，提高二维电子浓度使电导率线性增加；实际中屏蔽和散射也会改变 $\tau$。磁场下样品边缘的回旋轨道被边界截断，形成沿单一方向传播的跳跃轨道（手性边缘态）；两侧边缘传播方向相反，方向由 $qB$ 的符号决定。
+  \item 自旋单态（反铁磁关联）为
+  \[
+   \Psi_{AF}=\frac{\phi_A(1)\phi_B(2)+\phi_B(1)\phi_A(2)}
+   {\sqrt{2(1+S^2)}}
+   \frac{\alpha(1)\beta(2)-\beta(1)\alpha(2)}{\sqrt2}.
+  \]
+  三重态（铁磁关联）为空间反对称、任一对称自旋三重态：
+  \[
+   \Psi_{FM,m}=\frac{\phi_A(1)\phi_B(2)-\phi_B(1)\phi_A(2)}
+   {\sqrt{2(1-S^2)}}\chi_{1m}.
+  \]
+  两者都满足总波函数交换反对称。
+  \item 在题目通常采用的\textbf{共线、自旋守恒且忽略轨道磁矩}的能带模型中，答案是肯定的。绝缘体的每条自旋能带只能全满或全空，因此每原胞占据的上、下自旋电子数 $N_\uparrow,N_\downarrow$ 都是整数，
+  \[
+    \boxed{M_{\rm cell}=(N_\uparrow-N_\downarrow)\mu_B,}
+  \]
+  必为整数个玻尔磁子。若进一步计入强自旋--轨道耦合、未淬灭轨道磁矩、非共线磁序或强关联导致的量子涨落，实验测得的总有序磁矩可以偏离整数；因此“整数定则”有明确的模型适用条件。
+\end{enumerate}
+\end{solution}
+\end{question}
