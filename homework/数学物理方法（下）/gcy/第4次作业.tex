@@ -1,0 +1,62 @@
+﻿\heading{数学物理方法（下）-第4次作业}
+
+
+\begin{question}
+已知 \((x,y,z)\) 为三维直角坐标系，判断坐标系 \((\xi,\zeta,\eta)\) 和 \((\rho',\phi',z')\) 是否为正交曲面坐标系。变换为
+\[
+\begin{cases}
+\xi=x+A\sin kz,\\
+\zeta=y-A\cos kz,\\
+\eta=z,
+\end{cases}
+\qquad
+\begin{cases}
+\xi=\rho'\cos\phi',\\
+\zeta=\rho'\sin\phi',\\
+\eta=z'.
+\end{cases}
+\]
+\begin{solution}
+判断正交曲面坐标的基本方法，是看坐标曲线切向量
+\[
+\bm r_i=\frac{\partial\bm r}{\partial q_i}
+\]
+是否两两正交；等价地，度量张量的非对角元 \(g_{ij}=\bm r_i\cdot\bm r_j\) 是否全为零。
+
+第一组坐标的坐标曲线切向量可由逆变换
+\[
+x=\xi-A\sin k\eta,\qquad y=\zeta+A\cos k\eta,\qquad z=\eta
+\]
+求出：
+\[
+\bm r_\xi=(1,0,0),\qquad
+\bm r_\zeta=(0,1,0),\qquad
+\bm r_\eta=(-Ak\cos k\eta,-Ak\sin k\eta,1).
+\]
+有
+\[
+\bm r_\xi\cdot\bm r_\eta=-Ak\cos k\eta,\qquad
+\bm r_\zeta\cdot\bm r_\eta=-Ak\sin k\eta,
+\]
+一般不为零。这说明度量中存在 \(d\xi\,d\eta\) 和 \(d\zeta\,d\eta\) 的交叉项，所以 \((\xi,\zeta,\eta)\) 不是正交曲面坐标系。
+
+第二组是柱坐标在 \((\xi,\zeta,\eta)\) 空间中的通常形式：
+\[
+\bm r_{\rho'}=(\cos\phi',\sin\phi',0),\quad
+\bm r_{\phi'}=(-\rho'\sin\phi',\rho'\cos\phi',0),\quad
+\bm r_{z'}=(0,0,1),
+\]
+直接计算得
+\[
+\bm r_{\rho'}\cdot\bm r_{\phi'}=0,\qquad
+\bm r_{\rho'}\cdot\bm r_{z'}=0,\qquad
+\bm r_{\phi'}\cdot\bm r_{z'}=0.
+\]
+其 Lamé 系数为
+\[
+h_{\rho'}=1,\qquad h_{\phi'}=\rho',\qquad h_{z'}=1,
+\]
+故 \((\rho',\phi',z')\) 是正交曲面坐标系。
+\end{solution}
+\end{question}
+

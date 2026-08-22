@@ -1,0 +1,8 @@
+build/
+main.tex
+
+__compile_temp.tex
+
+# Python 缓存
+__pycache__/
+*.py[cod]

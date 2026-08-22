@@ -1,0 +1,107 @@
+﻿\heading{数学物理方法（下）-第8次作业}
+
+
+\begin{question}
+利用本征值问题证明连带 Legendre 函数的正交性
+\[
+\int_{-1}^1P_l^m(x)P_k^m(x)\,dx=0,\qquad k\ne l.
+\]
+\begin{solution}
+\(P_l^m\) 满足 Sturm--Liouville 方程
+\[
+\frac d{dx}\left[(1-x^2)y'\right]
++\left[l(l+1)-\frac{m^2}{1-x^2}\right]y=0.
+\]
+对 \(l,k\) 两个方程分别乘以 \(P_k^m,P_l^m\) 后相减并积分，端点项因有界性消失，得
+\[
+\{l(l+1)-k(k+1)\}\int_{-1}^{1}P_l^mP_k^m\,dx=0.
+\]
+当 \(l\ne k\) 时即得正交性。
+\end{solution}
+\end{question}
+
+\begin{question}
+一半径为 \(a\) 的均匀导体球，表面温度为
+\[
+u|_{r=a}=P_1^1(\cos\theta)\cos\phi,
+\]
+球内无热源，求球内稳态温度分布。
+\begin{solution}
+球内有界调和函数为
+\[
+u=\sum_{l,m}r^l\left(A_{lm}\cos m\phi+B_{lm}\sin m\phi\right)P_l^m(\cos\theta).
+\]
+边界只含 \(l=1,m=1\) 的余弦项，因此
+\[
+u(r,\theta,\phi)=\frac ra P_1^1(\cos\theta)\cos\phi.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+将 \(\sin^2\theta\cos^2\phi\) 与 \((1+\cos\theta)\sin\theta\cos\phi\) 按球面调和函数展开。
+\begin{solution}
+使用实球谐函数更简洁。由
+\[
+\sin^2\theta\cos^2\phi=\frac13-\frac13P_2(\cos\theta)
++\frac13P_2^2(\cos\theta)\cos2\phi,
+\]
+以及
+\[
+(1+\cos\theta)\sin\theta\cos\phi
+=-P_1^1(\cos\theta)\cos\phi-\frac13P_2^1(\cos\theta)\cos\phi,
+\]
+即可换成标准归一化的 \(Y_l^m\) 展开；只需按所采用的归一化常数乘除。
+\end{solution}
+\end{question}
+
+\begin{question}
+求解球内问题
+\[
+\nabla^2u=0,\qquad r<a,\qquad
+u|_{r=a}=A+B\sin2\theta\cos\phi.
+\]
+\begin{solution}
+因
+\[
+\sin2\theta\cos\phi=2\sin\theta\cos\theta\cos\phi
+=-\frac23P_2^1(\cos\theta)\cos\phi,
+\]
+球内有界解为
+\[
+u(r,\theta,\phi)=A-\frac{2B}{3}\left(\frac ra\right)^2
+P_2^1(\cos\theta)\cos\phi.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解球内 Poisson 问题
+\[
+\nabla^2u=A+Br^2\sin2\theta\cos\phi,\qquad r<a,\qquad u|_{r=a}=0.
+\]
+\begin{solution}
+常数源项给出径向特解
+\[
+u_0=\frac A6(r^2-a^2).
+\]
+又
+\[
+r^2\sin2\theta\cos\phi=-\frac23r^2P_2^1(\cos\theta)\cos\phi.
+\]
+利用
+\[
+\nabla^2\left(r^{l+2}Y_l^m\right)=2(2l+3)r^lY_l^m,
+\]
+取 \(l=2\)，得源项特解
+\[
+u_1=-\frac{B}{21}r^4P_2^1(\cos\theta)\cos\phi.
+\]
+为使边界为零，补上同阶调和项：
+\[
+u(r,\theta,\phi)=\frac A6(r^2-a^2)
+\frac{B}{21}(a^2r^2-r^4)P_2^1(\cos\theta)\cos\phi.
+\]
+\end{solution}
+\end{question}
+

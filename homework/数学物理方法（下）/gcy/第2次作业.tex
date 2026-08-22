@@ -1,0 +1,205 @@
+﻿\heading{数学物理方法（下）-第2次作业}
+
+
+\begin{question}
+一长为 \(l\)、横截面积为 \(S\) 的均匀弹性细杆，已知 \(x=0\) 的一端固定，
+另一端 \(x=l\) 在杆轴方向上受拉力 \(F\) 作用而达到平衡。在 \(t=0\) 时撤去外力 \(F\)，
+并忽略重力的作用。试列出杆的纵振动所满足的方程、边界条件和初始条件。
+
+\begin{solution}
+设纵向位移为 \(u(x,t)\)，杨氏模量为 \(E\)，密度为 \(\rho\)。纵振动方程为
+\[
+u_{tt}=a^2u_{xx},\qquad a^2=\frac{E}{\rho},\qquad 0<x<l.
+\]
+\(x=0\) 端固定，故
+\[
+u(0,t)=0.
+\]
+撤去外力后，\(x=l\) 端自由，端面应力为零，故
+\[
+u_x(l,t)=0.
+\]
+撤力瞬间杆仍处于原静平衡形状。原平衡时应变为
+\[
+u_x=\frac{F}{ES},
+\]
+且 \(u(0)=0\)，所以
+\[
+u(x,0)=\frac{F}{ES}x,\qquad u_t(x,0)=0.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+有长为 \(l\) 的均匀细杆，现通过其两端，在单位时间内、经单位面积分别供给热量
+\(q_1\) 与 \(q_2\)。试写出相应的边界条件。
+\begin{solution}
+设温度为 \(u(x,t)\)，热导率为 \(K\)，杆占区间 \(0<x<l\)。热流密度为
+\[
+J=-K u_x.
+\]
+若 \(q_1\) 表示从 \(x=0\) 端向杆内供给的热量通量，则
+\[
+-K u_x(0,t)=q_1.
+\]
+若 \(q_2\) 表示从 \(x=l\) 端向杆内供给的热量通量，则进入杆内的方向为负 \(x\) 方向，
+于是
+\[
+K u_x(l,t)=q_2.
+\]
+等价地，用外法向 \(n\) 表示，就是
+\[
+-K\frac{\partial u}{\partial n}=q
+\]
+在相应端点成立。
+\end{solution}
+\end{question}
+
+\begin{question}
+一长为 \(l\) 的均匀金属细杆（可近似看成一维），通有稳定电流。设杆的两端
+\(x=0\) 和 \(x=l\) 均按 Newton 冷却定律向外散热，外界温度为 \(u_0\)。
+初始时的温度分布为
+\[
+u_0\left(1-\frac{2x}{l}\right)^2.
+\]
+试写出杆中温度场所满足的方程、边界条件和初始条件。
+\begin{solution}
+设温度为 \(u(x,t)\)，热扩散率为 \(\kappa\)。稳定电流产生的焦耳热可视为常量热源，
+记单位体积单位时间产生的热量除以 \(\rho c\) 后为 \(Q\)。方程可写成
+\[
+u_t=\kappa u_{xx}+Q,\qquad 0<x<l,\quad t>0.
+\]
+设热导率为 \(K\)，Newton 冷却系数为 \(h\)。在左端，外法向为负 \(x\) 方向，故
+\[
+K u_x(0,t)=h\,[u(0,t)-u_0].
+\]
+在右端，外法向为正 \(x\) 方向，故
+\[
+-K u_x(l,t)=h\,[u(l,t)-u_0].
+\]
+初始条件为
+\[
+u(x,0)=u_0\left(1-\frac{2x}{l}\right)^2,\qquad 0\le x\le l.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+有一半径为 \(a\)、表面涂黑的金属球，暴晒于日光下。在垂直于光线的单位面积上，
+单位时间内吸收热量 \(M\)。同时，球面按 Newton 冷却定律散热，周围介质温度取为 \(0\)。
+试选择适当坐标写出边界条件。
+
+\begin{solution}
+取球坐标 \((r,\theta,\varphi)\)，令 \(\theta=0\) 方向指向入射光。设球内温度为 \(u\)，
+热导率为 \(K\)，Newton 冷却系数为 \(h\)。球面 \(r=a\) 上，单位面积吸收的太阳热通量为
+\[
+M\cos\theta,\qquad 0\le\theta\le\frac{\pi}{2},
+\]
+背光面无太阳入射。边界条件可写成
+\[
+K\left.\frac{\partial u}{\partial r}\right|_{r=a}
++h\,u(a,\theta,\varphi,t)
+=M\cos\theta\,H(\cos\theta),
+\]
+其中 \(H\) 为 Heaviside 函数。分段写即
+\[
+\begin{cases}
+K u_r(a,\theta,\varphi,t)+h u(a,\theta,\varphi,t)=M\cos\theta,
+&0\le\theta\le \dfrac{\pi}{2},\\
+K u_r(a,\theta,\varphi,t)+h u(a,\theta,\varphi,t)=0,
+&\dfrac{\pi}{2}<\theta\le \pi.
+\end{cases}
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解偏微分方程初值问题
+\[
+\begin{cases}
+\dfrac{\partial}{\partial x}
+\left[\left(1-\dfrac{x}{l}\right)^2\dfrac{\partial u}{\partial x}\right]
+-\dfrac{1}{a^2}\left(1-\dfrac{x}{l}\right)^2
+\dfrac{\partial^2u}{\partial t^2}=0,
+&-\infty<x<\infty,\ t>0,\\
+u(x,t)|_{t=0}=\phi(x),\qquad
+\left.\dfrac{\partial u}{\partial t}\right|_{t=0}=\psi(x),
+&-\infty<x<\infty.
+\end{cases}
+\]
+\begin{solution}
+令
+\[
+r=l-x.
+\]
+则
+\[
+\left(1-\frac{x}{l}\right)^2=\frac{r^2}{l^2},\qquad
+\frac{\partial}{\partial x}=-\frac{\partial}{\partial r}.
+\]
+原方程化为
+\[
+u_{rr}+\frac{2}{r}u_r-\frac{1}{a^2}u_{tt}=0.
+\]
+这是三维径向波动方程。令
+\[
+v(r,t)=r\,u(r,t),
+\]
+则
+\[
+v_{rr}-\frac{1}{a^2}v_{tt}=0.
+\]
+初值为
+\[
+v(r,0)=r\,\phi(l-r),\qquad
+v_t(r,0)=r\,\psi(l-r).
+\]
+由 d'Alembert 公式，
+\[
+v(r,t)=\frac12\{A(r-at)+A(r+at)\}
++\frac{1}{2a}\int_{r-at}^{r+at}B(s)\,ds,
+\]
+其中
+\[
+A(s)=s\,\phi(l-s),\qquad B(s)=s\,\psi(l-s).
+\]
+因此
+\[
+u(x,t)=\frac{1}{l-x}
+\left[
+\frac12\{A(l-x-at)+A(l-x+at)\}
++\frac{1}{2a}\int_{l-x-at}^{l-x+at}B(s)\,ds
+\right].
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+用行波法求解一维半无界弦的波动问题：
+\[
+\begin{cases}
+u_{tt}-a^2u_{xx}=0,\qquad 0<x<\infty,\ t>0,\\
+\left.\dfrac{\partial u(x,t)}{\partial x}\right|_{x=0}=0,\qquad t\ge0,\\
+u(x,t)|_{t=0}=\phi(x),\qquad 0\le x<\infty,\\
+\left.\dfrac{\partial u}{\partial t}\right|_{t=0}=\psi(x),\qquad 0\le x<\infty.
+\end{cases}
+\]
+\begin{solution}
+边界条件是 Neumann 条件，因此对初值作偶延拓：
+\[
+\phi_e(x)=\phi(|x|),\qquad \psi_e(x)=\psi(|x|).
+\]
+在全直线上使用 d'Alembert 公式，得到半直线问题的解
+\[
+u(x,t)=\frac12\{\phi_e(x-at)+\phi_e(x+at)\}
++\frac{1}{2a}\int_{x-at}^{x+at}\psi_e(s)\,ds,
+\qquad x\ge0.
+\]
+由于 \(\phi_e,\psi_e\) 都是偶函数，所得解关于 \(x=0\) 为偶函数，故
+\[
+u_x(0,t)=0.
+\]
+这正满足题设的自由端边界条件。
+\end{solution}
+\end{question}
+

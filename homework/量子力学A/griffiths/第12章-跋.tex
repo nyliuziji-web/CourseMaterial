@@ -1,0 +1,742 @@
+\heading{第12章-跋}
+\begin{question}
+纠缠态(Entangled states)。纠缠态的一个经典例子是自旋单态(式 (12.1)):两个粒子体系的状态不能写成两个单粒子状态波函数的乘积。考虑两能级体系 $|\phi_a\rangle$、$|\phi_b\rangle$,且 $\langle\phi_i|\phi_j\rangle=\delta_{\ii j}$。证明:对于任意单粒子状态 $|\psi_r\rangle$ 和 $|\psi_s\rangle$,两粒子体系状态
+\[
+\alpha|\phi_a(1)\rangle|\phi_b(2)\rangle+\beta|\phi_b(1)\rangle|\phi_a(2)\rangle\qquad(\alpha\ne0,\ \beta\ne0)
+\]
+都不能表示为乘积形式 $|\psi_r(1)\rangle|\psi_s(2)\rangle$。提示:把 $|\psi_r\rangle$ 和 $|\psi_s\rangle$ 分别写成 $|\phi_a\rangle$ 和 $|\phi_b\rangle$ 的线性组合。
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (12.1):两个自旋 $1/2$ 的单态:$|0,0\rangle=(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle)/\sqrt2$,不能分解为两个单粒子态的乘积。}
+
+\end{question}
+\begin{solution}
+假设该两粒子态可以写成乘积形式
+\[
+|\Psi\rangle=|\psi_r(1)\rangle|\psi_s(2)\rangle,
+\]
+其中 $|\psi_r\rangle$ 和 $|\psi_s\rangle$ 是单粒子态。在正交归一基 $\{|\phi_a\rangle,|\phi_b\rangle\}$ 中展开这两个单粒子态:
+\[
+|\psi_r\rangle=c_a|\phi_a\rangle+c_b|\phi_b\rangle,\qquad
+|\psi_s\rangle=d_a|\phi_a\rangle+d_b|\phi_b\rangle,
+\]
+且满足归一化条件
+\[
+|c_a|^2+|c_b|^2=1,\qquad |d_a|^2+|d_b|^2=1.
+\]
+将乘积形式展开:
+\[
+\begin{aligned}
+|\psi_r(1)\rangle|\psi_s(2)\rangle
+&=\bigl(c_a|\phi_a(1)\rangle+c_b|\phi_b(1)\rangle\bigr)\bigl(d_a|\phi_a(2)\rangle+d_b|\phi_b(2)\rangle\bigr)\\[2mm]
+&=c_a d_a\,|\phi_a(1)\rangle|\phi_a(2)\rangle
++ c_a d_b\,|\phi_a(1)\rangle|\phi_b(2)\rangle\\
+&\quad + c_b d_a\,|\phi_b(1)\rangle|\phi_a(2)\rangle
++ c_b d_b\,|\phi_b(1)\rangle|\phi_b(2)\rangle.
+\end{aligned}
+\]
+为简便记 $|aa\rangle\equiv|\phi_a(1)\rangle|\phi_a(2)\rangle$,$|ab\rangle\equiv|\phi_a(1)\rangle|\phi_b(2)\rangle$,等等,则
+\[
+|\psi_r(1)\rangle|\psi_s(2)\rangle
+=c_a d_a|aa\rangle + c_a d_b|ab\rangle + c_b d_a|ba\rangle + c_b d_b|bb\rangle.
+\]
+
+题给态为
+\[
+|\Psi\rangle=\alpha|ab\rangle+\beta|ba\rangle,
+\]
+其中 $\alpha\neq0$, $\beta\neq0$。如果 $|\Psi\rangle$ 确实可以写成乘积形式,则比较以上两式对应基矢的系数,得到方程组
+\[
+\begin{cases}
+c_a d_a = 0, & \text{($|aa\rangle$ 项的系数)}\\[2pt]
+c_a d_b = \alpha, & \text{($|ab\rangle$ 项的系数)}\\[2pt]
+c_b d_a = \beta, & \text{($|ba\rangle$ 项的系数)}\\[2pt]
+c_b d_b = 0. & \text{($|bb\rangle$ 项的系数)}
+\end{cases}
+\]
+
+由第二式 $c_a d_b = \alpha$,因 $\alpha\neq0$,必有 $c_a\neq0$ 且 $d_b\neq0$。
+由第三式 $c_b d_a = \beta$,因 $\beta\neq0$,必有 $c_b\neq0$ 且 $d_a\neq0$。
+然而第一式 $c_a d_a = 0$ 要求 $c_a$ 和 $d_a$ 至少有一个为零,这与 $c_a\neq0$, $d_a\neq0$ 矛盾。
+同时,第四式 $c_b d_b = 0$ 要求 $c_b$ 和 $d_b$ 至少有一个为零,这与 $c_b\neq0$, $d_b\neq0$ 矛盾。
+
+因此该方程组无解,假设不成立。故对于任意非零的 $\alpha,\beta$,态
+\[
+\boxed{|\Psi\rangle=\alpha|\phi_a(1)\rangle|\phi_b(2)\rangle+\beta|\phi_b(1)\rangle|\phi_a(2)\rangle}
+\]
+都不能写成单粒子态的乘积形式,是纠缠态。
+\end{solution}
+
+\begin{question}
+爱因斯坦盒子(Einstein's Boxes)。想象一个粒子被限制在盒子里(可看作一维无限方势阱),处于基态;当引入一个不可穿透隔板时,它将盒子分成 $B_1$ 和 $B_2$ 两半。随后将两部分移开相距很远,并对 $B_1$ 进行测量查看粒子是否在其中。若答案为肯定,立刻知道粒子不在远处的 $B_2$ 中。
+\begin{enumerate}
+\item 爱因斯坦会怎么说明这一点?
+\item 哥本哈根学派如何解释?在对 $B_1$ 测量之后,$B_2$ 中的波函数是什么?
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 爱因斯坦从"物理实在性"的立场出发认为:粒子在测量之前已经客观地位于某一个半盒中。对 $B_1$ 的测量只是揭示这个既有事实;远处 $B_2$ 的物理状态并没有被瞬时的超距作用改变。爱因斯坦将此看作波函数描述不完备的证据——如果波函数给出了粒子在两个半盒中的叠加,而实际粒子只在一个半盒中,那么波函数就没有完全反映物理实在。
+
+(b) 哥本哈根解释中,在隔板插入之后、测量之前,粒子态是两个空间局域波包的等权重叠加:
+\[
+|\Psi\rangle={1\over\sqrt2}\bigl(|B_1\rangle+|B_2\rangle\bigr),
+\]
+其中 $|B_1\rangle$ 和 $|B_2\rangle$ 分别表示粒子完全局域在左半盒和右半盒的波函数,二者空间区域不重叠。这里忽略可能的相对相位。
+
+对 $B_1$ 进行测量后,根据投影公理:
+\begin{itemize}
+\item 若测量结果为"有粒子",态立即坍缩为 $|B_1\rangle$,此时 $B_2$ 中的波函数为零(粒子不在 $B_2$ 中),即
+\[
+|\Psi\rangle_{\text{后}} = |B_1\rangle,\qquad \Psi_{B_2}(x)=0.
+\]
+\item 若测量结果为"无粒子",态立即坍缩为 $|B_2\rangle$,此时 $B_2$ 中的波函数恢复为归一化的盒中基态波函数:
+\[
+|\Psi\rangle_{\text{后}} = |B_2\rangle,\qquad \Psi_{B_2}(x) = \sqrt{\frac{2}{L}}\sin\frac{\pi x}{L},
+\]
+其中 $L$ 为半盒宽度。
+\end{itemize}
+
+因此,在对 $B_1$ 测量之后,$B_2$ 中的波函数要么为零(肯定结果),要么为完整的归一化单盒基态(否定结果)。这一"瞬时坍缩"正是哥本哈根解释中波函数更新规则的直接结果,也是 EPR 悖论的核心争议所在。
+\end{solution}
+
+\begin{question}
+(局域)确定性("隐变量")理论的一个例子是经典力学。设用宏观物体(如棒球)代替电子和质子进行贝尔实验,并令隐变量 $\lambda=(\theta,\phi)$ 表示角动量方向。探测器只记录沿 $\mathbf a$ 和 $\mathbf b$ 方向的分量符号:
+\[
+A=\operatorname{sign}(\mathbf a\cdot\mathbf S_a),\qquad B=\operatorname{sign}(\mathbf b\cdot\mathbf S_b).
+\]
+\begin{enumerate}
+\item 取图 12.5 中的坐标轴,使 $\mathbf a$ 与 $\mathbf b$ 位于 $x$-$y$ 平面内,$\mathbf a$ 沿 $x$ 轴。证明
+\[
+A(\mathbf a,\lambda)B(\mathbf b,\lambda)=-\operatorname{sign}[\cos\phi\cos(\phi-\eta)],
+\]
+其中 $\eta$ 为 $\mathbf a$ 和 $\mathbf b$ 之间的夹角。
+\item 假设棒球发射方向的可能性均匀,计算 $P(\mathbf a,\mathbf b)$。
+\item 在 $\eta=-\pi$ 到 $+\pi$ 的范围内作图 $P(\mathbf a,\mathbf b)$,并在同一图上画出量子公式;取 $\eta$ 的什么值时,隐变量理论与量子力学结果一致?
+\item 验证你的结果满足式 (12.12) 所表示的贝尔不等式。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (12.12):Bell 型不等式的相关函数形式:$|P(\mathbf a,\mathbf b)-P(\mathbf a,\mathbf c)|\le 1+P(\mathbf b,\mathbf c)$。}
+
+\end{question}
+\begin{solution}
+(a) 取坐标系使 $\mathbf a$ 沿 $x$ 轴方向,即 $\mathbf a = \hat x$。设 $\mathbf b$ 在 $x$-$y$ 平面内与 $\mathbf a$ 成夹角 $\eta$,于是
+\[
+\mathbf a = \hat x,\qquad \mathbf b = \cos\eta\,\hat x + \sin\eta\,\hat y.
+\]
+
+对于经典棒球,两粒子的角动量方向相反(总角动量为零),设粒子1的角动量方向为单位矢量 $\hat S$,其球坐标为 $(\theta,\phi)$,则
+\[
+\hat S = \sin\theta\cos\phi\,\hat x + \sin\theta\sin\phi\,\hat y + \cos\theta\,\hat z.
+\]
+粒子2的角动量方向为 $-\hat S$。
+
+探测器 A 沿 $\mathbf a$ 方向测量粒子1的角动量分量符号:
+\[
+A(\mathbf a,\lambda) = \operatorname{sign}(\mathbf a\cdot\hat S) = \operatorname{sign}(\sin\theta\cos\phi).
+\]
+探测器 B 沿 $\mathbf b$ 方向测量粒子2的角动量分量符号:
+\[
+B(\mathbf b,\lambda) = \operatorname{sign}(\mathbf b\cdot(-\hat S)) = -\operatorname{sign}(\mathbf b\cdot\hat S).
+\]
+计算内积:
+\[
+\mathbf b\cdot\hat S = \cos\eta\sin\theta\cos\phi + \sin\eta\sin\theta\sin\phi = \sin\theta\cos(\phi-\eta).
+\]
+因此
+\[
+B(\mathbf b,\lambda) = -\operatorname{sign}[\sin\theta\cos(\phi-\eta)].
+\]
+对于 $\sin\theta > 0$(极角 $\theta$ 不在极点),符号函数中 $\sin\theta$ 为正因子可不计入,从而
+\[
+A(\mathbf a,\lambda) = \operatorname{sign}(\cos\phi),\qquad
+B(\mathbf b,\lambda) = -\operatorname{sign}[\cos(\phi-\eta)].
+\]
+两测量结果的乘积为
+\[
+\boxed{A(\mathbf a,\lambda)B(\mathbf b,\lambda) = -\operatorname{sign}[\cos\phi\cos(\phi-\eta)].}
+\]
+
+(b) 假设隐变量 $\lambda$ 均匀分布,即 $\phi$ 在 $[0,2\pi)$ 上均匀分布,$\theta$ 的分布不影响符号函数结果(只要 $\sin\theta>0$)。相关函数 $P(\mathbf a,\mathbf b)$ 定义为 $A$ 和 $B$ 的系综平均:
+\[
+P(\mathbf a,\mathbf b) = \langle AB\rangle = \frac{1}{2\pi}\int_0^{2\pi} A(\mathbf a,\phi)B(\mathbf b,\phi)\,\dd\phi.
+\]
+
+根据 (a) 的结果,$AB = -1$ 当 $\cos\phi$ 与 $\cos(\phi-\eta)$ 同号;$AB = +1$ 当两者异号。我们需要计算 $\cos\phi$ 和 $\cos(\phi-\eta)$ 同号的 $\phi$ 区间总长度。
+
+在一个周期 $2\pi$ 内,$\cos\phi$ 的符号在 $\phi = \pi/2$ 和 $3\pi/2$ 处改变;$\cos(\phi-\eta)$ 的符号在 $\phi = \pi/2+\eta$ 和 $3\pi/2+\eta$ 处改变。考虑 $0\le |\eta|\le\pi$ 的情形:
+
+两个余弦同号的 $\phi$ 区间总长度为 $2(\pi-|\eta|)$,异号的区间总长度为 $2|\eta|$。因此
+\[
+\langle AB\rangle = \frac{1}{2\pi}\bigl[(-1)\cdot 2(\pi-|\eta|) + (+1)\cdot 2|\eta|\bigr]
+= -\frac{2\pi-4|\eta|}{2\pi} = -1 + \frac{2|\eta|}{\pi}.
+\]
+故
+\[
+\boxed{P(\mathbf a,\mathbf b) = -1 + \frac{2|\eta|}{\pi},\qquad 0\le|\eta|\le\pi.}
+\]
+
+(c) 量子力学中,自旋 $1/2$ 单态的相关函数为
+\[
+\boxed{P_Q(\mathbf a,\mathbf b) = -\cos\eta.}
+\]
+比较经典隐变量结果 $P_{\text{cl}} = -1+2|\eta|/\pi$ 与量子结果 $P_Q = -\cos\eta$:
+
+令 $P_{\text{cl}}(\eta)=P_Q(\eta)$,即
+\[
+-1+\frac{2|\eta|}{\pi} = -\cos\eta.
+\]
+求解可得交点位于:
+\begin{itemize}
+\item $\eta=0$:$P_{\text{cl}}(0) = -1$,$P_Q(0) = -1$。
+\item $\eta=\pm\pi/2$:$P_{\text{cl}}(\pm\pi/2) = -1+1 = 0$,$P_Q(\pm\pi/2) = 0$。
+\item $\eta=\pm\pi$:$P_{\text{cl}}(\pm\pi) = -1+2 = 1$,$P_Q(\pm\pi) = 1$。
+\end{itemize}
+此外两个函数在其它 $\eta$ 处不一致。在 $0<\eta<\pi/2$ 区域,$P_Q < P_{\text{cl}}$(量子关联更强);在 $\pi/2<\eta<\pi$ 区域,$P_Q > P_{\text{cl}}$。
+
+(d) 贝尔不等式(式 (12.12))为
+\[
+|P(\mathbf a,\mathbf b)-P(\mathbf a,\mathbf c)| \le 1+P(\mathbf b,\mathbf c).
+\]
+由于该经典棒球模型中,每个粒子对都具有确定的局域函数 $A(\mathbf a,\lambda)$ 和 $B(\mathbf b,\lambda)$,取值仅为 $\pm1$,对所有 $\lambda$ 有
+\[
+|A(\mathbf a,\lambda)B(\mathbf b,\lambda)-A(\mathbf a,\lambda)B(\mathbf c,\lambda)| = |A(\mathbf a,\lambda)B(\mathbf b,\lambda)[1-B(\mathbf b,\lambda)B(\mathbf c,\lambda)]|
+\]
+因为 $A(\mathbf a,\lambda)B(\mathbf b,\lambda)=\pm1$ 以及 $B(\mathbf b,\lambda)B(\mathbf c,\lambda)=\pm1$,上式绝对值即为
+\[
+|1-B(\mathbf b,\lambda)B(\mathbf c,\lambda)| \le 1+B(\mathbf b,\lambda)B(\mathbf c,\lambda).
+\]
+对所有 $\lambda$ 取系综平均(注意 $B^2=1$):
+\[
+|P(\mathbf a,\mathbf b)-P(\mathbf a,\mathbf c)| \le 1+P(\mathbf b,\mathbf c).
+\]
+因此这一经典隐变量模型自然满足贝尔不等式。代入 (b) 的结果:
+\[
+P(\mathbf a,\mathbf b) = -1+\frac{2|\eta_{ab}|}{\pi},
+\]
+取 $\eta_{ab}=\eta$,$\eta_{ac}=2\eta$,$\eta_{bc}=\eta$(例如 $\mathbf a$、$\mathbf b$、$\mathbf c$ 依次排列),容易验证不等式成立。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明式 (12.17)--式 (12.20)。
+\item 证明密度算符随时间演化由下式确定:
+\[
+\ii\hbar\frac{\dd\hat\rho}{\dd t}=[\hat H,\hat\rho].
+\]
+这是由 $\hat\rho$ 表示的薛定谔方程。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (12.17--12.20):密度算符:$\rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|$,$\rho^\dagger=\rho$,$\operatorname{Tr}\rho=1$,$\langle Q\rangle=\operatorname{Tr}(\rho Q)$,纯态为 $\rho^2=\rho$。}
+
+\end{question}
+\begin{solution}
+(a) 首先给出密度算符的定义。设系统以概率 $p_i$ 处于态 $|\psi_i\rangle$($p_i\ge0$,$\sum_i p_i=1$,$\{|\psi_i\rangle\}$ 不一定正交),则密度算符为
+\[
+\rho = \sum_i p_i |\psi_i\rangle\langle\psi_i|.
+\]
+这就是式 (12.17)。
+
+\textbf{式 (12.18):厄米性。}
+取厄米共轭:
+\[
+\rho^\dagger = \Bigl(\sum_i p_i |\psi_i\rangle\langle\psi_i|\Bigr)^\dagger
+= \sum_i p_i (|\psi_i\rangle\langle\psi_i|)^\dagger
+= \sum_i p_i |\psi_i\rangle\langle\psi_i| = \rho.
+\]
+因此 $\rho^\dagger = \rho$,即密度算符是厄米算符。
+
+\textbf{式 (12.19):迹为 1。}
+在任意正交归一基 $\{|n\rangle\}$ 中计算迹:
+\[
+\operatorname{Tr}\rho = \sum_n \langle n|\rho|n\rangle
+= \sum_n \sum_i p_i \langle n|\psi_i\rangle\langle\psi_i|n\rangle
+= \sum_i p_i \sum_n \langle\psi_i|n\rangle\langle n|\psi_i\rangle
+= \sum_i p_i \langle\psi_i|\psi_i\rangle = \sum_i p_i = 1.
+\]
+这里利用了 $\sum_n |n\rangle\langle n| = I$ 的完备性关系以及 $\langle\psi_i|\psi_i\rangle=1$。
+
+\textbf{式 (12.20):期望值。}
+任意可观测量 $Q$ 的期望值为概率加权平均:
+\[
+\langle Q\rangle = \sum_i p_i \langle\psi_i|Q|\psi_i\rangle.
+\]
+利用迹的循环性质 $\operatorname{Tr}(AB)=\operatorname{Tr}(BA)$,可将其改写为
+\[
+\langle Q\rangle = \sum_i p_i \langle\psi_i|Q|\psi_i\rangle
+= \sum_i p_i \operatorname{Tr}\bigl(Q|\psi_i\rangle\langle\psi_i|\bigr)
+= \operatorname{Tr}\Bigl(Q\sum_i p_i|\psi_i\rangle\langle\psi_i|\Bigr)
+= \operatorname{Tr}(\rho Q).
+\]
+
+\textbf{纯态条件 $\rho^2=\rho$。}
+对于纯态 $\rho=|\psi\rangle\langle\psi|$,
+\[
+\rho^2 = |\psi\rangle\langle\psi|\psi\rangle\langle\psi| = |\psi\rangle\langle\psi| = \rho,
+\]
+因为 $\langle\psi|\psi\rangle=1$。反之,若 $\rho^2=\rho$ 且 $\operatorname{Tr}\rho=1$,则 $\rho$ 是投影算符且秩为 1,代表纯态。
+
+\textbf{基变换下的变换规律。}
+设基矢变换 $|n'\rangle = U|n\rangle$,其中 $U$ 是幺正算符。密度矩阵的矩阵元变换为
+\[
+\rho'_{mn'} = \langle m'|\rho|n'\rangle = \langle m|U^\dagger\rho U|n\rangle = (U^\dagger\rho U)_{mn},
+\]
+即 $\rho' = U^\dagger\rho U$,等价于 $\rho' = U\rho U^\dagger$(约定不同可相差一个转置)。
+
+(b) 首先考虑纯态情况。设 $|\psi(t)\rangle$ 满足薛定谔方程
+\[
+\ii\hbar\frac{\dd}{\dd t}|\psi(t)\rangle = H|\psi(t)\rangle,
+\]
+其厄米共轭为
+\[
+-\ii\hbar\frac{\dd}{\dd t}\langle\psi(t)| = \langle\psi(t)|H.
+\]
+纯态密度算符 $\rho(t)=|\psi(t)\rangle\langle\psi(t)|$ 对时间求导:
+\[
+\begin{aligned}
+\frac{\dd\rho}{\dd t}
+&= \Bigl(\frac{\dd}{\dd t}|\psi\rangle\Bigr)\langle\psi| + |\psi\rangle\Bigl(\frac{\dd}{\dd t}\langle\psi|\Bigr)\\[2mm]
+&= \Bigl(\frac{1}{\ii\hbar}H|\psi\rangle\Bigr)\langle\psi| + |\psi\rangle\Bigl(-\frac{1}{\ii\hbar}\langle\psi|H\Bigr)\\[2mm]
+&= \frac{1}{\ii\hbar} H|\psi\rangle\langle\psi| - \frac{1}{\ii\hbar} |\psi\rangle\langle\psi|H \\[2mm]
+&= \frac{1}{\ii\hbar}(H\rho - \rho H) = \frac{1}{\ii\hbar}[H,\rho].
+\end{aligned}
+\]
+两边乘以 $\ii\hbar$,得
+\[
+\boxed{\ii\hbar\frac{\dd\rho}{\dd t} = [H,\rho].}
+\]
+
+对于混合态 $\rho = \sum_i p_i |\psi_i\rangle\langle\psi_i|$,其中 $p_i$ 为与时间无关的经典概率(系综混合,而非量子叠加),每个纯态投影 $|\psi_i(t)\rangle\langle\psi_i(t)|$ 独立地满足上述方程:
+\[
+\frac{\dd}{\dd t}|\psi_i\rangle\langle\psi_i| = \frac{1}{\ii\hbar}[H,|\psi_i\rangle\langle\psi_i|].
+\]
+取概率加权和:
+\[
+\frac{\dd\rho}{\dd t} = \sum_i p_i\frac{\dd}{\dd t}|\psi_i\rangle\langle\psi_i|
+= \frac{1}{\ii\hbar}\sum_i p_i [H,|\psi_i\rangle\langle\psi_i|]
+= \frac{1}{\ii\hbar}[H,\rho].
+\]
+因此无论是纯态还是混合态,密度算符均满足同一运动方程。这就是冯诺依曼方程(量子刘维尔方程)。
+\end{solution}
+
+\begin{question}
+对沿 $y$ 方向自旋向下的电子重复例题 12.1 的计算。
+\end{question}
+\begin{solution}
+取 $S_z$ 表象,泡利矩阵为
+\[
+\sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix},\quad
+\sigma_z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+沿 $y$ 方向自旋向下的本征态满足 $\mathbf S\cdot\hat y\,\chi_{-y} = -\frac{\hbar}{2}\chi_{-y}$,其中 $\mathbf S = \frac{\hbar}{2}\boldsymbol\sigma$,即
+\[
+(\hat y\cdot\boldsymbol\sigma)\chi_{-y} = -\chi_{-y},\qquad
+\hat y\cdot\boldsymbol\sigma = \sigma_y = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix}.
+\]
+解本征方程:
+\[
+\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = -\begin{pmatrix}a\\b\end{pmatrix}
+\;\Longrightarrow\;
+\begin{cases}
+-\ii b = -a,\\
+\ii a = -b,
+\end{cases}
+\]
+两式等价,给出 $a = \ii b$。归一化得 $|a|^2+|b|^2 = 2|b|^2 = 1$,故取
+\[
+\chi_{-y} = \frac{1}{\sqrt{2}}\begin{pmatrix}1\\-\ii\end{pmatrix}.
+\]
+
+密度矩阵为
+\[
+\rho = \chi_{-y}\chi_{-y}^\dagger
+= \frac{1}{2}\begin{pmatrix}1\\-\ii\end{pmatrix}\begin{pmatrix}1&\ii\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}1 & \ii\\ -\ii & 1\end{pmatrix}.
+\]
+
+各方向自旋期望值用 $\langle S_i\rangle = \frac{\hbar}{2}\operatorname{Tr}(\rho\sigma_i)$ 计算:
+
+对于 $S_x$:
+\[
+\rho\sigma_x = \frac{1}{2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}\ii&1\\1&-\ii\end{pmatrix},
+\]
+\[
+\operatorname{Tr}(\rho\sigma_x) = \frac{1}{2}(\ii - \ii) = 0
+\;\Longrightarrow\; \langle S_x\rangle = 0.
+\]
+
+对于 $S_y$:
+\[
+\rho\sigma_y = \frac{1}{2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}-1&0\\0&-1\end{pmatrix} = -\frac{1}{2}I,
+\]
+\[
+\operatorname{Tr}(\rho\sigma_y) = -1
+\;\Longrightarrow\; \langle S_y\rangle = \frac{\hbar}{2}(-1) = -\frac{\hbar}{2}.
+\]
+
+对于 $S_z$:
+\[
+\rho\sigma_z = \frac{1}{2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}1&-\ii\\-\ii&-1\end{pmatrix},
+\]
+\[
+\operatorname{Tr}(\rho\sigma_z) = \frac{1}{2}(1-1) = 0
+\;\Longrightarrow\; \langle S_z\rangle = 0.
+\]
+
+综上,
+\[
+\boxed{\langle S_x\rangle = 0,\qquad \langle S_y\rangle = -\frac{\hbar}{2},\qquad \langle S_z\rangle = 0.}
+\]
+
+沿任意方向 $\hat n = (\sin\theta\cos\phi,\;\sin\theta\sin\phi,\;\cos\theta)$ 测得 $+\hbar/2$ 的概率为
+\[
+P_+(\hat n) = \operatorname{Tr}(\rho P_{+\hat n}),
+\]
+其中 $P_{+\hat n} = \frac{1}{2}(I+\hat n\cdot\boldsymbol\sigma)$ 是沿 $\hat n$ 方向自旋向上的投影算符。计算:
+\[
+\rho P_{+\hat n} = \frac{1}{4}\bigl(I-\ii\sigma_y\bigr)\bigl(I+\hat n\cdot\boldsymbol\sigma\bigr),
+\]
+其中利用了 $\rho = \frac{1}{2}(I-\ii\sigma_y)$(因 $\chi_{-y}$ 对应的 Bloch 矢量为 $-\hat y$)。展开并取迹,利用 $\operatorname{Tr}\sigma_i=0$,$\operatorname{Tr}(\sigma_i\sigma_j)=2\delta_{\ii j}$:
+\[
+\begin{aligned}
+\operatorname{Tr}(\rho P_{+\hat n})
+&= \frac{1}{4}\operatorname{Tr}\bigl[I - \ii\sigma_y + \hat n\cdot\boldsymbol\sigma - \ii(\hat n\cdot\boldsymbol\sigma)\sigma_y\bigr]\\[2mm]
+&= \frac{1}{4}\bigl(2 + 0 + 0 - \ii\cdot 2 n_y\bigr)
+= \frac{1}{2}(1 - n_y).
+\end{aligned}
+\]
+由于 $\hat n$ 的 $y$ 分量为 $n_y = \sin\theta\sin\phi$,且 $\hat y\cdot\hat n = n_y$,故
+\[
+\boxed{P_+(\hat n) = \frac{1}{2}\bigl(1 - \hat y\cdot\hat n\bigr).}
+\]
+特别地,当 $\hat n = \hat y$ 时 $P_+ = 0$(测到向上的概率为零,与预期一致);当 $\hat n = -\hat y$ 时 $P_+ = 1$(测到向下的概率为 1)。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明式 (12.31)--式 (12.34)。
+\item 证明 $\operatorname{Tr}(\rho^2)\le 1$,且仅当 $\rho$ 表示纯态时才等于 1。
+\item 证明:当且仅当 $\rho$ 表示纯态时,$\rho^2=\rho$。
+\end{enumerate}
+
+\par\smallskip
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (12.31--12.34):密度矩阵的判据:厄米、迹为 $1$、本征值非负;任意观测量平均值仍为 $\langle Q\rangle=\operatorname{Tr}(\rho Q)$。}
+
+\end{question}
+\begin{solution}
+(a) 密度算符的性质(式 (12.31)--(12.34)):
+
+\textbf{厄米性(式 (12.31))。} 由定义 $\rho = \sum_i p_i |\psi_i\rangle\langle\psi_i|$,取共轭得 $\rho^\dagger = \rho$,故密度算符是厄米算符。厄米算符的本征值为实数,可在某正交基下对角化。
+
+\textbf{迹为 1(式 (12.32))。}
+\[
+\operatorname{Tr}\rho = \sum_i p_i \operatorname{Tr}(|\psi_i\rangle\langle\psi_i|) = \sum_i p_i = 1.
+\]
+
+\textbf{本征值非负(式 (12.33))。} 在 $\rho$ 的对角化基中,$\rho = \sum_n \lambda_n |n\rangle\langle n|$,其中 $\lambda_n$ 是本征值。由于 $\rho$ 是概率系综的表示:对任意态 $|\phi\rangle$,
+\[
+\langle\phi|\rho|\phi\rangle = \sum_i p_i |\langle\phi|\psi_i\rangle|^2 \ge 0,
+\]
+因此 $\rho$ 是正定算符,所有本征值 $\lambda_n \ge 0$。
+
+\textbf{期望值公式(式 (12.34))。} 任意可观测量 $Q$ 的期望值为
+\[
+\langle Q\rangle = \sum_i p_i \langle\psi_i|Q|\psi_i\rangle
+= \sum_i p_i \operatorname{Tr}(Q|\psi_i\rangle\langle\psi_i|)
+= \operatorname{Tr}\Bigl(Q\sum_i p_i|\psi_i\rangle\langle\psi_i|\Bigr)
+= \operatorname{Tr}(\rho Q).
+\]
+
+(b) 在 $\rho$ 的对角化基中,设本征值为 $\lambda_n \ge 0$,且 $\sum_n \lambda_n = 1$。则
+\[
+\operatorname{Tr}(\rho^2) = \sum_n \lambda_n^2.
+\]
+利用柯西-施瓦茨不等式或简单的代数关系:
+\[
+\Bigl(\sum_n \lambda_n\Bigr)^2 = \sum_n \lambda_n^2 + 2\sum_{m<n} \lambda_m\lambda_n \ge \sum_n \lambda_n^2,
+\]
+等号成立当且仅当至多一个 $\lambda_n$ 非零。由于 $\sum_n \lambda_n = 1$,故
+\[
+\sum_n \lambda_n^2 \le \Bigl(\sum_n \lambda_n\Bigr)^2 = 1,
+\]
+即
+\[
+\boxed{\operatorname{Tr}(\rho^2) \le 1.}
+\]
+
+等号成立的条件:$\operatorname{Tr}(\rho^2)=1$ 意味着 $\sum_n \lambda_n^2 = 1 = (\sum_n \lambda_n)^2$,这只有当一个 $\lambda_k = 1$ 而其余 $\lambda_{n\neq k} = 0$ 时才成立。此时 $\rho = |k\rangle\langle k|$ 是投影到单维子空间的算符,即纯态。
+
+(c) 分两个方向证明:
+
+\textbf{充分性:} 若 $\rho$ 是纯态,即 $\rho = |\psi\rangle\langle\psi|$,则
+\[
+\rho^2 = |\psi\rangle\langle\psi|\psi\rangle\langle\psi| = |\psi\rangle\langle\psi| = \rho,
+\]
+其中用到 $\langle\psi|\psi\rangle=1$。故 $\rho^2 = \rho$。
+
+\textbf{必要性:} 若 $\rho^2 = \rho$,则 $\rho$ 是投影算符。在对角化基中 $\rho = \sum_n \lambda_n |n\rangle\langle n|$,则
+\[
+\rho^2 = \sum_n \lambda_n^2 |n\rangle\langle n| = \sum_n \lambda_n |n\rangle\langle n| = \rho,
+\]
+因此每个本征值满足 $\lambda_n^2 = \lambda_n$,即 $\lambda_n = 0$ 或 $1$。又因为 $\operatorname{Tr}\rho = \sum_n \lambda_n = 1$,所以恰好有一个本征值为 1,其余全为 0。故 $\rho = |k\rangle\langle k|$ 是纯态。
+
+综上,
+\[
+\boxed{\rho^2 = \rho \;\Longleftrightarrow\; \rho \text{ 是纯态}.}
+\]
+
+作为补充,$\operatorname{Tr}(\rho^2)$ 称为纯度(purity),是衡量系统混合程度的常用量:
+\[
+\gamma \equiv \operatorname{Tr}(\rho^2),\qquad \frac{1}{d} \le \gamma \le 1,
+\]
+其中 $d$ 为 Hilbert 空间维数。$\gamma=1$ 对应纯态,$\gamma=1/d$ 对应最大混合态。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 构造电子状态处于沿 $x$ 轴自旋向上(几率为 $1/3$)或沿 $y$ 轴自旋向下(几率为 $2/3$)的密度矩阵。
+\item 对 (a) 中的电子,计算 $\langle S_y\rangle$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 首先构造每个纯态的密度矩阵。在 $S_z$ 表象中:
+
+沿 $x$ 轴自旋向上的本征态为
+\[
+\chi_{+x} = \frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix},
+\]
+相应的投影算符为
+\[
+\rho_{+x} = \chi_{+x}\chi_{+x}^\dagger
+= \frac{1}{2}\begin{pmatrix}1\\1\end{pmatrix}\begin{pmatrix}1&1\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}1&1\\1&1\end{pmatrix}.
+\]
+利用泡利矩阵可写为 $\rho_{+x} = \frac{1}{2}(I+\sigma_x)$。
+
+沿 $y$ 轴自旋向下的本征态为
+\[
+\chi_{-y} = \frac{1}{\sqrt{2}}\begin{pmatrix}1\\-\ii\end{pmatrix},
+\]
+相应的投影算符为
+\[
+\rho_{-y} = \chi_{-y}\chi_{-y}^\dagger
+= \frac{1}{2}\begin{pmatrix}1\\-\ii\end{pmatrix}\begin{pmatrix}1&\ii\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}.
+\]
+利用泡利矩阵可写为 $\rho_{-y} = \frac{1}{2}(I-\sigma_y)$(因为 $-\hat y$ 方向的 Bloch 矢量为 $-\sigma_y$)。
+
+混合态的密度算符为两个纯态投影的概率加权和:
+\[
+\rho = \frac{1}{3}\rho_{+x} + \frac{2}{3}\rho_{-y}
+= \frac{1}{3}\cdot\frac{1}{2}(I+\sigma_x) + \frac{2}{3}\cdot\frac{1}{2}(I-\sigma_y)
+= \frac{1}{2}\left(I + \frac{1}{3}\sigma_x - \frac{2}{3}\sigma_y\right).
+\]
+
+代入泡利矩阵的显式形式:
+\[
+I = \begin{pmatrix}1&0\\0&1\end{pmatrix},\quad
+\sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix},
+\]
+得
+\[
+\rho = \frac{1}{2}\left[
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
++ \frac{1}{3}\begin{pmatrix}0&1\\1&0\end{pmatrix}
+- \frac{2}{3}\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}
+\right].
+\]
+计算各矩阵元:
+\begin{itemize}
+\item $\rho_{11} = \frac{1}{2}(1 + 0 + 0) = \frac{1}{2}$
+\item $\rho_{12} = \frac{1}{2}\left(0 + \frac{1}{3}\cdot 1 - \frac{2}{3}\cdot(-\ii)\right) = \frac{1}{2}\left(\frac{1}{3} + \frac{2i}{3}\right) = \frac{1}{6} + \frac{\ii}{3}$
+\item $\rho_{21} = \frac{1}{2}\left(0 + \frac{1}{3}\cdot 1 - \frac{2}{3}\cdot \ii\right) = \frac{1}{2}\left(\frac{1}{3} - \frac{2i}{3}\right) = \frac{1}{6} - \frac{\ii}{3}$
+\item $\rho_{22} = \frac{1}{2}(1 + 0 + 0) = \frac{1}{2}$
+\end{itemize}
+因此
+\[
+\boxed{\rho = \frac{1}{2}\begin{pmatrix}
+1 & \dfrac{1}{3} + \dfrac{2i}{3}\\[6pt]
+\dfrac{1}{3} - \dfrac{2i}{3} & 1
+\end{pmatrix}.}
+\]
+
+(b) 期望值 $\langle S_y\rangle$ 可通过多种方法计算。
+
+\textbf{方法一:} 利用 $\langle S_y\rangle = \operatorname{Tr}(\rho S_y)$,其中 $S_y = \frac{\hbar}{2}\sigma_y$:
+\[
+\langle S_y\rangle = \frac{\hbar}{2}\operatorname{Tr}(\rho\sigma_y).
+\]
+由 $\rho$ 的 Bloch 矢量形式 $\rho = \frac{1}{2}(I + \mathbf a\cdot\boldsymbol\sigma)$,其中 $\mathbf a = \left(\frac{1}{3}, -\frac{2}{3}, 0\right)$。则
+\[
+\rho\sigma_y = \frac{1}{2}(I + \mathbf a\cdot\boldsymbol\sigma)\sigma_y,
+\]
+利用 $\operatorname{Tr}\sigma_y = 0$ 和 $\operatorname{Tr}(\sigma_i\sigma_j)=2\delta_{\ii j}$:
+\[
+\operatorname{Tr}(\rho\sigma_y) = \frac{1}{2}\operatorname{Tr}(\sigma_y) + \frac{1}{2}\sum_j a_j\operatorname{Tr}(\sigma_j\sigma_y) = \frac{1}{2}\cdot 0 + \frac{1}{2}\cdot 2a_y = a_y = -\frac{2}{3}.
+\]
+因此
+\[
+\boxed{\langle S_y\rangle = \frac{\hbar}{2}\left(-\frac{2}{3}\right) = -\frac{\hbar}{3}.}
+\]
+
+\textbf{方法二(直接矩阵乘法验证):}
+\[
+\rho\sigma_y = \frac{1}{2}\begin{pmatrix}
+1 & \frac{1+2i}{3} \\[4pt]
+\frac{1-2i}{3} & 1
+\end{pmatrix}
+\begin{pmatrix}
+0 & -\ii \\ \ii & 0
+\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}
+\frac{\ii(1+2i)}{3} & -\ii \\[4pt]
+\ii & -\frac{\ii(1-2i)}{3}
+\end{pmatrix},
+\]
+取迹:
+\[
+\operatorname{Tr}(\rho\sigma_y) = \frac{1}{2}\left(\frac{\ii(1+2i)}{3} - \frac{\ii(1-2i)}{3}\right)
+= \frac{1}{2}\cdot\frac{\ii(1+2i-1+2i)}{3}
+= \frac{1}{2}\cdot\frac{4i^2}{3} = -\frac{2}{3},
+\]
+与上述结果一致。
+\end{solution}
+
+\begin{question}
+\begin{enumerate}
+\item 证明自旋 $1/2$ 粒子最常见的密度矩阵可以用 3 个实数 $(a_1,a_2,a_3)$ 表示为
+\[
+\rho=\frac12\begin{pmatrix}1+a_3&a_1-\ii a_2\\a_1+\ii a_2&1-a_3\end{pmatrix}=\frac12(1+\mathbf a\cdot\boldsymbol\sigma),
+\]
+其中 $\sigma_1,\sigma_2,\sigma_3$ 是泡利矩阵。提示:它必须是厄米的,且迹必须为 1。
+\item 证明当且仅当 $|\mathbf a|=1$ 时 $\rho$ 表示纯态;当 $|\mathbf a|<1$ 时表示混合态。
+\item 若布洛赫矢量的端点分别位于北极 $(0,0,1)$、球心 $(0,0,0)$ 和南极 $(0,0,-1)$,对 $S_z$ 测量得到 $+\hbar/2$ 的几率是多少?
+\item 若纯态的布洛赫矢量位于赤道上且方位角为 $\phi$,求系统的旋量 $\chi$。
+\end{enumerate}
+\end{question}
+\begin{solution}
+(a) 任意 $2\times2$ 厄米矩阵 $M$ 可以展开为四个实参数:
+\[
+M = c_0 I + c_1\sigma_1 + c_2\sigma_2 + c_3\sigma_3,
+\]
+其中 $c_0,c_1,c_2,c_3$ 为实数,这是因为 $I,\sigma_1,\sigma_2,\sigma_3$ 构成 $2\times2$ 厄米矩阵空间的一组完备基(四个基矩阵线性独立且均为厄米矩阵)。
+
+密度算符 $\rho$ 必须是厄米的,故可写为上述形式。迹为 1 的条件给出:
+\[
+\operatorname{Tr}\rho = \operatorname{Tr}(c_0 I) + \sum_{j=1}^3 c_j\operatorname{Tr}\sigma_j = 2c_0 = 1 \;\Longrightarrow\; c_0 = \frac12.
+\]
+记 $\mathbf a = (a_1,a_2,a_3) = 2(c_1,c_2,c_3)$,则
+\[
+\rho = \frac12 I + \frac12\sum_{j=1}^3 a_j\sigma_j = \frac12(I + \mathbf a\cdot\boldsymbol\sigma).
+\]
+
+在 $S_z$ 表象中写出矩阵形式。泡利矩阵为
+\[
+\sigma_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+\sigma_2 = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix},\quad
+\sigma_3 = \begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+代入得
+\[
+\rho = \frac12\left[
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
++ a_1\begin{pmatrix}0&1\\1&0\end{pmatrix}
++ a_2\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}
++ a_3\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\right].
+\]
+计算各矩阵元:
+\begin{itemize}
+\item $\rho_{11} = \frac12(1 + a_3)$
+\item $\rho_{12} = \frac12(a_1 - \ii a_2)$
+\item $\rho_{21} = \frac12(a_1 + \ii a_2)$
+\item $\rho_{22} = \frac12(1 - a_3)$
+\end{itemize}
+因此
+\[
+\boxed{\rho = \frac12\begin{pmatrix}
+1+a_3 & a_1-\ii a_2\\
+a_1+\ii a_2 & 1-a_3
+\end{pmatrix}
+= \frac12(I+\mathbf a\cdot\boldsymbol\sigma).}
+\]
+
+(b) 求 $\rho$ 的本征值。设 $\mathbf a = |\mathbf a|\hat n$,则 $\hat n\cdot\boldsymbol\sigma$ 的本征值为 $\pm 1$。因此
+\[
+\rho = \frac12(I + |\mathbf a|\,\hat n\cdot\boldsymbol\sigma)
+\]
+的本征值为
+\[
+\lambda_\pm = \frac12(1 \pm |\mathbf a|).
+\]
+密度算符的本征值必须非负:$\lambda_\pm \ge 0 \;\Longrightarrow\; |\mathbf a| \le 1$。
+
+纯态条件 $\rho^2 = \rho$ 等价于 $\lambda_\pm^2 = \lambda_\pm$。代入本征值:
+\[
+\frac14(1\pm|\mathbf a|)^2 = \frac12(1\pm|\mathbf a|).
+\]
+两边乘以 4:
+\[
+(1\pm|\mathbf a|)^2 = 2(1\pm|\mathbf a|).
+\]
+令 $x = 1\pm|\mathbf a|$,则 $x^2 = 2x$,解得 $x=0$ 或 $x=2$。对应地:
+\begin{itemize}
+\item $1+|\mathbf a| = 2$ \;\Longrightarrow\; $|\mathbf a| = 1$,此时 $\lambda_+ = 1$, $\lambda_- = 0$。
+\item $1-|\mathbf a| = 0$ \;\Longrightarrow\; $|\mathbf a| = 1$,此时 $\lambda_+ = 1$, $\lambda_- = 0$(与上同)。
+\end{itemize}
+因此当且仅当 $|\mathbf a| = 1$ 时 $\rho$ 有一个本征值为 1、另一个为 0,即 $\rho$ 是纯态。
+
+当 $|\mathbf a| < 1$ 时,两个本征值均为正且小于 1,$\operatorname{Tr}(\rho^2) = \lambda_+^2 + \lambda_-^2 = \frac12(1+|\mathbf a|^2) < 1$,表示混合态。
+
+综上,
+\[
+\boxed{|\mathbf a| = 1 \;\Longleftrightarrow\; \text{纯态},\qquad
+|\mathbf a| < 1 \;\Longleftrightarrow\; \text{混合态}.}
+\]
+
+(c) 对于 $S_z$ 测量,得到 $+\hbar/2$ 的概率是 $|\langle\uparrow|\rho|\uparrow\rangle|$(实际上是 $\rho$ 的 $(1,1)$ 矩阵元)。由 (a) 的表达式:
+\[
+P_+ = \rho_{11} = \frac{1+a_3}{2}.
+\]
+\begin{itemize}
+\item 北极 $\mathbf a = (0,0,1)$:$a_3 = 1$,$P_+ = \frac{1+1}{2} = 1$(自旋完全沿 $+z$ 方向)。
+\item 球心 $\mathbf a = (0,0,0)$:$a_3 = 0$,$P_+ = \frac{1}{2}$(完全非极化,等概率混合)。
+\item 南极 $\mathbf a = (0,0,-1)$:$a_3 = -1$,$P_+ = \frac{1-1}{2} = 0$(自旋完全沿 $-z$ 方向)。
+\end{itemize}
+故
+\[
+\boxed{P_+(\text{北极})=\;1,\qquad P_+(\text{球心})=\frac12,\qquad P_+(\text{南极})=\;0.}
+\]
+
+(d) 纯态 $|\mathbf a|=1$ 且位于赤道上,即 $\mathbf a = (\cos\phi,\;\sin\phi,\;0)$。对应的密度矩阵为
+\[
+\rho = \frac12\begin{pmatrix}
+1 & \cos\phi - \ii\sin\phi\\
+\cos\phi + \ii\sin\phi & 1
+\end{pmatrix}
+= \frac12\begin{pmatrix}
+1 & \ee^{-\ii\phi}\\
+\ee^{\ii\phi} & 1
+\end{pmatrix}.
+\]
+由于是纯态,$\rho = \chi\chi^\dagger$。设旋量为
+\[
+\chi = \begin{pmatrix}a\\b\end{pmatrix},\quad |a|^2+|b|^2=1,
+\]
+则
+\[
+\chi\chi^\dagger = \begin{pmatrix}|a|^2 & ab^*\\ a^*b & |b|^2\end{pmatrix}
+= \frac12\begin{pmatrix}1 & \ee^{-\ii\phi}\\ \ee^{\ii\phi} & 1\end{pmatrix}.
+\]
+比较得 $|a|^2 = |b|^2 = \frac12$,且 $ab^* = \frac12 \ee^{-\ii\phi}$。可取 $a = \frac{1}{\sqrt{2}}$,$b = \frac{1}{\sqrt{2}}\ee^{\ii\phi}$(整体相位自由),因此
+\[
+\boxed{\chi = \frac{1}{\sqrt{2}}\begin{pmatrix}1\\ \ee^{\ii\phi}\end{pmatrix},}
+\]
+整体相位可任意选择。这一旋量对应沿赤道方向 $\hat n = (\cos\phi,\sin\phi,0)$ 的自旋向上态。
+\end{solution}

@@ -1,0 +1,204 @@
+﻿\heading{数学物理方法（下）-第5次作业}
+
+
+\begin{question}
+一横截面半径为 \(a\) 的无穷长空心圆柱导体沿柱轴分成两半，互相绝缘。一半电势为 \(V\)，另一半电势为 \(-V\)，求柱内电势分布。
+
+\begin{solution}
+设边界取为
+\[
+u(a,\phi)=
+\begin{cases}
+V,&0<\phi<\pi,\\
+-V,&\pi<\phi<2\pi.
+\end{cases}
+\]
+柱内与 \(z\) 无关，满足平面 Laplace 方程。圆内有界解为
+\[
+u(\rho,\phi)=\sum_{n=1}^{\infty}\left(\frac{\rho}{a}\right)^n
+\left(A_n\cos n\phi+B_n\sin n\phi\right).
+\]
+边界函数为奇函数，只有正弦项，且
+\[
+B_n=\frac1\pi\int_0^{2\pi}u(a,\phi)\sin n\phi\,d\phi
+=\frac{2V}{n\pi}\bigl(1-(-1)^n\bigr).
+\]
+故
+\[
+u(\rho,\phi)=\frac{4V}{\pi}\sum_{m=0}^{\infty}
+\frac1{2m+1}\left(\frac{\rho}{a}\right)^{2m+1}
+\sin(2m+1)\phi .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一横截面半径为 \(a\) 的无穷长均匀圆柱体，表面熏黑，平放在地上，阳光垂直于柱轴照射。设垂直于光线的单位面积在单位时间内吸收热量为 \(M\)，柱面按 Newton 冷却定律散热，外界温度为零。求柱内稳态温度分布。
+
+\begin{solution}
+稳态温度满足圆内 Laplace 方程。若 \(K\) 为导热系数，\(H\) 为表面传热系数，外法向热流条件为
+\[
+-K u_\rho(a,\phi)=M\cos\phi-Hu(a,\phi)
+\]
+在受光半圆成立；背光半圆只有冷却项。把入射热流写作偶函数 \(F(\phi)\)，则边界条件为
+\[
+K u_\rho(a,\phi)+Hu(a,\phi)=F(\phi).
+\]
+设
+\[
+F(\phi)=A_0+\sum_{n=1}^{\infty}A_n\cos n\phi,
+\]
+其中
+\[
+A_0=\frac{2M}{\pi},\qquad
+A_1=\frac{M}{2},
+\]
+\[
+A_n=-\frac{2M\cos(n\pi/2)}{\pi(n^2-1)},\qquad n\ge2.
+\]
+则圆内有界解为
+\[
+u(\rho,\phi)=\frac{A_0}{H}
++\sum_{n=1}^{\infty}
+\frac{A_n}{H+Kn/a}
+\left(\frac{\rho}{a}\right)^n\cos n\phi .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑圆域 \(0\le x^2+y^2\le a^2\) 中的定解问题
+\[
+\nabla^2u=A,\qquad
+\left.\frac{\partial u}{\partial\rho}\right|_{\rho=a}=B.
+\]
+选择常数 \(B\)，使该定解问题有解，并求出该解。
+\begin{solution}
+Neumann 问题的相容条件为
+\[
+\iint_D A\,dS=\int_{\partial D}B\,ds.
+\]
+故
+\[
+A\pi a^2=2\pi aB,\qquad B=\frac{Aa}{2}.
+\]
+取径向解，方程为
+\[
+\frac1\rho(\rho u_\rho)_\rho=A.
+\]
+有界性给出
+\[
+u(\rho)=\frac{A}{4}\rho^2+C.
+\]
+此时 \(u_\rho(a)=Aa/2=B\)。由于 Neumann 问题只差一个常数，以上即为通解。
+\end{solution}
+\end{question}
+
+\begin{question}
+求扇形区域 \(0\le\rho\le a,\ 0\le\phi\le\alpha\) 中的稳态温度分布。区域内无热源，直边温度为 \(0^\circ\mathrm C\)，弧形边界温度为 \(100^\circ\mathrm C\)。问 \(\alpha=2\pi\) 时，边界 \(\phi\to0\) 与 \(\phi\to\alpha=2\pi\) 两侧温度及温度梯度是否连续？
+\begin{solution}
+令
+\[
+u(\rho,\phi)=\sum_{n=1}^{\infty}A_n
+\left(\frac{\rho}{a}\right)^{n\pi/\alpha}
+\sin\frac{n\pi\phi}{\alpha}.
+\]
+由 \(u(a,\phi)=100\) 得
+\[
+A_n=\frac{2}{\alpha}\int_0^\alpha100\sin\frac{n\pi\phi}{\alpha}\,d\phi
+=\frac{200}{n\pi}\bigl(1-(-1)^n\bigr).
+\]
+于是
+\[
+u(\rho,\phi)=\sum_{n=1}^{\infty}
+\frac{200(1-(-1)^n)}{n\pi}
+\left(\frac{\rho}{a}\right)^{n\pi/\alpha}
+\sin\frac{n\pi\phi}{\alpha}.
+\]
+当 \(\alpha=2\pi\) 时两条边重合，但规定的边界值仍为零，而弧边极限一般不使角向导数连续；温度本身在割线两侧相同为零，梯度的角向分量通常不连续。
+\end{solution}
+\end{question}
+
+\begin{question}
+求本征值问题
+\[
+\begin{cases}
+\dfrac1\rho\dfrac d{d\rho}\left(\rho\dfrac{dR}{d\rho}\right)+\dfrac{\lambda}{\rho^2}R(\rho)=0,\qquad 0<a<\rho<b,\\
+R'(a)=0,\qquad R(b)=0.
+\end{cases}
+\]
+\begin{solution}
+令 \(\lambda=\mu^2\)。方程化为 Euler 方程
+\[
+\rho^2R''+\rho R'+\mu^2R=0,
+\]
+故
+\[
+R=C\cos(\mu\ln\rho)+D\sin(\mu\ln\rho).
+\]
+条件 \(R'(a)=0\) 给出
+\[
+-C\sin(\mu\ln a)+D\cos(\mu\ln a)=0,
+\]
+即 \(R=C\cos\mu\ln(\rho/a)\)。再由 \(R(b)=0\) 得
+\[
+\cos\left(\mu\ln\frac ba\right)=0.
+\]
+所以
+\[
+\mu_n=\frac{(2n+1)\pi}{2\ln(b/a)},\qquad
+\lambda_n=\mu_n^2,\qquad
+R_n(\rho)=\cos\left(\mu_n\ln\frac{\rho}{a}\right).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求解球内的定解问题
+\[
+\begin{cases}
+u_t-\dfrac{\kappa}{r^2}\dfrac{\partial}{\partial r}\left(r^2u_r\right)=0,\qquad 0<r<1,\ t>0,\\
+u|_{r=0}\text{ 有界},\qquad u|_{r=1}=Ae^{-(p\pi)^2\kappa t},\\
+u|_{t=0}=0.
+\end{cases}
+\]
+并讨论 \(p\) 等于正整数 \(m\) 时的情况。
+\begin{solution}
+令 \(v=ru\)，利用
+\[
+\frac1{r^2}\frac{\partial}{\partial r}(r^2u_r)=\frac1r v_{rr},
+\]
+得
+\[
+v_t-\kappa v_{rr}=0,\qquad v(0,t)=0,\qquad v(1,t)=Ae^{-(p\pi)^2\kappa t},\qquad v(r,0)=0.
+\]
+取
+\[
+v=A r e^{-(p\pi)^2\kappa t}+w.
+\]
+则 \(w(0,t)=w(1,t)=0\)，且
+\[
+w_t-\kappa w_{rr}=A\kappa(p\pi)^2r e^{-(p\pi)^2\kappa t}.
+\]
+展开 \(w=\sum b_n(t)\sin n\pi r\)，并用
+\[
+r=\sum_{n=1}^{\infty}\frac{2(-1)^{n+1}}{n\pi}\sin n\pi r,
+\]
+可得当 \(p\ne n\) 时
+\[
+b_n(t)=\frac{2A p^2(-1)^{n+1}}{n(p^2-n^2)}
+\left(e^{-(n\pi)^2\kappa t}-e^{-(p\pi)^2\kappa t}\right).
+\]
+因此
+\[
+u(r,t)=A e^{-(p\pi)^2\kappa t}
++\frac1r\sum_{n=1}^{\infty}b_n(t)\sin n\pi r.
+\]
+若 \(p=m\) 为正整数，\(n=m\) 项由共振极限给出
+\[
+b_m(t)=2A(-1)^m m\pi\kappa t\,e^{-(m\pi)^2\kappa t},
+\]
+其余项仍用上式。
+\end{solution}
+\end{question}
+

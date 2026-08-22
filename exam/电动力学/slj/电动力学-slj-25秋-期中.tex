@@ -1,0 +1,384 @@
+\heading{电动力学-slj-25秋-期中}
+
+\begin{question}
+均匀线性介质中的 Maxwell 方程与电荷守恒
+\begin{solution}
+在介电常数为 $\varepsilon$、磁导率为 $\mu$ 的均匀线性介质中，
+\[
+  \mathbf D=\varepsilon\mathbf E,
+  \qquad
+  \mathbf B=\mu\mathbf H .
+\]
+若 $\rho$ 和 $\mathbf J$ 表示自由电荷密度和自由电流密度，则 Maxwell 方程可写为
+\[
+  \boxed{\nabla\cdot\mathbf E=\frac{\rho}{\varepsilon}},
+  \qquad
+  \boxed{\nabla\times\mathbf E=-\frac{\partial\mathbf B}{\partial t}},
+\]
+\[
+  \boxed{\nabla\cdot\mathbf B=0},
+  \qquad
+  \boxed{\nabla\times\mathbf B=\mu\mathbf J+\mu\varepsilon\frac{\partial\mathbf E}{\partial t}} .
+\]
+对 Amp\`ere--Maxwell 方程取散度：
+\[
+  0=\nabla\cdot(\nabla\times\mathbf B)
+  =\mu\nabla\cdot\mathbf J
+  +\mu\varepsilon\frac{\partial}{\partial t}(\nabla\cdot\mathbf E).
+\]
+利用 Gauss 定律 $\varepsilon\nabla\cdot\mathbf E=\rho$，得到
+\[
+  \boxed{\frac{\partial\rho}{\partial t}+\nabla\cdot\mathbf J=0}.
+\]
+这就是局域形式的电荷守恒定律。对任意固定体积 $V$ 积分，还可得
+\[
+  \frac{\dd}{\dd t}\int_V\rho\,\dd\tau
+  =-\oint_{\partial V}\mathbf J\cdot\dd\mathbf a .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+给定球面电势的球外电势与电场
+\begin{solution}
+球外区域无电荷，故电势满足 Laplace 方程。轴对称且在无穷远处趋于零的一般解为
+\[
+  \varphi(r,\theta)=\sum_{\ell=0}^{\infty}A_\ell r^{-\ell-1}P_\ell(\cos\theta).
+\]
+球面边界条件为
+\[
+  \varphi(R,\theta)=\varphi_0(1+\cos\theta)^2.
+\]
+利用
+\[
+  \cos^2\theta=\frac13+\frac23P_2(\cos\theta),
+\]
+可将边界条件展开为
+\[
+  (1+\cos\theta)^2
+  =\frac43+2P_1(\cos\theta)+\frac23P_2(\cos\theta).
+\]
+逐项匹配得
+\[
+  \boxed{
+  \varphi(r,\theta)=\varphi_0\left[
+  \frac{4R}{3r}
+  +2\frac{R^2}{r^2}\cos\theta
+  +\frac23\frac{R^3}{r^3}P_2(\cos\theta)
+  \right]},
+  \qquad r\ge R .
+\]
+其中
+\[
+  P_2(\cos\theta)=\frac12(3\cos^2\theta-1).
+\]
+由 $\mathbf E=-\nabla\varphi$，且 $E_\phi=0$，得到
+\[
+  \boxed{
+  E_r=\varphi_0\left[
+  \frac{4R}{3r^2}
+  +\frac{4R^2}{r^3}\cos\theta
+  +\frac{2R^3}{r^4}P_2(\cos\theta)
+  \right]},
+\]
+\[
+  \boxed{
+  E_\theta=2\varphi_0\sin\theta\left(
+  \frac{R^2}{r^3}+\frac{R^3}{r^4}\cos\theta
+  \right)},
+  \qquad E_\phi=0 .
+\]
+因此
+\[
+  \boxed{\mathbf E=E_r\hat{\mathbf r}+E_\theta\hat{\boldsymbol\theta}} .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+界面附近无限长线电流的磁场与磁化电流
+\begin{solution}
+记真空磁导率为 $\mu_0$，并定义磁化强度
+\[
+  \mathbf M=\left(\frac{\mu}{\mu_0}-1\right)\mathbf H
+\]
+（仅在磁介质中非零）。磁化电流为
+\[
+  \mathbf J_M=\nabla\times\mathbf M,
+  \qquad
+  \mathbf K_M=\mathbf M\times\hat{\mathbf n}.
+\]
+
+\begin{enumerate}
+  \item 界面为 $x=0$，磁介质在 $x<0$，真空在 $x>0$。
+\end{enumerate}
+
+线电流位于界面上并沿 $z$ 轴。设两侧
+\[
+  \mathbf H_-=H_-\hat{\boldsymbol\phi},
+  \qquad
+  \mathbf H_+=H_+\hat{\boldsymbol\phi}.
+\]
+取以 $z$ 轴为中心、半径为 $\rho$ 的圆形 Amp\`ere 回路，左右两个半圆分别位于两种介质中，则
+\[
+  \pi\rho(H_-+H_+)=I.
+\]
+在界面上，$\mathbf B$ 的法向分量连续。由于该处 $\hat{\boldsymbol\phi}$ 垂直于界面，
+\[
+  \mu H_-=\mu_0H_+.
+\]
+联立得到
+\[
+  H_-=\frac{\mu_0I}{\pi\rho(\mu+\mu_0)},
+  \qquad
+  H_+=\frac{\mu I}{\pi\rho(\mu+\mu_0)}.
+\]
+故两侧磁感应强度恰好相同：
+\[
+  \boxed{
+  \mathbf B=\frac{\mu\mu_0I}{\pi(\mu+\mu_0)\rho}
+  \hat{\boldsymbol\phi}}.
+\]
+介质中的磁化强度为
+\[
+  \mathbf M=\frac{(\mu-\mu_0)I}{\pi(\mu+\mu_0)\rho}
+  \hat{\boldsymbol\phi},
+  \qquad x<0.
+\]
+除 $z$ 轴奇点外，$\nabla\times\mathbf M=0$；平面界面上 $\mathbf M\parallel\hat{\mathbf n}$，故 $\mathbf K_M=0$。奇点处等效为沿 $z$ 轴的束缚线电流
+\[
+  \boxed{I_M=\frac{\mu-\mu_0}{\mu+\mu_0}I},
+\]
+方向在 $\mu>\mu_0$ 时与自由电流相同。
+
+\begin{enumerate}
+  \item 界面为 $z=0$，磁介质在 $z<0$，真空在 $z>0$。
+\end{enumerate}
+
+圆柱对称性给出
+\[
+  \mathbf H=\frac{I}{2\pi\rho}\hat{\boldsymbol\phi}
+\]
+在两侧均成立，因此
+\[
+  \boxed{
+  \mathbf B=
+  \begin{cases}
+  \displaystyle \frac{\mu I}{2\pi\rho}\hat{\boldsymbol\phi},&z<0,\\[0.7em]
+  \displaystyle \frac{\mu_0 I}{2\pi\rho}\hat{\boldsymbol\phi},&z>0.
+  \end{cases}}
+\]
+介质中
+\[
+  \mathbf M=\frac{\mu-\mu_0}{\mu_0}\frac{I}{2\pi\rho}
+  \hat{\boldsymbol\phi}.
+\]
+在 $z$ 轴上有沿 $+z$ 方向的束缚线电流
+\[
+  \boxed{I_M=\left(\frac{\mu}{\mu_0}-1\right)I},
+  \qquad z<0.
+\]
+在界面 $z=0$ 上，介质外法线为 $\hat{\mathbf n}=\hat{\mathbf z}$，故
+\[
+  \boxed{
+  \mathbf K_M=\mathbf M\times\hat{\mathbf z}
+  =\frac{\mu-\mu_0}{\mu_0}\frac{I}{2\pi\rho}
+  \hat{\boldsymbol\rho}}.
+\]
+当 $\mu>\mu_0$ 时，该面电流沿径向向外流动，并与轴上的束缚线电流共同满足电流连续性。
+\end{solution}
+\end{question}
+
+\begin{question}
+面电荷密度为 $\sigma=kR$ 的圆盘远场多极展开
+\begin{solution}
+取圆盘位于 $z=0$ 平面，圆柱坐标中的源点记为 $(R',\phi',0)$，观察点球坐标为 $(r,\theta,\phi)$，且 $r\gg a$。电势为
+\[
+  \varphi(\mathbf r)=\frac{1}{4\pi\varepsilon_0}
+  \int\frac{\sigma(R')}{|\mathbf r-\mathbf r'|}\,\dd a'.
+\]
+采用展开
+\[
+  \frac1{|\mathbf r-\mathbf r'|}
+  =\sum_{\ell=0}^{\infty}
+  \frac{R'^\ell}{r^{\ell+1}}P_\ell(\cos\gamma).
+\]
+由于圆盘关于 $z=0$ 对称且轴对称，所有奇数阶多极矩均为零。
+
+总电荷为
+\[
+  Q=\int_0^{2\pi}\dd\phi'\int_0^a kR'\,R'\dd R'
+  =\boxed{\frac{2\pi ka^3}{3}}.
+\]
+偶极矩为零：
+\[
+  \boxed{\mathbf p=0}.
+\]
+对四极项，利用
+\[
+  \int_0^{2\pi}P_2(\cos\gamma)\,\dd\phi'
+  =2\pi P_2(0)P_2(\cos\theta)
+  =-\pi P_2(\cos\theta),
+\]
+得到
+\[
+  \int \sigma R'^2P_2(\cos\gamma)\,\dd a'
+  =-\pi P_2(\cos\theta)
+  \int_0^a kR'^4\dd R'
+  =-\frac{\pi ka^5}{5}P_2(\cos\theta).
+\]
+因此精确到电四极矩，远场电势为
+\[
+  \boxed{
+  \varphi(r,\theta)=\frac{1}{4\pi\varepsilon_0}
+  \left[
+  \frac{2\pi ka^3}{3r}
+  -\frac{\pi ka^5}{5r^3}P_2(\cos\theta)
+  \right]
+  +O\!\left(\frac{a^7}{r^5}\right)}.
+\]
+也可写为
+\[
+  \boxed{
+  \varphi(r,\theta)=
+  \frac{ka^3}{6\varepsilon_0r}
+  -\frac{ka^5}{40\varepsilon_0r^3}
+  (3\cos^2\theta-1)
+  +O\!\left(\frac{a^7}{r^5}\right)}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+磁介质平面上方磁偶极子的镜像法、磁场与受力
+\begin{solution}
+上半空间 $z>0$ 为真空，磁导率 $\mu_1=\mu_0$；下半空间 $z<0$ 的磁导率为 $\mu_2=\mu$。真实磁偶极子位于
+\[
+  \mathbf r_0=d\hat{\mathbf z},
+  \qquad
+  \mathbf m=m(\sin\theta\,\hat{\mathbf x}+\cos\theta\,\hat{\mathbf z}).
+\]
+在真空区域中，介质的作用可用位于镜像点 $-d\hat{\mathbf z}$ 的镜像磁偶极子表示。令
+\[
+  \alpha=\frac{\mu_0-\mu}{\mu_0+\mu}.
+\]
+平行和垂直于界面的分量分别为
+\[
+  \boxed{
+  \mathbf m'_{\parallel}=\alpha\mathbf m_{\parallel}},
+  \qquad
+  \boxed{
+  \mathbf m'_{\perp}=-\alpha\mathbf m_{\perp}}.
+\]
+即
+\[
+  \boxed{
+  \mathbf m'=\alpha m\sin\theta\,\hat{\mathbf x}
+  -\alpha m\cos\theta\,\hat{\mathbf z}}.
+\]
+因此 $z>0$ 区域的磁标势为
+\[
+  \boxed{
+  \Phi_m(\mathbf r)=\frac{1}{4\pi}
+  \left[
+  \frac{\mathbf m\cdot(\mathbf r-d\hat{\mathbf z})}
+  {|\mathbf r-d\hat{\mathbf z}|^3}
+  +
+  \frac{\mathbf m'\cdot(\mathbf r+d\hat{\mathbf z})}
+  {|\mathbf r+d\hat{\mathbf z}|^3}
+  \right]},
+\]
+并有
+\[
+  \boxed{\mathbf B=-\mu_0\nabla\Phi_m},
+  \qquad z>0,\ \mathbf r\ne d\hat{\mathbf z}.
+\]
+
+在真实偶极子位置，镜像偶极子产生的磁场为
+\[
+  \mathbf B_{\rm im}
+  =\frac{\mu_0}{4\pi(2d)^3}
+  \left[3(\mathbf m'\cdot\hat{\mathbf z})\hat{\mathbf z}-\mathbf m'\right].
+\]
+代入 $\mathbf m'$ 得
+\[
+  \boxed{
+  \mathbf B_{\rm im}
+  =-\frac{\mu_0\alpha m}{32\pi d^3}
+  \left(\sin\theta\,\hat{\mathbf x}
+  +2\cos\theta\,\hat{\mathbf z}
+  \right)}.
+\]
+由感应介质产生的相互作用能为
+\[
+  U=-\frac12\mathbf m\cdot\mathbf B_{\rm im}
+  =\boxed{
+  \frac{\mu_0\alpha m^2}{64\pi d^3}
+  (1+\cos^2\theta)}.
+\]
+故磁偶极子所受合力仅有 $z$ 分量：
+\[
+  \boxed{
+  \mathbf F=-\frac{\partial U}{\partial d}\hat{\mathbf z}
+  =\frac{3\mu_0\alpha m^2}{64\pi d^4}
+  (1+\cos^2\theta)\hat{\mathbf z}}.
+\]
+其力矩为
+\[
+  \boxed{
+  \boldsymbol\tau=\mathbf m\times\mathbf B_{\rm im}
+  =\frac{\mu_0\alpha m^2}{32\pi d^3}
+  \sin\theta\cos\theta\,\hat{\mathbf y}}.
+\]
+当 $\mu>\mu_0$ 时，$\alpha<0$，磁偶极子被吸向介质表面；当 $\mu<\mu_0$ 时，$\alpha>0$，受力方向远离表面。
+\end{solution}
+\end{question}
+
+\begin{question}
+两导体系统的静电互易定理（加分）
+\begin{solution}
+设两组静电状态分别为
+\[
+  (\varphi,\rho),
+  \qquad
+  (\varphi',\rho').
+\]
+在两导体外部的真空区域 $V$ 中，两组电势都满足 Laplace 方程：
+\[
+  \nabla^2\varphi=0,
+  \qquad
+  \nabla^2\varphi'=0.
+\]
+对 $\varphi$ 与 $\varphi'$ 使用 Green 第二恒等式：
+\[
+  \int_V(\varphi\nabla^2\varphi'-\varphi'\nabla^2\varphi)\,\dd\tau
+  =\oint_{\partial V}
+  \left(\varphi\frac{\partial\varphi'}{\partial n}
+  -\varphi'\frac{\partial\varphi}{\partial n}\right)\dd a.
+\]
+左端为零。无穷远处的积分也为零，因此只剩导体 $A,B$ 的表面。由于导体表面为等势面，
+\[
+  \varphi|_{S_A}=\varphi_A,
+  \quad
+  \varphi|_{S_B}=\varphi_B,
+\]
+以及相应的带撇量。对外部区域而言，边界法线指向导体内部，并有
+\[
+  q_i=\varepsilon_0\oint_{S_i}\frac{\partial\varphi}{\partial n}\,\dd a,
+  \qquad
+  q_i'=\varepsilon_0\oint_{S_i}\frac{\partial\varphi'}{\partial n}\,\dd a.
+\]
+于是 Green 恒等式给出
+\[
+  \varphi_Aq_A'+\varphi_Bq_B'
+  -\varphi_A'q_A-\varphi_B'q_B=0.
+\]
+整理得
+\[
+  \boxed{
+  q_A\varphi_A'+q_B\varphi_B'
+  =q_A'\varphi_A+q_B'\varphi_B}.
+\]
+这就是两导体系统的静电互易定理。
+\end{solution}
+\end{question}

@@ -1,0 +1,247 @@
+﻿\heading{数学物理方法（下）-第1次作业}
+
+
+\begin{question}
+在弦的横振动问题中，若弦受到一个与速度成正比（比例系数为 \(d\)）的阻尼，
+试导出弦的有阻尼振动方程。又若除了阻尼力之外，弦还受到与弦的位移成正比
+（比例系数为 \(k\)）的回复力，则此时弦的振动满足的方程是什么？
+\begin{solution}
+设弦的线密度为 \(\rho\)，张力为 \(T\)，横位移为 \(u(x,t)\)。小振幅近似下，张力在横向的合力为
+\[
+T\frac{\partial^2u}{\partial x^2}\,dx.
+\]
+阻尼力与速度反向，单位长度阻尼力为
+\[
+-d\frac{\partial u}{\partial t}.
+\]
+由牛顿第二定律得
+\[
+\rho\,dx\,\frac{\partial^2u}{\partial t^2}
+=T\frac{\partial^2u}{\partial x^2}\,dx
+-d\frac{\partial u}{\partial t}\,dx.
+\]
+因此有阻尼弦振动方程为
+\[
+\frac{\partial^2u}{\partial t^2}
+=a^2\frac{\partial^2u}{\partial x^2}
+-\gamma\frac{\partial u}{\partial t},
+\qquad
+a^2=\frac{T}{\rho},\quad \gamma=\frac{d}{\rho}.
+\]
+若再有与位移成正比且方向相反的回复力 \(-ku\)，则
+\[
+\rho\frac{\partial^2u}{\partial t^2}
+=T\frac{\partial^2u}{\partial x^2}
+-d\frac{\partial u}{\partial t}-ku,
+\]
+即
+\[
+\frac{\partial^2u}{\partial t^2}
+=a^2\frac{\partial^2u}{\partial x^2}
+-\gamma\frac{\partial u}{\partial t}
+-\omega_0^2u,
+\qquad
+\omega_0^2=\frac{k}{\rho}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+一截面不均匀的细杆（如图），杆的截面积与离杆尖距离的平方成正比，
+比例系数为 \(k\)。写出此杆的纵振动方程。
+
+\begin{solution}
+设纵向位移为 \(u(x,t)\)，杆的杨氏模量为 \(E\)，密度为 \(\rho\)，截面积为
+\[
+S(x)=kx^2.
+\]
+变截面杆纵振动的一般方程为
+\[
+\rho S(x)\frac{\partial^2u}{\partial t^2}
+=\frac{\partial}{\partial x}
+\left(E S(x)\frac{\partial u}{\partial x}\right).
+\]
+代入 \(S(x)=kx^2\)，并约去公共因子 \(k\)，得
+\[
+\rho x^2u_{tt}=E\frac{\partial}{\partial x}(x^2u_x)
+=E(x^2u_{xx}+2xu_x).
+\]
+因此
+\[
+u_{tt}=a^2\left(u_{xx}+\frac{2}{x}u_x\right),
+\qquad
+a^2=\frac{E}{\rho},\quad 0<x<l.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+在铀块中，除了中子的扩散运动外，还存在中子的吸收和增殖过程。设在单位时间内、
+单位体积中吸收和增殖的中子数均正比于该时刻、该处的中子浓度 \(u(\bm r,t)\)，
+因而净增中子数可表示为 \(\alpha u(\bm r,t)\)，\(\alpha\) 为比例常数。
+试导出 \(u(\bm r,t)\) 所满足的偏微分方程。
+\begin{solution}
+扩散通量满足 Fick 定律
+\[
+\bm J=-D\nabla u.
+\]
+守恒律给出
+\[
+\frac{\partial u}{\partial t}+\nabla\cdot\bm J=\alpha u.
+\]
+代入通量表达式，得到
+\[
+\frac{\partial u}{\partial t}
+=D\nabla^2u+\alpha u.
+\]
+这就是带吸收、增殖源项的扩散方程；若 \(\alpha>0\) 表示净增殖，若 \(\alpha<0\) 表示净吸收。
+\end{solution}
+\end{question}
+
+\begin{question}
+由 Maxwell 方程组
+\[
+\begin{cases}
+\nabla\cdot\bm E=\dfrac{\rho_e}{\varepsilon_0},\\
+\nabla\times\bm E=-\dfrac{\partial\bm B}{\partial t},\\
+\nabla\cdot\bm B=0,\\
+\nabla\times\bm B=\varepsilon_0\mu_0\dfrac{\partial\bm E}{\partial t}+\mu_0\bm j,
+\end{cases}
+\]
+以及恒等式
+\[
+\nabla^2\bm V\equiv
+\nabla(\nabla\cdot\bm V)-\nabla\times(\nabla\times\bm V)
+\]
+推导电场强度 \(\bm E\) 和磁场强度 \(\bm B\) 所满足的微分方程，并说明由此可得出的结论。
+\begin{solution}
+对 Faraday 定律取旋度：
+\[
+\nabla\times(\nabla\times\bm E)
+=-\frac{\partial}{\partial t}(\nabla\times\bm B).
+\]
+这一步的目的，是把一阶旋度方程变成含二阶空间导数的方程。由
+\[
+\nabla\times(\nabla\times\bm E)
+=\nabla(\nabla\cdot\bm E)-\nabla^2\bm E
+\]
+以及
+\[
+\nabla\cdot\bm E=\frac{\rho_e}{\varepsilon_0},\qquad
+\nabla\times\bm B=\varepsilon_0\mu_0\bm E_t+\mu_0\bm j,
+\]
+右端变为
+\[
+-\frac{\partial}{\partial t}(\nabla\times\bm B)
+=-\varepsilon_0\mu_0\bm E_{tt}-\mu_0\bm j_t.
+\]
+因此
+\[
+\begin{split}
+\nabla(\nabla\cdot\bm E)-\nabla^2\bm E
+&=-\mu_0\frac{\partial\bm j}{\partial t}
+-\varepsilon_0\mu_0\frac{\partial^2\bm E}{\partial t^2},\\
+\nabla^2\bm E-\varepsilon_0\mu_0\frac{\partial^2\bm E}{\partial t^2}
+&=\frac{1}{\varepsilon_0}\nabla\rho_e+\mu_0\frac{\partial\bm j}{\partial t}.
+\end{split}
+\]
+对 Ampere-Maxwell 方程取旋度：
+\[
+\nabla\times(\nabla\times\bm B)
+=\varepsilon_0\mu_0\frac{\partial}{\partial t}(\nabla\times\bm E)
++\mu_0\nabla\times\bm j.
+\]
+再用
+\[
+\nabla\times(\nabla\times\bm B)
+=\nabla(\nabla\cdot\bm B)-\nabla^2\bm B=-\nabla^2\bm B,
+\]
+以及 \(\nabla\times\bm E=-\bm B_t\)，得到
+\[
+\nabla^2\bm B-\varepsilon_0\mu_0\frac{\partial^2\bm B}{\partial t^2}
+=-\mu_0\nabla\times\bm j.
+\]
+在无源区域 \(\rho_e=0,\ \bm j=0\) 中，二者化为波动方程
+\[
+\nabla^2\bm E-\frac{1}{c^2}\bm E_{tt}=0,\qquad
+\nabla^2\bm B-\frac{1}{c^2}\bm B_{tt}=0,
+\qquad
+c=\frac{1}{\sqrt{\varepsilon_0\mu_0}}.
+\]
+因此电磁场可以在真空中以速度 \(c\) 传播，这就是电磁波。
+\end{solution}
+\end{question}
+
+\begin{question}
+试求下述定解问题所描述的一维均匀细杆中平衡状态下的温度分布，以及整个细杆内单位时间所产生的热量、
+杆的两端单位时间内分别散出的热量：
+\[
+\begin{cases}
+\dfrac{\partial u}{\partial t}-\kappa\dfrac{\partial^2u}{\partial x^2}
+=\kappa x^2,\qquad 0<x<L,\ t>0,\\
+u(x,t)|_{x=0}=T,\qquad t\ge0,\\
+\left.\dfrac{\partial u}{\partial x}\right|_{x=L}=0,\qquad t\ge0,\\
+u(x,t)|_{t=0}=f(x),\qquad 0\le x\le L.
+\end{cases}
+\]
+其中温度传导率 \(\kappa\) 以及 \(x=0\) 端的温度 \(T\) 都是常数。
+设杆的密度为 \(\rho\)，比热容为 \(c\)。
+\begin{solution}
+平衡态与时间无关，记为 \(U(x)\)。由原方程得
+\[
+-\kappa U''(x)=\kappa x^2,
+\]
+即
+\[
+U''(x)=-x^2.
+\]
+两次积分：
+\[
+U'(x)=-\frac{x^3}{3}+C_1,\qquad
+U(x)=-\frac{x^4}{12}+C_1x+C_2.
+\]
+边界条件给出
+\[
+U(0)=T,\qquad U'(L)=0.
+\]
+因此
+\[
+C_2=T,\qquad C_1=\frac{L^3}{3}.
+\]
+平衡温度分布为
+\[
+U(x)=T+\frac{L^3}{3}x-\frac{x^4}{12}.
+\]
+由热传导方程
+\[
+u_t=\kappa u_{xx}+\kappa x^2
+\]
+可知单位体积单位时间内的热源强度为
+\[
+\rho c\,\kappa x^2.
+\]
+故全杆单位时间产生的热量为
+\[
+Q_{\rm gen}=\int_0^L \rho c\kappa x^2\,dx
+=\frac{\rho c\kappa L^3}{3}.
+\]
+热流密度为
+\[
+q=-\rho c\kappa U'(x).
+\]
+在 \(x=L\) 端，因 \(U'(L)=0\)，散热为
+\[
+Q_L=0.
+\]
+在 \(x=0\) 端，
+\[
+U'(0)=\frac{L^3}{3},
+\]
+热流指向负 \(x\) 方向，因此从 \(x=0\) 端散出的热量为
+\[
+Q_0=\rho c\kappa\frac{L^3}{3}.
+\]
+这与全杆内部产生的热量相等，符合稳态能量守恒。
+\end{solution}
+\end{question}
+

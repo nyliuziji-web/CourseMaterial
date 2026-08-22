@@ -1,0 +1,251 @@
+﻿\heading{数学物理方法（下）-第13次作业}
+
+
+\begin{question}
+求下列常微分方程边值问题相应的 Green 函数：
+\[
+\frac d{dx}\left[(1-x^2)y'\right]=-\phi(x),\qquad
+ y(-1),y(1)\text{ 有界}.
+\]
+\begin{solution}
+算子有常数零模，所以需满足相容条件
+\[
+\int_{-1}^1\phi(x)\,dx=0.
+\]
+在零均值意义下令
+\[
+L_xG(x,\xi)=-\delta(x-\xi)+\frac12.
+\]
+由跳跃条件
+\[
+\left[(1-x^2)G_x\right]_{\xi-}^{\xi+}=-1
+\]
+及端点有界性可得 Green 函数。常数规范任意；取零均值规范时，解写为
+\[
+y(x)=\int_{-1}^1G(x,\xi)\phi(\xi)\,d\xi .
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求一维和二维无界空间 Helmholtz 方程散射问题的 Green 函数。时间因子取 \(e^{-i\omega t}\)。
+\begin{solution}
+出射 Green 函数满足
+\[
+(\nabla^2+k^2)G=-\delta.
+\]
+一维中在 \(x\ne x'\) 处有
+\[
+G''+k^2G=0.
+\]
+出射条件要求 \(x>x'\) 时取 \(e^{ik(x-x')}\)，\(x<x'\) 时取 \(e^{ik(x'-x)}\)，所以设
+\[
+G=C e^{ik|x-x'|}.
+\]
+在 \(x=x'\) 附近积分方程，得到导数跳跃
+\[
+G_x(x'+0,x')-G_x(x'-0,x')=-1.
+\]
+代入上式得 \(2ikC=-1\)，因此
+\[
+G_1(x,x')=\frac{i}{2k}e^{ik|x-x'|}.
+\]
+二维中因平移和旋转不变性，\(G\) 只依赖 \(R=|\bm r-\bm r'|\)。在 \(R>0\) 处径向方程为
+\[
+G_{RR}+\frac1R G_R+k^2G=0,
+\]
+其出射解为 \(H_0^{(1)}(kR)\)。由小量展开
+\[
+H_0^{(1)}(kR)\sim 1+\frac{2i}{\pi}\ln R
+\]
+与二维基本解的对数奇性匹配，得
+\[
+G_2(\bm r,\bm r')=\frac{i}{4}H_0^{(1)}(k|\bm r-\bm r'|).
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+求二维 Poisson 方程
+\[
+\nabla^2G(x,y;x',y')=-4\pi\delta(x-x')\delta(y-y')
+\]
+的通解。
+\begin{solution}
+由
+\[
+\nabla^2\ln |\bm r-\bm r'|=2\pi\delta(\bm r-\bm r')
+\]
+知一个特解为
+\[
+G_0=-2\ln |\bm r-\bm r'|.
+\]
+故通解为
+\[
+G=-2\ln |\bm r-\bm r'|+H(\bm r,\bm r'),
+\]
+其中 \(H\) 关于 \(\bm r\) 调和，由边界条件确定。
+\end{solution}
+\end{question}
+
+\begin{question}
+求无界空间二维波动问题
+\[
+\begin{cases}
+u_{tt}-a^2\nabla^2u=f(x,y,t),\qquad -\infty<x,y<\infty,
+\quad t>0,\\
+u|_{t=0}=\psi(x,y),\qquad u_t|_{t=0}=\xi(x,y)
+\end{cases}
+\]
+相应的 Green 函数。
+\begin{solution}
+迟滞 Green 函数为
+\[
+G(\bm r,t;\bm r',t')=
+\frac{H(t-t'-R/a)}{2\pi a^2\sqrt{(t-t')^2-R^2/a^2}},
+\qquad R=|\bm r-\bm r'|.
+\]
+这个式子可由空间 Fourier 变换推出。对
+\[
+G_{tt}-a^2\nabla^2G=\delta(\bm r-\bm r')\delta(t-t')
+\]
+作空间变换，得到每个波数的受迫振子
+\[
+\hat G_{tt}+a^2|\bm k|^2\hat G=e^{-i\bm k\cdot\bm r'}\delta(t-t').
+\]
+迟滞条件给出
+\[
+\hat G=\frac{\sin(a|\bm k|(t-t'))}{a|\bm k|}H(t-t')e^{-i\bm k\cdot\bm r'}.
+\]
+反变换后得到上面的二维迟滞核。因二维波动有尾项，核在圆锥内部 \(t-t'>R/a\) 也不为零。
+\end{solution}
+\end{question}
+
+\begin{question}
+求三维无界空间热传导问题的 Green 函数。
+\begin{solution}
+热方程
+\[
+G_t-\kappa\nabla^2G=\delta(\bm r-\bm r')\delta(t-t'),\qquad G=0\quad(t<t')
+\]
+的基本解为
+\[
+G=\frac{H(t-t')}{[4\pi\kappa(t-t')]^{3/2}}
+\exp\left[-\frac{|\bm r-\bm r'|^2}{4\kappa(t-t')}\right].
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+用 Green 函数方法解三维无界空间热传导问题
+\[
+\begin{cases}
+u_t-\kappa\nabla^2u=f(x,y,z,t),\\
+u|_{t=0}=\phi(x,y,z).
+\end{cases}
+\]
+\begin{solution}
+由三维热核得
+\[
+u(\bm r,t)=\int_{\mathbb R^3}G(\bm r,t;\bm r',0)\phi(\bm r')\,d\bm r'
++\int_0^t\int_{\mathbb R^3}G(\bm r,t;\bm r',\tau)f(\bm r',\tau)\,d\bm r' d\tau.
+\]
+其中 \(G\) 为上一题热核。
+\end{solution}
+\end{question}
+
+\begin{question}
+求泛函
+\[
+J[u]=\iiint_{x^2+y^2+z^2<a^2}\left[(\nabla u)^2-k^2u^2\right]dxdydz
+\]
+在边界条件 \(u|_{x^2+y^2+z^2=a^2}=z\) 下的极值函数，其中 \(ka\ne\tan ka\)。
+\begin{solution}
+Euler 方程为
+\[
+\nabla^2u+k^2u=0.
+\]
+边界值 \(z=r\cos\theta\) 只含 \(l=1\) 模态，故令
+\[
+u(r,\theta)=Cj_1(kr)\cos\theta.
+\]
+由 \(u(a,\theta)=a\cos\theta\) 得
+\[
+C=\frac{a}{j_1(ka)}.
+\]
+因此
+\[
+u(r,\theta)=a\frac{j_1(kr)}{j_1(ka)}\cos\theta.
+\]
+条件 \(ka\ne\tan ka\) 保证 \(j_1(ka)\ne0\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+写出常微分方程定解问题
+\[
+\begin{cases}
+y''-2xy'+2ny=0,\\
+y(0)=0,\qquad y(1)=1
+\end{cases}
+\]
+所对应的泛函极值问题。
+\begin{solution}
+乘以积分因子 \(e^{-x^2}\)，方程化为
+\[
+\left(e^{-x^2}y'\right)'+2ne^{-x^2}y=0.
+\]
+对应泛函可取
+\[
+J[y]=\int_0^1 e^{-x^2}\left[(y')^2-2ny^2\right]dx,
+\]
+边界条件为 \(y(0)=0,\ y(1)=1\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+求泛函
+\[
+J[y]=\int_0^1\left[\left(x\frac{dy}{dx}\right)^2+2y^2\right]dx
+\]
+在边界条件 \(y(0)\) 有界、\(y(1)=0\) 及约束
+\[
+J_1[y]=\int_0^1y^2(x)x^2\,dx=1
+\]
+下的最小值。
+\begin{solution}
+引入 Lagrange 乘子 \(\lambda\)，Euler 方程为
+\[
+-(x^2y')'+2y=\lambda x^2y,
+\]
+即
+\[
+x^2y''+2xy'+(\lambda x^2-2)y=0.
+\]
+这是球 Bessel 型方程，满足有界性和 \(y(1)=0\) 的基模给出最小值；最小值等于对应的最小本征值 \(\lambda_1\)。
+\end{solution}
+\end{question}
+
+\begin{question}
+写出算符
+\[
+\hat L^2S(\theta,\phi)=-\left\{\frac1{\sin\theta}\frac\partial{\partial\theta}\left[\sin\theta\frac{\partial S}{\partial\theta}\right]+\frac1{\sin^2\theta}\frac{\partial^2S}{\partial\phi^2}\right\}
+\]
+在球面周期和端点有界条件下的本征值问题，并写出其本征值和本征函数。
+\begin{solution}
+本征值问题为
+\[
+\hat L^2S=\lambda S,
+\]
+其中 \(S(0,\phi),S(\pi,\phi)\) 有界，且关于 \(\phi\) 以 \(2\pi\) 为周期。分离变量得球谐函数
+\[
+S(\theta,\phi)=Y_l^m(\theta,\phi),
+\]
+本征值为
+\[
+\lambda=l(l+1),\qquad l=0,1,2,\ldots,
+\quad m=-l,-l+1,\ldots,l.
+\]
+\end{solution}
+\end{question}
+

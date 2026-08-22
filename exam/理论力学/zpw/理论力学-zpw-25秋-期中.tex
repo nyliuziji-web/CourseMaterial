@@ -1,0 +1,90 @@
+\heading{理论力学-zpw-25秋-期中}
+
+\begin{question}[20 分]
+解释以下概念：
+\begin{enumerate}
+  \item 相空间；
+  \item 循环坐标；
+  \item 单演系统；
+  \item 能量函数；
+  \item 万向节锁死。
+\end{enumerate}
+
+\begin{solution}
+% 解答待补充
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+诺特定理与角动量守恒（本题使用爱因斯坦求和约定）。
+\begin{enumerate}
+  \item 考虑广义坐标的变化 $q_i\to q_i+\epsilon Q_i$，其中 $\epsilon$ 是一个无穷小量。若在此变化下，拉格朗日量 $L(q,\dot q,t)$ 保持不变，推导该对称性对应的诺特守恒量；
+  \item 下面考虑一个单粒子系统。系统的广义坐标取为粒子的笛卡尔坐标，可写成三维向量 $\boldsymbol r=(x,y,z)$。一个无穷小转动可表示成 $\boldsymbol r'=(I+A)\boldsymbol r$，其中 $I$ 是 $3\times3$ 的单位矩阵，$A$ 是 $3\times3$ 的反对称矩阵
+  \[
+    A=
+    \begin{pmatrix}
+      0&\omega_3&\omega_2\\
+      -\omega_3&0&\omega_1\\
+      -\omega_2&-\omega_1&0
+    \end{pmatrix},
+  \]
+  其中 $\omega_1,\omega_2,\omega_3$ 均为无穷小量。若系统的拉格朗日量在上述转动操作下保持不变，根据诺特定理求出系统的守恒量；
+  \item 一个相互作用粒子系统的拉格朗日量为
+  \[
+    L=\sum_i\frac12 m_i\dot{\boldsymbol r}_i^{\,2}
+    -\sum_{i,j}V\!\left(\boldsymbol r_i-\boldsymbol r_j\right),
+  \]
+  其中 $\boldsymbol r_i=(x_i,y_i,z_i)$。对于该系统，求出伽利略变换对应的守恒量（三个分量），并阐述其物理意义。
+\end{enumerate}
+
+\begin{solution}
+% 解答待补充
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+冰刀可抽象为以刚性轻杆相连的两个质点，两质点质量均为 $m$，杆长为 $l$。冰刀在冰面上运动时，质心的速度只能沿杆方向。考虑冰刀在倾角为 $\alpha$ 的斜冰面上运动。设坐标系 $Oxy$ 与斜冰面平行，$Oy$ 沿水平方向。取系统的广义坐标为冰刀质心坐标 $(x,y)$ 与冰刀与 $x$ 轴的夹角 $\varphi$。
+\begin{enumerate}
+  \item 写出系统的约束方程；
+  \item 写出系统的拉格朗日量，并利用拉格朗日乘子法写出运动方程；
+  \item 若在 $t=0$ 时刻，有 $x=y=\varphi=\dot y=0$，$\dot x=v$，$\dot\varphi=\omega$，求解系统的运动。
+\end{enumerate}
+
+\begin{solution}
+% 解答待补充
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+如图所示，一个双星系统的质心位于原点，两颗恒星（可视为质点）间距为 $R=r_1+r_2$，质量分别为 $M_1,M_2$，转动角速度 $\Omega$ 沿 $+z$ 方向。$x,y$ 是随双星系统转动的参考系中的坐标，考虑 $x,y$ 平面内的运动。
+\begin{enumerate}
+  \item 将一质量为 $m$（$m\ll M_1,M_2$）的航天器置于双星系统中，求出航天器的拉氏量 $L(x,y,\dot x,\dot y)$，正则动量 $\boldsymbol p$，哈密顿量 $H(x,y,p_x,p_y)$，并导出哈密顿正则方程；
+  \item 设 $M_2/M_1=\epsilon$ 是一个小量，求出 $M_2$ 的希尔半径；
+  \item 假设航天器静止于双星连线上的拉格朗日点，且被约束在 $x$ 方向上运动，通过计算说明航天器对微扰的稳定性。
+\end{enumerate}
+
+\begin{solution}
+% 解答待补充
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+潘宁阱是一种将带电粒子约束在一个特定区域中的实验装置，它由一对罩电极和一个环电极组成，电极表面为关于 $z$ 轴的旋转双曲面。罩电极的曲面方程为 $2z^2-x^2-y^2=2z_0^2$，电势为 $U_0$；环电极的曲面方程为 $2z^2-x^2-y^2=-r_0^2$，电势为 $0$。沿 $+z$ 方向存在匀强磁场 $B$（设磁矢势绕 $z$ 轴旋转不变）。考虑一质量为 $m$、带正电 $q$ 的粒子在潘宁阱中的运动。
+\begin{enumerate}
+  \item 求出体系的哈密顿量 $H$，并导出哈密顿正则方程；
+  \item 为了保证粒子不从潘宁阱中逸出，求出磁场 $B$ 满足的条件；
+  \item 假设电极在生产中出现了略微的偏差，导致罩电极和环电极的曲面方程分别为
+  \[
+    2z^2-(1+\epsilon)x^2-(1-\epsilon)y^2=2z_0^2
+  \]
+  和
+  \[
+    2z^2-(1+\epsilon)x^2-(1-\epsilon)y^2=-r_0^2,
+  \]
+  求出磁场 $B$ 保证粒子不逸出的条件。
+\end{enumerate}
+
+\begin{solution}
+% 解答待补充
+\end{solution}
+\end{question}

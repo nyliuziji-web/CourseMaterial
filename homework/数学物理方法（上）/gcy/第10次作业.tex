@@ -1,0 +1,136 @@
+\heading{数学物理方法（上）-第10次作业}
+
+\begin{question}
+判断下列函数在 \(\infty\) 点处的性质，其中 \(n\in\mathbb{Z}\)：
+
+\begin{enumerate}
+\item \(z^n\);
+\item \(\sin z^n,\; n\in\mathbb{Z}\);
+\item \(\ee^{z^n}\);
+\item \(\cos\sqrt{z^n}\);
+\item \(\sin\sqrt{z^n}\);
+\item \(\displaystyle\sqrt{\frac{z-1}{z-2}}\);
+\item \(\sqrt{z-1}\);
+\item \(\sqrt{(z-1)(z-2)}\).
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+  \item 令 \(t=1/z\)，则 \(z^n=t^{-n}\)。当 \(n>0\) 时，
+  \(\infty\) 是 \(n\) 阶极点；当 \(n=0\) 时函数恒为 \(1\)；当
+  \(n<0\) 时函数在 \(\infty\) 处解析且取值 \(0\)。
+
+  \item 当 \(n>0\) 时，\(\sin(z^n)\) 在 \(\infty\) 处为本性奇点；
+  当 \(n=0\) 时函数恒为 \(\sin1\)；当 \(n<0\) 时在 \(\infty\)
+  处可解析延拓，延拓值为 \(0\)。
+
+  \item 当 \(n>0\) 时，\(\ee^{z^n}\) 在 \(\infty\) 处为本性奇点；
+  当 \(n=0\) 时函数恒为 \(\ee\)；当 \(n<0\) 时在 \(\infty\)
+  处可解析延拓，延拓值为 \(1\)。
+
+  \item 余弦为偶函数，故
+  \[
+  \cos\sqrt{z^n}
+  =\sum_{k=0}^{\infty}\frac{(-1)^kz^{nk}}{(2k)!},
+  \]
+  不依赖平方根分支。当 \(n>0\) 时，\(\infty\) 为本性奇点；
+  当 \(n=0\) 时函数恒为 \(\cos1\)；当 \(n<0\) 时可解析延拓到
+  \(\infty\)，延拓值为 \(1\)。
+
+  \item 若 \(n\) 为非零奇数，则绕 \(\infty\) 一周会使平方根变号，
+  从而使正弦值变号，所以 \(\infty\) 是分支点，不是孤立奇点。
+  若 \(n\) 为偶数，则可在 \(\infty\) 邻域固定分支并写成
+  \(\sin(\pm z^{n/2})\)：\(n>0\) 时为本性奇点，\(n<0\) 时可去，
+  延拓值为 \(0\)。当 \(n=0\) 时函数为常数 \(\pm\sin1\)。
+
+  \item 当 \(z\to\infty\) 时，\(\displaystyle\frac{z-1}{z-2}\to 1\)，因此有
+   \[
+   \lim_{z\to\infty} \sqrt{\frac{z-1}{z-2}} = \pm 1
+   \]
+   （取决于分支），故函数在 \(\infty\) 处为可去奇点。
+
+  \item 做代换 \(t=1/z\)，
+   \[
+   \sqrt{\frac{1}{t}-1} = t^{-1/2}\sqrt{1-t},
+   \]
+   绕 \(t=0\) 一周后函数变号，故 \(\infty\) 是分支点，不是所谓
+   “\(1/2\) 阶极点”。
+
+  \item 做代换 \(t=1/z\)，有
+   \[
+   \sqrt{(z-1)(z-2)} = \frac{1}{t}\sqrt{(1-t)(1-2t)},
+   \]
+   选定分支后，括号内的平方根在 \(t=0\) 解析且非零，故
+   \(\infty\) 为一阶极点。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+已知：
+\[
+f(z)=\sum_{n=0}^\infty z^{n!}=z+z+z^2+z^6+z^{24}+\cdots,\qquad |z|<1.
+\]
+\begin{enumerate}
+  \item 证明：\(z=1\) 是 \(f(z)\) 的奇点。
+  \item 证明：\(z^{k!}=1\) 的 \(k!\) 个根都是 \(f(z)\) 的奇点，其中 \(k\) 为任意正整数。
+  \item 由此证明：不可能将 \(f(z)\) 延拓到单位圆外。单位圆周称为函数 \(f(z)\) 的自然边界。
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+  \item 当 \(z=1\) 时，有 \(f(1)=\displaystyle\sum_{n=0}^\infty 1\) 发散，因此 \(1\) 为 \(f(z)\) 的奇点。
+
+  \item 当 \(z_0\) 为 \(z^{k!}=1\) 的根时，那么对于 \(n>k\)，有
+   \[
+   z_0^{n!} = z^{k!\cdot (k+1)\cdot (k+2)\cdots n} = 1^{(k+1)(k+2)\cdots n} = 1,
+   \]
+   因此有
+   \[
+   f(z_0) = \sum_{n=0}^{k-1} z_0^{n!} + \sum_{n=k}^\infty 1,
+   \]
+   级数发散，故 \(z_0\) 为 \(f(z)\) 的奇点。
+
+  \item 在单位圆上的奇点为 \(\ee^{2\pi \ii \cdot k/n!}\)，其中 \(n\in\mathbb{N},\,0\le k<n!\)，因此对于任意单位圆上的点，其邻域内一定存在奇点，因此不可能将 \(f(z)\) 延拓到单位圆外。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}
+求证：
+\[
+\Gamma(z)=\int_L \ee^{-t} t^{z-1}\dd{t},\quad \operatorname{Re} z>0,
+\]
+\(L\) 是自原点出发的射线，\(0<|t|<\infty,\;|\arg t|<\pi/2\)。
+
+\begin{solution}
+\begin{center}
+\begin{tikzpicture}
+\draw[->] (0,0) -- (6,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,4) node[above] {$y$};
+\draw[thick,->] (0,0) -- (30:4) node[below right] {$L$};
+\draw[thick,->] (0,0) -- (4,0) node[below] {$L'$};
+\draw[thick] (4,0) arc (0:30:4);
+\node at (4.5,1) {$C_R$};
+\filldraw (0,0) circle (2pt);
+\node at (0,0) [below left] {$O$};
+\end{tikzpicture}
+\end{center}
+考察积分路径，由于 \(\ee^t t^{z-1}\) 在右半平面解析，因此由柯西积分定理
+\[
+\int_L \ee^{-t} t^{z-1}\dd{t}
+= \int_{L'} \ee^{-t} t^{z-1}\dd{t} + \int_{C_R} \ee^{-t} t^{z-1}\dd{t}.
+\]
+在 \(C_R\) 上，令 \(t=R\ee^{\ii\phi}\)，有
+\[
+\Bigl|\int_{C_R} \ee^{-t} t^{z-1}\dd{t}\Bigr|
+\le \int_{0}^{\theta_0} \ee^{-R\cos\phi} R^{\operatorname{Re}z-1} \ee^{|\operatorname{Im}z|\phi} R\dd{\phi}
+\le C R^{\operatorname{Re}z} \ee^{-R\cos\theta_0} \to 0 \quad (R\to\infty).
+\]
+因此 \(\displaystyle\lim_{R\to\infty}\int_{C_R} \ee^{-t} t^{z-1}\dd{t}=0\)，从而
+\[
+\int_L \ee^{-t} t^{z-1}\dd{t} = \int_{L'} \ee^{-t} t^{z-1}\dd{t}
+= \int_0^\infty \ee^{-t} t^{z-1}\dd{t} = \Gamma(z),\quad \operatorname{Re}z>0.
+\]
+\end{solution}
+\end{question}
