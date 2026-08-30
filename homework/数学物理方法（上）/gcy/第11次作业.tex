@@ -200,14 +200,7 @@
 \[
 \begin{aligned}
 \operatorname{res}(f(2k\pi))&=\Bigl.\dv{}{z}\Bigl[(z-2k\pi)^2\frac{\ee^z}{1-\cos z}\Bigr]\Bigr|_{z=2k\pi}\\
-&=\lim_{z\to 2k\pi}\frac{(z^2+(2-4k\pi)z+(2k\pi)^2-4k\pi)\ee^z(1-\cos z)-(z-2k\pi)^2\ee^z\sin z}{(1-\cos z)^2}\\
-&=\lim_{z\to2k\pi}\frac{4\ee^z((z-2k\pi+2)(1-\cos z)-(z-2k\pi)\sin z)}{(z-2k\pi)^3}\\
-&=4\ee^{2k\pi}\lim_{u\to0}\frac{(u+2)(1-\cos u)-u\sin u}{u^3}=4\ee^{2k\pi}\lim_{u\to0}\frac{(u+2)u^2/2-u^2}{u^3}=2\ee^{2k\pi}
-\end{aligned}
-\]
-\[
-\begin{aligned}
-\operatorname{res}(f(2k\pi))&=\Bigl.\dv{}{z}\Bigl[(z-2k\pi)^2\frac{\ee^z}{1-\cos z}\Bigr]\Bigr|_{z=2k\pi}\\
+
 &=\lim_{z\to 2k\pi}\Bigl[(z^2+(2-4k\pi)z+(2k\pi)^2-4k\pi)\ee^z(1-\cos z)\\
 &\qquad\qquad-(z-2k\pi)^2\ee^z\sin z\Bigr]\big/(1-\cos z)^2\\
 &=\lim_{z\to2k\pi}\frac{4\ee^z\bigl((z-2k\pi+2)(1-\cos z)-(z-2k\pi)\sin z\bigr)}{(z-2k\pi)^3}\\
@@ -235,7 +228,7 @@
 \[
 \operatorname{res}f(k^2\pi^2)=\lim_{z\to k^2\pi^2}\frac{z-k^2\pi^2}{\sin\sqrt{z}}\sqrt{z}=(-1)^k2k^2\pi^2
 \]
-因此综上有 \(\operatorname{res}f(k^2\pi^2)=(-1)^k2k^2\pi^2\).
+
 
   \item 函数的孤立奇点为 \(z=k\pi\)，其中偶数倍处为二阶极点，
   奇数倍处为一阶极点。分类计算如下：
@@ -423,7 +416,7 @@ f(z)=\exp\!\Bigl(1+\frac1z\Bigr)=\ee\cdot\exp\!\Bigl(\frac1z\Bigr)=\ee\sum_{n=0}
 
   \item \(1+\cos^2\theta=\dfrac{3+\cos2\theta}{2}\)，因此不妨令 \(u=2\theta\)，有
 \[
-I=\int_0^{\pi}\frac{2\dd{u}}{(3+\cos u)^2}=\int_{-\pi}^{\pi}\frac{du}{(3+\cos u)^2}
+I=\int_0^{\pi}\frac{2\dd{u}}{(3+\cos u)^2}=\int_{-\pi}^{\pi}\frac{\dd{u}}{(3+\cos u)^2}
 \]
 令 \(\cos u=\dfrac{z^2+1}{2z}\)，有
 \[

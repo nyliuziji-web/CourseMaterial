@@ -15,8 +15,8 @@ D(\hat L)=\{u(x):0<x<\pi,\ u\in L^2[0,\pi],\ u(\pi)=\gamma u(0)\}.
 对任意 $u\in D(\hat L)$、$v\in D(\hat L^\dagger)$，有
 \[
 \langle \hat Lu,v\rangle
-=-\int_0^{\pi}u'(x)\overline{v(x)}\,dx
-=\int_0^{\pi}u(x)\overline{v'(x)}\,dx-u(\pi)\overline{v(\pi)}+u(0)\overline{v(0)}.
+=-\int_0^{\pi}u'(x)\overline{v(x)}\dd{x}
+=\int_0^{\pi}u(x)\overline{v'(x)}\dd{x}-u(\pi)\overline{v(\pi)}+u(0)\overline{v(0)}.
 \]
 由 $u(\pi)=\gamma u(0)$ 可得边界项为
 \[
@@ -40,19 +40,19 @@ D(\hat L)=\{u(x):0<x<\pi,\ u\in L^2[0,\pi],\ u(\pi)=\gamma u(0)\}.
 这当且仅当
 \ansmath{|\gamma|=1.}
 
-令 $\gamma=\ee^{i\theta}$（$\theta\in\mathbb R$），求 $\hat L^\dagger$ 的本征值：
+令 $\gamma=\ee^{\ii\theta}$（$\theta\in\mathbb R$），求 $\hat L^\dagger$ 的本征值：
 \[
- v'=\lambda v
- \Longrightarrow v(x)=Ce^{\lambda x}.
+  v'=\lambda v
+ \Longrightarrow v(x)=C\ee^{\lambda x}.
 \]
-代入边界条件 $v(0)=\overline\gamma v(\pi)=\ee^{-i\theta}v(\pi)$ 得
+代入边界条件 $v(0)=\overline\gamma v(\pi)=\ee^{-\ii\theta}v(\pi)$ 得
 \[
-1=\ee^{-i\theta}\ee^{\lambda\pi}
-\Longrightarrow
- \ee^{\lambda\pi}=\ee^{i\theta}.
+ 1=\ee^{-\ii\theta}\ee^{\lambda\pi}
+ \Longrightarrow
+  \ee^{\lambda\pi}=\ee^{\ii\theta}.
 \]
 故
-\ansmath{\lambda_n=\frac{i(\theta+2\pi n)}{\pi},\qquad n\in\mathbb Z,}
+\ansmath{\lambda_n=\frac{\ii(\theta+2\pi n)}{\pi},\qquad n\in\mathbb Z,}
 对应本征函数可取
 \ansmath{v_n(x)=\ee^{\lambda_n x}.}
 
@@ -137,8 +137,8 @@ u|_{t=0}=\phi(x,y),\qquad \left.\dfrac{\partial u}{\partial t}\right|_{t=0}=\psi
 归一化模方为
 \[
 N_{n,m}=
-\int_0^{\pi}\!\sin^2(n\varphi)\,d\varphi
-\int_0^R \rho J_n^2\!\Bigl(\frac{j_{n,m}}{R}\rho\Bigr)\,d\rho
+\int_0^{\pi}\!\sin^2(n\varphi)\dd{\varphi}
+\int_0^R \rho J_n^2\!\Bigl(\frac{j_{n,m}}{R}\rho\Bigr)\dd{\rho}
 =\frac{\pi R^2}{4}J_{n+1}(j_{n,m})^2.
 \]
 因此 Green 函数可写成

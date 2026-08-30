@@ -111,7 +111,7 @@ g\left(1-\ee^{-2\kappa a}\right)=2ag\,\kappa+O(\kappa^2).
 而非对角元为
 \[
 \langle 200|z|210\rangle
-=\int \psi_{200}^*(r,\theta,\phi)\,r\cos\theta\,\psi_{210}(r,\theta,\phi)\,d^3r
+=\int \psi_{200}^*(r,\theta,\phi)\,r\cos\theta\,\psi_{210}(r,\theta,\phi)\,\dd[3]{r}
 =-3a_0.
 \]
 因此
@@ -137,10 +137,10 @@ E_2 & -3Fa_0\\
 \]
 于是时间演化为
 \[
-\psi(t)=\frac{1}{\sqrt2}\left(\ee^{-iE_+ t/\hbar}\psi_++\ee^{-iE_- t/\hbar}\psi_-\right).
+\psi(t)=\frac{1}{\sqrt2}\left(\ee^{-\ii E_+ t/\hbar}\psi_++\ee^{-\ii E_- t/\hbar}\psi_-\right).
 \]
 再化回原基底，得
-\ansmath{\psi(t)=\ee^{-iE_2 t/\hbar}\left[\cos\left(\frac{3Fa_0 t}{\hbar}\right)\psi_{200}+i\sin\left(\frac{3Fa_0 t}{\hbar}\right)\psi_{210}\right].}
+\ansmath{\psi(t)=\ee^{-\ii E_2 t/\hbar}\left[\cos\left(\frac{3Fa_0 t}{\hbar}\right)\psi_{200}+\ii\sin\left(\frac{3Fa_0 t}{\hbar}\right)\psi_{210}\right].}
 
 因为 $\psi_{200}$ 为偶宇称态、$\psi_{210}$ 为奇宇称态，所以测量宇称时的概率就是各自振幅模方：
 \ansmath{P_{\mathrm{even}}(t)=\cos^2\left(\frac{3Fa_0 t}{\hbar}\right),

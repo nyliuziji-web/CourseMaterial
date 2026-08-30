@@ -157,7 +157,7 @@ v_t(r,0)=r\,\psi(l-r).
 由 d'Alembert 公式，
 \[
 v(r,t)=\frac12\{A(r-at)+A(r+at)\}
-+\frac{1}{2a}\int_{r-at}^{r+at}B(s)\,ds,
++\frac{1}{2a}\int_{r-at}^{r+at}B(s)\,\dd{s},
 \]
 其中
 \[
@@ -168,7 +168,7 @@ A(s)=s\,\phi(l-s),\qquad B(s)=s\,\psi(l-s).
 u(x,t)=\frac{1}{l-x}
 \left[
 \frac12\{A(l-x-at)+A(l-x+at)\}
-+\frac{1}{2a}\int_{l-x-at}^{l-x+at}B(s)\,ds
++\frac{1}{2a}\int_{l-x-at}^{l-x+at}B(s)\,\dd{s}
 \right].
 \]
 \end{solution}
@@ -192,7 +192,7 @@ u(x,t)|_{t=0}=\phi(x),\qquad 0\le x<\infty,\\
 在全直线上使用 d'Alembert 公式，得到半直线问题的解
 \[
 u(x,t)=\frac12\{\phi_e(x-at)+\phi_e(x+at)\}
-+\frac{1}{2a}\int_{x-at}^{x+at}\psi_e(s)\,ds,
++\frac{1}{2a}\int_{x-at}^{x+at}\psi_e(s)\,\dd{s},
 \qquad x\ge0.
 \]
 由于 \(\phi_e,\psi_e\) 都是偶函数，所得解关于 \(x=0\) 为偶函数，故

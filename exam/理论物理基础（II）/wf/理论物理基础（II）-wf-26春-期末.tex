@@ -62,15 +62,15 @@ V(x)=
   \]
   \item 归一化条件为
   \[
-  1=\int_{-L}^{L}A^2(L-|x|)^2\,dx
-  =2A^2\int_0^L(L-x)^2\,dx
+  1=\int_{-L}^{L}A^2(L-|x|)^2\,\dd{x}
+  =2A^2\int_0^L(L-x)^2\,\dd{x}
   =\frac{2A^2L^3}{3}.
   \]
   取 $A>0$，得
   \ansmath{A=\sqrt{\frac{3}{2L^3}}.}
   \item 初态 $\psi(x)$ 为偶函数，所以只含偶宇称能量本征态，即只含 $n=2k-1$ 的项。为了确认没有漏掉必要的相位条件，计算偶宇称展开系数的核心积分：
   \[
-  \int_0^L(L-x)\cos\frac{(2k-1)\pi x}{2L}\,dx
+  \int_0^L(L-x)\cos\frac{(2k-1)\pi x}{2L}\,\dd{x}
   =\frac{1}{\left[(2k-1)\pi/(2L)\right]^2}\ne 0.
   \]
   因而所有 $n=2k-1$ 的非零分量都必须获得同一个相位。设
@@ -306,13 +306,13 @@ V(x)=
 \begin{enumerate}
   \item 归一化条件为
   \[
-  1=|A|^2\int_0^\infty r^4\ee^{-2r/a}\,dr\int\cos^2\theta\,d\Omega.
+  1=|A|^2\int_0^\infty r^4\ee^{-2r/a}\,\dd{r}\int\cos^2\theta\,\dd{\Omega}.
   \]
   其中
   \[
-  \int\cos^2\theta\,d\Omega=\frac{4\pi}{3},
+  \int\cos^2\theta\,\dd{\Omega}=\frac{4\pi}{3},
   \qquad
-  \int_0^\infty r^4\ee^{-2r/a}\,dr=\frac{4!}{(2/a)^5}=\frac{3a^5}{4}.
+  \int_0^\infty r^4\ee^{-2r/a}\,\dd{r}=\frac{4!}{(2/a)^5}=\frac{3a^5}{4}.
   \]
   因而 $1=|A|^2\pi a^5$。取 $A>0$，得
   \ansmath{A=\frac{1}{\sqrt{\pi a^5}}.}

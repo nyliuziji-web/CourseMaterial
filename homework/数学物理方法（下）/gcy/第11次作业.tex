@@ -54,20 +54,20 @@ p=\mu a_2,\qquad
 
 第三式中
 \[
-\frac{\mu'}{\mu}=\frac{1-x-1}{x}=-1,\qquad \mu=e^{-x},
+\frac{\mu'}{\mu}=\frac{1-x-1}{x}=-1,\qquad \mu=\ee^{-x},
 \]
 故
 \[
-(xe^{-x}y')'+\lambda e^{-x}y=0.
+(x\ee^{-x}y')'+\lambda \ee^{-x}y=0.
 \]
 
 第四式中
 \[
-\frac{\mu'}{\mu}=-2x,\qquad \mu=e^{-x^2},
+\frac{\mu'}{\mu}=-2x,\qquad \mu=\ee^{-x^2},
 \]
 故
 \[
-(e^{-x^2}y')'+2\lambda e^{-x^2}y=0.
+(\ee^{-x^2}y')'+2\lambda \ee^{-x^2}y=0.
 \]
 综上，四式分别对应
 \[
@@ -77,10 +77,10 @@ p=x^2,\quad w=x;
 p=x^a(1-x)^{b-a},\quad w=x^{a-1}(1-x)^{b-a-1};
 \]
 \[
-p=xe^{-x},\quad w=e^{-x};
+p=x\ee^{-x},\quad w=\ee^{-x};
 \]
 \[
-p=e^{-x^2},\quad w=2e^{-x^2}.
+p=\ee^{-x^2},\quad w=2\ee^{-x^2}.
 \]
 \end{solution}
 \end{question}
@@ -94,21 +94,21 @@ p=e^{-x^2},\quad w=2e^{-x^2}.
 \begin{solution}
 形式伴随仍为
 \[
-\hat L^\dagger z=-\frac d{dx}\left(p(x)z'\right)+q(x)z
+\hat L^\dagger z=-\frac{\dd}{\dd{x}}\left(p(x)z'\right)+q(x)z
 \]
 因为 \(p,q\) 为实函数。这个结论不是直接猜出来的，而是由分部积分得到。对任意允许函数 \(y,z\)，
 \[
-\int_a^b z\left[-(py')'+qy\right]dx
-=\int_a^b pz'y'\,dx+\int_a^b qzy\,dx-\left[zpy'\right]_a^b,
+\int_a^b z\left[-(py')'+qy\right]\dd{x}
+=\int_a^b pz'y'\,\dd{x}+\int_a^b qzy\,\dd{x}-\left[zpy'\right]_a^b,
 \]
 再对 \(pz'\) 项反向分部积分：
 \[
-\int_a^b y\left[-(pz')'+qz\right]dx
+\int_a^b y\left[-(pz')'+qz\right]\dd{x}
 +\left[p(yz'-zy')\right]_a^b.
 \]
 于是 Green 公式为
 \[
-\int_a^b(z\hat Ly-y\hat Lz)\,dx
+\int_a^b(z\hat Ly-y\hat Lz)\,\dd{x}
 =\left[p(x)(yz'-zy')\right]_a^b.
 \]
 题设边界条件将 \(b\) 端的 \(y(b),y'(b)\) 与 \(a\) 端的 \(y(a),y'(a)\) 线性联系。伴随边界条件正是要求上式边界项对所有 \(y\in D(\hat L)\) 都为零。由于题设有 \(p(a)=p(b)\)、\(q(a)=q(b)\)，且两条边界条件成周期型配对，代入可使
@@ -133,20 +133,20 @@ X=A\sin\lambda x.
 \]
 代入 \(x=l\) 的边界条件：
 \[
-\lambda A\cos\lambda l-i\lambda\beta A\sin\lambda l=0.
+\lambda A\cos\lambda l-\ii\lambda\beta A\sin\lambda l=0.
 \]
 非零解要求
 \[
-\cot\lambda l=i\beta.
+\cot\lambda l=\ii\beta.
 \]
 因此
 \[
-\lambda_n l=\frac{(2n+1)\pi}{2}+i\,\operatorname{arctanh}\beta,
+\lambda_n l=\frac{(2n+1)\pi}{2}-\ii\,\operatorname{arctanh}\beta,
 \qquad n=0,1,2,\ldots .
 \]
 当 \(\beta\ll1\) 时
 \[
-\lambda_n\approx \frac{(2n+1)\pi}{2l}+i\frac{\beta}{l}.
+\lambda_n\approx \frac{(2n+1)\pi}{2l}-\ii\frac{\beta}{l}.
 \]
 \end{solution}
 \end{question}
@@ -160,11 +160,11 @@ y(b)=e^{i\theta}y(a).
 \begin{solution}
 方程解为
 \[
-y=C e^{-i\lambda x}.
+y=C \ee^{-\ii\lambda x}.
 \]
 边界条件给出
 \[
-e^{-i\lambda b}=e^{i\theta}e^{-i\lambda a},
+\ee^{-\ii\lambda b}=\ee^{\ii\theta}\ee^{-\ii\lambda a},
 \]
 故
 \[
@@ -172,7 +172,7 @@ e^{-i\lambda b}=e^{i\theta}e^{-i\lambda a},
 \]
 本征函数可取
 \[
-y_n(x)=\exp\left(-i\lambda_n x\right).
+y_n(x)=\exp\left(-\ii\lambda_n x\right).
 \]
 \end{solution}
 \end{question}
@@ -192,7 +192,7 @@ u_0,&x>0.
 热方程基本解给出
 \[
 u(x,t)=\frac{u_0}{\sqrt{4\pi\kappa t}}\int_0^\infty
-\exp\left[-\frac{(x-\xi)^2}{4\kappa t}\right]d\xi.
+\exp\left[-\frac{(x-\xi)^2}{4\kappa t}\right]\dd{\xi}.
 \]
 即
 \[
@@ -246,7 +246,7 @@ u_{\rho\rho}+\frac1\rho u_\rho+u_{zz}=0,\qquad 0<\rho<a.
 \]
 按提示先取边界
 \[
-u(a,z)=V_0e^{-k|z|}\operatorname{sgn}z
+u(a,z)=V_0\ee^{-k|z|}\operatorname{sgn}z
 \]
 作 Fourier 变换。对 \(z\) 变换后径向方程为
 \[
@@ -259,14 +259,14 @@ u(a,z)=V_0e^{-k|z|}\operatorname{sgn}z
 令 \(k\to0^+\)，其中 \(f(z)=V_0\operatorname{sgn}z\)，得
 \[
 u(\rho,z)=\frac1{2\pi}\int_{-\infty}^{\infty}
-\hat f(s)\frac{I_0(|s|\rho)}{I_0(|s|a)}e^{isz}\,ds,
+\hat f(s)\frac{I_0(|s|\rho)}{I_0(|s|a)}\ee^{\ii sz}\,\dd{s},
 \qquad
-\hat f(s)=\frac{2V_0}{is}.
+\hat f(s)=\frac{2V_0}{\ii s}.
 \]
 等价地，
 \[
 u(\rho,z)=\frac{2V_0}{\pi}\int_0^\infty
-\frac{I_0(k\rho)}{I_0(ka)}\frac{\sin kz}{k}\,dk.
+\frac{I_0(k\rho)}{I_0(ka)}\frac{\sin kz}{k}\,\dd{k}.
 \]
 \end{solution}
 \end{question}

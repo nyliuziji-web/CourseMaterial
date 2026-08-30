@@ -131,38 +131,7 @@ H = q_1q_2 + p_1p_2.
 \end{aligned}
 \]
 
-逐个计算：
-\[
-[p_1^2,q_1q_2] =
-\frac{\partial(p_1^2)}{\partial q_1}\frac{\partial(q_1q_2)}{\partial p_1}
--\frac{\partial(p_1^2)}{\partial p_1}\frac{\partial(q_1q_2)}{\partial q_1}
-+\frac{\partial(p_1^2)}{\partial q_2}\frac{\partial(q_1q_2)}{\partial p_2}
--\frac{\partial(p_1^2)}{\partial p_2}\frac{\partial(q_1q_2)}{\partial q_2}
-= 0 - (2p_1)(q_2) + 0 - 0 = -2p_1q_2,
-\]
-\[
-[p_1^2,p_1p_2]=0,
-\]
-\[
-[q_2^2,q_1q_2]=
-\frac{\partial(q_2^2)}{\partial q_1}\frac{\partial(q_1q_2)}{\partial p_1}
--\frac{\partial(q_2^2)}{\partial p_1}\frac{\partial(q_1q_2)}{\partial q_1}
-+\frac{\partial(q_2^2)}{\partial q_2}\frac{\partial(q_1q_2)}{\partial p_2}
--\frac{\partial(q_2^2)}{\partial p_2}\frac{\partial(q_1q_2)}{\partial q_2}
-= 0-0+(2q_2)(q_1)-0 = 2q_1q_2,
-\]
-\[
-[q_2^2,p_1p_2]=
-\frac{\partial(q_2^2)}{\partial q_1}\frac{\partial(p_1p_2)}{\partial p_1}
--\frac{\partial(q_2^2)}{\partial p_1}\frac{\partial(p_1p_2)}{\partial q_1}
-+\frac{\partial(q_2^2)}{\partial q_2}\frac{\partial(p_1p_2)}{\partial p_2}
--\frac{\partial(q_2^2)}{\partial p_2}\frac{\partial(p_1p_2)}{\partial q_2}
-=0-0+0-(2q_2)(0)=0.
-\]
-
-求和得 \([f,H]=-2p_1q_2+2q_1q_2 = 2q_2(q_1-p_1)\neq 0\)？这里需要重新仔细计算。
-
-实际上，更为系统的做法是使用基本 Poisson 括号
+使用基本 Poisson 括号
 \[
 [q_i,q_j]=[p_i,p_j]=0,\qquad [q_i,p_j]=\delta_{ij}.
 \]
@@ -383,164 +352,8 @@ Kepler 问题中，Laplace--Runge--Lenz 矢量
 [J_i,p_j] = \varepsilon_{ijk}p_k.
 \]
 
-定义 \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\)，其分量为
-\[
-A_i = \varepsilon_{ijk}p_jJ_k - \alpha m\,\frac{r_i}{r}.
-\]
 
-由于 \(\boldsymbol J = \boldsymbol r \times \boldsymbol p\)，可将 \(\boldsymbol p\times\boldsymbol J\) 展开。利用矢量恒等式
-\[
-\boldsymbol p \times (\boldsymbol r \times \boldsymbol p)
-= \boldsymbol r\,p^2 - \boldsymbol p(\boldsymbol r\!\cdot\!\boldsymbol p),
-\]
-故
-\[
-A_i = r_i p^2 - p_i(\boldsymbol r\!\cdot\!\boldsymbol p) - \alpha m\,\frac{r_i}{r}.
-\]
-
-现在计算 \([A_i,H]\)。先计算第一项：
-\[
-[r_i p^2, H] = [r_i p^2,\; \tfrac{p^2}{2m}] - [r_i p^2,\; \tfrac{\alpha}{r}].
-\]
-
-由于 \([p^2, p^2]=0\)，
-\[
-[r_i p^2, \tfrac{p^2}{2m}] = \frac{1}{2m}\bigl(r_i[p^2,p^2] + [r_i,p^2]p^2\bigr)
-= \frac{1}{2m}[r_i,p^2]\,p^2.
-\]
-
-而 \([r_i,p^2] = [r_i,p_jp_j] = 2p_j[r_i,p_j] = 2p_j\delta_{ij} = 2p_i\)，故
-\[
-[r_i p^2, \tfrac{p^2}{2m}] = \frac{1}{2m}\cdot 2p_i p^2 = \frac{p_i p^2}{m}.
-\]
-
-另一部分：
-\[
-[r_i p^2, \tfrac{\alpha}{r}] = r_i[p^2,\tfrac{\alpha}{r}] + [r_i,\tfrac{\alpha}{r}]p^2
-= -r_i\Bigl[\frac{\alpha}{r},p^2\Bigr] + 0.
-\]
-
-计算
-\[
-\Bigl[\frac{\alpha}{r}, p^2\Bigr]
-= \Bigl[\frac{\alpha}{r}, p_jp_j\Bigr]
-= 2p_j\Bigl[\frac{\alpha}{r}, p_j\Bigr]
-= 2p_j\left(-\frac{\partial}{\partial x_j}\frac{\alpha}{r}\right)
-= 2p_j\left(\frac{\alpha x_j}{r^3}\right)
-= \frac{2\alpha}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p.
-\]
-
-因此
-\[
-[r_i p^2, \tfrac{\alpha}{r}] = -r_i\cdot \frac{2\alpha}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p
-= -\frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p.
-\]
-
-再计算第二项 \(-p_i(\boldsymbol r\!\cdot\!\boldsymbol p)\) 与 \(H\) 的括号：
-\[
-[-p_i(\boldsymbol r\!\cdot\!\boldsymbol p), H]
-= -[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{p^2}{2m}]
-+ [p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{\alpha}{r}].
-
-\]
-
-先算与动能的括号：
-\[
-[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{p^2}{2m}]
-= \frac{1}{2m}\bigl(p_i[\,\boldsymbol r\!\cdot\!\boldsymbol p, p^2] + [p_i,p^2](\boldsymbol r\!\cdot\!\boldsymbol p)\bigr).
-\]
-
-其中
-\[
-[\boldsymbol r\!\cdot\!\boldsymbol p, p^2] = [r_jp_j, p^2]
-= r_j[p_j,p^2] + [r_j,p^2]p_j
-= 0 + (2p_j)p_j = 2p^2,
-\]
-\[
-[p_i, p^2] = 0.
-\]
-
-故
-\[
-[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{p^2}{2m}]
-= \frac{1}{2m}\,p_i\cdot 2p^2 = \frac{p_i p^2}{m}.
-\]
-
-再算与势能的括号：
-\[
-[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{\alpha}{r}]
-= p_i[\,\boldsymbol r\!\cdot\!\boldsymbol p, \tfrac{\alpha}{r}]
-+ [p_i,\tfrac{\alpha}{r}](\boldsymbol r\!\cdot\!\boldsymbol p).
-\]
-
-其中
-\[
-[\boldsymbol r\!\cdot\!\boldsymbol p, \tfrac{\alpha}{r}]
-= r_j[p_j,\tfrac{\alpha}{r}] + [r_j,\tfrac{\alpha}{r}]p_j
-= r_j\!\left(-\frac{\partial}{\partial x_j}\frac{\alpha}{r}\right) + 0
-= r_j\!\left(\frac{\alpha x_j}{r^3}\right)
-= \frac{\alpha}{r},
-\]
-\[
-[p_i,\tfrac{\alpha}{r}] = -\frac{\partial}{\partial x_i}\frac{\alpha}{r}
-= \frac{\alpha x_i}{r^3}.
-\]
-
-因此
-\[
-[p_i(\boldsymbol r\!\cdot\!\boldsymbol p), \tfrac{\alpha}{r}]
-= p_i\cdot\frac{\alpha}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p).
-\]
-
-所以
-\[
-[-p_i(\boldsymbol r\!\cdot\!\boldsymbol p), H] = -\frac{p_i p^2}{m}
-+ \frac{\alpha p_i}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p).
-\]
-
-最后计算第三项 \(-\alpha m\, r_i/r\) 与 \(H\) 的括号。由于与动能部分：
-\[
-[-\alpha m\,\frac{r_i}{r},\; \tfrac{p^2}{2m}]
-= -\frac{\alpha}{2}[\,\frac{r_i}{r},\, p^2]
-= -\frac{\alpha}{2}\cdot 2p_j[\,\frac{r_i}{r},\, p_j]
-= -\alpha\,p_j\!\left(-\frac{\partial}{\partial x_j}\frac{r_i}{r}\right).
-\]
-
-而
-\[
-\frac{\partial}{\partial x_j}\frac{r_i}{r}
-= \frac{\delta_{ij}}{r} - \frac{x_i x_j}{r^3},
-\]
-故
-\[
-[-\alpha m\,\frac{r_i}{r},\; \tfrac{p^2}{2m}]
-= \alpha\,p_j\!\left(\frac{\delta_{ij}}{r} - \frac{x_i x_j}{r^3}\right)
-= \frac{\alpha p_i}{r} - \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p).
-\]
-
-与势能部分的括号：
-\[
-[-\alpha m\,\frac{r_i}{r},\; -\tfrac{\alpha}{r}] = 0.
-\]
-
-现在合并所有项：
-\[
-\begin{aligned}
-[A_i, H] &=
-\Bigl(\frac{p_i p^2}{m} - \frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p\Bigr) \\
-&\quad + \Bigl(-\frac{p_i p^2}{m} + \frac{\alpha p_i}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\Bigr) \\
-&\quad + \Bigl(\frac{\alpha p_i}{r} - \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)\Bigr) \\
-&= -\frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p
-+ \frac{\alpha p_i}{r} + \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p)
-+ \frac{\alpha p_i}{r} - \frac{\alpha x_i}{r^3}(\boldsymbol r\!\cdot\!\boldsymbol p) \\
-&= -\frac{2\alpha r_i}{r^3}\,\boldsymbol r\!\cdot\!\boldsymbol p
-+ \frac{2\alpha p_i}{r}.
-\end{aligned}
-\]
-
-可以证明 \(\displaystyle p_i = \frac{(\boldsymbol r\!\cdot\!\boldsymbol p) r_i}{r^2}\) 并不成立；实际上最后两项并不直接抵消。让我们换一种更简洁的方法。
-
-\textbf{更简洁的方法：}利用 \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\) 的矢量形式，已知 \(\boldsymbol J\) 是守恒量，且计算
+\textbf{利用} \(\boldsymbol A = \boldsymbol p \times \boldsymbol J - \alpha m\,\hat{\boldsymbol r}\) 的矢量形式，已知 \(\boldsymbol J\) 是守恒量，且计算
 \[
 [\boldsymbol A, H] = [\boldsymbol p \times \boldsymbol J, H] - \alpha m [\hat{\boldsymbol r}, H].
 \]
@@ -727,32 +540,7 @@ Jacobi 恒等式对任意三个相空间函数 \(F,G,f\) 成立：
 [f, [F,G]] = [G, [f,F]] - [F, [f,G]].
 \]
 
-现在计算左端算符作用：
-\[
-\widehat F\widehat G f = \widehat F(\widehat G f) = \widehat F([f,G]) = [[f,G], F] = -[F, [f,G]].
-\]
-\[
-\widehat G\widehat F f = \widehat G(\widehat F f) = \widehat G([f,F]) = [[f,F], G] = -[G, [f,F]].
-\]
-
-因此
-\[
-(\widehat F\widehat G - \widehat G\widehat F)f
-= -[F, [f,G]] + [G, [f,F]]
-= [f, [F,G]] \qquad (\text{由 Jacobi 恒等式}).
-\]
-
-但 \(\widehat{[F,G]} f \equiv [f, [F,G]]\)，故
-\[
-(\widehat F\widehat G - \widehat G\widehat F)f = \widehat{[F,G]} f.
-\]
-
-由于 \(f\) 是任意相空间函数，得算符等式
-\[
-\widehat F\widehat G - \widehat G\widehat F = \widehat{[F,G]}.
-\]
-
-题目中要求证明的为 \(-\widehat{[F,G]}\)。这里有一个符号约定的差异。检查符号：若定义 \(\widehat F f \equiv [f,F]\)，则
+计算算符作用。由定义 \(\widehat F f \equiv [f,F]\)，
 \[
 \widehat F\widehat G f = \widehat F([f,G]) = [[f,G], F] = -[F,[f,G]].
 \]

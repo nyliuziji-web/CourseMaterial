@@ -110,7 +110,7 @@ F(x)=\begin{pmatrix}f_1(x)\\ f_2(x)\end{pmatrix}
 对分部积分可得
 \[
 \langle G\mid \hat HF\rangle-\langle \hat H^{\dagger}G\mid F\rangle
-=i\bigl[-g_1^*(x)f_1(x)+g_2^*(x)f_2(x)\bigr]_{x=a}^{x=b}.
+=\ii\bigl[-g_1^*(x)f_1(x)+g_2^*(x)f_2(x)\bigr]_{x=a}^{x=b}.
 \]
 因此只要定义域上的边界条件能使该边界项恒为零，算符就存在伴算符。
 
@@ -191,7 +191,7 @@ J_{\frac{(2n+1)\pi}{2\phi_0}}\!\left(\frac{\mu_m^n}{a}\rho\right)}{\left[J'_{\fr
 \sin\frac{(2n+1)\pi}{2\phi_0}\phi'
 \exp\!\left[-\frac{(z-\zeta)^2}{4\kappa t}\right]
 J_{\frac{(2n+1)\pi}{2\phi_0}}\!\left(\frac{\mu_m^n}{a}\rho'\right)
-\rho'\,d\phi'\,d\zeta\,d\rho'.
+\rho'\dd{\phi'}\dd{\zeta}\dd{\rho'}.
 \end{aligned}}
 这正是原题解第 11 页给出的紧凑表达式。
 
@@ -214,7 +214,7 @@ u \text{ 在无穷远只有会聚波}, & \text{取时间因子为 } \ee^{-i\omeg
 
 设自由空间中满足辐射条件的基本解为
 \[
-G_1(\mathbf r;\mathbf r')=-\frac{\ee^{-ik|\mathbf r-\mathbf r'|}}{4\pi|\mathbf r-\mathbf r'|}.
+G_1(\mathbf r;\mathbf r')=-\frac{\ee^{-\ii k|\mathbf r-\mathbf r'|}}{4\pi|\mathbf r-\mathbf r'|}.
 \]
 为满足平面 $z=0$ 上的 Dirichlet 边界条件，使用镜像点
 \[
@@ -226,9 +226,9 @@ G(\mathbf r;\mathbf r')=G_1(\mathbf r;\mathbf r')-G_1(\mathbf r;\mathbf r'^*).
 \]
 写成显式形式就是
 \ansmath{G(\mathbf r;\mathbf r')=
-\frac{\ee^{-ik\sqrt{(x-x')^2+(y-y')^2+(z+z')^2}}}{4\pi\sqrt{(x-x')^2+(y-y')^2+(z+z')^2}}
+\frac{\ee^{-\ii k\sqrt{(x-x')^2+(y-y')^2+(z+z')^2}}}{4\pi\sqrt{(x-x')^2+(y-y')^2+(z+z')^2}}
 -
-\frac{\ee^{-ik\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}{4\pi\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}
+\frac{\ee^{-\ii k\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}{4\pi\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}
 其中 $-\infty<x,x'<\infty$，$-\infty<y,y'<\infty$，$z,z'>0$。
 
 \end{solution}

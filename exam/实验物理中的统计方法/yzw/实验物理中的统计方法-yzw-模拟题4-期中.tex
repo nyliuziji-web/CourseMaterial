@@ -111,7 +111,7 @@ P\bigl(N(T/3)=2\mid N(T)=4\bigr)=\binom42\left(\frac13\right)^2\left(\frac23\rig
 \]
 第一次到达时刻是 4 个均匀点中的最小者，其分布满足
 \[
-P(T_1\leqt\mid N(T)=4)=1-\left(1-\frac{t}{T}\right)^4,
+P(T_1\leq t\mid N(T)=4)=1-\left(1-\frac{t}{T}\right)^4,
 \qquad 0<t<T.
 \]
 对 $t$ 求导得密度
@@ -139,18 +139,18 @@ cy,&0<x<y<1,\\
 \begin{solution}
 归一化条件给出
 \[
-1=c\int_0^1\int_0^y y\,dx\,dy=c\int_0^1 y^2\,dy=\frac{c}{3}.
+1=c\int_0^1\int_0^y y\dd{x}\dd{y}=c\int_0^1 y^2\dd{y}=\frac{c}{3}.
 \]
 故
 \ansmath{c=3}
 边缘密度为
 \[
-f_Y(y)=\int_0^y 3y\,dx=3y^2,
+f_Y(y)=\int_0^y 3y\dd{x}=3y^2,
 \qquad 0<y<1.
 \]
 再求概率。由条件 $0<x<y<1$ 与 $x+y<1$，需分两段积分：
 \[
-P(X+Y<1)=\int_0^{1/2}\int_0^y 3y\,dx\,dy+\int_{1/2}^{1}\int_0^{1-y}3y\,dx\,dy.
+P(X+Y<1)=\int_0^{1/2}\int_0^y 3y\dd{x}\dd{y}+\int_{1/2}^{1}\int_0^{1-y}3y\dd{x}\dd{y}.
 \]
 计算得
 \[
@@ -231,9 +231,9 @@ P(e)=10^{-4},\qquad P(\gamma)=1-10^{-4}.
 P(e\mid 3)=\frac{P(3\mid e)P(e)}{P(3\mid e)P(e)+P(3\mid \gamma)P(\gamma)}
 =\frac{0.97\times 10^{-4}}{0.97\times 10^{-4}+10^{-6}(1-10^{-4})}.
 \]
-数值上
+数值上（分子 $0.97\times10^{-4}=9.7\times10^{-5}$，分母 $\approx9.8\times10^{-5}$）
 \[
-P(e\mid 3)\approx 0.9066.
+P(e\mid 3)\approx 0.9898.
 \]
 同理
 \[

@@ -10,7 +10,7 @@
 \begin{solution}
 算子有常数零模，所以需满足相容条件
 \[
-\int_{-1}^1\phi(x)\,dx=0.
+\int_{-1}^1\phi(x)\,\dd{x}=0.
 \]
 在零均值意义下令
 \[
@@ -22,7 +22,7 @@ L_xG(x,\xi)=-\delta(x-\xi)+\frac12.
 \]
 及端点有界性可得 Green 函数。常数规范任意；取零均值规范时，解写为
 \[
-y(x)=\int_{-1}^1G(x,\xi)\phi(\xi)\,d\xi .
+y(x)=\int_{-1}^1G(x,\xi)\phi(\xi)\,\dd{\xi} .
 \]
 \end{solution}
 \end{question}
@@ -38,9 +38,9 @@ y(x)=\int_{-1}^1G(x,\xi)\phi(\xi)\,d\xi .
 \[
 G''+k^2G=0.
 \]
-出射条件要求 \(x>x'\) 时取 \(e^{ik(x-x')}\)，\(x<x'\) 时取 \(e^{ik(x'-x)}\)，所以设
+出射条件要求 \(x>x'\) 时取 \(\ee^{\ii k(x-x')}\)，\(x<x'\) 时取 \(\ee^{\ii k(x'-x)}\)，所以设
 \[
-G=C e^{ik|x-x'|}.
+G=C \ee^{\ii k|x-x'|}.
 \]
 在 \(x=x'\) 附近积分方程，得到导数跳跃
 \[
@@ -48,7 +48,7 @@ G_x(x'+0,x')-G_x(x'-0,x')=-1.
 \]
 代入上式得 \(2ikC=-1\)，因此
 \[
-G_1(x,x')=\frac{i}{2k}e^{ik|x-x'|}.
+G_1(x,x')=\frac{\ii}{2k}\ee^{\ii k|x-x'|}.
 \]
 二维中因平移和旋转不变性，\(G\) 只依赖 \(R=|\bm r-\bm r'|\)。在 \(R>0\) 处径向方程为
 \[
@@ -56,11 +56,11 @@ G_{RR}+\frac1R G_R+k^2G=0,
 \]
 其出射解为 \(H_0^{(1)}(kR)\)。由小量展开
 \[
-H_0^{(1)}(kR)\sim 1+\frac{2i}{\pi}\ln R
+H_0^{(1)}(kR)\sim 1+\frac{2\ii}{\pi}\ln R
 \]
 与二维基本解的对数奇性匹配，得
 \[
-G_2(\bm r,\bm r')=\frac{i}{4}H_0^{(1)}(k|\bm r-\bm r'|).
+G_2(\bm r,\bm r')=\frac{\ii}{4}H_0^{(1)}(k|\bm r-\bm r'|).
 \]
 \end{solution}
 \end{question}
@@ -111,11 +111,11 @@ G_{tt}-a^2\nabla^2G=\delta(\bm r-\bm r')\delta(t-t')
 \]
 作空间变换，得到每个波数的受迫振子
 \[
-\hat G_{tt}+a^2|\bm k|^2\hat G=e^{-i\bm k\cdot\bm r'}\delta(t-t').
+\hat G_{tt}+a^2|\bm k|^2\hat G=\ee^{-\ii\bm k\cdot\bm r'}\delta(t-t').
 \]
 迟滞条件给出
 \[
-\hat G=\frac{\sin(a|\bm k|(t-t'))}{a|\bm k|}H(t-t')e^{-i\bm k\cdot\bm r'}.
+\hat G=\frac{\sin(a|\bm k|(t-t'))}{a|\bm k|}H(t-t')\ee^{-\ii\bm k\cdot\bm r'}.
 \]
 反变换后得到上面的二维迟滞核。因二维波动有尾项，核在圆锥内部 \(t-t'>R/a\) 也不为零。
 \end{solution}
@@ -147,8 +147,8 @@ u|_{t=0}=\phi(x,y,z).
 \begin{solution}
 由三维热核得
 \[
-u(\bm r,t)=\int_{\mathbb R^3}G(\bm r,t;\bm r',0)\phi(\bm r')\,d\bm r'
-+\int_0^t\int_{\mathbb R^3}G(\bm r,t;\bm r',\tau)f(\bm r',\tau)\,d\bm r' d\tau.
+u(\bm r,t)=\int_{\mathbb R^3}G(\bm r,t;\bm r',0)\phi(\bm r')\,\dd{\bm r'}
++\int_0^t\int_{\mathbb R^3}G(\bm r,t;\bm r',\tau)f(\bm r',\tau)\,\dd{\bm r'}\dd{\tau}.
 \]
 其中 \(G\) 为上一题热核。
 \end{solution}
@@ -191,13 +191,13 @@ y(0)=0,\qquad y(1)=1
 \]
 所对应的泛函极值问题。
 \begin{solution}
-乘以积分因子 \(e^{-x^2}\)，方程化为
+乘以积分因子 \(\ee^{-x^2}\)，方程化为
 \[
-\left(e^{-x^2}y'\right)'+2ne^{-x^2}y=0.
+\left(\ee^{-x^2}y'\right)'+2n\ee^{-x^2}y=0.
 \]
 对应泛函可取
 \[
-J[y]=\int_0^1 e^{-x^2}\left[(y')^2-2ny^2\right]dx,
+J[y]=\int_0^1 \ee^{-x^2}\left[(y')^2-2ny^2\right]\dd{x},
 \]
 边界条件为 \(y(0)=0,\ y(1)=1\)。
 \end{solution}

@@ -4,7 +4,7 @@
 \begin{question}
 节流过程熵变化？
 \begin{solution}
-熵增，即 $\Delta S>0$。
+
 \ansmath{\Delta S>0}
 \end{solution}
 \end{question}
@@ -50,7 +50,7 @@ dU=\left(\frac{\partial U}{\partial V}\right)_T dV=-p\,dV,
 \begin{question}
 纯物质临界点附近的表面张力系数符号。
 \begin{solution}
-临界点附近表面张力趋于零，即 $\sigma\to 0$。
+
 \ansmath{\sigma\to 0}
 \end{solution}
 \end{question}
@@ -78,7 +78,7 @@ E=\Delta_f H_m^\Theta-Q=\Delta G_m^\Theta.
 证明等温线与绝热线不可能交于两点。
 \begin{solution}
 反证：若某条等温线与绝热线交于两点，则沿等温线和绝热线可围成一个循环。该循环要么从单一热源吸热并全部转化为功，要么违背 Clausius 不等式，分别与第一、第二定律矛盾，因此不可能。
-\anstext{反证：若某条等温线与绝热线交于两点，则沿等温线和绝热线可围成一个循环。该循环要么从单一热源吸热并全部转化为功，要么违背 Clausius 不等式，分别与第一、第二定律矛盾，因此不可能。}
+
 \end{solution}
 \end{question}
 
@@ -117,7 +117,7 @@ T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2.
 叙述过热液体、过冷蒸气，并说明在等温线上的位置。
 \begin{solution}
 过热液体是已达到汽化条件却仍未汽化的液体，过冷蒸气是已达到液化条件却仍未液化的蒸气；它们都属亚稳态。在 vdW 等温线中，共存平台两侧的亚稳分支分别对应过热液体与过冷蒸气。
-\anstext{过热液体是已达到汽化条件却仍未汽化的液体，过冷蒸气是已达到液化条件却仍未液化的蒸气；它们都属亚稳态。在 vdW 等温线中，共存平台两侧的亚稳分支分别对应过热液体与过冷蒸气。}
+
 \end{solution}
 \end{question}
 
@@ -126,18 +126,18 @@ T_1=T_2,\qquad p_1=p_2,\qquad \mu_1=\mu_2.
 37 届决赛“量子热机”题。
 \begin{solution}
 上传稿未附题面，原稿仅注“自行搜索”，此处保留空位。
-\anstext{题面缺失，答案从略。}
+
 \end{solution}
 \end{question}
 
 \begin{question}
 设离散体系满足 Maxwell--Boltzmann 分布
 \[
-p_i=\frac{\e\e\e\e\ee^{-E_i/(k_BT)}}{\sum_j \e\e\e\e\ee^{-E_j/(k_BT)}}.
+p_i=\frac{\ee^{-E_i/(k_BT)}}{\sum_j \ee^{-E_j/(k_BT)}}.
 \]
 证明熵与自由能关系，并求熵函数。
 \begin{solution}
-配分函数 $Z=\sum_i \e\e\e\e\ee^{-E_i/(k_BT)}$，自由能
+配分函数 $Z=\sum_i \ee^{-E_i/(k_BT)}$，自由能
 \[
 F=-k_BT\ln Z.
 \]
@@ -145,14 +145,23 @@ F=-k_BT\ln Z.
 \[
 S=-\left(\frac{\partial F}{\partial T}\right)_V.
 \]
-再利用 $p_i=\e\e\e\e\ee^{-E_i/(k_BT)}/Z$，得
+由 $p_i=\ee^{-E_i/(k_BT)}/Z$ 取对数得
 \[
-F=U-TS,
-\qquad U=\sum_i p_iE_i.
+\ln p_i=-\frac{E_i}{k_BT}-\ln Z,
+\qquad\text{即}\qquad
+E_i=-k_BT\left(\ln p_i+\ln Z\right).
 \]
-化简即可得到
+代入内能，并利用归一化 $\sum_i p_i=1$，得
 \[
-S=-k_B\sum_i p_i\ln p_i.
+U=\sum_i p_iE_i
+=-k_BT\sum_i p_i\ln p_i-k_BT\ln Z\sum_i p_i
+=-k_BT\sum_i p_i\ln p_i-k_BT\ln Z.
+\]
+再由热力学关系 $F=U-TS$，得
+\[
+S=\frac{U-F}{T}
+=\frac{-k_BT\sum_i p_i\ln p_i-k_BT\ln Z+k_BT\ln Z}{T}
+=-k_B\sum_i p_i\ln p_i.
 \]
 \end{solution}
 \end{question}
@@ -229,13 +238,13 @@ Q=L_f\,\Delta m_{\text{冰}\to\text{水}}+L_v\,\Delta m_{\text{水}\to\text{汽}
 
 \begin{question}
 毛细管直径 $d$、高度 $h$，在高度 $h_1$ 处有侧支管口，完全浸润。求：
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 毛细上升高度 $h$；
 \item 侧口接触角；
 \item 为什么不能构成永动机。
 \end{enumerate}
 \begin{solution}
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 顶部液面压强
 \[
 p_t=p_0-\frac{4\sigma}{d}=p_0-\rho gh,
@@ -258,7 +267,7 @@ p_s=p_t+\rho g(h-h_1)=p_0-\rho gh_1<p_0.
 \]
 \item 因侧口液面向内凹，水不会自发从侧口滴出，故不能持续输出重力势能，不构成永动机。
 \end{enumerate}
-\anstext{见上。}
+
 \end{solution}
 \end{question}
 

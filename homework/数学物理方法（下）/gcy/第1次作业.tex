@@ -8,7 +8,7 @@
 \begin{solution}
 设弦的线密度为 \(\rho\)，张力为 \(T\)，横位移为 \(u(x,t)\)。小振幅近似下，张力在横向的合力为
 \[
-T\frac{\partial^2u}{\partial x^2}\,dx.
+T\frac{\partial^2u}{\partial x^2}\,\dd{x}.
 \]
 阻尼力与速度反向，单位长度阻尼力为
 \[
@@ -16,9 +16,9 @@ T\frac{\partial^2u}{\partial x^2}\,dx.
 \]
 由牛顿第二定律得
 \[
-\rho\,dx\,\frac{\partial^2u}{\partial t^2}
-=T\frac{\partial^2u}{\partial x^2}\,dx
--d\frac{\partial u}{\partial t}\,dx.
+\rho\,\dd{x}\,\frac{\partial^2u}{\partial t^2}
+=T\frac{\partial^2u}{\partial x^2}\,\dd{x}
+-d\frac{\partial u}{\partial t}\,\dd{x}.
 \]
 因此有阻尼弦振动方程为
 \[
@@ -222,7 +222,7 @@ u_t=\kappa u_{xx}+\kappa x^2
 \]
 故全杆单位时间产生的热量为
 \[
-Q_{\rm gen}=\int_0^L \rho c\kappa x^2\,dx
+Q_{\rm gen}=\int_0^L \rho c\kappa x^2\,\dd{x}
 =\frac{\rho c\kappa L^3}{3}.
 \]
 热流密度为

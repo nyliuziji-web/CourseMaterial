@@ -68,7 +68,7 @@ V[k]=n_{\rm tot}p(1-p),
 若 \(x\sim U[\alpha,\beta]\)，则
 
 \[
-E\left[\frac1x\right]=\frac{1}{\beta-\alpha}\int_\alpha^\beta\frac1x\,\dd{x}
+\operatorname{E}\left[\frac1x\right]=\frac{1}{\beta-\alpha}\int_\alpha^\beta\frac1x\,\dd{x}
 =\frac{\log\beta-\log\alpha}{\beta-\alpha}.
 \]
 
@@ -132,7 +132,7 @@ P(x\le x_0+x'\mid x\ge x_0)=P(x\le x').
 \end{enumerate}
 
 \[
-F(x)=\int_0^x\frac1\xi \ee^{-t/\xi}dt=1-\ee^{-x/\xi},\qquad x\ge0.
+F(x)=\int_0^x\frac1\xi \ee^{-t/\xi}\,\dd{t}=1-\ee^{-x/\xi},\qquad x\ge0.
 \]
 
 \begin{enumerate}[start=2]
@@ -186,7 +186,7 @@ F(y)=\Phi\left(\frac{y-\mu}{\sigma}\right).
 \begin{enumerate}
 \item
   令 \(x=(y-\mu)/\sigma\)，即
-  \(y=\mu+\sigma x\)，\(|dy/\dd{x}|=\sigma\)。于是
+  \(y=\mu+\sigma x\)，\(\left|\frac{\dd y}{\dd x}\right|=\sigma\)。于是
 \end{enumerate}
 
 \[
@@ -242,7 +242,7 @@ V[x]&=\int (x-\operatorname{E}[x])^2 f(x;\mu,\sigma^2)\,\dd{x}.
 \begin{solution}
 \begin{enumerate}
 \item
-  \(x=\ee^y\)，反变换 \(y=\log x\)，Jacobian 为 \(|dy/\dd{x}|=1/x\)。所以
+  \(x=\ee^y\)，反变换 \(y=\log x\)，Jacobian 为 \(\left|\frac{\dd y}{\dd x}\right|=1/x\)。所以
 \end{enumerate}
 
 \[
@@ -315,13 +315,13 @@ f(t;n)=\frac{1}{2^{n/2}\Gamma(n/2)}t^{n/2-1}\ee^{-t/2},\qquad t>0.
 累积分布
 
 \[
-F_{\chi^2}(x;n)=\int_0^x f(t;n)dt.
+F_{\chi^2}(x;n)=\int_0^x f(t;n)\,\dd{t}.
 \]
 
-令 \(u=t/2\)，\(dt=2du\)，则
+令 \(u=t/2\)，\(\dd{t}=2\dd{u}\)，则
 
 \[
-F_{\chi^2}(x;n)=\frac{1}{\Gamma(n/2)}\int_0^{x/2}\ee^{-u}u^{n/2-1}du
+F_{\chi^2}(x;n)=\frac{1}{\Gamma(n/2)}\int_0^{x/2}\ee^{-u}u^{n/2-1}\,\dd{u}
 =P\left(\frac{x}{2},\frac{n}{2}\right).
 \]
 \end{solution}

@@ -69,9 +69,9 @@ H'_{13}=H'_{31}=eE(t)\langle100|z|210\rangle,
 \[
 \ddot c_b=-{\ii\over\hbar}V^*\left[\ii\omega_0 \ee^{\ii\omega_0t}c_a
 +\ee^{\ii\omega_0t}\left(-{\ii\over\hbar}V \ee^{-\ii\omega_0t}c_b\right)\right]
-=\omega_0{\ii\over\hbar}V^* \ee^{\ii\omega_0t}c_a-{|V|^2\over\hbar^2}c_b.
+={\omega_0\over\hbar}V^* \ee^{\ii\omega_0t}c_a-{|V|^2\over\hbar^2}c_b.
 \]
-注意到第一项正是 $\omega_0\dot c_b$,故
+注意到第一项正是 $\ii\omega_0\dot c_b$,故
 \[
 \ddot c_b=\ii\omega_0\dot c_b-{|V|^2\over\hbar^2}c_b.
 \]
@@ -262,12 +262,12 @@ c_a^{(2)}(t)=1-{\ii V\over\hbar}\int_0^t \ee^{-\ii\omega_0t_1}c_b^{(1)}(t_1)\dd 
 =1-{\ii V\over\hbar}\int_0^t \ee^{-\ii\omega_0t_1}\left[-{V^*\over\hbar\omega_0}(\ee^{\ii\omega_0t_1}-1)\right]\dd t_1
 \]
 \[
-=1+{|V|^2\over\hbar^2\omega_0}\int_0^t\left(1-\ee^{-\ii\omega_0t_1}\right)\dd t_1
-=1+{|V|^2\over\hbar^2\omega_0}t+{\ii|V|^2\over\hbar^2\omega_0^2}(\ee^{-\ii\omega_0t}-1).
+=1+{\ii|V|^2\over\hbar^2\omega_0}\int_0^t\left(1-\ee^{-\ii\omega_0t_1}\right)\dd t_1
+=1+{\ii|V|^2\over\hbar^2\omega_0}t+{|V|^2\over\hbar^2\omega_0^2}(\ee^{-\ii\omega_0t}-1).
 \]
 因此
 \[
-c_a^{(2)}(t)=1-{\ii |V|^2t\over\hbar^2\omega_0}+{ |V|^2\over\hbar^2\omega_0^2}(\ee^{-\ii\omega_0t}-1),
+c_a^{(2)}(t)=1+{\ii |V|^2t\over\hbar^2\omega_0}+{ |V|^2\over\hbar^2\omega_0^2}(\ee^{-\ii\omega_0t}-1),
 \]
 (整体相位约定可有差异)。$c_b$ 的二阶修正来自将 $c_a\approx c_a^{(1)}=1$ 代入二阶迭代,但 $c_b^{(1)}$ 已是一阶量,其零阶项 $c_a^{(0)}=1$ 已被使用;再下一阶将给出 $c_a$ 的二阶修正对 $c_b$ 的影响。展开精确 Rabi 解到 $|V|^2$ 阶可得到一致结果:
 \[
@@ -359,9 +359,9 @@ H'_{ba}(t)=\langle b|V|a\rangle\cos\omega t
 \[
 \ddot c_b=-{\ii\Omega\over2}\left[-\ii\Delta \ee^{-\ii\Delta t}c_a
 +\ee^{-\ii\Delta t}\left(-{\ii\Omega\over2}\ee^{\ii\Delta t}c_b\right)\right]
-=-\Delta{\ii\Omega\over2}\ee^{-\ii\Delta t}c_a-{\Omega^2\over4}c_b.
+=-{\Delta\Omega\over2}\ee^{-\ii\Delta t}c_a-{\Omega^2\over4}c_b.
 \]
-而第一项 $-\Delta({\ii\Omega}/{2})\ee^{-\ii\Delta t}c_a=\Delta\dot c_b$,故
+而第一项 $-{\Delta\Omega\over2}\ee^{-\ii\Delta t}c_a=-\ii\Delta\dot c_b$,故
 \[
 \ddot c_b=-\ii\Delta\dot c_b-{\Omega^2\over4}c_b.
 \]
@@ -735,7 +735,7 @@ U(t)=\exp\left[-{\ii\over\hbar}\int_0^t H(t')\dd t'\right]
 \[
 \ee^{-\ii H_2(t-\tau)/\hbar}\ee^{-\ii H_1\tau/\hbar}
 =\exp\left[-\ii(H_1\tau+H_2(t-\tau))/\hbar
--{1\over2}(t-\tau)\tau[H_1,H_2]/\hbar^2+\cdots\right].
++{1\over2}(t-\tau)\tau[H_1,H_2]/\hbar^2+\cdots\right].
 \]
 当 $[H_1,H_2]\neq0$ 时,额外的对易子项破坏了普通指数合并形式。反例可取自旋 $1/2$ 系统:设 $H_1=\hbar\omega\sigma_x/2$,$H_2=\hbar\omega\sigma_z/2$,由于 $[\sigma_x,\sigma_z]=-2\ii\sigma_y\neq0$,两个表达式显然不相等。此时先后作用 $H_1$ 再 $H_2$ 的演化路径与反向次序给出不同的结果。
 \end{solution}

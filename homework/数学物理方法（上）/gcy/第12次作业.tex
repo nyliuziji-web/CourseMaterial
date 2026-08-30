@@ -19,10 +19,7 @@
 \begin{enumerate}
   \item 考察上半圆围道 \(C\)，令 \(f(z)=\dfrac{z\ee^{\ii z}}{1+z^4}\)，有
 \[
-\oint_C f(z)\dd{z}=\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}=2\pi\ii\Bigl(\operatorname{res}\Bigl\{f(z),\frac{1+\ii}{\sqrt2}\Bigr\}+\operatorname{res}\Bigl\{f(z),\frac{-1+\ii}{\sqrt2}\Bigr\}\Bigr)
-\]
-  \item 考察上半圆围道 \(C\)，令 \(f(z)=\dfrac{z\ee^{\ii z}}{1+z^4}\)，有
-\[
+
 \begin{aligned}
 \oint_C f(z)\dd{z}
 &=\int_{-R}^{R}f(x)\dd{x}+\int_{C_R}f(z)\dd{z}\\
@@ -160,8 +157,8 @@ g(z)=\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},
   \draw[dashed] (0,0) circle (3.5);
   % Beta points on circle
   \foreach \ang/\label in {20/1, 70/2, 150/3, 230/4, 320/5} {
-    \filldraw (3.5*\ang:3.5) circle (2pt);
-    \node at (3.5*\ang:4.0) {$\beta_{\label}$};
+    \filldraw (\ang:3.5) circle (2pt);
+    \node at (\ang:4.0) {$\beta_{\label}$};
   }
   % Alpha points inside circle
   \coordinate (a1) at (1.2,0.8);
@@ -276,7 +273,7 @@ g(z)=\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},
 \]
 根据大圆弧引理，由于 \(\displaystyle\lim_{z\to\infty}zf(z)=0\)，因此有 \(\displaystyle\lim_{R\to+\infty}\int_{C_R}f(z)\dd{z}=0\). 因此
 \[
-\operatorname{v.p.}\int_{0}^{\infty}f(x)\dd{x}=\frac{\dfrac{\pi}{3}\ii-\dfrac{\sqrt3+\ii}{6}\pi}{\dfrac32-\dfrac{\sqrt3}{2}\ii}=\frac{\pi}{3\sqrt3}
+\operatorname{v.p.}\int_{0}^{\infty}f(x)\dd{x}=\frac{\dfrac{\pi}{3}\ii-\dfrac{\sqrt3+\ii}{6}\pi}{\dfrac32-\dfrac{\sqrt3}{2}\ii}=-\frac{\pi}{3\sqrt3}
 \]
 
   \item 由
@@ -315,11 +312,11 @@ g(z)=\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},
 
 根据小圆弧引理，由于
 \[
-\lim_{z\to-a}(z+a)f(z)=\frac{\ee^{-2\ii a}-\ee^{2\ii a}}{2(-2a)}=\frac{\ii\sin a}{2a},\qquad \lim_{z\to a}(z-a)f(z)=0
+\lim_{z\to-a}(z+a)f(z)=\frac{\ee^{-2\ii a}-\ee^{2\ii a}}{2(-2a)}=\frac{\ii\sin(2a)}{2a},\qquad \lim_{z\to a}(z-a)f(z)=0
 \]
 因此可以得到
 \[
-\lim_{\delta_1\to0}\int_{C_{1,\delta_1}}f(z)\dd{z}=\frac{\pi}{2}\frac{\sin a}{a},\qquad \lim_{\delta_2\to0}\int_{C_{2,\delta_2}}f(z)\dd{z}=0
+\lim_{\delta_1\to0}\int_{C_{1,\delta_1}}f(z)\dd{z}=\frac{\pi\sin(2a)}{2a},\qquad \lim_{\delta_2\to0}\int_{C_{2,\delta_2}}f(z)\dd{z}=0
 \]
 
 根据Jordan引理与大圆弧引理，由于 \(\displaystyle\lim_{z\to\infty}\frac{1}{z^2-a^2}=0,\ \lim_{z\to\infty}\frac{z}{z^2-a^2}=0\)，因此
@@ -329,7 +326,7 @@ g(z)=\frac{\ii\sum_{k=1}^{n}\ee^{-\ii(2k-1+a)z}}{z(1+z^2)},
 
 综上可以得到
 \[
-\operatorname{v.p.}\int_{-\infty}^{\infty}f(x)\dd{x}=-\frac{\pi}{2}\frac{\sin a}{a}
+\operatorname{v.p.}\int_{-\infty}^{\infty}f(x)\dd{x}=-\frac{\pi\sin(2a)}{2a}
 \]
 \[
 \int_{-\infty}^{\infty}\frac{\cos(x+a)\sin(x-a)}{x^2-a^2}\dd{x}=\Im\Bigl\{\int_{-\infty}^{\infty}f(x)\dd{x}\Bigr\}=0

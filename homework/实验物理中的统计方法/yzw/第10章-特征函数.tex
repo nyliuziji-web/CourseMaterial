@@ -23,21 +23,21 @@ f(x;\mu,\sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}\exp\!\left[-\frac{(x-\mu)^2}{2\sig
 则
 
 \[
-\phi(k)=\int_{-\infty}^{\infty} \ee^{ikx} f(x;\mu,\sigma^2)\,\dd{x}.
+\phi(k)=\int_{-\infty}^{\infty} \ee^{\ii kx} f(x;\mu,\sigma^2)\,\dd{x}.
 \]
 
 把指数配方：
 
 \[
-ikx-\frac{(x-\mu)^2}{2\sigma^2}
+\ii kx-\frac{(x-\mu)^2}{2\sigma^2}
 =
--\frac{(x-\mu-i\sigma^2 k)^2}{2\sigma^2}+ik\mu-\frac12\sigma^2k^2.
+-\frac{(x-\mu-\ii\sigma^2 k)^2}{2\sigma^2}+\ii k\mu-\frac12\sigma^2k^2.
 \]
 
 因此高斯积分部分仍为 1，得到
 
 \[
-\phi(k)=\exp\!\left(ik\mu-\frac12\sigma^2k^2\right).
+\phi(k)=\exp\!\left(\ii k\mu-\frac12\sigma^2k^2\right).
 \]
 \end{solution}
 \end{question}
@@ -65,15 +65,15 @@ f(x;\xi)=\frac1{\xi}\ee^{-x/\xi},\qquad x\ge 0.
 则
 
 \[
-\phi(k)=\int_0^\infty \ee^{ikx}\frac1{\xi}\ee^{-x/\xi}\,\dd{x}
-=\frac1{\xi}\int_0^\infty \ee^{-x(1/\xi-ik)}\,\dd{x}.
+\phi(k)=\int_0^\infty \ee^{\ii kx}\frac1{\xi}\ee^{-x/\xi}\,\dd{x}
+=\frac1{\xi}\int_0^\infty \ee^{-x(1/\xi-\ii k)}\,\dd{x}.
 \]
 
-只要 \(\Re(1/\xi-ik)=1/\xi>0\)，积分收敛，故
+只要 \(\Re(1/\xi-\ii k)=1/\xi>0\)，积分收敛，故
 
 \[
-\phi(k)=\frac1{\xi}\cdot \frac1{1/\xi-ik}
-=\frac1{1-ik\xi}.
+\phi(k)=\frac1{\xi}\cdot \frac1{1/\xi-\ii k}
+=\frac1{1-\ii k\xi}.
 \]
 \end{solution}
 \end{question}
@@ -108,22 +108,22 @@ f(z;n)=\frac{1}{2^{n/2}\Gamma(n/2)}z^{n/2-1}\ee^{-z/2},\qquad z>0.
 
 \[
 \phi(k)=\frac{1}{2^{n/2}\Gamma(n/2)}
-\int_0^\infty z^{n/2-1}\ee^{-z(1/2-ik)}\,dz.
+\int_0^\infty z^{n/2-1}\ee^{-z(1/2-\ii k)}\,\dd{z}.
 \]
 
 利用伽马积分 \[
-\int_0^\infty z^{a-1}\ee^{-bz}\,dz=\frac{\Gamma(a)}{b^a},
+\int_0^\infty z^{a-1}\ee^{-bz}\,\dd{z}=\frac{\Gamma(a)}{b^a},
 \] 得
 
 \[
-\phi(k)=\frac{1}{2^{n/2}}\frac{1}{(1/2-ik)^{n/2}}
-=(1-2ik)^{-n/2}.
+\phi(k)=\frac{1}{2^{n/2}}\frac{1}{(1/2-\ii k)^{n/2}}
+=(1-2\ii k)^{-n/2}.
 \]
 
 故
 
 \[
-\phi_{\chi^2_n}(k)=(1-2ik)^{-n/2}.
+\phi_{\chi^2_n}(k)=(1-2\ii k)^{-n/2}.
 \]
 \end{solution}
 \end{question}
@@ -155,7 +155,7 @@ x_i\sim N(\mu,\sigma^2),\qquad \bar x=\frac1n\sum_{i=1}^n x_i.
 
 \[
 \phi_{\bar x}(k)
-=E\!\left[\exp\!\left(ik\frac1n\sum_i x_i\right)\right]
+=\operatorname{E}\!\left[\exp\!\left(\ii k\frac1n\sum_i x_i\right)\right]
 =\prod_{i=1}^n \phi_{x_i}(k/n).
 \]
 
@@ -163,8 +163,8 @@ x_i\sim N(\mu,\sigma^2),\qquad \bar x=\frac1n\sum_{i=1}^n x_i.
 
 \[
 \phi_{\bar x}(k)
-=\left[\exp\!\left(i\mu\frac{k}{n}-\frac12\sigma^2\frac{k^2}{n^2}\right)\right]^n
-=\exp\!\left(ik\mu-\frac12\frac{\sigma^2}{n}k^2\right).
+=\left[\exp\!\left(\ii\mu\frac{k}{n}-\frac12\sigma^2\frac{k^2}{n^2}\right)\right]^n
+=\exp\!\left(\ii k\mu-\frac12\frac{\sigma^2}{n}k^2\right).
 \]
 
 这正是高斯分布 \(N(\mu,\sigma^2/n)\) 的特征函数，所以
@@ -191,11 +191,11 @@ x_i\sim N(\mu,\sigma^2),\qquad \bar x=\frac1n\sum_{i=1}^n x_i.
 由
 
 \[
-\phi(k)=\exp\!\left(ik\mu-\frac12\sigma^2k^2\right)
+\phi(k)=\exp\!\left(\ii k\mu-\frac12\sigma^2k^2\right)
 \]
 
 在 \(k=0\) 展开，或者直接使用 \[
-\operatorname{E}[X^m]=\left.\frac{1}{i^m}\frac{d^m\phi}{dk^m}\right|_{k=0},
+\operatorname{E}[X^m]=\left.\frac{1}{\ii^m}\frac{d^m\phi}{dk^m}\right|_{k=0},
 \] 可得
 
 \[
@@ -243,11 +243,11 @@ y=\frac{z-n}{\sqrt{2n}},
 由
 
 \[
-\phi(k)=(1-2ik)^{-n/2}
+\phi(k)=(1-2\ii k)^{-n/2}
 \]
 
 取对数： \[
-\log \phi(k)=-\frac n2 \log(1-2ik).
+\log \phi(k)=-\frac n2 \log(1-2\ii k).
 \]
 
 也可直接求矩母函数 \(M(t)=(1-2t)^{-n/2}\)。于是
@@ -273,8 +273,8 @@ Y=\frac{Z-n}{\sqrt{2n}}.
 则其特征函数为
 
 \[
-\phi_Y(k)=\ee^{-ik\sqrt{n/2}}\phi_Z\!\left(\frac{k}{\sqrt{2n}}\right)
-=\ee^{-ik\sqrt{n/2}}\left(1-\frac{2ik}{\sqrt{2n}}\right)^{-n/2}.
+\phi_Y(k)=\ee^{-\ii k\sqrt{n/2}}\phi_Z\!\left(\frac{k}{\sqrt{2n}}\right)
+=\ee^{-\ii k\sqrt{n/2}}\left(1-\frac{2\ii k}{\sqrt{2n}}\right)^{-n/2}.
 \]
 
 取对数并在 \(n\to\infty\) 下展开：
@@ -282,8 +282,8 @@ Y=\frac{Z-n}{\sqrt{2n}}.
 \[
 \log\phi_Y(k)
 =
--ik\sqrt{\frac n2}
--\frac n2 \log\!\left(1-\frac{\sqrt{2}ik}{\sqrt n}\right)
+-\ii k\sqrt{\frac n2}
+-\frac n2 \log\!\left(1-\frac{\sqrt{2}\ii k}{\sqrt n}\right)
 \to -\frac12 k^2.
 \]
 
@@ -362,12 +362,12 @@ f_U(u)=\frac{1}{\sqrt{2\pi u}}\ee^{-u/2},\qquad u>0,
 
 \item 因此
 \[
-\phi_u(k)=E(\ee^{iku})=(1-2ik)^{-1/2}.
+\phi_u(k)=\operatorname{E}(\ee^{\ii ku})=(1-2\ii k)^{-1/2}.
 \]
 
 \item 令 \(v=\sum_{i=1}^n x_i^2\)。由独立性，
 \[
-\phi_v(k)=\prod_{i=1}^n\phi_u(k)=(1-2ik)^{-n/2},
+\phi_v(k)=\prod_{i=1}^n\phi_u(k)=(1-2\ii k)^{-n/2},
 \]
 所以 \(v\sim\chi_n^2\)。
 
@@ -436,11 +436,11 @@ f(x)=\frac{1}{\pi(1+x^2)}.
 计算
 
 \[
-\phi(k)=\int_{-\infty}^{\infty}\frac{\ee^{ikx}}{\pi(1+x^2)}\,\dd{x}.
+\phi(k)=\int_{-\infty}^{\infty}\frac{\ee^{\ii kx}}{\pi(1+x^2)}\,\dd{x}.
 \]
 
-利用留数定理：当 \(k>0\) 时取上半平面闭路，包围极点 \(x=i\)；当 \(k<0\)
-时取下半平面闭路，包围极点 \(x=-i\)。两种情形都得到
+利用留数定理：当 \(k>0\) 时取上半平面闭路，包围极点 \(x=\ii\)；当 \(k<0\)
+时取下半平面闭路，包围极点 \(x=-\ii\)。两种情形都得到
 
 \[
 \phi(k)=\ee^{-|k|}.
@@ -492,14 +492,14 @@ f(x;\mu)=\delta(x-\mu).
 其特征函数直接为
 
 \[
-\phi(k)=\int_{-\infty}^{\infty} \ee^{ikx}\delta(x-\mu)\,\dd{x}=\ee^{ik\mu}.
+\phi(k)=\int_{-\infty}^{\infty} \ee^{\ii kx}\delta(x-\mu)\,\dd{x}=\ee^{\ii k\mu}.
 \]
 
 反过来，由傅里叶反演公式，
 
 \[
-\delta(x-\mu)=\frac{1}{2\pi}\int_{-\infty}^{\infty} \ee^{-ik\mu}\ee^{ikx}\,dk
-=\frac1{2\pi}\int_{-\infty}^{\infty} \ee^{ik(x-\mu)}\,dk .
+\delta(x-\mu)=\frac{1}{2\pi}\int_{-\infty}^{\infty} \ee^{-\ii k\mu}\ee^{\ii kx}\,\dd{k}
+=\frac1{2\pi}\int_{-\infty}^{\infty} \ee^{\ii k(x-\mu)}\,\dd{k} .
 \]
 
 这就是 \(\delta\) 函数的积分表示。

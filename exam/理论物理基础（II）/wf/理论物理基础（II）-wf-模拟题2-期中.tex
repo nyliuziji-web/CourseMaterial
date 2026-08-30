@@ -144,15 +144,15 @@ U(r)=\frac12 \alpha r^2
 \begin{solution}
 单粒子配分函数为
 \[
-Z_1=\frac{1}{h^3}\int d^3p\,\ee^{-\beta p^2/2m}\int d^3r\,\ee^{-\beta \alpha r^2/2}.
+Z_1=\frac{1}{h^3}\int \dd[3]{p}\,\ee^{-\beta p^2/2m}\int \dd[3]{r}\,\ee^{-\beta \alpha r^2/2}.
 \]
 动量积分给出
 \[
-\int d^3p\,\ee^{-\beta p^2/2m}=(2\pi m k_B T)^{3/2},
+\int \dd[3]{p}\,\ee^{-\beta p^2/2m}=(2\pi m k_B T)^{3/2},
 \]
 位置积分为高斯积分，
 \[
-\int d^3r\,\ee^{-\beta \alpha r^2/2}
+\int \dd[3]{r}\,\ee^{-\beta \alpha r^2/2}
 =\left(\frac{2\pi}{\beta\alpha}\right)^{3/2}
 =\left(\frac{2\pi k_B T}{\alpha}\right)^{3/2}.
 \]
@@ -180,7 +180,7 @@ n(r)=C\exp\!\left(-\frac{\alpha r^2}{2k_B T}\right).
 \]
 由
 \[
-\int n(r)\,d^3r=N
+\int n(r)\,\dd[3]{r}=N
 \]
 归一化，得
 \[
@@ -321,7 +321,7 @@ g(\varepsilon)=C V \varepsilon^{1/2},
 因此激发态总粒子数为
 \ansmath{N_{\mathrm{ex}}
 =
-\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{z^{-1}\ee^{\beta\varepsilon}-1}.}
+\int_0^\infty \frac{g(\varepsilon)\,\dd{\varepsilon}}{z^{-1}\ee^{\beta\varepsilon}-1}.}
 
 由于 Bose 分布要求分母为正，故平衡时化学势不能超过基态能量。此处基态能量取为 $0$，所以
 \[
@@ -334,17 +334,17 @@ g(\varepsilon)=C V \varepsilon^{1/2},
 \[
 N_{\mathrm{ex}}^{\max}(T)
 =
-CV\int_0^\infty \frac{\varepsilon^{1/2}\,d\varepsilon}{\ee^{\beta\varepsilon}-1}.
+CV\int_0^\infty \frac{\varepsilon^{1/2}\,\dd{\varepsilon}}{\ee^{\beta\varepsilon}-1}.
 \]
 令 $x=\beta\varepsilon$，则
 \[
-\varepsilon=\frac{x}{\beta}=k_BTx,\qquad d\varepsilon=k_B T\,dx,
+\varepsilon=\frac{x}{\beta}=k_BTx,\qquad \dd{\varepsilon}=k_B T\,\dd{x},
 \]
 故
 \[
 N_{\mathrm{ex}}^{\max}(T)
 =
-CV(k_B T)^{3/2}\int_0^\infty \frac{x^{1/2}\,dx}{\ee^x-1}.
+CV(k_B T)^{3/2}\int_0^\infty \frac{x^{1/2}\,\dd{x}}{\ee^x-1}.
 \]
 利用题给积分，
 \ansmath{N_{\mathrm{ex}}^{\max}(T)

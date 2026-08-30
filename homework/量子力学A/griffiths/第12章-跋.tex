@@ -204,7 +204,7 @@ P(\mathbf a,\mathbf b) = \langle AB\rangle = \frac{1}{2\pi}\int_0^{2\pi} A(\math
 \]
 因为 $A(\mathbf a,\lambda)B(\mathbf b,\lambda)=\pm1$ 以及 $B(\mathbf b,\lambda)B(\mathbf c,\lambda)=\pm1$,上式绝对值即为
 \[
-|1-B(\mathbf b,\lambda)B(\mathbf c,\lambda)| \le 1+B(\mathbf b,\lambda)B(\mathbf c,\lambda).
+|1-B(\mathbf b,\lambda)B(\mathbf c,\lambda)| = 1-B(\mathbf b,\lambda)B(\mathbf c,\lambda).
 \]
 对所有 $\lambda$ 取系综平均(注意 $B^2=1$):
 \[
@@ -327,17 +327,17 @@ P(\mathbf a,\mathbf b) = -1+\frac{2|\eta_{ab}|}{\pi},
 取 $S_z$ 表象,泡利矩阵为
 \[
 \sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
-\sigma_y = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\quad
 \sigma_z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 \]
 沿 $y$ 方向自旋向下的本征态满足 $\mathbf S\cdot\hat y\,\chi_{-y} = -\frac{\hbar}{2}\chi_{-y}$,其中 $\mathbf S = \frac{\hbar}{2}\boldsymbol\sigma$,即
 \[
 (\hat y\cdot\boldsymbol\sigma)\chi_{-y} = -\chi_{-y},\qquad
-\hat y\cdot\boldsymbol\sigma = \sigma_y = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix}.
+\hat y\cdot\boldsymbol\sigma = \sigma_y = \begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}.
 \]
 解本征方程:
 \[
-\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = -\begin{pmatrix}a\\b\end{pmatrix}
+\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix} = -\begin{pmatrix}a\\b\end{pmatrix}
 \;\Longrightarrow\;
 \begin{cases}
 -\ii b = -a,\\
@@ -370,8 +370,8 @@ P(\mathbf a,\mathbf b) = -1+\frac{2|\eta_{ab}|}{\pi},
 
 对于 $S_y$:
 \[
-\rho\sigma_y = \frac{1}{2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}
-= \frac{1}{2}\begin{pmatrix}-1&0\\0&-1\end{pmatrix} = -\frac{1}{2}I,
+\rho\sigma_y = \frac{1}{2}\begin{pmatrix}1&\ii\\-\ii&1\end{pmatrix}\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}
+= \frac{1}{2}\begin{pmatrix}-1&-\ii\\\ii&-1\end{pmatrix},
 \]
 \[
 \operatorname{Tr}(\rho\sigma_y) = -1
@@ -399,14 +399,14 @@ P_+(\hat n) = \operatorname{Tr}(\rho P_{+\hat n}),
 \]
 其中 $P_{+\hat n} = \frac{1}{2}(I+\hat n\cdot\boldsymbol\sigma)$ 是沿 $\hat n$ 方向自旋向上的投影算符。计算:
 \[
-\rho P_{+\hat n} = \frac{1}{4}\bigl(I-\ii\sigma_y\bigr)\bigl(I+\hat n\cdot\boldsymbol\sigma\bigr),
+\rho P_{+\hat n} = \frac{1}{4}\bigl(I-\sigma_y\bigr)\bigl(I+\hat n\cdot\boldsymbol\sigma\bigr),
 \]
-其中利用了 $\rho = \frac{1}{2}(I-\ii\sigma_y)$(因 $\chi_{-y}$ 对应的 Bloch 矢量为 $-\hat y$)。展开并取迹,利用 $\operatorname{Tr}\sigma_i=0$,$\operatorname{Tr}(\sigma_i\sigma_j)=2\delta_{\ii j}$:
+其中利用了 $\rho = \frac{1}{2}(I-\sigma_y)$(因 $\chi_{-y}$ 对应的 Bloch 矢量为 $-\hat y$)。展开并取迹,利用 $\operatorname{Tr}\sigma_i=0$,$\operatorname{Tr}(\sigma_i\sigma_j)=2\delta_{\ii j}$:
 \[
 \begin{aligned}
 \operatorname{Tr}(\rho P_{+\hat n})
-&= \frac{1}{4}\operatorname{Tr}\bigl[I - \ii\sigma_y + \hat n\cdot\boldsymbol\sigma - \ii(\hat n\cdot\boldsymbol\sigma)\sigma_y\bigr]\\[2mm]
-&= \frac{1}{4}\bigl(2 + 0 + 0 - \ii\cdot 2 n_y\bigr)
+&= \frac{1}{4}\operatorname{Tr}\bigl[I - \sigma_y + \hat n\cdot\boldsymbol\sigma - (\hat n\cdot\boldsymbol\sigma)\sigma_y\bigr]\\[2mm]
+&= \frac{1}{4}\bigl(2 + 0 + 0 - 2 n_y\bigr)
 = \frac{1}{2}(1 - n_y).
 \end{aligned}
 \]
@@ -541,28 +541,28 @@ P_+(\hat n) = \operatorname{Tr}(\rho P_{+\hat n}),
 \[
 I = \begin{pmatrix}1&0\\0&1\end{pmatrix},\quad
 \sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
-\sigma_y = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix},
+\sigma_y = \begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},
 \]
 得
 \[
 \rho = \frac{1}{2}\left[
 \begin{pmatrix}1&0\\0&1\end{pmatrix}
 + \frac{1}{3}\begin{pmatrix}0&1\\1&0\end{pmatrix}
-- \frac{2}{3}\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}
+- \frac{2}{3}\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}
 \right].
 \]
 计算各矩阵元:
 \begin{itemize}
 \item $\rho_{11} = \frac{1}{2}(1 + 0 + 0) = \frac{1}{2}$
-\item $\rho_{12} = \frac{1}{2}\left(0 + \frac{1}{3}\cdot 1 - \frac{2}{3}\cdot(-\ii)\right) = \frac{1}{2}\left(\frac{1}{3} + \frac{2i}{3}\right) = \frac{1}{6} + \frac{\ii}{3}$
-\item $\rho_{21} = \frac{1}{2}\left(0 + \frac{1}{3}\cdot 1 - \frac{2}{3}\cdot \ii\right) = \frac{1}{2}\left(\frac{1}{3} - \frac{2i}{3}\right) = \frac{1}{6} - \frac{\ii}{3}$
+\item $\rho_{12} = \frac{1}{2}\left(0 + \frac{1}{3}\cdot 1 - \frac{2}{3}\cdot(-\ii)\right) = \frac{1}{2}\left(\frac{1}{3} + \frac{2\ii}{3}\right) = \frac{1}{6} + \frac{\ii}{3}$
+\item $\rho_{21} = \frac{1}{2}\left(0 + \frac{1}{3}\cdot 1 - \frac{2}{3}\cdot \ii\right) = \frac{1}{2}\left(\frac{1}{3} - \frac{2\ii}{3}\right) = \frac{1}{6} - \frac{\ii}{3}$
 \item $\rho_{22} = \frac{1}{2}(1 + 0 + 0) = \frac{1}{2}$
 \end{itemize}
 因此
 \[
 \boxed{\rho = \frac{1}{2}\begin{pmatrix}
-1 & \dfrac{1}{3} + \dfrac{2i}{3}\\[6pt]
-\dfrac{1}{3} - \dfrac{2i}{3} & 1
+1 & \dfrac{1}{3} + \dfrac{2\ii}{3}\\[6pt]
+\dfrac{1}{3} - \dfrac{2\ii}{3} & 1
 \end{pmatrix}.}
 \]
 
@@ -588,22 +588,22 @@ I = \begin{pmatrix}1&0\\0&1\end{pmatrix},\quad
 \textbf{方法二(直接矩阵乘法验证):}
 \[
 \rho\sigma_y = \frac{1}{2}\begin{pmatrix}
-1 & \frac{1+2i}{3} \\[4pt]
-\frac{1-2i}{3} & 1
+1 & \frac{1+2\ii}{3} \\[4pt]
+\frac{1-2\ii}{3} & 1
 \end{pmatrix}
 \begin{pmatrix}
 0 & -\ii \\ \ii & 0
 \end{pmatrix}
 = \frac{1}{2}\begin{pmatrix}
-\frac{\ii(1+2i)}{3} & -\ii \\[4pt]
-\ii & -\frac{\ii(1-2i)}{3}
+\frac{\ii(1+2\ii)}{3} & -\ii \\[4pt]
+\ii & -\frac{\ii(1-2\ii)}{3}
 \end{pmatrix},
 \]
 取迹:
 \[
-\operatorname{Tr}(\rho\sigma_y) = \frac{1}{2}\left(\frac{\ii(1+2i)}{3} - \frac{\ii(1-2i)}{3}\right)
-= \frac{1}{2}\cdot\frac{\ii(1+2i-1+2i)}{3}
-= \frac{1}{2}\cdot\frac{4i^2}{3} = -\frac{2}{3},
+\operatorname{Tr}(\rho\sigma_y) = \frac{1}{2}\left(\frac{\ii(1+2\ii)}{3} - \frac{\ii(1-2\ii)}{3}\right)
+= \frac{1}{2}\cdot\frac{\ii(1+2\ii-1+2\ii)}{3}
+= \frac{1}{2}\cdot\frac{4\ii^2}{3} = -\frac{2}{3},
 \]
 与上述结果一致。
 \end{solution}
@@ -639,7 +639,7 @@ M = c_0 I + c_1\sigma_1 + c_2\sigma_2 + c_3\sigma_3,
 在 $S_z$ 表象中写出矩阵形式。泡利矩阵为
 \[
 \sigma_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
-\sigma_2 = \begin{pmatrix}0&-\ii\\i&0\end{pmatrix},\quad
+\sigma_2 = \begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix},\quad
 \sigma_3 = \begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 \]
 代入得
@@ -647,7 +647,7 @@ M = c_0 I + c_1\sigma_1 + c_2\sigma_2 + c_3\sigma_3,
 \rho = \frac12\left[
 \begin{pmatrix}1&0\\0&1\end{pmatrix}
 + a_1\begin{pmatrix}0&1\\1&0\end{pmatrix}
-+ a_2\begin{pmatrix}0&-\ii\\i&0\end{pmatrix}
++ a_2\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}
 + a_3\begin{pmatrix}1&0\\0&-1\end{pmatrix}
 \right].
 \]
@@ -687,8 +687,8 @@ a_1+\ii a_2 & 1-a_3
 \]
 令 $x = 1\pm|\mathbf a|$,则 $x^2 = 2x$,解得 $x=0$ 或 $x=2$。对应地:
 \begin{itemize}
-\item $1+|\mathbf a| = 2$ \;\Longrightarrow\; $|\mathbf a| = 1$,此时 $\lambda_+ = 1$, $\lambda_- = 0$。
-\item $1-|\mathbf a| = 0$ \;\Longrightarrow\; $|\mathbf a| = 1$,此时 $\lambda_+ = 1$, $\lambda_- = 0$(与上同)。
+\item $1+|\mathbf a| = 2$ $\;\Longrightarrow\;$ $|\mathbf a| = 1$,此时 $\lambda_+ = 1$, $\lambda_- = 0$。
+\item $1-|\mathbf a| = 0$ $\;\Longrightarrow\;$ $|\mathbf a| = 1$,此时 $\lambda_+ = 1$, $\lambda_- = 0$(与上同)。
 \end{itemize}
 因此当且仅当 $|\mathbf a| = 1$ 时 $\rho$ 有一个本征值为 1、另一个为 0,即 $\rho$ 是纯态。
 

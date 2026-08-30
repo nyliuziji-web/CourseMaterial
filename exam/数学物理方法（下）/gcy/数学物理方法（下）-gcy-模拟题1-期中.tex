@@ -47,12 +47,12 @@ X''+\mu^2X=0,
 \]
 模方为
 \[
-\|X_n\|^2=\int_0^l X_n(x)^2\,dx=\frac l2.
+\|X_n\|^2=\int_0^l X_n(x)^2\dd{x}=\frac l2.
 \]
 归一化后可取 $\sqrt{2/l}\,X_n(x)$。
 \end{enumerate}
 \ansmath{\lambda_n=E\mu_n^2=E\Bigl(\frac{(n+\tfrac12)\pi}{l}\Bigr)^2,
-\qquad X_n(x)=\sin\frac{(n+\tfrac12)\pi x}{l}\quad \|X_n\|^2=\int_0^l X_n(x)^2\,dx=\frac l2}
+\qquad X_n(x)=\sin\frac{(n+\tfrac12)\pi x}{l}\quad \|X_n\|^2=\int_0^l X_n(x)^2\dd{x}=\frac l2}
 
 \end{solution}
 \end{question}
@@ -159,11 +159,11 @@ u(x,t)=A_0+B_0t+\sum_{n=1}^{\infty}\bigl(A_n\cos nat+B_n\sin nat\bigr)\cos nx.
 
 对 $f(x)=x(\pi-x)$，
 \[
-A_0=\frac1\pi\int_0^{\pi}x(\pi-x)\,dx=\frac{\pi^2}{6}.
+A_0=\frac1\pi\int_0^{\pi}x(\pi-x)\dd{x}=\frac{\pi^2}{6}.
 \]
 对 $n\ge1$，
 \[
-A_n=\frac{2}{\pi}\int_0^{\pi}x(\pi-x)\cos nx\,dx
+A_n=\frac{2}{\pi}\int_0^{\pi}x(\pi-x)\cos nx\dd{x}
 =\begin{cases}
 -\dfrac{4}{n^2},& n\text{ 偶},\\[0.3em]
 0,& n\text{ 奇}.
@@ -225,7 +225,7 @@ X''+\mu^2X=0,
 \]
 系数为
 \[
- c_n=\frac{2}{l}\int_0^l\left(-\frac{q}{K}(l-x)\right)\cos\mu_n x\,dx
+ c_n=\frac{2}{l}\int_0^l\left(-\frac{q}{K}(l-x)\right)\cos\mu_n x\dd{x}
  =-\frac{2q}{Kl\mu_n^2}.
 \]
 因此
@@ -286,7 +286,7 @@ A_n a^{n-1}-B_n a^{-n-1}=0,
 \]
 解得比例关系
 \[
-B_n=nA_n a^{2n}
+B_n=A_n a^{2n}
 \quad\text{（或直接由两式联立给出）},
 \]
 更方便的写法是取

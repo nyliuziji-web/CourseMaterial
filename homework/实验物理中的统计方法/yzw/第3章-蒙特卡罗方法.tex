@@ -105,7 +105,7 @@ f(x)=\frac{2x}{x_{\max}^2},\qquad 0<x<x_{\max}.
 
 分布函数为
 \[
-F(x)=\int_0^x\frac{2t}{x_{\max}^2}\,dt=\frac{x^2}{x_{\max}^2}.
+F(x)=\int_0^x\frac{2t}{x_{\max}^2}\,\dd{t}=\frac{x^2}{x_{\max}^2}.
 \]
 令 \(r\sim U(0,1)\)，取 \(r=F(x)\)，得到
 \[
@@ -391,9 +391,9 @@ Z_i\mid Z_{i-1}\sim\operatorname{Pois}(\nu_i Z_{i-1}).
 \]
 于是
 \[
-\operatorname{E}[Z_i]=\nu_i\\operatorname{E}[Z_{i-1}],
+\operatorname{E}[Z_i]=\nu_i\operatorname{E}[Z_{i-1}],
 \qquad
-V[Z_i]=\nu_i\\operatorname{E}[Z_{i-1}]+\nu_i^2V[Z_{i-1}].
+V[Z_i]=\nu_i\operatorname{E}[Z_{i-1}]+\nu_i^2V[Z_{i-1}].
 \]
 递推得到
 \[

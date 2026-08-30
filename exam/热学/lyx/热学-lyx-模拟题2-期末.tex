@@ -47,13 +47,13 @@
 \textbf{二、解答题}
 \begin{question}
 两个有限热源的热容分别为 $C_h,C_c$（常数），初始温度分别为 $T_h>T_c$。若允许它们之间通过可逆热机交换能量，直到达到共同终温。
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 求终温 $T_*$；
 \item 求可输出的最大功。
 \end{enumerate}
 \begin{solution}
 
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 可逆过程总熵不变，故
 \[
 C_h\ln\frac{T_*}{T_h}+C_c\ln\frac{T_*}{T_c}=0.
@@ -76,7 +76,7 @@ W_{\max}=C_h(T_h-T_*)-C_c(T_*-T_c).
 \[
 \left(p+\frac{a}{V_m^2}\right)(V_m-b)=RT.
 \]
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 推导 Joule--Thomson 系数近似公式；
 \item 求反转温度 $T_{\rm inv}$。
 \end{enumerate}
@@ -86,7 +86,13 @@ Joule--Thomson 系数的一般公式为
 \[
 \mu_{JT}=\frac{1}{C_p}\left[T\left(\frac{\partial V_m}{\partial T}\right)_p-V_m\right].
 \]
-低压时由 van der Waals 方程可解得
+低压时由 van der Waals 方程可解得。将方程展开：
+\[
+p(V_m-b)+\frac{a}{V_m}-\frac{ab}{V_m^2}=RT
+\quad\Longrightarrow\quad
+V_m=\frac{RT}{p}+b-\frac{a}{pV_m}+\frac{ab}{pV_m^2}.
+\]
+低压极限下作理想气体首阶近似 $pV_m\approx RT$，并略去高阶小量 $ab/(pV_m^2)$，得
 \[
 V_m\approx \frac{RT}{p}+b-\frac{a}{RT}.
 \]
@@ -115,7 +121,7 @@ T\left(\frac{\partial V_m}{\partial T}\right)_p-V_m
 \Delta G(r)=4\pi r^2\sigma-\frac{4\pi}{3}r^3\Delta p,
 \]
 其中 $\sigma$ 为表面张力，$\Delta p>0$ 为相变驱动力。
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 求临界半径 $r_c$；
 \item 求成核势垒 $\Delta G_c$。
 \end{enumerate}
@@ -129,17 +135,16 @@ T\left(\frac{\partial V_m}{\partial T}\right)_p-V_m
 \ansmath{r_c=\frac{2\sigma}{\Delta p}.}
 代回 $\Delta G(r)$：
 \[
-\Delta G_c=4\pi r_c^2\sigma-\frac{4\pi}{3}r_c^3\Delta p
-=\frac{16\pi\sigma^3}{3\Delta p^2}.
+\Delta G_c=4\pi r_c^2\sigma-\frac{4\pi}{3}r_c^3\Delta p.
 \]
-故
+代入 $r_c=2\sigma/\Delta p$ 化简得
 \ansmath{\Delta G_c=\frac{16\pi\sigma^3}{3\Delta p^2}.}
 \end{solution}
 \end{question}
 
 \begin{question}
 把黑体辐射视为光子气体。设一个立方腔体边长由 $L$ 缓慢增大到 $2L$，过程中绝热且始终保持平衡。
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 求温度如何变化；
 \item 求总能量如何变化；
 \item 求峰值波长如何变化。

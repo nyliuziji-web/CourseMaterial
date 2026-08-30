@@ -48,13 +48,13 @@
 \textbf{二、计算与证明题}
 \begin{question}
 一圆柱形刚性容器绕其轴线以角速度 $\omega$ 匀速旋转，内部为温度恒定的稀薄理想气体。设数密度只与到轴距离 $r$ 有关。
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 求平衡数密度 $n(r)$；
 \item 若容器半径为 $R$，求边壁与轴线上压强之比 $p(R)/p(0)$。
 \end{enumerate}
 \begin{solution}
 
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 在旋转参考系中，单位质量受到离心势
 \[
 \Phi(r)=-\frac12\omega^2r^2.
@@ -64,10 +64,7 @@ Boltzmann 分布给出
 n(r)=n(0)\exp\left(-\frac{m\Phi(r)}{k_BT}\right)
 =n(0)\exp\left(\frac{m\omega^2r^2}{2k_BT}\right).
 \]
-故
-\[
-n(r)=n(0)\exp\left(\frac{m\omega^2r^2}{2k_BT}\right).
-\]
+
 
 \item 由 $p=nk_BT$，有
 \ansmath{\frac{p(R)}{p(0)}=
@@ -86,7 +83,7 @@ n(r)=n(0)\exp\left(\frac{m\omega^2r^2}{2k_BT}\right).
 
 速率分布为
 \[
-f_v(v)=4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2\e\e\e\e\ee^{-mv^2/(2k_BT)},
+f_v(v)=4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2\ee^{-mv^2/(2k_BT)},
 \qquad v>0.
 \]
 由
@@ -97,7 +94,7 @@ v=\sqrt{\frac{2\varepsilon}{m}},
 得动能密度
 \[
 f_{\varepsilon}(\varepsilon)=f_v(v)\left|\frac{dv}{d\varepsilon}\right|
-=\boxed{\frac{2}{\sqrt\pi}\frac{\sqrt\varepsilon}{(k_BT)^{3/2}}\e\e\e\e\ee^{-\varepsilon/(k_BT)}},
+=\boxed{\frac{2}{\sqrt\pi}\frac{\sqrt\varepsilon}{(k_BT)^{3/2}}\ee^{-\varepsilon/(k_BT)}},
 \qquad \varepsilon>0.
 \]
 这是形状参数 $3/2$ 的 Gamma 分布，因此
@@ -109,15 +106,15 @@ f_{\varepsilon}(\varepsilon)=f_v(v)\left|\frac{dv}{d\varepsilon}\right|
 
 \begin{question}
 容器壁上开有一很小的小孔，外部是真空。设容器内气体处于温度 $T$ 的平衡态。
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 写出穿过小孔的分子速率分布；
 \item 求逸出分子的平均速率，并与容器内分子的平均速率比较。
 \end{enumerate}
 \begin{solution}
 
-\begin{enumerate}[label=(\\arabic*),leftmargin=2.8em,itemsep=0.2em]
+\begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item 逸出几率与法向速度成正比，因此逸出分子的速率分布与 $v f_v(v)$ 成正比。归一化后得
-\ansmath{f_{\rm eff}(v)=2\left(\frac{m}{2k_BT}\right)^2 v^3 \e\e\e\e\ee^{-mv^2/(2k_BT)},
+\ansmath{f_{\rm eff}(v)=2\left(\frac{m}{2k_BT}\right)^2 v^3 \ee^{-mv^2/(2k_BT)},
 \qquad v>0.}
 
 \item 平均速率为
@@ -172,10 +169,7 @@ TV^{R/C_V}=\text{常数}.
 \[
 \frac{T_f}{T_i}=\left(\frac{V_i}{V_f}\right)^{\gamma-1}=4^{2/5}.
 \]
-故
-\[
-\frac{T_f}{T_i}=4^{2/5}.
-\]
+
 \end{solution}
 \end{question}
 

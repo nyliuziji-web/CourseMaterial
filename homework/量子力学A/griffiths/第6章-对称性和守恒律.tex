@@ -584,7 +584,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	(\Pi p\Pi\psi)(x)=\Pi[\ii\hbar\psi'(-x)]=\ii\hbar\psi'(x).
 	\]
 
-	而 $-p\psi(x)=--\ii\hbar\psi'(x)=\ii\hbar\psi'(x)$,所以
+	而 $-p\psi(x)=\ii\hbar\psi'(x)$,所以
 	\[
 	\Pi p\Pi\psi = -p\psi,
 	\]
@@ -695,7 +695,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	在自旋空间中,$\Pi$ 是一个 $2\times2$ 矩阵,记作 $\Pi_s$。由于 $[\Pi,S_i]=0$,即 $\Pi_s$ 与所有三个泡利矩阵对易:
 	\[
 	[\Pi_s,\sigma_i]=0,\quad \ii=x,y,z.
-	]
+	\]
 
 	\textbf{确定 $\Pi_s$ 的形式}:任何 $2\times2$ 矩阵可展开为
 	\[
@@ -811,16 +811,9 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	代入得
 	\[
-	\langle200|z|210\rangle = \frac{1}{\sqrt{8\pi}}\frac{1}{\sqrt{32\pi}}\frac{1}{a}
+	\langle200|z|210\rangle
+	=\frac{1}{\sqrt{8\pi}}\frac{1}{4\sqrt{2\pi}}\,a^{-3}\cdot\frac{1}{a}
 	\cdot 2\pi\cdot\frac23
-	\int_0^\infty \frac{1}{\sqrt{2a^{3/2}}}\left(1-\frac{r}{2a}\right)\ee^{-r/(2a)}
-	\cdot r^3\cdot\frac{1}{\sqrt{24a^{3/2}}}\frac{r}{a}\ee^{-r/(2a)}\,\dd r.
-	\]
-
-	合并系数:
-	\[
-	= \frac{2\pi\cdot 2}{\sqrt{8\pi\cdot 32\pi}\cdot 3}
-	\cdot\frac{1}{a\sqrt{2\cdot24}\,a^3}
 	\int_0^\infty \left(1-\frac{r}{2a}\right)r^4 \ee^{-r/a}\,\dd r.
 	\]
 
@@ -829,17 +822,16 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	\int_0^\infty r^4 \ee^{-r/a}\,\dd r = 4!\,a^5 = 24a^5,
 	\]
 	\[
-	\int_0^\infty \frac{r}{2a}\,r^4 \ee^{-r/a}\,\dd r = \frac{1}{2a}\cdot 5!\,a^6 = \frac{1}{2a}\cdot 120a^6 = 60a^5.
+	\int_0^\infty \frac{r}{2a}\,r^4 \ee^{-r/a}\,\dd r = \frac{1}{2a}\cdot 5!\,a^6 = 60a^5.
 	\]
 
 	所以径向积分为 $24a^5-60a^5 = -36a^5$。代入得
 	\[
-	\langle200|z|210\rangle = \frac{4\pi}{\sqrt{256\pi^2}\cdot 3}\cdot\frac{-36a^5}{a\sqrt{48}\,a^3}
-	= \frac{4}{16\cdot 3}\cdot\frac{-36a}{4\sqrt{3}}
-	= \frac{1}{12}\cdot\frac{-36a}{4\sqrt{3}} = -\frac{3a}{4\sqrt{3}}?
+	\langle200|z|210\rangle
+	= \frac{1}{16\pi}\cdot a^{-4}\cdot\frac{4\pi}{3}\cdot(-36a^5)
+	= \frac{-36a}{12} = -3a.
 	\]
-
-	重新仔细计算系数。用已知结果:$\langle200|z|210\rangle = -3a$。因此
+	因此
 	\[
 	\langle z\rangle = -3a.
 	\]
@@ -933,7 +925,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	\]
 	其中 $U(R)$ 是旋转 $R$ 对应的幺正算符。
 
-	\textbf{无穷小变换}:绕 $\hat n$ 方向的无究小旋转 $\delta\boldsymbol\phi = \delta\phi\,\hat n$ 对应的算符为
+	\textbf{无穷小变换}:绕 $\hat n$ 方向的无穷小旋转 $\delta\boldsymbol\phi = \delta\phi\,\hat n$ 对应的算符为
 	\[
 	U = 1 - \frac{\ii}{\hbar}\delta\boldsymbol\phi\cdot\mathbf L + O(\delta\phi^2),
 	\]
@@ -1348,13 +1340,13 @@ V_\pm=V_x\pm\ii V_y.
 	\textbf{方法二:维格纳--埃卡特定理} 位置算符的球分量 $r_q$($q=0,\pm1$)是 rank-1 球张量。根据 Wigner--Eckart 定理:
 	\[
 	\langle n\ell m|r_q|n\ell m'\rangle = \langle \ell m';1q|\ell m\rangle\langle n\ell\|r\|n\ell\rangle.
-	]
+	\]
 
 	Clebsch--Gordan 系数 $\langle \ell m';1q|\ell m\rangle$ 仅当 $\ell$ 和 $\ell'$ 满足 $\Delta\ell=0,\pm1$ 时才非零,且对 $\ell=\ell'=1$ 时 $\Delta\ell=0$ 是允许的。但这里 $z$ 对应 $q=0$:$\langle 1,m';1,0|1,m\rangle$。由于 $m=m'$ 且 CG 系数对于 $\ell=1$ 且 $\ell'=1$ 的 $q=0$ 情况为:
 	\[
 	\langle 1,m;1,0|1,m\rangle = \frac{m}{\sqrt{2}},
 	\]
-	但该矩阵元还需乘以径向约化矩阵元 $\langle n\ell\|r\|n\ell\rangle$。对于该叠加态,$m=1$ 的 $\langle z\rangle$ 从对角元看确实可以通过 CG 系数非零,但实际上还需要考虑宇称选择定则:位置算符是真矢量(奇宇称),而 $\ell=\ell'=1$ 时 $\Delta\ell=0$ 被宇排除(前面推导的 $\ell'+\ell$ 为奇数条件)。因此 $\langle n\ell\|r\|n\ell\rangle = 0$。
+	但该矩阵元还需乘以径向约化矩阵元 $\langle n\ell\|r\|n\ell\rangle$。对于该叠加态,$m=1$ 的 $\langle z\rangle$ 从对角元看确实可以通过 CG 系数非零,但实际上还需要考虑宇称选择定则:位置算符是真矢量(奇宇称),而 $\ell=\ell'=1$ 时 $\Delta\ell=0$ 被宇称排除(前面推导的 $\ell'+\ell$ 为奇数条件)。因此 $\langle n\ell\|r\|n\ell\rangle = 0$。
 
 	综上,位置期望值为零:
 	\[
@@ -2008,7 +2000,7 @@ T(a)=\int \ee^{-\ii pa/\hbar}|p\rangle\langle p|\,\dd p.
 	\textbf{动量完备基定义平移算符}:动量本征态 $|p\rangle$ 满足完备性关系
 	\[
 	\int |p\rangle\langle p|\,\dd p = 1.
-	]
+	\]
 
 	平移算符 $T(a)$ 可用动量本征态的谱分解定义为
 	\[
@@ -2035,7 +2027,7 @@ T(a)=\int \ee^{-\ii pa/\hbar}|p\rangle\langle p|\,\dd p.
 	(T(a)\psi)(x) = \langle x|T(a)|\psi\rangle
 	= \int \ee^{-\ii pa/\hbar}\,\phi(p)\,\langle x|p\rangle\,\dd p
 	= \int \phi(p)\,\ee^{-\ii pa/\hbar}\,\frac{\ee^{\ii px/\hbar}}{\sqrt{2\pi\hbar}}\,\dd p.
-	]
+	\]
 
 	合并指数:
 	\[

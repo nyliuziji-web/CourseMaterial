@@ -72,7 +72,7 @@ u(x,y)=\sum_{m=1}^{\infty}\sum_{n=0}^{\infty}
 \[
 F_{mn}=\frac{4}{ab(1+\delta_{n0})}
 \int_0^a\int_0^b f(x,y)
-\sin\frac{m\pi x}{a}\cos\frac{n\pi y}{b}\,dy\,dx.
+\sin\frac{m\pi x}{a}\cos\frac{n\pi y}{b}\,\dd{y}\,\dd{x}.
 \]
 \end{solution}
 \end{question}
@@ -89,7 +89,7 @@ u|_{r=1}=f(z).
 \[
 f(\cos\theta)=\sum_{l=0}^{\infty}a_lP_l(\cos\theta),
 \qquad
-a_l=\frac{2l+1}{2}\int_{-1}^{1}f(\mu)P_l(\mu)\,d\mu.
+a_l=\frac{2l+1}{2}\int_{-1}^{1}f(\mu)P_l(\mu)\,\dd{\mu}.
 \]
 球内有界解为
 \[
@@ -112,7 +112,7 @@ y(-1),y(1)\text{ 有界}.
 \begin{solution}
 算子
 \[
-L=\frac d{dx}\left[(1-x^2)\frac d{dx}\right]
+L=\frac{\dd}{\dd{x}}\left[(1-x^2)\frac{\dd}{\dd{x}}\right]
 \]
 有零模常数函数，因此 Green 函数需在零均值子空间上理解。令
 \[
@@ -120,7 +120,7 @@ L_xG(x,\xi)=-\delta(x-\xi)+\frac12.
 \]
 加入 \(1/2\) 是为了使右端在 \([-1,1]\) 上积分为零，从而满足 Neumann 型问题的相容条件。对 \(x\ne\xi\)，方程化为
 \[
-\frac d{dx}\left[(1-x^2)G_x\right]=\frac12.
+\frac{\dd}{\dd{x}}\left[(1-x^2)G_x\right]=\frac12.
 \]
 在 \(\xi\) 的左右两侧分别积分，并要求端点 \(x=\pm1\) 处 \((1-x^2)G_x\) 不产生不可积奇性，可得
 \[
@@ -142,7 +142,7 @@ G(x,\xi)=\frac12\ln\frac{1-x_<}{1+x_<}
 \]
 其中 \(x_<=\min(x,\xi)\)，常数由所取零均值条件确定。解存在的相容条件为
 \[
-\int_{-1}^{1}\phi(x)\,dx=0.
+\int_{-1}^{1}\phi(x)\,\dd{x}=0.
 \]
 \end{solution}
 \end{question}
@@ -156,11 +156,11 @@ G(x,\xi)=\frac12\ln\frac{1-x_<}{1+x_<}
 \]
 在一维中的 Green 函数为
 \[
-G_1(x,x')=\frac{i}{2k}e^{ik|x-x'|}.
+G_1(x,x')=\frac{\ii}{2k}\ee^{\ii k|x-x'|}.
 \]
 二维中
 \[
-G_2(\bm r,\bm r')=\frac{i}{4}H_0^{(1)}(k|\bm r-\bm r'|).
+G_2(\bm r,\bm r')=\frac{\ii}{4}H_0^{(1)}(k|\bm r-\bm r'|).
 \]
 其中 \(H_0^{(1)}\) 的远场渐近正对应出射圆柱波。
 \end{solution}

@@ -226,7 +226,7 @@
     B_x=\frac{\ii\omega k_y}{c^2k_\rho^2}E_0\sin k_xx\cos k_yy\cos k_zz,
   \]
   \[
-    B_y=-\frac{\mathrm i\omega k_x}{c^2k_\rho^2}E_0\cos k_xx\sin k_yy\cos k_zz .
+    B_y=-\frac{\ii\omega k_x}{c^2k_\rho^2}E_0\cos k_xx\sin k_yy\cos k_zz .
   \]
   对 TE 模式，$E_z=0$，可取
   \[
@@ -234,10 +234,10 @@
   \]
   这里 $p=1,2,\cdots$，且 $m,n$ 不同时为零。其横向场为
   \[
-    E_x=\frac{\mathrm i\omega k_y}{k_\rho^2}B_0\cos k_xx\sin k_yy\sin k_zz,
+    E_x=\frac{\ii\omega k_y}{k_\rho^2}B_0\cos k_xx\sin k_yy\sin k_zz,
   \]
   \[
-    E_y=-\frac{\mathrm i\omega k_x}{k_\rho^2}B_0\sin k_xx\cos k_yy\sin k_zz,
+    E_y=-\frac{\ii\omega k_x}{k_\rho^2}B_0\sin k_xx\cos k_yy\sin k_zz,
     \qquad E_z=0,
   \]
   \[
@@ -324,14 +324,14 @@
   因此
   \[
   \begin{aligned}
-    E_1&=\int_{-\infty}^{\infty}P\,\mathrm dt \\
+    E_1&=\int_{-\infty}^{\infty}P\,\dd{t} \\
     &=\frac{q^2C^2}{6\pi\varepsilon_0c^3}
-      \int_{-\infty}^{\infty}\frac{\mathrm dt}{(v^2t^2+b^2)^2} .
+      \int_{-\infty}^{\infty}\frac{\dd{t}}{(v^2t^2+b^2)^2} .
   \end{aligned}
   \]
   利用
   \[
-    \int_{-\infty}^{\infty}\frac{\mathrm dt}{(v^2t^2+b^2)^2}
+    \int_{-\infty}^{\infty}\frac{\dd{t}}{(v^2t^2+b^2)^2}
     =\frac{\pi}{2vb^3},
   \]
   得
@@ -346,7 +346,7 @@
   因此
   \[
     E_2=\frac{q^2C^2}{6\pi\varepsilon_0c^3}\frac{2}{v}
-    \int_0^\infty\frac{\mathrm ds}{(s^2+b^2-2bs\sin\alpha)^2} .
+    \int_0^\infty\frac{\dd{s}}{(s^2+b^2-2bs\sin\alpha)^2} .
   \]
   保留到 $\alpha$ 的一阶，
   \[
@@ -356,13 +356,13 @@
   \]
   又
   \[
-    \int_0^\infty\frac{\mathrm ds}{(s^2+b^2)^2}=\frac{\pi}{4b^3},
+    \int_0^\infty\frac{\dd{s}}{(s^2+b^2)^2}=\frac{\pi}{4b^3},
     \qquad
-    \int_0^\infty\frac{s\,\mathrm ds}{(s^2+b^2)^3}=\frac{1}{4b^4} .
+    \int_0^\infty\frac{s\,\dd{s}}{(s^2+b^2)^3}=\frac{1}{4b^4} .
   \]
   所以
   \[
-    \frac{2}{v}\int_0^\infty\frac{\mathrm ds}{(s^2+b^2-2bs\sin\alpha)^2}
+    \frac{2}{v}\int_0^\infty\frac{\dd{s}}{(s^2+b^2-2bs\sin\alpha)^2}
     =\frac{\pi}{2vb^3}+\frac{2\alpha}{vb^3}+O(\alpha^2) .
   \]
   与 $E_1$ 比较得

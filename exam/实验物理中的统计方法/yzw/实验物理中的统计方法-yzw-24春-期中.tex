@@ -43,12 +43,12 @@ $X\sim N(0,2^2)$，$Y\sim N(0,2^2)$，且 $V[X-Y]=0$，求 $X$ 和 $Y$ 的协方
 一个仪器在任意 $t$ 时间内发生故障的次数 $N_t$ 服从参数为 $\lambda t$ 的泊松分布，求第一次发生故障的时间 $T$ 的概率密度函数。
 \begin{solution}
 \[
-P(T>t)=P(N_t=0)=e^{-\lambda t},\qquad t\ge 0.
+P(T>t)=P(N_t=0)=\ee^{-\lambda t},\qquad t\ge 0.
 \]
 故
 \[
-F_T(t)=1-e^{-\lambda t},\qquad
-f_T(t)=\lambda e^{-\lambda t}\ (t\ge 0).
+F_T(t)=1-\ee^{-\lambda t},\qquad
+f_T(t)=\lambda \ee^{-\lambda t}\ (t\ge 0).
 \]
 \end{solution}
 \end{question}
@@ -127,9 +127,9 @@ f(r)=\frac{2r}{R^2},\qquad 0<r<R.
 \]
 因此
 \[
-\operatorname{E}[r]=\int_0^R r\frac{2r}{R^2}dr=\frac{2R}{3},
+\operatorname{E}[r]=\int_0^R r\frac{2r}{R^2}\dd{r}=\frac{2R}{3},
 \qquad
-\operatorname{E}[r^2]=\int_0^R r^2\frac{2r}{R^2}dr=\frac{R^2}{2}.
+\operatorname{E}[r^2]=\int_0^R r^2\frac{2r}{R^2}\dd{r}=\frac{R^2}{2}.
 \]
 故
 \[
@@ -153,12 +153,12 @@ D^2=(X_1-X_2)^2+(Y_1-Y_2)^2,
 \[
 \operatorname{E}[X]=\frac a2,
 \qquad
-\operatorname{E}[X^2]=\frac{2\int_0^a x^2dx+ba^2}{2(a+b)},
+\operatorname{E}[X^2]=\frac{2\int_0^a x^2\dd{x}+ba^2}{2(a+b)},
 \]
 \[
 \operatorname{E}[Y]=\frac b2,
 \qquad
-\operatorname{E}[Y^2]=\frac{2\int_0^b y^2dy+ab^2}{2(a+b)}.
+\operatorname{E}[Y^2]=\frac{2\int_0^b y^2\dd{y}+ab^2}{2(a+b)}.
 \]
 化简后
 \ansmath{\operatorname{E}[D^2]=\frac{a^2+2ab+b^2}{6}=\frac{(a+b)^2}{6}}
@@ -197,7 +197,7 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 某一个衰变事件（具体是什么我不记得了）的发生是极为稀有的事情。本底数为 3，现在观察到 6 个疑似信号，求显著性水平。（10 分）
 \begin{solution}
 \ansmath{p=P(N\ge 6\mid \lambda=3)
-=1-\sum_{k=0}^{5}e^{-3}\frac{3^k}{k!}
+=1-\sum_{k=0}^{5}\ee^{-3}\frac{3^k}{k!}
 \approx 0.08392}
 \end{solution}
 \end{question}
@@ -247,15 +247,10 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 仪器在任意时间内观察到噪声的概率相等。在 $[0,T]$ 的时间窗口内观察到两个噪声，如果两个噪声间距小于 $t$，就被误鉴别为信号。在时间窗口内已经观察到两个噪声的前提下，求误鉴别为信号的概率。（6 分）
 \begin{solution}
 条件于“恰有两个噪声”后，两到达时刻等价于两个独立均匀点 $U,V\sim U(0,T)$。所求为
-\[
-P(|U-V|<t)=1-\frac{2\cdot \frac12(T-t)^2}{T^2}
-=1-\frac{(T-t)^2}{T^2}
-=\frac{2t}{T}-\left(\frac{t}{T}\right)^2,
-\]
-其中 $0\le t\le T$。
 \ansmath{P(|U-V|<t)=1-\frac{2\cdot \frac12(T-t)^2}{T^2}
 =1-\frac{(T-t)^2}{T^2}
 =\frac{2t}{T}-\left(\frac{t}{T}\right)^2,}
+其中 $0\le t\le T$。
 \end{solution}
 \end{question}
 
@@ -281,13 +276,11 @@ N_a-1\sim \mathrm{Poisson}(\lambda),
 \]
 即
 \[
-P(N_a=k)=e^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}
+P(N_a=k)=\ee^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}
 =a\frac{(-\ln a)^{k-1}}{(k-1)!},
 \qquad k=1,2,\dots.
 \]
-\ansmath{P(N_a=k)=e^{-\lambda}\frac{\lambda^{k-1}}{(k-1)!}
-=a\frac{(-\ln a)^{k-1}}{(k-1)!},
-\qquad k=1,2,\dots}
+
 \end{solution}
 \end{question}
 

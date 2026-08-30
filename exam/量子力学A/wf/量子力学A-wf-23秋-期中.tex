@@ -94,7 +94,16 @@
   \qquad
   \psi'(\pm L^+)-\psi'(\pm L^-)=\beta_1\psi(\pm L).
 \]
-消去系数得
+对偶态，内部解在 $x>0$ 为 $A\ee^{\kappa x}+B\ee^{-\kappa x}$，故 $x=0$ 处
+$\psi'(0^+)-\psi'(0^-)=2\kappa(A-B)$、$\psi(0)=A+B$，得
+\[
+  A={2\kappa-\beta_2\over\beta_2+2\kappa}B.
+\]
+在 $x=L$ 处，连续性给出 $C=A\ee^{\kappa L}+B\ee^{-\kappa L}$，跳变条件给出
+\[
+  A\ee^{\kappa L}(2\kappa+\beta_1)+\beta_1 B\ee^{-\kappa L}=0.
+\]
+两式消去 $A,B$ 得
 \[
   \ee^{2\kappa L}={\beta_1(\beta_2+2\kappa)\over(\beta_2-2\kappa)(\beta_1+2\kappa)}.
 \]
@@ -145,14 +154,14 @@
 \[
 \begin{array}{c|c|c}
 (J^2,J_z)&P&\text{塌缩态}\\ \hline
-\left({15\over4}\hbar^2,{1\over2}\hbar\right)&{1\over9}
-&{1\over\sqrt3}\left(\ket{1,1}\ket{\downarrow}+\sqrt2\ket{1,0}\ket{\uparrow}\right)\\
-\left({3\over4}\hbar^2,{1\over2}\hbar\right)&{2\over9}
-&{1\over\sqrt3}\left(\sqrt2\ket{1,1}\ket{\downarrow}-\ket{1,0}\ket{\uparrow}\right)\\
-\left({15\over4}\hbar^2,-{1\over2}\hbar\right)&{2\over9}
-&{1\over\sqrt3}\left(\sqrt2\ket{1,0}\ket{\downarrow}+\ket{1,-1}\ket{\uparrow}\right)\\
-\left({3\over4}\hbar^2,-{1\over2}\hbar\right)&{1\over9}
-&{1\over\sqrt3}\left(\ket{1,0}\ket{\downarrow}-\sqrt2\ket{1,-1}\ket{\uparrow}\right)\\
+\left({15\over4}\hbar^2,{1\over2}\hbar\right)&{2\over9}
+&{1\over\sqrt3}\left(\sqrt2\ket{1,1}\ket{\downarrow}+\ket{1,0}\ket{\uparrow}\right)\\
+\left({3\over4}\hbar^2,{1\over2}\hbar\right)&{1\over9}
+&{1\over\sqrt3}\left(-\ket{1,1}\ket{\downarrow}+\sqrt2\ket{1,0}\ket{\uparrow}\right)\\
+\left({15\over4}\hbar^2,-{1\over2}\hbar\right)&{1\over9}
+&{1\over\sqrt3}\left(\ket{1,0}\ket{\downarrow}+\sqrt2\ket{1,-1}\ket{\uparrow}\right)\\
+\left({3\over4}\hbar^2,-{1\over2}\hbar\right)&{2\over9}
+&{1\over\sqrt3}\left(-\sqrt2\ket{1,0}\ket{\downarrow}+\ket{1,-1}\ket{\uparrow}\right)\\
 \left({15\over4}\hbar^2,-{3\over2}\hbar\right)&{1\over3}
 &\ket{1,-1}\ket{\downarrow}
 \end{array}

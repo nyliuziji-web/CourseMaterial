@@ -27,7 +27,7 @@ X'(-l)=0,\quad X'(l)=0.
 \]
 若不归一化，也可写成 $\rho u_{tt}+d u_t-Tu_{xx}+ku=0$。
 
-\item 分离变量写成 $\psi=\Phi \ee^{-iEt/\hbar}$。
+\item 分离变量写成 $\psi=\Phi \ee^{-\ii Et/\hbar}$。
 
 直角坐标下再令 $\Phi=X(x)Y(y)Z(z)$，可得
 \[
@@ -75,7 +75,7 @@ X'(\pm l)=0
 \]
 模方为
 \[
-\|X_0\|^2=\int_{-l}^{l}1\,dx=2l,
+\|X_0\|^2=\int_{-l}^{l}1\dd{x}=2l,
 \qquad
 \|X_n^{(c)}\|^2=\|X_n^{(s)}\|^2=l.
 \]
@@ -86,7 +86,7 @@ X'(\pm l)=0
 \]
 \end{enumerate}
 
-\ansmath{\|X_0\|^2=\int_{-l}^{l}1\,dx=2l,
+\ansmath{\|X_0\|^2=\int_{-l}^{l}1\dd{x}=2l,
 \qquad
 \|X_n^{(c)}\|^2=\|X_n^{(s)}\|^2=l\quad \frac{1}{\sqrt{2l}},\qquad \frac{1}{\sqrt l}\cos\frac{n\pi x}{l},
 \qquad \frac{1}{\sqrt l}\sin\frac{(n+\tfrac12)\pi x}{l}}
@@ -114,16 +114,16 @@ f_e(x)=x^2,\qquad g_e(x)=|x|,
 \]
 则满足 Neumann 边界条件的解可由全轴达朗贝尔公式给出：
 \[
- u(x,t)=\frac{f_e(x+at)+f_e(x-at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}g_e(\xi)\,d\xi
- +\int_0^t (t-\tau)A\cos\omega\tau\,d\tau.
+  u(x,t)=\frac{f_e(x+at)+f_e(x-at)}{2}+\frac{1}{2a}\int_{x-at}^{x+at}g_e(\xi)\dd{\xi}
+ +\int_0^t (t-\tau)A\cos\omega\tau\dd{\tau}.
 \]
 化简得
 \[
- u(x,t)=x^2+a^2t^2+\frac{1}{2a}\int_{x-at}^{x+at}|\xi|\,d\xi+\frac{A}{\omega^2}(1-\cos\omega t).
+  u(x,t)=x^2+a^2t^2+\frac{1}{2a}\int_{x-at}^{x+at}|\xi|\dd{\xi}+\frac{A}{\omega^2}(1-\cos\omega t).
 \]
 其中
 \[
-\int_{x-at}^{x+at}|\xi|\,d\xi
+\int_{x-at}^{x+at}|\xi|\dd{\xi}
 =\frac{(x+at)|x+at|-(x-at)|x-at|}{2}.
 \]
 因此也可以写成
@@ -177,11 +177,11 @@ f_e(x)=x^2,\qquad g_e(x)=|x|,
 \]
 决定，即
 \[
- c_n=\frac{2}{l}\int_0^l\Bigl[x-\cos x-\frac{q}{K}(l-x)\Bigr]\cos(\mu_n x)\,dx.
+  c_n=\frac{2}{l}\int_0^l\Bigl[x-\cos x-\frac{q}{K}(l-x)\Bigr]\cos(\mu_n x)\dd{x}.
 \]
 这就是温度分布的标准展开式。
 
-\ansmath{c_n=\frac{2}{l}\int_0^l\Bigl[x-\cos x-\frac{q}{K}(l-x)\Bigr]\cos(\mu_n x)\,dx}
+\ansmath{c_n=\frac{2}{l}\int_0^l\Bigl[x-\cos x-\frac{q}{K}(l-x)\Bigr]\cos(\mu_n x)\dd{x}}
 
 \end{solution}
 \end{question}

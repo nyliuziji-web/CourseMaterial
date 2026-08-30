@@ -110,7 +110,7 @@ x\le \frac{l}{2}\sin\theta.
 \]
 故
 \[
-P=\frac{2}{a\pi}\int_0^{\pi/2} l\sin\theta\,d\theta
+P=\frac{2}{a\pi}\int_0^{\pi/2} l\sin\theta\,\dd{\theta}
 =\frac{2l}{\pi a}.
 \]
 \end{solution}
@@ -121,7 +121,7 @@ P=\frac{2}{a\pi}\int_0^{\pi/2} l\sin\theta\,d\theta
 \begin{solution}
 全期望公式为
 \[
-\operatorname{E}[X]=E\bigl(\operatorname{E}[X\mid Y]\bigr).
+\operatorname{E}[X]=\operatorname{E}\bigl(\operatorname{E}[X\mid Y]\bigr).
 \]
 在本题中，给定 $N$ 后，
 \[
@@ -131,7 +131,7 @@ Y\mid N\sim \mathrm{Poisson}(N\nu_2),
 \]
 因此
 \[
-\operatorname{E}[Y]=\operatorname{E}[E(Y\mid N)]=\nu_2\operatorname{E}[N]=\nu_1\nu_2.
+\operatorname{E}[Y]=\operatorname{E}[\operatorname{E}(Y\mid N)]=\nu_2\operatorname{E}[N]=\nu_1\nu_2.
 \]
 再由全方差公式
 \[
@@ -139,9 +139,7 @@ Y\mid N\sim \mathrm{Poisson}(N\nu_2),
 =\nu_2\operatorname{E}[N]+\nu_2^2\operatorname{Var}(N)
 =\nu_1\nu_2+\nu_1\nu_2^2.
 \]
-\ansmath{\operatorname{Var}(Y)=\operatorname{E}[\operatorname{Var}(Y\mid N)]+\operatorname{Var}(\operatorname{E}[Y\mid N])
-=\nu_2\operatorname{E}[N]+\nu_2^2\operatorname{Var}(N)
-=\nu_1\nu_2+\nu_1\nu_2^2}
+
 \end{solution}
 \end{question}
 
@@ -198,9 +196,9 @@ P(0\mid \gamma)=0.99899,\qquad P(1\mid \gamma)=0.001,\qquad P(2\mid \gamma)=10^{
 \begin{solution}
 卷积可得
 \[
-P(Z=k)=\sum_{j=0}^{k}e^{-\nu_1}\frac{\nu_1^j}{j!}
-\,e^{-\nu_2}\frac{\nu_2^{k-j}}{(k-j)!}
-=e^{-(\nu_1+\nu_2)}\frac{(\nu_1+\nu_2)^k}{k!}.
+P(Z=k)=\sum_{j=0}^{k}\ee^{-\nu_1}\frac{\nu_1^j}{j!}
+\,\ee^{-\nu_2}\frac{\nu_2^{k-j}}{(k-j)!}
+=\ee^{-(\nu_1+\nu_2)}\frac{(\nu_1+\nu_2)^k}{k!}.
 \]
 故
 \ansmath{Z\sim \mathrm{Poisson}(\nu_1+\nu_2)}

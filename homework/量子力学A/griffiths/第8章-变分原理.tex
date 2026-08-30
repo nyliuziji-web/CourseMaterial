@@ -425,8 +425,8 @@ A=2b^{3/2}.
 
 势能期望值:
 \[
-\langle x\rangle=A^2\int_0^\infty x^2\ee^{-2bx}\dd x
-=4b^3\cdot{2\over(2b)^3}={3\over2b},
+\langle x\rangle=A^2\int_0^\infty x^3\ee^{-2bx}\dd x
+=4b^3\cdot{3!\over(2b)^4}={3\over2b},
 \]
 \[
 \langle V\rangle=mg\langle x\rangle={3mg\over2b}.
@@ -549,22 +549,22 @@ H=-{\hbar^2\over2m}(\nabla_1^2+\nabla_2^2)-{Ze^2\over4\pi\epsilon_0}\left({1\ove
 
 单电子部分能量为两个类氢能量的和(将核电荷 $Z$ 替换为有效电荷 $Z_*$ 再修正):
 \[
-\langle T\rangle+ \langle V_{\rm核}\rangle_{\rm每个电子}
-=-2Z_*^2|E_1|+4Z(Z_*-Z)|E_1|,
+\langle T\rangle+ \langle V_{\rm核}\rangle
+=2Z_*^2|E_1|-4ZZ_*|E_1|,
 \]
 其中 $E_1=-13.6\,\mathrm{eV}$。电子--电子排斥期望值可用 $1s$ 轨道计算:
 \[
 \left\langle{e^2\over4\pi\epsilon_0 r_{12}}\right\rangle
-={5\over8}Z_*|E_1|.
+={5\over4}Z_*|E_1|.
 \]
 因此总能量为
 \[
-E(Z_*)=2Z_*^2E_1-4ZZ_*E_1+{5\over4}Z_*|E_1|.
+E(Z_*)=2Z_*^2|E_1|-4ZZ_*|E_1|+{5\over4}Z_*|E_1|.
 \]
 
 对 $Z_*$ 求极值:
 \[
-{\dd E\over\dd Z_*}=4Z_*E_1-4ZE_1+{5\over4}|E_1|=0
+{\dd E\over\dd Z_*}=4Z_*|E_1|-4Z|E_1|+{5\over4}|E_1|=0
 \quad\Longrightarrow\quad
 Z_*=Z-{5\over16}.
 \]
@@ -575,7 +575,7 @@ Z_*=1-{5\over16}={11\over16}=0.6875.
 \]
 代入得基态能量上限
 \[
-E_{\min}=2\left({11\over16}\right)^2(-13.6)-4\cdot1\cdot{11\over16}(-13.6)+{5\over4}\cdot{11\over16}(13.6)
+E_{\min}=2\left({11\over16}\right)^2(13.6)-4\cdot1\cdot{11\over16}(13.6)+{5\over4}\cdot{11\over16}(13.6)
 \approx-12.9\,\mathrm{eV},
 \]
 高于 $\mathrm H$ 基态 $-13.6\,\mathrm{eV}$,因此不能有力证明 $\mathrm H^-$ 存在束缚态(需更精细试探函数)。
@@ -586,7 +586,7 @@ Z_*=3-{5\over16}={43\over16}=2.6875.
 \]
 代入得
 \[
-E_{\min}\approx-2\times(2.6875)^2\times13.6+4\times3\times2.6875\times13.6+{5\over4}\times2.6875\times13.6
+E_{\min}\approx2\times(2.6875)^2\times13.6-4\times3\times2.6875\times13.6+{5\over4}\times2.6875\times13.6
 =\boxed{-198\,\mathrm{eV}}.
 \]
 该值明显低于 $\mathrm{Li}^{2+}+e$ 的阈值,表明 $\mathrm{Li}^+$ 是稳定束缚的。

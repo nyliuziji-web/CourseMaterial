@@ -34,7 +34,7 @@ A=\frac{1}{\sqrt{3\pi}}.
 \]
 又因
 \[
-1+\cos\phi=1+\frac{\ee^{i\phi}+\ee^{-i\phi}}{2},
+1+\cos\phi=1+\frac{\ee^{\ii\phi}+\ee^{-\ii\phi}}{2},
 \]
 所以
 \[
@@ -58,12 +58,12 @@ P\!\left(E=\frac{\hbar^2}{2mR^2}\right)=\frac13.}
 
 随时间演化后
 \[
-\psi(\phi,t)=\sqrt{\frac23}\,\psi_0(\phi)+\ee^{-iE_1t/\hbar}\left[\frac{1}{\sqrt6}\,\psi_1(\phi)+\frac{1}{\sqrt6}\,\psi_{-1}(\phi)\right],
+\psi(\phi,t)=\sqrt{\frac23}\,\psi_0(\phi)+\ee^{-\ii E_1t/\hbar}\left[\frac{1}{\sqrt6}\,\psi_1(\phi)+\frac{1}{\sqrt6}\,\psi_{-1}(\phi)\right],
 \qquad E_1=\frac{\hbar^2}{2mR^2}.
 \]
 要使其回到初态，只需满足
 \[
-\ee^{-iE_1 t/\hbar}=1,
+\ee^{-\ii E_1 t/\hbar}=1,
 \]
 故
 \ansmath{t=\ell\,\frac{4\pi mR^2}{\hbar},\qquad \ell=1,2,3,\dots.}
@@ -92,29 +92,29 @@ P\!\left(E=\frac{\hbar^2}{2mR^2}\right)=\frac13.}
 \[
 \hat S_y=\frac{1}{\sqrt2}
 \begin{pmatrix}
-0&-i\hbar&0\\
-i\hbar&0&-i\hbar\\
-0&i\hbar&0
+0&-\ii\hbar&0\\
+\ii\hbar&0&-\ii\hbar\\
+0&\ii\hbar&0
 \end{pmatrix}
 \]
 （基的顺序为 $|1\rangle,|0\rangle,|-1\rangle$）。因此
 \ansmath{\hat S_y\ \longleftrightarrow\ \frac{\hbar}{\sqrt2}
 \begin{pmatrix}
-0&-i&0\\
-i&0&-i\\
-0&i&0
+0&-\ii&0\\
+\ii&0&-\ii\\
+0&\ii&0
 \end{pmatrix}.}
 
 $\hat S_y$ 的本征值为 $+\hbar,0,-\hbar$。可取归一化本征态为
 \[
 |+\rangle_y=\frac{1}{2}
-\begin{pmatrix}-1\\-i\sqrt2\\1\end{pmatrix},
+\begin{pmatrix}-1\\-\ii\sqrt2\\1\end{pmatrix},
 \qquad
 |0\rangle_y=\frac{1}{\sqrt2}
 \begin{pmatrix}1\\0\\1\end{pmatrix},
 \qquad
 |-\rangle_y=\frac{1}{2}
-\begin{pmatrix}-1\\i\sqrt2\\1\end{pmatrix}.
+\begin{pmatrix}-1\\\ii\sqrt2\\1\end{pmatrix}.
 \]
 也就是
 \ansmath{\hat S_y|\pm\rangle_y=\pm\hbar|\pm\rangle_y,
@@ -123,7 +123,7 @@ $\hat S_y$ 的本征值为 $+\hbar,0,-\hbar$。可取归一化本征态为
 
 将初态 $|1\rangle$ 按 $\hat S_y$ 本征态展开后再演化，或直接利用旋转矩阵，都可得
 \[
-|\psi(t)\rangle=\ee^{-iDt\hat S_y/\hbar}|1\rangle
+|\psi(t)\rangle=\ee^{-\ii Dt\hat S_y/\hbar}|1\rangle
 =\cos^2\frac{Dt}{2}\,|1\rangle+\frac{\sin Dt}{\sqrt2}|0\rangle+\sin^2\frac{Dt}{2}\,|-1\rangle.
 \]
 因此

@@ -111,7 +111,7 @@ p_R=\frac{N_A^{(R)}}{V_R}k_B T.
 
 粒子数方程为
 \[
-N=\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{\ee^{\beta(\varepsilon-\mu)}+1}
+N=\int_0^\infty \frac{g(\varepsilon)\,\dd{\varepsilon}}{\ee^{\beta(\varepsilon-\mu)}+1}
 =\frac{mA}{\pi\hbar^2}k_B T\ln\left(1+\ee^{\beta\mu}\right).
 \]
 因此
@@ -125,7 +125,7 @@ N=\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{\ee^{\beta(\varepsilon-\mu)}
 
 当 $T\ll T_F$ 时，$\mu=\varepsilon_F+O(\ee^{-\varepsilon_F/(k_B T)})$。内能可写为
 \[
-U=\int_0^\infty \frac{g(\varepsilon)\,\varepsilon\,d\varepsilon}{\ee^{\beta(\varepsilon-\mu)}+1}.
+U=\int_0^\infty \frac{g(\varepsilon)\,\varepsilon\,\dd{\varepsilon}}{\ee^{\beta(\varepsilon-\mu)}+1}.
 \]
 对常数态密度应用 Sommerfeld 展开，得
 \[
@@ -159,13 +159,13 @@ g(\varepsilon)=\frac{mA}{2\pi\hbar^2}.
 \]
 因此粒子数方程为
 \[
-N=\int_0^\infty \frac{g(\varepsilon)\,d\varepsilon}{\ee^{\beta(\varepsilon-\mu)}-1}
-=\frac{mA}{2\pi\hbar^2}\int_0^\infty \frac{d\varepsilon}{z^{-1}\ee^{\beta\varepsilon}-1},
+N=\int_0^\infty \frac{g(\varepsilon)\,\dd{\varepsilon}}{\ee^{\beta(\varepsilon-\mu)}-1}
+=\frac{mA}{2\pi\hbar^2}\int_0^\infty \frac{\dd{\varepsilon}}{z^{-1}\ee^{\beta\varepsilon}-1},
 \qquad z=\ee^{\beta\mu}<1.
 \]
 令 $x=\beta\varepsilon$，可得
 \[
-N=\frac{mA}{2\pi\hbar^2}k_B T\int_0^\infty \frac{dx}{z^{-1}\ee^x-1}
+N=\frac{mA}{2\pi\hbar^2}k_B T\int_0^\infty \frac{\dd{x}}{z^{-1}\ee^x-1}
 = -\frac{mA}{2\pi\hbar^2}k_B T\ln(1-z).
 \]
 故

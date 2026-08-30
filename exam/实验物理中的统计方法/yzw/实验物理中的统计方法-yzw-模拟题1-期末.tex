@@ -20,6 +20,7 @@ Z=\frac{X}{Y},
 \frac{\partial Z}{\partial Y}=-\frac{X}{Y^2}.
 \]
 故
+\ansmath{\sigma_Z^2\approx \frac{\sigma_X^2}{Y^2}+\frac{X^2\sigma_Y^2}{Y^4}-\frac{2Xc}{Y^3}}
 \end{solution}
 \end{question}
 
@@ -45,6 +46,7 @@ g(x)=\sqrt{x},
 =\frac{1}{4\cdot 2n}\cdot 4n=\frac12.
 \]
 故
+\ansmath{\sqrt{X}\approx N\!\left(\sqrt{2n},\ \frac12\right)}
 \end{solution}
 \end{question}
 
@@ -66,7 +68,7 @@ f(x;\theta)=\begin{cases}
 \begin{solution}
 先算总体均值：
 \[
-\operatorname{E}[X]=\int_0^1 x(\theta+1)x^\theta\,dx
+\operatorname{E}[X]=\int_0^1 x(\theta+1)x^\theta\dd{x}
 =\frac{\theta+1}{\theta+2}.
 \]
 令 $\bar X=\operatorname{E}[X]$，解得矩估计
@@ -87,7 +89,7 @@ L(\theta)=\prod_{i=1}^n (\theta+1)x_i^\theta,
 \ansmath{\hat\theta_{\rm MLE}=-\frac{n}{\sum_{i=1}^n\ln x_i}-1}
 Fisher 信息为
 \[
-I_1(\theta)=-E\!\left[\frac{\partial^2 \ell_1}{\partial \theta^2}\right]
+I_1(\theta)=-\operatorname{E}\!\left[\frac{\partial^2 \ell_1}{\partial \theta^2}\right]
 =\frac{1}{(\theta+1)^2}.
 \]
 所以
@@ -104,7 +106,7 @@ I_n(\theta)=\frac{n}{(\theta+1)^2}.
 \begin{solution}
 似然函数为
 \[
-L(\lambda)=\prod_{i=1}^n e^{-\lambda}\frac{\lambda^{x_i}}{x_i!},
+L(\lambda)=\prod_{i=1}^n \ee^{-\lambda}\frac{\lambda^{x_i}}{x_i!},
 \qquad
 \ell(\lambda)=-n\lambda+\Bigl(\sum_{i=1}^n x_i\Bigr)\ln\lambda+\text{const}.
 \]

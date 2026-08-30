@@ -264,11 +264,11 @@ def convert(node):
 \begin{question}
 (8 分)二叉树的内部路径长度是指所有节点的深度的和。假设将N 个互不相同的随机元素插入一棵空的二叉搜索树。请证明得到的二叉搜索树的内部路径长度期望为 O(NlogN)。
 \begin{solution}
-随机插入得到的 BST 与快速排序递归树同分布。设 $E[I_N]$ 为内部路径长度期望，根的左子树规模 $i$ 在 $0\sim N-1$ 上等可能，因此
+随机插入得到的 BST 与快速排序递归树同分布。设 $\operatorname{E}[I_N]$ 为内部路径长度期望，根的左子树规模 $i$ 在 $0\sim N-1$ 上等可能，因此
   \[
-  E[I_N]=N-1+\frac1N\sum_{i=0}^{N-1}(E[I_i]+E[I_{N-1-i}]),
+  \operatorname{E}[I_N]=N-1+\frac1N\sum_{i=0}^{N-1}(\operatorname{E}[I_i]+\operatorname{E}[I_{N-1-i}]),
   \]
-  解得 $E[I_N]=O(N\log N)$。
+  解得 $\operatorname{E}[I_N]=O(N\log N)$。
 \end{solution}
 \end{question}
 

@@ -42,7 +42,7 @@ U(\xi,\eta)
 &=U(\xi,0)+U(0,\eta)-U(0,0)
 +\int_0^{\xi}\int_0^{\eta}
 \frac{1}{4a^2}\sin\!\left(\frac{\omega(\xi'-\eta')}{2a}\right)
-\,\mathrm d\eta'\,\mathrm d\xi'\\
+\,\dd{\eta'}\,\dd{\xi'}\\
 &=\frac{\eta^2}{4}+\frac{1}{\omega^2}\left[
 \sin\!\left(\frac{\omega\eta}{2a}\right)
 -\sin\!\left(\frac{\omega\xi}{2a}\right)
@@ -101,7 +101,7 @@ v(x,t)=c_0+\sum_{n=1}^{\infty}c_n \ee^{-\kappa n^2\pi^2 t/l^2}\cos\frac{n\pi x}{
 \]
 其中
 \[
-c_0=\frac1l\int_0^l\bigl(A-\phi(x)\bigr)\,\mathrm dx
+c_0=\frac1l\int_0^l\bigl(A-\phi(x)\bigr)\dd{x}
 =A-\frac1l\cdot\frac{1}{\beta^2}
 =A-\frac{\kappa}{\alpha^2 l},
 \]
@@ -109,10 +109,10 @@ c_0=\frac1l\int_0^l\bigl(A-\phi(x)\bigr)\,\mathrm dx
 \[
 \begin{aligned}
 c_n
-&=\frac{2}{l}\int_0^l\bigl(A-\phi(x)\bigr)\cos\frac{n\pi x}{l}\,\mathrm dx
-=-\frac{2}{l}\int_0^l\phi(x)\cos\frac{n\pi x}{l}\,\mathrm dx\\
+&=\frac{2}{l}\int_0^l\bigl(A-\phi(x)\bigr)\cos\frac{n\pi x}{l}\dd{x}
+=-\frac{2}{l}\int_0^l\phi(x)\cos\frac{n\pi x}{l}\dd{x}\\
 &=-\frac{2}{l}\cdot\frac{1}{\beta\sinh(\beta l)}
-\int_0^l \cosh(\beta x)\cos\frac{n\pi x}{l}\,\mathrm dx
+\int_0^l \cosh(\beta x)\cos\frac{n\pi x}{l}\dd{x}
 =\frac{2\kappa l(-1)^{n+1}}{\alpha^2 l^2+\kappa n^2\pi^2}.
 \end{aligned}
 \]
@@ -153,19 +153,19 @@ f(\mu)=\sum_{n=0}^{\infty}A_n a^n P_n(\mu).
 \]
 由正交性，
 \[
-A_0=\frac12\int_{-1}^1 f(\mu)\,\mathrm d\mu
-=\ln a+\frac12\int_{-1}^1\ln(1+\mu)\,\mathrm d\mu
+A_0=\frac12\int_{-1}^1 f(\mu)\dd{\mu}
+=\ln a+\frac12\int_{-1}^1\ln(1+\mu)\dd{\mu}
 =\ln(2a)-1.
 \]
 对 $n\ge 1$，常数项不贡献系数，且
 \[
-\int_{-1}^1\ln(1+\mu)P_n(\mu)\,\mathrm d\mu
+\int_{-1}^1\ln(1+\mu)P_n(\mu)\dd{\mu}
 =\frac{2(-1)^{n+1}}{n(n+1)},
 \]
 故
 \[
 A_n a^n
-=\frac{2n+1}{2}\int_{-1}^1\ln(1+\mu)P_n(\mu)\,\mathrm d\mu
+=\frac{2n+1}{2}\int_{-1}^1\ln(1+\mu)P_n(\mu)\dd{\mu}
 =(-1)^{n+1}\frac{2n+1}{n(n+1)}.
 \]
 因此球内解为

@@ -76,30 +76,30 @@ D(\hat L)=\{u\in H^1(0,2\pi):u(2\pi)=\ee^{i\theta}u(0)\},
 \item 对 $u,v\in D(\hat L)$，有
 \[
 \langle \hat L u,v\rangle-\langle u,\hat L v\rangle
-=-i\int_0^{2\pi}u'\bar v\,dx+i\int_0^{2\pi}u\overline{v'}\,dx
-=-i[u\bar v]_0^{2\pi}.
+=-\ii\int_0^{2\pi}u'\bar v\dd{x}+\ii\int_0^{2\pi}u\overline{v'}\dd{x}
+=-\ii[u\bar v]_0^{2\pi}.
 \]
 而准周期边界给出
 \[
-u(2\pi)=\ee^{i\theta}u(0),\qquad v(2\pi)=\ee^{i\theta}v(0),
+u(2\pi)=\ee^{\ii\theta}u(0),\qquad v(2\pi)=\ee^{\ii\theta}v(0),
 \]
 故
 \[
-[u\bar v]_0^{2\pi}=\ee^{i\theta}u(0)\ee^{-i\theta}\overline{v(0)}-u(0)\overline{v(0)}=0.
+[u\bar v]_0^{2\pi}=\ee^{\ii\theta}u(0)\ee^{-\ii\theta}\overline{v(0)}-u(0)\overline{v(0)}=0.
 \]
 因此 $\hat L$ 对称；其伴随域满足同样边界条件，所以 $\hat L$ 自伴。
 
 \item 本征方程
 \[
--i u'=\lambda u
+ -\ii u'=\lambda u
 \]
 解为
 \[
-u(x)=C \ee^{i\lambda x}.
+u(x)=C \ee^{\ii\lambda x}.
 \]
 代入边界条件：
 \[
-\ee^{i2\pi\lambda}=\ee^{i\theta}.
+\ee^{\ii2\pi\lambda}=\ee^{\ii\theta}.
 \]
 故
 \[
@@ -109,7 +109,7 @@ u(x)=C \ee^{i\lambda x}.
 于是全部本征值为
 \ansmath{\lambda_n=n+\frac{\theta}{2\pi},\qquad n\in\mathbb Z,}
 相应本征函数可取
-\ansmath{u_n(x)=\frac{1}{\sqrt{2\pi}}\ee^{i(n+\theta/(2\pi))x}.}
+\ansmath{u_n(x)=\frac{1}{\sqrt{2\pi}}\ee^{\ii(n+\theta/(2\pi))x}.}
 \end{enumerate}
 \end{solution}
 \end{question}
@@ -156,7 +156,7 @@ x_<=\min\{x,\xi\},\qquad x_>=\max\{x,\xi\}.
 \qquad u(0)=u(l)=0
 \]
 的解为
-\ansmath{u(x)=\int_0^l G(x,\xi)f(\xi)\,d\xi.}
+\ansmath{u(x)=\int_0^l G(x,\xi)f(\xi)\dd{\xi}.}
 \end{solution}
 \end{question}
 

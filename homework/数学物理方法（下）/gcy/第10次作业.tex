@@ -59,8 +59,8 @@ A_{mn}J_0(\alpha_m\rho)\sin\frac{n\pi z}{h}
 \]
 由初值 \(u_0f(\rho)\) 与 \(z\) 无关得
 \[
-A_{mn}=\frac{2u_0}{hN_m}\int_0^a f(\rho)J_0(\alpha_m\rho)\rho\,d\rho
-\int_0^h\sin\frac{n\pi z}{h}\,dz,
+A_{mn}=\frac{2u_0}{hN_m}\int_0^a f(\rho)J_0(\alpha_m\rho)\rho\,\dd{\rho}
+\int_0^h\sin\frac{n\pi z}{h}\,\dd{z},
 \]
 其中
 \[
@@ -69,7 +69,7 @@ N_m=\frac{a^2}{2}J_0^2(\alpha_ma),\qquad m=0,1,2,\ldots .
 因此偶数 \(n\) 的系数为零；奇数 \(n\) 时
 \[
 A_{mn}=\frac{8u_0}{n\pi a^2J_0^2(\alpha_ma)}
-\int_0^a f(\rho)J_0(\alpha_m\rho)\rho\,d\rho .
+\int_0^a f(\rho)J_0(\alpha_m\rho)\rho\,\dd{\rho} .
 \]
 \end{solution}
 \end{question}
@@ -155,7 +155,7 @@ r=\sum_{n=1}^{\infty}F_nj_1(\alpha_nr/a),
 u(r,\theta,t)=\cos\theta
 \sum_{n=1}^{\infty}
 \frac{F_n}{\kappa(\alpha_n/a)^2}
-\left(1-e^{-\kappa(\alpha_n/a)^2t}\right)
+\left(1-\ee^{-\kappa(\alpha_n/a)^2t}\right)
 j_1(\alpha_nr/a).
 \]
 其中
@@ -195,7 +195,7 @@ BR_c=\pi,\qquad R_c=\frac{\pi}{B}.
 \[
 \frac1z\cos\sqrt{z^2-2zt}
 =\sum_{n=0}^{\infty}\frac{t^n}{n!}
-\left(\frac1z\frac d{dz}\right)^n\frac{\cos z}{z}.
+\left(\frac1z\frac{\dd}{\dd{z}}\right)^n\frac{\cos z}{z}.
 \]
 该式即所需 Taylor 展开，前几项为
 \[

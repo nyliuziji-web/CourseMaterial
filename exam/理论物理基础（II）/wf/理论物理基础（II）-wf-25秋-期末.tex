@@ -43,7 +43,7 @@ V(x)=
 
   \item 归一化条件给出
   \[
-  \int_{-L}^L |\psi(x)|^2\,dx=2L A^2=1,
+  \int_{-L}^L |\psi(x)|^2\,\dd{x}=2L A^2=1,
   \]
   故
   \[
@@ -51,12 +51,12 @@ V(x)=
   \]
   动量表象为
   \[
-  \tilde\psi(p)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\ee^{-ipx/\hbar}\psi(x)\,dx
-  =\frac{A}{\sqrt{2\pi\hbar}}\left(\int_0^L \ee^{-ipx/\hbar}dx-\int_{-L}^0 \ee^{-ipx/\hbar}dx\right),
+  \tilde\psi(p)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\ee^{-\ii px/\hbar}\psi(x)\,\dd{x}
+  =\frac{A}{\sqrt{2\pi\hbar}}\left(\int_0^L \ee^{-\ii px/\hbar}\dd{x}-\int_{-L}^0 \ee^{-\ii px/\hbar}\dd{x}\right),
   \]
   化简得
   \ansmath{A=\frac{1}{\sqrt{2L}},\qquad
-  \tilde\psi(p)=\frac{i\sqrt\hbar}{p\sqrt{\pi L}}\left[\cos\left(\frac{pL}{\hbar}\right)-1\right].}
+  \tilde\psi(p)=\frac{\ii\sqrt\hbar}{p\sqrt{\pi L}}\left[\cos\left(\frac{pL}{\hbar}\right)-1\right].}
 
   \item 所有可能的测量结果就是各个本征值 $E_n$。概率为
   \[
@@ -78,11 +78,11 @@ V(x)=
 
   \item 展开为能量本征态后，
   \[
-  \varphi(x,t)=\sum_{n=1}^{\infty}\ee^{-iE_nt/\hbar}\psi_n(x)\langle \psi_n|\psi\rangle.
+  \varphi(x,t)=\sum_{n=1}^{\infty}\ee^{-\ii E_nt/\hbar}\psi_n(x)\langle \psi_n|\psi\rangle.
   \]
   要使 $\varphi(x,t)=-\psi(x)$，对所有非零系数都必须满足
   \[
-  \ee^{-iE_nt/\hbar}=-1.
+  \ee^{-\ii E_nt/\hbar}=-1.
   \]
   这里只需对 $n=4k+2$ 的各项同时成立。代入
   \[
@@ -127,7 +127,7 @@ a_0=\frac{\hbar^2}{m_eA}
 \begin{enumerate}[label=(\arabic*),leftmargin=2.5em]
   \item 由球谐函数归一化，只需考虑径向部分：
   \[
-  1=|C|^2\int_0^{\infty}r^4\ee^{-r/a_0}\,dr
+  1=|C|^2\int_0^{\infty}r^4\ee^{-r/a_0}\,\dd{r}
   =|C|^2 a_0^5\Gamma(5)=24a_0^5|C|^2.
   \]
   因此
@@ -172,8 +172,8 @@ a_0=\frac{\hbar^2}{m_eA}
   \]
   因此随时间演化为
   \[
-  \varphi(\mathbf r,t)=\frac{\ee^{-iE_2 t/\hbar}}{2}
-  \left[(1+\ee^{-iD\hbar t})\psi_{2,1,1}+(1-\ee^{-iD\hbar t})\psi_{2,1,-1}\right].
+  \varphi(\mathbf r,t)=\frac{\ee^{-\ii E_2 t/\hbar}}{2}
+  \left[(1+\ee^{-\ii D\hbar t})\psi_{2,1,1}+(\ee^{-\ii D\hbar t}-1)\psi_{2,1,-1}\right].
   \]
   所以第一次测量 $\hat L_z$ 时，可能结果只有
   \[
@@ -325,20 +325,20 @@ E_n^{(1)}=\hbar\omega\left(n+\frac12\right),\qquad n=0,1,2,\dots.
   则化简后得到
   \ansmath{M=
   \begin{pmatrix}
-  1-i\beta & -i\beta\,\ee^{-2ikL}\\
-  i\beta\,\ee^{2ikL} & 1+i\beta
+  1-\ii\beta & -\ii\beta\,\ee^{-2\ii kL}\\
+  \ii\beta\,\ee^{2\ii kL} & 1+\ii\beta
   \end{pmatrix}.}
 
   \item 将(2)中的转移矩阵与 Bloch 条件结合，要求矩阵
   \[
   \begin{pmatrix}
-  (1-i\beta)\ee^{ikL} & -i\beta \ee^{-ikL}\\
-  i\beta \ee^{ikL} & (1+i\beta)\ee^{-ikL}
+  (1-\ii\beta)\ee^{\ii kL} & -\ii\beta \ee^{-\ii kL}\\
+  \ii\beta \ee^{\ii kL} & (1+\ii\beta)\ee^{-\ii kL}
   \end{pmatrix}
   \]
-  具有本征值 $\ee^{iKL}$。于是其迹满足
+  具有本征值 $\ee^{\ii KL}$。于是其迹满足
   \[
-  \ee^{iKL}+\ee^{-iKL}=2\cos(KL)=2\cos(kL)+2\beta\sin(kL).
+  \ee^{\ii KL}+\ee^{-\ii KL}=2\cos(KL)=2\cos(kL)+2\beta\sin(kL).
   \]
   因而
   \ansmath{\cos(kL)+\frac{\alpha mL}{\hbar^2}\,\frac{\sin(kL)}{kL}=\cos(KL).}

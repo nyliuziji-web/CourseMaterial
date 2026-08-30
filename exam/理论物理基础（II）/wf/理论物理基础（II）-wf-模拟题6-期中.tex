@@ -66,11 +66,11 @@ U(r)=-\frac12 m\Omega^2 r^2,
 \begin{solution}
 单粒子配分函数为
 \[
-Z_1=\frac{1}{h^3}\int d^3p\,\ee^{-\beta p^2/(2m)}\int_0^h dz\int_0^{2\pi}d\phi\int_0^R r\,dr\,\ee^{\beta m\Omega^2 r^2/2}.
+Z_1=\frac{1}{h^3}\int \dd[3]{p}\,\ee^{-\beta p^2/(2m)}\int_0^h \dd{z}\int_0^{2\pi}\dd{\phi}\int_0^R r\,\dd{r}\,\ee^{\beta m\Omega^2 r^2/2}.
 \]
 动量积分给出 $(2\pi m k_B T)^{3/2}$，再做空间积分得
 \[
-\int_0^R r \ee^{\beta m\Omega^2 r^2/2}dr
+\int_0^R r \ee^{\beta m\Omega^2 r^2/2}\dd{r}
 =\frac{1}{\beta m\Omega^2}\left(\ee^{\beta m\Omega^2 R^2/2}-1\right).
 \]
 故
@@ -82,7 +82,7 @@ n(r)=C\exp\left(\frac{m\Omega^2 r^2}{2k_B T}\right).
 \]
 由归一化条件
 \[
-\int_0^h dz\int_0^{2\pi}d\phi\int_0^R r\,dr\,n(r)=N
+\int_0^h \dd{z}\int_0^{2\pi}\dd{\phi}\int_0^R r\,\dd{r}\,n(r)=N
 \]
 可得
 \ansmath{n(r)=\frac{N\alpha}{\pi h\left(\ee^{\alpha R^2}-1\right)}\ee^{\alpha r^2},
@@ -123,9 +123,9 @@ n(r)=C\exp\left(\frac{m\Omega^2 r^2}{2k_B T}\right).
 \begin{solution}
 零温下两种自旋分别填满各自的费米球。设单自旋的态密度为 $g_1(\varepsilon)$，则在弱场下
 \[
-N_\uparrow=\int_0^{\mu+\gamma B} g_1(\varepsilon)\,d\varepsilon,
+N_\uparrow=\int_0^{\mu+\gamma B} g_1(\varepsilon)\,\dd{\varepsilon},
 \qquad
-N_\downarrow=\int_0^{\mu-\gamma B} g_1(\varepsilon)\,d\varepsilon.
+N_\downarrow=\int_0^{\mu-\gamma B} g_1(\varepsilon)\,\dd{\varepsilon}.
 \]
 在一阶近似中，可取 $\mu=\varepsilon_F$，于是
 \[
@@ -179,8 +179,7 @@ U=-\frac{\partial}{\partial\beta}\ln Z
 =\frac{N}{2}\left[\hbar\omega\left(\frac12+\frac{1}{\ee^{\beta\hbar\omega}-1}\right)+2\hbar\omega\left(\frac12+\frac{1}{\ee^{2\beta\hbar\omega}-1}\right)\right].
 \]
 即
-\ansmath{U=\frac{N\hbar\omega}{2}\left[\frac12+\frac{1}{\ee^{\beta\hbar\omega}-1}+1+\frac{2}{\ee^{2\beta\hbar\omega}-1}\right].}
-写得更紧凑一些就是
+
 \ansmath{U=\frac{N}{2}\hbar\omega\left(\frac32+\frac{1}{\ee^{\beta\hbar\omega}-1}+\frac{2}{\ee^{2\beta\hbar\omega}-1}\right).}
 
 令 $x=\beta\hbar\omega=\hbar\omega/(k_B T)$，则热容为

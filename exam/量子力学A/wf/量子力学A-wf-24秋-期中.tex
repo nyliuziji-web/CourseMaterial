@@ -149,19 +149,19 @@ $x=a$ 处匹配给
 (J^2,J_z)&P&\text{塌缩态}\\ \hline
 (15\hbar^2/4,3\hbar/2)&1/4&
 {1\over\sqrt2}(-\varphi_2-\ii\varphi_3)\ket{\uparrow}\\
-(15\hbar^2/4,\hbar/2)&1/6&
+(15\hbar^2/4,\hbar/2)&1/12&
 \sqrt{2\over3}\varphi_4\ket{\uparrow}
  +{1\over\sqrt6}(-\varphi_2-\ii\varphi_3)\ket{\downarrow}\\
-(15\hbar^2/4,-\hbar/2)&1/12&
-\sqrt{2\over3}\varphi_4\ket{\downarrow}
- +{1\over\sqrt6}(\varphi_2-\ii\varphi_3)\ket{\uparrow}\\
-(3\hbar^2/4,\hbar/2)&1/12&
--{1\over\sqrt3}\varphi_4\ket{\uparrow}
- +{1\over\sqrt3}(-\varphi_2-\ii\varphi_3)\ket{\downarrow}\\
-(3\hbar^2/4,-\hbar/2)&5/12&
-\sqrt{3\over5}\varphi_1\ket{\downarrow}
- +{1+\ii\over\sqrt{15}}(\varphi_2-\ii\varphi_3)\ket{\uparrow}
- -{1+\ii\over\sqrt{15}}\varphi_4\ket{\downarrow}
+(15\hbar^2/4,-\hbar/2)&1/6&
+{1\over\sqrt3}\varphi_4\ket{\downarrow}
+ +{1\over\sqrt3}(\varphi_2-\ii\varphi_3)\ket{\uparrow}\\
+(3\hbar^2/4,\hbar/2)&1/6&
+\sqrt{2\over3}\varphi_4\ket{\uparrow}
+ +{1\over\sqrt6}(\varphi_2+\ii\varphi_3)\ket{\downarrow}\\
+(3\hbar^2/4,-\hbar/2)&1/3&
+{\sqrt3\over2}\varphi_1\ket{\downarrow}
+ +{1+\ii\over2\sqrt3}\varphi_4\ket{\downarrow}
+ -{1+\ii\over2\sqrt6}(\varphi_2-\ii\varphi_3)\ket{\uparrow}
 \end{array}
 \]
 \end{solution}
@@ -186,9 +186,24 @@ $x=a$ 处匹配给
   \ket{\psi(t)}={1\over\sqrt3}\ee^{-\ii E_{3/2}t/\hbar}\ket{3/2,1/2}
   +\sqrt{2\over3}\ee^{-\ii E_{1/2}t/\hbar}\ket{1/2,1/2}.
 \]
-代回直积基并计算 $S_{1z}$，得
+代回直积基，两个总自旋本征态为
 \[
-  \expval{S_{1z}}(t)={\hbar\over2}\left[-{1\over9}
+  \ket{3/2,1/2}={1\over\sqrt3}\bigl(\ket{\downarrow\uparrow\uparrow}
+  +\ket{\uparrow\downarrow\uparrow}+\ket{\uparrow\uparrow\downarrow}\bigr),\qquad
+  \ket{1/2,1/2}={1\over\sqrt6}\bigl(2\ket{\downarrow\uparrow\uparrow}
+  -\ket{\uparrow\downarrow\uparrow}-\ket{\uparrow\uparrow\downarrow}\bigr),
+\]
+且
+\[
+  \expval{S_{1z}}_{3/2}={\hbar\over6},\qquad
+  \expval{S_{1z}}_{1/2}=-{\hbar\over6},\qquad
+  \mel{3/2,1/2}{S_{1z}}{1/2,1/2}=-{\sqrt2\over3}\hbar.
+\]
+二者以频率 $(E_{3/2}-E_{1/2})/\hbar=3J\hbar/2$ 干涉，故
+\[
+  \expval{S_{1z}}(t)={1\over3}{\hbar\over6}+{2\over3}\left(-{\hbar\over6}\right)
+  +2\cdot{\sqrt2\over3}\cdot\left(-{\sqrt2\over3}\hbar\right)\cos{3J\hbar t\over2}
+  ={\hbar\over2}\left[-{1\over9}
   -{8\over9}\cos\left({3J\hbar t\over2}\right)\right].
 \]
 \end{solution}

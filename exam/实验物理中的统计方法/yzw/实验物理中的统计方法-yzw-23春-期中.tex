@@ -59,7 +59,7 @@ f(x)=\begin{cases}
 \begin{solution}
 该分布关于 $0$ 对称，故 $\operatorname{E}[X]=0$。再算
 \[
-\operatorname{E}[X^2]=2\int_0^1 x^2(1-x)\,dx
+\operatorname{E}[X^2]=2\int_0^1 x^2(1-x)\,\dd{x}
 =2\left(\frac13-\frac14\right)=\frac16.
 \]
 所以
@@ -128,18 +128,18 @@ x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
 \begin{solution}
 由归一化条件
 \[
-1=\int_0^1\int_0^2\left(x^2+\frac{xy}{t}\right)dy\,dx
+1=\int_0^1\int_0^2\left(x^2+\frac{xy}{t}\right)\dd{y}\dd{x}
 =\frac23+\frac1t,
 \]
 \begin{enumerate}[label=(\arabic*),leftmargin=2.8em,itemsep=0.2em]
 \item \ansmath{t=3}
 \item
-\ansmath{P(x+y>1)=1-\int_0^1\int_0^{1-x}\left(x^2+\frac{xy}{3}\right)dy\,dx
+\ansmath{P(x+y>1)=1-\int_0^1\int_0^{1-x}\left(x^2+\frac{xy}{3}\right)\dd{y}\dd{x}
 =1-\frac{7}{72}=\frac{65}{72}}
 \item
 \ansmath{P(y>1\mid x<1/2)=
-\frac{\int_0^{1/2}\int_1^2\left(x^2+\frac{xy}{3}\right)dy\,dx}
-{\int_0^{1/2}\int_0^2\left(x^2+\frac{xy}{3}\right)dy\,dx}
+\frac{\int_0^{1/2}\int_1^2\left(x^2+\frac{xy}{3}\right)\dd{y}\dd{x}}
+{\int_0^{1/2}\int_0^2\left(x^2+\frac{xy}{3}\right)\dd{y}\dd{x}}
 =\frac58}
 \end{enumerate}
 \end{solution}
@@ -150,7 +150,7 @@ x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
 \begin{solution}
 显著性水平（$p$ 值）取右尾概率
 \ansmath{p=P(N\ge 8\mid \lambda=4)
-=1-\sum_{k=0}^{7}e^{-4}\frac{4^k}{k!}
+=1-\sum_{k=0}^{7}\ee^{-4}\frac{4^k}{k!}
 \approx 0.0511}
 \end{solution}
 \end{question}
@@ -167,8 +167,8 @@ x^2+\dfrac{xy}{t},&0<x<1\ \text{and}\ 0<y<2,\\
 \ansmath{P=(0.01)^{60}}
 \item 一小时内车辆数 $N\sim \mathrm{Poisson}(60)$。条件于 $N=n$ 时，没搭上车概率为 $(0.01)^n$，故
 \ansmath{P=\operatorname{E}[(0.01)^N]
-=\sum_{n=0}^{\infty}(0.01)^n e^{-60}\frac{60^n}{n!}
-=e^{-60(1-0.01)}=e^{-59.4}}
+=\sum_{n=0}^{\infty}(0.01)^n \ee^{-60}\frac{60^n}{n!}
+=\ee^{-60(1-0.01)}=\ee^{-59.4}}
 \end{enumerate}
 \end{solution}
 \end{question}

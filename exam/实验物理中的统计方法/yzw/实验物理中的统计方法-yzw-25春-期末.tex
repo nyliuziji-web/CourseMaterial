@@ -72,11 +72,11 @@ $P_2$ 是在 $H_0$ 为假时不拒绝 $H_0$ 的概率，即第二类错误，也
 \begin{solution}
 由样本方差的基本性质，
 \[
-E\left[\sum_{i=1}^n(X_i-\bar X)^2\right]=(n-1)\sigma^2.
+\operatorname{E}\left[\sum_{i=1}^n(X_i-\bar X)^2\right]=(n-1)\sigma^2.
 \]
 因此
 \[
-E\left[\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X)^2\right]=\sigma^2.
+\operatorname{E}\left[\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X)^2\right]=\sigma^2.
 \]
 故命题正确。
 \anstext{正确}
@@ -103,7 +103,7 @@ E\left[\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X)^2\right]=\sigma^2.
 \begin{question}
 设总体 $X$ 服从参数为 $(n,p)$ 的二项分布 $(0<p<1,n\text{ 为正整数})$，$(X_1,X_2,\cdots,X_N)$ 为来自该总体的简单随机样本，$\bar X$ 为样本均值，则
 \[
-E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=n(N-1)p(1-p).
+\operatorname{E}\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=n(N-1)p(1-p).
 \]
 \begin{solution}
 对单个观测量，
@@ -112,11 +112,11 @@ E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=n(N-1)p(1-p).
 \]
 又因为
 \[
-E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=(N-1)\V(X_i),
+\operatorname{E}\left[\sum_{i=1}^N(X_i-\bar X)^2\right]=(N-1)\V(X_i),
 \]
 所以
 \[
-E\left[\sum_{i=1}^N(X_i-\bar X)^2\right]
+\operatorname{E}\left[\sum_{i=1}^N(X_i-\bar X)^2\right]
 =(N-1)np(1-p).
 \]
 故命题正确。
@@ -175,14 +175,7 @@ c_1=\blank[5cm],\qquad c_2=\blank[5cm].
 c_1(\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2)
 =\sigma_2^2-\rho\sigma_1\sigma_2.
 \]
-故
-\[
-c_1=\frac{\sigma_2^2-\rho\sigma_1\sigma_2}
-{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2},
-\qquad
-c_2=\frac{\sigma_1^2-\rho\sigma_1\sigma_2}
-{\sigma_1^2+\sigma_2^2-2\rho\sigma_1\sigma_2}.
-\]
+
 等价地，
 \ansmath{c_1=\frac{\sigma_2(\sigma_2-\rho\sigma_1)}
 {\sigma_1^2-2\rho\sigma_1\sigma_2+\sigma_2^2},
@@ -225,17 +218,17 @@ H_0:\nu=3.
 于是
 \[
 \alpha=1-P(N\le 4\mid \nu=3)
-=1-\sum_{n=0}^4\frac{3^ne^{-3}}{n!}.
+=1-\sum_{n=0}^4\frac{3^n\ee^{-3}}{n!}.
 \]
 展开为
 \[
-\alpha=1-e^{-3}\left(1+3+\frac{3^2}{2!}+\frac{3^3}{3!}+\frac{3^4}{4!}\right).
+\alpha=1-\ee^{-3}\left(1+3+\frac{3^2}{2!}+\frac{3^3}{3!}+\frac{3^4}{4!}\right).
 \]
 数值上
 \[
 \alpha\approx 0.1847.
 \]
-因此该观测结果的显著性水平约为 $0.185$。
+
 \ansmath{\alpha=1-\sum_{n=0}^4 f(n;3)\approx 0.185}
 \end{solution}
 \end{question}
@@ -253,16 +246,13 @@ P(N=0\mid \mu_{\mathrm{up}})=1-0.95=0.05.
 \]
 由泊松分布
 \[
-P(N=0\mid \mu_{\mathrm{up}})=e^{-\mu_{\mathrm{up}}},
+P(N=0\mid \mu_{\mathrm{up}})=\ee^{-\mu_{\mathrm{up}}},
 \]
 故
 \[
-e^{-\mu_{\mathrm{up}}}=0.05.
+\ee^{-\mu_{\mathrm{up}}}=0.05.
 \]
-因此
-\[
-\mu_{\mathrm{up}}=-\ln 0.05=2.996\approx 3.
-\]
+
 \ansmath{\mu_{\mathrm{sig}}^{\mathrm{up}}=-\ln(1-0.95)=2.996\approx 3}
 \end{solution}
 \end{question}
@@ -331,13 +321,13 @@ t_{\mathrm{obs}}=0.3\,\mathrm{ps}.
 \]
 指数分布密度为
 \[
-g(t;\tau)=\frac1\tau e^{-t/\tau},\qquad t\ge0.
+g(t;\tau)=\frac1\tau \ee^{-t/\tau},\qquad t\ge0.
 \]
 令
 \[
 U=\frac{T}{\tau}.
 \]
-则 $U$ 服从均值为 $1$ 的指数分布，分布函数为 $F_U(u)=1-e^{-u}$。中心 $90\%$ 区间两端各留 $5\%$ 尾概率，因此
+则 $U$ 服从均值为 $1$ 的指数分布，分布函数为 $F_U(u)=1-\ee^{-u}$。中心 $90\%$ 区间两端各留 $5\%$ 尾概率，因此
 \[
 u_{0.05}=-\ln0.95,
 \qquad
@@ -352,10 +342,6 @@ u_{0.05}<\frac{t_{\mathrm{obs}}}{\tau}<u_{0.95}
 \frac{t_{\mathrm{obs}}}{u_{0.95}}<\tau<\frac{t_{\mathrm{obs}}}{u_{0.05}}.
 \]
 代入 $t_{\mathrm{obs}}=0.3\,\mathrm{ps}$，得到
-\[
-\tau\in\left[\frac{0.3}{-\ln0.05},\frac{0.3}{-\ln0.95}\right]
-=[0.100,5.85]~\mathrm{ps}.
-\]
 \ansmath{\tau\in[0.100,\,5.85]~\mathrm{ps}\quad(90\%\ \mathrm{CL})}
 \end{solution}
 \end{question}
@@ -454,22 +440,10 @@ w_1+w_2=1.
 \[
 \hat x=w_1x_1+w_2x_2.
 \]
-代回 $v_1,v_2,c$，得
-\[
-\hat x=\frac{(\sigma_{s2}^2+\sigma_{c2}^2-\sigma_{c1}\sigma_{c2})x_1
-+(\sigma_{s1}^2+\sigma_{c1}^2-\sigma_{c1}\sigma_{c2})x_2}
-{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}.
-\]
 估计量方差为
 \[
 \sigma_{\hat x}^2=\frac{1}{\mathbf 1^{T}V^{-1}\mathbf 1}
 =\frac{v_1v_2-c^2}{v_1+v_2-2c}.
-\]
-即
-\[
-\sigma_{\hat x}^2
-=\frac{\sigma_{s1}^2\sigma_{s2}^2+\sigma_{c1}^2\sigma_{s2}^2+\sigma_{c2}^2\sigma_{s1}^2}
-{\sigma_{s1}^2+\sigma_{c1}^2+\sigma_{s2}^2+\sigma_{c2}^2-2\sigma_{c1}\sigma_{c2}}.
 \]
 故
 \ansmath{\hat x=\frac{(\sigma_{s2}^2+\sigma_{c2}^2-\sigma_{c1}\sigma_{c2})x_1

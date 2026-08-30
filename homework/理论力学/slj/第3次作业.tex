@@ -95,13 +95,13 @@ R(q_{k+1},\dots,q_s,\;\dot q_{k+1},\dots,\dot q_s,\;p_1,\dots,p_k,\;t)
 
 \textbf{对循环坐标的运动方程：}由 Legendre 变换的逆变换，
 \[
-\dot q_\alpha = -\frac{\partial R}{\partial p_\alpha} \qquad (\alpha=1,\dots,k).
+\dot q_\alpha = \frac{\partial R}{\partial p_\alpha} \qquad (\alpha=1,\dots,k).
 \]
 积分即得循环坐标随时间的演化。
 
 综上，Routh 方法将运动方程分为两组：
 \begin{itemize}
-  \item 循环坐标给出守恒量 \(p_\alpha = c_\alpha\)，其运动学由 \(\dot q_\alpha = -\partial R/\partial p_\alpha\) 描述；
+  \item 循环坐标给出守恒量 \(p_\alpha = c_\alpha\)，其运动学由 \(\dot q_\alpha = \partial R/\partial p_\alpha\) 描述；
   \item 非循环坐标遵从标准的 Lagrange 型方程
   \[
   \boxed{\;\frac{\mathrm d}{\mathrm d t}\frac{\partial R}{\partial\dot q_\beta}

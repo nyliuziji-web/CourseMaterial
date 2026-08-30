@@ -116,32 +116,38 @@ def compile_pdf(tex_content, output_pdf):
     temp_tex.write_text(tex_content, encoding="utf-8")
     for pattern in ("__compile_temp.*", "*.log", "*.aux", "*.out", "*.toc"):
         for p in list(BUILD_DIR.glob(pattern)):
-            p.unlink(missing_ok=True)
+            try:
+                p.unlink(missing_ok=True)
+            except OSError:
+                pass
     for _ in range(2):
-        r = subprocess.run(
+        subprocess.run(
           [XELATEX, "-interaction=scrollmode",
             "-output-directory", str(BUILD_DIR), "__compile_temp.tex"],
             cwd=ROOT_DIR,
-            capture_output=False,
+          capture_output=True,
         )
     pdf = BUILD_DIR / "__compile_temp.pdf"
-    if not pdf.exists():
-          return False
-    # check log for errors even if PDF was produced
     log = BUILD_DIR / "__compile_temp.log"
-    if log.exists():
-        errors = [l for l in log.read_text(encoding="utf-8", errors="replace").splitlines()
-                  if l.startswith("!")]
-        if errors:
-            print("\n*** LaTeX errors (PDF may be incomplete) ***", file=sys.stderr)
-            for e in errors[:10]:
-                print(e, file=sys.stderr)
-            if len(errors) > 10:
-                print("  ... and %d more" % (len(errors) - 10), file=sys.stderr)
+    if not pdf.exists():
+        errors = []
+        if log.exists():
+            errors = [l for l in log.read_text(encoding="utf-8", errors="replace").splitlines()
+                      if l.startswith("!")]
+        print("\n*** LaTeX errors ***", file=sys.stderr)
+        for e in errors[:20]:
+            print(e, file=sys.stderr)
+        if len(errors) > 20:
+            print("  ... and %d more" % (len(errors) - 20), file=sys.stderr)
+        print("PDF not generated.", file=sys.stderr)
+        sys.exit(1)
     pdf.replace(output_pdf)
     for pattern in ("__compile_temp.*", "*.log", "*.aux", "*.out", "*.toc"):
         for p in list(BUILD_DIR.glob(pattern)):
-            p.unlink(missing_ok=True)
+            try:
+                p.unlink(missing_ok=True)
+            except OSError:
+                pass
     return True
 
 

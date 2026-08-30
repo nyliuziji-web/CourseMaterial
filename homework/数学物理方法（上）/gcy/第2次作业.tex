@@ -8,8 +8,8 @@
 \end{enumerate}
 \begin{solution}
 \begin{enumerate}
-    \item 根据柯西黎曼条件，有 \(\pdv{u}{x} = \pdv{v}{y} = \ee^y \cos x, \pdv{u}{y}= -\pdv{v}{x}=\ee^y \sin x \)。因此有 \( \dd{u} = \ee^y \cos x \dd{x} + \ee^y \sin x \dd{y} \) 容易观察到 \(du\) 可以写成全微分 \(du = d(( \ee^y \sin x))\)，所以可以得到 \(u(x,y)= \ee^y \sin x +C\)，其中 \(C\) 为任意常实数。综上，我们可以写出 \( f(z)=\ee^y (\sin x + \ii  \cos x) + C = \ii \ee^{-\ii x +y} + C=\ii \ee^{-\ii z} + C  \)
-    \item 根据柯西黎曼条件，有 \(\pdv{u}{x}=\pdv{v}{y}=x/(x^2+y^2)^2 \cdot (-2y), \pdv{u}{y}=-\pdv{v}{x}=(x^2-y^2)/(x^2+y^2)^2\)。因此有\( \dd{u} = \frac{-2x y \dd{x} +(x^2 - y^2) \dd{y}}{(x^2+y^2)^2} \) 容易观察到 \(du\) 可以写成全微分 \(du=d(\frac{y}{x^2 + y^2})\)，所以可以得到 \(u(x,y)=\frac{y}{x^2+y^2}+C\)，其中 \(C\) 为任意常实数。综上，我们可以写出 \( f(z)=\frac{y+\ii x}{x^2+y^2} + C=\frac{\ii}{z} + C \)
+    \item 根据柯西黎曼条件，有 \(\pdv{u}{x} = \pdv{v}{y} = \ee^y \cos x, \pdv{u}{y}= -\pdv{v}{x}=\ee^y \sin x \)。因此有 \( \dd{u} = \ee^y \cos x \dd{x} + \ee^y \sin x \dd{y} \) 容易观察到 \(\dd{u}\) 可以写成全微分 \(\dd{u} = \dd{(\ee^y \sin x)}\)，所以可以得到 \(u(x,y)= \ee^y \sin x +C\)，其中 \(C\) 为任意常实数。综上，我们可以写出 \( f(z)=\ee^y (\sin x + \ii  \cos x) + C = \ii \ee^{-\ii x +y} + C=\ii \ee^{-\ii z} + C  \)
+    \item 根据柯西黎曼条件，有 \(\pdv{u}{x}=\pdv{v}{y}=x/(x^2+y^2)^2 \cdot (-2y), \pdv{u}{y}=-\pdv{v}{x}=(x^2-y^2)/(x^2+y^2)^2\)。因此有\( \dd{u} = \frac{-2x y \dd{x} +(x^2 - y^2) \dd{y}}{(x^2+y^2)^2} \) 容易观察到 \(\dd{u}\) 可以写成全微分 \(\dd{u}=\dd{\frac{y}{x^2 + y^2}}\)，所以可以得到 \(u(x,y)=\frac{y}{x^2+y^2}+C\)，其中 \(C\) 为任意常实数。综上，我们可以写出 \( f(z)=\frac{y+\ii x}{x^2+y^2} + C=\frac{\ii}{z} + C \)
 \end{enumerate}
 \end{solution}
 \end{question}
@@ -35,7 +35,7 @@ f'(z) = \pdv{u}{x} + \ii \pdv{v}{x} = \pdv{u}{x} -\ii \pdv{u}{y}
 \pdv{u'}{x}=\pdv{v'}{y}=8 \ee ^{2x} \cos (2y), \quad \pdv{u'}{y}=-\pdv{v'}{x}=-8\ee^{2x} \sin(2y)
 \]
 因此可以得到 \[
-du'=d(4\ee^{2x} \cos (2y))
+\dd{u'}=\dd{4\ee^{2x} \cos (2y)}
 \]
 \[
 u'(x,y)=4 \ee^{2x} \cos(2y) + C
@@ -61,7 +61,7 @@ u(x,y) = a(x) + b(y)
 \pdv{v}{x}=-\pdv{u}{y}=-\dv{b}{y}, \quad \pdv{v}{y}=\pdv{u}{x}=\dv{a}{x}
 \]
 因此可以得到 \[
-dv=\pdv{v}{x} dx+\pdv{v}{y} dy = -\dv{b}{y} dx + \dv{a}{x} dy
+\dd{v}=\pdv{v}{x} \dd{x}+\pdv{v}{y} \dd{y} = -\dv{b}{y} \dd{x} + \dv{a}{x} \dd{y}
 \]
 这个时候注意到 \[
 \nabla^2 u = \dv[2]{a}{x} + \dv[2]{b}{y}=0
@@ -69,7 +69,7 @@ dv=\pdv{v}{x} dx+\pdv{v}{y} dy = -\dv{b}{y} dx + \dv{a}{x} dy
 等式中一项只与 \(x\) 有关，一项只与 \(y\) 有关，加起来为 \(0\)，两者一定为常数。不妨设 \(\dv[2]{a}{x}=-\dv[2]{b}{y}=k\)，则有 \(\dv{a}{x}=k x + C_1,\dv{b}{y}=-k y - C_2\)，代入可以得到
 
 \[
-dv =  d(k x y + C_1 y + C_2 x)
+\dd{v} =  \dd{(k x y + C_1 y + C_2 x)}
 \]
 因此有 \(v(x,y) = k x y + C_1 y + C_2 x + C_3\)
 故有 \[

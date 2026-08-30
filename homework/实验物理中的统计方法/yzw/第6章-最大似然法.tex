@@ -426,10 +426,10 @@ V[\hat\theta]\ge
 \frac{\operatorname{cov}(\hat\theta,U)^2}{V[U]}.
 \]
 
-\item 因为 \(L\) 作为联合密度满足 \(\int L(\mathbf x;\theta)d\mathbf x=1\)，所以
+\item 因为 \(L\) 作为联合密度满足 \(\int L(\mathbf x;\theta)\,\dd{\mathbf x}=1\)，所以
 \[
-\operatorname{E}[U]=\int L\frac{\partial\log L}{\partial\theta}d\mathbf x
-=\int\frac{\partial L}{\partial\theta}d\mathbf x
+\operatorname{E}[U]=\int L\frac{\partial\log L}{\partial\theta}\,\dd{\mathbf x}
+=\int\frac{\partial L}{\partial\theta}\,\dd{\mathbf x}
 =\frac{\partial}{\partial\theta}1=0.
 \]
 因此 \(\operatorname{cov}(\hat\theta,U)=\operatorname{E}[\hat\theta U]\)，且
@@ -439,8 +439,8 @@ V[\hat\theta]\ge
 \(\theta\)，
 \[
 \frac{\partial}{\partial\theta}\operatorname{E}[\hat\theta]
-=\frac{\partial}{\partial\theta}\int\hat\theta L\,d\mathbf x
-=\int\hat\theta\frac{\partial L}{\partial\theta}d\mathbf x
+=\frac{\partial}{\partial\theta}\int\hat\theta L\,\dd{\mathbf x}
+=\int\hat\theta\frac{\partial L}{\partial\theta}\,\dd{\mathbf x}
 =\operatorname{E}[\hat\theta U].
 \]
 另一方面 \(\operatorname{E}[\hat\theta]=\theta+b(\theta)\)，所以
@@ -450,21 +450,21 @@ V[\hat\theta]\ge
 又由 \(\operatorname{E}[U]=0\) 再对 \(\theta\) 求导：
 \[
 0=\frac{\partial}{\partial\theta}\operatorname{E}[U]
-=E\left[\frac{\partial U}{\partial\theta}\right]+\operatorname{E}[U^2]
-=E\left[\frac{\partial^2\log L}{\partial\theta^2}\right]+\operatorname{E}[U^2].
+=\operatorname{E}\left[\frac{\partial U}{\partial\theta}\right]+\operatorname{E}[U^2]
+=\operatorname{E}\left[\frac{\partial^2\log L}{\partial\theta^2}\right]+\operatorname{E}[U^2].
 \]
 故
 \[
-\operatorname{E}[U^2]=-E\left[\frac{\partial^2\log L}{\partial\theta^2}\right].
+\operatorname{E}[U^2]=-\operatorname{E}\left[\frac{\partial^2\log L}{\partial\theta^2}\right].
 \]
 代回 Cauchy--Schwarz 不等式得到
 \[
 V[\hat\theta]
 \ge
 \frac{\left(1+\partial b/\partial\theta\right)^2}
-{-E\left[\partial^2\log L/\partial\theta^2\right]}.
+{-\operatorname{E}\left[\partial^2\log L/\partial\theta^2\right]}.
 \]
-无偏情形 \(b=0\) 时恢复标准 Cram\\'{e}r--Rao 下界。
+ 无偏情形 \(b=0\) 时恢复标准 Cram\'{e}r--Rao 下界。
 \end{enumerate}
 \end{solution}
 \end{question}
@@ -541,11 +541,11 @@ f(t;\lambda)=\lambda \ee^{-\lambda t}.
 因为 \(S=\sum_i t_i\sim\operatorname{Gamma}(n,\text{rate}=\lambda)\)，当
 \(n>1\) 时
 \[
-E\left[\frac1S\right]=\frac{\lambda}{n-1},
+\operatorname{E}\left[\frac1S\right]=\frac{\lambda}{n-1},
 \]
 所以
 \[
-\operatorname{E}[\hat\lambda]=nE\left[\frac1S\right]
+\operatorname{E}[\hat\lambda]=n\operatorname{E}\left[\frac1S\right]
 =\lambda\frac{n}{n-1},
 \qquad
 b=\operatorname{E}[\hat\lambda]-\lambda=\frac{\lambda}{n-1}.
@@ -915,7 +915,7 @@ N_A=\frac{R}{k},\qquad R=8.32\times10^7\ \mathrm{erg/(mol\,K)},
 \(2\)，则得到一个中等大小的 \(p\)
 值，说明拟合并不差，但样本点非常少，结论仍受系统误差影响。
 \pyfig[0.72\linewidth]{figures/fig_06_11_perrin_fit.png}{Perrin 计数数据与泊松最大似然指数模型的拟合结果。}
-可能的系统误差。
+
 
 \begin{itemize}
 \item

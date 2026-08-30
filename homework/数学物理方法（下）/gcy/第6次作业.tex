@@ -34,21 +34,21 @@ y_l(x)=P_l(x).
 \begin{question}
 证明
 \[
-\int_x^1P_k(t)P_l(t)\,dt
+\int_x^1P_k(t)P_l(t)\,\dd{t}
 =(1-x^2)\frac{P'_k(x)P_l(x)-P'_l(x)P_k(x)}{k(k+1)-l(l+1)},\qquad k\ne l.
 \]
 \begin{solution}
 Legendre 方程给出
 \[
-\frac d{dx}\left[(1-x^2)P_k'\right]+k(k+1)P_k=0,
+\frac{\dd}{\dd{x}}\left[(1-x^2)P_k'\right]+k(k+1)P_k=0,
 \]
 \[
-\frac d{dx}\left[(1-x^2)P_l'\right]+l(l+1)P_l=0.
+\frac{\dd}{\dd{x}}\left[(1-x^2)P_l'\right]+l(l+1)P_l=0.
 \]
 分别乘以 \(P_l,P_k\) 后相减：
 \[
-\frac d{dx}\left[(1-x^2)(P_k'P_l-P_l'P_k)\right]
-\{k(k+1)-l(l+1)\}P_kP_l=0.
+\frac{\dd}{\dd{x}}\left[(1-x^2)(P_k'P_l-P_l'P_k)\right]
++\{k(k+1)-l(l+1)\}P_kP_l=0.
 \]
 从 \(x\) 到 \(1\) 积分，并用 \(1-x^2\) 在 \(x=1\) 为零，即得所证公式。
 \end{solution}

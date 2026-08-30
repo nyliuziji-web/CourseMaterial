@@ -265,7 +265,7 @@ H'_{mn}=\langle m|H'|n\rangle
 E_n^{(2)}=\sum_{m\ne n}
 {\left({2\alpha\over a}\right)^2\sin^2{m\pi\over2}\sin^2{n\pi\over2}
 \over{\pi^2\hbar^2\over2ma^2}(n^2-m^2)}
-={8m\alpha^2\over\pi^2\hbar^2 a^2}\sin^2{n\pi\over2}
+={8m\alpha^2\over\pi^2\hbar^2}\sin^2{n\pi\over2}
 \sum_{m\ne n}{\sin^2{m\pi\over2}\over n^2-m^2}.
 \]
 当 $n$ 为偶数时,$\sin(n\pi/2)=0$,故 $\boxed{E_n^{(2)}=0}$。当 $n$ 为奇数时,$\sin^2(n\pi/2)=1$,且求和只对奇数 $m$ 非零。对奇数 $n$,求和可计算为
@@ -276,12 +276,8 @@ E_n^{(2)}=\sum_{m\ne n}
 \]
 代入得
 \[
-\boxed{E_n^{(2)}=-{8m\alpha^2\over\pi^2\hbar^2 a^2}\cdot{\pi^2\over8n^2}
-=-{m\alpha^2\over\pi^2\hbar^2 n^2a^2}\cdot 2a^2?}
-\]
-更仔细地,注意 ${8m\alpha^2\over\pi^2\hbar^2 a^2}\cdot{\pi^2\over8n^2}={m\alpha^2\over\hbar^2 n^2 a^2}$。再检查系数:$a^2$ 在分母,实质应为
-\[
-\boxed{E_n^{(2)}=-{2m\alpha^2\over\pi^2\hbar^2 n^2}\quad(\text{对奇数 }n).}
+\boxed{E_n^{(2)}=-{8m\alpha^2\over\pi^2\hbar^2}\cdot{\pi^2\over8n^2}
+=-{m\alpha^2\over\hbar^2 n^2}\quad(\text{对奇数 }n).}
 \]
 
 (b) 谐振子微扰 $H'={1\over2}\epsilon m\omega^2x^2$。利用升降算符 $x=\sqrt{\hbar/(2m\omega)}(a+a^\dagger)$:
@@ -1121,9 +1117,9 @@ g_j=1+{j(j+1)+s(s+1)-\ell(\ell+1)\over2j(j+1)},\quad s=1/2.
   注意 $2S_{1/2}$ 与 $2P_{1/2}$ 的 $\Delta E_{\rm fs}$ 相同(精细结构只依赖 $j$),但 $g$ 因子不同。
 \item $2P_{3/2}$:$\ell=1$,$j=3/2$。
   \[
-  g=1+{(15/4)+(3/4)-2\over2\cdot(15/4)}=1+{10/4\over15/4}=1+{10\over15}={5\over3}\approx1.333.
+  g=1+{(15/4)+(3/4)-2\over2\cdot(15/4)}=1+{10/4\over15/2}=1+{1\over3}={4\over3}.
   \]
-  更精确地 $g=4/3$(注意此处计算 $g=1+{3/2\cdot5/2+3/4-2\over2\cdot15/4}=1+{10/4\over15/4}=1+2/3=5/3$,但通常朗德公式代入 $j=3/2,\ell=1,s=1/2$ 得 $g=4/3$。仔细计算:$g=1+{j(j+1)-\ell(\ell+1)+s(s+1)\over2j(j+1)}=1+{15/4-2+3/4\over15/2}=1+{10/4\over15/2}=1+{20\over60}=4/3$。)故
+  故
   \[
   E=E_2+\Delta E_{\rm fs}(2,3/2)+{4\over3}\mu_B B m_j,\quad m_j=-3/2,-1/2,1/2,3/2.
   \]
@@ -2024,7 +2020,7 @@ H_Z = {\mu_B B\over\hbar}(L_z+2S_z) + {e^2B^2\over8m}\sum_{\ii=1}^2(x_i^2+y_i^2)
 \]
 对球对称的 $1s$ 态,$\langle x^2\rangle = \langle y^2\rangle = \langle r^2\rangle/3$,故 $\langle x^2+y^2\rangle = 2\langle r^2\rangle/3$。用类氢波函数(有效核电荷 $Z=2$):
 \[
-\psi_{100}(\mathbf r) = {Z^{3/2}\over\sqrt{\pi a_0^{3/2}}}\ee^{-Zr/a_0},
+\psi_{100}(\mathbf r) = {Z^{3/2}\over\sqrt{\pi a_0^3}}\ee^{-Zr/a_0},
 \]
 得 $\langle r^2\rangle = {3a_0^2\over Z^2}$。因此每个电子的 $\langle x^2+y^2\rangle = 2a_0^2/Z^2$,两个电子之和为 $4a_0^2/Z^2$。
 
@@ -2145,21 +2141,21 @@ E_n^{(2)} = \sum_{m\ne n} {|\langle m|H'|n\rangle|^2\over E_n^{(0)}-E_m^{(0)}}
 \begin{solution}
 (a) 令 $Q=H'$,算符期望值的一阶修正公式为
 \[
-\langle Q\rangl\ee^{(1)} = \sum_{m\ne n} {H'_{nm} Q_{mn} + Q_{nm} H'_{mn}\over E_n^{(0)}-E_m^{(0)}}.
+\langle Q\rangle^{(1)} = \sum_{m\ne n} {H'_{nm} Q_{mn} + Q_{nm} H'_{mn}\over E_n^{(0)}-E_m^{(0)}}.
 \]
 当 $Q=H'$ 时,$H'_{nm} H'_{mn}=|H'_{mn}|^2$,且两项相同,故
 \[
-\langle H'\rangl\ee^{(1)} = 2\sum_{m\ne n}{|H'_{mn}|^2\over E_n^{(0)}-E_m^{(0)}} = 2E_n^{(2)}.
+\langle H'\rangle^{(1)} = 2\sum_{m\ne n}{|H'_{mn}|^2\over E_n^{(0)}-E_m^{(0)}} = 2E_n^{(2)}.
 \]
-这不矛盾:总能量 $E_n = E_n^{(0)} + \langle H'\rangl\ee^{(0)} + \langle H'\rangl\ee^{(1)} + \cdots$,其中 $\langle H'\rangl\ee^{(0)}=E_n^{(1)}$ 是零阶波函数下的一阶能修,而 $\langle H'\rangl\ee^{(1)}=2E_n^{(2)}$ 来自波函数一阶修正的贡献,两者不同。
+这不矛盾:总能量 $E_n = E_n^{(0)} + \langle H'\rangle^{(0)} + \langle H'\rangle^{(1)} + \cdots$,其中 $\langle H'\rangle^{(0)}=E_n^{(1)}$ 是零阶波函数下的一阶能修,而 $\langle H'\rangle^{(1)}=2E_n^{(2)}$ 来自波函数一阶修正的贡献,两者不同。
 
 (b) 对 $H'=-q\mathcal Ex$(外电场中的带电谐振子),诱导电偶极矩为
 \[
-p = q\langle x\rangle = q\bigl[\langle x\rangl\ee^{(0)} + \langle x\rangl\ee^{(1)} + \cdots\bigr].
+p = q\langle x\rangle = q\bigl[\langle x\rangle^{(0)} + \langle x\rangle^{(1)} + \cdots\bigr].
 \]
-基态 $\langle x\rangl\ee^{(0)}=0$,一阶修正为
+基态 $\langle x\rangle^{(0)}=0$,一阶修正为
 \[
-\langle x\rangl\ee^{(1)} = 2\sum_{m\ne 0} {\langle0|x|m\rangle\langle m|H'|0\rangle\over E_0^{(0)}-E_m^{(0)}}
+\langle x\rangle^{(1)} = 2\sum_{m\ne 0} {\langle0|x|m\rangle\langle m|H'|0\rangle\over E_0^{(0)}-E_m^{(0)}}
 = -2q\mathcal E\sum_{m\ne0}{|\langle m|x|0\rangle|^2\over E_m^{(0)}-E_0^{(0)}}.
 \]
 故极化率 $\alpha = p/\mathcal E$:
@@ -2172,11 +2168,11 @@ p = q\langle x\rangle = q\bigl[\langle x\rangl\ee^{(0)} + \langle x\rangl\ee^{(1
 \]
 与经典谐振子极化率一致。
 
-(c) 对非谐微扰 $H' = kx^3/6$,计算 $\langle x\rangl\ee^{(1)}$。用升降算符表示 $x=\sqrt{\hbar/(2m\omega)}(a+a^\dagger)$,$x^3$ 展开为 $a^3$、$a^{\dagger3}$、$a^\dagger a^2$ 等项的线性组合,联结 $m=n\pm1,n\pm3$。求和后得
+(c) 对非谐微扰 $H' = kx^3/6$,计算 $\langle x\rangle^{(1)}$。用升降算符表示 $x=\sqrt{\hbar/(2m\omega)}(a+a^\dagger)$,$x^3$ 展开为 $a^3$、$a^{\dagger3}$、$a^\dagger a^2$ 等项的线性组合,联结 $m=n\pm1,n\pm3$。求和后得
 \[
-\langle x\rangl\ee^{(1)} = \sum_{m\ne n} {2\,\mathrm{Re}[\langle n|x|m\rangle\langle m|H'|n\rangle]\over E_n^{(0)}-E_m^{(0)}}.
+\langle x\rangle^{(1)} = \sum_{m\ne n} {2\,\mathrm{Re}[\langle n|x|m\rangle\langle m|H'|n\rangle]\over E_n^{(0)}-E_m^{(0)}}.
 \]
-计算得 $\langle x\rangl\ee^{(1)} \propto n$(与量子数 $n$ 成正比),表示非谐性导致谐振子各能级的平均位移不同,对应经典非谐振子的热膨胀效应。
+计算得 $\langle x\rangle^{(1)} \propto n$(与量子数 $n$ 成正比),表示非谐性导致谐振子各能级的平均位移不同,对应经典非谐振子的热膨胀效应。
 \end{solution}
 
 \begin{question}
@@ -2207,7 +2203,7 @@ H = H_0 + H' = \bigl[ -{\hbar^2\over2m}\nabla_1^2 - {\hbar^2\over2m}\nabla_2^2 -
 零阶波函数取两电子均处于类氢 $1s$ 轨道($Z=2$)的乘积:
 \[
 \psi^{(0)}(\mathbf r_1,\mathbf r_2) = \psi_{100}(\mathbf r_1)\psi_{100}(\mathbf r_2),
-\quad \psi_{100}(\mathbf r) = {Z^{3/2}\over\sqrt{\pi a^{3/2}}}\ee^{-Zr/a}.
+\quad \psi_{100}(\mathbf r) = {Z^{3/2}\over\sqrt{\pi a^3}}\ee^{-Zr/a}.
 \]
 一阶排斥能量为
 \[
@@ -2219,7 +2215,7 @@ E^{(1)} = {5\over8}Z\cdot{e^2\over4\pi\epsilon_0 a} = {5\over4}Z\,\mathrm{Ry},
 \]
 其中 $\mathrm{Ry}=13.6\,\mathrm{eV}$。对 $Z=2$,$E^{(1)}\approx34\,\mathrm{eV}$。未微扰能量是两电子各自处于 $Z=2$ 类氢 $1s$ 态的能量之和:
 \[
-E^{(0)} = 2\times\left(-{Z^2\over2}\cdot{\mathrm{Ry}}\right) = -4\,\mathrm{Ry} = -108.8\,\mathrm{eV}.
+E^{(0)} = 2\times\left(-Z^2\cdot{\mathrm{Ry}}\right) = -8\,\mathrm{Ry} = -108.8\,\mathrm{eV}.
 \]
 故一阶总能量
 \[
@@ -2233,20 +2229,20 @@ E \approx -108.8 + 34 = -74.8\,\mathrm{eV},
 + \left\langle -{2e^2\over4\pi\epsilon_0}\left({1\over r_1}+{1\over r_2}\right)\right\rangle
 + \left\langle {e^2\over4\pi\epsilon_0 r_{12}}\right\rangle.
 \]
-动能项期望值 $\langle T\rangle = 2\cdot{Z_{\rm eff}^2\over2}\mathrm{Ry} = Z_{\rm eff}^2\mathrm{Ry}$;
-势能项(核吸引)$\langle V_{\rm nucl}\rangle = -2Z_{\rm eff}\cdot2\mathrm{Ry} = -4Z_{\rm eff}\mathrm{Ry}$;
-电子排斥 $\langle V_{ee}\rangle = {5\over8}Z_{\rm eff}\mathrm{Ry}$。
+动能项期望值 $\langle T\rangle = 2\times Z_{\rm eff}^2\mathrm{Ry} = 2Z_{\rm eff}^2\mathrm{Ry}$(每个电子 $Z_{\rm eff}^2\mathrm{Ry}$);
+势能项(核吸引)$\langle V_{\rm nucl}\rangle = 2\times(-2Z\cdot Z_{\rm eff})\mathrm{Ry} = -8Z_{\rm eff}\mathrm{Ry}$($Z=2$);
+电子排斥 $\langle V_{ee}\rangle = {5\over4}Z_{\rm eff}\mathrm{Ry}$。
 故
 \[
-\langle H\rangle = \bigl[Z_{\rm eff}^2 - 4Z_{\rm eff} + {5\over8}Z_{\rm eff}\bigr]\mathrm{Ry}
-= \bigl[Z_{\rm eff}^2 - {27\over8}Z_{\rm eff}\bigr]\mathrm{Ry}.
+\langle H\rangle = \bigl[2Z_{\rm eff}^2 - 8Z_{\rm eff} + {5\over4}Z_{\rm eff}\bigr]\mathrm{Ry}
+= \bigl[2Z_{\rm eff}^2 - {27\over4}Z_{\rm eff}\bigr]\mathrm{Ry}.
 \]
 对 $Z_{\rm eff}$ 求极值:
 \[
-{\dd\langle H\rangle\over\dd Z_{\rm eff}} = 2Z_{\rm eff} - {27\over8} = 0
+{\dd\langle H\rangle\over\dd Z_{\rm eff}} = 4Z_{\rm eff} - {27\over4} = 0
 \quad\Longrightarrow\quad Z_{\rm eff} = {27\over16} \approx 1.69.
 \]
-代入得 $\langle H\rangle_{\min} = -\left({27\over16}\right)^2\mathrm{Ry} \approx -77.5\,\mathrm{eV}$,与实验值 $-79.0\,\mathrm{eV}$ 更接近。
+代入得 $\langle H\rangle_{\min} = -{729\over128}\,\mathrm{Ry} \approx -77.5\,\mathrm{eV}$,与实验值 $-79.0\,\mathrm{eV}$ 更接近。
 
 (c) 对第一激发态:(空间对称单态与空间反对称三重态)
 \[

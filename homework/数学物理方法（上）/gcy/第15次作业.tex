@@ -88,7 +88,7 @@
 \begin{solution}
 
 \begin{enumerate}
-  \item 即计算积分 \(\displaystyle\int_0^\infty \ee^{-p t} t^{\alpha}\dd{t}\)。作换元 \(\tau = p t\)，有 \[ \mathcal{L}\{t^\alpha\}=\int_0^\infty \ee^{-\tau} (\tau/p)^{\alpha}\,\frac{d\tau}{p} = \frac{\Gamma(\alpha+1)}{p^{\alpha+1}} \]
+  \item 即计算积分 \(\displaystyle\int_0^\infty \ee^{-p t} t^{\alpha}\dd{t}\)。作换元 \(\tau = p t\)，有 \[ \mathcal{L}\{t^\alpha\}=\int_0^\infty \ee^{-\tau} (\tau/p)^{\alpha}\,\frac{\dd{\tau}}{p} = \frac{\Gamma(\alpha+1)}{p^{\alpha+1}} \]
 
   \item 即计算积分 \(\displaystyle\int_0^\infty (t-a\lfloor t/a\rfloor) \ee^{-p t}\dd{t}\)。分段积分，有 \[ \mathcal{L}\{t-a\lfloor t/a\rfloor\} = \sum_{n=0}^\infty \int_{n a}^{(n+1) a} (t-n a) \ee^{-p t}\dd{t} = \sum_{n=0}^\infty \int_0^a t \ee^{-p (t+n a)}\dd{t} \] \[ = \frac{1}{1-\ee^{-p a}} \int_0^a t \ee^{-p t}\dd{t} = \frac{1}{1-\ee^{-p a}}\frac{1-\ee^{-p a}(p a+1)}{p^2} \]
 
@@ -191,7 +191,7 @@
 
 \[
 \int_{s-\ii\infty}^{s+\ii\infty}
-\frac1{2\pi\ii}F(p)\ee^{pt}\dd p
+\frac1{2\pi\ii}F(p)\ee^{pt}\dd{p}
 =1-\frac4\pi\sum_{n=0}^\infty\frac1{2n+1}
 \exp\Bigl[-\Bigl(\frac{\pi(2n+1)}{2l}\Bigr)^2t\Bigr]
 \sin\Bigl(\frac{(2n+1)\pi x}{2l}\Bigr).
@@ -218,11 +218,11 @@
 \end{enumerate}
 \begin{solution}
 \begin{enumerate}
-  \item \[ \ee^{-a x}\cos c x - \ee^{-b x}\cos c x \to \frac12\Bigl[\frac1{p+a+\ii c}+\frac1{p+a-\ii c}-\frac1{p+b+\ii c}-\frac1{p+b-\ii c}\Bigr] \]因此有 \[ \int_0^\infty \frac{\ee^{-a x}-\ee^{-b x}}{x}\cos c x\dd{x} = \int_0^\infty \frac12\Bigl[\frac1{p+a+\ii c}+\frac1{p+a-\ii c}-\frac1{p+b+\ii c}-\frac1{p+b-\ii c}\Bigr]dp \] \[ = \bigl.\frac12\ln\frac{(p+a)^2+c^2}{(p+b)^2+c^2}\bigr|_0^\infty = \frac12\ln\frac{b^2+c^2}{a^2+c^2} \]
+  \item \[ \ee^{-a x}\cos c x - \ee^{-b x}\cos c x \to \frac12\Bigl[\frac1{p+a+\ii c}+\frac1{p+a-\ii c}-\frac1{p+b+\ii c}-\frac1{p+b-\ii c}\Bigr] \]因此有 \[ \int_0^\infty \frac{\ee^{-a x}-\ee^{-b x}}{x}\cos c x\dd{x} = \int_0^\infty \frac12\Bigl[\frac1{p+a+\ii c}+\frac1{p+a-\ii c}-\frac1{p+b+\ii c}-\frac1{p+b-\ii c}\Bigr]\dd{p} \] \[ = \bigl.\frac12\ln\frac{(p+a)^2+c^2}{(p+b)^2+c^2}\bigr|_0^\infty = \frac12\ln\frac{b^2+c^2}{a^2+c^2} \]
 
-  \item \[ 1-\cos b x \to \frac1p-\frac12\frac1{p+\ii b}-\frac12\frac1{p-\ii b} \]因此有 \[ \frac{1-\cos b x}{x} \to \int_p^\infty \Bigl(\frac1p-\frac12\frac1{p+\ii b}-\frac12\frac1{p-\ii b}\Bigr)dp = \frac12\ln\frac{p^2+b^2}{p^2} \]故 \[ \int_0^\infty \frac{1-\cos b x}{x^2}\dd{x} = \int_0^\infty \frac12\ln\frac{p^2+b^2}{p^2}\dd{p} = \frac12\pi b \]
+  \item \[ 1-\cos b x \to \frac1p-\frac12\frac1{p+\ii b}-\frac12\frac1{p-\ii b} \]因此有 \[ \frac{1-\cos b x}{x} \to \int_p^\infty \Bigl(\frac1p-\frac12\frac1{p+\ii b}-\frac12\frac1{p-\ii b}\Bigr)\dd{p} = \frac12\ln\frac{p^2+b^2}{p^2} \]故 \[ \int_0^\infty \frac{1-\cos b x}{x^2}\dd{x} = \int_0^\infty \frac12\ln\frac{p^2+b^2}{p^2}\dd{p} = \frac12\pi b \]
 
-  \item \[ \frac{\sin x t}{x(x^2+1)} \to \frac1{(x^2+1)(p^2+x^2)} \]因此有 \[ \int_0^\infty \frac{\sin x t}{x(x^2+1)}\dd{x} \to \int_0^\infty \frac1{(x^2+1)(p^2+x^2)}\dd{x} = \int_0^\infty \frac1{p^2-1}\Bigl[\frac1{x^2+1}-\frac1{x^2+p^2}\Bigr]dx = \frac{\pi}{2}\frac1{(p+1)p} \]而同时有 \(\displaystyle\frac1{p(p+1)} = \frac1p-\frac1{p+1} \gets 1-\ee^{-t}\)，因此上述结果为 \[ \int_0^\infty \frac{\sin x t}{x(x^2+1)}\dd{x} = \frac{\pi}{2}(1-\ee^{-t})\quad (t>0) \]而上述积分关于 \(t\) 为奇函数，因此有 \[ \int_0^\infty \frac{\sin x t}{x(x^2+1)}\dd{x} = \frac{\pi}{2}\operatorname{sgn}(t)(1-\ee^{-|t|}) \]
+  \item \[ \frac{\sin x t}{x(x^2+1)} \to \frac1{(x^2+1)(p^2+x^2)} \]因此有 \[ \int_0^\infty \frac{\sin x t}{x(x^2+1)}\dd{x} \to \int_0^\infty \frac1{(x^2+1)(p^2+x^2)}\dd{x} = \int_0^\infty \frac1{p^2-1}\Bigl[\frac1{x^2+1}-\frac1{x^2+p^2}\Bigr]\dd{x} = \frac{\pi}{2}\frac1{(p+1)p} \]而同时有 \(\displaystyle\frac1{p(p+1)} = \frac1p-\frac1{p+1} \gets 1-\ee^{-t}\)，因此上述结果为 \[ \int_0^\infty \frac{\sin x t}{x(x^2+1)}\dd{x} = \frac{\pi}{2}(1-\ee^{-t})\quad (t>0) \]而上述积分关于 \(t\) 为奇函数，因此有 \[ \int_0^\infty \frac{\sin x t}{x(x^2+1)}\dd{x} = \frac{\pi}{2}\operatorname{sgn}(t)(1-\ee^{-|t|}) \]
 \end{enumerate}
 \end{solution}
 \end{question}

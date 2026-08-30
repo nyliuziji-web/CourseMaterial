@@ -155,15 +155,15 @@ S=-\left(\frac{\partial F}{\partial T}\right)_{V,N}
 \]
 因此
 \[
-Z_1=\frac{1}{h^3}\int d^3p\,\ee^{-\beta p^2/2m}\int_A dx\,dy\int_0^H dz\,\ee^{-\beta mgz}.
+Z_1=\frac{1}{h^3}\int \dd[3]{p}\,\ee^{-\beta p^2/2m}\int_A \dd{x}\,\dd{y}\int_0^H \dd{z}\,\ee^{-\beta mgz}.
 \]
 动量积分给出
 \[
-\int d^3p\,\ee^{-\beta p^2/2m}=(2\pi m k_B T)^{3/2},
+\int \dd[3]{p}\,\ee^{-\beta p^2/2m}=(2\pi m k_B T)^{3/2},
 \]
 位置积分给出
 \[
-\int_0^H \ee^{-\beta mgz}\,dz=\frac{1-\ee^{-\beta mgH}}{\beta mg}.
+\int_0^H \ee^{-\beta mgz}\,\dd{z}=\frac{1-\ee^{-\beta mgH}}{\beta mg}.
 \]
 故
 \ansmath{Z_1=
@@ -181,7 +181,7 @@ n(z)=C \ee^{-\beta mgz}.
 \]
 由归一化条件
 \[
-A\int_0^H n(z)\,dz=N
+A\int_0^H n(z)\,\dd{z}=N
 \]
 得
 \[
@@ -218,10 +218,7 @@ U=-\frac{\partial}{\partial\beta}\ln Z
 \ln Z=N\ln[2\cosh(\beta\mu B)],
 \]
 故
-\[
-U=-N\mu B\tanh(\beta\mu B).
-\]
-因此
+
 \ansmath{U=-N\mu B\tanh(\beta\mu B).}
 
 热容为
@@ -271,7 +268,7 @@ N=2\cdot \frac{V}{(2\pi)^3}\frac{4\pi}{3}k_F^3
 
 零温内能为
 \[
-U=2\cdot \frac{V}{(2\pi)^3}\int_{k\le k_F}\frac{\hbar^2 k^2}{2m}\,d^3k
+U=2\cdot \frac{V}{(2\pi)^3}\int_{k\le k_F}\frac{\hbar^2 k^2}{2m}\,\dd[3]{k}
 =\frac{3}{5}N\varepsilon_F.
 \]
 于是能量密度

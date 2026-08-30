@@ -83,7 +83,7 @@ f(z)=\sum_{n=0}^\infty z^{n!}=z+z+z^2+z^6+z^{24}+\cdots,\qquad |z|<1.
 
   \item 当 \(z_0\) 为 \(z^{k!}=1\) 的根时，那么对于 \(n>k\)，有
    \[
-   z_0^{n!} = z^{k!\cdot (k+1)\cdot (k+2)\cdots n} = 1^{(k+1)(k+2)\cdots n} = 1,
+   z_0^{n!} = z_0^{k!\cdot (k+1)\cdot (k+2)\cdots n} = 1^{(k+1)(k+2)\cdots n} = 1,
    \]
    因此有
    \[
@@ -116,7 +116,7 @@ f(z)=\sum_{n=0}^\infty z^{n!}=z+z+z^2+z^6+z^{24}+\cdots,\qquad |z|<1.
 \node at (0,0) [below left] {$O$};
 \end{tikzpicture}
 \end{center}
-考察积分路径，由于 \(\ee^t t^{z-1}\) 在右半平面解析，因此由柯西积分定理
+考察积分路径，由于 \(\ee^{-t} t^{z-1}\) 在右半平面解析，因此由柯西积分定理
 \[
 \int_L \ee^{-t} t^{z-1}\dd{t}
 = \int_{L'} \ee^{-t} t^{z-1}\dd{t} + \int_{C_R} \ee^{-t} t^{z-1}\dd{t}.

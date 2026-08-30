@@ -45,19 +45,19 @@ E_1=\frac32\hbar\omega,
 \langle H\rangle=\frac12 E_0+\frac12 E_1=\hbar\omega.}
 
 时间演化为
-\ansmath{\psi(x,t)=\frac{1}{\sqrt2}\left(\ee^{-i\omega t/2}\psi_0(x)+\ee^{-i3\omega t/2}\psi_1(x)\right).}
+\ansmath{\psi(x,t)=\frac{1}{\sqrt2}\left(\ee^{-\ii\omega t/2}\psi_0(x)+\ee^{-\ii 3\omega t/2}\psi_1(x)\right).}
 
 位置算符只连接相邻能级，因此
 \[
-\langle x\rangle_t=\frac12\left(\ee^{-i\omega t}\langle 0|x|1\rangle+\ee^{i\omega t}\langle 1|x|0\rangle\right)
+\langle x\rangle_t=\frac12\left(\ee^{-\ii\omega t}\langle 0|x|1\rangle+\ee^{\ii\omega t}\langle 1|x|0\rangle\right)
 =\sqrt{\frac{\hbar}{2m\omega}}\cos(\omega t).
 \]
 故
 \ansmath{\langle x\rangle_t=\sqrt{\frac{\hbar}{2m\omega}}\cos(\omega t).}
 
-概率密度中只出现相对相位 $\ee^{-i\omega t}$，因此当
+概率密度中只出现相对相位 $\ee^{-\ii\omega t}$，因此当
 \[
-\ee^{-i\omega t}=1
+\ee^{-\ii\omega t}=1
 \]
 时恢复到初始形式，即
 \ansmath{t=\ell\frac{2\pi}{\omega},\qquad \ell=1,2,3,\dots.}
@@ -103,21 +103,21 @@ E_1=2\hbar\omega.
 
 直接作用可得
 \[
-\hat L_z\psi_x=i\hbar\psi_y,
+\hat L_z\psi_x=\ii\hbar\psi_y,
 \qquad
-\hat L_z\psi_y=-i\hbar\psi_x.
+\hat L_z\psi_y=-\ii\hbar\psi_x.
 \]
 故在基 $\{\psi_x,\psi_y\}$ 下
 \ansmath{\hat L_z\ \longleftrightarrow\ \hbar
 \begin{pmatrix}
-0&-i\\
-i&0
+0&-\ii\\
+\ii&0
 \end{pmatrix}.}
 其本征态为
 \[
-\psi_+=\frac{\psi_x+i\psi_y}{\sqrt2},
+\psi_+=\frac{\psi_x+\ii\psi_y}{\sqrt2},
 \qquad
-\psi_-=\frac{\psi_x-i\psi_y}{\sqrt2},
+\psi_-=\frac{\psi_x-\ii\psi_y}{\sqrt2},
 \]
 对应本征值分别为 $+\hbar$ 与 $-\hbar$。
 
@@ -127,10 +127,10 @@ i&0
 \]
 因此时间演化为
 \[
-\psi(t)=\frac{1}{\sqrt2}\left(\ee^{-i(E_1+D\hbar)t/\hbar}\psi_++\ee^{-i(E_1-D\hbar)t/\hbar}\psi_-\right).
+\psi(t)=\frac{1}{\sqrt2}\left(\ee^{-\ii(E_1+D\hbar)t/\hbar}\psi_++\ee^{-\ii(E_1-D\hbar)t/\hbar}\psi_-\right).
 \]
 化回 $\{\psi_x,\psi_y\}$ 基，得
-\ansmath{\psi(t)=\ee^{-iE_1 t/\hbar}\left[\cos(Dt)\,\psi_x+\sin(Dt)\,\psi_y\right].}
+\ansmath{\psi(t)=\ee^{-\ii E_1 t/\hbar}\left[\cos(Dt)\,\psi_x+\sin(Dt)\,\psi_y\right].}
 
 因此
 \ansmath{P_x(t)=\cos^2(Dt),
@@ -206,8 +206,21 @@ P_y(t)=\sin^2(Dt).}
 \[
 \Psi_-^{\text{space}}=\frac{\psi_0(x_1)\psi_1(x_2)-\psi_1(x_1)\psi_0(x_2)}{\sqrt2}.
 \]
-这与无自旋两费米子的一维谐振子基态相同，因此
-\ansmath{\langle (x_1-x_2)^2\rangle_{\mathrm{triplet}}=\frac{2\hbar}{m\omega}.}
+这与无自旋两费米子的一维谐振子基态相同。由反对称态的结构，
+\[
+\langle x_1^2\rangle=\langle x_2^2\rangle=\frac12\bigl(\langle x^2\rangle_0+\langle x^2\rangle_1\bigr)=\frac{\hbar}{m\omega},
+\]
+\[
+\langle x_1 x_2\rangle=-|\langle 0|x|1\rangle|^2=-\frac{\hbar}{2m\omega},
+\]
+其中 $\langle 0|x|1\rangle=\sqrt{\hbar/(2m\omega)}$。因此
+\[
+\langle (x_1-x_2)^2\rangle
+=\langle x_1^2\rangle+\langle x_2^2\rangle-2\langle x_1 x_2\rangle
+=\frac{2\hbar}{m\omega}+\frac{\hbar}{m\omega}.
+\]
+故
+\ansmath{\langle (x_1-x_2)^2\rangle_{\mathrm{triplet}}=\frac{3\hbar}{m\omega}.}
 \end{solution}
 \end{question}
 
@@ -284,11 +297,11 @@ t \ee^{-\kappa x},& x>0.
 \[
 1+r=t,
 \qquad
-ik(1-r)=-\kappa t.
+\ii k(1-r)=-\kappa t.
 \]
 解得
 \[
-r=\frac{k-i\kappa}{k+i\kappa}.
+r=\frac{k-\ii\kappa}{k+\ii\kappa}.
 \]
 于是
 \ansmath{R=|r|^2=1.}

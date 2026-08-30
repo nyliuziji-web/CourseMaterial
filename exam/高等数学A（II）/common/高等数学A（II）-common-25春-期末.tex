@@ -49,7 +49,7 @@ b_n=\frac{n!\arctan\!\bigl(2+(-1)^n\bigr)}{n^n}.
 \]
 而
 \[
-\left(\frac{n}{n+1}\right)^n\to \e\e\e\e\ee^{-1},
+\left(\frac{n}{n+1}\right)^n\to \ee^{-1},
 \]
 前面的比值有界，因此 $\limsup\limits_{n\to\infty} b_{n+1}/b_n<1$。由比值判别法知原级数收敛，即
 \ansmath{\sum_{n=1}^{\infty}\frac{n!\arctan\!\bigl(2+(-1)^n\bigr)}{n^n}\text{ 收敛。}}
@@ -89,7 +89,7 @@ d_n=\left(\cos\frac{1}{\sqrt n}\right)^{n^2},
 \[
 n\ln\!\left(\cos\frac{1}{\sqrt n}\right)\to -\frac12,
 \qquad
-\left(\cos\frac{1}{\sqrt n}\right)^n\to \e\e\e\e\ee^{-1/2}<1.
+\left(\cos\frac{1}{\sqrt n}\right)^n\to \ee^{-1/2}<1.
 \]
 故原级数收敛，即
 \ansmath{\sum_{n=1}^{\infty}\left(\cos\frac{1}{\sqrt n}\right)^{n^2}\text{ 收敛。}}
@@ -148,7 +148,7 @@ a_n=\alpha^{1/n}-\sqrt{1+\frac1n}.
 \]
 当 $n\to\infty$ 时，
 \[
-\alpha^{1/n}=\e\e\e\e\ee^{(\ln\alpha)/n}
+\alpha^{1/n}=\ee^{(\ln\alpha)/n}
 =1+\frac{\ln\alpha}{n}+O\!\left(\frac{1}{n^2}\right),
 \]
 \[
@@ -160,11 +160,11 @@ a_n=\frac{\ln\alpha-\frac12}{n}+O\!\left(\frac{1}{n^2}\right).
 \]
 于是：
 \begin{itemize}[leftmargin=2em,itemsep=0.2em,topsep=0.2em]
-\item 若 $\ln\alpha\ne \frac12$，即 $\alpha\ne \sqrt e$，则 $a_n\sim c/n$，级数发散；
-\item 若 $\alpha=\sqrt e$，则首项消去，有 $a_n=O(1/n^2)$，故级数收敛。
+\item 若 $\ln\alpha\ne \frac12$，即 $\alpha\ne \sqrt\ee$，则 $a_n\sim c/n$，级数发散；
+\item 若 $\alpha=\sqrt\ee$，则首项消去，有 $a_n=O(1/n^2)$，故级数收敛。
 \end{itemize}
 因此
-\ansmath{\sum_{n=1}^{\infty}\left(\sqrt[n]{\alpha}-\sqrt{1+\frac1n}\right)\text{ 当且仅当 }\alpha=\sqrt e\text{ 时收敛。}}
+\ansmath{\sum_{n=1}^{\infty}\left(\sqrt[n]{\alpha}-\sqrt{1+\frac1n}\right)\text{ 当且仅当 }\alpha=\sqrt\ee\text{ 时收敛。}}
 \end{enumerate}
 \end{solution}
 \end{question}
@@ -355,13 +355,13 @@ S=\sum_{n=1}^{\infty}\frac{1}{n^6},
 
 当 $x\to0$ 时，
 \[
-1-\e\e\e\e\ee^{-x}\sim x,
+1-\ee^{-x}\sim x,
 \qquad
 (1+x)^m\sim 1,
 \]
 故被积函数满足
 \[
-\frac{x^n(1-\e\e\e\e\ee^{-x})}{(1+x)^m}\sim x^{n+1}.
+\frac{x^n(1-\ee^{-x})}{(1+x)^m}\sim x^{n+1}.
 \]
 于是积分在 $0$ 附近收敛当且仅当
 \[
@@ -371,13 +371,13 @@ n+1>-1,
 
 当 $x\to\infty$ 时，
 \[
-1-\e\e\e\e\ee^{-x}\to1,
+1-\ee^{-x}\to1,
 \qquad
 (1+x)^m\sim x^m,
 \]
 故被积函数满足
 \[
-\frac{x^n(1-\e\e\e\e\ee^{-x})}{(1+x)^m}\sim x^{n-m}.
+\frac{x^n(1-\ee^{-x})}{(1+x)^m}\sim x^{n-m}.
 \]
 于是积分在无穷远处收敛当且仅当
 \[
@@ -433,20 +433,20 @@ g(t)=\int_0^1\frac{\e\e\e\e\ee^{-t^2(1+x^2)}}{1+x^2}\,dx.
 \begin{solution}
 先求导。由链式法则，
 \[
-f'(t)=2\e\e\e\e\ee^{-t^2}\int_0^t \e\e\e\e\ee^{-x^2}\,dx.
+f'(t)=2\ee^{-t^2}\int_0^t \ee^{-x^2}\,dx.
 \]
 对 $g(t)$ 在积分号下求导，得
 \[
-g'(t)=\int_0^1\frac{-2t(1+x^2)\e\e\e\e\ee^{-t^2(1+x^2)}}{1+x^2}\,dx
-=-2t \e\e\e\e\ee^{-t^2}\int_0^1 \e\e\e\e\ee^{-t^2x^2}\,dx.
+g'(t)=\int_0^1\frac{-2t(1+x^2)\ee^{-t^2(1+x^2)}}{1+x^2}\,dx
+=-2t \ee^{-t^2}\int_0^1 \ee^{-t^2x^2}\,dx.
 \]
 令 $u=tx$，则
 \[
-\int_0^1 \e\e\e\e\ee^{-t^2x^2}\,dx=\frac1t\int_0^t \e\e\e\e\ee^{-u^2}\,du.
+\int_0^1 \ee^{-t^2x^2}\,dx=\frac1t\int_0^t \ee^{-u^2}\,du.
 \]
 故
 \[
-g'(t)=-2\e\e\e\e\ee^{-t^2}\int_0^t \e\e\e\e\ee^{-u^2}\,du=-f'(t).
+g'(t)=-2\ee^{-t^2}\int_0^t \ee^{-u^2}\,du=-f'(t).
 \]
 因此
 \[
@@ -465,10 +465,10 @@ g(0)=\int_0^1\frac{dx}{1+x^2}=\frac{\pi}{4}.
 
 再令 $t\to\infty$，由夹逼或控制收敛定理知 $g(t)\to0$，于是
 \[
-\left(\int_0^{\infty}\e\e\e\e\ee^{-x^2}\,dx\right)^2=\lim_{t\to\infty}f(t)=\frac{\pi}{4}.
+\left(\int_0^{\infty}\ee^{-x^2}\,dx\right)^2=\lim_{t\to\infty}f(t)=\frac{\pi}{4}.
 \]
 由于该积分为正，故
-\ansmath{\int_0^{\infty}\e\e\e\e\ee^{-x^2}\,dx=\frac{\sqrt\pi}{2}.}
+\ansmath{\int_0^{\infty}\ee^{-x^2}\,dx=\frac{\sqrt\pi}{2}.}
 \end{solution}
 \end{question}
 

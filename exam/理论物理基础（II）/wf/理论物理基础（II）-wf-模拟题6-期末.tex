@@ -28,7 +28,7 @@
 \]
 两者重叠给出新基态振幅
 \[
-c_0=\int_{-\infty}^{\infty} \bigl(\psi_0^{(f)}\bigr)^*\psi_i\,dx
+c_0=\int_{-\infty}^{\infty} \bigl(\psi_0^{(f)}\bigr)^*\psi_i\,\dd{x}
 =\left(\frac{2\sqrt{\omega\Omega}}{\omega+\Omega}\right)^{1/2}.
 \]
 因此
@@ -89,14 +89,9 @@ c_0=\int_{-\infty}^{\infty} \bigl(\psi_0^{(f)}\bigr)^*\psi_i\,dx
 \end{pmatrix}}
 （基的顺序为 $|1,1\rangle,|1,0\rangle,|1,-1\rangle$）。
 
-由于 $\hat L^2$ 在本子空间中只是整体常数，只需考虑 $\ee^{-iDt\hat L_x/\hbar}$ 对初态的作用。它等价于绕 $x$ 轴旋转。由直接指数化或利用转动矩阵可得
-\[
-|\psi(t)\rangle=\ee^{-i\hbar t/I}\left[\cos(Dt)|1,0\rangle-
-\frac{i\sin(Dt)}{\sqrt2}\bigl(|1,1\rangle+|1,-1\rangle\bigr)\right].
-\]
-故
-\ansmath{|\psi(t)\rangle=\ee^{-i\hbar t/I}\left[\cos(Dt)|1,0\rangle-
-\frac{i\sin(Dt)}{\sqrt2}\bigl(|1,1\rangle+|1,-1\rangle\bigr)\right].}
+由于 $\hat L^2$ 在本子空间中只是整体常数，只需考虑 $\ee^{-\ii Dt\hat L_x/\hbar}$ 对初态的作用。它等价于绕 $x$ 轴旋转。由直接指数化或利用转动矩阵可得
+\ansmath{|\psi(t)\rangle=\ee^{-\ii\hbar t/I}\left[\cos(Dt)|1,0\rangle-
+\frac{\ii\sin(Dt)}{\sqrt2}\bigl(|1,1\rangle+|1,-1\rangle\bigr)\right].}
 
 因此测量 $L_z$ 时的概率为
 \ansmath{P(m=0;t)=\cos^2(Dt),

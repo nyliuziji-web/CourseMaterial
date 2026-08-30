@@ -67,7 +67,7 @@
 \optionitem{都不是}
 \end{choiceoptions}
 \begin{solution}
-泻流分布满足 $F_B(v)\propto v^3\e\e\e\e\ee^{-mv^2/(2k_BT)}$，与通常体相中的麦克斯韦速率分布不同。
+泻流分布满足 $F_B(v)\propto v^3\ee^{-mv^2/(2k_BT)}$，与通常体相中的麦克斯韦速率分布不同。
 \ansmath{\text{D}}
 \end{solution}
 \end{question}
@@ -90,9 +90,9 @@ T=\frac{2\times1.6\times10^{-19}}{3\times1.38\times10^{-23}}\approx7.73\times10^
 \begin{question}
 重力场中微观粒子随高度的等温分布满足玻尔兹曼分布。若单个气体分子质量为 $m$、温度恒为 $T$，求每个气体分子的重力势能平均值。
 \begin{solution}
-概率密度与 $\e\e\e\e\ee^{-mgz/(k_BT)}$ 成正比。归一化后
+概率密度与 $\ee^{-mgz/(k_BT)}$ 成正比。归一化后
 \[
-\langle U\rangle=\int_0^{\infty}mgz\cdot \frac{mg}{k_BT}\e\e\e\e\ee^{-mgz/(k_BT)}\,dz=k_BT.
+\langle U\rangle=\int_0^{\infty}mgz\cdot \frac{mg}{k_BT}\ee^{-mgz/(k_BT)}\,dz=k_BT.
 \]
 \end{solution}
 \end{question}
@@ -202,23 +202,25 @@ f(V)=\frac{C}{V-b}.
 \[
 F_B(v)=\frac{v}{\bar v}F_M(v),
 \]
-其中 $F_M(v)\propto v^2 \e\e\e\e\ee^{-mv^2/(2k_BT)}$ 为三维麦克斯韦速率分布，$\bar v=\sqrt{8k_BT/(\pi m)}$。求该分子束的最概然速率、平均速率和方均根速率。
+其中 $F_M(v)\propto v^2 \ee^{-mv^2/(2k_BT)}$ 为三维麦克斯韦速率分布，$\bar v=\sqrt{8k_BT/(\pi m)}$。求该分子束的最概然速率、平均速率和方均根速率。
 \begin{solution}
 有
 \[
-F_B(v)\propto v^3\e\e\e\e\ee^{-\alpha v^2},\qquad \alpha=\frac{m}{2k_BT}.
+F_B(v)\propto v^3\ee^{-\alpha v^2},\qquad \alpha=\frac{m}{2k_BT}.
 \]
 最概然速率由 $\frac{d}{dv}\ln F_B(v)=0$ 得
-\ansmath{v_{\mathrm{mp}}=\sqrt{\frac{3k_BT}{m}}}.
+\[
+v_{\mathrm{mp}}=\sqrt{\frac{3k_BT}{m}}.
+\]
 平均速率为
 \[
-\langle v\rangle=\frac{\int_0^{\infty}v^4\e\e\e\e\ee^{-\alpha v^2}dv}{\int_0^{\infty}v^3\e\e\e\e\ee^{-\alpha v^2}dv}
+\langle v\rangle=\frac{\int_0^{\infty}v^4\ee^{-\alpha v^2}dv}{\int_0^{\infty}v^3\ee^{-\alpha v^2}dv}
 =\frac{3\sqrt\pi}{2\sqrt2}\sqrt{\frac{k_BT}{m}}
 =\frac{3\pi}{8}\bar v.
 \]
 方均根速率为
 \[
-\sqrt{\langle v^2\rangle}=\left(\frac{\int_0^{\infty}v^5\e\e\e\e\ee^{-\alpha v^2}dv}{\int_0^{\infty}v^3\e\e\e\e\ee^{-\alpha v^2}dv}\right)^{1/2}
+\sqrt{\langle v^2\rangle}=\left(\frac{\int_0^{\infty}v^5\ee^{-\alpha v^2}dv}{\int_0^{\infty}v^3\ee^{-\alpha v^2}dv}\right)^{1/2}
 =2\sqrt{\frac{k_BT}{m}}.
 \]
 \ansmath{v_{\mathrm{mp}}=\sqrt{\frac{3k_BT}{m}},\qquad \langle v\rangle=\frac{3\pi}{8}\bar v,\qquad v_{\mathrm{rms}}=2\sqrt{\frac{k_BT}{m}}.}
@@ -262,9 +264,12 @@ J=\frac{AD}{k_BT L}(p_L-p_R)=\frac{AD}{k_BT L}(2p_L-p_0).
 \]
 解得
 \[
-p_L(t)-\frac{p_0}{2}=\left(p_0-\frac{p_0}{2}\right)\e\e\e\e\ee^{-2ADt/(VL)}.
+p_L(t)-\frac{p_0}{2}=\left(p_0-\frac{p_0}{2}\right)\ee^{-2ADt/(VL)}.
 \]
-因此
+即
+\[
+p_L(t)=\frac{p_0}{2}\left(1+\ee^{-2ADt/(VL)}\right).
+\]
 \end{solution}
 \end{question}
 

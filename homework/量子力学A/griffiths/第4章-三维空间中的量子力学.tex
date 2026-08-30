@@ -16,7 +16,7 @@
 
 (1) 在坐标表象中 $x,y,z$ 是相互独立的乘法算符,$p_i=-\ii\hbar\partial_i$。于是
 \[
-[x_i,x_j]=0,\qquad [p_i,p_j]=0,\qquad [x_i,p_j]=\ii\hbar\delta_{\ii j}.
+[x_i,x_j]=0,\qquad [p_i,p_j]=0,\qquad [x_i,p_j]=\ii\hbar\delta_{ij}.
 \]
 所以例如 $[x,y]=0,[x,p_y]=0,[x,p_x]=\ii\hbar,[p_x,p_y]=0$。
 
@@ -25,7 +25,7 @@
 \frac{\dd}{\dd t}\langle Q\rangle=\frac{\ii}{\hbar}\langle[H,Q]\rangle,
 \quad H=\frac{p^2}{2m}+V(\mathbf r).
 \]
-取 $Q=x_i$ 得 $[p_j^2,x_i]=-2\ii\hbar\delta_{\ii j}p_j$,故
+取 $Q=x_i$ 得 $[p_j^2,x_i]=-2\ii\hbar\delta_{ij}p_j$,故
 \[
 \frac{\dd}{\dd t}\langle x_i\rangle=\frac{1}{m}\langle p_i\rangle.
 \]
@@ -37,7 +37,7 @@
 
 (3) 每一对共轭分量满足
 \[
-\sigma_{x_i}\sigma_{p_j}\ge \frac{\hbar}{2}\delta_{\ii j}.
+\sigma_{x_i}\sigma_{p_j}\ge \frac{\hbar}{2}\delta_{ij}.
 \]
 非共轭分量(如 $x$ 与 $p_y$)对易,没有由正则对易子给出的非零下界。
 
@@ -1647,11 +1647,9 @@ L_z=m\int (\mathbf r\times\mathbf J)_z\dd^3r
 
 二维圆阱的 $m=0$ 束缚态可写为
 \[
-R_{
-m \ii n}=AJ_0(kr),\quad r<a;
+R_{\text{in}}=AJ_0(kr),\quad r<a;
 \qquad
-R_{
-m out}=BK_0(\kappa r),\quad r>a,
+R_{\text{out}}=BK_0(\kappa r),\quad r>a,
 \]
 其中 $K_0$ 在无穷远衰减。连续性给
 \[
@@ -1908,20 +1906,20 @@ P_+=\frac{|1+\ii|^2}{6}=\frac13,
 
 $S_x$ 的本征态为 $(1,\pm1)^T/\sqrt2$,故
 \[
-P_x(+)=\frac12|a+b|^2=\frac{5+2}{12}=\frac7{12},
-\quad P_x(-)=\frac5{12},
+P_x(+)=\frac12|a+b|^2=\frac12\cdot\frac{10}{6}=\frac56,
+\quad P_x(-)=\frac12|a-b|^2=\frac12\cdot\frac{2}{6}=\frac16,
 \]
 \[
-\langle S_x\rangle=\frac\hbar2(P_x(+)-P_x(-))=\frac\hbar{12}.
+\langle S_x\rangle=\frac\hbar2(P_x(+)-P_x(-))=\frac\hbar3.
 \]
 
 $S_y$ 的本征态为 $(1,\pm\ii)^T/\sqrt2$,
 \[
-P_y(+)=\frac12|a-\ii b|^2=\frac{1}{12},
-\quad P_y(-)=\frac{11}{12},
+P_y(+)=\frac12|a-\ii b|^2=\frac12\cdot\frac{2}{6}=\frac16,
+\quad P_y(-)=\frac12|a+\ii b|^2=\frac12\cdot\frac{10}{6}=\frac56,
 \]
 \[
-\langle S_y\rangle=-\frac{5\hbar}{12}.
+\langle S_y\rangle=-\frac\hbar3.
 \]
 
 \end{solution}

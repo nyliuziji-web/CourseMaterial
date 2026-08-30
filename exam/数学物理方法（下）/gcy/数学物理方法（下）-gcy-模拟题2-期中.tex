@@ -46,10 +46,10 @@ T_n''+c^2\mu_n^2T_n=0,
 因初速度为零，故形式解为
 \ansmath{u(x,t)=\sum_{n=1}^{\infty}a_n\cos(c\mu_n t)X_n(x).}
 展开系数由正交性得
-\ansmath{a_n=\frac{\int_0^l f(x)X_n(x)\,dx}{\int_0^l X_n(x)^2\,dx}.}
+\ansmath{a_n=\frac{\int_0^l f(x)X_n(x)\dd{x}}{\int_0^l X_n(x)^2\dd{x}}.}
 其中
 \[
-\int_0^l X_n(x)^2\,dx
+\int_0^l X_n(x)^2\dd{x}
 =\frac l2-\frac{\sin(2\mu_n l)}{4\mu_n}.
 \]
 \end{solution}
@@ -89,9 +89,9 @@ Y_n(y)=\ee^{-n\pi y/a}.
 u(x,y)=\sum_{n=1}^{\infty}b_n \ee^{-n\pi y/a}\sin\frac{n\pi x}{a}.
 \]
 由底边条件 $u(x,0)=f(x)$，得
-\ansmath{b_n=\frac{2}{a}\int_0^a f(\xi)\sin\frac{n\pi \xi}{a}\,d\xi.}
+\ansmath{b_n=\frac{2}{a}\int_0^a f(\xi)\sin\frac{n\pi \xi}{a}\dd{\xi}.}
 因此
-\ansmath{u(x,y)=\sum_{n=1}^{\infty}\left(\frac{2}{a}\int_0^a f(\xi)\sin\frac{n\pi \xi}{a}\,d\xi\right)\ee^{-n\pi y/a}\sin\frac{n\pi x}{a}.}
+\ansmath{u(x,y)=\sum_{n=1}^{\infty}\left(\frac{2}{a}\int_0^a f(\xi)\sin\frac{n\pi \xi}{a}\dd{\xi}\right)\ee^{-n\pi y/a}\sin\frac{n\pi x}{a}.}
 \end{solution}
 \end{question}
 
@@ -161,9 +161,9 @@ R_n(r)=C_n r^{n\pi/\beta}.
 u(r,\theta)=\sum_{n=1}^{\infty}A_n\left(\frac{r}{a}\right)^{n\pi/\beta}\sin\frac{n\pi\theta}{\beta}.
 \]
 由 $u(a,\theta)=g(\theta)$，得
-\ansmath{A_n=\frac{2}{\beta}\int_0^{\beta}g(\phi)\sin\frac{n\pi\phi}{\beta}\,d\phi.}
+\ansmath{A_n=\frac{2}{\beta}\int_0^{\beta}g(\phi)\sin\frac{n\pi\phi}{\beta}\dd{\phi}.}
 故
-\ansmath{u(r,\theta)=\sum_{n=1}^{\infty}\left(\frac{2}{\beta}\int_0^{\beta}g(\phi)\sin\frac{n\pi\phi}{\beta}\,d\phi\right)\left(\frac{r}{a}\right)^{n\pi/\beta}\sin\frac{n\pi\theta}{\beta}.}
+\ansmath{u(r,\theta)=\sum_{n=1}^{\infty}\left(\frac{2}{\beta}\int_0^{\beta}g(\phi)\sin\frac{n\pi\phi}{\beta}\dd{\phi}\right)\left(\frac{r}{a}\right)^{n\pi/\beta}\sin\frac{n\pi\theta}{\beta}.}
 \end{solution}
 \end{question}
 

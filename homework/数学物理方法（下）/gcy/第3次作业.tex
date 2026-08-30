@@ -26,7 +26,7 @@ u(x,t)=\sum_{n=1}^{\infty}b_n\sin\frac{n\pi x}{l}\cos\frac{n\pi at}{l}.
 \]
 由正弦级数系数
 \[
-b_n=\frac{2}{l}\int_0^l f(x)\sin\frac{n\pi x}{l}\,dx
+b_n=\frac{2}{l}\int_0^l f(x)\sin\frac{n\pi x}{l}\,\dd{x}
 =\frac{2hl^2}{\pi^2n^2c(l-c)}\sin\frac{n\pi c}{l}.
 \]
 因此
@@ -66,7 +66,7 @@ u(x,t)=\sum_{n=0}^{\infty}B_n
 其中
 \[
 B_n=\frac{2b}{l^3}\int_0^l x(l-x)
-\sin\frac{(n+\frac12)\pi x}{l}\,dx
+\sin\frac{(n+\frac12)\pi x}{l}\,\dd{x}
 =\frac{2b}{l^3}\frac{2-(-1)^n\alpha_nl}{\alpha_n^3},
 \qquad
 \alpha_n=\frac{(n+\frac12)\pi}{l}.
@@ -96,7 +96,7 @@ u(x,t)=A_0+\sum_{n=1}^{\infty}A_n
 \]
 由初始函数关于中点反对称可知 \(A_0=0\)，且
 \[
-A_n=\frac1l\int_0^{2l}\varepsilon(l-x)\cos\frac{n\pi x}{2l}\,dx
+A_n=\frac1l\int_0^{2l}\varepsilon(l-x)\cos\frac{n\pi x}{2l}\,\dd{x}
 =\frac{2\varepsilon l}{n^2\pi^2}\bigl(1-(-1)^n\bigr).
 \]
 即只有奇数项存在：
@@ -175,11 +175,11 @@ u(x,y,t)=\sum_{m=1}^{\infty}\sum_{n=1}^{\infty}B_{mn}
 \[
 B_{mn}=\frac{4}{l^2}\int_0^l\int_0^l
 Axy(l-x)(l-y)
-\sin\frac{m\pi x}{l}\sin\frac{n\pi y}{l}\,dxdy.
+\sin\frac{m\pi x}{l}\sin\frac{n\pi y}{l}\,\dd{x}\dd{y}.
 \]
 由于积分可分离，
 \[
-\int_0^l x(l-x)\sin\frac{m\pi x}{l}\,dx
+\int_0^l x(l-x)\sin\frac{m\pi x}{l}\,\dd{x}
 =\frac{2l^3}{m^3\pi^3}\bigl(1-(-1)^m\bigr).
 \]
 故
@@ -262,7 +262,7 @@ u(x,t)=\sum_{n=0}^{\infty}q_n(t)X_n(x),
 \]
 其中
 \[
-c_n=\frac2l\int_0^l\cos\frac{(n+\frac12)\pi x}{l}\,dx
+c_n=\frac2l\int_0^l\cos\frac{(n+\frac12)\pi x}{l}\,\dd{x}
 =\frac{2(-1)^n}{(n+\frac12)\pi}.
 \]
 模态方程为
@@ -274,7 +274,7 @@ q_n'+\kappa\lambda_nq_n=Ac_ne^{-\beta t},
 \[
 q_n(t)=u_0c_ne^{-\kappa\lambda_nt}
 +\frac{Ac_n}{\kappa\lambda_n-\beta}
-\left(e^{-\beta t}-e^{-\kappa\lambda_nt}\right).
+\left(\ee^{-\beta t}-\ee^{-\kappa\lambda_nt}\right).
 \]
 代回即得解。
 \end{solution}
@@ -306,7 +306,7 @@ v(x,y)=\sum_{n=1}^{\infty}A_n
 \]
 边界 \(y=\pm b/2\) 给出
 \[
-A_n=-\frac2a\int_0^a x(a-x)\sin\frac{n\pi x}{a}\,dx
+A_n=-\frac2a\int_0^a x(a-x)\sin\frac{n\pi x}{a}\,\dd{x}
 =-\frac{4a^2}{n^3\pi^3}\bigl(1-(-1)^n\bigr).
 \]
 因此
@@ -366,15 +366,15 @@ u(x,t)=\cos\frac{\pi x}{l}\cos\frac{\pi at}{l}
 \begin{cases}
 u_t-\kappa u_{xx}=0,&0<x<l,
 \quad t>0,\\
-u_x(0,t)=A e^{-\alpha^2\kappa t},
-\quad u(l,t)=B e^{-\beta^2\kappa t},\\
+u_x(0,t)=A \ee^{-\alpha^2\kappa t},
+\quad u(l,t)=B \ee^{-\beta^2\kappa t},\\
 u(x,0)=0.
 \end{cases}
 \]
 \begin{solution}
 设
 \[
-u=P(x)e^{-\alpha^2\kappa t}+Q(x)e^{-\beta^2\kappa t}+v(x,t),
+u=P(x)\ee^{-\alpha^2\kappa t}+Q(x)\ee^{-\beta^2\kappa t}+v(x,t),
 \]
 其中
 \[
@@ -412,7 +412,7 @@ v(x,t)=\sum_{n=0}^{\infty}C_n
 其中
 \[
 C_n=\frac2l\int_0^l[-P(x)-Q(x)]
-\cos\frac{(n+\frac12)\pi x}{l}\,dx.
+\cos\frac{(n+\frac12)\pi x}{l}\,\dd{x}.
 \]
 以上即为所求。
 \end{solution}

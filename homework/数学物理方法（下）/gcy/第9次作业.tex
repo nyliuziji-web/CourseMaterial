@@ -55,8 +55,8 @@ N_\nu(x)=\frac{J_\nu(x)\cos\nu\pi-J_{-\nu}(x)}{\sin\nu\pi}
 \begin{solution}
 常用递推关系为
 \[
-\frac d{dx}\left[x^\nu J_\nu(x)\right]=x^\nu J_{\nu-1}(x),\qquad
-\frac d{dx}\left[x^{-\nu}J_\nu(x)\right]=-x^{-\nu}J_{\nu+1}(x),
+\frac{\dd}{\dd{x}}\left[x^\nu J_\nu(x)\right]=x^\nu J_{\nu-1}(x),\qquad
+\frac{\dd}{\dd{x}}\left[x^{-\nu}J_\nu(x)\right]=-x^{-\nu}J_{\nu+1}(x),
 \]
 对 \(N_\nu\) 也成立。这两式可由
 \[
@@ -65,26 +65,23 @@ J_\nu'=\frac12(J_{\nu-1}-J_{\nu+1}),\qquad
 \]
 相加、相减得到。于是
 \[
-\int_0^x t^{n+1}J_n(t)\,dt=x^{n+1}J_{n+1}(x)
+\int_0^x t^{n+1}J_n(t)\,\dd{t}=x^{n+1}J_{n+1}(x)
 \]
 由第一条递推式直接得到。其余题目通过分部积分把多余的 \(t\) 次幂降下去，再反复用上面的递推式化为相邻阶柱函数。例如
 \[
-\int_0^x t^3J_0(t)\,dt
+\int_0^x t^3J_0(t)\,\dd{t}
 \]
-令 \(dv=tJ_0(t)\,dt=d[tJ_1(t)]\)，则
+令 \(dv=tJ_0(t)\,\dd{t}=\dd[tJ_1(t)]\)，则
 \[
-\int_0^x t^3J_0(t)\,dt
-=x^3J_1(x)-2\int_0^x t^2J_1(t)\,dt.
+\int_0^x t^3J_0(t)\,\dd{t}
+=x^3J_1(x)-2\int_0^x t^2J_1(t)\,\dd{t}.
 \]
-再由 \(d[t^2J_2(t)]=t^2J_1(t)\,dt\)，得
+再由 \(\dd[t^2J_2(t)]=t^2J_1(t)\,\dd{t}\)，得
 \[
-\int_0^x t^3J_0(t)\,dt
+\int_0^x t^3J_0(t)\,\dd{t}
 =x^3J_1(x)-2x^2J_2(x).
 \]
-因此
-\[
-\int_0^x t^3J_0(t)\,dt=x^3J_1(x)-2x^2J_2(x).
-\]
+
 \end{solution}
 \end{question}
 
@@ -106,12 +103,12 @@ x^2J_\nu''+xJ_\nu'+(x^2-\nu^2)J_\nu=0
 \]
 出发。把 \(m,n\) 两个方程分别乘以 \(J_n,J_m\) 后相减，得
 \[
-\frac d{dx}\left[x(J_m'J_n-J_n'J_m)\right]
+\frac{\dd}{\dd{x}}\left[x(J_m'J_n-J_n'J_m)\right]
 =\frac{m^2-n^2}{x}J_mJ_n.
 \]
 因此
 \[
-\int\frac1xJ_nJ_m\,dx
+\int\frac1xJ_nJ_m\,\dd{x}
 =\frac{x(J_m'J_n-J_n'J_m)}{m^2-n^2}.
 \]
 再用递推式
@@ -127,7 +124,7 @@ J_\nu'=\frac12(J_{\nu-1}-J_{\nu+1}),\qquad
 \]
 代入后逐项积分，因为单个平方积分并不绝对收敛。应直接使用收敛的 Weber--Schafheitlin 积分
 \[
-\int_0^\infty x^{-\lambda}J_\nu^2(x)\,dx
+\int_0^\infty x^{-\lambda}J_\nu^2(x)\,\dd{x}
 =\frac{\Gamma(\lambda)\Gamma\left(\nu+\frac{1-\lambda}{2}\right)}
 {2^\lambda\Gamma^2\left(\frac{\lambda+1}{2}\right)
 \Gamma\left(\nu+\frac{1+\lambda}{2}\right)},
@@ -135,7 +132,7 @@ J_\nu'=\frac12(J_{\nu-1}-J_{\nu+1}),\qquad
 \]
 取 \(\nu=1,\lambda=2\)，得到
 \[
-\int_0^\infty\frac{J_1^2(x)}{x^2}\,dx=\frac{4}{3\pi}.
+\int_0^\infty\frac{J_1^2(x)}{x^2}\,\dd{x}=\frac{4}{3\pi}.
 \]
 \end{solution}
 \end{question}

@@ -1,6 +1,7 @@
 build/
 main.tex
-
+error.md
+example/example/
 __compile_temp.tex
 
 # Python 缓存

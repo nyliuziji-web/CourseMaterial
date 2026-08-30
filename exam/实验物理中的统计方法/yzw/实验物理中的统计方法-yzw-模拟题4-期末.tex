@@ -20,6 +20,8 @@ R=\frac{X}{X+Y},
 \qquad
 \frac{\partial R}{\partial Y}=-\frac{X}{(X+Y)^2}.
 \]
+故
+\ansmath{\sigma_R^2\approx \frac{Y^2\sigma_X^2+X^2\sigma_Y^2-2XYc}{(X+Y)^4}}
 \end{solution}
 \end{question}
 
@@ -46,7 +48,7 @@ I_1(p)=\frac{1}{p(1-p)}.
 \]
 由极大似然估计的渐近正态性，
 \[
-\V(\hat p)\approx \frac{p(1-p)}{n}.
+\operatorname{Var}(\hat p)\approx \frac{p(1-p)}{n}.
 \]
 当 $n=100,k=37$ 时，
 \[
@@ -242,9 +244,9 @@ y=a+bx.
 \[
 \chi^2_{\min}=\sum_{i=1}^4\frac{(y_i-\hat a-\hat b x_i)^2}{0.2^2}.
 \]
-代入得到
+代入得到（残差依次为 $-0.08,\ 0.19,\ -0.14,\ 0.03$，平方和 $0.063$）
 \[
-\chi^2_{\min}=1.15.
+\chi^2_{\min}=\frac{0.063}{0.04}=1.575.
 \]
 \end{solution}
 \end{question}
@@ -259,31 +261,31 @@ y=a+bx.
 \begin{solution}
 似然函数为
 \[
-L(s)\propto e^{-(s+b)}(s+b).
+L(s)\propto \ee^{-(s+b)}(s+b).
 \]
 代入 $b=1$ 并乘以平坦先验后，得
 \[
-p(s\mid n=1)\propto e^{-s}(s+1),
+p(s\mid n=1)\propto \ee^{-s}(s+1),
 \qquad s\ge 0.
 \]
 归一化常数为
 \[
-\int_0^{\infty} e^{-s}(s+1)\,ds=2.
+\int_0^{\infty} \ee^{-s}(s+1)\dd{s}=2.
 \]
 故后验密度为
-\ansmath{p(s\mid n=1)=\frac12 e^{-s}(s+1),
+\ansmath{p(s\mid n=1)=\frac12 \ee^{-s}(s+1),
 \qquad s\ge 0}
 设 $s_{90}$ 满足
 \[
-\int_0^{s_{90}}\frac12 e^{-s}(s+1)\,ds=0.9.
+\int_0^{s_{90}}\frac12 \ee^{-s}(s+1)\dd{s}=0.9.
 \]
 即
 \[
-1-\frac12 e^{-s_{90}}(s_{90}+2)=0.9.
+1-\frac12 \ee^{-s_{90}}(s_{90}+2)=0.9.
 \]
 因此需解
 \[
-e^{-s_{90}}(s_{90}+2)=0.2.
+\ee^{-s_{90}}(s_{90}+2)=0.2.
 \]
 数值上
 \[

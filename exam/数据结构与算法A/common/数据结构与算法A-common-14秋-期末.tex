@@ -236,7 +236,7 @@
 \begin{question}
 (4分)利用广义表的Head 和 Tail运算，把原子d分别从下列广义表中分离出来，L1＝(((((a),b),d),e))；L2＝(a,(b,((d)),e))。
 \begin{solution}
-对 $L_1=(((((a),b),d),e))$，可用 $Head(Tail(Head(Tail(Head(L_1)))))$ 分离出 $d$。对 $L_2=(a,(b,((d)),e))$，可用 $Head(Head(Head(Tail(Head(Tail(L_2))))))$ 分离出 $d$。
+对 $L_1=(((((a),b),d),e))$，可用 $Head(Tail(Head(Head(L_1))))$ 分离出 $d$。对 $L_2=(a,(b,((d)),e))$，可用 $Head(Head(Head(Tail(Head(Tail(L_2))))))$ 分离出 $d$。
 \end{solution}
 \end{question}
 

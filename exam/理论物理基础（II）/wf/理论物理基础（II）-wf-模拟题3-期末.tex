@@ -28,14 +28,14 @@
 \]
 所以哈密顿量可写为
 \[
-\hat H=\frac{\hbar^2}{2mR^2}\left(-i\frac{d}{d\phi}-\varphi\right)^2.
+\hat H=\frac{\hbar^2}{2mR^2}\left(-\ii\frac{d}{d\phi}-\varphi\right)^2.
 \]
 周期性边界条件要求本征函数仍为圆环上的平面波
 \[
-\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}\ee^{in\phi},\qquad n\in\mathbb Z.
+\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}\ee^{\ii n\phi},\qquad n\in\mathbb Z.
 \]
 作用哈密顿量即得
-\ansmath{\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}\ee^{in\phi},\qquad E_n=\frac{\hbar^2}{2mR^2}(n-\varphi)^2,\qquad n\in\mathbb Z.}
+\ansmath{\psi_n(\phi)=\frac{1}{\sqrt{2\pi}}\ee^{\ii n\phi},\qquad E_n=\frac{\hbar^2}{2mR^2}(n-\varphi)^2,\qquad n\in\mathbb Z.}
 
 基态对应使 $(n-\varphi)^2$ 最小的整数 $n$，也就是最接近 $\varphi$ 的整数。故当
 \[
@@ -95,20 +95,20 @@ E\equiv \sqrt{A^2+B^2},\qquad \cos\theta=\frac{B}{E},\qquad \sin\theta=\frac{A}{
 因此
 \ansmath{\hat H|E,\pm\rangle=\pm E\,|E,\pm\rangle.}
 
-利用指数公式 $\ee^{-it\hat H/\hbar}=\cos(Et/\hbar)-i(\hat H/E)\sin(Et/\hbar)$，从初态 $|+\rangle_z$ 出发可得
+利用指数公式 $\ee^{-\ii t\hat H/\hbar}=\cos(Et/\hbar)-\ii(\hat H/E)\sin(Et/\hbar)$，从初态 $|+\rangle_z$ 出发可得
 \[
 |\psi(t)\rangle=
-\left[\cos\frac{Et}{\hbar}-i\frac{B}{E}\sin\frac{Et}{\hbar}\right]|+\rangle_z
--i\frac{A}{E}\sin\frac{Et}{\hbar}\,|-\rangle_z.
+\left[\cos\frac{Et}{\hbar}-\ii\frac{B}{E}\sin\frac{Et}{\hbar}\right]|+\rangle_z
+-\ii\frac{A}{E}\sin\frac{Et}{\hbar}\,|-\rangle_z.
 \]
 故
 \ansmath{|\psi(t)\rangle=
-\left[\cos\frac{Et}{\hbar}-i\frac{B}{E}\sin\frac{Et}{\hbar}\right]|+\rangle_z
--i\frac{A}{E}\sin\frac{Et}{\hbar}\,|-\rangle_z.}
+\left[\cos\frac{Et}{\hbar}-\ii\frac{B}{E}\sin\frac{Et}{\hbar}\right]|+\rangle_z
+-\ii\frac{A}{E}\sin\frac{Et}{\hbar}\,|-\rangle_z.}
 
 由上式直接读出
 \[
-P_z(+;t)=\left|\cos\frac{Et}{\hbar}-i\frac{B}{E}\sin\frac{Et}{\hbar}\right|^2
+P_z(+;t)=\left|\cos\frac{Et}{\hbar}-\ii\frac{B}{E}\sin\frac{Et}{\hbar}\right|^2
 =1-\frac{A^2}{E^2}\sin^2\frac{Et}{\hbar},
 \]
 \[

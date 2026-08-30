@@ -19,12 +19,14 @@ P(Y=m)=\sum_{x=m}^{n}P(X=x)P(Y=m\mid X=x)
 \[
 \operatorname{E}[Y\mid X=x]=\frac{x+1}{2},
 \qquad
-\operatorname{E}[Y]=E\bigl(\operatorname{E}[Y\mid X]\bigr)=\frac{\operatorname{E}[X]+1}{2}.
+\operatorname{E}[Y]=\operatorname{E}\bigl(\operatorname{E}[Y\mid X]\bigr)=\frac{\operatorname{E}[X]+1}{2}.
 \]
 而
 \[
 \operatorname{E}[X]=\frac{n+1}{2}.
 \]
+故
+\ansmath{\operatorname{E}[Y]=\frac{\frac{n+1}{2}+1}{2}=\frac{n+3}{4}}
 \end{solution}
 \end{question}
 
@@ -98,7 +100,7 @@ f(x,y)=\begin{cases}
 \begin{solution}
 由归一化条件，
 \[
-1=c\int_0^1\int_0^x (x+2y)\,dy\,dx
+1=c\int_0^1\int_0^x (x+2y)\dd{y}\dd{x}
 =c\int_0^1 2x^2\,dx
 =\frac{2c}{3}.
 \]
@@ -106,22 +108,22 @@ f(x,y)=\begin{cases}
 \ansmath{c=\frac32}
 边缘密度为
 \[
-f_X(x)=\int_0^x \frac32(x+2y)\,dy
+f_X(x)=\int_0^x \frac32(x+2y)\dd{y}
 =\frac32\cdot 2x^2=3x^2,
 \qquad 0<x<1.
 \]
 所以
 再算概率：
 \[
-P\!\left(Y>\frac X2\right)=\int_0^1\int_{x/2}^{x}\frac32(x+2y)\,dy\,dx.
+P\!\left(Y>\frac X2\right)=\int_0^1\int_{x/2}^{x}\frac32(x+2y)\dd{y}\dd{x}.
 \]
 计算得
 \[
-\int_{x/2}^{x}(x+2y)\,dy=\frac{5x^2}{4},
+\int_{x/2}^{x}(x+2y)\dd{y}=\frac{5x^2}{4},
 \]
 故
 \[
-P\!\left(Y>\frac X2\right)=\int_0^1 \frac32\cdot \frac{5x^2}{4}\,dx=\frac58.
+P\!\left(Y>\frac X2\right)=\int_0^1 \frac32\cdot \frac{5x^2}{4}\dd{x}=\frac58.
 \]
 条件密度为
 \[
@@ -130,7 +132,7 @@ f_{Y\mid X}(y\mid x)=\frac{\frac32(x+2y)}{3x^2}=\frac{x+2y}{2x^2},
 \]
 于是
 \[
-\operatorname{E}[Y\mid X=x]=\int_0^x y\,\frac{x+2y}{2x^2}\,dy=\frac{7x}{12}.
+\operatorname{E}[Y\mid X=x]=\int_0^x y\,\frac{x+2y}{2x^2}\dd{y}=\frac{7x}{12}.
 \]
 \end{solution}
 \end{question}
@@ -241,7 +243,7 @@ p=P(N\ge 7\mid \lambda=3)=1-P(N\le 6\mid \lambda=3).
 \]
 即
 \[
-p=1-e^{-3}\sum_{k=0}^{6}\frac{3^k}{k!}.
+p=1-\ee^{-3}\sum_{k=0}^{6}\frac{3^k}{k!}.
 \]
 数值上
 \[

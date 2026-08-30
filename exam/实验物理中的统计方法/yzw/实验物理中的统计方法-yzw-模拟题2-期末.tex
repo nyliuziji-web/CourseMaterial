@@ -33,7 +33,7 @@ f(x;\lambda)=\lambda e^{-\lambda x},\qquad x>0,\ \lambda>0.
 \]
 单个样本的 Fisher 信息为
 \[
-I_1(\lambda)=E\left[\left(\frac{\partial \ell_1}{\partial\lambda}\right)^2\right]=\frac{1}{\lambda^2},
+I_1(\lambda)=\operatorname{E}\left[\left(\frac{\partial \ell_1}{\partial\lambda}\right)^2\right]=\frac{1}{\lambda^2},
 \]
 又因为
 \[
@@ -163,25 +163,25 @@ P_{\lambda=5}(N\le 4)\approx 0.440,
 \begin{solution}
 似然函数为
 \[
-L(s)\propto e^{-(s+b)}\frac{(s+b)^0}{0!}=e^{-(s+b)}.
+L(s)\propto \ee^{-(s+b)}\frac{(s+b)^0}{0!}=\ee^{-(s+b)}.
 \]
 乘以平坦先验后，
 \[
-p(s\mid n=0)\propto e^{-s},\qquad s\ge 0.
+p(s\mid n=0)\propto \ee^{-s},\qquad s\ge 0.
 \]
 归一化后得
 \[
-p(s\mid n=0)=e^{-s},\qquad s\ge 0,
+p(s\mid n=0)=\ee^{-s},\qquad s\ge 0,
 \]
 即
 \ansmath{s\mid n=0\sim \mathrm{Exp}(1)}
 求 $90\%$ 上限 $s_{90}$：
 \[
-P(s\le s_{90}\mid n=0)=1-e^{-s_{90}}=0.9.
+P(s\le s_{90}\mid n=0)=1-\ee^{-s_{90}}=0.9.
 \]
 故
 \[
-e^{-s_{90}}=0.1,\qquad s_{90}=-\ln 0.1=\ln 10.
+\ee^{-s_{90}}=0.1,\qquad s_{90}=-\ln 0.1=\ln 10.
 \]
 因此
 \ansmath{s_{90}=\ln 10\approx 2.303}

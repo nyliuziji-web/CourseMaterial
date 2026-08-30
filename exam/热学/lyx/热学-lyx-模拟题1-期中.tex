@@ -8,11 +8,11 @@
 
 Boltzmann 分布给出
 \[
- n(z)=n_0 \e\e\e\e\ee^{-mgz/(k_BT)}.
+ n(z)=n_0 \ee^{-mgz/(k_BT)}.
 \]
 归一化后的概率密度可写为
 \[
- f(z)=\frac{mg}{k_BT}\e\e\e\e\ee^{-mgz/(k_BT)},\qquad z>0.
+ f(z)=\frac{mg}{k_BT}\ee^{-mgz/(k_BT)},\qquad z>0.
 \]
 故平均势能
 \[
@@ -69,7 +69,7 @@ F_b=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},
 \begin{solution}
 
 因为棘轮与卡扣都受同一热源的热涨落控制，顺转与逆转都以相同的玻尔兹曼因子被激发，长期平均无净转动；否则将违背第二定律。
-\anstext{见上。}
+
 
 \end{solution}
 \end{question}
@@ -86,7 +86,7 @@ F_b=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},
 将角度积分做完，得到
 \[
 \Gamma(v_0)=\frac{n}{4}\sqrt{\frac{8k_BT}{\pi m}}
-\left(1+\frac{mv_0^2}{2k_BT}\right)\e\e\e\e\ee^{-mv_0^2/(2k_BT)}.
+\left(1+\frac{mv_0^2}{2k_BT}\right)\ee^{-mv_0^2/(2k_BT)}.
 \]
 这是题中常用结论。
 \end{solution}
@@ -108,11 +108,11 @@ F_b=\rho(z)gV(z)=\frac{p_0V_0\mu g}{RT},
 \[
 p(V-b)=RT.
 \]
-若以固定物质的量写成总体积形式，右边只差常数因子，故直接整理得
+对固定物质的量，$R$ 为常数，故
 \[
-\frac{dp}{p}=\frac{dT}{T}-\frac{dV}{V-b},
+\frac{p(V-b)}{T}=R=C,
 \]
-积分后即得同样结果。
+即得证。
 \end{solution}
 \end{question}
 
@@ -163,10 +163,7 @@ t_{1/2}=\frac{C_1C_2}{\kappa(C_1+C_2)}\ln2.
 \[
 Q=\int_0^R2\pi r u(r)\,dr=\frac{\pi R^4}{8\eta L}\Delta p.
 \]
-即
-\[
-Q=\frac{\pi R^4}{8\eta L}\Delta p.
-\]
+
 \end{solution}
 \end{question}
 
@@ -180,7 +177,7 @@ Q=\frac{\pi R^4}{8\eta L}\Delta p.
 \]
 由 Boltzmann 分布
 \[
- n(z)\propto \e\e\e\e\ee^{-N_AU(z)/(RT)}.
+ n(z)\propto \ee^{-N_AU(z)/(RT)}.
 \]
 因此
 \[
@@ -222,6 +219,6 @@ T(z)=T_0-\alpha z,
 \[
 p(z)=p_0\left(1-\frac{\alpha z}{T_0}\right)^{\mu g/(R\alpha)}.
 \]
-当 $\alpha\to0$ 时回到等温大气公式 $p(z)=p_0\e\e\e\e\ee^{-\mu gz/(RT_0)}$。
+当 $\alpha\to0$ 时回到等温大气公式 $p(z)=p_0\ee^{-\mu gz/(RT_0)}$。
 \end{solution}
 \end{question}

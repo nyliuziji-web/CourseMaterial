@@ -20,7 +20,7 @@ u(\rho,\phi)=\sum_{n=1}^{\infty}\left(\frac{\rho}{a}\right)^n
 \]
 边界函数为奇函数，只有正弦项，且
 \[
-B_n=\frac1\pi\int_0^{2\pi}u(a,\phi)\sin n\phi\,d\phi
+B_n=\frac1\pi\int_0^{2\pi}u(a,\phi)\sin n\phi\,\dd{\phi}
 =\frac{2V}{n\pi}\bigl(1-(-1)^n\bigr).
 \]
 故
@@ -76,7 +76,7 @@ u(\rho,\phi)=\frac{A_0}{H}
 \begin{solution}
 Neumann 问题的相容条件为
 \[
-\iint_D A\,dS=\int_{\partial D}B\,ds.
+\iint_D A\,\dd{S}=\int_{\partial D}B\,\dd{s}.
 \]
 故
 \[
@@ -105,7 +105,7 @@ u(\rho,\phi)=\sum_{n=1}^{\infty}A_n
 \]
 由 \(u(a,\phi)=100\) 得
 \[
-A_n=\frac{2}{\alpha}\int_0^\alpha100\sin\frac{n\pi\phi}{\alpha}\,d\phi
+A_n=\frac{2}{\alpha}\int_0^\alpha100\sin\frac{n\pi\phi}{\alpha}\,\dd{\phi}
 =\frac{200}{n\pi}\bigl(1-(-1)^n\bigr).
 \]
 于是
@@ -174,11 +174,11 @@ v_t-\kappa v_{rr}=0,\qquad v(0,t)=0,\qquad v(1,t)=Ae^{-(p\pi)^2\kappa t},\qquad 
 \]
 取
 \[
-v=A r e^{-(p\pi)^2\kappa t}+w.
+v=A r \ee^{-(p\pi)^2\kappa t}+w.
 \]
 则 \(w(0,t)=w(1,t)=0\)，且
 \[
-w_t-\kappa w_{rr}=A\kappa(p\pi)^2r e^{-(p\pi)^2\kappa t}.
+w_t-\kappa w_{rr}=A\kappa(p\pi)^2r \ee^{-(p\pi)^2\kappa t}.
 \]
 展开 \(w=\sum b_n(t)\sin n\pi r\)，并用
 \[
@@ -187,16 +187,16 @@ r=\sum_{n=1}^{\infty}\frac{2(-1)^{n+1}}{n\pi}\sin n\pi r,
 可得当 \(p\ne n\) 时
 \[
 b_n(t)=\frac{2A p^2(-1)^{n+1}}{n(p^2-n^2)}
-\left(e^{-(n\pi)^2\kappa t}-e^{-(p\pi)^2\kappa t}\right).
+\left(\ee^{-(n\pi)^2\kappa t}-\ee^{-(p\pi)^2\kappa t}\right).
 \]
 因此
 \[
-u(r,t)=A e^{-(p\pi)^2\kappa t}
+u(r,t)=A \ee^{-(p\pi)^2\kappa t}
 +\frac1r\sum_{n=1}^{\infty}b_n(t)\sin n\pi r.
 \]
 若 \(p=m\) 为正整数，\(n=m\) 项由共振极限给出
 \[
-b_m(t)=2A(-1)^m m\pi\kappa t\,e^{-(m\pi)^2\kappa t},
+b_m(t)=2A(-1)^m m\pi\kappa t\,\ee^{-(m\pi)^2\kappa t},
 \]
 其余项仍用上式。
 \end{solution}

@@ -45,7 +45,7 @@ f(x)=\begin{cases}
 \begin{solution}
 有
 \[
-\operatorname{E}[X]=\int_0^1 x(\theta+1)x^{\theta}dx=\frac{\theta+1}{\theta+2}.
+\operatorname{E}[X]=\int_0^1 x(\theta+1)x^{\theta}\dd{x}=\frac{\theta+1}{\theta+2}.
 \]
 令 $\bar X=\operatorname{E}[X]$，得矩估计
 \[
@@ -71,7 +71,7 @@ L(\theta)=\prod_{i=1}^n (\theta+1)x_i^{\theta},
 \begin{question}
 假设检验的时候，若原假设为真又被拒绝了，叫做\underline{\hspace{2em}}。若原假设为假又被接受了叫做\underline{\hspace{2em}}。怎么同时减少犯这两个错误的概率？
 \begin{solution}
-前者为第一类错误（弃真），后者为第二类错误（存伪）。在样本量固定时两者常此消彼长；若希望二者同时减小，通常要增加样本量，或利用更强的先验信息/更优检验。
+
 \anstext{前者为第一类错误（弃真），后者为第二类错误（存伪）。在样本量固定时两者常此消彼长；若希望二者同时减小，通常要增加样本量，或利用更强的先验信息/更优检验。}
 \end{solution}
 \end{question}
@@ -81,7 +81,7 @@ L(\theta)=\prod_{i=1}^n (\theta+1)x_i^{\theta},
 \begin{solution}
 单次观测 $X=n$，似然为
 \[
-L(\lambda)=e^{-\lambda}\frac{\lambda^n}{n!},
+L(\lambda)=\ee^{-\lambda}\frac{\lambda^n}{n!},
 \qquad
 \ell(\lambda)=-\lambda+n\ln\lambda-\ln n!.
 \]

@@ -120,18 +120,18 @@
 做换元 \(z=\rho\ee^{\ii(\theta+\arg a)}\)，其中 \(\theta\in[-\pi,\pi]\)，因此积分变为
 \[
 I=\int_{-\pi}^{\pi}\frac{\rho\dd{\theta}}{\rho^2+|a|^2-2\rho|a|\cos\theta}.
- I=\int_{-\pi}^{\pi}\frac{\rho\dd{\theta}}{\rho^2+|a|^2-2\rho|a|\cos\theta}.
+
 \]
 做换元 \(u=\tan\dfrac{\theta}{2}\)，可以得到
 \[
-d\theta=\frac{2\dd{u}}{1+u^2},\qquad \cos\theta=\frac{1-u^2}{1+u^2},
+\dd{\theta}=\frac{2\dd{u}}{1+u^2},\qquad \cos\theta=\frac{1-u^2}{1+u^2},
 \]
 所以有
 \[
 \begin{aligned}
 I&=\int_{-\infty}^{\infty}\frac{2\rho\dd{u}}{(\rho^2+|a|^2)(1+u^2)-2\rho|a|(1-u^2)}\\
-&=2\rho\int_{-\infty}^{\infty}\frac{du}{(\rho-|a|)^2+(\rho+|a|)^2u^2}\\
-&=\frac{2\rho}{\rho^2-|a|^2}\Bigl.\arctan\Bigl(\frac{\rho-|a|}{\rho+|a|}u\Bigr)\Bigr|_{-\infty}^{\infty}.
+&=2\rho\int_{-\infty}^{\infty}\frac{\dd{u}}{(\rho-|a|)^2+(\rho+|a|)^2u^2}\\
+&=\frac{2\rho}{\rho^2-|a|^2}\Bigl.\arctan\Bigl(\frac{\rho+|a|}{\rho-|a|}u\Bigr)\Bigr|_{-\infty}^{\infty}.
 \end{aligned}
 \]
 

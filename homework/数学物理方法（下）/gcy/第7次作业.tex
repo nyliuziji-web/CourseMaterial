@@ -30,12 +30,12 @@ u(r,\theta)=\frac{2u_0}{3}
 Legendre 展开的统一公式为
 \[
 f(x)=\sum_{l=0}^{\infty}a_lP_l(x),\qquad
-a_l=\frac{2l+1}{2}\int_{-1}^{1}f(x)P_l(x)\,dx.
+a_l=\frac{2l+1}{2}\int_{-1}^{1}f(x)P_l(x)\,\dd{x}.
 \]
 这个公式来自正交性。把展开式两端同乘 \(P_k(x)\) 后积分，除 \(l=k\) 外各项为零，故
 \[
-\int_{-1}^{1}f(x)P_k(x)\,dx
-=a_k\int_{-1}^{1}P_k^2(x)\,dx
+\int_{-1}^{1}f(x)P_k(x)\,\dd{x}
+=a_k\int_{-1}^{1}P_k^2(x)\,\dd{x}
 =a_k\frac{2}{2k+1}.
 \]
 若函数只定义在 \(0\le x\le1\)，可先按题意作奇延拓、偶延拓或零延拓，再用同一公式。常用结果有
@@ -49,15 +49,15 @@ P_1(x)=x,\qquad P_3(x)=\frac12(5x^3-3x),
 解出 \(x^3=(2P_3+3P_1)/5\) 即得。又如奇函数 \(\operatorname{sgn}x\) 只含奇阶项，
 \[
 \operatorname{sgn}x=\sum_{\substack{l=1\\ l\ {\rm odd}}}^{\infty}
-\frac{2l+1}{2}\left(\int_0^1P_l(x)\,dx-\int_{-1}^0P_l(x)\,dx\right)P_l(x).
+\frac{2l+1}{2}\left(\int_0^1P_l(x)\,\dd{x}-\int_{-1}^0P_l(x)\,\dd{x}\right)P_l(x).
 \]
 积分题主要使用正交性
 \[
-\int_{-1}^{1}P_k(x)P_l(x)\,dx=\frac{2}{2l+1}\delta_{kl},
+\int_{-1}^{1}P_k(x)P_l(x)\,\dd{x}=\frac{2}{2l+1}\delta_{kl},
 \]
 以及 Legendre 方程的 Lagrange 恒等式。特别地，
 \[
-\int_{-1}^{1}P_l(x)\ln(1-x)\,dx
+\int_{-1}^{1}P_l(x)\ln(1-x)\,\dd{x}
 =
 \begin{cases}
 2\ln2-2,&l=0,\\

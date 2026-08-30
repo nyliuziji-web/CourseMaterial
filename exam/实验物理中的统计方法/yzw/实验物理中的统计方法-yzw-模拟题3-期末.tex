@@ -39,7 +39,7 @@ f(x;\theta)=\frac{2x}{\theta^2},\qquad 0<x<\theta,
 \begin{solution}
 先求总体均值：
 \[
-\operatorname{E}[X]=\int_0^{\theta} x\cdot \frac{2x}{\theta^2}\,dx
+\operatorname{E}[X]=\int_0^{\theta} x\cdot \frac{2x}{\theta^2}\dd{x}
 =\frac{2\theta}{3}.
 \]
 故矩估计量满足
@@ -260,11 +260,11 @@ y=bx.
 \begin{solution}
 似然函数为
 \[
-L(s)\propto e^{-(s+b)}\frac{(s+b)^2}{2!}.
+L(s)\propto \ee^{-(s+b)}\frac{(s+b)^2}{2!}.
 \]
 乘以平坦先验后，去掉与 $s$ 无关的常数，得
 \[
-p(s\mid n=2)\propto e^{-s}(s+0.5)^2,
+p(s\mid n=2)\propto \ee^{-s}(s+0.5)^2,
 \qquad s\ge 0.
 \]
 后验众数由
@@ -277,13 +277,13 @@ s_{\rm mode}=1.5.
 \]
 后验均值为
 \[
-\operatorname{E}[s\mid n=2]=\frac{\int_0^{\infty} s e^{-s}(s+0.5)^2\,ds}{\int_0^{\infty} e^{-s}(s+0.5)^2\,ds}.
+\operatorname{E}[s\mid n=2]=\frac{\int_0^{\infty} s \ee^{-s}(s+0.5)^2\dd{s}}{\int_0^{\infty} \ee^{-s}(s+0.5)^2\dd{s}}.
 \]
 直接积分得
 \[
-\int_0^{\infty} e^{-s}(s+0.5)^2\,ds=\frac{13}{4},
+\int_0^{\infty} \ee^{-s}(s+0.5)^2\dd{s}=\frac{13}{4},
 \qquad
-\int_0^{\infty} s e^{-s}(s+0.5)^2\,ds=\frac{33}{4}.
+\int_0^{\infty} s \ee^{-s}(s+0.5)^2\dd{s}=\frac{33}{4}.
 \]
 因此
 \[

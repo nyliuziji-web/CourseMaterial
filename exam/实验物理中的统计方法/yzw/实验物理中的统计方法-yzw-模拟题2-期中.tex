@@ -110,8 +110,8 @@ D^2=(X_1-X_2)^2+(Y_1-Y_2)^2.
 \operatorname{E}[X]=\frac a2,\qquad \operatorname{E}[Y]=\frac b2,
 \]
 \[
-\operatorname{E}[X^2]=\frac{a(2a+b)}{6(a+b)},\qquad
-\operatorname{E}[Y^2]=\frac{b(a+2b)}{6(a+b)}.
+\operatorname{E}[X^2]=\frac{a^2(2a+3b)}{6(a+b)},\qquad
+\operatorname{E}[Y^2]=\frac{b^2(3a+b)}{6(a+b)}.
 \]
 代回化简得
 \[
@@ -160,7 +160,7 @@ cx,&0<y<x<1,\\
 \begin{solution}
 由归一化条件，
 \[
-1=c\int_0^1\int_0^x x\,dy\,dx
+1=c\int_0^1\int_0^x x\dd{y}\dd{x}
 =c\int_0^1 x^2\,dx
 =\frac{c}{3}.
 \]
@@ -168,7 +168,7 @@ cx,&0<y<x<1,\\
 \ansmath{c=3}
 再算
 \[
-P\!\left(Y<\frac X2\right)=\int_0^1\int_0^{x/2}3x\,dy\,dx
+P\!\left(Y<\frac X2\right)=\int_0^1\int_0^{x/2}3x\dd{y}\dd{x}
 =\int_0^1 \frac{3x^2}{2}\,dx
 =\frac12.
 \]
@@ -289,11 +289,11 @@ f_Y(y)=\frac{d}{dy}\left(\frac{y}{\theta}\right)^n
 \]
 进一步有
 \[
-\operatorname{E}[Y]=\int_0^\theta y\frac{n y^{n-1}}{\theta^n}\,dy
+\operatorname{E}[Y]=\int_0^\theta y\frac{n y^{n-1}}{\theta^n}\dd{y}
 =\frac{n}{n+1}\theta,
 \]
 \[
-\operatorname{E}[Y^2]=\int_0^\theta y^2\frac{n y^{n-1}}{\theta^n}\,dy
+\operatorname{E}[Y^2]=\int_0^\theta y^2\frac{n y^{n-1}}{\theta^n}\dd{y}
 =\frac{n}{n+2}\theta^2.
 \]
 所以

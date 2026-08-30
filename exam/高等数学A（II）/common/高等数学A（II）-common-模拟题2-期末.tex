@@ -26,7 +26,7 @@ x^2y=\int x^4\ln x\,dx=
 由 $y(1)=0$ 得 $C=1/25$，故
 \ansmath{y(x)=\frac{x^3}{5}\ln x-\frac{x^3}{25}+\frac{1}{25x^2}.}
 
-\item 这是 Euler 方程。令 $x=\e\e\e\e\ee^{t}$，并设 $y(x)=x^2v(t)$，则可化为
+\item 这是 Euler 方程。令 $x=\ee^{t}$，并设 $y(x)=x^2v(t)$，则可化为
 \[
 v''(t)=1.
 \]
@@ -132,14 +132,9 @@ a_{2m}=-\frac{4}{\pi(4m^2-1)}.
 \]
 故 Fourier 级数为
 \ansmath{|\sin x|=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{\cos(2mx)}{4m^2-1}.}
-令 $x=0$，得
+令 $x=0$，由 $f(0)=0$ 得
 \[
-1=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{4m^2-1}.
-\]
-应注意上式常数项应为 $a_0/2=2/\pi$，故整理得
-\[
-1=\frac{2}{\pi}+\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{1-4m^2}
-=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{4m^2-1}.
+0=\frac{2}{\pi}-\frac{4}{\pi}\sum_{m=1}^{\infty}\frac{1}{4m^2-1}.
 \]
 从而
 \ansmath{\sum_{m=1}^{\infty}\frac{1}{4m^2-1}=\frac12.}
