@@ -6,7 +6,6 @@
 \item 写出宇称在球坐标 $(r,\theta,\phi)$ 下的作用。
 \item 证明氢原子轨道 $\psi_{n\ell m}=R_{n\ell}(r)Y_\ell^m(\theta,\phi)$ 是宇称本征态,本征值为 $(-1)^\ell$。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	宇称算符 $\Pi$ 的作用是空间反演:$\Pi\psi(\mathbf r)=\psi(-\mathbf r)$,即 $(x,y,z)\to(-x,-y,-z)$。
 
@@ -86,6 +85,7 @@
 
 	故中心势定态 $\psi_{n\ell m}=R_{n\ell}(r)Y_\ell^m(\theta,\phi)$ 是宇称本征态,宇称本征值为 $\boxed{(-1)^\ell}$。
 	\end{solution}
+\end{question}
 
 \begin{question}
 设 $Q$ 是厄米算符,证明
@@ -93,7 +93,6 @@
 U=\exp(\ii Q)
 \]
 是幺正算符。提示:先由幂级数证明 $U^\dagger=\exp(-\ii Q)$。
-\end{question}
 \begin{solution}
 	设 $Q$ 是厄米算符,即 $Q^\dagger=Q$。定义算符函数
 	\[
@@ -127,13 +126,13 @@ U=\exp(\ii Q)
 	\boxed{U^\dagger = U^{-1}}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 证明动量算符在空间平移下不变:若 $T(a)=\exp(-\ii ap/\hbar)$,则
 \[
 T(a)^\dagger pT(a)=p.
 \]
-\end{question}
 \begin{solution}
 	空间平移算符定义为
 	\[
@@ -161,6 +160,7 @@ T(a)^\dagger pT(a)=p.
 
 	这说明空间平移不改变动量算符本身,只改变位置算符的原点。
 	\end{solution}
+\end{question}
 
 \begin{question}
 设算符 $Q(x,p)$ 可展开为 $x$ 与 $p$ 的幂级数,证明
@@ -168,7 +168,6 @@ T(a)^\dagger pT(a)=p.
 T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \]
 并由此说明一维哈密顿量 $H=p^2/(2m)+V(x)$ 在平移下如何变换。
-\end{question}
 \begin{solution}
 	\textbf{准备工作:平移算符对基本算符的作用}。先证明两个基本关系:
 	\begin{enumerate}
@@ -223,6 +222,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	\]
 	这正是布洛赫定理的基础——平移对称性使得平移算符与哈密顿量对易,从而存在共同本征态。
 	\end{solution}
+\end{question}
 
 \begin{question}
 由布洛赫条件
@@ -233,7 +233,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \[
 \psi(x)=\ee^{\ii qx}u(x),\qquad u(x+a)=u(x).
 \]
-\end{question}
 \begin{solution}
 	\textbf{正向推导}:已知布洛赫条件(平移对称性)
 	\[
@@ -268,6 +267,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	\Longleftrightarrow \psi(x+a)=\ee^{\ii qa}\psi(x)}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 质量为 $m$ 的粒子在周期为 $a$ 的一维势场 $V(x)$ 中运动。设
@@ -279,7 +279,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \item 说明如何用有限差分方法在一个周期内数值求解能带 $E_{nq}$。
 \item 对不同 $q$ 值画出最低能带的示意曲线。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) $u_{nq}$ 满足的本征值方程}:将布洛赫波函数
 	\[
@@ -355,6 +354,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	\boxed{E_{nq}=\text{第 }n\text{ 个能带在波矢 }q\text{ 处的能量}}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 考虑一维中两个质量分别为 $m_1,m_2$ 的粒子,哈密顿量中相互作用只依赖 $|x_1-x_2|$。
@@ -363,7 +363,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \item 证明该哈密顿量与总动量对易。
 \item 说明这对应于系统的整体平移不变性。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 两粒子平移算符及其生成元}:两粒子同时平移 $a$ 的作用是
 	\[
@@ -435,13 +434,13 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	\textbf{(c) 物理意义}:$[H,P]=0$ 意味着系统具有整体平移不变性——整个系统(两个粒子同时平移相同的距离)不改变哈密顿量的形式。根据诺特定理,平移对称性对应总动量守恒。由于相互作用只依赖于相对距离 $|x_1-x_2|$,质心运动是自由的。
 	\end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
 \item 证明宇称算符 $\Pi$ 是厄米算符。
 \item 证明宇称算符的本征值只能为 $+1$ 或 $-1$。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 证明 $\Pi$ 是厄米算符}:宇称算符 $\Pi$ 的作用定义为 $(\Pi\psi)(\mathbf r)=\psi(-\mathbf r)$。
 
@@ -485,10 +484,10 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	因此宇称算符只有两个本征值:$+1$(偶宇称态)和 $-1$(奇宇称态)。
 	\end{solution}
+\end{question}
 
 \begin{question}
 真标量在宇称下不变,赝标量在宇称下变号。证明:真标量 $f$ 满足 $[\Pi,f]=0$,赝标量 $g$ 满足 $\{\Pi,g\}=0$。并讨论真矢量与赝矢量在宇称下的变换。
-\end{question}
 \begin{solution}
 	\textbf{基本定义}:在宇称变换下,物理量按其变换性质分为四类:
 	\begin{itemize}
@@ -542,6 +541,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	总结:物理量在宇称下的变换性质完全由它与宇称算符的对易或反对易关系描述。
 	\end{solution}
+\end{question}
 
 \begin{question}
 证明位置算符和动量算符都具有奇宇称,即在一维中
@@ -551,7 +551,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \Pi p\Pi=-p,
 \]
 并把结论推广到三维情形。
-\end{question}
 \begin{solution}
 	\textbf{一维位置算符}:要证明 $\Pi x\Pi = -x$。任取波函数 $\psi(x)$,计算 $\Pi x\Pi\psi(x)$:
 
@@ -606,10 +605,10 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	因此位置算符和动量算符都是奇宇称算符(真矢量),在宇称变换下变号。
 	\end{solution}
+\end{question}
 
 \begin{question}
 考虑确定宇称态 $|\ii\rangle,|f\rangle$ 之间的矩阵元 $\langle f|Q|\ii\rangle$。根据算符 $Q$ 的宇称,推导该矩阵元非零的选择定则。说明该规则如何用于真标量、真矢量和赝矢量算符。
-\end{question}
 \begin{solution}
 	\textbf{选择定则的一般推导}:设初态 $|\ii\rangle$ 和末态 $|f\rangle$ 均为宇称本征态:
 	\[
@@ -668,10 +667,10 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	(-1)^{\ell'}(-1)^{\ell}\eta_Q = 1 \quad\Longrightarrow\quad (-1)^{\ell'+\ell} = \eta_Q.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 自旋角动量与宇称算符对易:$[\Pi,\mathbf S]=0$。在自旋 $1/2$ 的标准基中,说明宇称对二分量旋量的作用,并证明该作用可取为单位矩阵乘以一个整体常数。
-\end{question}
 \begin{solution}
 	\textbf{自旋与宇称的对易关系}:宇称算符 $\Pi$ 只作用于空间坐标,不改变内禀自旋自由度。因此自旋角动量算符 $\mathbf S$ 的各分量在宇称变换下保持不变。用对易关系表达:
 	\[
@@ -722,6 +721,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	\]
 	即仅对空间部分做反演,自旋部分不变。
 	\end{solution}
+\end{question}
 
 \begin{question}
 考虑氢原子中的电子。
@@ -729,7 +729,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \item 若电子处于基态,不做显式积分证明 $\langle z\rangle=0$。
 \item 说明当电子处于 $n=2$ 简并子空间时,$\langle z\rangle$ 不一定为零;给出一个例子并计算其值。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 基态 $\langle z\rangle=0$}:氢原子基态为 $\psi_{100}=R_{10}(r)Y_0^0(\theta,\phi)$,其中 $\ell=0$。
 	\begin{itemize}
@@ -843,10 +842,10 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	物理上这对应着氢原子在 $n=2$ 能级的斯塔克效应——外电场下 $2s$ 与 $2p$ 混合产生电偶极矩。
 	\end{solution}
+\end{question}
 
 \begin{question}
 考察二维平面中绕原点的无穷小旋转矩阵。对角化该矩阵,并把它与角动量本征态在无穷小旋转下获得相位的描述联系起来。
-\end{question}
 \begin{solution}
 	考虑二维平面中绕原点的无穷小旋转。旋转角为 $\epsilon$($\epsilon\ll1$)的旋转矩阵为
 	\[
@@ -911,13 +910,13 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	\textbf{与角动量本征态的联系}:在无穷小旋转下,波函数获得相位因子 $(1\pm\ii\epsilon)$,对应角动量本征态 $\ee^{\pm\ii m\phi}$。$M$ 的本征值 $1\pm\ii\epsilon$ 正是无穷小旋转算符 $1-\ii\epsilon L_z/\hbar$ 作用在 $m=\pm1$ 本征态上的结果。因此对角化 $M$ 等价于选择 $L_z$ 的本征基。
 	\end{solution}
+\end{question}
 
 \begin{question}
 证明标量算符在任意无穷小旋转下保持不变,当且仅当它与角动量各分量对易:
 \[
 [L_i,f]=0\qquad (\ii=x,y,z).
 \]
-\end{question}
 \begin{solution}
 	\textbf{标量算符的定义}:标量算符 $f$ 在旋转变换下保持不变:
 	\[
@@ -976,6 +975,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	即 $f$ 在所有有穷旋转下保持不变。所以标量算符与角动量各分量对易是其在旋转下保持不变的充要条件。
 	\end{solution}
+\end{question}
 
 \begin{question}
 从矢量算符的定义
@@ -983,7 +983,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 [L_i,V_j]=\ii\hbar\epsilon_{\ii jk}V_k
 \]
 出发,求矢量算符绕 $y$ 轴作无穷小旋转时各分量的变化。
-\end{question}
 \begin{solution}
 	\textbf{经典无穷小旋转}:绕 $y$ 轴转无穷小角 $\delta\phi$ 时,经典真矢量的变换为:
 	\[
@@ -1048,10 +1047,10 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	这验证了矢量算符的对易关系 $[L_i,V_j]=\ii\hbar\epsilon_{\ii jk}V_k$ 确实给出了正确的旋转变换律。
 	\end{solution}
+\end{question}
 
 \begin{question}
 考虑绕 $y$ 轴的无穷小旋转作用在角动量本征态 $|\ell m\rangle$ 上。利用 $L_y=(L_+-L_-)/(2\ii)$,证明旋转只把 $m$ 与 $m\pm1$ 的态混合,并写出一阶表达式。
-\end{question}
 \begin{solution}
 	\textbf{无穷小旋转算符}:绕 $y$ 轴旋转无穷小角 $\epsilon$ 的幺正算符为
 	\[
@@ -1114,6 +1113,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 	+ \frac{\epsilon}{2}\sqrt{\ell(\ell+1)-m(m-1)}|n\ell,m-1\rangle}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 一维自由粒子哈密顿量 $H=p^2/(2m)$ 同时具有平移和宇称对称性。
@@ -1121,7 +1121,6 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 \item 证明平移算符与宇称算符一般不对易。
 \item 从动量本征态和宇称本征态两种角度解释自由粒子能谱的二重简并。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 平移与宇称不对易}:先证明 $\Pi T(a)\Pi = T(-a)$。考虑任意波函数 $\psi(x)$:
 	\[
@@ -1164,6 +1163,7 @@ T(a)^\dagger Q(x,p)T(a)=Q(x+a,p).
 
 	因此,自由粒子的能谱除了 $p=0$ 外都是二重简并的,这一简并源于平移对称性和宇称对称性的共同存在但两者本身不对易——对称操作将某一本征态映射为同能量的不同本征态。
 	\end{solution}
+\end{question}
 
 \begin{question}
 对任意矢量算符 $\mathbf V$ 定义
@@ -1174,7 +1174,6 @@ V_\pm=V_x\pm\ii V_y.
 \item 利用 $[L_i,V_j]=\ii\hbar\epsilon_{\ii jk}V_k$ 推导 $V_\pm,V_z$ 与 $L_z,L^2$ 的有关对易关系。
 \item 说明 $V_q$ 对角动量量子数 $m$ 与 $\ell$ 的选择定则。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 球分量 $V_\pm,V_z$ 与 $L_z$ 的对易关系}:定义 $V_\pm = V_x \pm \ii V_y$。矢量算符定义 $[L_i,V_j]=\ii\hbar\epsilon_{\ii jk}V_k$。
 
@@ -1244,10 +1243,10 @@ V_\pm=V_x\pm\ii V_y.
 	\boxed{m' = m+q,\quad \ell' = \ell\pm1\ (\text{对位置算符})}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 证明若标量算符 $f$ 满足 $[L_z,f]=0$ 和 $[L^2,f]=0$,则其在角动量本征态之间的矩阵元只能在 $m'=m$ 且 $\ell'=\ell$ 时非零。
-\end{question}
 \begin{solution}
 	\textbf{标量算符的选择定则}:标量算符 $f$ 满足 $[L_z,f]=0$ 和 $[L^2,f]=0$。考虑其在角动量本征态之间的矩阵元:
 	\[
@@ -1303,6 +1302,7 @@ V_\pm=V_x\pm\ii V_y.
 
 	这意味着标量算符不改变角动量量子数——这是旋转对称性的直接结果。
 	\end{solution}
+\end{question}
 
 \begin{question}
 电子处于氢原子态
@@ -1310,7 +1310,6 @@ V_\pm=V_x\pm\ii V_y.
 \psi={1\over\sqrt2}\left(\psi_{211}+\psi_{21,-1}\right).
 \]
 利用选择定则或直接计算,求 $\langle\mathbf r\rangle$。
-\end{question}
 \begin{solution}
 	\textbf{态的描述}:电子处于如下叠加态:
 	\[
@@ -1353,13 +1352,13 @@ V_\pm=V_x\pm\ii V_y.
 	\boxed{\langle \mathbf r\rangle = \vec 0}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
 \item 由矢量算符定义推导 $V_z,V_\pm$ 与 $L_z,L_\pm$ 的六个对易关系。
 \item 由这些对易关系推导矢量算符矩阵元的选择定则。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 六个对易关系的推导}:矢量算符 $\mathbf V$ 满足 $[L_i,V_j]=\ii\hbar\epsilon_{\ii jk}V_k$。球分量定义为 $V_\pm=V_x\pm\ii V_y$,$V_z$ 不变。
 
@@ -1446,6 +1445,7 @@ V_\pm=V_x\pm\ii V_y.
 
 	其余对易关系给出矩阵元之间的比例关系(如 CG 系数之比),最终导向 Wigner--Eckart 定理。
 	\end{solution}
+\end{question}
 
 \begin{question}
 把两个角动量 $j_1,j_2$ 耦合成总角动量 $J$:
@@ -1453,7 +1453,6 @@ V_\pm=V_x\pm\ii V_y.
 |JM\rangle=\sum_{m_1,m_2} C^{JM}_{j_1m_1j_2m_2}|j_1m_1\rangle|j_2m_2\rangle.
 \]
 证明 Clebsch--Gordan 系数非零时必须满足 $M=m_1+m_2$,并推导由升降算符给出的递推关系。
-\end{question}
 \begin{solution}
 	\textbf{Clebsch--Gordan 系数定义}:两个角动量 $j_1$、$j_2$ 耦合成总角动量 $J$ 的耦合基为
 	\[
@@ -1492,25 +1491,29 @@ V_\pm=V_x\pm\ii V_y.
 
 	左边:
 	\[
-	J_\pm|JM\rangle = \hbar\sqrt{J(J+1)-M(M\pm1)}\,|J,M\pm1\rangle
-	= \hbar\sqrt{J(J+1)-M(M\pm1)}\sum_{m_1',m_2'} C^{J,M\pm1}_{j_1m_1'j_2m_2'}|j_1m_1'\rangle|j_2m_2'\rangle.
+	\begin{aligned}
+	J_\pm|JM\rangle={}&\hbar\sqrt{J(J+1)-M(M\pm1)}\,|J,M\pm1\rangle\\
+	={}&\hbar\sqrt{J(J+1)-M(M\pm1)}\sum_{m_1',m_2'} C^{J,M\pm1}_{j_1m_1'j_2m_2'}|j_1m_1'\rangle|j_2m_2'\rangle>.
+	\end{aligned}
 	\]
 
 	右边:
 	\[
-	(J_{1\pm}+J_{2\pm})\sum_{m_1,m_2}C^{JM}_{j_1m_1j_2m_2}|j_1m_1\rangle|j_2m_2\rangle
-	= \sum_{m_1,m_2}C^{JM}_{j_1m_1j_2m_2}\Big(
-	\hbar\sqrt{j_1(j_1+1)-m_1(m_1\pm1)}\,|j_1,m_1\pm1\rangle|j_2m_2\rangle
-	\]
-	\[
-	+ \hbar\sqrt{j_2(j_2+1)-m_2(m_2\pm1)}\,|j_1m_1\rangle|j_2,m_2\pm1\rangle\Big).
+	\begin{aligned}
+	&(J_{1\pm}+J_{2\pm})\sum_{m_1,m_2}C^{JM}_{j_1m_1j_2m_2}|j_1m_1\rangle|j_2m_2\rangle\\
+	={}&\sum_{m_1,m_2}C^{JM}_{j_1m_1j_2m_2}\Big(
+	\hbar\sqrt{j_1(j_1+1)-m_1(m_1\pm1)}\,|j_1,m_1\pm1\rangle|j_2m_2\rangle\\
+	&\quad+\hbar\sqrt{j_2(j_2+1)-m_2(m_2\pm1)}\,|j_1m_1\rangle|j_2,m_2\pm1\rangle\Big).
+	\end{aligned}
 	\]
 
 	比较两边 $|j_1m_1\rangle|j_2m_2\rangle$ 的系数(注意指标重标定),得到递推关系:
 	\[
-	\sqrt{J(J+1)-M(M\pm1)}\,C^{J,M\pm1}_{j_1m_1j_2m_2}
-	= \sqrt{j_1(j_1+1)-m_1(m_1\mp1)}\,C^{JM}_{j_1,m_1\mp1,j_2m_2}
-	+ \sqrt{j_2(j_2+1)-m_2(m_2\mp1)}\,C^{JM}_{j_1m_1,j_2,m_2\mp1}.
+	\begin{aligned}
+	\sqrt{J(J+1)-M(M\pm1)}\,C^{J,M\pm1}_{j_1m_1j_2m_2}={}&
+	\sqrt{j_1(j_1+1)-m_1(m_1\mp1)}\,C^{JM}_{j_1,m_1\mp1,j_2m_2}\\
+	&+\sqrt{j_2(j_2+1)-m_2(m_2\mp1)}\,C^{JM}_{j_1m_1,j_2,m_2\mp1}.
+	\end{aligned}
 	\]
 
 	其中 $M=m_1+m_2$。这个递推关系与归一化条件
@@ -1521,13 +1524,13 @@ V_\pm=V_x\pm\ii V_y.
 
 	因此 CG 系数非零需满足 $m_1+m_2=M$(以及三角不等式 $|j_1-j_2|\le J\le j_1+j_2$),并通过递推关系计算:
 	\[
-	\boxed{C^{JM}_{j_1m_1j_2m_2}\neq0 \;\Longrightarrow\; m_1+m_2=M,\; |j_1-j_2|\le J\le j_1+j_2}.
+	\boxed{\begin{aligned}C^{JM}_{j_1m_1j_2m_2}\neq0\;\Longrightarrow\;&m_1+m_2=M,\\&|j_1-j_2|\le J\le j_1+j_2.\end{aligned}}
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 将矢量算符球分量的对易关系夹在角动量本征态之间,推导其矩阵元之间的关系,并说明这些关系如何导向维格纳--埃卡特定理的形式。
-\end{question}
 \begin{solution}
 	\textbf{基本思路}:将矢量算符球分量与角动量的六个对易关系夹在角动量本征态之间,利用 $L_z,L_\pm$ 的本征作用提取出矩阵元之间的关系。
 
@@ -1538,9 +1541,11 @@ V_\pm=V_x\pm\ii V_y.
 
 	左边展开:
 	\[
-	\langle n'\ell'm'|L_zV_\pm - V_\pm L_z|n\ell m\rangle
-	= \hbar m'\langle n'\ell'm'|V_\pm|n\ell m\rangle - \hbar m\langle n'\ell'm'|V_\pm|n\ell m\rangle
-	= \hbar(m'-m)\langle n'\ell'm'|V_\pm|n\ell m\rangle.
+	\begin{aligned}
+	\langle n'\ell'm'|L_zV_\pm - V_\pm L_z|n\ell m\rangle={}&
+	\hbar m'\langle n'\ell'm'|V_\pm|n\ell m\rangle-\hbar m\langle n'\ell'm'|V_\pm|n\ell m\rangle\\
+	={}&\hbar(m'-m)\langle n'\ell'm'|V_\pm|n\ell m\rangle.
+	\end{aligned}
 	\]
 
 	因此
@@ -1570,9 +1575,11 @@ V_\pm=V_x\pm\ii V_y.
 
 	因此
 	\[
-	\hbar\sqrt{\ell'(\ell'+1)-m'(m'\pm1)}\,\langle n'\ell',m'\mp1|V_z|n\ell m\rangle
-	- \hbar\sqrt{\ell(\ell+1)-m(m\pm1)}\,\langle n'\ell'm'|V_z|n\ell,m\pm1\rangle
-	= \mp\hbar\langle n'\ell'm'|V_\pm|n\ell m\rangle.
+	\begin{aligned}
+	&\hbar\sqrt{\ell'(\ell'+1)-m'(m'\pm1)}\,\langle n'\ell',m'\mp1|V_z|n\ell m\rangle\\
+	&\quad-\hbar\sqrt{\ell(\ell+1)-m(m\pm1)}\,\langle n'\ell'm'|V_z|n\ell,m\pm1\rangle\\
+	&=\mp\hbar\langle n'\ell'm'|V_\pm|n\ell m\rangle.
+	\end{aligned}
 	\]
 
 	取适当指标,此式给出了 $V_z$ 和 $V_\pm$ 矩阵元之间的比例关系。
@@ -1592,15 +1599,14 @@ V_\pm=V_x\pm\ii V_y.
 
 	因此,矢量算符的矩阵元满足:
 	\[
-	\boxed{\langle n'\ell'm'|V_q|n\ell m\rangle
-	= \langle \ell m;1q|\ell'm'\rangle\langle n'\ell'\|V\|n\ell\rangle},
+	\boxed{\begin{aligned}\langle n'\ell'm'|V_q|n\ell m\rangle={}&\langle \ell m;1q|\ell'm'\rangle\\&\times\langle n'\ell'\|V\|n\ell\rangle.\end{aligned}}
 	\]
 	其中 $\langle \ell m;1q|\ell'm'\rangle$ 由 $m'=m+q$、$\ell'=\ell,\ell\pm1$ 等条件限制。
 	\end{solution}
+\end{question}
 
 \begin{question}
 把位置算符 $\mathbf r$ 写成球张量分量 $r_0,r_\pm$,并利用维格纳--埃卡特定理推导氢原子电偶极矩阵元的选择定则。
-\end{question}
 \begin{solution}
 	\textbf{位置算符的球分量}:定义位置算符的球分量(rank-1 球张量):
 	\[
@@ -1656,10 +1662,10 @@ V_\pm=V_x\pm\ii V_y.
 
 	\textbf{物理意义}:这对应电偶极跃迁的选择定则。例如氢原子中电子从 $2p$($\ell=1$)跃迁到 $1s$($\ell=0$)是允许的,而 $2s$($\ell=0$)到 $1s$($\ell=0$)被宇称禁止。径向积分的具体数值(如 $\langle 1s\|r\|2p\rangle$ 等)决定了跃迁速率的大小,全都包含在约化矩阵元中。
 	\end{solution}
+\end{question}
 
 \begin{question}
 求例题 6.7 中系统的海森伯绘景动量算符 $p_H(t)$,并讨论所得结果与经典运动方程的对应。
-\end{question}
 \begin{solution}
 	\textbf{海森伯运动方程}:在海森伯绘景中,算符 $Q_H(t)=U^\dagger(t)Q U(t)$ 的运动方程为
 	\[
@@ -1716,6 +1722,7 @@ V_\pm=V_x\pm\ii V_y.
 	\boxed{\dot p_H = -V'(x_H)}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 考虑质量为 $m$ 的一维自由粒子。证明海森伯绘景中
@@ -1725,7 +1732,6 @@ x_H(t)=x_H(0)+{p_H(0)\over m}t,
 p_H(t)=p_H(0),
 \]
 并解释它们与经典自由运动方程的关系。
-\end{question}
 \begin{solution}
 	\textbf{自由粒子的哈密顿量}:一维自由粒子 $H = \dfrac{p^2}{2m}$,不显含时。
 
@@ -1786,13 +1792,13 @@ p_H(t)=p_H(0),
 
 	量子海森伯绘景中的算符运动方程与经典运动方程形式完全一致,只是将经典变量替换为算符(海森伯绘景算符)。这体现了 Ehrenfest 定理:期望值遵循经典运动方程。
 	\end{solution}
+\end{question}
 
 \begin{question}
 由薛定谔方程对 $\psi(x,t+\delta t)$ 作泰勒展开,证明无穷小时间平移算符为
 \[
 U(\delta t)=1-{\ii H\delta t\over\hbar}+O(\delta t^2).
 \]
-\end{question}
 \begin{solution}
 	\textbf{薛定谔方程}:一维薛定谔方程为
 	\[
@@ -1839,10 +1845,10 @@ U(\delta t)=1-{\ii H\delta t\over\hbar}+O(\delta t^2).
 
 	\textbf{幺正性验证}:$U(t)^\dagger = \exp(\ii H t/\hbar) = U(t)^{-1}$,因为 $H$ 是厄米算符。
 	\end{solution}
+\end{question}
 
 \begin{question}
 对海森伯绘景算符 $Q_H(t)=U^\dagger(t)QU(t)$ 求导,推导海森伯运动方程。并将其用于 $H=p^2/(2m)+V(x)$,求 $x_H,p_H$ 的运动方程。
-\end{question}
 \begin{solution}
 	\textbf{海森伯绘景定义}:海森伯绘景算符定义为
 	\[
@@ -1919,6 +1925,7 @@ U(\delta t)=1-{\ii H\delta t\over\hbar}+O(\delta t^2).
 
 	这说明海森伯绘景中的算符运动方程与经典哈密顿方程完全同形,体现了量子--经典对应原理。
 	\end{solution}
+\end{question}
 
 \begin{question}
 设一维不含时哈密顿量的定态为 $\psi_n(x)$、能量为 $E_n$。
@@ -1929,7 +1936,6 @@ K(x,x';t)=\sum_n\psi_n(x)\psi_n^*(x')\ee^{-\ii E_nt/\hbar}.
 \]
 \item 将该表达式用于一维谐振子,得到标准传播子的形式。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 传播子的谱展开}:设哈密顿量 $H$ 的完备本征函数系为 $\{\psi_n(x)\}$,满足
 	\[
@@ -1988,6 +1994,7 @@ K(x,x';t)=\sum_n\psi_n(x)\psi_n^*(x')\ee^{-\ii E_nt/\hbar}.
 	\]
 	这是高斯型 $\delta$ 函数的表达式:$\lim_{t\to0} K(x,x';t) = \delta(x-x')$,满足物理要求。
 	\end{solution}
+\end{question}
 
 \begin{question}
 用动量完备基定义平移算符
@@ -1995,7 +2002,6 @@ K(x,x';t)=\sum_n\psi_n(x)\psi_n^*(x')\ee^{-\ii E_nt/\hbar}.
 T(a)=\int \ee^{-\ii pa/\hbar}|p\rangle\langle p|\,\dd p.
 \]
 证明它对任意波函数的作用为 $T(a)\psi(x)=\psi(x-a)$。
-\end{question}
 \begin{solution}
 	\textbf{动量完备基定义平移算符}:动量本征态 $|p\rangle$ 满足完备性关系
 	\[
@@ -2046,6 +2052,7 @@ T(a)=\int \ee^{-\ii pa/\hbar}|p\rangle\langle p|\,\dd p.
 
 	\textbf{优势}:这个推导只要求 $\psi(x)$ 的傅里叶展开存在(即 $\psi\in L^2$),不要求 $\psi$ 处处可微。即使波函数在某点一阶导数不连续,谱分解定义仍给出正确的平移结果。这是用坐标空间导数定义平移算符 $T(a)=\exp(-a\partial_x)$ 的一种推广(后者要求波函数可微)。
 	\end{solution}
+\end{question}
 
 \begin{question}
 自旋 $1/2$ 的旋量在绕单位矢量 $\hat n$ 转动角 $\phi$ 时由
@@ -2057,7 +2064,6 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 \item 证明泡利矩阵恒等式 $(\boldsymbol\sigma\cdot\mathbf a)(\boldsymbol\sigma\cdot\mathbf b)=\mathbf a\cdot\mathbf b+\ii\boldsymbol\sigma\cdot(\mathbf a\times\mathbf b)$。
 \item 推导 $U(\phi)$ 的闭式表达式和矩阵形式。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{(a) 泡利矩阵恒等式}:泡利矩阵 $\sigma_x,\sigma_y,\sigma_z$ 满足
 	\[
@@ -2093,11 +2099,12 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 
 	将 $k$ 按奇偶分开。令 $M \equiv \boldsymbol\sigma\cdot\hat n$,则 $M^2=1$,$M^{2m}=1$,$M^{2m+1}=M$:
 	\[
-	\ee^{-\ii\phi M/2}
-	= \sum_{m=0}^\infty \frac{(-\ii\phi/2)^{2m}}{(2m)!} M^{2m}
-	+ \sum_{m=0}^\infty \frac{(-\ii\phi/2)^{2m+1}}{(2m+1)!} M^{2m+1}
-	= \sum_{m=0}^\infty \frac{(-1)^m(\phi/2)^{2m}}{(2m)!}
-	- \ii M\sum_{m=0}^\infty \frac{(-1)^m(\phi/2)^{2m+1}}{(2m+1)!}.
+	\begin{aligned}
+	\ee^{-\ii\phi M/2}={}&\sum_{m=0}^\infty \frac{(-\ii\phi/2)^{2m}}{(2m)!} M^{2m}\\
+	&+\sum_{m=0}^\infty \frac{(-\ii\phi/2)^{2m+1}}{(2m+1)!} M^{2m+1}\\
+	={}&\sum_{m=0}^\infty \frac{(-1)^m(\phi/2)^{2m}}{(2m)!}\\
+	&-\ii M\sum_{m=0}^\infty \frac{(-1)^m(\phi/2)^{2m+1}}{(2m+1)!}.
+	\end{aligned}
 	\]
 
 	识别余弦和正弦级数:
@@ -2124,32 +2131,35 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 
 	代入:
 	\[
-	\boldsymbol\sigma\cdot\hat n
-	= \sin\theta\cos\varphi\begin{pmatrix}0&1\\1&0\end{pmatrix}
-	+ \sin\theta\sin\varphi\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}
-	+ \cos\theta\begin{pmatrix}1&0\\0&-1\end{pmatrix}
-	= \begin{pmatrix}\cos\theta & \sin\theta(\cos\varphi-\ii\sin\varphi)\\ \sin\theta(\cos\varphi+\ii\sin\varphi) & -\cos\theta\end{pmatrix}
-	= \begin{pmatrix}\cos\theta & \ee^{-\ii\varphi}\sin\theta\\ \ee^{\ii\varphi}\sin\theta & -\cos\theta\end{pmatrix}.
+	\begin{aligned}
+	\boldsymbol\sigma\cdot\hat n={}&\sin\theta\cos\varphi\begin{pmatrix}0&1\\1&0\end{pmatrix}\\
+	&+\sin\theta\sin\varphi\begin{pmatrix}0&-\ii\\\ii&0\end{pmatrix}\\
+	&+\cos\theta\begin{pmatrix}1&0\\0&-1\end{pmatrix}\\
+	={}&\begin{pmatrix}\cos\theta & \ee^{-\ii\varphi}\sin\theta\\ \ee^{\ii\varphi}\sin\theta & -\cos\theta\end{pmatrix}.
+	\end{aligned}
 	\]
 
 	因此旋转矩阵为
 	\[
-	U(\phi) = \cos\frac{\phi}{2}\begin{pmatrix}1&0\\0&1\end{pmatrix}
-	- \ii\sin\frac{\phi}{2}\begin{pmatrix}\cos\theta & \ee^{-\ii\varphi}\sin\theta\\ \ee^{\ii\varphi}\sin\theta & -\cos\theta\end{pmatrix}
-	= \begin{pmatrix}
+	\begin{aligned}
+	U(\phi)={}&\cos\frac{\phi}{2}\begin{pmatrix}1&0\\0&1\end{pmatrix}\\
+	&-\ii\sin\frac{\phi}{2}\begin{pmatrix}\cos\theta & \ee^{-\ii\varphi}\sin\theta\\ \ee^{\ii\varphi}\sin\theta & -\cos\theta\end{pmatrix}\\
+	={}&\begin{pmatrix}
 	\cos\frac{\phi}{2} - \ii\cos\theta\sin\frac{\phi}{2} & -\ii \ee^{-\ii\varphi}\sin\theta\sin\frac{\phi}{2}\\
 	-\ii \ee^{\ii\varphi}\sin\theta\sin\frac{\phi}{2} & \cos\frac{\phi}{2} + \ii\cos\theta\sin\frac{\phi}{2}
 	\end{pmatrix}.
+	\end{aligned}
 	\]
 
 	这就是自旋 $1/2$ 旋量绕 $\hat n$ 轴旋转 $\phi$ 角的 $SU(2)$ 矩阵:
 	\[
-	\boxed{R_{\hat n}(\phi)=\begin{pmatrix}
-	\cos\frac{\phi}{2}-\ii\cos\theta\sin\frac{\phi}{2}&-\ii \ee^{-\ii\varphi}\sin\theta\sin\frac{\phi}{2}\\
-	-\ii \ee^{\ii\varphi}\sin\theta\sin\frac{\phi}{2}&\cos\frac{\phi}{2}+\ii\cos\theta\sin\frac{\phi}{2}
-	\end{pmatrix}}.
+	\boxed{\begin{gathered}\text{记 }c=\cos\frac{\phi}{2},\ s=\sin\frac{\phi}{2},\\R_{\hat n}(\phi)=\begin{pmatrix}
+c-\ii\cos\theta\,s&-\ii \ee^{-\ii\varphi}\sin\theta\,s\\
+-\ii \ee^{\ii\varphi}\sin\theta\,s&c+\ii\cos\theta\,s
+\end{pmatrix}\end{gathered}}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 考虑边长为 $L$ 的二维无限深方势阱,原点取在方阱中心。
@@ -2158,7 +2168,6 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 \item 证明绕中心旋转 $90^\circ$ 会把这两个态相互变换。
 \item 构造旋转算符的好态线性组合。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{二维无限深方势阱}:边长为 $L$,原点取在中心,势能为
 	\[
@@ -2238,6 +2247,7 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 
 	这就对角化了简并子空间中的旋转操作。
 	\end{solution}
+\end{question}
 
 \begin{question}
 库仑势具有比普通旋转不变性更高的对称性。定义拉普拉斯--龙格--楞次矢量
@@ -2245,7 +2255,6 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 \mathbf M={1\over2m}(\mathbf p\times\mathbf L-\mathbf L\times\mathbf p)-k{\mathbf r\over r}.
 \]
 证明在 $V(r)=-k/r$ 中 $\mathbf M$ 与哈密顿量对易,并推导它与 $\mathbf L$ 之间的主要对易关系。
-\end{question}
 \begin{solution}
 	\textbf{拉普拉斯--龙格--楞次矢量(LRL 矢量)}:定义
 	\[
@@ -2320,6 +2329,7 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 	[M_i,M_j]=-\frac{2\ii\hbar H}{m}\epsilon_{\ii jk}L_k}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 伽利略变换把参考系变到相对原参考系以速度 $v$ 运动的新参考系。
@@ -2328,7 +2338,6 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 \item 利用 Baker--Campbell--Hausdorff 公式整理有限 boost 算符的形式。
 \item 证明若 $\psi$ 满足势 $V(x)$ 下的薛定谔方程,则 boost 后的波函数满足相应移动势场中的薛定谔方程。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{伽利略 boost 算符}:考虑从参考系 $S$ 变换到以速度 $v$ 沿 $x$ 方向运动的参考系 $S'$。在量子力学中,伽利略 boost 算符 $G(v,t)$ 作用于波函数为
 	\[
@@ -2403,10 +2412,10 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 	\boxed{G(v,t)=\exp\!\left[-\frac{\ii}{\hbar}\left(mvx-\frac12 mv^2t\right)\right]\,\exp\!\left(-\frac{\ii v t}{\hbar}p\right)}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 讨论时间反演不变性。以无空气阻力下抛体运动为例说明:若在某一时刻把速度反向,粒子会沿原轨迹反向返回。把这一思想推广到量子力学,说明时间反演对 $x,p$ 和虚数单位 $\ii$ 的作用。
-\end{question}
 \begin{solution}
 	\textbf{经典力学中的时间反演}:以无阻力抛体运动为例。质点在重力场中沿抛物线轨迹运动。若在某一时刻 $t_0$ 将速度反向($v\to -v$),则此后质点沿原轨迹反向返回,经过 $t_0$ 之前走过的路径回到起点。
 
@@ -2459,6 +2468,7 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 	\boxed{\Theta x\Theta^{-1}=x,\quad \Theta p\Theta^{-1}=-p,\quad \Theta\ii\Theta^{-1}=-\ii}.
 	\]
 	\end{solution}
+\end{question}
 
 \begin{question}
 自旋 $1/2$ 粒子的时间反演算符可取为 $\Theta=-\ii\sigma_yK$,其中 $K$ 表示复共轭。
@@ -2466,7 +2476,6 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 \item 证明 $\Theta^2=-1$。
 \item 若哈密顿量与时间反演对易,证明所有能级至少二重简并(Kramers 简并)。
 \end{enumerate}
-\end{question}
 \begin{solution}
 	\textbf{自旋 $1/2$ 的时间反演算符}:对于自旋 $1/2$ 粒子,时间反演算符取为
 	\[
@@ -2539,3 +2548,4 @@ U(\phi)=\exp\left(-{\ii\phi\over2}\boldsymbol\sigma\cdot\hat n\right)
 
 		这个结论对固体物理中自旋轨道耦合系统有重要应用。
 		\end{solution}
+\end{question}

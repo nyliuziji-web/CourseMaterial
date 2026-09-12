@@ -66,6 +66,37 @@ def get_tex_files(directory):
     return result
 
 
+def git_changed_files():
+    """Changed file paths (vs HEAD, incl. untracked) or None if git unavailable."""
+    if shutil.which("git") is None:
+        return None
+    files = set()
+    for cmd in (
+        ["git", "-c", "core.quotepath=false", "diff", "--name-only", "HEAD"],
+        ["git", "-c", "core.quotepath=false", "ls-files", "--others", "--exclude-standard"],
+    ):
+        try:
+            out = subprocess.run(cmd, cwd=ROOT_DIR, capture_output=True, text=True)
+            if out.returncode != 0:
+                return None
+        except (OSError, subprocess.SubprocessError):
+            return None
+        files.update(out.stdout.splitlines())
+    return files
+
+
+def affected_courses(files):
+    """Set of (src_type, course) changed, or None for full rebuild."""
+    if files is None or "preamble.tex" in files:
+        return None
+    affected = set()
+    for f in files:
+        parts = Path(f).parts
+        if len(parts) >= 2 and parts[0] in ("exam", "homework"):
+            affected.add((parts[0], parts[1]))
+    return affected
+
+
 def generate_tex(src_type, course_name, files, show_solutions):
     lines = [
         "% Auto-generated",
@@ -125,11 +156,17 @@ def compile_pdf(tex_content, output_pdf):
 def main():
     global XELATEX
     XELATEX = find_xelatex()
-    print("Using:", XELATEX)
-    print()
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     EXAMPLE_DIR.mkdir(parents=True, exist_ok=True)
+
+    affected = affected_courses(git_changed_files())
+    if affected is not None:
+        if not affected:
+            print("No changed courses, nothing to do.")
+            return
+        for src, course in sorted(affected, key=lambda x: (x[0], natural_key(x[1]))):
+            print("changed: %s/%s" % (src, course))
 
     categories = {"exam": "往年题", "homework": "作业题"}
     total_ok = 0
@@ -143,6 +180,8 @@ def main():
         print(">>> Compiling %s..." % src_type)
         dirs = sorted([d for d in src_dir.iterdir() if d.is_dir()])
         for d in dirs:
+            if affected is not None and (src_type, d.name) not in affected:
+                continue
             files = get_tex_files(d)
             if not files:
                 continue

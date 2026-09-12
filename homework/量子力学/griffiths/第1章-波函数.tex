@@ -14,7 +14,6 @@
 \item 式 (1.12):方差恒等式:$\sigma^2=\langle j^2\rangle-\langle j\rangle^2$。
 \end{enumerate}
 
-\end{question}
 \begin{solution}
 已知样本为
 \[
@@ -59,13 +58,13 @@
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
 \item 求出例题 1.2 中所给分布的标准差。
 \item 随机选择一张拍摄的照片,其下落距离 $x$ 比平均值多出一个标准差的几率是多少?
 \end{enumerate}
-\end{question}
 \begin{solution}
 例题 1.2 的概率密度为
 \[
@@ -99,6 +98,7 @@ P\left(x>\langle x\rangle+\sigma_x\right)
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑高斯 (Gaussian) 分布
@@ -115,7 +115,6 @@ P\left(x>\langle x\rangle+\sigma_x\right)
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (1.16):连续概率密度的归一化:$\int_{-\infty}^{\infty}\rho(x)\,\dd x=1$。}
 
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 归一化条件给出
@@ -144,6 +143,7 @@ A=\sqrt{\frac{\lambda}{\pi}}.
 \item 图像是以 $x=a$ 为中心的钟形曲线,峰值为 $\sqrt{\lambda/\pi}$,宽度量级为 $1/\sqrt{\lambda}$。
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 在 $t=0$ 时刻粒子的波函数为
@@ -163,7 +163,6 @@ A\dfrac{b-x}{b-a}, & a\le x\le b,\\[0.6em]
 \item 在 $a$ 左边发现粒子的几率是多少?考虑 $b=a$ 和 $b=2a$ 两种极限情况来验证你的结论。
 \item $x$ 的期望值是多少?
 \end{enumerate}
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 归一化要求
@@ -199,6 +198,7 @@ P(x<a)=A^2\int_0^a\frac{x^2}{a^2}\dd x
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑波函数
@@ -211,7 +211,6 @@ P(x<a)=A^2\int_0^a\frac{x^2}{a^2}\dd x
 \item 求出 $x$ 和 $x^2$ 的期望值。
 \item 求出 $x$ 的标准差。画出 $|\Psi|^2$ 以 $x$ 为函数的草图,并在图上标出点 $\langle x\rangle+\sigma$ 和 $\langle x\rangle-\sigma$,解释在何种意义上 $\sigma$ 代表 $x$ 的“弥散”。在这个区域之外发现粒子的几率是多少?
 \end{enumerate}
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 因为
@@ -244,6 +243,7 @@ P(|x|>\sigma_x)=2\lambda\int_{\sigma_x}^{\infty}\ee^{-2\lambda x}\dd x
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 为什么你不可以直接对式 (1.29) 的中间一步进行分部积分——转化为对 $x$ 的时间导数,利用 $\partial x/\partial t=0$ 得到 $d\langle x\rangle/dt=0$ 的结论?
@@ -251,7 +251,6 @@ P(|x|>\sigma_x)=2\lambda\int_{\sigma_x}^{\infty}\ee^{-2\lambda x}\dd x
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (1.29):$\langle x\rangle=\int x|\Psi|^2\dd x$,且 $\dd\langle x\rangle/\dd t=\langle p\rangle/m$。求导时随时间变化的是 $|\Psi|^2$,不是坐标 $x$。}
 
-\end{question}
 \begin{solution}
 式 (1.29) 中随时间变化的是概率密度 $|\Psi|^2$,不是坐标变量 $x$。因此
 \[
@@ -264,10 +263,10 @@ P(|x|>\sigma_x)=2\lambda\int_{\sigma_x}^{\infty}\ee^{-2\lambda x}\dd x
 \]
 对 $x$ 的分部积分只处理空间导数,边界项在无穷远处消失后,仍留下由概率流决定的项。换言之,虽然 $x$ 本身不显含时间,但粒子出现在各个 $x$ 处的概率随时间改变,所以 $\langle x\rangle$ 可以随时间改变。
 \end{solution}
+\end{question}
 
 \begin{question}
 计算 $d\langle p\rangle/dt$。
-\end{question}
 \begin{solution}
 动量算符为 $\hat p=-\ii\hbar\partial_x$。从
 \[
@@ -290,10 +289,10 @@ P(|x|>\sigma_x)=2\lambda\int_{\sigma_x}^{\infty}\ee^{-2\lambda x}\dd x
 \]
 这就是 Ehrenfest 定理的第二个式子。
 \end{solution}
+\end{question}
 
 \begin{question}
 假定在势能项中增加了一个常数 $V_0$(这里常数的意思是它不依赖 $x$ 和 $t$)。在经典力学中这不改变任何结论,但在量子力学中是什么样的情况?证明波函数将多一个含时的相因子 $\exp(-\ii V_0t/\hbar)$。它对动力学变量的期望值有何影响?
-\end{question}
 \begin{solution}
 设 $\Psi$ 是势能 $V(x,t)$ 下的解。若把势能改成 $V+V_0$,其中 $V_0$ 为常数,令
 \[
@@ -307,6 +306,7 @@ P(|x|>\sigma_x)=2\lambda\int_{\sigma_x}^{\infty}\ee^{-2\lambda x}\dd x
 \]
 所以 $\Psi'$ 正是新势能下的解。这个附加因子只依赖时间,是全局相因子;任意不显含时间、只作用在 $x$ 空间上的力学量期望值中它与其复共轭相消。因此概率密度和动力学变量期望值都不变。
 \end{solution}
+\end{question}
 
 \begin{question}
 质量为 $m$ 的粒子,其波函数是
@@ -320,7 +320,6 @@ P(|x|>\sigma_x)=2\lambda\int_{\sigma_x}^{\infty}\ee^{-2\lambda x}\dd x
 \item 计算 $x$、$x^2$、$p$ 和 $p^2$ 的期望值。
 \item 求出 $\sigma_x$ 和 $\sigma_p$,它们的乘积满足不确定原理吗?
 \end{enumerate}
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 归一化由
@@ -381,6 +380,7 @@ V(x)=2ma^2x^2.
 它恰好达到不确定关系的下界。
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑 $\pi$ 的十进制展开的前面 25 位数 $(3,1,4,1,5,9,\cdots)$。
@@ -389,7 +389,6 @@ V(x)=2ma^2x^2.
 \item 最可几的数字是哪一个?中值数字是哪一个?平均值是多少?
 \item 给出这个分布的标准差。
 \end{enumerate}
-\end{question}
 \begin{solution}
 取 $\pi$ 的前 25 个数字为
 \[
@@ -420,6 +419,7 @@ P(n)=\frac{N_n}{25}\qquad(n=0,1,\ldots,9).
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 (本题是例题 1.2 的推广。)假设一个能量为 $E$、质量为 $m$ 的粒子位于势阱 $V(x)$ 中,粒子沿 $a$、$b$ 两个经典转折点往返无摩擦滑动(见图 1.10)。从经典上来讲,发现粒子处在 $\dd x$ 范围内的几率等于粒子在 $\dd x$ 间隔内运动的时间和粒子从 $a$ 运动到 $b$ 所需时间 $T$ 的比:
@@ -443,7 +443,6 @@ T=\int_0^T \dd t=\int_a^b \frac{1}{v(x)}\dd x.
 \item 求出简谐振子势能为 $V(x)=kx^2/2$ 的 $\rho(x)$,画出 $\rho(x)$,并验证它是严格归一化的。
 \item 在 (b) 中,对于经典谐振子情况,求出 $\langle x\rangle$、$\langle x^2\rangle$ 和 $\sigma_x$。
 \end{enumerate}
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 由能量守恒
@@ -490,6 +489,7 @@ T=\int_{-A}^{A}\frac{\dd x}{v(x)}=\frac{\pi}{\omega}.
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 对习题 1.11 (b) 中的经典谐振子,若感兴趣的是动量的分布 ($p=mv$),则:
@@ -498,7 +498,6 @@ T=\int_{-A}^{A}\frac{\dd x}{v(x)}=\frac{\pi}{\omega}.
 \item 计算 $\langle p\rangle$、$\langle p^2\rangle$ 和 $\sigma_p$。
 \item 对于该系统,经典的不确定乘积 $\sigma_x\sigma_p$ 是多少?注意:一般来说,只要 $E\to0$,这个乘积值就可以足够小。但是在第 2 章将会看到,在量子力学中,简谐振子的能量不会小于 $\hbar\omega/2$,这里 $\omega=\sqrt{k/m}$ 是经典频率。在这种情况下,你对乘积 $\sigma_x\sigma_p$ 有什么看法?
 \end{enumerate}
-\end{question}
 \begin{solution}
 记
 \[
@@ -538,6 +537,7 @@ p_0=\sqrt{2mE}.
 正好是海森堡不确定关系的下限。
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 用下面的“数值实验”检验习题 1.11 (b) 的结果。在 $t$ 时刻谐振子的位置是
@@ -560,7 +560,6 @@ x(t)=A\cos\omega t.
 \texttt{Histogram[snapshots, 100, "PDF", PlotRange -> \{0, 2\}]}
 \]
 与此同时,作密度函数 $\rho(x)$ 图,使用 \texttt{Show},将两个叠加起来比较。
-\end{question}
 \begin{solution}
 这是一个数值检验题。解析结果为
 \[
@@ -581,6 +580,7 @@ x(t)=A\cos\omega t.
 \]
 叠加。样本数越大,柱状图越接近解析曲线;在 $x=\pm1$ 附近较高,是因为谐振子在转折点处速度较小、停留时间较长。
 \end{solution}
+\end{question}
 
 \begin{question}
 设 $P_{ab}(t)$ 是在 $t$ 时刻发现粒子处在区间 $(a<x<b)$ 内的几率。
@@ -596,7 +596,6 @@ J(x,t)=\frac{\ii\hbar}{2m}\left(\Psi\frac{\partial\Psi^*}{\partial x}-\Psi^*\fra
 问 $J(x,t)$ 的单位是什么?注释:$J$ 称为几率流,因为它告诉你“流”过 $x$ 点几率的速率。若 $P_{ab}(t)$ 随时间增加,则流进该区域的一端的几率大于流出端。
 \item 求出习题 1.9 中波函数的几率流。(这不是一个非常简单的例子,恐怕在以后的课程中我们会遇到更多实质性的问题。)
 \end{enumerate}
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 令
@@ -635,13 +634,13 @@ J(x,t)=0.
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 证明:对(处在相同势场 $V(x)$ 中)任何两个同时满足薛定谔方程的(归一化)解 $\Psi_1$ 和 $\Psi_2$ 有
 \[
 \frac{\dd}{\dd t}\int_{-\infty}^{\infty}\Psi_1^*\Psi_2\,\dd x=0.
 \]
-\end{question}
 \begin{solution}
 设二者满足同一实势能 $V(x,t)$ 下的薛定谔方程:
 \[
@@ -665,6 +664,7 @@ J(x,t)=0.
 \]
 这表明内积随时间保持不变。
 \end{solution}
+\end{question}
 
 \begin{question}
 ($t=0$ 时刻)粒子运动由下面波函数描述:
@@ -685,7 +685,6 @@ A(a^2-x^2), & -a\le x\le a,\\
 \item 求出 $p$ 的不确定度(即 $\sigma_p$)。
 \item 验证所得到的结果和不确定原理一致。
 \end{enumerate}
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 归一化:
@@ -736,6 +735,7 @@ A=\sqrt{\frac{15}{16a^5}}.
 因此结果与不确定原理一致。
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 假设描述一个不稳定的粒子,它以“寿命” $\tau$ 自发衰变。在这种情况下,整个空间发现粒子的几率不再是常数,而是(比如说)按指数衰减:
@@ -762,7 +762,6 @@ V=V_0-\ii\Gamma,
 \item 式 (1.27):若势能 $V$ 为实函数,则总概率守恒:$\dd_t\int |\Psi|^2\dd x=0$。等价地,$\partial_t|\Psi|^2+\partial_xJ=0$。
 \end{enumerate}
 
-\end{question}
 \begin{solution}
 \begin{enumerate}
 \item 对复势能
@@ -792,6 +791,7 @@ P(t)=\ee^{-2\Gamma t/\hbar}.
 \]
 \end{enumerate}
 \end{solution}
+\end{question}
 
 \begin{question}
 粗略地讲,当粒子的德布罗意波长 $(h/p)$ 比体系的特征长度 $(d)$ 大时,就要涉及量子力学。在温度 $T\,\mathrm{K}$ 下粒子处于热平衡时,其平均动能是
@@ -808,7 +808,6 @@ P(t)=\ee^{-2\Gamma t/\hbar}.
 \item 固体。典型固体的晶格间距大约是 $d=0.3\,\mathrm{nm}$,找出固体中自由电子的量子力学温度。固体量子力学中的原子核温度低于多少(以硅为例)?原则上固体中的自由电子总是量子力学的,但原子核通常不是量子力学的。对液体也有同样的结果(原子之间的间隔和固体差不多),但是 $4\,\mathrm{K}$ 以下的氦是个例外。
 \item 气体。压强为 $p$ 的理想气体中原子的量子力学温度是多少?提示:利用理想气体定律 $(pV=Nk_BT)$ 导出原子之间的间距。对氢来讲,把一个大气压下的数据代入你推得的表达式。问遥远宇宙中的氢(温度大约 $3\,\mathrm{K}$,原子间距大约 $1\,\mathrm{cm}$)需要用量子力学处理吗?(假设它是氢原子,不是氢分子。)
 \end{enumerate}
-\end{question}
 \begin{solution}
 量子效应显著的粗略判据是 $\lambda\gtrsim d$。令 $\lambda=d$,得到特征温度
 \[
@@ -851,3 +850,4 @@ T_Q\approx 6.7\,\mathrm{K}.
 远小于 $1\,\mathrm{cm}$,所以平动自由度不需要量子力学处理。
 \end{enumerate}
 \end{solution}
+\end{question}

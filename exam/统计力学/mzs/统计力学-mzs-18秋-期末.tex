@@ -1,0 +1,153 @@
+\heading{统计力学-mzs-18秋-期末}
+
+\begin{question}
+\begin{enumerate}
+\item 什么是 BEC？普通水滴凝聚是否为 BEC？
+\item 什么是费米面，如何定义？
+\item 比较 Einstein 固体模型和 Debye 模型。
+\item 写出 BE、FD 分布及单能级简并度为 $\omega_s$ 时的巨配分函数。
+\end{enumerate}
+\begin{solution}
+BEC 是玻色子对最低单粒子态的宏观占据；普通气液凝结由分子相互作用驱动，不是 BEC。费米面是 $T=0$ 时动量空间中已占据态与空态的分界面，满足 $\epsilon(\bm k)=\epsilon_F$。Einstein 模型采用同频独立振子，Debye 模型采用连续弹性介质声子并设截止频率，后者给出低温 $T^3$ 热容。令 $z=\ee^{\beta\mu}$，
+\[\bar n_s^{\rm B}=\frac{\omega_s}{z^{-1}\ee^{\beta\epsilon_s}-1},\quad \Xi_s^{\rm B}=(1-z\ee^{-\beta\epsilon_s})^{-\omega_s},\]
+\[\bar n_s^{\rm F}=\frac{\omega_s}{z^{-1}\ee^{\beta\epsilon_s}+1},\quad \Xi_s^{\rm F}=(1+z\ee^{-\beta\epsilon_s})^{\omega_s}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+无简并粒子满足 $\epsilon=A|k|^{4/3}$。
+\begin{enumerate}
+\item 求能态密度。
+\item Maxwell--Boltzmann 统计下求 $\mu(n,T)$。
+\item 若 $\mu=0$，求 $P,U$。
+\item 若粒子数守恒，求 BEC 临界温度。
+\end{enumerate}
+\begin{solution}
+\[\boxed{D(\epsilon)=\frac{3V}{8\pi^2}A^{-9/4}\epsilon^{5/4}}.\]
+令 $c_0=3A^{-9/4}/(8\pi^2)$。经典极限
+\[n=z c_0\Gamma\!\left(\frac94\right)(k_BT)^{9/4},\]
+故
+\[\boxed{\mu=k_BT\ln\!\left[\frac{n}{c_0\Gamma(9/4)(k_BT)^{9/4}}\right]}.\]
+$\mu=0$ 时
+\[\boxed{U=Vc_0\Gamma\!\left(\frac{13}{4}\right)\zeta\!\left(\frac{13}{4}\right)(k_BT)^{13/4}},\]
+幂律色散满足 $PV=(4/9)U$，故 $\boxed{P=4U/(9V)}$。BEC 临界温度
+\[\boxed{T_c=\frac{A}{k_B}\left[\frac{8\pi^2n}{3\Gamma(9/4)\zeta(9/4)}\right]^{4/9}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+二维面积为 $A$，粒子数为 $N$，自旋 $1/2$，
+\[E_\pm=\frac{p^2}{2m}\pm\mu_BH.\]
+\begin{enumerate}
+\item 无场 $T=0$ 时求 $\mu_0(n)$，$n=N/A$。
+\item 弱场下求化学势和平均内能到 $H^2$。
+\item 求磁化率。
+\item 若 $n_+=xn,n_-=(1-x)n$，求 $H$。
+\end{enumerate}
+\begin{solution}
+二维每自旋、每单位面积的动能态密度为常数
+\[
+D_0=\frac{m}{2\pi\hbar^2}.
+\]
+无场时两自旋支同时占据到 $\mu_0$，所以
+\[
+n=2D_0\mu_0,
+\qquad
+\boxed{\mu_0=\frac{\pi\hbar^2n}{m}}.
+\]
+
+记 $b=\mu_BH$。单粒子总能量为 $\epsilon_\pm=K\pm b$，其中 $K=p^2/(2m)\ge0$。在 $T=0$ 时，共同化学势为 $\mu$，故两支的动能截止为
+\[
+K_{F,+}=\mu-b,\qquad K_{F,-}=\mu+b.
+\]
+在弱场 $b<\mu$ 下两支均有占据，并且
+\[
+n_+=D_0(\mu-b),\qquad n_-=D_0(\mu+b).
+\]
+固定总密度给出
+\[
+n=n_++n_-=2D_0\mu.
+\]
+由于二维 DOS 为常数，得到
+\[
+\boxed{\mu(H)=\mu_0},
+\]
+这在两支均占据的弱场区间内是精确结果，而不仅仅是到 $H^2$。
+
+总能量密度需要同时计入动能和 Zeeman 能：
+\[
+\frac{E}{A}
+=D_0\int_0^{\mu-b}(K+b)\dd{K}
++D_0\int_0^{\mu+b}(K-b)\dd{K}.
+\]
+完成积分并令 $\mu=\mu_0$，
+\[
+\frac{E}{A}=D_0(\mu_0^2-b^2).
+\]
+利用 $n=2D_0\mu_0$，
+\[
+\boxed{\frac{E(H)}{N}
+=\frac{\mu_0}{2}-\frac{b^2}{2\mu_0}
+=\frac{\mu_0}{2}-\frac{(\mu_BH)^2}{2\mu_0}}.
+\]
+
+两支粒子数差为
+\[
+n_--n_+=2D_0b=2D_0\mu_BH.
+\]
+因此
+\[
+M=(n_--n_+)\mu_B=2D_0\mu_B^2H,
+\]
+从而
+\[
+\boxed{\chi=\frac{\partial M}{\partial H}
+=\frac{m\mu_B^2}{\pi\hbar^2}}.
+\]
+
+若题设给 $n_+=xn$、$n_-=(1-x)n$，则
+\[
+x=\frac{D_0(\mu_0-b)}{2D_0\mu_0}
+=\frac12-\frac{b}{2\mu_0},
+\]
+故
+\[
+\boxed{H=\frac{(1-2x)\mu_0}{\mu_B}},
+\]
+并且 $0<x<1$ 正对应两支均有粒子的条件。
+\end{solution}
+\end{question}
+
+\begin{question}
+单原子经典气体单粒子内部能量有常数偏移 $\Delta$，内部简并度为 $g$。
+\begin{enumerate}
+\item 求巨配分函数。
+\item 求 $N,P,U$。
+\item 对 $H\rightleftharpoons p+e$，给定 $n_H=(1-x)n,n_p=n_e=xn$，$g_H=4,g_p=g_e=2$，$\Delta_H=-e^2/(2a)$，$\Delta_p=\Delta_e=0$，求 $x(T)$ 关系。
+\end{enumerate}
+\begin{solution}
+$d$ 维热波长 $\lambda_i=h/\sqrt{2\pi m_i k_BT}$。单粒子配分函数
+\[q_1=g\frac{V}{\lambda^d}\ee^{-\beta\Delta}.\]
+MB 巨配分函数
+\[\boxed{\Xi=\exp(zq_1)},\qquad \boxed{N=zq_1},\qquad \boxed{P=\frac{Nk_BT}{V}},\]
+\[\boxed{U=N\left(\frac d2k_BT+\Delta\right)}.\]
+对三维电离平衡，
+\[\mu_H=\mu_p+\mu_e,\qquad \ee^{\beta\mu_i}=\frac{n_i\lambda_i^3}{g_i}\ee^{\beta\Delta_i}.\]
+于是
+\[\frac{n_pn_e}{n_H}=\frac{g_pg_e}{g_H}\frac{\lambda_H^3}{\lambda_p^3\lambda_e^3}\exp\!\left[-\frac{e^2}{2ak_BT}\right].\]
+代入给定简并度与粒子数，
+\[\boxed{\frac{x^2}{1-x}n=\left(\frac{2\pi k_BT}{h^2}\right)^{3/2}\left(\frac{m_pm_e}{m_H}\right)^{3/2}\exp\!\left[-\frac{e^2}{2ak_BT}\right]}.\]
+这就是所求 Saha 型方程。
+\end{solution}
+\end{question}
+
+\begin{question}
+\[u(r)=\begin{cases}\infty,&r<a,\\-\varepsilon,&a\le r\le R,\\0,&r\ge R.\end{cases}\]
+求 Mayer 函数、$B_2(T)$、一阶状态方程及 $B_2=0$ 的温度 $T_0$。
+\begin{solution}
+\[f(r)=\begin{cases}-1,&r<a,\\\ee^{\beta\varepsilon}-1,&a\le r\le R,\\0,&r>R,\end{cases}\]
+\[\boxed{B_2=\frac{2\pi}{3}\left[a^3-(R^3-a^3)(\ee^{\beta\varepsilon}-1)\right]},\]
+\[\boxed{P=nk_BT(1+B_2n+\cdots)},\]
+\[\boxed{T_0=\frac{\varepsilon}{k_B\ln[R^3/(R^3-a^3)]}}.\]
+\end{solution}
+\end{question}

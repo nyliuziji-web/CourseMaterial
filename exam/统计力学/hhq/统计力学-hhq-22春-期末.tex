@@ -1,0 +1,156 @@
+\heading{统计力学-hhq-22春-期末}
+
+\begin{question}[40 分]
+简要回答下列问题。
+\begin{enumerate}
+  \item 判断并说明：微正则系综的等概率密度可以由刘维尔定理推出。
+  \item 判断并说明：各态历经假说对一般力学系统均成立。
+  \item 写出近平衡态热力学涨落的概率密度的一般形式。
+  \item 为什么常温下理想分子气体的电子自由度对热容的贡献通常可以忽略？
+  \item 说明临界指数具有普适性的物理原因，并指出决定普适类的主要因素。
+  \item 说明玻色--爱因斯坦凝聚与水蒸气液化的本质区别。
+  \item 在 Mayer 集团展开中，说明如何由 Mayer 函数乘积画出相应集团图，并给出判定连通 $n$-集团的方法。
+  \item 定性说明普朗克量子理论为何消除了黑体辐射的紫外发散。
+  \item 在相同 $T,V,N$ 下，弱简并玻色气体、费米气体的 $p,U$ 与经典理想气体相比如何？
+  \item 为什么双原子理想气体的转动热容在量子转动温区会出现明显峰形/过渡结构？
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 该说法不成立。刘维尔定理给出哈密顿流在相空间中不可压缩，$\dd{\rho}/\dd{t}=0$；它保证 $\rho=f(H)$ 的分布可为定态分布，但不能推出能壳上各微观态“先验等概率”。微正则分布
+  \[\rho(\Gamma)=\frac{\delta(E-H(\Gamma))}{\Omega(E)}\]
+  还需要等概率原理或相应的典型性/遍历性论证。
+  \item 不成立。各态历经性不是一般哈密顿系统的定理；可积系统具有额外守恒量，轨道通常局限于不变环面，不能遍历整个能量壳。统计力学实际常使用比严格遍历性更弱的典型性或混合性质。
+  \item 爱因斯坦涨落公式为 $P\propto\exp(\Delta S/k_B)$。在稳定平衡点附近令宏观变量偏离量为 $\delta x_a$，熵作二阶展开，
+  \[\Delta S=-\frac12\sum_{ab}A_{ab}\delta x_a\delta x_b+O(\delta x^3),\]
+  因而
+  \[P(\delta\bm x)\propto\exp\!\left[-\frac{1}{2k_B}\delta\bm x^{\mathsf T}A\delta\bm x\right],\]
+  即近平衡涨落为高斯分布。
+  \item 分子的电子激发能隙通常满足 $\Delta E_{\rm el}\gg k_BT$。激发态布居比例含因子 $\ee^{-\Delta E_{\rm el}/k_BT}$，常温下指数小，因此电子内能随温度的变化极小，电子热容可忽略。
+  \item 临界点附近关联长度 $\xi\to\infty$，长波长涨落支配物理；重整化群粗粒化后，大量微观细节成为无关变量。临界指数主要由空间维数、序参量对称性、相互作用程等少数结构决定，因此同一普适类具有相同临界指数。
+  \item BEC 是量子统计导致的宏观占据：当粒子数守恒且相空间密度足够大时，大量玻色子占据同一最低单粒子态。水蒸气液化则主要由分子相互作用驱动，是气液相变；普通液化并不要求单粒子量子态发生宏观占据。
+  \item Mayer 展开中每个粒子对应一个顶点，每个 $f_{ij}=\ee^{-\beta u_{ij}}-1$ 对应一条边。一个 $n$-集团就是含 $n$ 个顶点的连通图；给定乘积项后，将其中出现的 $f_{ij}$ 逐一连边，再按连通分支数和各分支顶点数判定。因此，只要把给定乘积中的每个 $f_{ij}$ 解释为顶点 $i,j$ 之间的一条边，就可直接由图的连通分支与顶点数判定各 $n$-集团。
+  \item 普朗克平均能量
+  \[\bar\epsilon(\omega)=\frac{\hbar\omega}{\ee^{\beta\hbar\omega}-1}\]
+  在 $\omega\to\infty$ 时按 $\hbar\omega\ee^{-\beta\hbar\omega}$ 指数衰减。三维光子态密度虽按 $\omega^2$ 增长，能谱仍仅按 $\omega^3\ee^{-\beta\hbar\omega}$，其高频积分收敛，故没有紫外灾难。
+  \item 对三维非相对论弱简并理想气体，玻色交换产生有效“吸引”，费米交换产生有效“排斥”，故
+  \[p_{\rm B}<p_{\rm MB}<p_{\rm F}.\]
+  又因自由非相对论气体满足 $U=\tfrac32pV$，所以同样有
+  \[U_{\rm B}<U_{\rm MB}<U_{\rm F}.\]
+  \item 量子刚性转子的低能级间距有限。$T\ll\Theta_r$ 时转动自由度冻结，$C_{V,\rm rot}\to0$；当 $k_BT$ 与转动能级间距可比时，多个转动态迅速被热激发，能量对温度最敏感，形成 Schottky 型峰/过渡；高温时进入经典等分配极限，$C_{V,\rm rot}\to k_B$(每个分子)。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+二维石墨烯面积为 $A$，准粒子具有线性色散
+\[\epsilon_{\pm}(\bm k)=\pm\hbar v|\bm k|,\qquad v=10^6\,\mathrm{m/s}.\]
+零温时负能支全部占满，正能支全部空。设总简并度为 $g$(若只计自旋则 $g=2$；若同时计石墨烯谷简并则 $g=4$)。
+\begin{enumerate}
+  \item 求化学势 $\mu(T)$。
+  \item 求有限温度相对零温的平均激发能 $U(T)=E(T)-E(0)$。
+  \item 求热容。
+  \item 声子速度取 $v_s=2\times10^4\,\mathrm{m/s}$，用二维德拜模型比较低温电子与声子热容的主要程度。
+\end{enumerate}
+\begin{solution}
+体系具有粒子--空穴对称性，电中性条件在任意温度下均要求
+\[\boxed{\mu(T)=0}.\]
+正能支每单位面积能态密度为
+\[\frac{D_+(\epsilon)}{A}=\frac{g\epsilon}{2\pi\hbar^2v^2},\qquad \epsilon>0.\]
+热激发同时产生正能电子和负能带空穴，两者贡献相等，因此
+\begin{align*}
+U(T)&=2\int_0^\infty D_+(\epsilon)\,\epsilon\,\frac{\dd{\epsilon}}{\ee^{\beta\epsilon}+1}\\
+&=\frac{gA}{\pi\hbar^2v^2}(k_BT)^3\int_0^\infty\frac{x^2\dd{x}}{\ee^x+1}\\
+&=\boxed{\frac{3gA\zeta(3)}{2\pi\hbar^2v^2}(k_BT)^3}.
+\end{align*}
+于是
+\[\boxed{C_{V,e}=\frac{9gA\zeta(3)}{2\pi\hbar^2v^2}k_B^3T^2}.\]
+二维线性色散声子在低温下同样给出 $C_{V,\rm ph}\propto A T^2/v_s^2$。因 $v/v_s\simeq50$，仅从速度平方因子即有 $1/v_s^2\sim2500/v^2$；在极低温电中性条件下，声子项通常显著大于电子项(具体系数还取决于声学支数与简并度)。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+\begin{enumerate}
+  \item 对经典理想气体，用系综理论比较单原子分子与刚性双原子分子的粒子数涨落和内能涨落。
+  \item 随温度升高，双原子分子的涨落如何变化？
+  \item Ising 模型定义连通关联函数
+  \[g(i,j)=\langle(\sigma_i-\langle\sigma_i\rangle)(\sigma_j-\langle\sigma_j\rangle)\rangle,\]
+  求磁化率与关联函数的关系。
+\end{enumerate}
+\begin{solution}
+经典理想气体在巨正则系综中各粒子数服从 Poisson 统计，故
+\[\boxed{\langle(\Delta N)^2\rangle=\langle N\rangle}.\]
+若单个分子有 $f$ 个已激活的二次型自由度，记 $c=f/2$，则单分子平均能量为 $c k_BT$，并有 $\langle\epsilon^2\rangle=c(c+1)(k_BT)^2$。因此巨正则系综总能量涨落为
+\[\boxed{\langle(\Delta E)^2\rangle=\langle N\rangle c(c+1)(k_BT)^2}.\]
+单原子平动气体 $f=3$，$c=3/2$；经典刚性双原子若振动冻结而平动、转动均已激活，则 $f=5$，$c=5/2$。若固定 $N$ 使用正则系综，则去掉粒子数涨落所带来的部分，得到 $\langle(\Delta E)^2\rangle=Nc(k_BT)^2$。
+
+随 $T$ 升高，绝对能量涨落一般按 $T^2$ 增长；当新的转动/振动自由度被激活时，$c$ 还会随之增大。粒子数相对涨落为 $\sqrt{\langle(\Delta N)^2\rangle}/\langle N\rangle=1/\sqrt{\langle N\rangle}$。
+
+若外场耦合为 $-\mu H\sum_i\sigma_i$，则涨落--耗散关系给出
+\[\boxed{\chi=\frac{\partial M}{\partial H}=\beta\mu^2\sum_{ij}g(i,j)}.\]
+若定义单位自旋磁化 $m=\langle\sigma_i\rangle$、无量纲场 $h$ 耦合为 $-h\sum_i\sigma_i$，则
+\[\boxed{\frac{\partial m}{\partial h}=\beta\sum_j g(i,j)}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[25 分]
+考虑
+\[H=-J\sum_{\langle i,j\rangle}s_is_j,\qquad s_i\in\{-1,0,+1\},\]
+粒子数为 $N$，配位数为 $q$，三种状态概率分别为 $p_+,p_0,p_-$。
+\begin{enumerate}
+  \item 求序参量 $m$。
+  \item 求平均能量。
+  \item 写出组合熵。
+  \item 求平均场自由能及极值方程。
+  \item 求临界温度。
+  \item 在 $m=0$ 附近作 Landau 展开，给出二次、四次系数。
+\end{enumerate}
+\begin{solution}
+定义
+\[m=\langle s\rangle=p_+-p_-,\qquad p_++p_0+p_-=1.\]
+Bragg--Williams 因子化给出
+\[\boxed{E=-\frac12NqJm^2}.\]
+组合数 $\Omega=N!/(N_+!N_0!N_-!)$，Stirling 公式给出
+\[\boxed{S=-Nk_B(p_+\ln p_++p_0\ln p_0+p_-\ln p_-)}.\]
+在给定 $m$ 下最小化自由能，等价于单自旋处于平均场 $qJm$ 中，故
+\[p_s=\frac{\ee^{\beta qJms}}{1+2\cosh(\beta qJm)},\qquad s=0,\pm1.\]
+从而
+\[\boxed{m=\frac{2\sinh(\beta qJm)}{1+2\cosh(\beta qJm)}}.\]
+相应的平均场自由能(每个粒子)可写为
+\[f(m)=\frac12qJm^2-k_BT\ln\!\left[1+2\cosh(\beta qJm)\right].\]
+令 $m\to0$，右端展开为 $(2/3)\beta qJm+O(m^3)$，非零解出现条件为
+\[1=\frac{2qJ}{3k_BT_c},\qquad \boxed{k_BT_c=\frac{2}{3}qJ}.\]
+再利用
+\[\ln(1+2\cosh x)=\ln3+\frac{x^2}{3}-\frac{x^4}{36}+O(x^6),\]
+得到
+\[f=-k_BT\ln3+\underbrace{\left(\frac{qJ}{2}-\frac{(qJ)^2}{3k_BT}\right)}_{a_2}m^2+\underbrace{\frac{(qJ)^4}{36(k_BT)^3}}_{a_4}m^4+O(m^6).\]
+因此 $a_2(T_c)=0$ 且 $a_4>0$，为平均场二级相变。
+\end{solution}
+\end{question}
+
+\begin{question}[10 分]
+$N$ 个直径为 $a$ 的硬杆按从左到右的次序置于长度 $L$ 的一维轨道中，相邻硬杆不能重叠。
+\begin{enumerate}
+  \item 用正则系综写出配分函数，并完成动量积分。
+  \item 求第二维里系数 $B_2(T)$。
+  \item 计算位形积分，并由状态方程验证维里展开中第二项与 $B_2$ 一致。
+\end{enumerate}
+\begin{solution}
+令热德布罗意波长 $\lambda_T=h/\sqrt{2\pi mk_BT}$。经典正则配分函数为
+\[Z_N=\frac{1}{N!\lambda_T^N}Q_N,\]
+其中 $Q_N$ 为允许位形区域的体积。对一维硬杆作变量平移 $y_i=x_i-(i-1)a$，允许区域化为长度 $L-Na$ 上的有序点，因此
+\[Q_N=(L-Na)^N,\]
+于是
+\[\boxed{Z_N=\frac{(L-Na)^N}{N!\lambda_T^N}}.\]
+(若一开始仅在有序坐标扇区积分，则有序单纯形给出 $(L-Na)^N/N!$，结果相同。)
+
+Mayer 函数为
+\[f(x)=\ee^{-\beta u(x)}-1=\begin{cases}-1,&|x|<a,\\0,&|x|>a,\end{cases}\]
+故一维第二维里系数
+\[\boxed{B_2=-\frac12\int_{-\infty}^{\infty}f(x)\dd{x}=a}.\]
+由配分函数
+\[P=k_BT\frac{\partial\ln Z_N}{\partial L}=\frac{Nk_BT}{L-Na}.\]
+写 $n=N/L$，
+\[\frac{P}{nk_BT}=\frac{1}{1-na}=1+na+n^2a^2+\cdots,\]
+故维里展开 $P=nk_BT(1+B_2n+\cdots)$ 的第二系数确为 $\boxed{B_2=a}$。
+\end{solution}
+\end{question}

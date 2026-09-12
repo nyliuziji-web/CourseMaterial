@@ -7,3 +7,6 @@ __compile_temp.tex
 # Python 缓存
 __pycache__/
 *.py[cod]
+
+# CodeGraph 本地数据
+.codegraph/

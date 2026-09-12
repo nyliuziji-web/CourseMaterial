@@ -1,0 +1,209 @@
+\heading{统计力学-ldp-19春-期末}
+
+\begin{question}
+体积为 $V$ 的三维系统中有一类无内部简并、彼此无相互作用的粒子，其单粒子色散关系为 $\epsilon(\bm k)=A|\bm k|^{4/3}$。
+\begin{enumerate}
+\item 求单粒子能态密度 $D(\epsilon)$。
+\item 化学势为零的玻色统计下，求总能量 $E$ 与热容 $C_V$。
+\item 若粒子数守恒，求 BEC 临界温度与数密度 $n=N/V$ 的关系。
+\end{enumerate}
+可用 $\int_0^\infty x^{s-1}(\ee^x-1)^{-1}\dd{x}=\Gamma(s)\zeta(s)$。
+\begin{solution}
+波矢模小于 $k$ 的态数为 $\mathcal N(k)=Vk^3/(6\pi^2)$。由 $k=(\epsilon/A)^{3/4}$，
+\[\boxed{D(\epsilon)=\frac{\dd{\mathcal N}}{\dd{\epsilon}}=\frac{3V}{8\pi^2}A^{-9/4}\epsilon^{5/4}}.\]
+记 $C_0=3V A^{-9/4}/(8\pi^2)$。当 $\mu=0$，
+\begin{align*}
+E&=C_0\int_0^\infty\frac{\epsilon^{9/4}}{\ee^{\beta\epsilon}-1}\dd{\epsilon}\\
+&=\boxed{C_0\Gamma\!\left(\frac{13}{4}\right)\zeta\!\left(\frac{13}{4}\right)(k_BT)^{13/4}},\\
+C_V&=\boxed{\frac{13}{4}C_0\Gamma\!\left(\frac{13}{4}\right)\zeta\!\left(\frac{13}{4}\right)k_B(k_BT)^{9/4}}.
+\end{align*}
+BEC 临界点 $\mu\to0^-$，激发态可容纳的最大密度为
+\[n=\frac{3}{8\pi^2}A^{-9/4}\Gamma\!\left(\frac94\right)\zeta\!\left(\frac94\right)(k_BT_c)^{9/4},\]
+故
+\[\boxed{T_c=\frac{A}{k_B}\left[\frac{8\pi^2n}{3\Gamma(9/4)\zeta(9/4)}\right]^{4/9}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+体积为 $V$ 的容器中有 $N$ 个质量为 $m$、自旋为 $1/2$ 的理想费米子。施加均匀弱磁场 $H$ 后，Zeeman 能量使两自旋支的单粒子能量变为
+\[\epsilon_\pm=\frac{p^2}{2m}\pm\mu_BH.\]
+\begin{enumerate}
+\item 求无场费米动量 $p_F$ 与费米能 $\epsilon_F$。
+\item $T=0$ 且 $H$ 很小时，求共同费米能 $E_F(H)$ 到 $H^2$。
+\item 求平均能量 $E(H)/N$ 到 $H^2$。
+\item 求压强 $P(H)$ 到 $H^2$。
+\item 求 $H\to0$ 的磁化率，$M=(N_--N_+)\mu_B/V=\chi H$。
+\end{enumerate}
+\begin{solution}
+令 $n=N/V$。无场时每个动量态有两个自旋态，因此
+\[
+N=2\frac{V}{(2\pi\hbar)^3}\frac{4\pi p_F^3}{3},
+\]
+从而
+\[
+\boxed{p_F=\hbar(3\pi^2n)^{1/3}},\qquad
+\boxed{\epsilon_F=\frac{p_F^2}{2m}}.
+\]
+
+记 $b=\mu_BH$，把共同的零温化学势记为 $\mu_H$。两支的动能截止满足
+\[
+\frac{p_{F,+}^2}{2m}=\mu_H-b,\qquad
+\frac{p_{F,-}^2}{2m}=\mu_H+b.
+\]
+由于三维单自旋粒子数正比于动能截止的 $3/2$ 次方，固定总粒子数给出
+\[
+(\mu_H-b)^{3/2}+(\mu_H+b)^{3/2}=2\epsilon_F^{3/2}.
+\]
+令 $\mu_H=\epsilon_F+\delta$，其中 $\delta=O(b^2)$。展开
+\[
+(\epsilon_F+\delta\pm b)^{3/2}
+=\epsilon_F^{3/2}
++\frac32\epsilon_F^{1/2}(\delta\pm b)
++\frac38\epsilon_F^{-1/2}(\delta\pm b)^2+O(b^3).
+\]
+两支相加后奇次 $b$ 项相消，且 $\delta^2=O(b^4)$，故
+\[
+3\epsilon_F^{1/2}\delta+\frac34\epsilon_F^{-1/2}b^2=0.
+\]
+于是
+\[
+\boxed{\mu_H=E_F(H)=\epsilon_F-\frac{b^2}{4\epsilon_F}+O(b^4)}.
+\]
+
+下面直接计算总能量。若某一自旋支的动能截止为 $K_\pm=\mu_H\mp b$，则可写
+\[
+N_\pm=C K_\pm^{3/2},\qquad
+E_{{\rm kin},\pm}=\frac35 C K_\pm^{5/2},
+\]
+其中 $C$ 是与 $H$ 无关的常数，并由 $N=2C\epsilon_F^{3/2}$ 固定。总能量还包括 Zeeman 项，
+\[
+E=\frac35C(K_+^{5/2}+K_-^{5/2})+b(N_+-N_-).
+\]
+代入 $\mu_H=\epsilon_F-b^2/(4\epsilon_F)$ 并展开到 $b^2$，
+\[
+K_+^{5/2}+K_-^{5/2}
+=2\epsilon_F^{5/2}+\frac52\epsilon_F^{1/2}b^2+O(b^4),
+\]
+\[
+N_+-N_-
+=C[(\mu_H-b)^{3/2}-(\mu_H+b)^{3/2}]
+=-3C\epsilon_F^{1/2}b+O(b^3).
+\]
+所以
+\[
+E=\frac65C\epsilon_F^{5/2}-\frac32C\epsilon_F^{1/2}b^2+O(b^4),
+\]
+进而
+\[
+\boxed{\frac{E(H)}{N}
+=\frac35\epsilon_F-\frac{3b^2}{4\epsilon_F}+O(b^4)}.
+\]
+
+机械压强由动量通量给出；非相对论自由粒子的动能满足 $PV=2E_{\rm kin}/3$，而 Zeeman 项与体积无关，不直接贡献机械压强。因此
+\[
+P=\frac{2}{3V}\frac35C(K_+^{5/2}+K_-^{5/2})
+=n\left[\frac25\epsilon_F+\frac{b^2}{2\epsilon_F}\right]+O(b^4),
+\]
+即
+\[
+\boxed{P(H)=n\left[\frac25\epsilon_F+
+\frac{(\mu_BH)^2}{2\epsilon_F}\right]+O(H^4)}.
+\]
+
+最后
+\[
+N_--N_+
+=C[(\mu_H+b)^{3/2}-(\mu_H-b)^{3/2}]
+=3C\epsilon_F^{1/2}b+O(b^3).
+\]
+用 $C=N/(2\epsilon_F^{3/2})$，
+\[
+\frac{N_--N_+}{V}=\frac{3n}{2\epsilon_F}\mu_BH+O(H^3).
+\]
+故
+\[
+M=\frac{(N_--N_+)\mu_B}{V}=\chi H+O(H^3),\qquad
+\boxed{\chi=\frac{3n\mu_B^2}{2\epsilon_F}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+体积为 $V$ 的三维经典气体含 $N$ 个粒子，数密度 $n=N/V$。粒子间两体相互作用势为
+\[u(r)=\begin{cases}\infty,&r<a,\\-\varepsilon,&a\le r<b,\\0,&r\ge b.\end{cases}\]
+状态方程写为 $P=nk_BT(1+nB_2)$，且
+\[B_2=-\frac12\int(\ee^{-\beta u(r)}-1)\dd^3r.\]
+\begin{enumerate}
+\item 求 $B_2(T)$。
+\item 求高温(对 $\beta\varepsilon$ 到一阶)和低温近似。
+\item 高温且 $na^3\ll1$ 时，与 $(P+n^2a')(V-Nb')=Nk_BT$ 比较，求 $a',b'$。
+\end{enumerate}
+\begin{solution}
+球对称积分给出
+\[\boxed{B_2=\frac{2\pi}{3}\left[a^3-(b^3-a^3)(\ee^{\beta\varepsilon}-1)\right]}.\]
+高温 $\beta\varepsilon\ll1$：
+\[\boxed{B_2\simeq\frac{2\pi a^3}{3}-\frac{2\pi}{3}(b^3-a^3)\frac{\varepsilon}{k_BT}}.\]
+低温 $\beta\varepsilon\gg1$：
+\[B_2\simeq-\frac{2\pi}{3}(b^3-a^3)\ee^{\varepsilon/k_BT}\quad(\text{主导项}).\]
+van der Waals 式保留到 $n^2$：
+\[P\simeq nk_BT+n^2(k_BT b'-a').\]
+与高温维里式比较，
+\[\boxed{b'=\frac{2\pi a^3}{3}},\qquad \boxed{a'=\frac{2\pi\varepsilon}{3}(b^3-a^3)}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+用 Landau 理论描述一级相变。设单位体积 Gibbs 自由能在序参量 $m$ 附近展开为
+\[g(m)=a(T)+\frac12b(T)m^2+cm^3+dm^4,\quad b(T)=b_0(T-T_1),\]
+其中 $b_0>0,c<0,d>0$。
+\begin{enumerate}
+\item 求一级相变温度 $T_c$。
+\item 求潜热。
+\item 求非零亚稳态开始出现的上方自旋odal温度 $T^\star>T_c$。
+\end{enumerate}
+\begin{solution}
+非零平衡态满足
+\[b+3cm+4dm^2=0.\]
+共存点还需 $g(m)=g(0)$，即
+\[\frac12b+cm+dm^2=0.\]
+两式联立得
+\[m_c=-\frac{c}{2d},\qquad b(T_c)=\frac{c^2}{2d},\]
+故
+\[\boxed{T_c=T_1+\frac{c^2}{2db_0}}.\]
+熵密度 $s=-\partial g_{\rm eq}/\partial T$；平衡条件使 $m(T)$ 的隐式导数项不贡献一阶导数。两相熵差为
+\[s_{m=0}-s_{m_c}=\frac12b_0m_c^2=\frac{b_0c^2}{8d^2}.\]
+从有序相升温到无序相所需潜热为
+\[\boxed{L=T_c\frac{b_0c^2}{8d^2}}.\]
+非零极值首次出现时二次方程 $4dm^2+3cm+b=0$ 判别式为零：
+\[9c^2-16db(T^\star)=0,\]
+因此
+\[\boxed{T^\star=T_1+\frac{9c^2}{16db_0}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑三态 Potts 模型，其哈密顿量为
+\[H=-J\sum_{\langle i,j\rangle}(3\delta_{\sigma_i,\sigma_j}-1)-h\sum_i(3\delta_{1,\sigma_i}-1),\qquad \sigma_i=1,2,3.\]
+每个格点配位数为 $z$，并设
+\[p(\sigma)=\frac13\bigl[1+m(3\delta_{1,\sigma}-1)\bigr].\]
+\begin{enumerate}
+\item 求 $G(m)$。
+\item 求平均场方程。
+\item $h=0$ 时在 $m=0$ 附近作 Landau 展开，判断相变阶数并求临界温度。
+\end{enumerate}
+\begin{solution}
+概率为
+\[p_1=\frac{1+2m}{3},\qquad p_2=p_3=\frac{1-m}{3}.\]
+有 $\sum_\sigma p_\sigma^2=1/3+2m^2/3$，故相互作用平均能量为 $-NzJm^2$，外场项为 $-2Nhm$。于是
+\[\boxed{\frac{G(m)}{N}=-zJm^2-2hm+k_BT\left[p_1\ln p_1+2p_2\ln p_2\right]}.\]
+求导得
+\[\boxed{\ln\frac{1+2m}{1-m}=\frac{3(zJm+h)}{k_BT}},\]
+或等价地 $m=(r-1)/(r+2)$，$r=\exp[3\beta(zJm+h)]$。
+
+在 $h=0$ 时
+\[\frac{G}{N}=-k_BT\ln3+(k_BT-zJ)m^2-\frac{k_BT}{3}m^3+\frac{k_BT}{2}m^4+O(m^5).\]
+存在允许的三次项，因此相变为一级。精确共存点由平均场方程和 $G(m)=G(0)$ 联立；对三态模型得到 $m_c=1/2$，于是
+\[2\ln2=\frac{3zJ}{2k_BT_c},\qquad \boxed{k_BT_c=\frac{3zJ}{4\ln2}}.\]
+(若仅用截断到 $m^4$ 的局域 Landau 多项式估算，会得到近似而非精确的共存温度。)
+\end{solution}
+\end{question}

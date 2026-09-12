@@ -12,7 +12,6 @@
 \item 式 (3.6):函数空间内积:$\langle f|g\rangle=\int f^*(x)g(x)\dd x$。
 \end{enumerate}
 
-\end{question}
 \begin{solution}
 (1) 设 $f,g\in L^2$,则
 \[
@@ -41,13 +40,13 @@
 \]
 等号仅当 $f=0$(在几乎处处意义下)成立。因此它满足内积公理。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
 \item 对 $\nu$ 取什么范围时,在 $(0,1)$ 区间内的函数 $f(x)=x^\nu$ 在希尔伯特空间中?假设 $\nu$ 是实数,但不必为正数。
 \item 对于 $\nu=1/2$ 的特定情况,$f(x)$ 还在希尔伯特空间吗?$x f(x)$ 呢?$(\mathrm d/\mathrm dx)f(x)$ 呢?
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 只需检查
 \[
@@ -74,6 +73,7 @@ xf(x)=x^{3/2},
 \]
 而 $\int_0^1 x^{-1}\dd x$ 发散,所以 $f'(x)$ 不在希尔伯特空间中。
 \end{solution}
+\end{question}
 
 \begin{question}
 证明如果对于所有的 $h$(希尔伯特空间中)都有
@@ -89,7 +89,6 @@ xf(x)=x^{3/2},
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.16--3.17):厄米算符定义:$\langle f|Qg\rangle=\langle Qf|g\rangle$;等价地,$\langle f|Qf\rangle$ 对任意 $f$ 为实数。}
 
-\end{question}
 \begin{solution}
 由假设,对任意 $h$ 有
 \[
@@ -115,6 +114,7 @@ xf(x)=x^{3/2},
 \]
 因此两个定义等价。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
@@ -127,7 +127,6 @@ xf(x)=x^{3/2},
 \]
 是厄米算符。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 若 $\hat Q$、$\hat R$ 厄米,则
 \[
@@ -162,6 +161,7 @@ xf(x)=x^{3/2},
 \]
 势能项因 $V=V^*$ 也是厄米的,所以 $\hat H$ 厄米。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
@@ -180,7 +180,6 @@ xf(x)=x^{3/2},
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.48):谐振子升降算符:$a_\pm=(1/\sqrt{2\hbar m\omega})(\mp\ii p+m\omega x)$,并有 $H=\hbar\omega(a_+a_-+1/2)$。}
 
-\end{question}
 \begin{solution}
 (1) 在通常边界条件下,
 \[
@@ -219,6 +218,7 @@ a_\pm=\frac1{\sqrt{2\hbar m\omega}}\left(\mp\hbar\frac{\dd}{\dd x}+m\omega x\rig
 \boxed{a_-^\dagger=a_+}.
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑算符
@@ -230,7 +230,6 @@ a_\pm=\frac1{\sqrt{2\hbar m\omega}}\left(\mp\hbar\frac{\dd}{\dd x}+m\omega x\rig
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.26):角变量波函数需单值:$\psi(\phi+2\pi)=\psi(\phi)$。}
 
-\end{question}
 \begin{solution}
 在周期边界条件 $f(\phi+2\pi)=f(\phi)$ 下,
 \[
@@ -258,13 +257,13 @@ q_n=-n^2.
 \]
 除 $q_0=0$ 外,每个本征值 $-n^2$ 都由 $n$ 与 $-n$ 两个态给出,所以是二重简并的。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
 \item 假设 $f(x)$ 和 $g(x)$ 是 $\hat Q$ 的两个具有相同本征值 $q$ 的本征函数,证明任何 $f$ 和 $g$ 的线性组合也都是 $\hat Q$ 的本征函数,且本征值为 $q$。
 \item 验证 $f(x)=\exp(x)$ 与 $g(x)=\exp(-x)$ 是算符 $\mathrm d^2/\mathrm dx^2$ 具有相同本征值的两个本征函数。由 $f$ 和 $g$ 的线性组合构造两个波函数,使得在 $(-1,1)$ 范围内它们正交。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 若
 \[
@@ -296,13 +295,13 @@ v(x)=\ee^x-\ee^{-x}=2\sinh x.
 \]
 它们正交。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
 \item 验证例题 3.1 中厄米算符的本征值是实数。证明具有不同本征值的本征函数正交。
 \item 对习题 3.6 中的算符做同样的验证。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 例题 3.1 中的算符为 $\hat L_z=-\ii\hbar\dd/\dd\phi$,周期本征函数为
 \[
@@ -329,6 +328,7 @@ f_n(\phi)=\frac1{\sqrt{2\pi}}\ee^{\ii n\phi},
 \]
 同一 $n^2$ 对应的 $\pm n$ 是简并子空间,可在其中取任意正交归一线性组合。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
@@ -336,7 +336,6 @@ f_n(\phi)=\frac1{\sqrt{2\pi}}\ee^{\ii n\phi},
 \item 列举一个第 2 章中的哈密顿量(自由粒子除外),它仅有连续谱。
 \item 列举一个第 2 章中的哈密顿量(有限深方势阱除外),它既有离散谱又有连续谱。
 \end{enumerate}
-\end{question}
 \begin{solution}
 可以举例如下。
 
@@ -354,10 +353,10 @@ E=-\frac{m\alpha^2}{2\hbar^2},
 \]
 并有 $E>0$ 的连续散射谱。
 \end{solution}
+\end{question}
 
 \begin{question}
 无限深方势阱的基态是动量的本征函数吗?如果是的话,它的动量是多少?如果不是,给出理由。(进一步的讨论参见习题 3.34。)
-\end{question}
 \begin{solution}
 无限深方势阱基态为
 \[
@@ -371,10 +370,10 @@ E=-\frac{m\alpha^2}{2\hbar^2},
 
 直观上,$\sin(\pi x/a)$ 可看作向右和向左传播平面波的叠加,所以它含有相反方向的动量成分,但在有限势阱中不能简单地把它说成单一动量态。
 \end{solution}
+\end{question}
 
 \begin{question}
 对处于谐振子基态的粒子,求出其动量空间波函数 $\Phi(p,t)$。对该粒子的动量进行测量,得到其结果处在经典范围(具有相同能量)以外的几率是多大(精确到两位数)?提示:数值计算部分可查阅数学手册中“正态分布”或“误差函数”,或使用 Mathematica 软件。
-\end{question}
 \begin{solution}
 谐振子基态为
 \[
@@ -406,14 +405,14 @@ P_{\rm out}=\frac1{\sqrt\pi}\int_{|u|>1}\ee^{-u^2}\dd u
 \boxed{P_{\rm out}\approx 0.16.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 由式 (2.101) 引入的函数 $\Psi(x,t)$ 求出自由粒子的 $\Phi(p,t)$。提示:对于自由粒子,$|\Phi(p,t)|^2$ 和时间无关,这是该系统动量守恒的一个表现。
 
 \par\smallskip
-\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.101):自由粒子波包的动量展开:$\Psi(x,t)=(2\pi\hbar)^{-1/2}\int \Phi(p,0)\ee^{\ii(px-p^2t/2m)/\hbar}\dd p$。}
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.101):自由粒子波包的动量展开:}\[\Psi(x,t)=(2\pi\hbar)^{-1/2}\int \Phi(p,0)\ee^{\ii(px-p^2t/2m)/\hbar}\dd p.\]
 
-\end{question}
 \begin{solution}
 自由粒子一般波包可写为
 \[
@@ -436,6 +435,7 @@ P_{\rm out}=\frac1{\sqrt\pi}\int_{|u|>1}\ee^{-u^2}\dd u
 \]
 与时间无关,正体现自由粒子的动量守恒。
 \end{solution}
+\end{question}
 
 \begin{question}
 证明
@@ -452,7 +452,6 @@ x\exp(\ii px/\hbar)=-\ii\hbar\frac{\partial}{\partial p}\exp(\ii px/\hbar),
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.147):动量空间变换:$\Phi(p,t)=(2\pi\hbar)^{-1/2}\int \ee^{-\ii px/\hbar}\Psi(x,t)\dd x$。}
 
-\end{question}
 \begin{solution}
 采用傅里叶表示
 \[
@@ -483,6 +482,7 @@ x \ee^{\ii px/\hbar}=-\ii\hbar\frac{\partial}{\partial p}\ee^{\ii px/\hbar},
 \]
 所以动量表象中的位置算符为 $-\ii\hbar\partial/\partial p$。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
@@ -510,7 +510,6 @@ x \ee^{\ii px/\hbar}=-\ii\hbar\frac{\partial}{\partial p}\ee^{\ii px/\hbar},
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.54):升降算符作用:$a_+\ket n=\sqrt{n+1}\ket{n+1}$,$a_-\ket n=\sqrt n\ket{n-1}$。}
 
-\end{question}
 \begin{solution}
 (1) 由定义 $[A,B]=AB-BA$,
 \[
@@ -559,6 +558,7 @@ f(x)=\sum_{n=0}^{\infty}a_nx^n,
 \boxed{[H,a_\pm]=\pm\hbar\omega a_\pm.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 对于位置 $(A=x)$ 的不确定性和能量 $(B=p^2/2m+V)$ 的不确定性,证明著名的“你的车速”不确定原理:
@@ -566,7 +566,6 @@ f(x)=\sum_{n=0}^{\infty}a_nx^n,
 \sigma_x\sigma_H\geq \frac{\hbar}{2m}|\langle p\rangle|.
 \]
 对于定态,它告诉不了你多少——为什么不能?
-\end{question}
 \begin{solution}
 广义不确定关系给出
 \[
@@ -589,10 +588,10 @@ f(x)=\sum_{n=0}^{\infty}a_nx^n,
 \]
 得 $\langle p\rangle=0$。此时右端为零,所以该不等式只给出平庸结论。
 \end{solution}
+\end{question}
 
 \begin{question}
 证明两个非对易算符不能拥有完备的共同本征函数集。提示:证明如果 $\hat P$ 和 $\hat Q$ 拥有完备的共同本征函数集,则对于希尔伯特空间的任意函数 $f$ 有 $[\hat P,\hat Q]f=0$。
-\end{question}
 \begin{solution}
 设 $\{\ket{e_n}\}$ 是 $\hat P$ 和 $\hat Q$ 的一组完备共同本征矢,
 \[
@@ -616,6 +615,7 @@ f(x)=\sum_{n=0}^{\infty}a_nx^n,
 \]
 因此若有完备共同本征函数集,二者必须对易。反过来说,非对易算符不可能有完备共同本征函数集。
 \end{solution}
+\end{question}
 
 \begin{question}
 求式 (3.69) 的解 $\Psi(x)$。注意:$\langle x\rangle$ 和 $\langle p\rangle$ 都是常数(和 $x$ 无关)。
@@ -623,7 +623,6 @@ f(x)=\sum_{n=0}^{\infty}a_nx^n,
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.69):达到 $x,p$ 不确定关系等号时满足 $\partial_x\Psi=[-(x-\langle x\rangle)/(2\sigma_x^2)+\ii\langle p\rangle/\hbar]\Psi$。}
 
-\end{question}
 \begin{solution}
 等号成立条件给出的微分方程可写成
 \[
@@ -646,6 +645,7 @@ A=(2\pi\sigma_x^2)^{-1/4}\ee^{\ii\alpha},
 \]
 其中整体相位 $\alpha$ 任意。也就是说,满足最小不确定关系的波包是高斯波包。
 \end{solution}
+\end{question}
 
 \begin{question}
 在下列特殊情况中应用式 (3.73):
@@ -666,7 +666,6 @@ A=(2\pi\sigma_x^2)^{-1/4}\ee^{\ii\alpha},
 \item 式 (2.21):若 $\Psi=\sum_n c_n\psi_n \ee^{-\ii E_nt/\hbar}$,则 $\langle H\rangle=\sum_n |c_n|^2E_n$。
 \end{enumerate}
 
-\end{question}
 \begin{solution}
 式 (3.73) 是
 \[
@@ -705,6 +704,7 @@ A=(2\pi\sigma_x^2)^{-1/4}\ee^{\ii\alpha},
 \]
 后两式就是埃伦菲斯特定理,对应经典的 $v=p/m$ 和 $F=-\partial V/\partial x$。
 \end{solution}
+\end{question}
 
 \begin{question}
 用式 (3.73)(或者习题 3.18(c) 和 (d))证明:
@@ -716,7 +716,6 @@ A=(2\pi\sigma_x^2)^{-1/4}\ee^{\ii\alpha},
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.73):广义 Ehrenfest 定理:$\dd\langle Q\rangle/\dd t=(\ii/\hbar)\langle[H,Q]\rangle+\langle\partial Q/\partial t\rangle$。}
 
-\end{question}
 \begin{solution}
 (1) 自由粒子 $V=0$ 时,埃伦菲斯特定理给出
 \[
@@ -742,10 +741,10 @@ V(x)=\frac12m\omega^2x^2
 \]
 故 $\langle x\rangle$ 以经典频率 $\omega$ 作简谐振动。
 \end{solution}
+\end{question}
 
 \begin{question}
 对习题 2.5 中的波函数和可观测量 $x$,通过精确计算 $\sigma_H$、$\sigma_x$ 和 $\mathrm d\langle x\rangle/\mathrm dt$ 来验证能量-时间不确定原理。
-\end{question}
 \begin{solution}
 习题 2.5 中
 \[
@@ -785,10 +784,10 @@ a^2\left(\frac1{12}-\frac{5}{16\pi^2}\right)
 \]
 该不等式对所有 $t$ 都成立。
 \end{solution}
+\end{question}
 
 \begin{question}
 对习题 2.42 中的自由粒子波包和可观测量 $x$,通过精确计算 $\sigma_H$、$\sigma_x$ 和 $\mathrm d\langle x\rangle/\mathrm dt$ 来验证能量-时间不确定原理。
-\end{question}
 \begin{solution}
 对习题 2.42 的运动高斯包,初态
 \[
@@ -823,10 +822,10 @@ a^2\left(\frac1{12}-\frac{5}{16\pi^2}\right)
 \]
 故能量-时间不确定关系成立;随时间扩散只会增大左端。
 \end{solution}
+\end{question}
 
 \begin{question}
 证明当所涉及的可观测量为 $x$ 时,能量-时间不确定原理还原为在习题 3.15 中证明的不确定原理。
-\end{question}
 \begin{solution}
 能量-时间不确定关系为
 \[
@@ -843,10 +842,10 @@ a^2\left(\frac1{12}-\frac{5}{16\pi^2}\right)
 \]
 这正是习题 3.15 的结论。
 \end{solution}
+\end{question}
 
 \begin{question}
 证明投影算符等幂(idempotent):$P^2=P$。求 $P$ 的本征值,并描述其本征矢量。
-\end{question}
 \begin{solution}
 设 $P$ 是投影到某子空间 $S$ 的投影算符。任意矢量可分解为
 \[
@@ -874,6 +873,7 @@ P^2\ket v=\lambda^2\ket v,
 \]
 本征值 $1$ 的本征矢是投影子空间内的矢量;本征值 $0$ 的本征矢是与该子空间正交的矢量。
 \end{solution}
+\end{question}
 
 \begin{question}
 证明:若 $\hat Q$ 是厄米算符,则在任意正交归一基内所表示的矩阵元满足
@@ -881,7 +881,6 @@ P^2\ket v=\lambda^2\ket v,
 Q_{mn}=Q_{nm}^*.
 \]
 换句话说,$\hat Q$ 由厄米矩阵表示。
-\end{question}
 \begin{solution}
 在正交归一基 $\{\ket{e_n}\}$ 中,
 \[
@@ -899,6 +898,7 @@ Q_{nm}^*=\left(\bra{e_n}\hat Q\ket{e_m}\right)^*
 \]
 这正是矩阵厄米性的条件。
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑算符
@@ -906,7 +906,6 @@ Q_{nm}^*=\left(\bra{e_n}\hat Q\ket{e_m}\right)^*
 \hat H=\epsilon\bigl(\ket{1}\bra{1}-\ket{1}\bra{2}-\ket{2}\bra{1}+\ket{2}\bra{2}\bigr),
 \]
 这里 $\ket{1}$、$\ket{2}$ 是正交归一基,$\epsilon$ 为一个具有能量量纲的数值。求出其本征值和本征矢(用 $\ket{1}$ 和 $\ket{2}$ 的线性组合表示)。用这组基来表示 $\hat H$ 的矩阵是什么?
-\end{question}
 \begin{solution}
 在基 $\{\ket1,\ket2\}$ 中,
 \[
@@ -929,6 +928,7 @@ E_+=2\epsilon.
 \boxed{\epsilon\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑由正交归一基 $\ket{1}$、$\ket{2}$、$\ket{3}$ 构成的三维矢量空间,右矢 $\ket{\alpha}$ 和 $\ket{\beta}$ 分别为
@@ -942,7 +942,6 @@ E_+=2\epsilon.
 \item 求出 $\left\langle \alpha|\beta \right\rangle$ 和 $\left\langle \beta|\alpha \right\rangle$,并证实 $\left\langle \beta|\alpha \right\rangle=\left\langle \alpha|\beta \right\rangle^*$。
 \item 在这组基中,求出算符 $A=\ket{\alpha}\bra{\beta}$ 的所有 9 个矩阵元。相应的矩阵是厄米矩阵吗?
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 由右矢系数取复共轭得到
 \[
@@ -975,6 +974,7 @@ A=\begin{pmatrix}\ii\\-2\\-\ii\end{pmatrix}
 \]
 它不满足 $A_{mn}=A_{nm}^*$,例如 $A_{13}=2\ii$ 而 $A_{31}^*=-1$,所以不是厄米矩阵。
 \end{solution}
+\end{question}
 
 \begin{question}
 设 $\hat Q$ 具有一组完备的正交归一本征矢
@@ -1000,7 +1000,6 @@ f(\hat Q)=\sum_n f(q_n)\ket{e_n}\bra{e_n}.\tag{3.104}
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.100):算符指数的级数定义:$\ee^{\hat Q}=\sum_{n=0}^{\infty}\hat Q^n/n!$。}
 
-\end{question}
 \begin{solution}
 (1) 任意矢量可按完备正交归一本征基展开:
 \[
@@ -1036,6 +1035,7 @@ f(\hat Q)=\sum_n f(q_n)\ket{e_n}\bra{e_n}.\tag{3.104}
 \]
 与式 (3.104) 中 $f(q)=\ee^q$ 的定义一致。
 \end{solution}
+\end{question}
 
 \begin{question}
 令 $D=\mathrm d/\mathrm dx$(导数算符)。求:
@@ -1043,7 +1043,6 @@ f(\hat Q)=\sum_n f(q_n)\ket{e_n}\bra{e_n}.\tag{3.104}
 \item $(\sin D)x^3$;
 \item $\bigl(1-D/2\bigr)^{-1}x$。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 用幂级数定义
 \[
@@ -1063,6 +1062,7 @@ f(\hat Q)=\sum_n f(q_n)\ket{e_n}\bra{e_n}.\tag{3.104}
 (1-D/2)^{-1}x=x+\frac12.
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑两个相互不对易的算符 $A$ 和 $B$,令 $C=[A,B]$,但它们都与对易式对易:$[A,C]=[B,C]=0$。
@@ -1092,7 +1092,6 @@ G(\lambda)=\mathrm \ee^{\lambda A}\mathrm \ee^{\lambda B}\mathrm \ee^{-\lambda^2
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.65):对易子乘积规则:$[AB,C]=A[B,C]+[A,C]B$,$[A,BC]=[A,B]C+B[A,C]$。}
 
-\end{question}
 \begin{solution}
 (1) 对 $n=1$,结论就是 $[A,B]=C$。若
 \[
@@ -1139,10 +1138,10 @@ G(\lambda)=\ee^{\lambda A}\ee^{\lambda B}\ee^{-\lambda^2C/2}.
 \boxed{\ee^{A+B}=\ee^A\ee^B\ee^{-C/2}.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 利用例题 3.9 中的方法推导出位置空间到能量空间波函数 $c_n(t)$ 的变换。假设能谱是不连续的,势能不显含时间。
-\end{question}
 \begin{solution}
 设定态本征函数满足
 \[
@@ -1168,10 +1167,10 @@ G(\lambda)=\ee^{\lambda A}\ee^{\lambda B}\ee^{-\lambda^2C/2}.
 \]
 这就是从位置空间到能量空间波函数的变换及其时间演化。
 \end{solution}
+\end{question}
 
 \begin{question}
 勒让德多项式(Legendre polynomials)。用格拉姆-施密特方法(习题 A.4)在区间 $-1\leq x\leq 1$ 内对函数 $1,x,x^2,x^3$ 进行正交归一化。你可能会认出这些结果:除了归一化外,它们是勒让德多项式(习题 2.64 和表 4.1)。
-\end{question}
 \begin{solution}
 在区间 $[-1,1]$ 上,内积为
 \[
@@ -1203,6 +1202,7 @@ P_0=1,
 \qquad \ell=0,1,2,3.
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 反厄米算符等于其负的厄米共轭:
@@ -1216,7 +1216,6 @@ P_0=1,
 \item 证明两个厄米算符的对易式是反厄米的。那么两个反厄米算符的对易式呢?
 \item 证明任一算符 $\hat Q$ 都可以表示为一个厄米算符 $\hat A$ 和一个反厄米算符 $\hat B$ 之和。用 $\hat Q$ 和它的伴算符 $\hat Q^\dagger$ 表出 $\hat A$ 和 $\hat B$。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 若 $Q^\dagger=-Q$,则
 \[
@@ -1260,6 +1259,7 @@ Q=\frac{Q+Q^\dagger}{2}+\frac{Q-Q^\dagger}{2}.
 \]
 反厄米。
 \end{solution}
+\end{question}
 
 \begin{question}
 相继测量(Sequential measurements)。算符 $\hat A$ 表示可观测量 $A$,它的两个归一化本征态是 $\psi_1$ 和 $\psi_2$,相应本征值分别为 $a_1$ 和 $a_2$。算符 $\hat B$ 表示可观测量 $B$,它的两个归一化本征态是 $\phi_1$ 和 $\phi_2$,相应本征值分别为 $b_1$ 和 $b_2$。两组本征态之间有关系:
@@ -1273,7 +1273,6 @@ Q=\frac{Q+Q^\dagger}{2}+\frac{Q-Q^\dagger}{2}.
 \item 现在如果再对 $B$ 进行测量,可能的结果是什么?出现的几率是多少?
 \item 恰好在测量 $B$ 后,再次测量 $A$,那么结果为 $a_1$ 的几率是多少?(请注意,如果我告诉你 $B$ 测量的结果,答案将非常不同。)
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 第一次测量 $A$ 得到 $a_1$ 后,态坍缩为对应本征态
 \[
@@ -1306,6 +1305,7 @@ P(a_1)=\frac9{25}|\left\langle \psi_1|\phi_1 \right\rangle|^2
 \boxed{P(a_1)=\frac{337}{625}.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
@@ -1313,7 +1313,6 @@ P(a_1)=\frac9{25}|\left\langle \psi_1|\phi_1 \right\rangle|^2
 \item 求几率密度 $|\Phi_n(p,t)|^2$。对于 $n=1,2,5,10$,画出几率密度函数。在 $n$ 很大时,$p$ 的最概然值是多少?这是你所预期的吗?将你的结果与习题 3.10 做比较。
 \item 利用 $\Phi_n(p,t)$ 计算 $p^2$ 处在第 $n$ 个状态的期望值;将你的结果与习题 2.4 做比较。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 对 $0<x<a$ 的无限深方势阱,
 \[
@@ -1358,6 +1357,7 @@ P(a_1)=\frac9{25}|\left\langle \psi_1|\phi_1 \right\rangle|^2
 \]
 这与 $E_n=\langle p^2\rangle/(2m)$ 完全一致。
 \end{solution}
+\end{question}
 
 \begin{question}
 考虑波函数
@@ -1369,7 +1369,6 @@ P(a_1)=\frac9{25}|\left\langle \psi_1|\phi_1 \right\rangle|^2
 \end{cases}
 \]
 这里 $n$ 是某个正整数。在区间 $-n\lambda<x<n\lambda$ 上,它是纯正弦函数(波长为 $\lambda$),但由于振荡没有伸展到无限远处,它的动量仍然有一个分布范围。求出动量空间的波函数 $\Phi(p,0)$;画出 $|\psi(x,0)|^2$ 和 $|\Phi(p,0)|^2$;求出峰宽 $w_x$ 和 $w_p$(主峰两边零点之间的距离)。注意当 $n\to\infty$ 时,每一个峰宽如何变化。利用 $w_x$ 和 $w_p$ 估算 $\Delta x$ 和 $\Delta p$,验证不确定原理是否满足。提示:如果尝试计算 $\sigma_p$,你将会感到很意外;你能够分析问题的原因所在吗?
-\end{question}
 \begin{solution}
 令
 \[
@@ -1411,6 +1410,7 @@ w_xw_p=4\pi\hbar=2h,
 
 若直接计算 $\sigma_p$ 会遇到发散。这是因为波函数在 $x=\pm n\lambda$ 处有突变,导数含有奇异贡献;等价地说,动量分布的尾部衰减不够快,使 $\int p^2|\Phi|^2\dd p$ 发散。
 \end{solution}
+\end{question}
 
 \begin{question}
 假设
@@ -1425,7 +1425,6 @@ w_xw_p=4\pi\hbar=2h,
 \item 用 $\Phi(p,0)$ 来计算 $\langle p\rangle$、$\langle p^2\rangle$ 和 $\sigma_p$(在 $t=0$ 时刻)。
 \item 对该状态验证海森伯不确定原理。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 归一化条件为
 \[
@@ -1487,6 +1486,7 @@ w_xw_p=4\pi\hbar=2h,
 \]
 海森伯不确定原理成立。
 \end{solution}
+\end{question}
 
 \begin{question}
 位力定理(Virial theorem)。利用式 (3.73) 证明
@@ -1508,7 +1508,6 @@ w_xw_p=4\pi\hbar=2h,
 \item 式 (3.112):一维位力定理形式:$\dd\langle xp\rangle/\dd t=2\langle T\rangle-\langle xV'(x)\rangle$。定态中左端为零。
 \end{enumerate}
 
-\end{question}
 \begin{solution}
 取 $Q=xp$。由式 (3.73),若 $Q$ 不显含时间,
 \[
@@ -1556,6 +1555,7 @@ x\frac{\dd V}{\dd x}=m\omega^2x^2=2V,
 \]
 这与谐振子定态中总能量平均分配在动能和势能上的结果一致。
 \end{solution}
+\end{question}
 
 \begin{question}
 在能量-时间不确定性原理的一个有趣形式中,$\Delta t=\tau/\pi$;这里 $\tau$ 是 $\psi(x,t)$ 演变为与 $\psi(x,0)$ 相正交的状态所需要的时间。利用对某个(任意的)势场中的两个(正交归一的)定态波函数的线性组合
@@ -1563,7 +1563,6 @@ x\frac{\dd V}{\dd x}=m\omega^2x^2=2V,
 \psi(x,0)=\frac{1}{\sqrt2}\bigl[\psi_1(x)+\psi_2(x)\bigr]
 \]
 来验证这个结论。
-\end{question}
 \begin{solution}
 初态为
 \[
@@ -1601,14 +1600,14 @@ x\frac{\dd V}{\dd x}=m\omega^2x^2=2V,
 \]
 这正好达到能量-时间不确定关系的下限。
 \end{solution}
+\end{question}
 
 \begin{question}
 以谐振子(正交归一的)定态为基(式 (2.68)),求出矩阵元 $\bra{n}x\ket{n'}$ 和 $\bra{n}p\ket{n'}$。你已经在习题 2.12 里计算过矩阵对角元($n=n'$);用同样方法计算更一般的情况。构造出相应的(无限)矩阵 $X$ 和 $P$。证明:在该基中,$(1/2m)P^2+(m\omega^2/2)X^2=H$ 是对角矩阵;它的对角矩阵元是你所预期的吗?
 
 \par\smallskip
-\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.67--2.68):谐振子定态:$E_n=(n+1/2)\hbar\omega$,$\Psi(x,t)=\sum_n c_n\psi_n(x)\ee^{-\ii E_nt/\hbar}$。}
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.67--2.68):谐振子定态:}\[\begin{aligned}E_n&=(n+1/2)\hbar\omega,\\\Psi(x,t)&=\sum_n c_n\psi_n(x)\ee^{-\ii E_nt/\hbar}.\end{aligned}\]
 
-\end{question}
 \begin{solution}
 由
 \[
@@ -1644,6 +1643,7 @@ H=\hbar\omega\left(a_+a_-+\frac12\right),
 \]
 将上面的 $X$、$P$ 代入 $(1/2m)P^2+(m\omega^2/2)X^2$,非对角项相消,正好得到该对角矩阵。
 \end{solution}
+\end{question}
 
 \begin{question}
 谐振子势中粒子的波函数一般可写为
@@ -1664,7 +1664,6 @@ C\ee^{-\ii\phi}=\left(\frac{2\hbar}{m\omega}\right)^{1/2}
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.114):谐振子矩阵元:$\bra n x\ket{n'}=\sqrt{\hbar/(2m\omega)}(\sqrt{n'+1}\delta_{n,n'+1}+\sqrt{n'}\delta_{n,n'-1})$。}
 
-\end{question}
 \begin{solution}
 利用习题 3.39 的矩阵元,
 \[
@@ -1714,10 +1713,10 @@ C\ee^{-\ii\phi}=-\frac{28}{25}\sqrt{\frac{\hbar}{m\omega}},
 \boxed{C=\frac{28}{25}\sqrt{\frac{\hbar}{m\omega}},\qquad \phi=\pi.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 谐振子处于这样的一种态:当对其能量进行测量时,所得结果是 $(1/2)\hbar\omega$ 或 $(3/2)\hbar\omega$ 的几率相等。在这种状态下,$\langle p\rangle$ 最大的可能值是多少?假设在 $t=0$ 时刻该值为最大,$\Psi(x,t)$ 是什么?
-\end{question}
 \begin{solution}
 能量只可能为 $\frac12\hbar\omega$ 和 $\frac32\hbar\omega$,且几率相等,所以态的一般形式为
 \[
@@ -1743,6 +1742,7 @@ p=\ii\sqrt{\frac{m\hbar\omega}{2}}(a_+-a_-).
 \]
 若采用相反的 $p$ 矩阵元号约定,只需把 $\ii$ 改为 $-\ii$,物理最大值不变。
 \end{solution}
+\end{question}
 
 \begin{question}
 谐振子的相干态(Coherent states of the harmonic oscillator)。在谐振子定态中(式 (2.67)),仅当 $n=0$ 时的状态符合不确定原理的极限 $\sigma_x\sigma_p=\hbar/2$;如同你在习题 2.12 得到的那样,在一般情况下有 $\sigma_x\sigma_p=(2n+1)\hbar/2$。但是,某些线性叠加(所谓的相干态)也会取不确定度乘积的最小值。它们是降算符的本征函数:
@@ -1776,9 +1776,8 @@ c_n=\frac{\alpha^n}{\sqrt{n!}}c_0.
 \end{enumerate}
 
 \par\smallskip
-\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.67--2.68):谐振子定态:$E_n=(n+1/2)\hbar\omega$,$\Psi(x,t)=\sum_n c_n\psi_n(x)\ee^{-\ii E_nt/\hbar}$。}
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.67--2.68):谐振子定态:}\[\begin{aligned}E_n&=(n+1/2)\hbar\omega,\\\Psi(x,t)&=\sum_n c_n\psi_n(x)\ee^{-\ii E_nt/\hbar}.\end{aligned}\]
 
-\end{question}
 \begin{solution}
 记
 \[
@@ -1866,6 +1865,7 @@ a_-\ket\alpha=\alpha\ket\alpha,
 \boxed{\alpha=0.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 扩展的不确定原理。广义不确定原理(式 (3.62))指出
@@ -1894,7 +1894,6 @@ a_-\ket\alpha=\alpha\ket\alpha,
 \item 式 (3.115):扩展不确定关系:$\sigma_A^2\sigma_B^2\ge\frac14(\langle C\rangle^2+\langle D\rangle^2)$,$C=-\ii[A,B]$,$D=AB+BA-2\langle A\rangle\langle B\rangle$。
 \end{enumerate}
 
-\end{question}
 \begin{solution}
 令
 \[
@@ -1943,6 +1942,7 @@ D=2(A^2-\langle A\rangle^2).
 \]
 只是恒等式。
 \end{solution}
+\end{question}
 
 \begin{question}
 某三能级体系哈密顿量的矩阵形式表示为
@@ -1966,7 +1966,6 @@ b&0&a
 \]
 求 $\ket{s(t)}$。
 \end{enumerate}
-\end{question}
 \begin{solution}
 矩阵的本征矢很容易看出:
 \[
@@ -2009,6 +2008,7 @@ b&0&a
 \end{pmatrix}.}
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 求以谐振子能量的本征态作为基矢展开的位置算符。也就是说,按照
@@ -2024,7 +2024,6 @@ c_n(t)=\left\langle n|s(t) \right\rangle
 \par\smallskip
 \noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (3.114):谐振子矩阵元:$\bra n x\ket{n'}=\sqrt{\hbar/(2m\omega)}(\sqrt{n'+1}\delta_{n,n'+1}+\sqrt{n'}\delta_{n,n'-1})$。}
 
-\end{question}
 \begin{solution}
 设
 \[
@@ -2047,6 +2046,7 @@ c_n(t)=\left\langle n|s(t) \right\rangle
 \]
 其中约定 $c_{-1}=0$。
 \end{solution}
+\end{question}
 
 \begin{question}
 某个三能级体系哈密顿量的矩阵形式表示为
@@ -2082,7 +2082,6 @@ B=\mu\begin{pmatrix}
 求(在 $t=0$ 时刻)$H$、$A$ 和 $B$ 的期望值。
 \item $\ket{s(t)}$ 是什么?如果你在 $t$ 时刻测量该态的能量,可能会获得什么样的值,几率分别是多少?对可观测量 $A$ 和 $B$,回答同样的问题。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) $H$ 的本征值为
 \[
@@ -2160,6 +2159,7 @@ P_B(\mu)=\frac12|c_2+c_3|^2,
 P_B(-\mu)=\frac12|c_2-c_3|^2.
 \]
 \end{solution}
+\end{question}
 
 \begin{question}
 超对称性(supersymmetry)。考虑两个算符
@@ -2195,9 +2195,8 @@ V_1(x)=\frac{m\alpha^2}{2\hbar^2}-\alpha\delta(x),\tag{3.119}
 \end{enumerate}
 
 \par\smallskip
-\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.132):$\delta$ 势阱 $V(x)=-\alpha\delta(x)$ 的束缚态:$\psi(x)=\sqrt{m\alpha}/\hbar\,\ee^{-m\alpha|x|/\hbar^2}$,$E=-m\alpha^2/(2\hbar^2)$。}
+\noindent{\kaishu 为避免查阅正文,本题中引用的公式为:式 (2.132):$\delta$ 势阱 $V(x)=-\alpha\delta(x)$ 的束缚态:}\[\begin{aligned}\psi(x)&=\sqrt{m\alpha}/\hbar\,\ee^{-m\alpha|x|/\hbar^2},\\E&=-m\alpha^2/(2\hbar^2).\end{aligned}\]
 
-\end{question}
 \begin{solution}
 (1) 由于 $p=-\ii\hbar\dd/\dd x$,
 \[
@@ -2269,6 +2268,7 @@ V_1=\frac{m\alpha^2}{2\hbar^2}-\alpha\delta(x),
 \]
 这就是加上常数背景的排斥 $\delta$ 势垒,它没有束缚态。
 \end{solution}
+\end{question}
 
 \begin{question}
 算符不仅可以由其作用定义(对它作用的矢量进行操作),也可以由域来定义(算符作用的矢量集合)。在有限维矢量空间中,域就是整个空间;我们不必担心它。但是,对希尔伯特空间中的大多数算符,域是受限制的。特别地,在 $\hat Q$ 的域中,只允许函数 $\hat Q f(x)$ 留在希尔伯特空间中。厄米算符的作用与它自伴算符的作用是一样的(习题 3.5),但实际上要表示可观测量还要求更多东西:$\hat Q$ 和 $\hat Q^\dagger$ 的域必须是相同的。这种算符称为自伴算符(self-adjoint)。
@@ -2277,7 +2277,6 @@ V_1=\frac{m\alpha^2}{2\hbar^2}-\alpha\delta(x),
 \item 假设对于某些固定的复数 $\lambda$,我们扩展 $\hat p$ 的域以包含形式 $f(a)=\lambda f(0)$ 的所有函数。必须对 $\hat p^\dagger$ 做什么样的限制条件才能使得 $\hat p$ 是厄米的?$\lambda$ 取什么值时,$\hat p$ 是自伴算符?评注:严格地讲,有限区间内没有动量算符——或者更确切地说,有无穷多种,没有方法去确定哪一个是“正确的”。(在习题 3.34 中,我们是通过处理无限空间来避免这个问题的。)
 \item 对于半无限区域 $0\leq x\leq\infty$,情况又会如何?在这种情况下,动量自伴算符存在吗?
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 在 $[0,a]$ 上,
 \[
@@ -2317,6 +2316,7 @@ g^*(a)f(a)-g^*(0)f(0)=0.
 
 (3) 在半无限区间 $[0,\infty)$ 上,为使边界项在 $x=0$ 消失,通常必须对 $f(0)$ 加限制;但伴算符的域会给出不同限制。严格分析显示一阶动量算符在半直线上没有自伴扩张。因此半直线上的真正自伴动量算符不存在。
 \end{solution}
+\end{question}
 
 \begin{question}
 \begin{enumerate}
@@ -2325,7 +2325,6 @@ g^*(a)f(a)-g^*(0)f(0)=0.
 \item 通过计算包含 $\Phi$ 的适当积分计算 $\langle p\rangle$ 和 $\langle p^2\rangle$,将答案和习题 2.42 的结果做比较。
 \item 证明 $\langle H\rangle=\langle p\rangle^2/2m+\langle H\rangle_0$(这里,脚标“0”表示高斯定态),并讨论这个结果。
 \end{enumerate}
-\end{question}
 \begin{solution}
 (1) 在动量空间中,自由粒子哈密顿量为
 \[
@@ -2384,3 +2383,4 @@ H=\frac{p^2}{2m},
 \boxed{\langle H\rangle=\frac{\langle p\rangle^2}{2m}+\langle H\rangle_0.}
 \]
 \end{solution}
+\end{question}

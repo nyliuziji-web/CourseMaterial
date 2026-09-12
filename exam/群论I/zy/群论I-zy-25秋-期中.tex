@@ -1,0 +1,302 @@
+\heading{群论I-zy-25秋-期中}
+
+\begin{question}[10 分]
+求：$D_3$ 群的固有子群中的不变子群，以及 $D_3$ 群之于其的商群。
+\begin{solution}
+写成
+\[
+D_3=\langle r,s\mid r^3=e,\ s^2=e,\ srs=r^{-1}\rangle .
+\]
+其固有子群为
+\[
+\{e\},\qquad \langle r\rangle=\{e,r,r^2\},\qquad
+\langle s\rangle,\ \langle rs\rangle,\ \langle r^2s\rangle .
+\]
+其中 $\langle r\rangle$ 的指数为 $2$，故必为正规子群；也可直接由
+$srs=r^{-1}\in\langle r\rangle$ 看出其在共轭下不变。三个二阶反射子群彼此被共轭置换，例如
+\[
+r\langle s\rangle r^{-1}=\langle r^2s\rangle\neq\langle s\rangle,
+\]
+因而都不是正规子群。
+
+若把平凡子群也计入“固有子群”，则正规子群为
+\[
+\boxed{\{e\},\ \langle r\rangle}.
+\]
+相应商群为
+\[
+\boxed{D_3/\{e\}\cong D_3},\qquad
+\boxed{D_3/\langle r\rangle\cong C_2}.
+\]
+若“固有子群”约定为非平凡真子群，则唯一需要列出的不变子群就是 $\langle r\rangle\cong C_3$。
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+求以下分子的点群对称性(Schoenflies 符号)、所有反射面，并判断是否有空间反演对称元素。
+\begin{enumerate}
+  \item $\mathrm{Fe(C_5H_5)_2}$；每个环的 $5$ 个碳原子和 $5$ 个氢原子均在同一平面内，构型如图。
+  \item $\mathrm{SF_5Cl}$；各相邻 $\sigma$ 键夹角均为直角，构型如图。
+\end{enumerate}
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round]
+  % Ferrocene, eclipsed conformation.  Two projections are separated to avoid label/bond overlap.
+  \begin{scope}[xshift=-3.1cm,scale=0.90]
+    \node[font=\small\bfseries] at (0,2.05) {$\mathrm{Fe(C_5H_5)_2}$};
+    \foreach \k in {0,...,4}{
+      \coordinate (C\k) at ({90+72*\k}:1.05);
+      \coordinate (H\k) at ({90+72*\k}:1.60);
+    }
+    \draw[thick] (C0)--(C1)--(C2)--(C3)--(C4)--cycle;
+    \foreach \k in {0,...,4}{
+      \draw[thick] (C\k)--(H\k);
+      \fill (C\k) circle (1.8pt);
+      \draw (H\k) circle (1.8pt);
+    }
+    \fill (0,0) circle (2.8pt);
+    \node[font=\scriptsize,below=3pt] at (0,-1.72) {沿主轴观察};
+  \end{scope}
+  \begin{scope}[xshift=2.1cm,scale=0.90]
+    \node[font=\small\bfseries] at (0,2.05) {侧视};
+    \fill (0,0) circle (2.8pt);
+    \node[font=\scriptsize,right=3pt] at (0,0) {Fe};
+    \foreach \y in {0.82,-0.82}{
+      \draw[thick] (-1.45,\y)--(1.45,\y);
+      \foreach \x in {-1.30,-0.65,0,0.65,1.30}{\fill (\x,\y) circle (1.7pt);}
+      \draw[densely dashed] (0,0)--(-1.30,\y);
+      \draw[densely dashed] (0,0)--(0,\y);
+      \draw[densely dashed] (0,0)--(1.30,\y);
+    }
+    \node[font=\scriptsize,below=3pt] at (0,-1.15) {两环平行且重叠};
+  \end{scope}
+\end{tikzpicture}
+
+\vspace{0.6em}
+\begin{tikzpicture}[line cap=round,line join=round,scale=0.92]
+  % SF5Cl, octahedral skeleton with one axial ligand replaced by Cl.
+  \coordinate (S) at (0,0);
+  \coordinate (Cl) at (0,1.65);
+  \coordinate (Fax) at (0,-1.65);
+  \coordinate (Fr) at (1.55,0);
+  \coordinate (Fl) at (-1.55,0);
+  \coordinate (Ffront) at (0.95,-0.72);
+  \coordinate (Fback) at (-0.95,0.72);
+  \draw[thick] (S)--(Cl) (S)--(Fax) (S)--(Fr) (S)--(Fl) (S)--(Ffront);
+  \draw[thick,densely dashed] (S)--(Fback);
+  \fill (S) circle (2.8pt);
+  \node[font=\scriptsize,right=3pt] at (S) {S};
+  \node[font=\small,above=3pt] at (Cl) {Cl};
+  \foreach \P/\A in {Fax/below,Fr/right,Fl/left,Ffront/below right,Fback/above left}{
+    \draw (\P) circle (1.9pt); \node[font=\small,\A=3pt] at (\P) {F};
+  }
+  \node[font=\small\bfseries] at (0,2.35) {$\mathrm{SF_5Cl}$};
+  \node[font=\scriptsize,align=center] at (3.35,-0.85) {四个赤道 F 构成正方形\\Cl 与一只 F 位于主轴两端};
+\end{tikzpicture}
+\end{center}
+\begin{solution}
+\begin{enumerate}
+  \item 图中两只环为重叠(eclipsed)构型。主轴为穿过 Fe 与两环中心的 $C_5$ 轴；有五根与主轴垂直的 $C_2$ 轴，并且两环中面给出一个水平镜面 $\sigma_h$，另有五个包含主轴的竖直镜面。因此
+  \[
+  \boxed{\mathrm{Fe(C_5H_5)_2}:\ D_{5h}}.
+  \]
+  反射面为
+  \[
+  \boxed{\sigma_h+5\sigma_v}.
+  \]
+  $D_{5h}$($n=5$ 为奇数)不含反演 $i$，所以
+  \[
+  \boxed{\text{无空间反演中心}}.
+  \]
+
+  \item 以 Cl--S--F 轴为主轴。绕该轴作 $90^\circ$ 转动会置换四个等价的赤道 F，因此有 $C_4$；但轴两端 Cl 与 F 不同，故没有 $\sigma_h$、$i$ 或与主轴垂直的 $C_2$ 轴。包含主轴的镜面共有四个：两个通过一对相对的 S--F 键，两个平分相邻 S--F 键夹角。因此
+  \[
+  \boxed{\mathrm{SF_5Cl}:\ C_{4v}},\qquad
+  \boxed{2\sigma_v+2\sigma_d},\qquad
+  \boxed{\text{无空间反演中心}}.
+  \]
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+$S_{2n+1}$ 群由转动反射
+\[
+S_{2n+1}=\sigma_h C_{2n+1}
+\]
+所生成，是 Abel 群。
+\begin{enumerate}
+  \item 证明：$S_{2n+1}$ 群阶为 $4n+2$，并等价于 $C_{(2n+1)h}$ 群；
+  \item 求其作为变换群在三维实空间 $\mathbb R^3$ 上的表示。
+\end{enumerate}
+\begin{solution}
+记 $m=2n+1$，并令 $C_m$ 为绕 $z$ 轴转角 $2\pi/m$ 的转动。因为 $\sigma_h$ 与 $C_m$ 对易，
+\[
+S_m^k=\sigma_h^k C_m^k.
+\]
+又因为 $m$ 为奇数，
+\[
+S_m^m=\sigma_h^m C_m^m=\sigma_h,
+\qquad S_m^{2m}=e.
+\]
+而对 $1\le k<2m$，不可能同时有 $C_m^k=e$ 且 $\sigma_h^k=e$，故 $S_m$ 的阶恰为 $2m=4n+2$。
+
+此外
+\[
+S_m^2=C_m^2.
+\]
+由于 $\gcd(2,m)=1$，$C_m^2$ 仍生成整个 $C_m$，所以 $\langle S_m\rangle$ 同时含有 $C_m$ 与 $\sigma_h$。于是
+\[
+\boxed{\langle S_{2n+1}\rangle
+=\langle C_{2n+1},\sigma_h\rangle
+=C_{(2n+1)h}},
+\]
+并且该群同构于 $C_{2n+1}\times C_2\cong C_{4n+2}$。
+
+取标准基 $(x,y,z)$，令
+\[
+\theta=\frac{2\pi}{2n+1}.
+\]
+生成元在 $\mathbb R^3$ 上的自然表示为
+\[
+D(S_{2n+1})=
+\begin{pmatrix}
+\cos\theta&-\sin\theta&0\\
+\sin\theta&\cos\theta&0\\
+0&0&-1
+\end{pmatrix}.
+\]
+因此任意群元 $S_{2n+1}^k$ 的表示为
+\[
+\boxed{
+D(S_{2n+1}^k)=
+\begin{pmatrix}
+\cos k\theta&-\sin k\theta&0\\
+\sin k\theta&\cos k\theta&0\\
+0&0&(-1)^k
+\end{pmatrix}},
+\qquad k=0,1,\ldots,4n+1.
+\]
+这是一个忠实的三维实正交表示。
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+六阶循环群
+\[
+Z_6=\{a,a^2,a^3,a^4,a^5,a^6=e\}.
+\]
+\begin{enumerate}
+  \item 求 $Z_6$ 群的所有固有子群，判断其是否为不变子群；
+  \item 从这些固有子群的各个一维表示出发，运用直积群的表示得出 $Z_6$ 群的各个不等价不可约酉表示。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+  \item 循环群的子群与 $6$ 的因子一一对应。除去整个 $Z_6$，有
+  \[
+  \{e\},\qquad
+  \langle a^3\rangle=\{e,a^3\}\cong Z_2,\qquad
+  \langle a^2\rangle=\{e,a^2,a^4\}\cong Z_3.
+  \]
+  $Z_6$ 是 Abel 群，所以每个子群都为正规(不变)子群。
+
+  \item 中国剩余定理给出
+  \[
+  Z_6\cong Z_2\times Z_3,
+  \qquad a^k\longmapsto (k\bmod2,k\bmod3).
+  \]
+  $Z_2$ 的两个一维酉表示为 $(-1)^{rk}$，$r=0,1$；$Z_3$ 的三个一维酉表示为
+  $\exp(2\pi \ii s k/3)$，$s=0,1,2$。取直积得到六个一维表示
+  \[
+  \chi_{r,s}(a^k)=(-1)^{rk}\exp\!\left(\frac{2\pi\ii sk}{3}\right).
+  \]
+  等价地可统一写成
+  \[
+  \boxed{\chi_\ell(a^k)=\exp\!\left(\frac{2\pi\ii\ell k}{6}\right)},
+  \qquad \ell=0,1,\ldots,5.
+  \]
+  因为 $Z_6$ 为有限 Abel 群，这六个互不等价的一维酉表示已经穷尽所有不可约表示。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[20 分]
+求点群 $C_{4v}$ 的特征标表，要求完整标记各类的元素，并且在特征标的推理过程中，运用正交完备性定理和/或同态核定理等适当给出逻辑过程，不要只给结果。
+\begin{solution}
+取主轴为 $z$ 轴。$C_{4v}$ 的八个元素分成五个共轭类：
+\[
+\{E\},\quad \{C_4,C_4^3\},\quad \{C_2\},\quad
+\{\sigma_v(xz),\sigma_v'(yz)\},\quad
+\{\sigma_d,\sigma_d'\}.
+\]
+故不可约表示数等于共轭类数，即为 $5$。设其维数为 $d_\alpha$，完备性给出
+\[
+\sum_\alpha d_\alpha^2=|C_{4v}|=8.
+\]
+五个正整数平方和等于 $8$ 只能是
+\[
+1^2+1^2+1^2+1^2+2^2,
+\]
+所以有四个一维不可约表示和一个二维不可约表示。
+
+对一维表示，群关系
+\[
+C_4^4=E,\qquad \sigma_v^2=E,\qquad
+\sigma_v C_4\sigma_v=C_4^{-1}
+\]
+在一维中变为数的乘法。若记 $C_4\mapsto c$、$\sigma_v\mapsto s$，则
+$c^4=s^2=1$，且 $scs=c^{-1}$。因为一维表示中 $scs=c$，故 $c=c^{-1}$，从而 $c=\pm1$，同时 $s=\pm1$。四种 $(c,s)$ 的符号组合恰给出四个一维表示；$C_2=C_4^2$ 均映到 $+1$，而 $\sigma_d=C_4\sigma_v$ 的特征标由 $cs$ 决定。
+
+剩下的二维表示可取 $(x,y)$ 平面上的自然表示：$C_4$ 是 $90^\circ$ 转动，迹为 $0$；$C_2$ 的迹为 $-2$；任一平面反射在二维中的本征值为 $1,-1$，迹为 $0$。因此得到
+\[
+\begin{array}{c|ccccc}
+ & E & 2C_4 & C_2 & 2\sigma_v & 2\sigma_d\\\hline
+A_1&1&1&1&1&1\\
+A_2&1&1&1&-1&-1\\
+B_1&1&-1&1&1&-1\\
+B_2&1&-1&1&-1&1\\
+E&2&0&-2&0&0
+\end{array}
+\]
+例如第一正交关系给出
+\[
+\frac1{8}\sum_C |C|\,\chi_\alpha(C)^*\chi_\beta(C)=\delta_{\alpha\beta},
+\]
+可逐行检验；列正交关系例如对 $E$ 类有
+\[
+1^2+1^2+1^2+1^2+2^2=8,
+\]
+对 $2C_4$ 类有
+\[
+1^2+1^2+(-1)^2+(-1)^2+0^2=4=\frac{|G|}{|2C_4|},
+\]
+从而同时验证了完备性。
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+已知晶体点群中的 $T$ 群可以表示为 $G_1$ 和 $G_2$ 的半直积群
+\[
+T=G_1\rtimes G_2,
+\]
+求群 $G_1$ 和 $G_2$。注：给出判断和推理 $G_1$ 和 $G_2$ 的依据，但无需给出半直积相应的自同构映射群。
+\begin{solution}
+纯转动四面体群 $T$ 同构于交错群 $A_4$，阶为 $12$。其中恒等元与三根互相垂直的二重转轴上的 $\pi$ 转动构成
+\[
+V_4=\{e,C_{2x},C_{2y},C_{2z}\}\cong Z_2\times Z_2\cong D_2.
+\]
+这是 $A_4$ 中唯一的四阶正规子群。任取一根三重轴上的 $120^\circ$ 转动 $c$，则
+\[
+\langle c\rangle\cong C_3,
+\qquad V_4\cap\langle c\rangle=\{e\},
+\qquad |V_4|\,|C_3|=12.
+\]
+而 $C_3$ 的共轭作用循环置换 $C_{2x},C_{2y},C_{2z}$，所以作用非平凡，直积不能替代半直积。故
+\[
+\boxed{T\cong V_4\rtimes C_3\cong D_2\rtimes C_3},
+\]
+即可以取
+\[
+\boxed{G_1=D_2\cong Z_2\times Z_2,\qquad G_2=C_3}.
+\]
+\end{solution}
+\end{question}

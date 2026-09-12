@@ -1,0 +1,105 @@
+\heading{统计力学-mzs-20秋-期末}
+
+\begin{question}[40 分]
+\begin{enumerate}
+\item 写出 Gibbs 自由能 $G$ 与焓 $H$ 的关系，并说明固定粒子数时 $G$ 是 $T,p$ 的特性函数。
+\item 举出广延量、强度量的例子；写出 Gibbs--Duhem 关系并说明意义。
+\item 简述等几率原理。
+\item 写出化学反应 $\sum_i\nu_iA_i=0$ 的平衡条件及反应方向判据。
+\item 说明为何 $C_V<0$ 或 $(\partial p/\partial V)_T>0$ 对应热力学不稳定。
+\item 什么是 BEC？水蒸气凝结是否为 BEC？
+\item 比较 Debye 与 Einstein 固体热容理论。
+\item 写出热德布罗意波长，并说明低温为何必须考虑量子统计。
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item $H=U+pV$，$G=H-TS=U+pV-TS$。固定 $N$ 时 $\dd{G}=-S\dd{T}+V\dd{p}$，所以 $G=G(T,p,N)$。
+\item 广延量如 $U,S,V,N$；强度量如 $T,p,\mu$。单组分 $U=TS-pV+\mu N$，微分后与第一定律比较得 $S\dd{T}-V\dd{p}+N\dd{\mu}=0$。它说明强度量并非彼此独立。
+\item 平衡孤立系统在给定宏观约束下允许微观态先验等概率，微正则分布在能壳上均匀。
+\item 定义反应 Gibbs 自由能 $\Delta_rG=\sum_i\nu_i\mu_i$($\nu_i>0$ 取产物)。平衡时 $\Delta_rG=0$；$\Delta_rG<0$ 正向，$>0$ 逆向。
+\item 稳定平衡要求能量对熵凸、自由能对体积具有正确曲率，等价于 $C_V>0$ 与等温压缩率 $\kappa_T>0$，即 $(\partial p/\partial V)_T<0$。
+\item BEC 为玻色子宏观占据基态；普通液化是相互作用导致的气液相变，不是 BEC。
+\item Einstein：同频独立振子；Debye：连续弹性介质、声子线性色散与截止，低温 $C_V\propto T^3$。
+\item $\lambda_T=h/\sqrt{2\pi mk_BT}$。当 $n\lambda_T^3\gtrsim1$ 时波包显著重叠，交换对称性不可忽略；降温使 $\lambda_T\propto T^{-1/2}$ 增大。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+某一摩尔系统满足
+\[H=a\,p^{R/a}\exp\!\left(\frac{S-S_0}{a}\right),\]
+其中 $a>0$，$R$ 为气体常数。求物态方程、$S(V,T)$、$E(V,T)$ 以及
+\[\alpha_s=\frac1V\left(\frac{\partial V}{\partial T}\right)_S.\]
+\begin{solution}
+由 $\dd{H}=T\dd{S}+V\dd{p}$，
+\[T=\left(\frac{\partial H}{\partial S}\right)_p=\frac{H}{a},\qquad V=\left(\frac{\partial H}{\partial p}\right)_S=\frac{R}{a}\frac{H}{p}.\]
+故 $H=aT$ 且
+\[\boxed{pV=RT}.\]
+由原式除以 $a$，
+\[T=p^{R/a}\exp[(S-S_0)/a],\]
+从而
+\[S=S_0+a\ln T-R\ln p.\]
+利用 $p=RT/V$，可写为
+\[\boxed{S=S_0+(a-R)\ln T+R\ln(V/R)}\]
+(对数应理解为相对于同量纲参考值)。又
+\[\boxed{E=H-pV=(a-R)T}.\]
+固定 $S$ 有
+\[(a-R)\frac{\dd{T}}{T}+R\frac{\dd{V}}{V}=0,\]
+所以
+\[\boxed{\alpha_s=-\frac{a-R}{RT}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+$N$ 个近独立子系的单粒子能级为 $\epsilon_n=n\epsilon$($n=0,1,\ldots$)，简并度 $\omega_n=n+1$。求 $Z,U,S$ 与能量涨落。
+\begin{solution}
+令 $x=\ee^{-\beta\epsilon}$，单子系配分函数
+\[z_1=\sum_{n=0}^\infty(n+1)x^n=\frac1{(1-x)^2}.\]
+故
+\[\boxed{Z=z_1^N=(1-\ee^{-\beta\epsilon})^{-2N}}.\]
+\[\boxed{U=-\partial_\beta\ln Z=\frac{2N\epsilon}{\ee^{\beta\epsilon}-1}}.\]
+\[\boxed{S=k_B(\ln Z+\beta U)}.\]
+能量方差
+\[\boxed{\langle(\Delta E)^2\rangle=\partial_\beta^2\ln Z=\frac{2N\epsilon^2\ee^{\beta\epsilon}}{(\ee^{\beta\epsilon}-1)^2}}.\]
+若需相对涨落，直接再除以 $U^2$。
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+面积为 $A$，总粒子数 $N$ 的二维自由电子气。
+\begin{enumerate}
+\item 求 $T=0$ 的费米能 $\epsilon_F$。
+\item 在强简并 $\mu/(k_BT)\gg1$ 下求 $\mu(T)$ 和 $C_V$。
+\item 回忆稿问“非简并条件下，宽度 $\Delta E=k_BT$ 的能量区间内粒子数占总粒子数之比”，但未保留下端点；给出一般表达式，并特别给出 $[0,k_BT]$。
+\end{enumerate}
+\begin{solution}
+含两自旋的二维总态密度为 $D=mA/(\pi\hbar^2)$，故
+\[\boxed{\epsilon_F=\frac{\pi\hbar^2N}{mA}}.\]
+固定 $N$ 的精确粒子数关系为
+\[N=Dk_BT\ln(1+\ee^{\beta\mu}),\]
+所以
+\[\boxed{\mu(T)=k_BT\ln\!\left(\ee^{\epsilon_F/k_BT}-1\right)}.\]
+强简并时 $\mu=\epsilon_F+O(\ee^{-\epsilon_F/k_BT})$，二维常态密度使通常的 $T^2$ 化学势修正消失。Sommerfeld 展开给出
+\[\boxed{C_V=\frac{\pi^2}{3}Dk_B^2T=\frac{\pi^2}{3}Nk_B\frac{k_BT}{\epsilon_F}}.\]
+非简并二维气体的能量分布因 DOS 为常数而为 $P(\epsilon)=\beta\ee^{-\beta\epsilon}$。任意区间 $[E_0,E_0+k_BT]$ 的比例为
+\[\boxed{\ee^{-E_0/k_BT}(1-\ee^{-1})}.\]
+若下端点为零，则为 $\boxed{1-\ee^{-1}}$。
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+采用平均场序参量 $m=\langle N^{-1}\sum_i\sigma_i\rangle$，$\sigma_i=\pm1$，配位数 $q$，外场 $B$，磁矩 $\mu$。求平均场配分函数、总磁矩、熵和平均自旋涨落。
+\begin{solution}
+平均场哈密顿量可写为
+\[H_{\rm MF}=\frac12NqJm^2-(qJm+\mu B)\sum_i\sigma_i.\]
+令 $x=\beta(qJm+\mu B)$，则
+\[\boxed{Z=\ee^{-\beta NqJm^2/2}[2\cosh x]^N}.\]
+自洽条件及总磁矩为
+\[\boxed{m=\tanh x},\qquad \boxed{M=N\mu m}.\]
+单自旋概率 $p_\pm=(1\pm m)/2$，故
+\[\boxed{S=-Nk_B[p_+\ln p_++p_-\ln p_-]=Nk_B[\ln(2\cosh x)-x\tanh x]}.\]
+高温 $x\to0$ 时 $S\to Nk_B\ln2$；低温有序极限 $|x|\to\infty$ 时 $S\to0$。
+若 $\Delta\sigma=N^{-1}\sum_i\sigma_i-m$，在给定平均场的因子化分布下
+\[\boxed{\langle(\Delta\sigma)^2\rangle=\frac{1-m^2}{N}=\frac{\operatorname{sech}^2x}{N}}.\]
+\end{solution}
+\end{question}

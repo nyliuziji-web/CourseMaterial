@@ -1,0 +1,202 @@
+\heading{统计力学-mzs-22秋-期末}
+
+\begin{question}[25 分]
+\begin{enumerate}
+\item 在相同 $(T,V,N)$ 下，理想玻色气体和理想费米气体压强相对经典气体的量子修正为何符号相反？
+\item 什么是 BEC？水蒸气凝结成液滴是否为 BEC？
+\item 低温下 Debye 固体热容与自由电子气热容分别如何依赖温度？
+\item Einstein 与 Debye 固体热容理论在处理方法上有何区别？
+\item 不考虑电子自由度，$N$ 个双原子分子组成的理想气体经典自由度是多少？按能均分定理热容是多少？
+\end{enumerate}
+\begin{solution}
+玻色交换使同一单粒子态的占据增强，产生有效统计“吸引”，故弱简并修正使 $p$ 降低；费米排斥原理产生有效统计“排斥”，使 $p$ 升高。BEC 是大量玻色子宏观占据最低单粒子态，普通水蒸气液化不是 BEC。三维 Debye 声子低温 $C_V\propto T^3$，强简并自由电子 $C_V\propto T$。Einstein 模型采用同频局域振子，Debye 模型采用连续弹性介质声子谱并设截止。按经典能均分定理并仅排除电子自由度，线性双原子分子有 $3$ 个平动、$2$ 个转动以及 $1$ 个振动模对应的 $2$ 个二次型项，共 $7N$ 个二次型自由度，因此 $U=(7/2)Nk_BT$、$\boxed{C_V=(7/2)Nk_B}$。若温度低到振动自由度冻结，则退化为常见的 $C_V=(5/2)Nk_B$。
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+计算平均玻色子数和费米子数的涨落，并说明涨落随平均分布数增加的差别。
+\begin{solution}
+先对一个无简并单粒子态计算。记
+\[
+x=z\ee^{-\beta\epsilon}=\ee^{-\beta(\epsilon-\mu)}.
+\]
+玻色情形该态的巨配分函数为
+\[
+\Xi_{\rm B}=\sum_{n=0}^{\infty}x^n=\frac{1}{1-x},
+\]
+因此
+\[
+\bar n_{\rm B}=x\frac{\partial\ln\Xi_{\rm B}}{\partial x}=\frac{x}{1-x}.
+\]
+由巨正则涨落公式
+\[
+\langle(\Delta n)^2\rangle=x\frac{\partial\bar n}{\partial x},
+\]
+得到
+\[
+\langle(\Delta n)^2\rangle_{\rm B}
+=\frac{x}{(1-x)^2}
+=\boxed{\bar n_{\rm B}(1+\bar n_{\rm B})}.
+\]
+
+费米态只能取 $n=0,1$，故
+\[
+\Xi_{\rm F}=1+x,\qquad
+\bar n_{\rm F}=\frac{x}{1+x}.
+\]
+同理
+\[
+\langle(\Delta n)^2\rangle_{\rm F}
+=x\frac{\partial}{\partial x}\frac{x}{1+x}
+=\frac{x}{(1+x)^2}
+=\boxed{\bar n_{\rm F}(1-\bar n_{\rm F})}.
+\]
+若一个能级有简并度 $\omega_s$，可把它看成 $\omega_s$ 个独立量子态，因此该能级总占据数的方差等于上述单态方差乘以 $\omega_s$。
+
+玻色统计的额外 $+\bar n^2$ 项体现 bunching；费米统计的 $-\bar n^2$ 项体现 Pauli 阻塞，$\bar n\to1$ 时单态占据被锁定，涨落趋于零。对整个理想量子气体，不同单粒子态在巨正则系综中独立，故
+\[
+\boxed{\langle(\Delta N)^2\rangle=\sum_s\langle(\Delta N_s)^2\rangle}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+三维准粒子色散为 $\epsilon(k)=A|k|^{4/3}$，无简并、无相互作用。
+\begin{enumerate}
+\item 求态密度。
+\item 若准粒子数不守恒、$\mu=0$，求 $C_V(T)$。
+\item 若粒子数守恒并发生 BEC，求 $T_c(n)$。
+\end{enumerate}
+\begin{solution}
+三维周期边界条件下，波矢空间每个量子态占据体积 $(2\pi)^3/V$。无简并时
+\[
+\mathcal N(k)=\frac{V}{(2\pi)^3}\frac{4\pi k^3}{3}=\frac{Vk^3}{6\pi^2}.
+\]
+由
+\[
+\epsilon=Ak^{4/3},\qquad k=\left(\frac{\epsilon}{A}\right)^{3/4},
+\]
+可得
+\[
+\mathcal N(\epsilon)=\frac{V}{6\pi^2}\left(\frac{\epsilon}{A}\right)^{9/4},
+\]
+从而
+\[
+\boxed{D(\epsilon)=\frac{\dd{\mathcal N}}{\dd{\epsilon}}
+=\frac{3V}{8\pi^2}A^{-9/4}\epsilon^{5/4}}.
+\]
+
+准粒子数不守恒时 $\mu=0$，
+\[
+U=\int_0^\infty\frac{D(\epsilon)\epsilon\,\dd{\epsilon}}
+{\ee^{\beta\epsilon}-1}.
+\]
+令 $x=\beta\epsilon$，则
+\[
+U=\frac{3V}{8\pi^2}A^{-9/4}(k_BT)^{13/4}
+\int_0^\infty\frac{x^{9/4}}{\ee^x-1}\dd{x}.
+\]
+利用 Bose 积分公式，
+\[
+U=\frac{3V}{8\pi^2}A^{-9/4}
+\Gamma\!\left(\frac{13}{4}\right)
+\zeta\!\left(\frac{13}{4}\right)(k_BT)^{13/4}.
+\]
+对 $T$ 求导，
+\[
+\boxed{C_V=\frac{39V}{32\pi^2}A^{-9/4}
+\Gamma\!\left(\frac{13}{4}\right)
+\zeta\!\left(\frac{13}{4}\right)k_B(k_BT)^{9/4}}.
+\]
+
+若粒子数守恒，临界点满足 $\mu\to0^-$，此时激发态能够容纳的最大粒子数正好等于 $N$：
+\[
+N=\int_0^\infty\frac{D(\epsilon)\dd{\epsilon}}
+{\ee^{\beta_c\epsilon}-1}.
+\]
+因此
+\[
+n=\frac{3}{8\pi^2}A^{-9/4}
+\Gamma\!\left(\frac94\right)\zeta\!\left(\frac94\right)(k_BT_c)^{9/4},
+\]
+解得
+\[
+\boxed{T_c=\frac{A}{k_B}
+\left[\frac{8\pi^2n}{3\Gamma(9/4)\zeta(9/4)}\right]^{4/9}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+三维晶体三支声学模速度均取 $c_s$，Debye 截止满足
+\[\omega_D^3=6\pi^2c_s^3N/V,\qquad \Theta_D=\hbar\omega_D/k_B.\]
+\begin{enumerate}
+\item 写频率为 $\omega$ 的声子平均数。
+\item 高温 $\Theta_D/T\ll1$ 时求总声子数 $N_{\rm ph}(T)$ 的温度依赖。
+\item 低温 $\Theta_D/T\gg1$ 时求 $N_{\rm ph}(T)$ 的温度依赖。
+\end{enumerate}
+\begin{solution}
+单模平均声子数
+\[\boxed{\bar n_\omega=\frac1{\ee^{\hbar\omega/k_BT}-1}}.\]
+三支声学模总 DOS 为
+\[D(\omega)=\frac{3V\omega^2}{2\pi^2c_s^3}.\]
+故
+\[N_{\rm ph}=9N\left(\frac{T}{\Theta_D}\right)^3\int_0^{\Theta_D/T}\frac{x^2\dd{x}}{\ee^x-1}.\]
+高温 $y=\Theta_D/T\ll1$ 时积分 $\simeq y^2/2$，
+\[\boxed{N_{\rm ph}\simeq\frac92N\frac{T}{\Theta_D}}.\]
+低温时上限可延至无穷，$\int_0^\infty x^2/(\ee^x-1)\dd{x}=2\zeta(3)$，
+\[\boxed{N_{\rm ph}\simeq18\zeta(3)N\left(\frac{T}{\Theta_D}\right)^3}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+理想费米气能态密度
+\[D(\epsilon)=\begin{cases}H,&\epsilon>0,\\0,&\epsilon<0,\end{cases}\]
+其中 $H$ 为常数，总粒子数 $N$。
+\begin{enumerate}
+\item 严格求有限温度化学势。
+\item 求低温内能。
+\item 求低温热容。
+\end{enumerate}
+\begin{solution}
+粒子数积分可精确完成：
+\[N=H\int_0^\infty\frac{\dd{\epsilon}}{\ee^{\beta(\epsilon-\mu)}+1}=Hk_BT\ln(1+\ee^{\beta\mu}).\]
+定义 $\epsilon_F=N/H$，得到
+\[\boxed{\mu(T)=k_BT\ln\!\left(\ee^{\epsilon_F/k_BT}-1\right)}.\]
+低温 $k_BT\ll\epsilon_F$ 时，$\mu=\epsilon_F+O(\ee^{-\epsilon_F/k_BT})$。Sommerfeld 展开
+\[U=H\int_0^\infty\epsilon f(\epsilon)\dd{\epsilon}=\frac{H\epsilon_F^2}{2}+\frac{\pi^2}{6}H(k_BT)^2+\cdots.\]
+所以
+\[\boxed{U=\frac12N\epsilon_F+\frac{\pi^2}{6}H(k_BT)^2+\cdots},\]
+\[\boxed{C_V=\frac{\pi^2}{3}Hk_B^2T=\frac{\pi^2}{3}Nk_B\frac{k_BT}{\epsilon_F}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[15 分]
+单元哈密顿量
+\[h=-JS\sigma-\mu H(S+\sigma),\]
+其中 $S=-1,0,+1$，$\sigma=\pm1$。
+\begin{enumerate}
+\item 求配分函数。
+\item 求磁化强度。
+\item 求零场磁化率，并给出 $J\to0$ 与 $J\to\infty$ 的行为及物理解释。
+\end{enumerate}
+\begin{solution}
+令 $K=\beta J$，$x=\beta\mu H$。直接求和六个状态，
+\begin{align*}
+Z&=\sum_{S=0,\pm1}\sum_{\sigma=\pm1}\ee^{KS\sigma+x(S+\sigma)}\\
+&=\boxed{2\left[\cosh x+\ee^K\cosh2x+\ee^{-K}\right]}.
+\end{align*}
+磁矩为 $\mu(S+\sigma)$，故
+\[\boxed{M=\mu\frac{\partial\ln Z}{\partial x}=\mu\frac{\sinh x+2\ee^K\sinh2x}{\cosh x+\ee^K\cosh2x+\ee^{-K}}}.\]
+零场平均磁矩为零，因此
+\[\chi=\left(\frac{\partial M}{\partial H}\right)_{H=0}=\beta\mu^2\langle(S+\sigma)^2\rangle_0.\]
+在 $H=0$，$Z_0=2+4\cosh K$，而
+\[\sum(S+\sigma)^2\ee^{KS\sigma}=8\ee^K+2.\]
+所以
+\[\boxed{\chi(T)=\frac{\mu^2}{k_BT}\frac{4\ee^{J/k_BT}+1}{1+2\cosh(J/k_BT)}}.\]
+$J\to0$ 时 $S$ 与 $\sigma$ 独立，$\langle S^2\rangle=2/3$、$\langle\sigma^2\rangle=1$，
+\[\boxed{\chi\to\frac{5\mu^2}{3k_BT}}.\]
+对铁磁耦合 $J\to+\infty$，低能态锁定为 $S=\sigma=\pm1$，单元磁矩为 $\pm2\mu$，
+\[\boxed{\chi\to\frac{4\mu^2}{k_BT}}.\]
+\end{solution}
+\end{question}

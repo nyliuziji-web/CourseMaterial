@@ -1,23 +1,42 @@
-# 项目介绍
+<h1 align="center">📚 CourseMaterial</h1>
+<p align="center"><b>PKU-PHYer 的课程资料库：往年题 · 作业 · 讲义资料</b></p>
 
-本项目整理了赛艇上部分课程的往年试题（`exam/`）与作业（`homework/`），使用 LaTeX 重新排版，并借助 AI 或参照已有解答编写参考答案，方便同学们考前复习与作业速通。此外，项目还收集了公开的优质学习资料与学长学姐的课程评测（`material/`），助力学习、标记"雷区"。
+## ✨ 有什么
 
-往年题与作业可直接前往 `example/` 文件夹查看编译好的 PDF。如需自行组合试卷（E，Exam）或作业（H，Homework），可运行 `compile.py`。
+| 内容 | 说明 | 来源 |
+|------|------|------|
+| 📝 **往年题解析** | `exam/` 各课程真题解析 | 赛艇先生、同学回忆 |
+| ✅ **作业详解** | `homework/` 附完整推导步骤 | 同学提供 |
+| 📖 **优质资料** | `material/` 讲义、笔记、复习资料 | 同学提供 |
+| 🧩 **一键组卷** | `compile.py` 按课程按需组合、精美排版 | 项目自带 |
 
-# 提交贡献
+## 🚀 快速上手
 
-如发现已有题目或解答存在错误，欢迎在 Issues 中反馈，维护人员将尽快修正。
+直接点网页中上方的绿色按钮 Code，下载 zip 包。或者通过 git 下载（需要安装 git）
 
-如您拥有较新版本的考题、作业、优质资料或课程评测，或是有任何希望补充的内容，欢迎通过 Pull Request 提交。您可以按照 `SKILL.md` 中的项目规范提交 LaTeX 源码（可同步上传 PDF、Word 等格式的原件用于复核）；您也可以仅上传资料，维护人员将尽快协助转换为 LaTeX 源码。
+```bash
+git clone https://github.com/nyliuziji-web/CourseMaterial # 下载
+git pull # 更新
+```
 
-非常感谢您的贡献——功在当下，利在千秋。
+打开 `example/` 即可查看编译好的题目 / 解析 PDF！
 
-**一些 tips：**
+或者，如果你想自己组卷：
 
-我们十分推荐使用 AI 协作进行 LaTeX 排版与答案编写。您可以先使用 [MinerU 网页版](https://mineru.net/OpenSourceTools/Extractor) 将 PDF 转换为 Markdown 源码，再让 agent 参照 `SKILL.md` 的要求编写答案与 LaTeX 源码。
+```bash
+python compile.py           
+```
 
-如果您从未配置过 agent，不妨先从 DeepSeek + Claude Code 起步，B 站上有不少相关教程；若不熟悉 Git 命令，可以让 agent 帮您安装 `gh`（GitHub 命令行工具）并配置账户信息，此后完全可以由 agent 代为完成提交、分支等各类操作。
+## 🤝 贡献
 
-## 声明
+发现错误 → 提 Issue；有新题目、资料或评测 → 提 PR（参照 `SKILL.md` 规范）。
 
-本项目仅用于个人学习交流。内容难免有错误疏漏，敬请指正；版权归原作者所有，侵删。
+推荐 AI 协作排版：直接让 agent 参照 `SKILL.md` 编写答案与源码。如果 AI 没有 OCR 解析能力，可以先用 [MinerU](https://mineru.net/OpenSourceTools/Extractor) 把 PDF 转 Markdown。
+
+本项目仅用于个人学习交流，内容难免有错漏，敬请指正；版权归原作者所有，侵删。
+
+---
+
+<p align="center">
+  <b>如果对你有帮助，欢迎 ⭐ Star ⭐ 或分享链接让更多同学看到</b>
+</p>

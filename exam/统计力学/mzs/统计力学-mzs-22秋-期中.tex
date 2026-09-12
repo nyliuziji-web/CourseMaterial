@@ -1,0 +1,111 @@
+\heading{统计力学-mzs-22秋-期中}
+
+\begin{question}[40 分]
+\begin{enumerate}
+\item 均匀各向同性固体体积不变，外界磁功(单位体积)为 $H\dd{B}$。写基本微分式及以 $(T,B)$ 为独立变量时的 Maxwell 关系。
+\item 多元复相系统的热平衡、力学平衡、相平衡条件分别是什么？
+\item 说明为何 $C_V>0$ 与 $(\partial P/\partial V)_T<0$ 是稳定性条件。
+\item 从突变特征量角度比较二级(连续)相变与一级相变。
+\item 化学反应 $\sum_i\nu_iA_i=0$ 的平衡条件及方向判据。
+\item 叙述热力学第三定律。
+\item 何为刘维尔定理？
+\item 新鲜鸡蛋与母鸡接触孵化；忽略化学、生物变化导致的能量变化，仅考虑热学过程，鸡蛋吸热还是放热？
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+\item 固定其他广延量时 $\dd{U}=T\dd{S}+H\dd{B}$。定义 $F=U-TS$，则 $\dd{F}=-S\dd{T}+H\dd{B}$，故
+\[\boxed{\left(\frac{\partial S}{\partial B}\right)_T=-\left(\frac{\partial H}{\partial T}\right)_B}.\]
+\item 各相温度相等、压强相等，并且每一组分在各相中的化学势相等：$T^\alpha=T^\beta$，$p^\alpha=p^\beta$，$\mu_i^\alpha=\mu_i^\beta$。
+\item $C_V>0$ 保证能量对温度单调、熵极大条件在热涨落方向稳定；$\kappa_T=-(1/V)(\partial V/\partial P)_T>0$ 等价于 $(\partial P/\partial V)_T<0$，保证机械压缩涨落受到恢复作用。
+\item 一级相变中 $G$ 连续而一阶导数如 $S=-G_T$、$V=G_P$ 跳变，伴随潜热/体积跃变；连续相变中一阶导数连续，而二阶或更高导数不连续或发散，关联长度通常发散。
+\item $\Delta_rG=\sum_i\nu_i\mu_i=0$ 为平衡条件；以产物 $\nu_i>0$ 约定，$\Delta_rG<0$ 正向，$>0$ 逆向。
+\item Nernst 表述：$T\to0$ 时任意等温可逆过程的熵变趋于零；对完美晶体可取 $S(0)=0$。
+\item 哈密顿流保持相空间体积，分布函数沿轨道满足 $\dd{\rho}/\dd{t}=\partial_t\rho+\{\rho,H\}=0$。
+\item 若只考虑热交换，鸡蛋初温低于母鸡体温，最终被加热至接近母鸡体温；其内能/焓增加，故鸡蛋净吸热。真实孵化中的代谢、化学反应被题设排除。
+\end{enumerate}
+\end{solution}
+\end{question}
+
+\begin{question}[12 分]
+考虑长度为 $L$、受到张力 $f$ 的带状系统，其热力学基本关系为
+\[\dd{U}=T\dd{S}+f\dd{L}+\mu\dd{n}.\]
+\begin{enumerate}
+\item 导出 Gibbs--Duhem 关系。
+\item 若 $U=\theta S^2L/n^2$，求 $\mu(T,l)$，$l=L/n$。
+\end{enumerate}
+\begin{solution}
+广延性给 Euler 关系
+\[U=TS+fL+\mu n.\]
+微分并与第一定律比较，
+\[\boxed{S\dd{T}+L\dd{f}+n\dd{\mu}=0}.\]
+由给定基本关系
+\[T=\frac{\partial U}{\partial S}=\frac{2\theta SL}{n^2}=2\theta s l,\qquad s=S/n,\]
+\[\mu=\left(\frac{\partial U}{\partial n}\right)_{S,L}=-\frac{2\theta S^2L}{n^3}=-2\theta s^2l.\]
+消去 $s=T/(2\theta l)$，
+\[\boxed{\mu(T,l)=-\frac{T^2}{2\theta l}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[14 分]
+某气体的体膨胀系数和等温压缩系数分别为
+\[\alpha=\frac1T\left(1+\frac{3c}{VT^2}\right),\qquad \kappa_T=\frac1p\left(1+\frac{c}{VT^2}\right).\]
+并给定 $c/(VT^2)\ll1$ 时趋于 $pV=Nk_BT$。
+\begin{enumerate}
+\item 求 $p(T,V)$。
+\item 等温由 $V_1$ 变到 $V_2$，求 $\Delta S$。
+\end{enumerate}
+\begin{solution}
+由 $\kappa_T=-(1/V)(\partial V/\partial p)_T$，
+\[\left(\frac{\partial\ln p}{\partial V}\right)_T=-\frac{T^2}{VT^2+c},\]
+积分得 $p=A(T)/(VT^2+c)$。再用 $\alpha=(1/V)(\partial V/\partial T)_p$ 可得 $A'/A=3/T$，故 $A=CT^3$。理想气体极限确定 $C=Nk_B$，
+\[\boxed{p=\frac{Nk_BT^3}{VT^2+c}=\frac{Nk_BT}{V+c/T^2}}.\]
+Maxwell 关系 $({\partial S}/{\partial V})_T=({\partial p}/{\partial T})_V$。计算
+\[\left(\frac{\partial p}{\partial T}\right)_V=Nk_B\frac{T^2(VT^2+3c)}{(VT^2+c)^2}.\]
+积分得到
+\[\boxed{\Delta S=Nk_B\left[\ln\frac{V_2T^2+c}{V_1T^2+c}-2c\left(\frac1{V_2T^2+c}-\frac1{V_1T^2+c}\right)\right]}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[18 分]
+$N$ 个无相互作用粒子构成三维极端相对论理想气体，单粒子色散关系为 $\epsilon(\bm p)=c|\bm p|$。
+\begin{enumerate}
+\item 求正则配分函数。
+\item 求状态方程。
+\item 求平均能量。
+\item 求能量涨落。
+\item 求 $C_P$。
+\item 求熵。
+\end{enumerate}
+\begin{solution}
+单粒子配分函数
+\[q_1=\frac{V}{h^3}\int4\pi p^2\ee^{-\beta cp}\dd{p}=\frac{8\pi V}{h^3(\beta c)^3}.\]
+故
+\[\boxed{Z_N=\frac1{N!}\left[\frac{8\pi V(k_BT)^3}{h^3c^3}\right]^N}.\]
+由 $F=-k_BT\ln Z$，
+\[\boxed{PV=Nk_BT},\qquad \boxed{U=3Nk_BT}.\]
+\[\boxed{\langle(\Delta E)^2\rangle=k_BT^2C_V=3N(k_BT)^2}.\]
+$C_V=3Nk_B$，理想气体 $C_P=C_V+Nk_B$，
+\[\boxed{C_P=4Nk_B}.\]
+用 Stirling 公式
+\[\boxed{S\simeq Nk_B\left[\ln\frac{8\pi V(k_BT)^3}{Nh^3c^3}+4\right]}.\]
+\end{solution}
+\end{question}
+
+\begin{question}[16 分]
+考虑一个只允许两种占据情形的系统：空态的粒子数与能量均为 $0$；占据态含两个粒子，总能量为 $2\epsilon$。系统与温度 $T$、化学势 $\mu$ 的粒子库接触。
+\begin{enumerate}
+\item 写巨配分函数。
+\item 求平均粒子数。
+\item 求粒子数涨落。
+\item 当 $\langle N\rangle=1$ 时求 $\mu$ 和涨落。
+\end{enumerate}
+\begin{solution}
+令 $y=\exp[-2\beta(\epsilon-\mu)]$，
+\[\boxed{\Xi=1+y}.\]
+\[\boxed{\langle N\rangle=\frac{2y}{1+y}}.\]
+因 $N^2$ 在占据态为 $4$，
+\[\boxed{\langle(\Delta N)^2\rangle=\frac{4y}{(1+y)^2}=\langle N\rangle(2-\langle N\rangle)}.\]
+$\langle N\rangle=1$ 给 $y=1$，所以
+\[\boxed{\mu=\epsilon},\qquad \boxed{\langle(\Delta N)^2\rangle=1}.\]
+\end{solution}
+\end{question}

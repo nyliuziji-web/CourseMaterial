@@ -1,0 +1,88 @@
+\heading{统计力学-mzs-15秋-期末}
+
+\begin{question}
+简要回答下列问题。
+\begin{enumerate}
+\item 在相同 $T,V,N$ 下，比较弱简并理想玻色气体、理想费米气体与经典理想气体的压强，并说明量子统计导致修正符号不同的原因。
+\item 说明玻色--爱因斯坦凝聚的定义，并判断水蒸气凝结成液滴是否属于玻色--爱因斯坦凝聚。
+\item 写出三维 Debye 固体在低温极限下的热容温度依赖，并说明其来源。
+\item 比较 Einstein 固体热容模型与 Debye 模型在振动谱处理上的主要区别。
+\item 对由 $N$ 个刚性双原子分子构成的经典理想气体，在振动自由度冻结时统计其平动和转动自由度，并由能均分定理求定容热容。
+\end{enumerate}
+\begin{solution}
+弱简并下 $p_{\rm B}<p_{\rm MB}<p_{\rm F}$；玻色交换增强使压强降低，费米交换抑制使压强升高。BEC 是玻色子在临界温度以下对最低单粒子态的宏观占据，普通水蒸气液化属于相互作用驱动的气液相变，不是 BEC。三维 Debye 模型低温给出 $C_V\propto T^3$，来自声学支低频态密度 $D(\omega)\propto\omega^2$；Einstein 模型取单一振动频率，而 Debye 模型把晶格视作连续弹性介质并引入从零到 $\omega_D$ 的连续声子谱。刚性双原子分子在振动冻结时每个分子有 $3$ 个平动和 $2$ 个转动二次型自由度，因此 $C_V=(5/2)Nk_B$。
+\end{solution}
+\end{question}
+
+\begin{question}
+三维体积为 $V$ 的无简并理想准粒子气体满足色散关系 $\epsilon(k)=A k^{4/3}$。\begin{enumerate}\item 求单粒子态密度 $D(\epsilon)$。\item 若准粒子数不守恒，从而 $\mu=0$，求系统内能及低温热容的温度依赖。\item 若准粒子数守恒、数密度为 $n=N/V$，求发生玻色--爱因斯坦凝聚的临界温度 $T_c(n)$。\end{enumerate}
+\begin{solution}
+对应三维态密度
+\[D(\epsilon)=\frac{3V}{8\pi^2}A^{-9/4}\epsilon^{5/4}.\]
+若 $\mu=0$，
+\[U=\frac{3V}{8\pi^2}A^{-9/4}\Gamma\!\left(\frac{13}{4}\right)\zeta\!\left(\frac{13}{4}\right)(k_BT)^{13/4},\]
+\[C_V\propto T^{9/4}.\]
+若粒子数密度固定为 $n$，
+\[T_c=\frac{A}{k_B}\left[\frac{8\pi^2n}{3\Gamma(9/4)\zeta(9/4)}\right]^{4/9}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑面积为 $A$、总粒子数为 $N$ 的二维相对论性自由电子气体。单粒子能量取 $\epsilon_\sigma(p)=pc-\sigma\mu_BH$，其中 $\sigma=\pm1$。在零温和弱磁场条件下，求共同化学势关于 $H$ 的最低非平凡修正，并由两自旋支的粒子数差写出磁化强度和零场磁化率。
+\begin{solution}
+二维线性色散下单自旋态密度与能量成正比，
+\[
+D(\epsilon)=\frac{A}{2\pi\hbar^2c^2}\epsilon.
+\]
+Zeeman 项使两支的有效化学势相对移动 $\pm\mu_BH$；零温下两支均填充至共同化学势 $\mu$，故
+\[
+N_\pm=\int_0^{\mu\pm\mu_BH}D(\epsilon)\dd{\epsilon}
+=\frac{A}{4\pi\hbar^2c^2}(\mu\pm\mu_BH)^2.
+\]
+固定总粒子数 $N=N_++N_-$，无场时 $N=\dfrac{A\mu_0^2}{2\pi\hbar^2c^2}$，即 $\mu_0=\hbar c\sqrt{2\pi n}$（$n=N/A$）。到 $H^2$ 阶
+\[
+N=\frac{A}{2\pi\hbar^2c^2}(\mu^2+\mu_B^2H^2),
+\]
+故
+\[
+\boxed{\mu(H)=\mu_0-\frac{(\mu_BH)^2}{2\mu_0}+O(H^4)}.
+\]
+两自旋支粒子数差为
+\[
+N_+-N_-=\frac{A\mu\mu_BH}{\pi\hbar^2c^2},
+\]
+因此磁化强度与零场磁化率分别为
+\[
+\boxed{M=\frac{\mu_B(N_+-N_-)}{A}
+=\frac{\mu\mu_B^2H}{\pi\hbar^2c^2}},
+\qquad
+\boxed{\chi=\frac{\mu_0\mu_B^2}{\pi\hbar^2c^2}}.
+\]
+\end{solution}
+\end{question}
+
+\begin{question}
+设稀薄经典非理想气体的两体势为给定的短程中心势 $u(r)$。用 Mayer 展开写出低密度状态方程到二阶密度修正，并将结果表示为 $u(r)$ 的积分。
+\begin{solution}
+一阶低密度修正应由 Mayer 函数
+\[f(r)=\ee^{-\beta u(r)}-1\]
+和第二维里系数
+\[B_2(T)=-\frac12\int f(r)\dd^3r\]
+得到，状态方程为
+\[P=nk_BT[1+B_2(T)n+O(n^2)].\]
+若进一步给出 $u(r)$ 的具体函数形式，只需把它代入上式即可完成一维径向积分。
+\end{solution}
+\end{question}
+
+\begin{question}
+考虑由四个 Ising 自旋 $b_i=\pm1$ 构成的有限团簇，哈密顿量包含全部两体耦合、一个四体耦合以及与总磁矩线性耦合的外场项。写出配分函数 $Z$，并由 $Z$ 求自由能 $F$、内能 $U$ 和零场磁化率 $\chi$。
+\begin{solution}
+若记完整哈密顿量为 $H(b_1,b_2,b_3,b_4)$、$b_i=\pm1$，则有限团簇无需近似，直接枚举 $2^4=16$ 个微观态：
+\[\boxed{Z=\sum_{b_1,\ldots,b_4=\pm1}\ee^{-\beta H(b_1,\ldots,b_4)}}.\]
+随后
+\[\boxed{F=-k_BT\ln Z},\qquad \boxed{U=-\frac{\partial\ln Z}{\partial\beta}}.\]
+若外场以 $-H_{\rm ext}\mathcal M$ 耦合，则零场磁化率
+\[\boxed{\chi=\beta\left(\langle\mathcal M^2\rangle-\langle\mathcal M\rangle^2\right)_{H_{\rm ext}=0}}.\]
+给定具体耦合常数后，上述 $16$ 项有限和可以直接化简为闭式。
+\end{solution}
+\end{question}

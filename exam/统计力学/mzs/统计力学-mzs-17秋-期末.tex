@@ -1,0 +1,90 @@
+\heading{统计力学-mzs-17秋-期末}
+
+\begin{question}
+\begin{enumerate}
+\item 已知单粒子能级 $\epsilon_s$、简并度 $\omega_s$，写出 BE、FD 分布的平均占据数及巨配分函数。
+\item 什么是 BEC？水蒸气凝结成水滴是否属于 BEC？
+\item 讨论弱简并 BE、FD 理想气体的压强相对经典气体的偏差及原因。
+\item 比较 Einstein 与 Debye 固体热容理论的处理方法。
+\end{enumerate}
+\begin{solution}
+令逸度 $z=\ee^{\beta\mu}$。每个能级的平均粒子数为
+\[\bar n_s^{\rm B}=\frac{\omega_s}{z^{-1}\ee^{\beta\epsilon_s}-1},\qquad \bar n_s^{\rm F}=\frac{\omega_s}{z^{-1}\ee^{\beta\epsilon_s}+1}.\]
+巨配分函数分别为
+\[\Xi_{\rm B}=\prod_s(1-z\ee^{-\beta\epsilon_s})^{-\omega_s},\qquad \Xi_{\rm F}=\prod_s(1+z\ee^{-\beta\epsilon_s})^{\omega_s}.\]
+BEC 是大量玻色子宏观占据最低单粒子态；普通水蒸气液化由分子相互作用驱动，不是 BEC。弱简并时交换效应使 $p_{\rm B}<p_{\rm MB}<p_{\rm F}$。Einstein 模型把晶格振动视为同频独立振子；Debye 模型把晶体视为弹性连续介质，引入声子线性色散及截止频率，正确给出低温 $C_V\propto T^3$。
+\end{solution}
+\end{question}
+
+\begin{question}
+均匀电场 $E$ 沿 $z$ 轴，经典刚性双原子分子具有偶极矩 $d$、转动惯量 $I$。单分子哈密顿量
+\[h=\frac{\bm p^2}{2m}+\frac{1}{2I}\left(p_\theta^2+\frac{p_\phi^2}{\sin^2\theta}\right)-dE\cos\theta.\]
+求正则配分函数、内能和 $C_V$，并讨论高低温极限。
+\begin{solution}
+记 $x=dE/(k_BT)$、$\lambda_T=h/\sqrt{2\pi mk_BT}$。单粒子平动部分为 $V/\lambda_T^3$。转动相空间积分为
+\begin{align*}
+q_{\rm rot}&=\frac1{h^2}\int\dd{p_\theta}\dd{p_\phi}\dd{\theta}\dd{\phi}\,
+\exp\left[-\beta\frac{p_\theta^2+p_\phi^2/\sin^2\theta}{2I}+x\cos\theta\right]\\
+&=\boxed{\frac{8\pi^2Ik_BT}{h^2}\frac{\sinh x}{x}}.
+\end{align*}
+故
+\[\boxed{Z_N=\frac1{N!}\left[\frac{V}{\lambda_T^3}\frac{8\pi^2Ik_BT}{h^2}\frac{\sinh x}{x}\right]^N}.\]
+定义 Langevin 函数 $L(x)=\coth x-1/x$，
+\[\boxed{U=N\left[\frac52k_BT-dE\,L(x)\right]}.\]
+因此
+\[\boxed{C_V=Nk_B\left[\frac72-x^2\operatorname{csch}^2x\right]}.\]
+高温 $x\ll1$：$U\simeq N[\tfrac52k_BT-(dE)^2/(3k_BT)]$，$C_V\to(5/2)Nk_B$；低温强定向 $x\gg1$：$U\simeq N[(7/2)k_BT-dE]$，$C_V\to(7/2)Nk_B$。后者是经典强场极限；真正量子极低温还会出现转动冻结。
+\end{solution}
+\end{question}
+
+\begin{question}
+三维无简并粒子满足 $\epsilon(k)=A|k|^\gamma$，$0<\gamma<3$。
+\begin{enumerate}
+\item 求能态密度。
+\item 按“光子气体”即 $\mu=0$ 处理，求 $p,S$。
+\item 若粒子数守恒，求 BEC 临界温度。
+\end{enumerate}
+\begin{solution}
+令 $s=3/\gamma$。由 $\mathcal N=Vk^3/(6\pi^2)$，
+\[\boxed{D(\epsilon)=\frac{V}{2\pi^2\gamma}A^{-3/\gamma}\epsilon^{3/\gamma-1}}.\]
+记 $C=V(2\pi^2\gamma)^{-1}A^{-s}$。$\mu=0$ 时
+\[U=C\Gamma(s+1)\zeta(s+1)(k_BT)^{s+1}.\]
+幂律色散的维里关系为 $pV=(\gamma/3)U=U/s$，故
+\[\boxed{p=\frac{\gamma}{3}\frac{U}{V}},\qquad \boxed{S=\frac{U+pV}{T}=\left(1+\frac{\gamma}{3}\right)\frac{U}{T}}.\]
+BEC 临界点
+\[n=\frac{1}{2\pi^2\gamma}A^{-s}\Gamma(s)\zeta(s)(k_BT_c)^s,\]
+因此
+\[\boxed{T_c=\frac{A}{k_B}\left[\frac{2\pi^2\gamma n}{\Gamma(3/\gamma)\zeta(3/\gamma)}\right]^{\gamma/3}}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+三维极端相对论费米气满足 $\epsilon=pc$，总简并度为 $g$。求能态密度、零温费米能，并给出低温下化学势、能量和 $C_V$ 的最低阶温度修正。
+\begin{solution}
+\[\boxed{D(\epsilon)=\frac{gV}{2\pi^2\hbar^3c^3}\epsilon^2}.\]
+零温时
+\[n=\frac{g}{6\pi^2\hbar^3c^3}\epsilon_F^3,\qquad \boxed{\epsilon_F=\hbar c\left(\frac{6\pi^2n}{g}\right)^{1/3}}.\]
+Sommerfeld 展开并保持 $N$ 不变，
+\[\boxed{\mu(T)=\epsilon_F\left[1-\frac{\pi^2}{3}\left(\frac{k_BT}{\epsilon_F}\right)^2+O(T^4)\right]}.\]
+能量为
+\[\boxed{\frac{U}{N}=\frac34\epsilon_F\left[1+\frac{2\pi^2}{3}\left(\frac{k_BT}{\epsilon_F}\right)^2+O(T^4)\right]},\]
+于是
+\[\boxed{C_V=\pi^2Nk_B\frac{k_BT}{\epsilon_F}+O(T^3)}.\]
+\end{solution}
+\end{question}
+
+\begin{question}
+\[u(r)=\begin{cases}\infty,&r\le a,\\-\varepsilon,&a<r<R,\\0,&r\ge R.\end{cases}\]
+求 Mayer 函数、$B_2(T)$、一阶维里状态方程、使 $B_2=0$ 的 Boyle 温度 $T_0$，并判断 $T$ 高低时的等效吸引/排斥。
+\begin{solution}
+\[f(r)=\ee^{-\beta u(r)}-1=\begin{cases}-1,&r\le a,\\\ee^{\beta\varepsilon}-1,&a<r<R,\\0,&r\ge R.\end{cases}\]
+因此
+\[\boxed{B_2=\frac{2\pi}{3}\left[a^3-(R^3-a^3)(\ee^{\beta\varepsilon}-1)\right]},\]
+\[\boxed{P=nk_BT(1+B_2n+\cdots)}.\]
+令 $B_2(T_0)=0$，
+\[\ee^{\varepsilon/k_BT_0}=\frac{R^3}{R^3-a^3},\]
+故
+\[\boxed{T_0=\frac{\varepsilon}{k_B\ln[R^3/(R^3-a^3)]}}.\]
+$T>T_0$ 时 $B_2>0$，排斥效应占优；$T<T_0$ 时 $B_2<0$，吸引效应占优。
+\end{solution}
+\end{question}
