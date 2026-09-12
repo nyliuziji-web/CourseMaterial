@@ -9,7 +9,7 @@
 \usepackage{physics,cancel}
 \usepackage[hidelinks]{hyperref}
 \usepackage{tcolorbox}
-\tcbuselibrary{breakable}
+\tcbuselibrary{breakable,skins}
 \usepackage{fancyvrb}
 
 % ── enumerate default styles ──────────────────────────────
@@ -157,14 +157,26 @@
 \NewDocumentCommand{\blank}{O{1.5cm}}{\makebox[#1]{\hrulefill}}
 
 % ── Solution display (conditional on \ifShowSolutions) ────
+\newtcolorbox{solbox}{
+  enhanced,
+  breakable,
+  colback=black!2,
+  colframe=black!28,
+  boxrule=0.35pt,
+  arc=0.8mm,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,
+  before skip=6pt,after skip=5pt,
+  title={解答：},
+  fonttitle=\bfseries,
+  coltitle=black,
+  colbacktitle=black!6,
+  attach boxed title to top left={xshift=5pt,yshift=-2mm},
+  boxed title style={boxrule=0pt,arc=0.6mm,left=4pt,right=4pt,top=1pt,bottom=1pt}
+}
+
 \NewDocumentEnvironment{solution}{ +b }{%
   \ifShowSolutions
-    \begin{tcolorbox}[colback=black!3,colframe=black!8,sharp corners,
-      boxrule=0.4pt,breakable,left=1.2em,right=1.2em,
-      top=0.5em,bottom=0.5em,before skip=10pt,after skip=6pt]
-      \noindent{\heiti 解答：}\par
-      #1
-    \end{tcolorbox}%
+    \begin{solbox}#1\end{solbox}%
   \fi
 }{}
 
